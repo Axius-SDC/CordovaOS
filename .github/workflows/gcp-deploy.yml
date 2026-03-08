@@ -58,7 +58,7 @@ jobs:
           --platform managed \
           --region ${{ env.GCP_REGION }} \
           --allow-unauthenticated \
-          --service-account ${{ secrets.WIF_SERVICE_ACCOUNT }} \
+          --service-account ${{ secrets.CLOUD_RUN_SERVICE_ACCOUNT }} \
           --memory 1Gi \
           --cpu 1 \
           --timeout 300 \
