@@ -74,19 +74,73 @@ BACKGROUND_INDUSTRIES = [
     "Retail", "Agriculture", "Fishing", "Construction", "Tourism",
     "Restaurant", "Manufacturing", "Finance", "Technology", "Legal Services",
     "Real Estate", "Import/Export", "Automotive", "Pharmacy", "Insurance",
+    "Education", "Transportation", "Hospitality", "Food Processing",
+    "Textiles", "Mining", "Telecommunications", "Media", "Healthcare Services",
+    "Consulting", "Architecture", "Environmental Services", "Energy",
+    "Security Services", "Veterinary", "Printing", "Logistics",
 ]
-BACKGROUND_NAMES = [
-    "Cordova Coffee Exporters", "Isla Verde Farms", "Costa Azul Tours",
-    "Mendoza Construction S.A.", "Bahia Pescadores Coop",
-    "Sierra Tech Solutions", "Novaciudad Legal Associates",
-    "Campoluz Agricultural Supply", "Porto Sereno Fish Market",
-    "Estrella Insurance Group", "Rios Pharmacy Chain",
-    "Cardenas Real Estate", "Montecalvo Automotive",
-    "Lago Azul Resort", "Tierra Roja Mining Co.",
-    "Cordova National Bank", "Central Market Co-op",
-    "Pacific Telecommunications", "Isla Import/Export Ltd.",
-    "Brevina Textiles S.A.",
+
+# Industry-specific name prefixes for generating business names
+_BIZ_PREFIXES = [
+    "Cordova", "Isla", "Costa", "Sierra", "Pacific", "Tropical", "Central",
+    "Nacional", "Bahia", "Puerto", "Estrella", "Sol", "Meridional", "Andino",
+    "Caribe", "Atlantico", "Norte", "Sur", "Dorado", "Nuevo",
 ]
+_BIZ_SUFFIXES = {
+    "Retail": ["Market", "Store", "Tienda", "Bodega", "Boutique"],
+    "Agriculture": ["Farms", "Agricola", "Plantation", "Growers", "Harvest"],
+    "Fishing": ["Pescadores", "Fishery", "Mariscos", "Seafood Co."],
+    "Construction": ["Construction", "Builders", "Constructora", "Engineering"],
+    "Tourism": ["Tours", "Travel", "Adventures", "Excursions", "Resort"],
+    "Restaurant": ["Restaurant", "Cocina", "Cafe", "Bistro", "Cantina"],
+    "Manufacturing": ["Manufacturing", "Industrial", "Products", "Factory"],
+    "Finance": ["Finance", "Capital", "Bank", "Credit Union", "Investments"],
+    "Technology": ["Tech", "Solutions", "Systems", "Digital", "Software"],
+    "Legal Services": ["Legal", "Associates", "Law Group", "Abogados"],
+    "Real Estate": ["Real Estate", "Properties", "Inmobiliaria", "Homes"],
+    "Import/Export": ["Import/Export", "Trading", "Comercio", "Global Trade"],
+    "Automotive": ["Automotive", "Motors", "Auto Parts", "Garage"],
+    "Pharmacy": ["Pharmacy", "Farmacia", "Health Supply", "Drugstore"],
+    "Insurance": ["Insurance", "Seguros", "Risk Group", "Assurance"],
+    "Education": ["Academy", "Institute", "School", "Learning Center"],
+    "Transportation": ["Transport", "Logistics", "Carriers", "Express"],
+    "Hospitality": ["Hotel", "Inn", "Lodge", "Hospedaje", "Posada"],
+    "Food Processing": ["Foods", "Processing", "Alimentos", "Packaging"],
+    "Textiles": ["Textiles", "Fabrics", "Clothing", "Fashion"],
+    "Mining": ["Mining", "Minerals", "Extraction", "Resources"],
+    "Telecommunications": ["Telecom", "Communications", "Networks", "Connect"],
+    "Media": ["Media", "Publishing", "Broadcasting", "Press"],
+    "Healthcare Services": ["Health", "Medical", "Clinic", "Wellness"],
+    "Consulting": ["Consulting", "Advisors", "Strategy", "Partners"],
+    "Architecture": ["Architects", "Design Studio", "Urbanism", "Planners"],
+    "Environmental Services": ["Environmental", "Green", "Eco Services", "Recycling"],
+    "Energy": ["Energy", "Power", "Solar", "Electric"],
+    "Security Services": ["Security", "Protection", "Vigilance", "Guard"],
+    "Veterinary": ["Veterinary", "Animal Care", "Pet Clinic"],
+    "Printing": ["Print", "Graphics", "Press", "Imprenta"],
+    "Logistics": ["Logistics", "Freight", "Shipping", "Warehousing"],
+}
+_ENTITY_TYPES = ["S.A.", "Ltd.", "Co-op", "S.R.L.", "", "", ""]  # empty = no suffix
+
+_used_biz_names = set()
+
+
+def _generate_biz_name(industry, city):
+    """Generate a unique business name based on industry and location."""
+    for _ in range(20):
+        prefix = random.choice(_BIZ_PREFIXES + [city.split()[0]])
+        suffixes = _BIZ_SUFFIXES.get(industry, ["Services", "Group", "Company"])
+        suffix = random.choice(suffixes)
+        entity = random.choice(_ENTITY_TYPES)
+        name = f"{prefix} {suffix}"
+        if entity:
+            name = f"{name} {entity}"
+        if name not in _used_biz_names:
+            _used_biz_names.add(name)
+            return name
+    # Fallback with counter
+    _used_biz_names.add(f"{city} {industry} #{len(_used_biz_names)}")
+    return f"{city} {industry} #{len(_used_biz_names)}"
 
 
 def build_instance(biz):
@@ -128,18 +182,20 @@ def generate():
         write_xml(os.path.join(OUTPUT_DIR, f"br-{cuid_generator()}.xml"), xml)
         count += 1
 
-    # Background businesses
-    for i, name in enumerate(BACKGROUND_NAMES):
+    # Background businesses (495 to reach ~500 total)
+    for i in range(495):
         city, province = random_city_province()
         brn = generate_brn()
+        industry = random.choice(BACKGROUND_INDUSTRIES)
+        name = _generate_biz_name(industry, city)
         biz = {
             "brn": brn, "name": name,
             "tax_id": f"TAX-{brn}",
             "biz_type": random.choice(BACKGROUND_TYPES),
-            "industry": random.choice(BACKGROUND_INDUSTRIES),
+            "industry": industry,
             "city": city, "province": province,
             "addr": random_address(), "addr2": "",
-            "email": f"info@{name.lower().replace(' ', '-')[:20]}.cor",
+            "email": f"info@{name.lower().replace(' ', '-').replace('/', '-')[:20]}.cor",
             "phone": generate_phone(city),
             "reg_date": random_date(1995, 2023),
         }

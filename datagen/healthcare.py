@@ -174,33 +174,78 @@ def generate():
     write_xml(os.path.join(OUTPUT_DIR, f"hc-{cuid_generator()}.xml"), build_instance(rec))
     count += 1
 
-    # Background patients (~20)
+    # Background patients: ~20% of population → ~5,000
     if not PERSONS:
         from civil_registry import generate as gen_cr
         gen_cr()
 
-    bg = [p for p in PERSONS if p.get("key", "").startswith("bg_")][:20]
+    bg = [p for p in PERSONS if p.get("key", "").startswith("bg_")]
+    # ~20% had a clinical encounter
+    patients = random.sample(bg, k=min(len(bg), 5000))
+
     diagnoses = [
         "Hypertension management", "Type 2 diabetes follow-up",
         "Upper respiratory infection", "Minor laceration - sutured",
         "Annual physical", "Back pain", "Gastroenteritis",
         "Mild allergic reaction", "Ankle sprain", "Migraine",
+        "Asthma exacerbation", "Urinary tract infection", "Otitis media",
+        "Conjunctivitis", "Dermatitis", "Fracture - closed reduction",
+        "Dental abscess referral", "Prenatal checkup", "Well-child visit",
+        "Chronic pain management", "Anxiety disorder follow-up",
+        "Iron deficiency anemia", "Bronchitis", "Sinusitis",
+        "Knee injury", "Shoulder strain", "Insect bite reaction",
+        "Food poisoning", "Dehydration - mild", "Vaccination visit",
     ]
-    for p in bg:
+
+    facilities = [
+        "Porto Sereno General Hospital",
+        "Campoluz Medical Clinic",
+        "Novaciudad Central Hospital",
+        "Montecalvo Community Clinic",
+        "Bahia Linda Health Post",
+        "Sierra Verde Rural Clinic",
+        "Costa Brava Medical Center",
+        "Lago Azul Health Post",
+        "Tierra Roja Rural Clinic",
+    ]
+
+    reasons = [
+        "Follow-up", "New complaint", "Annual exam", "Referral",
+        "Routine checkup", "Urgent care", "Prescription renewal",
+        "Post-surgical follow-up", "Immunization", "Screening",
+    ]
+
+    for p in patients:
+        age = 2026 - int(p["dob"][:4])
+        # Children get well-child visits more often
+        if age < 12:
+            diag = random.choice(["Well-child visit", "Otitis media", "Vaccination visit",
+                                   "Upper respiratory infection", "Dermatitis", "Asthma exacerbation"])
+            height = str(random.randint(80, 155))
+            weight = str(random.randint(15, 50))
+        elif age > 60:
+            diag = random.choice(["Hypertension management", "Type 2 diabetes follow-up",
+                                   "Chronic pain management", "Annual physical",
+                                   "Back pain", "Dehydration - mild"])
+            height = str(random.randint(150, 185))
+            weight = str(random.randint(55, 100))
+        else:
+            diag = random.choice(diagnoses)
+            height = str(random.randint(155, 195))
+            weight = str(random.randint(50, 110))
+
         rec = {
             "cid": p["cid"], "mrn": next_mrn(),
-            "diagnosis": random.choice(diagnoses),
-            "facility": random.choice(["Porto Sereno General Hospital",
-                                        "Campoluz Medical Clinic",
-                                        "Novaciudad Central Hospital"]),
-            "reason": random.choice(["Follow-up", "New complaint", "Annual exam", "Referral"]),
-            "outcome": random.choice(["Stable", "Improved", "Referred"]),
-            "visit_type": random.choice(["Outpatient", "Emergency", "Outpatient"]),
-            "temp": f"{random.uniform(36.2, 37.5):.1f}",
-            "bp_sys": str(random.randint(110, 145)),
-            "bp_dias": str(random.randint(65, 95)),
-            "height": str(random.randint(155, 190)),
-            "weight": str(random.randint(55, 100)),
+            "diagnosis": diag,
+            "facility": random.choice(facilities),
+            "reason": random.choice(reasons),
+            "outcome": random.choice(["Stable", "Improved", "Referred", "Stable", "Improved"]),
+            "visit_type": random.choice(["Outpatient", "Outpatient", "Outpatient", "Emergency"]),
+            "temp": f"{random.uniform(36.0, 37.8):.1f}",
+            "bp_sys": str(random.randint(100, 155)),
+            "bp_dias": str(random.randint(60, 100)),
+            "height": height,
+            "weight": weight,
             "visit_date": random_date(2024, 2025),
         }
         write_xml(os.path.join(OUTPUT_DIR, f"hc-{cuid_generator()}.xml"), build_instance(rec))

@@ -181,6 +181,22 @@ def generate():
         write_xml(os.path.join(OUTPUT_DIR, f"vs-{cuid_generator()}.xml"), xml)
         count += 1
 
+    # Background marriages: ~4% of adults (age 18+) paired up → ~500 marriages
+    import random as _rand
+    adults = [p for p in PERSONS if p.get("key", "").startswith("bg_")
+              and (2026 - int(p["dob"][:4])) >= 18
+              and p["marital_status"] == "Married"]
+    _rand.shuffle(adults)
+    # Pair up married adults (take pairs of 2)
+    num_pairs = min(len(adults) // 2, 500)
+    for i in range(num_pairs):
+        p1 = adults[i * 2]
+        p2 = adults[i * 2 + 1]
+        marriage_date = random_date(2005, 2024)
+        xml = build_marriage(p1, p2, marriage_date, p1["city"], p1["province"])
+        write_xml(os.path.join(OUTPUT_DIR, f"vs-{cuid_generator()}.xml"), xml)
+        count += 1
+
     print(f"Vital Statistics: generated {count} XML files in {OUTPUT_DIR}")
 
 
