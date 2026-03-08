@@ -1,0 +1,175 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "pm5cks82lnrvyna1xbwpfxic",
+  "dm_type": "dm-pm5cks82lnrvyna1xbwpfxic",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Employment Record",
+    "dm_encoding": "utf-8",
+    "instance_id": "u211wwm9uy12jufpqtsy1578",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-03-08T03:23:29.538517",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "ablvqv20fp33v8t8c985dlo2",
+    "label": "Employment Record",
+    "type": "Cluster",
+    "description": "A single employment relationship between a person and an employer.\nBusiness Context: Links Civil Registry persons to Business Registry entities\nPurpose: Document an employment position with dates, role, and compensation",
+    "items": [
+      {
+        "component_id": "bbu03oqjkniydmzb7pqcjg3m",
+        "label": "Department",
+        "type": "XdString",
+        "description": "Department or division within the employer organization",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 200
+        }
+      },
+      {
+        "component_id": "wfws1oj1kgeaijciw7wkzdi7",
+        "label": "Job Title",
+        "type": "XdString",
+        "description": "Current job title or occupation",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 200
+        }
+      },
+      {
+        "component_id": "atdtdfzruh7tya0iv5cz365l",
+        "label": "City",
+        "type": "XdToken",
+        "description": "One of the nine cities in the Republic of Cordova.",
+        "value": "Lagunavista",
+        "constraints": {
+          "enumerations": [
+            "Porto Sereno",
+            "Vistamar",
+            "Rioseco",
+            "Campoluz",
+            "Tierraverde",
+            "Montecara",
+            "Novaciudad",
+            "Piedrasol",
+            "Lagunavista"
+          ]
+        }
+      },
+      {
+        "component_id": "tb3wwfwects1a6ap4ro7z5s8",
+        "label": "Employment Status (Cordova)",
+        "type": "XdToken",
+        "description": "Employment classification in Cordova employment records.",
+        "value": "Unemployed",
+        "constraints": {
+          "enumerations": [
+            "Full-Time",
+            "Part-Time",
+            "Contract",
+            "Self-Employed",
+            "Unemployed",
+            "Retired",
+            "Student"
+          ]
+        }
+      },
+      {
+        "component_id": "kv5qqs3o4jwcwz9javgw1pzh",
+        "label": "Province",
+        "type": "XdToken",
+        "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+        "value": "Celara",
+        "constraints": {
+          "enumerations": [
+            "Aldara",
+            "Brevina",
+            "Celara"
+          ]
+        }
+      },
+      {
+        "component_id": "el43lwc0fnamy0v0ocub38t7",
+        "label": "End Date",
+        "type": "XdTemporal",
+        "description": "Date employment ended. Null for current positions.\n\n---",
+        "value": "2024-01-01T00:00:00"
+      },
+      {
+        "component_id": "ghsjyyzudma3eq761dwd4j9p",
+        "label": "Start Date",
+        "type": "XdTemporal",
+        "description": "Date employment began",
+        "value": "2024-01-01T00:00:00"
+      },
+      {
+        "component_id": "vzabxfc733qk7lo1knaggxfs",
+        "label": "Compensation",
+        "type": "Cluster",
+        "description": "Salary and benefits information. Restricted to Tax Authority and Employer/HR roles.\nPurpose: Record compensation for tax reporting and labor statistics\nParent Cluster: Employment Record",
+        "items": [
+          {
+            "component_id": "ht98owgvxhff3ge85i4h80lp",
+            "label": "Yes/No",
+            "type": "XdBoolean",
+            "description": "Standard Yes/No binary response for clinical data collection",
+            "value": true,
+            "constraints": {
+              "true_values": [
+                "Yes"
+              ],
+              "false_values": [
+                "No"
+              ]
+            }
+          },
+          {
+            "component_id": "ub0fwihnwu5x1pdv68pjwbeu",
+            "label": "Pay Frequency",
+            "type": "XdToken",
+            "description": "How often the employee is paid",
+            "value": "Bi-Weekly",
+            "constraints": {
+              "enumerations": [
+                "Monthly",
+                "Bi-Weekly",
+                "Weekly"
+              ]
+            }
+          },
+          {
+            "component_id": "aw74ticc3fnjkz4vk4b03jr6",
+            "label": "Salary Amount",
+            "type": "XdQuantity",
+            "description": "Monthly gross salary or wage in Cordova Córdoba. Represents the agreed compensation amount before deductions for taxes, social security, and other withholdings.",
+            "value": 32.9,
+            "magnitude": {
+              "value": 32.9,
+              "min_inclusive": 0.0
+            },
+            "units": {
+              "label": "Cordova Córdoba (COR)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "subject": {
+    "component_id": "yowhhhxm3qnk40qd3ekaluh0",
+    "label": "Employee",
+    "type": "Party",
+    "description": "Person employed by an organization. W3C PROV-DM Agent (Person) with Cordova CID."
+  },
+  "provider": {
+    "component_id": "8fc8bd0qo44g5s4re0gwrhlr",
+    "label": "Employer",
+    "type": "Party",
+    "description": "Organization employing the person. W3C PROV-DM Agent (Organization) with Cordova BRN."
+  }
+}

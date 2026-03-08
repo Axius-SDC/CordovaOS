@@ -1,0 +1,384 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "ftluo2nybgxmn7mawttoos20",
+  "dm_type": "dm-ftluo2nybgxmn7mawttoos20",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Healthcare Record",
+    "dm_encoding": "utf-8",
+    "instance_id": "qf6da3bdefe1xbi2ucppgqq9",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-03-08T03:25:44.316475",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "ygtbvvmzcw3ukfsg3axqry97",
+    "label": "Patient Record",
+    "type": "Cluster",
+    "description": "A person's medical record in the Cordova healthcare system.\nBusiness Context: Links to Civil Registry via National ID. All clinical cells carry Restricted:PatientCare policy.\nPurpose: Comprehensive medical record for a Cordova resident",
+    "items": [
+      {
+        "component_id": "nj7s1gk45tfgyooxpz0qaha3",
+        "label": "National ID (CID)",
+        "type": "XdString",
+        "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
+        "value": "DefaultString"
+      },
+      {
+        "component_id": "jz2hqntyol8lopw6q6zdud78",
+        "label": "Medical Record Number",
+        "type": "XdString",
+        "description": "Institution-specific medical record number for linking to clinical records",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 50
+        }
+      },
+      {
+        "component_id": "xplqihmynccwa3o4o8s7gqml",
+        "label": "Allergies and Conditions",
+        "type": "Cluster",
+        "description": "Known allergies and chronic conditions.\nPurpose: Document allergies and ongoing medical conditions for clinical decision-making\nParent Cluster: Patient Record",
+        "items": [
+          {
+            "component_id": "ntk4zsr15bcca2jmocdkcpcc",
+            "label": "Allergy Description",
+            "type": "XdString",
+            "description": "Description of a known allergy (drug, food, environmental)",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 500
+            }
+          },
+          {
+            "component_id": "cm0nqqnjcylc8vkfph7db2lh",
+            "label": "Chronic Condition",
+            "type": "XdString",
+            "description": "Name or description of a chronic medical condition (e.g., hypertension, diabetes, asthma)",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 500
+            }
+          },
+          {
+            "component_id": "tz13p9d4dpbw3pe9bx51nbou",
+            "label": "Condition Status",
+            "type": "XdToken",
+            "description": "Current status of the condition",
+            "value": "Resolved",
+            "constraints": {
+              "enumerations": [
+                "Active",
+                "Resolved",
+                "In Remission"
+              ]
+            }
+          },
+          {
+            "component_id": "07osold8ovbjsqzvz00f3ked2",
+            "label": "Severity (3-Point)",
+            "type": "XdOrdinal",
+            "description": "Three-point severity scale for clinical findings",
+            "value": 1
+          },
+          {
+            "component_id": "p14jkmk8xqs97daq3zvyhrsj",
+            "label": "Onset Date",
+            "type": "XdTemporal",
+            "description": "Date of symptom or disease onset",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "vhjvhm6vz2om2jfn6b923gw7",
+        "label": "Medications",
+        "type": "Cluster",
+        "description": "Current medication list.\nPurpose: Track active medications for drug interaction checking and care coordination\nParent Cluster: Patient Record",
+        "items": [
+          {
+            "component_id": "z28bjtjekyybe300ukuyjpi4",
+            "label": "Dosage",
+            "type": "XdString",
+            "description": "Prescribed dosage (e.g., \"500mg\", \"10mg/mL\")",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "nomiekce61caq5n9a49d0eu6",
+            "label": "Medication Name",
+            "type": "XdString",
+            "description": "Name of the prescribed medication (generic or brand name)",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "iprf7jqg9emvm92wo9gkiqcu",
+            "label": "Frequency (5-Point)",
+            "type": "XdOrdinal",
+            "description": "Five-point frequency scale for symptom or behavior occurrence",
+            "value": 1
+          },
+          {
+            "component_id": "y7k4p12co0b9v6asll531fhv",
+            "label": "Medication Dosage Amount",
+            "type": "XdQuantity",
+            "description": "Prescribed dosage amount of the medication in milligrams. Represents the per-administration dose as ordered by the prescribing physician.",
+            "value": 66.1,
+            "magnitude": {
+              "value": 66.1,
+              "min_inclusive": 0.0
+            },
+            "units": {
+              "label": "Mass/Weight (SI - Metric)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          },
+          {
+            "component_id": "cq6m46w59ouu1cu8tkw1fhib",
+            "label": "Prescription Date",
+            "type": "XdTemporal",
+            "description": "Date the medication was prescribed",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "eq4h86worv571cl5iiy9unkw",
+        "label": "Vaccination History",
+        "type": "Cluster",
+        "description": "Immunization records.\nPurpose: Track vaccinations for public health compliance and clinical reference\nParent Cluster: Patient Record",
+        "items": [
+          {
+            "component_id": "td5j1frz2fa8g4uh1hor7w11",
+            "label": "Lot Number",
+            "type": "XdString",
+            "description": "Vaccine lot number for traceability",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "fi1qu4j2zd0801fcqtix35h5",
+            "label": "Vaccine Name",
+            "type": "XdString",
+            "description": "Name of the vaccine administered",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "dyfz05n20jhc1elhozrbjug0",
+            "label": "Vaccine Date",
+            "type": "XdTemporal",
+            "description": "Date the vaccine was administered",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "hd9295k8o49j91lvgftul1a0",
+        "label": "Visit Record",
+        "type": "Cluster",
+        "description": "An encounter at a healthcare facility.\nBusiness Context: Visit records link to the Contagion scenario — Carlos Mendoza's admission to Porto Sereno General Hospital\nPurpose: Document each clinical encounter with date, provider, reason, diagnosis, and outcome\nParent Cluster: Patient Record",
+        "items": [
+          {
+            "component_id": "nnu04d5qgrmn1bim8bpu0l65",
+            "label": "Diagnosis",
+            "type": "XdString",
+            "description": "Clinical diagnosis resulting from this visit. This cell carries Restricted:PatientCare policy — it cannot be composed into public reports.",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 500
+            }
+          },
+          {
+            "component_id": "qvmb5f4xmy56y98q8raelpl9",
+            "label": "Facility",
+            "type": "XdString",
+            "description": "Healthcare facility where the visit occurred",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "qzmcum3kwmskrkj7nhkf8fkm",
+            "label": "Reason for Visit",
+            "type": "XdString",
+            "description": "Chief complaint or reason for the clinical encounter",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 500
+            }
+          },
+          {
+            "component_id": "cntj1t9t2xjugnux1enpigmf",
+            "label": "Clinical Impression",
+            "type": "XdString",
+            "description": "Overall clinical impression from neurological examination",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "lccs354vpxmtyo69ba5cu48v",
+            "label": "Outcome",
+            "type": "XdToken",
+            "description": "Outcome of the visit",
+            "value": "Admitted",
+            "constraints": {
+              "enumerations": [
+                "Treated and Released",
+                "Admitted",
+                "Referred",
+                "Follow-up Scheduled",
+                "No Treatment Required"
+              ]
+            }
+          },
+          {
+            "component_id": "l9sjn7wj10y5b27ldkv3j8mt",
+            "label": "Visit Type",
+            "type": "XdToken",
+            "description": "Type of clinical visit or encounter",
+            "value": "Unscheduled",
+            "constraints": {
+              "enumerations": [
+                "Screening",
+                "Baseline",
+                "Follow-up",
+                "Unscheduled",
+                "Early termination",
+                "Final"
+              ]
+            }
+          },
+          {
+            "component_id": "b5zse0kmvpkj74ggqvgk647l",
+            "label": "Body Temperature",
+            "type": "XdQuantity",
+            "description": "Patient body temperature measured in degrees Celsius during a clinical visit. Normal adult range is 36.1–37.2°C. Triage screening vital sign.",
+            "value": 82.0,
+            "magnitude": {
+              "value": 82.0,
+              "min_inclusive": 30.0,
+              "max_inclusive": 45.0
+            },
+            "units": {
+              "label": "Temperature (SI - Metric)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          },
+          {
+            "component_id": "lu2w1avj9fic5wrmyftt9fhi",
+            "label": "Diastolic Blood Pressure",
+            "type": "XdQuantity",
+            "description": "Minimum arterial pressure during cardiac relaxation, measured in mmHg. Normal adult range is 60–80 mmHg. Values ≥90 mmHg indicate hypertension per WHO/AHA guidelines.",
+            "value": 69.5,
+            "magnitude": {
+              "value": 69.5,
+              "min_inclusive": 20.0,
+              "max_inclusive": 200.0
+            },
+            "units": {
+              "label": "Pressure",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          },
+          {
+            "component_id": "vh2scyehy68pw7sbvzdg3cn9",
+            "label": "Patient Height",
+            "type": "XdQuantity",
+            "description": "Patient standing height in centimeters measured during a clinical visit. Used for BMI computation and growth tracking.",
+            "value": 94.1,
+            "magnitude": {
+              "value": 94.1,
+              "min_inclusive": 20.0,
+              "max_inclusive": 300.0
+            },
+            "units": {
+              "label": "Length/Distance (SI - Metric)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          },
+          {
+            "component_id": "s6oo99lbq85kfz0v5nqv9yaf",
+            "label": "Patient Weight",
+            "type": "XdQuantity",
+            "description": "Patient body weight in kilograms measured during a clinical visit. Used for medication dosing calculations, BMI computation, and tracking health trends.",
+            "value": 40.5,
+            "magnitude": {
+              "value": 40.5,
+              "min_inclusive": 0.5,
+              "max_inclusive": 500.0
+            },
+            "units": {
+              "label": "Mass/Weight (SI - Metric)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          },
+          {
+            "component_id": "kokquuk73pm2ohlh4ftnu7wb",
+            "label": "Systolic Blood Pressure",
+            "type": "XdQuantity",
+            "description": "Peak arterial pressure during cardiac contraction, measured in mmHg. Normal adult range is 90–120 mmHg. Values ≥140 mmHg indicate hypertension per WHO/AHA guidelines.",
+            "value": 17.9,
+            "magnitude": {
+              "value": 17.9,
+              "min_inclusive": 40.0,
+              "max_inclusive": 300.0
+            },
+            "units": {
+              "label": "Pressure",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          },
+          {
+            "component_id": "iufcfze52lha16v84kccgxyh",
+            "label": "Visit Date",
+            "type": "XdTemporal",
+            "description": "Date of clinical visit",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      }
+    ]
+  },
+  "subject": {
+    "component_id": "bc1ivx4vqa5gh3p5l1pjs1q2",
+    "label": "Primary Care Assignment",
+    "type": "Party",
+    "description": "Patient's assigned primary care provider (clinician) and primary care facility. W3C PROV-DM Agent supporting Person and Organization."
+  },
+  "provider": {
+    "component_id": "vyscq0dtz0hsigh2hbsvqajr",
+    "label": "Healthcare Provider",
+    "type": "Party",
+    "description": "Healthcare provider (facility and/or clinician) delivering care. W3C PROV-DM Agent supporting both Person and Organization types."
+  }
+}
