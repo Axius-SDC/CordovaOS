@@ -22,10 +22,16 @@ class Command(BaseCommand):
             type=str,
             help='Only load data for this specific app (e.g. civil_registry)',
         )
+        parser.add_argument(
+            '--clear',
+            action='store_true',
+            help='Delete all existing records before importing',
+        )
 
     def handle(self, *args, **options):
         registry = get_dm_registry()
         filter_app = options.get('app')
+        clear = options.get('clear', False)
 
         total_imported = 0
         total_failed = 0
@@ -36,6 +42,10 @@ class Command(BaseCommand):
 
             if filter_app and app_label != filter_app:
                 continue
+
+            if clear:
+                count, _ = model_class.objects.all().delete()
+                self.stdout.write(f'  Cleared {count} existing {app_label} records')
 
             # Locate import_data directory
             import_dir = Path(settings.BASE_DIR) / 'import_data' / app_label
