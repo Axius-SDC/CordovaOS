@@ -11,27 +11,33 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Create non-root user with UID/GID 1000 to match typical host user
-ARG UID=1000
-ARG GID=1000
-RUN groupadd -g ${GID} appuser || true && \
-    useradd -u ${UID} -g ${GID} -m -s /bin/bash appuser || true
+# Create non-root user
+RUN groupadd -g 1000 appuser && \
+    useradd -u 1000 -g 1000 -m -s /bin/bash appuser
 
 # Install Python dependencies
-COPY requirements.txt .
+COPY app/sdc4/requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
-COPY --chown=appuser:appuser . .
+# Copy Django project
+COPY app/sdc4/ /app/
 
-# Create directories with correct ownership
+# Copy SPARQL queries (baked into image, no volume mount needed)
+COPY sparql/ /sparql/
+
+# Copy startup script
+COPY scripts/start.sh /app/scripts/start.sh
+RUN chmod +x /app/scripts/start.sh
+
+# Create directories and collect static files
 RUN mkdir -p staticfiles mediafiles && \
-    chown -R appuser:appuser staticfiles mediafiles
+    SECRET_KEY=build-placeholder python manage.py collectstatic --noinput && \
+    chown -R appuser:appuser /app
 
 # Switch to non-root user
 USER appuser
 
-EXPOSE 8000
+EXPOSE 8080
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["/app/scripts/start.sh"]

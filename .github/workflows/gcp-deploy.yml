@@ -1,0 +1,81 @@
+name: Build and Deploy to Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  GCP_REGION: ${{ vars.GCP_REGION }}
+  IMAGE_NAME: cordovaos
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy to Cloud Run
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # v4
+
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093' # v3.0.0
+      with:
+        workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+        service_account: ${{ secrets.WIF_SERVICE_ACCOUNT }}
+        token_format: 'access_token'
+
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@aa5489c8933f4cc7a4f7d45035b3b1440c9c10db # v3.0.1
+
+    - name: Configure Docker
+      run: gcloud auth configure-docker
+
+    - name: Build Docker image
+      run: |
+        docker build \
+          -f app/sdc4/Dockerfile \
+          --tag "gcr.io/${{ env.GCP_PROJECT_ID }}/${{ env.IMAGE_NAME }}:${{ github.sha }}" \
+          --tag "gcr.io/${{ env.GCP_PROJECT_ID }}/${{ env.IMAGE_NAME }}:latest" \
+          .
+
+    - name: Push Docker image
+      run: |
+        docker push "gcr.io/${{ env.GCP_PROJECT_ID }}/${{ env.IMAGE_NAME }}:${{ github.sha }}"
+        docker push "gcr.io/${{ env.GCP_PROJECT_ID }}/${{ env.IMAGE_NAME }}:latest"
+
+    - name: Deploy Web Service to Cloud Run
+      run: |
+        gcloud run deploy cordovaos-web \
+          --image "gcr.io/${{ env.GCP_PROJECT_ID }}/${{ env.IMAGE_NAME }}:${{ github.sha }}" \
+          --platform managed \
+          --region ${{ env.GCP_REGION }} \
+          --allow-unauthenticated \
+          --service-account ${{ secrets.WIF_SERVICE_ACCOUNT }} \
+          --memory 1Gi \
+          --cpu 1 \
+          --timeout 300 \
+          --max-instances 3 \
+          --min-instances 0 \
+          --concurrency 80 \
+          --set-env-vars "DEBUG=False,ALLOWED_HOSTS=${{ vars.PRODUCTION_DOMAIN }};.run.app,CSRF_TRUSTED_ORIGINS=https://${{ vars.PRODUCTION_DOMAIN }}" \
+          --vpc-connector ${{ vars.VPC_CONNECTOR }} \
+          --vpc-egress private-ranges-only \
+          --add-cloudsql-instances "${{ env.GCP_PROJECT_ID }}:${{ env.GCP_REGION }}:${{ vars.CLOUDSQL_INSTANCE }}" \
+          --set-secrets "DATABASE_URL=cordovaos-database-url:latest,SECRET_KEY=cordovaos-secret-key:latest,GRAPHDB_URL=cordovaos-graphdb-url:latest,GRAPHDB_PASSWORD=cordovaos-graphdb-password:latest"
+
+    - name: Deployment Summary
+      run: |
+        echo "Deployment completed successfully!"
+        echo ""
+        echo "Service deployed: cordovaos-web"
+        echo ""
+        echo "Get service URL:"
+        echo "  gcloud run services describe cordovaos-web --region ${{ env.GCP_REGION }} --format 'value(status.url)'"
