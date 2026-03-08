@@ -181,7 +181,7 @@ class GraphDBClient:
                 data=sparql_query.encode('utf-8'),
                 headers=headers,
                 auth=self.auth,
-                timeout=60
+                timeout=300
             )
 
             if response.status_code == 200:
