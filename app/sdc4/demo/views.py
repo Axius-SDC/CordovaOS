@@ -3,10 +3,12 @@ Demo views for C-Suite presentation.
 
 Read-only presentation layer over existing CordovaOS data and GraphDB.
 """
+import hashlib
 import json
 import time
 import logging
 
+from django.core.cache import cache
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST
@@ -36,16 +38,17 @@ def dashboard(request):
             'count': count,
         })
 
-    # GraphDB health and triple count
+    # GraphDB health and triple count (cached for 1 hour)
     client = GraphDBClient()
     graphdb_healthy = client.health_check()
-    triple_count = 0
-    if graphdb_healthy:
+    triple_count = cache.get('dashboard_triple_count', 0)
+    if triple_count == 0 and graphdb_healthy:
         result = client.query_sparql('SELECT (COUNT(*) AS ?cnt) WHERE { ?s ?p ?o }')
         if result and 'results' in result:
             bindings = result['results'].get('bindings', [])
             if bindings:
                 triple_count = int(bindings[0]['cnt']['value'])
+                cache.set('dashboard_triple_count', triple_count, 3600)
 
     context = {
         'domains': domains,
@@ -102,33 +105,50 @@ def run_query(request):
             '<div class="alert alert-warning">No query provided.</div>'
         )
 
-    # Execute
-    client = GraphDBClient()
-    start = time.monotonic()
-    result = client.query_sparql(sparql)
-    elapsed = time.monotonic() - start
+    # Check cache first
+    cache_key = f"sparql:{hashlib.sha256(sparql.encode()).hexdigest()[:16]}"
+    cached = cache.get(cache_key)
 
-    if result is None:
-        return HttpResponse(
-            '<div class="alert alert-danger">'
-            'Query execution failed. Check GraphDB connection and query syntax.'
-            '</div>'
-        )
+    if cached:
+        variables = cached['variables']
+        rows = cached['rows']
+        context = {
+            'variables': variables,
+            'rows': rows,
+            'row_count': len(rows),
+            'elapsed': '0.000 (cached)',
+        }
+    else:
+        # Execute against GraphDB
+        client = GraphDBClient()
+        start = time.monotonic()
+        result = client.query_sparql(sparql)
+        elapsed = time.monotonic() - start
 
-    # Parse SPARQL JSON results
-    variables = result.get('head', {}).get('vars', [])
-    bindings = result.get('results', {}).get('bindings', [])
-    rows = []
-    for binding in bindings:
-        row = [binding.get(v, {}).get('value', '') for v in variables]
-        rows.append(row)
+        if result is None:
+            return HttpResponse(
+                '<div class="alert alert-danger">'
+                'Query execution failed. Check GraphDB connection and query syntax.'
+                '</div>'
+            )
 
-    context = {
-        'variables': variables,
-        'rows': rows,
-        'row_count': len(rows),
-        'elapsed': f'{elapsed:.3f}',
-    }
+        # Parse SPARQL JSON results
+        variables = result.get('head', {}).get('vars', [])
+        bindings = result.get('results', {}).get('bindings', [])
+        rows = []
+        for binding in bindings:
+            row = [binding.get(v, {}).get('value', '') for v in variables]
+            rows.append(row)
+
+        # Cache the parsed result
+        cache.set(cache_key, {'variables': variables, 'rows': rows})
+
+        context = {
+            'variables': variables,
+            'rows': rows,
+            'row_count': len(rows),
+            'elapsed': f'{elapsed:.3f}',
+        }
 
     template = 'demo/_beat_results.html' if source == 'narrative' else 'demo/_query_results.html'
     return render(request, template, context)
