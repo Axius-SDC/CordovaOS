@@ -1,71 +1,45 @@
 # Query 3: Social Services Identification
-# Find people in a specific city with healthcare records but no current
-# employment and no property ownership -- candidates for social services.
+# Find people with healthcare records in a specific city.
+# Cross-references Civil Registry (for name/city) with Healthcare (for diagnosis).
 # Input: City name, e.g. "Porto Sereno"
+#
+# Join mechanism: National ID (CID) shared component links Civil Registry
+# and Healthcare records for the same person.
 
-PREFIX sdc4:  <https://semanticdatacharter.com/ns/sdc4/>
-PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?person_name ?person_cid ?city ?healthcare_detail
+SELECT ?given_name ?surname ?cid_value ?diagnosis ?facility
 WHERE {
-  # Find people with healthcare records
-  ?health_dm a sdc4:DMType ;
-             sdc4:dm-label "Healthcare Record" ;
-             sdc4:dm-data ?health_cluster .
+  # Find people in Porto Sereno via Civil Registry
+  ?city_reifier rdf:reifies << sdc4:mc-atdtdfzruh7tya0iv5cz365l sdc4:xdtoken-value "Porto Sereno" >> ;
+                sdc4:inInstance ?civil_inst ;
+                sdc4:inDataModel sdc4:dm-uika42uwtj3ijdbegzw2kcwq .
 
-  ?health_cluster sdc4:hasComponent ?cid_comp .
-  ?cid_comp sdc4:label "National ID (CID)" ;
-            sdc4:xdstring-value ?person_cid .
+  # Get their CID from the same civil registry instance
+  ?cid_reifier rdf:reifies << sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 sdc4:xdstring-value ?cid_value >> ;
+               sdc4:inInstance ?civil_inst .
 
+  # Get their name
+  ?given_reifier rdf:reifies << sdc4:mc-kfyzf8u8gdafcpt5kfh2qg3q sdc4:xdstring-value ?given_name >> ;
+                 sdc4:inInstance ?civil_inst .
+  ?surname_reifier rdf:reifies << sdc4:mc-v8jgjo2sml12jo7zrb8swoxi sdc4:xdstring-value ?surname >> ;
+                   sdc4:inInstance ?civil_inst .
+
+  # Cross-domain join: find healthcare records with the same CID
+  ?hc_cid_reifier rdf:reifies << sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 sdc4:xdstring-value ?cid_value >> ;
+                  sdc4:inInstance ?hc_inst ;
+                  sdc4:inDataModel sdc4:dm-ftluo2nybgxmn7mawttoos20 .
+
+  # Get diagnosis from healthcare instance
+  ?diag_reifier rdf:reifies << sdc4:mc-nnu04d5qgrmn1bim8bpu0l65 sdc4:xdstring-value ?diagnosis >> ;
+                sdc4:inInstance ?hc_inst .
+
+  # Get facility
   OPTIONAL {
-    ?health_cluster (sdc4:hasComponent|sdc4:hasCluster/sdc4:hasComponent) ?detail_comp .
-    ?detail_comp sdc4:label ?healthcare_detail .
-    FILTER(?healthcare_detail != "National ID (CID)" &&
-           ?healthcare_detail != "Medical Record Number")
-  }
-
-  # Look up person's city from Civil Registry
-  ?civil_dm a sdc4:DMType ;
-            sdc4:dm-label "Civil Registry" ;
-            sdc4:dm-data ?civil_cluster .
-  ?civil_cluster sdc4:hasComponent ?civil_cid .
-  ?civil_cid sdc4:label "National ID (CID)" ;
-             sdc4:xdstring-value ?person_cid .
-
-  ?civil_cluster (sdc4:hasComponent|sdc4:hasCluster/sdc4:hasComponent) ?city_comp .
-  ?city_comp sdc4:label "City" ;
-             sdc4:xdtoken-value ?city .
-  FILTER(?city = "Porto Sereno")
-
-  # Get person name
-  ?civil_cluster sdc4:hasComponent ?given_comp .
-  ?given_comp sdc4:label "Given Name (Person)" ;
-              sdc4:xdstring-value ?given_name .
-  ?civil_cluster sdc4:hasComponent ?surname_comp .
-  ?surname_comp sdc4:label "Surname (Person)" ;
-               sdc4:xdstring-value ?surname .
-  BIND(CONCAT(?given_name, " ", ?surname) AS ?person_name)
-
-  # EXCLUDE people with current employment (no end date)
-  FILTER NOT EXISTS {
-    ?emp_dm a sdc4:DMType ;
-            sdc4:dm-label "Employment Record" ;
-            sdc4:dm-subject ?emp_subj ;
-            sdc4:dm-data ?emp_cluster .
-    ?emp_subj sdc4:party-id ?person_cid .
-    FILTER NOT EXISTS {
-      ?emp_cluster sdc4:hasComponent ?end_comp .
-      ?end_comp sdc4:label "End Date" ;
-               sdc4:xdtemporal-date ?end_date .
-    }
-  }
-
-  # EXCLUDE people who own property
-  FILTER NOT EXISTS {
-    ?prop_dm a sdc4:DMType ;
-             sdc4:dm-label "Property Registry" ;
-             sdc4:dm-subject ?prop_subj .
-    ?prop_subj sdc4:party-id ?person_cid .
+    ?fac_reifier rdf:reifies << sdc4:mc-qvmb5f4xmy56y98q8raelpl9 sdc4:xdstring-value ?facility >> ;
+                 sdc4:inInstance ?hc_inst .
   }
 }
-ORDER BY ?person_name
+ORDER BY ?surname ?given_name

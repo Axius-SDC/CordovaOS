@@ -1,64 +1,56 @@
 # Query 4: Supply Chain Provenance
-# Trace cargo from vessel arrival through business operator to tax filing.
-# End-to-end provenance across Maritime, Business Registry, and Tax domains.
+# Trace cargo from vessel arrival through business operator to business registry.
+# End-to-end provenance across Maritime and Business Registry domains.
 # Input: Vessel name, e.g. "MV Estrella del Sur"
+#
+# Join mechanism: Business Registry Number (BRN) shared component links
+# Maritime port call records to Business Registry records.
 
-PREFIX sdc4:  <https://semanticdatacharter.com/ns/sdc4/>
+PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?vessel_name ?port_call_id ?arrival_date ?cargo_type
-       ?operator_name ?operator_brn ?tax_type ?filing_date
+SELECT ?vessel_name ?port_call_id ?arrival ?cargo_type ?flag
+       ?brn ?org_name ?org_city
 WHERE {
-  # Step 1: Maritime -- find the port call
-  ?mar_dm a sdc4:DMType ;
-          sdc4:dm-label "Maritime Port Authority" ;
-          sdc4:dm-data ?mar_cluster ;
-          sdc4:dm-subject ?owner_party .
-
-  ?mar_cluster sdc4:hasComponent ?vessel_comp .
-  ?vessel_comp sdc4:label "Vessel Name" ;
-              sdc4:xdstring-value ?vessel_name .
+  # Step 1: Find the vessel in Maritime domain
+  ?vessel_reifier rdf:reifies << sdc4:mc-s5zeapfup3xdj6wbqjjkf1nd sdc4:xdstring-value ?vessel_name >> ;
+                  sdc4:inInstance ?mar_inst ;
+                  sdc4:inDataModel sdc4:dm-md2451x882z5j89g66zb50rw .
   FILTER(?vessel_name = "MV Estrella del Sur")
 
-  ?mar_cluster sdc4:hasComponent ?pcid_comp .
-  ?pcid_comp sdc4:label "Port Call ID" ;
-            sdc4:xdstring-value ?port_call_id .
+  # Get port call details from same maritime instance
+  ?pcid_reifier rdf:reifies << sdc4:mc-pbfvurdvio38rt6puifhippe sdc4:xdstring-value ?port_call_id >> ;
+                sdc4:inInstance ?mar_inst .
 
-  ?mar_cluster sdc4:hasComponent ?arr_comp .
-  ?arr_comp sdc4:label "Arrival Date/Time" ;
-           sdc4:xdtemporal-datetime ?arrival_date .
+  ?arr_reifier rdf:reifies << ?arr_subj sdc4:xdtemporal-datetime ?arrival >> ;
+               sdc4:inInstance ?mar_inst ;
+               rdfs:label "Arrival Date/Time" .
 
-  ?mar_cluster sdc4:hasComponent ?cargo_comp .
-  ?cargo_comp sdc4:label "Cargo Type" ;
-            sdc4:xdtoken-value ?cargo_type .
+  ?cargo_reifier rdf:reifies << ?cargo_subj sdc4:xdtoken-value ?cargo_type >> ;
+                 sdc4:inInstance ?mar_inst ;
+                 rdfs:label "Cargo Type" .
 
-  # Step 2: Get the vessel operator (subject party)
-  ?owner_party sdc4:party-name ?operator_name ;
-               sdc4:party-id ?operator_brn .
+  ?flag_reifier rdf:reifies << ?flag_subj sdc4:xdstring-value ?flag >> ;
+                sdc4:inInstance ?mar_inst ;
+                rdfs:label "Flag State" .
 
-  # Step 3: Business Registry -- confirm the operator is registered
-  ?biz_dm a sdc4:DMType ;
-          sdc4:dm-label "Business Registry" ;
-          sdc4:dm-data ?biz_cluster .
-  ?biz_cluster sdc4:hasComponent ?brn_comp .
-  ?brn_comp sdc4:label "Business Registry Number" ;
-            sdc4:xdstring-value ?operator_brn .
+  # Get BRN from the same maritime instance
+  ?mar_brn_reifier rdf:reifies << sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly sdc4:xdstring-value ?brn >> ;
+                   sdc4:inInstance ?mar_inst .
 
-  # Step 4: Tax filings for this business (port fees / import duties)
+  # Step 2: Cross-domain join to Business Registry via BRN
   OPTIONAL {
-    ?tax_dm a sdc4:DMType ;
-            sdc4:dm-label "Tax and Revenue Record" ;
-            sdc4:dm-data ?tax_cluster ;
-            sdc4:dm-subject ?taxpayer .
-    ?taxpayer sdc4:party-id ?operator_brn .
-    ?tax_cluster sdc4:hasComponent ?tt_comp .
-    ?tt_comp sdc4:label "Tax Type" ;
-            sdc4:xdtoken-value ?tax_type .
-    FILTER(?tax_type IN ("Port Fee", "Import Duty"))
+    ?biz_brn_reifier rdf:reifies << sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly sdc4:xdstring-value ?brn >> ;
+                     sdc4:inInstance ?biz_inst ;
+                     sdc4:inDataModel sdc4:dm-x250838l7oi6l3yavg9twc1i .
+
+    ?org_reifier rdf:reifies << sdc4:mc-uinddfbzfk0jdikmt1jwcq78 sdc4:xdstring-value ?org_name >> ;
+                 sdc4:inInstance ?biz_inst .
+
     OPTIONAL {
-      ?tax_cluster sdc4:hasComponent ?fd_comp .
-      ?fd_comp sdc4:label "Filing Date" ;
-              sdc4:xdtemporal-date ?filing_date .
+      ?biz_city_reifier rdf:reifies << sdc4:mc-atdtdfzruh7tya0iv5cz365l sdc4:xdtoken-value ?org_city >> ;
+                        sdc4:inInstance ?biz_inst .
     }
   }
 }
-ORDER BY ?arrival_date ?tax_type

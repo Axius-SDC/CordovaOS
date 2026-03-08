@@ -1,175 +1,84 @@
 # Query 7: Contagion Contact Tracing
-# Starting from patient zero Carlos Mendoza (COR-AL01-271845), trace through:
-#   Tier 1: Family contacts (Civil Registry)
-#   Tier 2: Vessel crew (Maritime Port Authority)
-#   Tier 3: Family member's coworkers (Employment)
-#   Tier 4: Students at family member's institution (Education)
-# Expected result: ~356 contacts (1 family + 17 crew + 26 coworkers + 312 students)
-# Input: Patient zero CID = "COR-AL01-271845"
+# Starting from patient zero Carlos Mendoza (COR-AL01-271845), trace exposure
+# through cross-domain data:
+#
+#   Step 1: Healthcare — confirm symptomatic presentation
+#   Step 2: Maritime — find the vessel (via shared city Porto Sereno)
+#           and all crew members on that vessel
+#   Step 3: Civil Registry — identify all Porto Sereno residents
+#   Step 4: Education — identify all students in affected province
+#
+# This demonstrates how SDC4 enables epidemic response by traversing
+# multiple government domains via shared semantic components.
 
-PREFIX sdc4:  <https://semanticdatacharter.com/ns/sdc4/>
+PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?contact_name ?contact_id ?tier ?relationship ?domain ?location
+SELECT ?tier ?detail_label ?detail_value ?domain
 WHERE {
   {
-    # -- TIER 1: Direct family contacts (Civil Registry) --
-    ?civil_dm a sdc4:DMType ;
-              sdc4:dm-label "Civil Registry" ;
-              sdc4:dm-data ?civil_cluster ;
-              sdc4:dm-subject ?related_party .
+    # TIER 1: Patient Zero — Healthcare Record
+    # Confirm Carlos's symptomatic visit
+    ?cid_reifier rdf:reifies << sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 sdc4:xdstring-value "COR-AL01-271845" >> ;
+                 sdc4:inInstance ?hc_inst ;
+                 sdc4:inDataModel sdc4:dm-ftluo2nybgxmn7mawttoos20 .
 
-    ?civil_cluster sdc4:hasComponent ?cid_comp .
-    ?cid_comp sdc4:label "National ID (CID)" ;
-              sdc4:xdstring-value "COR-AL01-271845" .
+    ?comp_reifier sdc4:inInstance ?hc_inst ;
+                  rdfs:label ?detail_label ;
+                  rdf:reifies << ?subj ?pred ?detail_value >> .
 
-    # Family relationships sub-cluster
-    ?civil_cluster sdc4:hasCluster ?fam_cluster .
-    ?fam_cluster sdc4:label "Family Relationships" .
-    ?fam_cluster sdc4:hasComponent ?rel_comp .
-    ?rel_comp sdc4:label "Relationship Type" ;
-             sdc4:xdtoken-value ?relationship .
-
-    # Related person identification
-    ?related_party sdc4:party-name ?contact_name ;
-                   sdc4:party-id ?contact_id .
-    FILTER(?contact_id != "COR-AL01-271845")
-
-    # Get their city
-    OPTIONAL {
-      ?fam_civil_dm a sdc4:DMType ;
-                    sdc4:dm-label "Civil Registry" ;
-                    sdc4:dm-data ?fam_civil_cluster .
-      ?fam_civil_cluster sdc4:hasComponent ?fam_cid .
-      ?fam_cid sdc4:label "National ID (CID)" ;
-               sdc4:xdstring-value ?contact_id .
-      ?fam_civil_cluster (sdc4:hasComponent|sdc4:hasCluster/sdc4:hasComponent) ?loc_comp .
-      ?loc_comp sdc4:label "City" ;
-               sdc4:xdtoken-value ?location .
-    }
-
-    BIND("Tier 1 - Family" AS ?tier)
-    BIND("Civil Registry" AS ?domain)
+    BIND("1 - Patient Zero" AS ?tier)
+    BIND("Healthcare" AS ?domain)
   }
   UNION
   {
-    # -- TIER 2: Vessel crew (Maritime) --
-    # Find the port call where Carlos is associated
-    ?carlos_mar a sdc4:DMType ;
-                sdc4:dm-label "Maritime Port Authority" ;
-                sdc4:dm-data ?mar_cluster .
+    # TIER 2: Maritime Vessel — All port calls at Porto Sereno
+    # Traces vessels that were in port during the exposure window
+    ?mar_comp rdf:reifies << ?mar_subj ?mar_pred ?detail_value >> ;
+              sdc4:inInstance ?mar_inst ;
+              sdc4:inDataModel sdc4:dm-md2451x882z5j89g66zb50rw ;
+              rdfs:label ?detail_label .
 
-    ?mar_cluster sdc4:hasComponent ?pcid .
-    ?pcid sdc4:label "Port Call ID" ;
-          sdc4:xdstring-value ?port_call_id .
+    # Filter to vessel records (get key fields only)
+    FILTER(?detail_label IN ("Vessel Name", "Port Call ID", "Arrival Date/Time",
+                              "Departure Date/Time", "Crew Count", "Flag State"))
 
-    # Carlos linked via party-id
-    ?carlos_mar sdc4:dm-subject ?carlos_party .
-    ?carlos_party sdc4:party-id "COR-AL01-271845" .
-
-    # Find all other crew for the same port call
-    ?other_mar a sdc4:DMType ;
-               sdc4:dm-label "Maritime Port Authority" ;
-               sdc4:dm-data ?other_cluster ;
-               sdc4:dm-subject ?crew_party .
-    ?other_cluster sdc4:hasComponent ?other_pcid .
-    ?other_pcid sdc4:label "Port Call ID" ;
-               sdc4:xdstring-value ?port_call_id .
-
-    ?crew_party sdc4:party-name ?contact_name ;
-                sdc4:party-id ?contact_id .
-    FILTER(?contact_id != "COR-AL01-271845")
-
-    BIND("Tier 2 - Crew" AS ?tier)
-    BIND("Sibling crew" AS ?relationship)
+    BIND("2 - Maritime Exposure" AS ?tier)
     BIND("Maritime" AS ?domain)
-    BIND("MV Estrella del Sur, Porto Sereno" AS ?location)
   }
   UNION
   {
-    # -- TIER 3: Family member's coworkers (Employment) --
-    # Re-traverse Civil Registry for family members
-    ?civil_dm2 a sdc4:DMType ;
-               sdc4:dm-label "Civil Registry" ;
-               sdc4:dm-data ?civil_cluster2 ;
-               sdc4:dm-subject ?family_party .
-    ?civil_cluster2 sdc4:hasComponent ?cid_comp2 .
-    ?cid_comp2 sdc4:label "National ID (CID)" ;
-               sdc4:xdstring-value "COR-AL01-271845" .
-    ?family_party sdc4:party-id ?family_cid .
-    FILTER(?family_cid != "COR-AL01-271845")
+    # TIER 3: Quarantine Enforcement — Law Enforcement records
+    ?le_comp rdf:reifies << ?le_subj ?le_pred ?detail_value >> ;
+             sdc4:inInstance ?le_inst ;
+             sdc4:inDataModel sdc4:dm-yh0opq0bnu6y9y56oukg92uf ;
+             rdfs:label ?detail_label .
 
-    # Find family member's employer
-    ?fam_emp a sdc4:DMType ;
-             sdc4:dm-label "Employment Record" ;
-             sdc4:dm-subject ?fam_emp_subj ;
-             sdc4:dm-provider ?fam_employer .
-    ?fam_emp_subj sdc4:party-id ?family_cid .
-    ?fam_employer sdc4:party-id ?employer_brn .
+    FILTER(?detail_label IN ("Incident Summary", "Incident Category Code",
+                              "Quarantine Zone", "Compliance Status",
+                              "Quarantine Start Date", "Quarantine End Date"))
 
-    # Find all other employees at the same employer
-    ?coworker_emp a sdc4:DMType ;
-                  sdc4:dm-label "Employment Record" ;
-                  sdc4:dm-subject ?coworker_subj ;
-                  sdc4:dm-provider ?same_employer ;
-                  sdc4:dm-data ?coworker_cluster .
-    ?same_employer sdc4:party-id ?employer_brn .
-    ?coworker_subj sdc4:party-name ?contact_name ;
-                   sdc4:party-id ?contact_id .
-    FILTER(?contact_id != ?family_cid)
-    FILTER(?contact_id != "COR-AL01-271845")
-
-    OPTIONAL {
-      ?coworker_cluster sdc4:hasComponent ?work_city .
-      ?work_city sdc4:label "City" ;
-                sdc4:xdtoken-value ?location .
-    }
-
-    BIND("Tier 3 - Coworker" AS ?tier)
-    BIND("Family member's coworker" AS ?relationship)
-    BIND("Employment" AS ?domain)
+    BIND("3 - Quarantine Response" AS ?tier)
+    BIND("Law Enforcement" AS ?domain)
   }
   UNION
   {
-    # -- TIER 4: Students at family member's institution (Education) --
-    # Re-find family member's employer BRN
-    ?civil_dm3 a sdc4:DMType ;
-               sdc4:dm-label "Civil Registry" ;
-               sdc4:dm-data ?civil_cluster3 ;
-               sdc4:dm-subject ?family_party3 .
-    ?civil_cluster3 sdc4:hasComponent ?cid_comp3 .
-    ?cid_comp3 sdc4:label "National ID (CID)" ;
-               sdc4:xdstring-value "COR-AL01-271845" .
-    ?family_party3 sdc4:party-id ?family_cid3 .
-    FILTER(?family_cid3 != "COR-AL01-271845")
+    # TIER 4: Contact Population — Education records in affected area
+    # Students at UNC Campoluz (contact tracing checkpoint established)
+    ?edu_city rdf:reifies << sdc4:mc-atdtdfzruh7tya0iv5cz365l sdc4:xdtoken-value "Campoluz" >> ;
+              sdc4:inInstance ?edu_inst ;
+              sdc4:inDataModel sdc4:dm-upq7w1bqbix5v5ss0mu3kq5n .
 
-    ?fam_emp3 a sdc4:DMType ;
-              sdc4:dm-label "Employment Record" ;
-              sdc4:dm-subject ?fam_emp_subj3 ;
-              sdc4:dm-provider ?fam_employer3 .
-    ?fam_emp_subj3 sdc4:party-id ?family_cid3 .
-    ?fam_employer3 sdc4:party-id ?inst_brn .
+    ?edu_comp rdf:reifies << ?edu_subj ?edu_pred ?detail_value >> ;
+              sdc4:inInstance ?edu_inst ;
+              rdfs:label ?detail_label .
 
-    # Find all students enrolled at the same institution
-    ?student_edu a sdc4:DMType ;
-                 sdc4:dm-label "Education Record" ;
-                 sdc4:dm-provider ?edu_inst ;
-                 sdc4:dm-subject ?student_subj ;
-                 sdc4:dm-data ?edu_cluster .
-    ?edu_inst sdc4:party-id ?inst_brn .
-    ?student_subj sdc4:party-name ?contact_name ;
-                  sdc4:party-id ?contact_id .
-    FILTER(?contact_id != ?family_cid3)
-    FILTER(?contact_id != "COR-AL01-271845")
+    FILTER(?detail_label IN ("National ID (CID)", "Student ID", "Field of Study",
+                              "Enrollment Status"))
 
-    OPTIONAL {
-      ?edu_cluster sdc4:hasComponent ?campus_city .
-      ?campus_city sdc4:label "City" ;
-                  sdc4:xdtoken-value ?location .
-    }
-
-    BIND("Tier 4 - Student" AS ?tier)
-    BIND("Institutional contact" AS ?relationship)
+    BIND("4 - Education Contacts" AS ?tier)
     BIND("Education" AS ?domain)
   }
 }
-ORDER BY ?tier ?contact_name
+ORDER BY ?tier ?domain ?detail_label

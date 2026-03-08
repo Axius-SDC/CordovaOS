@@ -1,49 +1,31 @@
 # Query 1: Complete Government Profile
-# All government touchpoints for a single person across all 10 domains.
+# All government touchpoints for a single person across all domains.
 # Input: National ID (CID) value, e.g. "COR-AL01-271845"
+#
+# Join mechanism: Shared component ct_id mc-nj7s1gk45tfgyooxpz0qaha3
+# (National ID) appears in Civil Registry, Vital Statistics, Healthcare,
+# and Education. Other domains joined via City/Province shared components.
 
-PREFIX sdc4:      <https://semanticdatacharter.com/ns/sdc4/>
-PREFIX sdc4-meta: <https://semanticdatacharter.com/ontology/sdc4-meta/>
-PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dc:   <http://purl.org/dc/elements/1.1/>
 
-SELECT ?domain ?record_id ?component_label ?value
+SELECT ?domain ?component_label ?value
 WHERE {
-  # Find the data model instance
-  ?dm a sdc4:DMType ;
-      sdc4:dm-label ?domain ;
-      sdc4:instance_id ?record_id ;
-      sdc4:dm-data ?root_cluster .
+  # Find instances containing this person's National ID
+  ?cid_reifier rdf:reifies << sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 sdc4:xdstring-value "COR-AL01-271845" >> ;
+               sdc4:inInstance ?instance ;
+               sdc4:inDataModel ?dm .
 
-  # Match records that contain this person's National ID
-  # Path A: via a National ID component inside the cluster
-  {
-    ?root_cluster sdc4:hasComponent ?cid_comp .
-    ?cid_comp sdc4:label "National ID (CID)" ;
-              sdc4:xdstring-value "COR-AL01-271845" .
-  }
-  UNION
-  # Path B: via the subject party-id
-  {
-    ?dm sdc4:dm-subject ?subj .
-    ?subj a sdc4:PartyType ;
-          sdc4:party-id "COR-AL01-271845" .
-  }
+  # Get domain name
+  BIND(REPLACE(STR(?dm), '.*/dm-', '') AS ?dm_id)
+  OPTIONAL { ?dm dc:title ?dm_title }
+  BIND(COALESCE(?dm_title, ?dm_id) AS ?domain)
 
-  # Retrieve all components in this record (including sub-clusters)
-  ?root_cluster (sdc4:hasComponent|sdc4:hasCluster/sdc4:hasComponent) ?comp .
-  ?comp sdc4:label ?component_label .
-
-  # Get whatever value the component carries
-  OPTIONAL { ?comp sdc4:xdstring-value ?str_val }
-  OPTIONAL { ?comp sdc4:xdtoken-value ?tok_val }
-  OPTIONAL { ?comp sdc4:xdtemporal-date ?date_val }
-  OPTIONAL { ?comp sdc4:xdtemporal-datetime ?dt_val }
-  OPTIONAL { ?comp sdc4:xdcount-value ?count_val }
-  OPTIONAL { ?comp sdc4:xdquantity-value ?qty_val }
-
-  BIND(COALESCE(?str_val, ?tok_val, ?date_val, ?dt_val,
-                STR(?count_val), STR(?qty_val), "N/A") AS ?value)
+  # Get all components from the same instance
+  ?comp_reifier sdc4:inInstance ?instance ;
+                rdfs:label ?component_label ;
+                rdf:reifies << ?subj ?pred ?value >> .
 }
 ORDER BY ?domain ?component_label

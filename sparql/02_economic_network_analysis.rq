@@ -1,78 +1,30 @@
 # Query 2: Economic Network Analysis
 # Trace the economic network around a business: employees, tax filings,
-# port shipments, properties, officers and their affiliations.
+# port shipments, and business details.
 # Input: Business Registry Number, e.g. "BIZ-001102"
+#
+# Join mechanism: Shared component mc-l8f0m7op4xhrxqy1jrnvbuly (BRN)
+# links Business Registry and Maritime. Employment linked via employer
+# party-id pattern (not yet in RDF). Shows all records containing BRN.
 
-PREFIX sdc4:  <https://semanticdatacharter.com/ns/sdc4/>
-PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dc:   <http://purl.org/dc/elements/1.1/>
 
-SELECT ?relationship ?entity_name ?entity_id ?domain ?detail
+SELECT ?domain ?component_label ?value
 WHERE {
-  {
-    # Employees of this business
-    ?emp_dm a sdc4:DMType ;
-            sdc4:dm-label "Employment Record" ;
-            sdc4:dm-data ?emp_cluster ;
-            sdc4:dm-provider ?employer_party .
-    ?employer_party sdc4:party-id "BIZ-001102" .
-    ?emp_dm sdc4:dm-subject ?emp_subj .
-    ?emp_subj sdc4:party-name ?entity_name ;
-              sdc4:party-id ?entity_id .
-    OPTIONAL {
-      ?emp_cluster sdc4:hasComponent ?title_comp .
-      ?title_comp sdc4:label "Job Title" ;
-                  sdc4:xdstring-value ?detail .
-    }
-    BIND("Employee" AS ?relationship)
-    BIND("Employment" AS ?domain)
-  }
-  UNION
-  {
-    # Tax filings for this business
-    ?tax_dm a sdc4:DMType ;
-            sdc4:dm-label "Tax and Revenue Record" ;
-            sdc4:dm-data ?tax_cluster ;
-            sdc4:dm-subject ?tax_subj .
-    ?tax_subj sdc4:party-id "BIZ-001102" ;
-              sdc4:party-name ?entity_name .
-    ?tax_cluster sdc4:hasComponent ?type_comp .
-    ?type_comp sdc4:label "Tax Type" ;
-              sdc4:xdtoken-value ?detail .
-    BIND("Tax Filing" AS ?relationship)
-    BIND("BIZ-001102" AS ?entity_id)
-    BIND("Tax & Revenue" AS ?domain)
-  }
-  UNION
-  {
-    # Port calls where this business is the vessel operator
-    ?mar_dm a sdc4:DMType ;
-            sdc4:dm-label "Maritime Port Authority" ;
-            sdc4:dm-data ?mar_cluster ;
-            sdc4:dm-subject ?vessel_owner .
-    ?vessel_owner sdc4:party-id "BIZ-001102" ;
-                  sdc4:party-name ?entity_name .
-    ?mar_cluster sdc4:hasComponent ?vessel_comp .
-    ?vessel_comp sdc4:label "Vessel Name" ;
-                sdc4:xdstring-value ?detail .
-    BIND("Vessel Operation" AS ?relationship)
-    BIND("BIZ-001102" AS ?entity_id)
-    BIND("Maritime" AS ?domain)
-  }
-  UNION
-  {
-    # Business officers
-    ?biz_dm a sdc4:DMType ;
-            sdc4:dm-label "Business Registry" ;
-            sdc4:dm-data ?biz_cluster ;
-            sdc4:dm-subject ?officer .
-    ?biz_cluster sdc4:hasComponent ?brn_comp .
-    ?brn_comp sdc4:label "Business Registry Number" ;
-              sdc4:xdstring-value "BIZ-001102" .
-    ?officer sdc4:party-name ?entity_name ;
-             sdc4:party-id ?entity_id .
-    BIND("Officer/Director" AS ?relationship)
-    BIND("Business Registry" AS ?domain)
-    BIND("" AS ?detail)
-  }
+  # Find instances containing this BRN
+  ?brn_reifier rdf:reifies << sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly sdc4:xdstring-value "BIZ-001102" >> ;
+               sdc4:inInstance ?instance ;
+               sdc4:inDataModel ?dm .
+
+  OPTIONAL { ?dm dc:title ?dm_title }
+  BIND(COALESCE(?dm_title, REPLACE(STR(?dm), '.*/dm-', '')) AS ?domain)
+
+  # Get all components from the same instance
+  ?comp_reifier sdc4:inInstance ?instance ;
+                rdfs:label ?component_label ;
+                rdf:reifies << ?subj ?pred ?value >> .
 }
-ORDER BY ?relationship ?entity_name
+ORDER BY ?domain ?component_label
