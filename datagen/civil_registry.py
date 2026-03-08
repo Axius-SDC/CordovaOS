@@ -1,7 +1,7 @@
 """
 Generate Civil Registry XML instances for CordovaOS demo.
 
-Produces ~207 records: 8 Contagion cast + ~200 background residents.
+Produces 25,000 records: 8 Contagion cast + 24,992 background residents.
 Output: /home/twcook/GitHub/CordovaOS/app/sdc4/import_data/civil_registry/
 """
 import os
@@ -9,7 +9,7 @@ import random
 
 from shared import (
     CAST, PERSONS, ALL_CITIES, CITY_TO_PROVINCE, PROVINCE_CODES, CITY_CODES,
-    PROVINCE_CITIES,
+    PROVINCE_CITIES, AGE_DISTRIBUTION,
     random_name, random_city_province, random_address, random_dob,
     generate_cid_for_city, generate_phone, generate_email,
     xml_header, xml_preamble, xml_footer, write_xml,
@@ -169,7 +169,7 @@ def make_cast_persons():
     return persons
 
 
-def make_background_persons(count=200):
+def make_background_persons(count=24992):
     """Generate background residents spread across cities."""
     persons = []
     for i in range(count):
@@ -177,8 +177,10 @@ def make_background_persons(count=200):
         given, middle, surname = random_name(sex)
         city, province = random_city_province()
         cid = generate_cid_for_city(city)
-        dob = random_dob(min_age=18, max_age=75)
-        marital = random.choice(MARITAL_STATUSES)
+        dob = random_dob(distribution=AGE_DISTRIBUTION)
+        # Children are single; adults get random marital status
+        age = 2026 - int(dob[:4])
+        marital = "Single" if age < 18 else random.choice(MARITAL_STATUSES)
         addr = random_address()
         addr2 = random.choice(["", "", "", f"Apt {random.randint(1, 50)}",
                                 f"Unit {random.randint(1, 20)}"])
@@ -190,7 +192,7 @@ def make_background_persons(count=200):
         rel_start = random_dob(min_age=0, max_age=50)
 
         persons.append({
-            "key": f"bg_{i:03d}",
+            "key": f"bg_{i:05d}",
             "cid": cid,
             "given": given, "middle": middle, "surname": surname,
             "sex": sex, "gender": sex, "dob": dob,
@@ -212,7 +214,7 @@ def generate():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     cast_persons = make_cast_persons()
-    bg_persons = make_background_persons(200)
+    bg_persons = make_background_persons(24992)
     all_persons = cast_persons + bg_persons
 
     # Populate shared PERSONS list for other domain generators

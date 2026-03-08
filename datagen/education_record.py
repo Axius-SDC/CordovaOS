@@ -136,24 +136,84 @@ def generate():
     write_xml(os.path.join(OUTPUT_DIR, f"ed-{cuid_generator()}.xml"), build_instance(rec))
     count += 1
 
-    # Current UNC students (from background persons, ~50)
+    # Education records for school-age and recent graduates (age 5-30)
     if not PERSONS:
         from civil_registry import generate as gen_cr
         gen_cr()
 
-    young_persons = [p for p in PERSONS if p.get("key", "").startswith("bg_")
-                     and int(p["dob"][:4]) >= 1998][:50]
+    eligible = [p for p in PERSONS if p.get("key", "").startswith("bg_")
+                and 5 <= (2026 - int(p["dob"][:4])) <= 30]
 
-    for p in young_persons:
+    # Education institutions by level
+    primary_schools = [
+        ("Escuela Primaria Porto Sereno", "Porto Sereno", "Aldara"),
+        ("Escuela Primaria Montecalvo", "Montecalvo", "Aldara"),
+        ("Escuela Primaria Bahia Linda", "Bahia Linda", "Aldara"),
+        ("Escuela Primaria Campoluz", "Campoluz", "Brevina"),
+        ("Escuela Primaria Sierra Verde", "Sierra Verde", "Brevina"),
+        ("Escuela Primaria Novaciudad", "Novaciudad", "Celara"),
+        ("Escuela Primaria Costa Brava", "Costa Brava", "Celara"),
+        ("Escuela Primaria Lago Azul", "Lago Azul", "Celara"),
+        ("Escuela Primaria Tierra Roja", "Tierra Roja", "Brevina"),
+    ]
+    secondary_schools = [
+        ("Liceo Nacional Porto Sereno", "Porto Sereno", "Aldara"),
+        ("Liceo Nacional Campoluz", "Campoluz", "Brevina"),
+        ("Liceo Nacional Novaciudad", "Novaciudad", "Celara"),
+        ("Colegio Tecnico Montecalvo", "Montecalvo", "Aldara"),
+        ("Colegio Tecnico Sierra Verde", "Sierra Verde", "Brevina"),
+        ("Colegio Tecnico Costa Brava", "Costa Brava", "Celara"),
+    ]
+
+    for p in eligible:
+        age = 2026 - int(p["dob"][:4])
+        if age <= 11:
+            # Primary school
+            school = random.choice(primary_schools)
+            cred_type = "Certificate"
+            enr_status = "Active"
+            field = "General Education"
+            enr_year = max(2020, 2026 - (age - 5))
+            expect_year = enr_year + 6
+        elif age <= 17:
+            # Secondary school
+            school = random.choice(secondary_schools)
+            cred_type = "Diploma"
+            enr_status = random.choice(["Active", "Active", "Active", "On Leave"])
+            field = random.choice(["General Studies", "Science Track", "Humanities Track", "Technical Track"])
+            enr_year = max(2020, 2026 - (age - 12))
+            expect_year = enr_year + 6
+        elif age <= 25:
+            # University
+            school = ("Universidad Nacional de Cordova", "Campoluz", "Brevina")
+            cred_type = random.choice(["Bachelor", "Bachelor", "Bachelor", "Master"])
+            enr_status = random.choice(["Active", "Active", "Active", "On Leave", "Graduated"])
+            field = random.choice(FIELDS)
+            enr_year = random.randint(2018, 2024)
+            expect_year = enr_year + (4 if cred_type == "Bachelor" else 2)
+        else:
+            # Recent graduates (26-30)
+            school = ("Universidad Nacional de Cordova", "Campoluz", "Brevina")
+            cred_type = random.choice(["Bachelor", "Master", "Master"])
+            enr_status = "Graduated"
+            field = random.choice(FIELDS)
+            enr_year = random.randint(2014, 2020)
+            expect_year = enr_year + (4 if cred_type == "Bachelor" else 2)
+
+        honors = "None"
+        date_awarded = "1900-01-01"
+        if enr_status == "Graduated":
+            honors = random.choice(HONORS)
+            date_awarded = f"{expect_year}-{random.randint(5,6):02d}-{random.randint(1,28):02d}"
+
         rec = {
             "cid": p["cid"], "student_id": next_sid(),
-            "city": "Campoluz", "province": "Brevina",
-            "field": random.choice(FIELDS),
-            "cred_type": random.choice(["Bachelor", "Master"]),
-            "honors": "None", "date_awarded": "1900-01-01",
-            "enr_status": random.choice(["Active", "Active", "Active", "On Leave"]),
-            "enr_date": random_date(2020, 2025),
-            "expect_date": random_date(2026, 2029),
+            "city": school[1], "province": school[2],
+            "field": field, "cred_type": cred_type,
+            "honors": honors, "date_awarded": date_awarded,
+            "enr_status": enr_status,
+            "enr_date": f"{enr_year}-09-01",
+            "expect_date": f"{expect_year}-{random.randint(5,6):02d}-15",
         }
         write_xml(os.path.join(OUTPUT_DIR, f"ed-{cuid_generator()}.xml"), build_instance(rec))
         count += 1

@@ -148,6 +148,38 @@ BG_VESSELS = [
     ("MV Porto Express", "Marshall Islands", "9856789", "538856789", "V7PE", "Container", "Cargo Discharge", 20, "2025-12-20"),
 ]
 
+# Generate additional background vessels for weekly port calls across 2025-2026
+_VESSEL_PREFIXES = ["MV", "MT", "MV", "MV", "SS"]
+_VESSEL_NAMES = [
+    "Bahia Dorada", "Caribe Sol", "Luna del Sur", "Onda Tropical",
+    "Viento Norte", "Mar Sereno", "Delfin Azul", "Coral Blanco",
+    "Sierra Marina", "Horizonte", "Estrella Polar", "Rio Grande",
+    "Condor Andino", "Pelicano", "Gaviota", "Barracuda",
+    "Mariposa del Mar", "Orion Pacific", "Neptune Star", "Ocean Pearl",
+    "Golden Tide", "Silver Wave", "Blue Meridian", "Red Coral",
+    "Tropic Wind", "Iron Hull", "Crystal Bay", "Thunder Sea",
+    "Morning Star", "Evening Light", "Southern Cross", "Northern Dawn",
+    "Emerald Coast", "Sapphire Seas", "Diamond Reef", "Amber Sun",
+    "Jade Current", "Ivory Mist", "Bronze Anchor", "Copper Ridge",
+    "Falcon Crest", "Eagle Point", "Hawk Bay", "Osprey",
+]
+_FLAGS = [
+    "Panama", "Liberia", "Marshall Islands", "Republic of Cordova",
+    "Bahamas", "Malta", "Singapore", "Hong Kong", "Greece", "Cyprus",
+]
+_CARGO_TYPES = ["Container", "Bulk Carrier", "Tanker", "General Cargo", "Ro-Ro", "Reefer"]
+_PURPOSES = ["Cargo Discharge", "Cargo Loading", "Fuel Bunkering", "Crew Change", "Cargo Discharge"]
+_DEPARTURE_PORTS = [
+    "Houston, USA", "Santos, Brazil", "Buenaventura, Colombia", "Balboa, Panama",
+    "Callao, Peru", "Guayaquil, Ecuador", "Kingston, Jamaica", "Colon, Panama",
+    "Cartagena, Colombia", "Veracruz, Mexico", "Havana, Cuba", "Limon, Costa Rica",
+]
+_NEXT_PORTS = [
+    "Cartagena, Colombia", "Panama City, Panama", "Guayaquil, Ecuador",
+    "Callao, Peru", "Kingston, Jamaica", "Santos, Brazil", "Havana, Cuba",
+    "Miami, USA", "Houston, USA", "Colon, Panama",
+]
+
 
 def generate():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -158,13 +190,13 @@ def generate():
     write_xml(os.path.join(OUTPUT_DIR, f"mp-{cuid_generator()}.xml"), xml)
     count += 1
 
-    # Background port calls
+    # Named background port calls (5 original vessels)
     for name, flag, imo, mmsi, csign, ctype, purpose, crew, arr_date in BG_VESSELS:
         pc = {
             "flag": flag, "port_call_id": f"PC-2026-{random.randint(100,999):03d}",
             "berth": f"Berth {random.randint(1,12)}, Porto Sereno Commercial Terminal",
-            "next_port": random.choice(["Cartagena", "Panama City", "Guayaquil", "Callao"]),
-            "depart_port": random.choice(["Houston", "Santos", "Buenaventura", "Balboa"]),
+            "next_port": random.choice(_NEXT_PORTS),
+            "depart_port": random.choice(_DEPARTURE_PORTS),
             "call_sign": csign, "imo": imo, "mmsi": mmsi,
             "vessel_name": name, "voyage": f"VOY-2026-{random.randint(1,99):02d}",
             "cargo_type": ctype, "purpose": purpose,
@@ -181,6 +213,55 @@ def generate():
             "containers": random.randint(10, 100),
             "cargo_wt": random.randint(500, 5000),
             "fee_amt": random.randint(5000, 25000),
+        }
+        xml = build_instance(pc)
+        write_xml(os.path.join(OUTPUT_DIR, f"mp-{cuid_generator()}.xml"), xml)
+        count += 1
+
+    # Generated background port calls (44 more, total ~50 with Estrella)
+    # Spread across 2025-2026 calendar (roughly weekly)
+    from datetime import date, timedelta
+    start_date = date(2025, 1, 6)
+    for i in range(44):
+        # Roughly weekly arrivals
+        arr = start_date + timedelta(weeks=i)
+        arr_str = arr.strftime("%Y-%m-%d")
+        dep = arr + timedelta(days=random.randint(1, 4))
+        dep_str = dep.strftime("%Y-%m-%d")
+        vname = f"{random.choice(_VESSEL_PREFIXES)} {_VESSEL_NAMES[i % len(_VESSEL_NAMES)]}"
+        flag = random.choice(_FLAGS)
+        imo_num = str(9800000 + random.randint(1000, 99999))
+        mmsi_pfx = {"Panama": "352", "Liberia": "636", "Marshall Islands": "538",
+                     "Republic of Cordova": "370", "Bahamas": "311", "Malta": "249",
+                     "Singapore": "563", "Hong Kong": "477", "Greece": "240", "Cyprus": "212"}
+        mmsi_num = mmsi_pfx.get(flag, "370") + imo_num[3:]
+        csign = f"{''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZ', k=4))}"
+        ctype = random.choice(_CARGO_TYPES)
+
+        pc = {
+            "flag": flag,
+            "port_call_id": f"PC-{arr.year}-{100 + i + 10:04d}",
+            "berth": f"Berth {random.randint(1,12)}, Porto Sereno Commercial Terminal",
+            "next_port": random.choice(_NEXT_PORTS),
+            "depart_port": random.choice(_DEPARTURE_PORTS),
+            "call_sign": csign, "imo": imo_num, "mmsi": mmsi_num,
+            "vessel_name": vname,
+            "voyage": f"VOY-{arr.year}-{random.randint(1,999):03d}",
+            "cargo_type": ctype,
+            "purpose": random.choice(_PURPOSES),
+            "crew": random.randint(10, 28), "pax": 0,
+            "draft": f"{random.uniform(4.5, 11):.1f}",
+            "gross_ton": str(random.randint(5000, 45000)),
+            "loa": f"{random.uniform(90, 250):.1f}",
+            "net_ton": str(random.randint(3000, 25000)),
+            "arrival": f"{arr_str}T{random.randint(4,20):02d}:{random.choice(['00','30'])}:00",
+            "departure": f"{dep_str}T{random.randint(6,22):02d}:{random.choice(['00','30'])}:00",
+            "cargo_desc": f"{ctype} shipment - miscellaneous goods",
+            "cargo_dest": "Porto Sereno, Republic of Cordova",
+            "cargo_orig": random.choice(_DEPARTURE_PORTS),
+            "containers": random.randint(0, 150) if ctype == "Container" else random.randint(0, 10),
+            "cargo_wt": random.randint(200, 8000),
+            "fee_amt": random.randint(3000, 30000),
         }
         xml = build_instance(pc)
         write_xml(os.path.join(OUTPUT_DIR, f"mp-{cuid_generator()}.xml"), xml)

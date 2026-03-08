@@ -144,19 +144,39 @@ def generate():
         write_xml(os.path.join(OUTPUT_DIR, f"pr-{cuid_generator()}.xml"), xml)
         count += 1
 
-    # Background properties
-    for _ in range(25):
+    # Background properties (~7,988 to reach ~8,000 total)
+    # Mix: ~65% residential, ~25% commercial, ~10% agricultural/vacant
+    bg_prop_types = (
+        ["Residential"] * 65 +
+        ["Commercial"] * 25 +
+        ["Agricultural"] * 7 +
+        ["Industrial"] * 3
+    )
+    for _ in range(7988):
         city, prov = random_city_province()
         pc = PROVINCE_CODES[prov]
         cc = CITY_CODES[city]
+        pt = random.choice(bg_prop_types)
+        if pt == "Residential":
+            value = random.randint(40000, 350000)
+            area = random.randint(60, 400)
+        elif pt == "Commercial":
+            value = random.randint(100000, 1500000)
+            area = random.randint(100, 2000)
+        elif pt == "Agricultural":
+            value = random.randint(20000, 500000)
+            area = random.randint(500, 10000)
+        else:  # Industrial
+            value = random.randint(200000, 3000000)
+            area = random.randint(500, 5000)
         prop = {
             "parcel": generate_parcel(pc, cc),
             "addr": random_address(), "addr2": "",
             "city": city, "province": prov,
-            "prop_type": random.choice(PROP_TYPES),
-            "reg_date": random_date(1990, 2024),
-            "value": str(random.randint(30000, 800000)),
-            "area": str(random.randint(50, 2000)),
+            "prop_type": pt,
+            "reg_date": random_date(1980, 2024),
+            "value": str(value),
+            "area": str(area),
         }
         xml = build_instance(prop)
         write_xml(os.path.join(OUTPUT_DIR, f"pr-{cuid_generator()}.xml"), xml)

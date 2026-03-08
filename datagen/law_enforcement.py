@@ -8,7 +8,8 @@ import os
 import random
 
 from shared import (
-    random_city_province, random_address, random_date,
+    random_city_province, random_address, random_date, ALL_CITIES,
+    CITY_TO_PROVINCE,
     xml_header, xml_preamble, xml_footer, write_xml,
     xdstring, xdtoken, xdtemporal, xdtemporal_multi, xdquantity,
     cluster_open, cluster_close, party_stub,
@@ -145,7 +146,7 @@ def generate():
         write_xml(os.path.join(OUTPUT_DIR, f"le-{cuid_generator()}.xml"), build_instance(rec))
         count += 1
 
-    # Routine background incidents
+    # Original 5 routine incidents (preserved)
     routine_incidents = [
         ("Traffic accident - minor property damage", "Traffic", "Porto Sereno", "Aldara"),
         ("Petty theft reported at Central Market", "Property Crime", "Novaciudad", "Celara"),
@@ -159,6 +160,61 @@ def generate():
             "location": random_address() + f", {city}",
             "city": city, "province": prov,
             "category": cat, "inc_date": random_date(2025, 2025),
+        }
+        write_xml(os.path.join(OUTPUT_DIR, f"le-{cuid_generator()}.xml"), build_instance(rec))
+        count += 1
+
+    # Additional routine incidents (~192 more for ~200 total)
+    incident_templates = [
+        ("Traffic accident - minor property damage", "Traffic"),
+        ("Traffic stop - expired registration", "Traffic"),
+        ("Traffic stop - speeding violation", "Traffic"),
+        ("Vehicle collision - no injuries", "Traffic"),
+        ("Petty theft reported", "Property Crime"),
+        ("Shoplifting incident", "Property Crime"),
+        ("Bicycle theft reported", "Property Crime"),
+        ("Burglary - residential break-in", "Property Crime"),
+        ("Vandalism - graffiti on public building", "Property Crime"),
+        ("Vandalism - broken storefront window", "Property Crime"),
+        ("Noise complaint - loud music", "Civil Disturbance"),
+        ("Noise complaint - construction hours violation", "Civil Disturbance"),
+        ("Domestic disturbance call", "Civil Disturbance"),
+        ("Public intoxication", "Civil Disturbance"),
+        ("Street fight - minor altercation", "Civil Disturbance"),
+        ("Lost property report", "Lost Property"),
+        ("Found property - turned in to station", "Lost Property"),
+        ("Trespassing on private property", "Trespass"),
+        ("Fraud report - phone scam", "Fraud"),
+        ("Fraud report - forged document", "Fraud"),
+        ("DUI checkpoint - positive test", "DUI"),
+        ("DUI - erratic driving reported", "DUI"),
+        ("Missing person report - juvenile", "Missing Person"),
+        ("Missing person report - located safe", "Missing Person"),
+        ("Animal control - stray dog complaint", "Animal Control"),
+        ("Suspicious activity report", "Suspicious Activity"),
+        ("Welfare check requested", "Welfare Check"),
+        ("Parking violation - fire lane", "Traffic"),
+        ("Hit and run - minor damage", "Traffic"),
+        ("Assault - simple battery", "Assault"),
+    ]
+
+    import random as _rand
+    for _ in range(192):
+        summary_template, cat = _rand.choice(incident_templates)
+        city = _rand.choice(ALL_CITIES)
+        prov = CITY_TO_PROVINCE[city]
+        rec = {
+            "inc_num": next_inc(),
+            "summary": f"{summary_template} at {random_address()}, {city}",
+            "location": random_address() + f", {city}",
+            "city": city, "province": prov,
+            "category": cat,
+            "inc_date": random_date(2025, 2025),
+            "status": _rand.choice(["Closed", "Closed", "Closed", "Open", "Under Investigation"]),
+            "charge_desc": summary_template,
+            "charge_cat": _rand.choice(["Misdemeanor", "Infraction", "None", "None"]),
+            "disposition": _rand.choice(["No Charge", "Citation Issued", "Warning", "Referred to Court", "No Charge"]),
+            "fine": _rand.choice([0, 0, 0, 50, 100, 200, 500]),
         }
         write_xml(os.path.join(OUTPUT_DIR, f"le-{cuid_generator()}.xml"), build_instance(rec))
         count += 1
