@@ -1,0 +1,71 @@
+# Query 3: Social Services Identification
+# Find people in a specific city with healthcare records but no current
+# employment and no property ownership -- candidates for social services.
+# Input: City name, e.g. "Porto Sereno"
+
+PREFIX sdc4:  <https://semanticdatacharter.com/ns/sdc4/>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?person_name ?person_cid ?city ?healthcare_detail
+WHERE {
+  # Find people with healthcare records
+  ?health_dm a sdc4:DMType ;
+             sdc4:dm-label "Healthcare Record" ;
+             sdc4:dm-data ?health_cluster .
+
+  ?health_cluster sdc4:hasComponent ?cid_comp .
+  ?cid_comp sdc4:label "National ID (CID)" ;
+            sdc4:xdstring-value ?person_cid .
+
+  OPTIONAL {
+    ?health_cluster (sdc4:hasComponent|sdc4:hasCluster/sdc4:hasComponent) ?detail_comp .
+    ?detail_comp sdc4:label ?healthcare_detail .
+    FILTER(?healthcare_detail != "National ID (CID)" &&
+           ?healthcare_detail != "Medical Record Number")
+  }
+
+  # Look up person's city from Civil Registry
+  ?civil_dm a sdc4:DMType ;
+            sdc4:dm-label "Civil Registry" ;
+            sdc4:dm-data ?civil_cluster .
+  ?civil_cluster sdc4:hasComponent ?civil_cid .
+  ?civil_cid sdc4:label "National ID (CID)" ;
+             sdc4:xdstring-value ?person_cid .
+
+  ?civil_cluster (sdc4:hasComponent|sdc4:hasCluster/sdc4:hasComponent) ?city_comp .
+  ?city_comp sdc4:label "City" ;
+             sdc4:xdtoken-value ?city .
+  FILTER(?city = "Porto Sereno")
+
+  # Get person name
+  ?civil_cluster sdc4:hasComponent ?given_comp .
+  ?given_comp sdc4:label "Given Name (Person)" ;
+              sdc4:xdstring-value ?given_name .
+  ?civil_cluster sdc4:hasComponent ?surname_comp .
+  ?surname_comp sdc4:label "Surname (Person)" ;
+               sdc4:xdstring-value ?surname .
+  BIND(CONCAT(?given_name, " ", ?surname) AS ?person_name)
+
+  # EXCLUDE people with current employment (no end date)
+  FILTER NOT EXISTS {
+    ?emp_dm a sdc4:DMType ;
+            sdc4:dm-label "Employment Record" ;
+            sdc4:dm-subject ?emp_subj ;
+            sdc4:dm-data ?emp_cluster .
+    ?emp_subj sdc4:party-id ?person_cid .
+    FILTER NOT EXISTS {
+      ?emp_cluster sdc4:hasComponent ?end_comp .
+      ?end_comp sdc4:label "End Date" ;
+               sdc4:xdtemporal-date ?end_date .
+    }
+  }
+
+  # EXCLUDE people who own property
+  FILTER NOT EXISTS {
+    ?prop_dm a sdc4:DMType ;
+             sdc4:dm-label "Property Registry" ;
+             sdc4:dm-subject ?prop_subj .
+    ?prop_subj sdc4:party-id ?person_cid .
+  }
+}
+ORDER BY ?person_name

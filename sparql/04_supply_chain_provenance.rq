@@ -1,0 +1,64 @@
+# Query 4: Supply Chain Provenance
+# Trace cargo from vessel arrival through business operator to tax filing.
+# End-to-end provenance across Maritime, Business Registry, and Tax domains.
+# Input: Vessel name, e.g. "MV Estrella del Sur"
+
+PREFIX sdc4:  <https://semanticdatacharter.com/ns/sdc4/>
+
+SELECT ?vessel_name ?port_call_id ?arrival_date ?cargo_type
+       ?operator_name ?operator_brn ?tax_type ?filing_date
+WHERE {
+  # Step 1: Maritime -- find the port call
+  ?mar_dm a sdc4:DMType ;
+          sdc4:dm-label "Maritime Port Authority" ;
+          sdc4:dm-data ?mar_cluster ;
+          sdc4:dm-subject ?owner_party .
+
+  ?mar_cluster sdc4:hasComponent ?vessel_comp .
+  ?vessel_comp sdc4:label "Vessel Name" ;
+              sdc4:xdstring-value ?vessel_name .
+  FILTER(?vessel_name = "MV Estrella del Sur")
+
+  ?mar_cluster sdc4:hasComponent ?pcid_comp .
+  ?pcid_comp sdc4:label "Port Call ID" ;
+            sdc4:xdstring-value ?port_call_id .
+
+  ?mar_cluster sdc4:hasComponent ?arr_comp .
+  ?arr_comp sdc4:label "Arrival Date/Time" ;
+           sdc4:xdtemporal-datetime ?arrival_date .
+
+  ?mar_cluster sdc4:hasComponent ?cargo_comp .
+  ?cargo_comp sdc4:label "Cargo Type" ;
+            sdc4:xdtoken-value ?cargo_type .
+
+  # Step 2: Get the vessel operator (subject party)
+  ?owner_party sdc4:party-name ?operator_name ;
+               sdc4:party-id ?operator_brn .
+
+  # Step 3: Business Registry -- confirm the operator is registered
+  ?biz_dm a sdc4:DMType ;
+          sdc4:dm-label "Business Registry" ;
+          sdc4:dm-data ?biz_cluster .
+  ?biz_cluster sdc4:hasComponent ?brn_comp .
+  ?brn_comp sdc4:label "Business Registry Number" ;
+            sdc4:xdstring-value ?operator_brn .
+
+  # Step 4: Tax filings for this business (port fees / import duties)
+  OPTIONAL {
+    ?tax_dm a sdc4:DMType ;
+            sdc4:dm-label "Tax and Revenue Record" ;
+            sdc4:dm-data ?tax_cluster ;
+            sdc4:dm-subject ?taxpayer .
+    ?taxpayer sdc4:party-id ?operator_brn .
+    ?tax_cluster sdc4:hasComponent ?tt_comp .
+    ?tt_comp sdc4:label "Tax Type" ;
+            sdc4:xdtoken-value ?tax_type .
+    FILTER(?tax_type IN ("Port Fee", "Import Duty"))
+    OPTIONAL {
+      ?tax_cluster sdc4:hasComponent ?fd_comp .
+      ?fd_comp sdc4:label "Filing Date" ;
+              sdc4:xdtemporal-date ?filing_date .
+    }
+  }
+}
+ORDER BY ?arrival_date ?tax_type
