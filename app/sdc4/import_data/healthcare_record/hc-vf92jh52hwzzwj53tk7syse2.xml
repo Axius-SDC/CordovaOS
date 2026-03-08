@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdc4:dm-ftluo2nybgxmn7mawttoos20
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:sdc4="https://semanticdatacharter.com/ns/sdc4/"
+  xsi:schemaLocation="https://semanticdatacharter.com/ns/sdc4/ https://semanticdatacharter.com/dmlib/dm-ftluo2nybgxmn7mawttoos20.xsd">
+  <dm-label>Healthcare Record</dm-label>
+  <dm-language>en-US</dm-language>
+  <dm-encoding>utf-8</dm-encoding>
+  <creation_timestamp>2026-03-08T18:38:42.182672</creation_timestamp>
+  <instance_id>o0p4xage2luwi9zbcte0i02x</instance_id>
+  <instance_version>1</instance_version>
+  <source_instance_id/>
+  <source_version_id/>
+  <current-state/>
+  <sdc4:ms-ygtbvvmzcw3ukfsg3axqry97>
+    <label>Patient Record</label>
+    <sdc4:ms-mn42o5y6zxlsv6xng1rhnyiy>
+      <sdc4:ms-nj7s1gk45tfgyooxpz0qaha3>
+        <label>National ID (CID)</label>
+        <xdstring-value>COR-CE01-110267</xdstring-value>
+      </sdc4:ms-nj7s1gk45tfgyooxpz0qaha3>
+    </sdc4:ms-mn42o5y6zxlsv6xng1rhnyiy>
+    <sdc4:ms-zm4didht9y39r2fjm56w04ma>
+      <sdc4:ms-jz2hqntyol8lopw6q6zdud78>
+        <label>Medical Record Number</label>
+        <xdstring-value>MRN-003315</xdstring-value>
+      </sdc4:ms-jz2hqntyol8lopw6q6zdud78>
+    </sdc4:ms-zm4didht9y39r2fjm56w04ma>
+    <sdc4:ms-xplqihmynccwa3o4o8s7gqml>
+      <label>Allergies and Conditions</label>
+      <sdc4:ms-rumj70a3387aozf7dzg7xbl4>
+        <sdc4:ms-ntk4zsr15bcca2jmocdkcpcc>
+          <label>Allergy Description</label>
+          <xdstring-value>None known</xdstring-value>
+        </sdc4:ms-ntk4zsr15bcca2jmocdkcpcc>
+      </sdc4:ms-rumj70a3387aozf7dzg7xbl4>
+      <sdc4:ms-ot7m3t4bsnhfkfo7wddyhutk>
+        <sdc4:ms-cm0nqqnjcylc8vkfph7db2lh>
+          <label>Chronic Condition</label>
+          <xdstring-value>None</xdstring-value>
+        </sdc4:ms-cm0nqqnjcylc8vkfph7db2lh>
+      </sdc4:ms-ot7m3t4bsnhfkfo7wddyhutk>
+      <sdc4:ms-rf37fksbjrh8xn0pw7utsv5j>
+        <sdc4:ms-tz13p9d4dpbw3pe9bx51nbou>
+          <label>Condition Status</label>
+          <xdtoken-value>Normal</xdtoken-value>
+        </sdc4:ms-tz13p9d4dpbw3pe9bx51nbou>
+      </sdc4:ms-rf37fksbjrh8xn0pw7utsv5j>
+      <sdc4:ms-xrftuu6rtm27x56a5fztuxze>
+        <sdc4:ms-07osold8ovbjsqzvz00f3ked2>
+          <label>Severity (3-Point)</label>
+          <!-- Element ordinal not yet implemented -->
+          <!-- Element symbol not yet implemented -->
+        </sdc4:ms-07osold8ovbjsqzvz00f3ked2>
+      </sdc4:ms-xrftuu6rtm27x56a5fztuxze>
+      <sdc4:ms-tyhzcxqbodyf9inbhyibnotx>
+        <sdc4:ms-p14jkmk8xqs97daq3zvyhrsj>
+          <label>Onset Date</label>
+          <xdtemporal-date>1900-01-01</xdtemporal-date>
+          <xdtemporal-year>1900</xdtemporal-year>
+          <xdtemporal-year-month>1900-01</xdtemporal-year-month>
+        </sdc4:ms-p14jkmk8xqs97daq3zvyhrsj>
+      </sdc4:ms-tyhzcxqbodyf9inbhyibnotx>
+    </sdc4:ms-xplqihmynccwa3o4o8s7gqml>
+    <sdc4:ms-vhjvhm6vz2om2jfn6b923gw7>
+      <label>Medications</label>
+      <sdc4:ms-a10r6dyuuepetoyfvotczf38>
+        <sdc4:ms-z28bjtjekyybe300ukuyjpi4>
+          <label>Dosage</label>
+          <xdstring-value>N/A</xdstring-value>
+        </sdc4:ms-z28bjtjekyybe300ukuyjpi4>
+      </sdc4:ms-a10r6dyuuepetoyfvotczf38>
+      <sdc4:ms-v8rbx36co2xf1878lp9ukqgv>
+        <sdc4:ms-nomiekce61caq5n9a49d0eu6>
+          <label>Medication Name</label>
+          <xdstring-value>None</xdstring-value>
+        </sdc4:ms-nomiekce61caq5n9a49d0eu6>
+      </sdc4:ms-v8rbx36co2xf1878lp9ukqgv>
+      <sdc4:ms-ed34in9qv3inpzuppsgqfvpr>
+        <sdc4:ms-iprf7jqg9emvm92wo9gkiqcu>
+          <label>Frequency (5-Point)</label>
+          <!-- Element ordinal not yet implemented -->
+          <!-- Element symbol not yet implemented -->
+        </sdc4:ms-iprf7jqg9emvm92wo9gkiqcu>
+      </sdc4:ms-ed34in9qv3inpzuppsgqfvpr>
+      <sdc4:ms-b8jz8cnoox36zm0rlcjimy77>
+        <sdc4:ms-y7k4p12co0b9v6asll531fhv>
+          <label>Medication Dosage Amount</label>
+          <xdquantity-value>0</xdquantity-value>
+          <xdquantity-units>
+            <label>Mass/Weight (SI - Metric)</label>
+            <xdstring-value>Mass/Weight (SI - Metric)</xdstring-value>
+          </xdquantity-units>
+        </sdc4:ms-y7k4p12co0b9v6asll531fhv>
+      </sdc4:ms-b8jz8cnoox36zm0rlcjimy77>
+      <sdc4:ms-oojdpktov9pc34u1d4yw292e>
+        <sdc4:ms-cq6m46w59ouu1cu8tkw1fhib>
+          <label>Prescription Date</label>
+          <xdtemporal-date>1900-01-01</xdtemporal-date>
+        </sdc4:ms-cq6m46w59ouu1cu8tkw1fhib>
+      </sdc4:ms-oojdpktov9pc34u1d4yw292e>
+    </sdc4:ms-vhjvhm6vz2om2jfn6b923gw7>
+    <sdc4:ms-eq4h86worv571cl5iiy9unkw>
+      <label>Vaccination History</label>
+      <sdc4:ms-hblhzbdl5udz5wu0iz5uzrx0>
+        <sdc4:ms-td5j1frz2fa8g4uh1hor7w11>
+          <label>Lot Number</label>
+          <xdstring-value>N/A</xdstring-value>
+        </sdc4:ms-td5j1frz2fa8g4uh1hor7w11>
+      </sdc4:ms-hblhzbdl5udz5wu0iz5uzrx0>
+      <sdc4:ms-b7xsratjct5ajr7yg6y8hnys>
+        <sdc4:ms-fi1qu4j2zd0801fcqtix35h5>
+          <label>Vaccine Name</label>
+          <xdstring-value>N/A</xdstring-value>
+        </sdc4:ms-fi1qu4j2zd0801fcqtix35h5>
+      </sdc4:ms-b7xsratjct5ajr7yg6y8hnys>
+      <sdc4:ms-bo0ytaahd9jx6a331fx8v2xj>
+        <sdc4:ms-dyfz05n20jhc1elhozrbjug0>
+          <label>Vaccine Date</label>
+          <xdtemporal-date>1900-01-01</xdtemporal-date>
+          <xdtemporal-year-month>1900-01</xdtemporal-year-month>
+        </sdc4:ms-dyfz05n20jhc1elhozrbjug0>
+      </sdc4:ms-bo0ytaahd9jx6a331fx8v2xj>
+    </sdc4:ms-eq4h86worv571cl5iiy9unkw>
+    <sdc4:ms-hd9295k8o49j91lvgftul1a0>
+      <label>Visit Record</label>
+      <sdc4:ms-k91mtql09fkvqelg6zreuzpj>
+        <sdc4:ms-nnu04d5qgrmn1bim8bpu0l65>
+          <label>Diagnosis</label>
+          <xdstring-value>Type 2 diabetes follow-up</xdstring-value>
+        </sdc4:ms-nnu04d5qgrmn1bim8bpu0l65>
+      </sdc4:ms-k91mtql09fkvqelg6zreuzpj>
+      <sdc4:ms-jhbgtf5x1cbyqo6btr7re4ie>
+        <sdc4:ms-qvmb5f4xmy56y98q8raelpl9>
+          <label>Facility</label>
+          <xdstring-value>Campoluz Medical Clinic</xdstring-value>
+        </sdc4:ms-qvmb5f4xmy56y98q8raelpl9>
+      </sdc4:ms-jhbgtf5x1cbyqo6btr7re4ie>
+      <sdc4:ms-kft6yrp13qqad3fjevhg3rrs>
+        <sdc4:ms-qzmcum3kwmskrkj7nhkf8fkm>
+          <label>Reason for Visit</label>
+          <xdstring-value>Post-surgical follow-up</xdstring-value>
+        </sdc4:ms-qzmcum3kwmskrkj7nhkf8fkm>
+      </sdc4:ms-kft6yrp13qqad3fjevhg3rrs>
+      <sdc4:ms-v8tpor1vuilwav5juaodgkkt>
+        <sdc4:ms-cntj1t9t2xjugnux1enpigmf>
+          <label>Clinical Impression</label>
+          <xdstring-value></xdstring-value>
+        </sdc4:ms-cntj1t9t2xjugnux1enpigmf>
+      </sdc4:ms-v8tpor1vuilwav5juaodgkkt>
+      <sdc4:ms-dht8a8ivh5tvck9jingpp2sg>
+        <sdc4:ms-lccs354vpxmtyo69ba5cu48v>
+          <label>Outcome</label>
+          <xdtoken-value>Referred</xdtoken-value>
+        </sdc4:ms-lccs354vpxmtyo69ba5cu48v>
+      </sdc4:ms-dht8a8ivh5tvck9jingpp2sg>
+      <sdc4:ms-omh5x1hat859qyb26ex1kgoe>
+        <sdc4:ms-l9sjn7wj10y5b27ldkv3j8mt>
+          <label>Visit Type</label>
+          <xdtoken-value>Outpatient</xdtoken-value>
+        </sdc4:ms-l9sjn7wj10y5b27ldkv3j8mt>
+      </sdc4:ms-omh5x1hat859qyb26ex1kgoe>
+      <sdc4:ms-ne7i45poujmsrxzv0wvsihst>
+        <sdc4:ms-b5zse0kmvpkj74ggqvgk647l>
+          <label>Body Temperature</label>
+          <xdquantity-value>37.7</xdquantity-value>
+          <xdquantity-units>
+            <label>Temperature (SI - Metric)</label>
+            <xdstring-value>Temperature (SI - Metric)</xdstring-value>
+          </xdquantity-units>
+        </sdc4:ms-b5zse0kmvpkj74ggqvgk647l>
+      </sdc4:ms-ne7i45poujmsrxzv0wvsihst>
+      <sdc4:ms-la7dfca8p7vtm3tjt8bh4vcj>
+        <sdc4:ms-lu2w1avj9fic5wrmyftt9fhi>
+          <label>Diastolic Blood Pressure</label>
+          <xdquantity-value>65</xdquantity-value>
+          <xdquantity-units>
+            <label>Pressure</label>
+            <xdstring-value>Pressure</xdstring-value>
+          </xdquantity-units>
+        </sdc4:ms-lu2w1avj9fic5wrmyftt9fhi>
+      </sdc4:ms-la7dfca8p7vtm3tjt8bh4vcj>
+      <sdc4:ms-yh4bxxuzv1lq8bxe1ufm66pi>
+        <sdc4:ms-vh2scyehy68pw7sbvzdg3cn9>
+          <label>Patient Height</label>
+          <xdquantity-value>171</xdquantity-value>
+          <xdquantity-units>
+            <label>Length/Distance (SI - Metric)</label>
+            <xdstring-value>Length/Distance (SI - Metric)</xdstring-value>
+          </xdquantity-units>
+        </sdc4:ms-vh2scyehy68pw7sbvzdg3cn9>
+      </sdc4:ms-yh4bxxuzv1lq8bxe1ufm66pi>
+      <sdc4:ms-r6l7mrp6b4bbkfohcxjnpfg2>
+        <sdc4:ms-s6oo99lbq85kfz0v5nqv9yaf>
+          <label>Patient Weight</label>
+          <xdquantity-value>90</xdquantity-value>
+          <xdquantity-units>
+            <label>Mass/Weight (SI - Metric)</label>
+            <xdstring-value>Mass/Weight (SI - Metric)</xdstring-value>
+          </xdquantity-units>
+        </sdc4:ms-s6oo99lbq85kfz0v5nqv9yaf>
+      </sdc4:ms-r6l7mrp6b4bbkfohcxjnpfg2>
+      <sdc4:ms-pi5atxwjac2myjhvy1yyo0ws>
+        <sdc4:ms-kokquuk73pm2ohlh4ftnu7wb>
+          <label>Systolic Blood Pressure</label>
+          <xdquantity-value>111</xdquantity-value>
+          <xdquantity-units>
+            <label>Pressure</label>
+            <xdstring-value>Pressure</xdstring-value>
+          </xdquantity-units>
+        </sdc4:ms-kokquuk73pm2ohlh4ftnu7wb>
+      </sdc4:ms-pi5atxwjac2myjhvy1yyo0ws>
+      <sdc4:ms-afoennq016oob2me7gjpucuc>
+        <sdc4:ms-iufcfze52lha16v84kccgxyh>
+          <label>Visit Date</label>
+          <xdtemporal-date>2025-01-13</xdtemporal-date>
+        </sdc4:ms-iufcfze52lha16v84kccgxyh>
+      </sdc4:ms-afoennq016oob2me7gjpucuc>
+    </sdc4:ms-hd9295k8o49j91lvgftul1a0>
+  </sdc4:ms-ygtbvvmzcw3ukfsg3axqry97>
+  <sdc4:ms-bc1ivx4vqa5gh3p5l1pjs1q2>
+    <label>Primary Care Assignment</label>
+      <!-- Element party-details not yet implemented -->
+  </sdc4:ms-bc1ivx4vqa5gh3p5l1pjs1q2>
+  <sdc4:ms-vyscq0dtz0hsigh2hbsvqajr>
+    <label>Healthcare Provider</label>
+      <!-- Element party-details not yet implemented -->
+  </sdc4:ms-vyscq0dtz0hsigh2hbsvqajr>
+</sdc4:dm-ftluo2nybgxmn7mawttoos20>

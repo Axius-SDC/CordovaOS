@@ -113,12 +113,16 @@ def generate():
         write_xml(os.path.join(OUTPUT_DIR, f"tx-{cuid_generator()}.xml"), build_instance(rec))
         count += 1
 
-    # Business tax filings
-    biz_names_brns = [
-        ("BIZ-001102", 2500000), ("BIZ-000847", 0),  # UNC exempt
+    # Business tax filings for all businesses
+    # Cast narrative businesses
+    narrative_brns = [
+        ("BIZ-001102", 2500000),  # Pacifico Meridional
+        ("BIZ-000847", 0),  # UNC exempt
         ("BIZ-000523", 0),  # Hospital exempt
+        ("BIZ-000101", 0),  # CNP exempt (government)
+        ("BIZ-000205", 0),  # Health Office exempt (government)
     ]
-    for brn, revenue in biz_names_brns:
+    for brn, revenue in narrative_brns:
         if revenue > 0:
             tax_amount = int(revenue * 0.12)
             rec = {
@@ -131,14 +135,33 @@ def generate():
             write_xml(os.path.join(OUTPUT_DIR, f"tx-{cuid_generator()}.xml"), build_instance(rec))
             count += 1
 
-    # Background tax filings
+    # Background business tax filings (~495 background businesses)
+    for i in range(495):
+        brn = f"BIZ-{i+2:06d}"  # offset past narrative BRNs
+        revenue = random.randint(50000, 3000000)
+        tax_amount = int(revenue * 0.12)
+        rec = {
+            "filing_id": next_filing(), "tax_type": "Business Tax",
+            "filing_date": random_date(2024, 2025),
+            "pay_amount": tax_amount, "taxable_income": revenue,
+            "tax_amount": tax_amount,
+            "src_id": brn, "src_domain": "Business Registry",
+            "pay_method": random.choice(PAY_METHODS),
+        }
+        write_xml(os.path.join(OUTPUT_DIR, f"tx-{cuid_generator()}.xml"), build_instance(rec))
+        count += 1
+
+    # Individual income tax for all employed working-age persons
     if not PERSONS:
         from civil_registry import generate as gen_cr
         gen_cr()
 
-    bg = [p for p in PERSONS if p.get("key", "").startswith("bg_")][:20]
-    for p in bg:
-        income = random.randint(18000, 60000)
+    working_age = [p for p in PERSONS if p.get("key", "").startswith("bg_")
+                   and 18 <= (2026 - int(p["dob"][:4])) <= 67]
+    # ~85% have income tax filings (same as employment rate)
+    filers = random.sample(working_age, k=int(len(working_age) * 0.85))
+    for p in filers:
+        income = random.randint(15000, 80000)
         tax_amount = int(income * 0.15)
         rec = {
             "filing_id": next_filing(), "tax_type": "Income Tax",
@@ -146,6 +169,7 @@ def generate():
             "pay_amount": tax_amount, "taxable_income": income,
             "tax_amount": tax_amount,
             "pay_method": random.choice(PAY_METHODS),
+            "pay_status": random.choice(["Paid", "Paid", "Paid", "Pending"]),
         }
         write_xml(os.path.join(OUTPUT_DIR, f"tx-{cuid_generator()}.xml"), build_instance(rec))
         count += 1

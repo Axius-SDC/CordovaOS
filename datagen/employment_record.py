@@ -47,8 +47,20 @@ CAST_JOBS = [
     ("prof_lucero", "Chemistry Department", "Professor", "Campoluz", "Brevina", "2008-09-01", 74000),
 ]
 
-BG_DEPARTMENTS = ["Operations", "Administration", "Sales", "Maintenance", "Security", "Finance", "IT"]
-BG_TITLES = ["Clerk", "Manager", "Technician", "Analyst", "Coordinator", "Supervisor", "Driver", "Worker"]
+BG_DEPARTMENTS = [
+    "Operations", "Administration", "Sales", "Maintenance", "Security",
+    "Finance", "IT", "Human Resources", "Marketing", "Production",
+    "Customer Service", "Quality Control", "Logistics", "Research",
+    "Procurement", "Legal", "Engineering", "Training",
+]
+BG_TITLES = [
+    "Clerk", "Manager", "Technician", "Analyst", "Coordinator",
+    "Supervisor", "Driver", "Worker", "Assistant", "Specialist",
+    "Director", "Associate", "Inspector", "Operator", "Receptionist",
+    "Accountant", "Sales Representative", "Foreman", "Secretary",
+    "Guard", "Mechanic", "Chef", "Server", "Teacher",
+    "Nurse", "Pharmacist", "Electrician", "Plumber", "Carpenter",
+]
 
 
 def build_instance(rec):
@@ -93,20 +105,23 @@ def generate():
         write_xml(os.path.join(OUTPUT_DIR, f"em-{cuid_generator()}.xml"), build_instance(rec))
         count += 1
 
-    # Background employment (~30)
+    # Background employment: all working-age (18-67) bg persons, ~85% employed
     if not PERSONS:
         from civil_registry import generate as gen_cr
         gen_cr()
 
-    bg = [p for p in PERSONS if p.get("key", "").startswith("bg_")][:30]
-    for p in bg:
+    working_age = [p for p in PERSONS if p.get("key", "").startswith("bg_")
+                   and 18 <= (2026 - int(p["dob"][:4])) <= 67]
+    # ~85% employment rate
+    employed = random.sample(working_age, k=int(len(working_age) * 0.85))
+    for p in employed:
         rec = {
             "dept": random.choice(BG_DEPARTMENTS),
             "title": random.choice(BG_TITLES),
             "city": p["city"], "province": p["province"],
-            "start_date": random_date(2010, 2024),
-            "salary": random.randint(18000, 60000),
-            "pay_freq": random.choice(["Monthly", "Bi-Weekly", "Weekly"]),
+            "start_date": random_date(2005, 2024),
+            "salary": random.randint(15000, 80000),
+            "pay_freq": random.choice(["Monthly", "Monthly", "Bi-Weekly", "Weekly"]),
         }
         write_xml(os.path.join(OUTPUT_DIR, f"em-{cuid_generator()}.xml"), build_instance(rec))
         count += 1
