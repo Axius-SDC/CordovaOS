@@ -1,0 +1,95 @@
+# Query 5: Family Economic Unit
+# Given a person, find their entire family unit (Civil Registry relationships),
+# then aggregate employment, property, tax, and education across 6 domains.
+# Input: Person's CID, e.g. "COR-AL01-271845"
+
+PREFIX sdc4:  <https://semanticdatacharter.com/ns/sdc4/>
+
+SELECT ?family_member_name ?family_member_cid ?relationship_type
+       ?domain ?detail_label ?detail_value
+WHERE {
+  # Step 1: Find the person's Civil Registry record
+  ?civil_dm a sdc4:DMType ;
+            sdc4:dm-label "Civil Registry" ;
+            sdc4:dm-data ?civil_cluster .
+  ?civil_cluster sdc4:hasComponent ?cid_comp .
+  ?cid_comp sdc4:label "National ID (CID)" ;
+            sdc4:xdstring-value "COR-AL01-271845" .
+
+  # Step 2: Get family relationships from the sub-cluster
+  ?civil_cluster sdc4:hasCluster ?fam_cluster .
+  ?fam_cluster sdc4:label "Family Relationships" .
+  ?fam_cluster sdc4:hasComponent ?rel_type_comp .
+  ?rel_type_comp sdc4:label "Relationship Type" ;
+                sdc4:xdtoken-value ?relationship_type .
+
+  # Related person identified via subject party
+  ?civil_dm sdc4:dm-subject ?related_party .
+  ?related_party sdc4:party-name ?family_member_name ;
+                 sdc4:party-id ?family_member_cid .
+  FILTER(?family_member_cid != "COR-AL01-271845")
+
+  # Step 3: Pull records across domains for each family member
+  {
+    # Employment
+    ?emp_dm a sdc4:DMType ;
+            sdc4:dm-label "Employment Record" ;
+            sdc4:dm-data ?emp_cluster ;
+            sdc4:dm-subject ?emp_subj .
+    ?emp_subj sdc4:party-id ?family_member_cid .
+    ?emp_cluster sdc4:hasComponent ?emp_detail .
+    ?emp_detail sdc4:label ?detail_label .
+    { ?emp_detail sdc4:xdstring-value ?detail_value }
+    UNION
+    { ?emp_detail sdc4:xdtoken-value ?detail_value }
+    BIND("Employment" AS ?domain)
+  }
+  UNION
+  {
+    # Property
+    ?prop_dm a sdc4:DMType ;
+             sdc4:dm-label "Property Registry" ;
+             sdc4:dm-data ?prop_cluster ;
+             sdc4:dm-subject ?prop_subj .
+    ?prop_subj sdc4:party-id ?family_member_cid .
+    ?prop_cluster sdc4:hasComponent ?prop_detail .
+    ?prop_detail sdc4:label ?detail_label .
+    { ?prop_detail sdc4:xdstring-value ?detail_value }
+    UNION
+    { ?prop_detail sdc4:xdtoken-value ?detail_value }
+    BIND("Property" AS ?domain)
+  }
+  UNION
+  {
+    # Tax
+    ?tax_dm a sdc4:DMType ;
+            sdc4:dm-label "Tax and Revenue Record" ;
+            sdc4:dm-data ?tax_cluster ;
+            sdc4:dm-subject ?tax_subj .
+    ?tax_subj sdc4:party-id ?family_member_cid .
+    ?tax_cluster sdc4:hasComponent ?tax_detail .
+    ?tax_detail sdc4:label ?detail_label .
+    { ?tax_detail sdc4:xdstring-value ?detail_value }
+    UNION
+    { ?tax_detail sdc4:xdtoken-value ?detail_value }
+    BIND("Tax & Revenue" AS ?domain)
+  }
+  UNION
+  {
+    # Education
+    ?edu_dm a sdc4:DMType ;
+            sdc4:dm-label "Education Record" ;
+            sdc4:dm-data ?edu_cluster .
+    ?edu_cluster sdc4:hasComponent ?edu_cid .
+    ?edu_cid sdc4:label "National ID (CID)" ;
+             sdc4:xdstring-value ?family_member_cid .
+    ?edu_cluster sdc4:hasComponent ?edu_detail .
+    ?edu_detail sdc4:label ?detail_label .
+    FILTER(?detail_label != "National ID (CID)")
+    { ?edu_detail sdc4:xdstring-value ?detail_value }
+    UNION
+    { ?edu_detail sdc4:xdtoken-value ?detail_value }
+    BIND("Education" AS ?domain)
+  }
+}
+ORDER BY ?family_member_name ?domain ?detail_label

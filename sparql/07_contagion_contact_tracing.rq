@@ -1,0 +1,175 @@
+# Query 7: Contagion Contact Tracing
+# Starting from patient zero Carlos Mendoza (COR-AL01-271845), trace through:
+#   Tier 1: Family contacts (Civil Registry)
+#   Tier 2: Vessel crew (Maritime Port Authority)
+#   Tier 3: Family member's coworkers (Employment)
+#   Tier 4: Students at family member's institution (Education)
+# Expected result: ~356 contacts (1 family + 17 crew + 26 coworkers + 312 students)
+# Input: Patient zero CID = "COR-AL01-271845"
+
+PREFIX sdc4:  <https://semanticdatacharter.com/ns/sdc4/>
+
+SELECT ?contact_name ?contact_id ?tier ?relationship ?domain ?location
+WHERE {
+  {
+    # -- TIER 1: Direct family contacts (Civil Registry) --
+    ?civil_dm a sdc4:DMType ;
+              sdc4:dm-label "Civil Registry" ;
+              sdc4:dm-data ?civil_cluster ;
+              sdc4:dm-subject ?related_party .
+
+    ?civil_cluster sdc4:hasComponent ?cid_comp .
+    ?cid_comp sdc4:label "National ID (CID)" ;
+              sdc4:xdstring-value "COR-AL01-271845" .
+
+    # Family relationships sub-cluster
+    ?civil_cluster sdc4:hasCluster ?fam_cluster .
+    ?fam_cluster sdc4:label "Family Relationships" .
+    ?fam_cluster sdc4:hasComponent ?rel_comp .
+    ?rel_comp sdc4:label "Relationship Type" ;
+             sdc4:xdtoken-value ?relationship .
+
+    # Related person identification
+    ?related_party sdc4:party-name ?contact_name ;
+                   sdc4:party-id ?contact_id .
+    FILTER(?contact_id != "COR-AL01-271845")
+
+    # Get their city
+    OPTIONAL {
+      ?fam_civil_dm a sdc4:DMType ;
+                    sdc4:dm-label "Civil Registry" ;
+                    sdc4:dm-data ?fam_civil_cluster .
+      ?fam_civil_cluster sdc4:hasComponent ?fam_cid .
+      ?fam_cid sdc4:label "National ID (CID)" ;
+               sdc4:xdstring-value ?contact_id .
+      ?fam_civil_cluster (sdc4:hasComponent|sdc4:hasCluster/sdc4:hasComponent) ?loc_comp .
+      ?loc_comp sdc4:label "City" ;
+               sdc4:xdtoken-value ?location .
+    }
+
+    BIND("Tier 1 - Family" AS ?tier)
+    BIND("Civil Registry" AS ?domain)
+  }
+  UNION
+  {
+    # -- TIER 2: Vessel crew (Maritime) --
+    # Find the port call where Carlos is associated
+    ?carlos_mar a sdc4:DMType ;
+                sdc4:dm-label "Maritime Port Authority" ;
+                sdc4:dm-data ?mar_cluster .
+
+    ?mar_cluster sdc4:hasComponent ?pcid .
+    ?pcid sdc4:label "Port Call ID" ;
+          sdc4:xdstring-value ?port_call_id .
+
+    # Carlos linked via party-id
+    ?carlos_mar sdc4:dm-subject ?carlos_party .
+    ?carlos_party sdc4:party-id "COR-AL01-271845" .
+
+    # Find all other crew for the same port call
+    ?other_mar a sdc4:DMType ;
+               sdc4:dm-label "Maritime Port Authority" ;
+               sdc4:dm-data ?other_cluster ;
+               sdc4:dm-subject ?crew_party .
+    ?other_cluster sdc4:hasComponent ?other_pcid .
+    ?other_pcid sdc4:label "Port Call ID" ;
+               sdc4:xdstring-value ?port_call_id .
+
+    ?crew_party sdc4:party-name ?contact_name ;
+                sdc4:party-id ?contact_id .
+    FILTER(?contact_id != "COR-AL01-271845")
+
+    BIND("Tier 2 - Crew" AS ?tier)
+    BIND("Sibling crew" AS ?relationship)
+    BIND("Maritime" AS ?domain)
+    BIND("MV Estrella del Sur, Porto Sereno" AS ?location)
+  }
+  UNION
+  {
+    # -- TIER 3: Family member's coworkers (Employment) --
+    # Re-traverse Civil Registry for family members
+    ?civil_dm2 a sdc4:DMType ;
+               sdc4:dm-label "Civil Registry" ;
+               sdc4:dm-data ?civil_cluster2 ;
+               sdc4:dm-subject ?family_party .
+    ?civil_cluster2 sdc4:hasComponent ?cid_comp2 .
+    ?cid_comp2 sdc4:label "National ID (CID)" ;
+               sdc4:xdstring-value "COR-AL01-271845" .
+    ?family_party sdc4:party-id ?family_cid .
+    FILTER(?family_cid != "COR-AL01-271845")
+
+    # Find family member's employer
+    ?fam_emp a sdc4:DMType ;
+             sdc4:dm-label "Employment Record" ;
+             sdc4:dm-subject ?fam_emp_subj ;
+             sdc4:dm-provider ?fam_employer .
+    ?fam_emp_subj sdc4:party-id ?family_cid .
+    ?fam_employer sdc4:party-id ?employer_brn .
+
+    # Find all other employees at the same employer
+    ?coworker_emp a sdc4:DMType ;
+                  sdc4:dm-label "Employment Record" ;
+                  sdc4:dm-subject ?coworker_subj ;
+                  sdc4:dm-provider ?same_employer ;
+                  sdc4:dm-data ?coworker_cluster .
+    ?same_employer sdc4:party-id ?employer_brn .
+    ?coworker_subj sdc4:party-name ?contact_name ;
+                   sdc4:party-id ?contact_id .
+    FILTER(?contact_id != ?family_cid)
+    FILTER(?contact_id != "COR-AL01-271845")
+
+    OPTIONAL {
+      ?coworker_cluster sdc4:hasComponent ?work_city .
+      ?work_city sdc4:label "City" ;
+                sdc4:xdtoken-value ?location .
+    }
+
+    BIND("Tier 3 - Coworker" AS ?tier)
+    BIND("Family member's coworker" AS ?relationship)
+    BIND("Employment" AS ?domain)
+  }
+  UNION
+  {
+    # -- TIER 4: Students at family member's institution (Education) --
+    # Re-find family member's employer BRN
+    ?civil_dm3 a sdc4:DMType ;
+               sdc4:dm-label "Civil Registry" ;
+               sdc4:dm-data ?civil_cluster3 ;
+               sdc4:dm-subject ?family_party3 .
+    ?civil_cluster3 sdc4:hasComponent ?cid_comp3 .
+    ?cid_comp3 sdc4:label "National ID (CID)" ;
+               sdc4:xdstring-value "COR-AL01-271845" .
+    ?family_party3 sdc4:party-id ?family_cid3 .
+    FILTER(?family_cid3 != "COR-AL01-271845")
+
+    ?fam_emp3 a sdc4:DMType ;
+              sdc4:dm-label "Employment Record" ;
+              sdc4:dm-subject ?fam_emp_subj3 ;
+              sdc4:dm-provider ?fam_employer3 .
+    ?fam_emp_subj3 sdc4:party-id ?family_cid3 .
+    ?fam_employer3 sdc4:party-id ?inst_brn .
+
+    # Find all students enrolled at the same institution
+    ?student_edu a sdc4:DMType ;
+                 sdc4:dm-label "Education Record" ;
+                 sdc4:dm-provider ?edu_inst ;
+                 sdc4:dm-subject ?student_subj ;
+                 sdc4:dm-data ?edu_cluster .
+    ?edu_inst sdc4:party-id ?inst_brn .
+    ?student_subj sdc4:party-name ?contact_name ;
+                  sdc4:party-id ?contact_id .
+    FILTER(?contact_id != ?family_cid3)
+    FILTER(?contact_id != "COR-AL01-271845")
+
+    OPTIONAL {
+      ?edu_cluster sdc4:hasComponent ?campus_city .
+      ?campus_city sdc4:label "City" ;
+                  sdc4:xdtoken-value ?location .
+    }
+
+    BIND("Tier 4 - Student" AS ?tier)
+    BIND("Institutional contact" AS ?relationship)
+    BIND("Education" AS ?domain)
+  }
+}
+ORDER BY ?tier ?contact_name

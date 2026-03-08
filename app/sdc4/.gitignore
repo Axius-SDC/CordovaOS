@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+/staticfiles/
+/mediafiles/
+
+# Database and service volumes (contains actual data)
+# Note: These are in mediafiles/ for easy backup
+# Remove from .gitignore if you want to version control test data
+mediafiles/postgres/
+mediafiles/graphdb/
+mediafiles/sirixdb/
+mediafiles/keycloak/
+
+# Keep .gitkeep files to ensure directories exist in template
+!mediafiles/graphdb/home/.gitkeep
+!mediafiles/graphdb/import/.gitkeep
+!mediafiles/sirixdb/.gitkeep
+!mediafiles/keycloak/import/.gitkeep
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

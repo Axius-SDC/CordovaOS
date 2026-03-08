@@ -1,0 +1,71 @@
+# Query 6: Institutional Impact
+# For an institution (e.g., Universidad Nacional de Cordova): find all
+# graduates/students, their current employers, employer tax contributions,
+# and businesses they have founded.
+# Input: Institution BRN, e.g. "BIZ-000847"
+
+PREFIX sdc4:  <https://semanticdatacharter.com/ns/sdc4/>
+
+SELECT ?category ?person_name ?person_cid ?employer_name ?employer_brn
+       ?tax_type ?business_founded
+WHERE {
+  # Step 1: Find all students/graduates at the institution
+  ?edu_dm a sdc4:DMType ;
+          sdc4:dm-label "Education Record" ;
+          sdc4:dm-data ?edu_cluster ;
+          sdc4:dm-provider ?institution ;
+          sdc4:dm-subject ?student .
+  ?institution sdc4:party-id "BIZ-000847" .
+  ?student sdc4:party-name ?person_name ;
+           sdc4:party-id ?person_cid .
+
+  {
+    # Step 2: Current employers of these graduates
+    ?emp_dm a sdc4:DMType ;
+            sdc4:dm-label "Employment Record" ;
+            sdc4:dm-data ?emp_cluster ;
+            sdc4:dm-subject ?emp_subj ;
+            sdc4:dm-provider ?employer .
+    ?emp_subj sdc4:party-id ?person_cid .
+    ?employer sdc4:party-name ?employer_name ;
+              sdc4:party-id ?employer_brn .
+
+    # Confirm current (no end date)
+    FILTER NOT EXISTS {
+      ?emp_cluster sdc4:hasComponent ?end_comp .
+      ?end_comp sdc4:label "End Date" ;
+               sdc4:xdtemporal-date ?end_date .
+    }
+
+    # Step 3: Employer's tax contributions
+    OPTIONAL {
+      ?tax_dm a sdc4:DMType ;
+              sdc4:dm-label "Tax and Revenue Record" ;
+              sdc4:dm-data ?tax_cluster ;
+              sdc4:dm-subject ?tax_subj .
+      ?tax_subj sdc4:party-id ?employer_brn .
+      ?tax_cluster sdc4:hasComponent ?tt_comp .
+      ?tt_comp sdc4:label "Tax Type" ;
+              sdc4:xdtoken-value ?tax_type .
+    }
+    BIND("Graduate Employment" AS ?category)
+    BIND("" AS ?business_founded)
+  }
+  UNION
+  {
+    # Step 4: Businesses founded by graduates
+    ?biz_dm a sdc4:DMType ;
+            sdc4:dm-label "Business Registry" ;
+            sdc4:dm-data ?biz_cluster ;
+            sdc4:dm-subject ?officer .
+    ?officer sdc4:party-id ?person_cid .
+    ?biz_cluster sdc4:hasComponent ?biz_name_comp .
+    ?biz_name_comp sdc4:label "Organization Name" ;
+                  sdc4:xdstring-value ?business_founded .
+    BIND("Business Founded" AS ?category)
+    BIND("" AS ?employer_name)
+    BIND("" AS ?employer_brn)
+    BIND("" AS ?tax_type)
+  }
+}
+ORDER BY ?category ?person_name

@@ -1,0 +1,78 @@
+# Query 2: Economic Network Analysis
+# Trace the economic network around a business: employees, tax filings,
+# port shipments, properties, officers and their affiliations.
+# Input: Business Registry Number, e.g. "BIZ-001102"
+
+PREFIX sdc4:  <https://semanticdatacharter.com/ns/sdc4/>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?relationship ?entity_name ?entity_id ?domain ?detail
+WHERE {
+  {
+    # Employees of this business
+    ?emp_dm a sdc4:DMType ;
+            sdc4:dm-label "Employment Record" ;
+            sdc4:dm-data ?emp_cluster ;
+            sdc4:dm-provider ?employer_party .
+    ?employer_party sdc4:party-id "BIZ-001102" .
+    ?emp_dm sdc4:dm-subject ?emp_subj .
+    ?emp_subj sdc4:party-name ?entity_name ;
+              sdc4:party-id ?entity_id .
+    OPTIONAL {
+      ?emp_cluster sdc4:hasComponent ?title_comp .
+      ?title_comp sdc4:label "Job Title" ;
+                  sdc4:xdstring-value ?detail .
+    }
+    BIND("Employee" AS ?relationship)
+    BIND("Employment" AS ?domain)
+  }
+  UNION
+  {
+    # Tax filings for this business
+    ?tax_dm a sdc4:DMType ;
+            sdc4:dm-label "Tax and Revenue Record" ;
+            sdc4:dm-data ?tax_cluster ;
+            sdc4:dm-subject ?tax_subj .
+    ?tax_subj sdc4:party-id "BIZ-001102" ;
+              sdc4:party-name ?entity_name .
+    ?tax_cluster sdc4:hasComponent ?type_comp .
+    ?type_comp sdc4:label "Tax Type" ;
+              sdc4:xdtoken-value ?detail .
+    BIND("Tax Filing" AS ?relationship)
+    BIND("BIZ-001102" AS ?entity_id)
+    BIND("Tax & Revenue" AS ?domain)
+  }
+  UNION
+  {
+    # Port calls where this business is the vessel operator
+    ?mar_dm a sdc4:DMType ;
+            sdc4:dm-label "Maritime Port Authority" ;
+            sdc4:dm-data ?mar_cluster ;
+            sdc4:dm-subject ?vessel_owner .
+    ?vessel_owner sdc4:party-id "BIZ-001102" ;
+                  sdc4:party-name ?entity_name .
+    ?mar_cluster sdc4:hasComponent ?vessel_comp .
+    ?vessel_comp sdc4:label "Vessel Name" ;
+                sdc4:xdstring-value ?detail .
+    BIND("Vessel Operation" AS ?relationship)
+    BIND("BIZ-001102" AS ?entity_id)
+    BIND("Maritime" AS ?domain)
+  }
+  UNION
+  {
+    # Business officers
+    ?biz_dm a sdc4:DMType ;
+            sdc4:dm-label "Business Registry" ;
+            sdc4:dm-data ?biz_cluster ;
+            sdc4:dm-subject ?officer .
+    ?biz_cluster sdc4:hasComponent ?brn_comp .
+    ?brn_comp sdc4:label "Business Registry Number" ;
+              sdc4:xdstring-value "BIZ-001102" .
+    ?officer sdc4:party-name ?entity_name ;
+             sdc4:party-id ?entity_id .
+    BIND("Officer/Director" AS ?relationship)
+    BIND("Business Registry" AS ?domain)
+    BIND("" AS ?detail)
+  }
+}
+ORDER BY ?relationship ?entity_name

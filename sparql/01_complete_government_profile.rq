@@ -1,0 +1,49 @@
+# Query 1: Complete Government Profile
+# All government touchpoints for a single person across all 10 domains.
+# Input: National ID (CID) value, e.g. "COR-AL01-271845"
+
+PREFIX sdc4:      <https://semanticdatacharter.com/ns/sdc4/>
+PREFIX sdc4-meta: <https://semanticdatacharter.com/ontology/sdc4-meta/>
+PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?domain ?record_id ?component_label ?value
+WHERE {
+  # Find the data model instance
+  ?dm a sdc4:DMType ;
+      sdc4:dm-label ?domain ;
+      sdc4:instance_id ?record_id ;
+      sdc4:dm-data ?root_cluster .
+
+  # Match records that contain this person's National ID
+  # Path A: via a National ID component inside the cluster
+  {
+    ?root_cluster sdc4:hasComponent ?cid_comp .
+    ?cid_comp sdc4:label "National ID (CID)" ;
+              sdc4:xdstring-value "COR-AL01-271845" .
+  }
+  UNION
+  # Path B: via the subject party-id
+  {
+    ?dm sdc4:dm-subject ?subj .
+    ?subj a sdc4:PartyType ;
+          sdc4:party-id "COR-AL01-271845" .
+  }
+
+  # Retrieve all components in this record (including sub-clusters)
+  ?root_cluster (sdc4:hasComponent|sdc4:hasCluster/sdc4:hasComponent) ?comp .
+  ?comp sdc4:label ?component_label .
+
+  # Get whatever value the component carries
+  OPTIONAL { ?comp sdc4:xdstring-value ?str_val }
+  OPTIONAL { ?comp sdc4:xdtoken-value ?tok_val }
+  OPTIONAL { ?comp sdc4:xdtemporal-date ?date_val }
+  OPTIONAL { ?comp sdc4:xdtemporal-datetime ?dt_val }
+  OPTIONAL { ?comp sdc4:xdcount-value ?count_val }
+  OPTIONAL { ?comp sdc4:xdquantity-value ?qty_val }
+
+  BIND(COALESCE(?str_val, ?tok_val, ?date_val, ?dt_val,
+                STR(?count_val), STR(?qty_val), "N/A") AS ?value)
+}
+ORDER BY ?domain ?component_label
