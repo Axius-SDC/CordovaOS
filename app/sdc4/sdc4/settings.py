@@ -193,6 +193,23 @@ CELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes
 CELERY_TASK_SOFT_TIME_LIMIT = 25 * 60  # 25 minutes
 
 # =============================================================================
+# SPARQL Query Cache (in-process, no external dependencies)
+# =============================================================================
+# LocMemCache is per-process; with gunicorn workers each gets its own cache.
+# Acceptable for a demo with static data — cache warms quickly per worker.
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'sparql-cache',
+        'TIMEOUT': 3600,  # 1 hour (data is static)
+        'OPTIONS': {
+            'MAX_ENTRIES': 100,
+        },
+    },
+}
+
+# =============================================================================
 # Enterprise Stack Configuration
 # =============================================================================
 
