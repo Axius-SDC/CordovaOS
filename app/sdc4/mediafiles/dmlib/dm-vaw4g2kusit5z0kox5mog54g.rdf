@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xml:base="https://semanticdatacharter.com/ns/sdc4/dm-vaw4g2kusit5z0kox5mog54g"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:sdc4-meta="https://semanticdatacharter.com/ontology/sdc4-meta/"
+>
+  <rdf:Description rdf:about="sdc4:mc-z8bsecpgj1lsk4bjoiwaqn40">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Tax Records Protocol</rdfs:label>
+    <rdfs:comment>Protocol reference for the Tax and Revenue Record data model. Informed by the OECD Common Reporting Standard (CRS) for automatic exchange of financial account information, the Standard for Automatic Exchange of Financial Account Information in Tax Matters, and national tax administration frameworks.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-tax_records_protocol"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q7842"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-vt5nh89ol3g5gj0oz35tl6y0">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Payment Status</rdfs:label>
+    <rdfs:comment>Whether the fee has been paid</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-payment_status"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/PaymentStatusType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-vt5nh89ol3g5gj0oz35tl6y0/xdtoken-value/Invoiced">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-vt5nh89ol3g5gj0oz35tl6y0"/>
+    <rdfs:label>Invoiced</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-q1sbdhsdk8glmdr8q1x3mlte">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdQuantityType"/>
+    <rdfs:label>Taxable Income</rdfs:label>
+    <rdfs:comment>Gross income minus allowable deductions for the filing period in Cordova Córdoba. Serves as the base amount for tax rate application.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-tzrg36a15rigk48nj20sbw4v">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdQuantityType"/>
+    <rdfs:label>Payment Amount</rdfs:label>
+    <rdfs:comment>Tax payment amount received in Cordova Córdoba. Records the actual amount remitted by the taxpayer for a specific tax filing period.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ekmjsthf4vkzcff9pwodqg5n">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Tax Assessment</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q851176"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-fqgaf7s7gkwi6j4hh88meudp">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Payment Method</rdfs:label>
+    <rdfs:comment>How the payment was made</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-payment_method"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1912682"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-hcfz6urx5c2ayvt8npjl0t4l">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Source Record ID</rdfs:label>
+    <rdfs:comment>Identifier of the originating record in the source domain (e.g., Port Call ID, Parcel Number, Incident Report Number)</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-source_record_id"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#hadPrimaryId"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-n4fhdacb4d2nu14s79t2pnq2">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdLinkType"/>
+    <rdfs:label>Tax Record Access Control</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/dpv#AccessControlMethod"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2861384"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/dpv"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Business Registry Number</rdfs:label>
+    <rdfs:comment>Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-business_registry_number"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q12047291"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/identifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>National ID (CID)</rdfs:label>
+    <rdfs:comment>Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-national_id_(cid)"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/identifier"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1140371"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-tj85qvj83sce9ny9l2e4oofv">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdIntervalType"/>
+    <rdfs:label>Non-negative Currency Amount</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hwmy9yj7cbhe94pjnq0n2oo5/xdtoken-value/Individual">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hwmy9yj7cbhe94pjnq0n2oo5"/>
+    <rdfs:label>Individual</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hh750k4i187bqzot5md216r1/xdtoken-value/Property%20Registry">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hh750k4i187bqzot5md216r1"/>
+    <rdfs:label>Property Registry</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ule5u2z3rjpa9pooaifwj1n3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>organization_identifier</rdfs:label>
+    <rdfs:comment>Official identifier for the organization (e.g., DUNS, tax ID).</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-organization_identifier"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q11378663"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/corporation">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>corporation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-zb956wxcjf1fccvqezivgrv7">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Tax Type</rdfs:label>
+    <rdfs:comment>Category of tax being filed</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-tax_type"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q130109687"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hh750k4i187bqzot5md216r1/xdtoken-value/Maritime">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hh750k4i187bqzot5md216r1"/>
+    <rdfs:label>Maritime</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-a2yks4n49m6gcgpa7qc9hyg1">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Filing ID</rdfs:label>
+    <rdfs:comment>Unique identifier for this tax filing</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-filing_id"/>
+    <rdfs:isDefinedBy rdf:resource="http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#IdentificationType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-gr4c7suzjf87x7svli8oiqi6-rr">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ReferenceRangeType"/>
+    <rdfs:label>Non-negative Currency Amount</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/MonetaryAmount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-hwmy9yj7cbhe94pjnq0n2oo5">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Tax Filing Status</rdfs:label>
+    <rdfs:comment>Filing status for annual Cordova tax returns.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-tax_filing_status"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-d0ctiowb4rjrat07u1erjhqe">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Tax Record Attestation Reason</rdfs:label>
+    <rdfs:comment>Reason for attesting this tax record</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-tax_record_attestation_reason"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q7918"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="dm-vaw4g2kusit5z0kox5mog54g">
+    <dc:title>Tax and Revenue Record</dc:title>
+    <dc:creator>Timothy Cook</dc:creator>
+    <dc:rights>CC-BY http://creativecommons.org/licenses/by/3.0/</dc:rights>
+    <dc:relation>None</dc:relation>
+    <dc:coverage>Universal</dc:coverage>
+    <dc:type>SDC Data Model (DM)</dc:type>
+    <dc:identifier>dm-vaw4g2kusit5z0kox5mog54g</dc:identifier>
+    <dc:description>Record all tax filings, assessments, and revenue collection for Cordova.</dc:description>
+    <dc:date>2026-03-07 20:03:44.798663+00:00</dc:date>
+    <dc:format>text/xml</dc:format>
+    <dc:language>en-US</dc:language>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-j4drl0w17dmw49maf3swgi18">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Payment</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1148747"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-hbosti8lu7hhu5liq7klammn">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+    <rdfs:label>Taxpayer</rdfs:label>
+    <rdfs:comment>Person or organization filing taxes. W3C PROV-DM Agent with Cordova CID (individual) and BRN (corporate) identifiers.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-taxpayer"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/Person"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1414816"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-zs9ciw4nypx4plo856h3m95d">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>person_family_name</rdfs:label>
+    <rdfs:comment>Family (last) name of the person agent.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-person_family_name"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q4116295"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-nesxtz8c5o665swc9lhvqkjj">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>PROV Agent Type</rdfs:label>
+    <rdfs:comment>Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prov_agent_type"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-vaw4g2kusit5z0kox5mog54g">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Dataset"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:DMType"/>
+    <rdfs:label>Tax and Revenue Record</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q182031"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q8161"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-xrjzng8dyk9eveyzi03abuhr">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>Payment Date</rdfs:label>
+    <rdfs:comment>Date payment was received</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-payment_date"/>
+    <rdfs:isDefinedBy rdf:resource="http://release.niem.gov/niem/niem-core/5.0/#PaymentDate"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-h809aepw09m83xjn7cav2f9m">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+    <rdfs:label>Tax Authority</rdfs:label>
+    <rdfs:comment>Government tax and revenue authority responsible for tax collection and compliance. W3C PROV-DM Agent (Organization).</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-tax_authority"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/GovernmentOrganization"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/Organization"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q573607"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-fqgaf7s7gkwi6j4hh88meudp/xdtoken-value/Cash">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-fqgaf7s7gkwi6j4hh88meudp"/>
+    <rdfs:label>Cash</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>person_given_name</rdfs:label>
+    <rdfs:comment>Given (first) name of the person agent.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-person_given_name"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q202444"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Organization">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+    <rdfs:label>Organization</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Person">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+    <rdfs:label>Person</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-u18l77xlj2omcbmnpi5j7fff">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Cordova Córdoba (COR)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/Currency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-bpqtzla39dwentygpwea8276">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>organization_type</rdfs:label>
+    <rdfs:comment>Type of organization.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-organization_type"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q17197366"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-zb956wxcjf1fccvqezivgrv7/xdtoken-value/Port%20Fee">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-zb956wxcjf1fccvqezivgrv7"/>
+    <rdfs:label>Port Fee</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hh750k4i187bqzot5md216r1/xdtoken-value/Business%20Registry">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hh750k4i187bqzot5md216r1"/>
+    <rdfs:label>Business Registry</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>organization_name</rdfs:label>
+    <rdfs:comment>Legal or official name of the organization.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-organization_name"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q168678"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-a5zovp9e53axdny09q97z8g2">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Tax and Revenue Workflow</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hwmy9yj7cbhe94pjnq0n2oo5/xdtoken-value/Business">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hwmy9yj7cbhe94pjnq0n2oo5"/>
+    <rdfs:label>Business</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/government">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>government</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-vt5nh89ol3g5gj0oz35tl6y0/xdtoken-value/Paid">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-vt5nh89ol3g5gj0oz35tl6y0"/>
+    <rdfs:label>Paid</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+    <rdfs:label>Digital Signature Proof</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q210824"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-zb956wxcjf1fccvqezivgrv7/xdtoken-value/Income%20Tax">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-zb956wxcjf1fccvqezivgrv7"/>
+    <rdfs:label>Income Tax</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-zb956wxcjf1fccvqezivgrv7/xdtoken-value/Fine%20Collection">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-zb956wxcjf1fccvqezivgrv7"/>
+    <rdfs:label>Fine Collection</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hh750k4i187bqzot5md216r1/xdtoken-value/Employment">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hh750k4i187bqzot5md216r1"/>
+    <rdfs:label>Employment</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hwmy9yj7cbhe94pjnq0n2oo5/xdtoken-value/Joint">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hwmy9yj7cbhe94pjnq0n2oo5"/>
+    <rdfs:label>Joint</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-zb956wxcjf1fccvqezivgrv7/xdtoken-value/Business%20Tax">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-zb956wxcjf1fccvqezivgrv7"/>
+    <rdfs:label>Business Tax</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>agent_id</rdfs:label>
+    <rdfs:comment>Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-agent_id"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q37882474"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-hh750k4i187bqzot5md216r1">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Source Domain</rdfs:label>
+    <rdfs:comment>The domain that generated this tax obligation</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-source_domain"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q7363"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-kwb0rpk8stxtaitb7k5hahlq">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Source Reference</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1713"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-fqgaf7s7gkwi6j4hh88meudp/xdtoken-value/Payroll%20Deduction">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-fqgaf7s7gkwi6j4hh88meudp"/>
+    <rdfs:label>Payroll Deduction</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-nmkf22x1u56a1odbvnaanf7t">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+    <rdfs:label>Tax Record Attested View</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/DigitalDocument"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q7918"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-zb956wxcjf1fccvqezivgrv7/xdtoken-value/Import%20Duty">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-zb956wxcjf1fccvqezivgrv7"/>
+    <rdfs:label>Import Duty</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/vendor">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>vendor</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-w9v4eo1l0wy5r65tqx5mjyxh">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Tax Filing</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2861384"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-zb956wxcjf1fccvqezivgrv7/xdtoken-value/Property%20Tax">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-zb956wxcjf1fccvqezivgrv7"/>
+    <rdfs:label>Property Tax</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-fqgaf7s7gkwi6j4hh88meudp/xdtoken-value/Check">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-fqgaf7s7gkwi6j4hh88meudp"/>
+    <rdfs:label>Check</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/SoftwareAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+    <rdfs:label>SoftwareAgent</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/department">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>department</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-yof5a3od754zakx00pldypiy">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Tax Authority</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-l5t2s5y0m4ybwom4ryndzaf9">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdQuantityType"/>
+    <rdfs:label>Tax Assessment Amount</rdfs:label>
+    <rdfs:comment>Total tax liability assessed for the filing period in Cordova Córdoba. Calculated by the Tax Authority based on taxable income, applicable rates, and deductions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-vt5nh89ol3g5gj0oz35tl6y0/xdtoken-value/Overdue">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-vt5nh89ol3g5gj0oz35tl6y0"/>
+    <rdfs:label>Overdue</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/nonprofit">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>nonprofit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/academic">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>academic</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-a4xeuo9t72trcpyzsmc144ze">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:AttestationType"/>
+    <rdfs:label>Tax Record Attestation</rdfs:label>
+    <rdfs:comment>Attestation for tax and revenue records. The tax authority attests to filing status, assessments, and payment records. W3C PROV-DM, GDPR/UN CEB.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-tax_record_attestation"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q116890704"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q484652"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-fqgaf7s7gkwi6j4hh88meudp/xdtoken-value/Bank%20Transfer">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-fqgaf7s7gkwi6j4hh88meudp"/>
+    <rdfs:label>Bank Transfer</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hh750k4i187bqzot5md216r1/xdtoken-value/Law%20Enforcement">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hh750k4i187bqzot5md216r1"/>
+    <rdfs:label>Law Enforcement</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hwmy9yj7cbhe94pjnq0n2oo5/xdtoken-value/Estate">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hwmy9yj7cbhe94pjnq0n2oo5"/>
+    <rdfs:label>Estate</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-cuazcmxeeo8osfybrgdpe9g7">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>Filing Date</rdfs:label>
+    <rdfs:comment>Date the filing was submitted</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-filing_date"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q107296042"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-h4eohjv7ao1ai3yanyjv6yzn">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Taxpayer</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+</rdf:RDF>

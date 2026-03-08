@@ -1,0 +1,239 @@
+@base <https://semanticdatacharter.com/ns/sdc4/dm-x250838l7oi6l3yavg9twc1i> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sdc4-meta: <https://semanticdatacharter.com/ontology/sdc4-meta/> .
+
+<dm-x250838l7oi6l3yavg9twc1i> dc:coverage "Universal" ;
+    dc:creator "Timothy Cook" ;
+    dc:date "2026-03-04 12:55:24.398258+00:00" ;
+    dc:description "Maintain the authoritative registry of business entities in Cordova." ;
+    dc:format "text/xml" ;
+    dc:identifier "dm-x250838l7oi6l3yavg9twc1i" ;
+    dc:language "en-US" ;
+    dc:relation "None" ;
+    dc:rights "CC-BY http://creativecommons.org/licenses/by/3.0/" ;
+    dc:title "Business Registry" ;
+    dc:type "SDC Data Model (DM)" .
+
+<sdc4:mc-4icea945ch5ff6h6g5leul2h> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Officer" ;
+    rdfs:isDefinedBy prov:Agent ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-a3v5ezi7h5cb7e0jkumtxtbm> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Appointment Date" ;
+    rdfs:comment "Date the officer was appointed to their role" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q96105089> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-appointment_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-d79vg5e2e4nnoxontodl9co7> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Officer" ;
+    rdfs:comment "Person acting as an officer of a business entity (director, secretary, etc.). W3C PROV-DM Agent (Person) with appointment lifecycle." ;
+    rdfs:isDefinedBy prov:Agent,
+        schema:Person,
+        <https://www.wikidata.org/wiki/Q11488158> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-business_officer> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-dr8983b4k8ngg02x78lrw560> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Registration Protocol" ;
+    rdfs:comment "Protocol reference for the Business Registry data model. Informed by the UNCITRAL Model Law on Business Registries, national commercial registration codes, and the UN/CEFACT Core Component Library for standardized business entity representation." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q132364> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q483908> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-business_registration_protocol> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ek5h6dsqpd9kz0l4mcckmxpt> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Address (Line 2)" ;
+    rdfs:comment "Street address line, building/apartment number, or P.O. Box number." ;
+    rdfs:isDefinedBy schema:streetAddress ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-address_(line_2)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-gu15c6jojx09jy9at1px0ufh> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Organization Tax ID" ;
+    rdfs:comment "A tax identification number (TIN/EIN) for an organization (NIEM nc:OrganizationTaxIdentification)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2397748> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_tax_id> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-gug5dhtqfv7exbgmm2raxpkq> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Digital Signature Proof" ;
+    rdfs:isDefinedBy <https://www.w3.org/TR/vc-data-model/#credentials>,
+        <https://www.wikidata.org/wiki/Q210824> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
+
+<sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "agent_id" ;
+    rdfs:comment "Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q37882474> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-agent_id> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_name" ;
+    rdfs:comment "Legal or official name of the organization." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q168678> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ksvt73kzyktevaumrh5djpe7> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Registry Access Control" ;
+    rdfs:isDefinedBy <https://w3id.org/dpv#AccessControlMethod> ;
+    rdfs:seeAlso <https://w3id.org/dpv>,
+        <https://w3id.org/dpv#CommercialData> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
+
+<sdc4:mc-kwf6pkljihy5mqd9h3bgie39> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Registry Attested View" ;
+    rdfs:isDefinedBy schema:DigitalDocument ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
+
+<sdc4:mc-l338k7nlvnq2am0owa19yxfc> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Address (Line 1)" ;
+    rdfs:comment "Street address line, building/apartment number, or P.O. Box number." ;
+    rdfs:isDefinedBy schema:streetAddress ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-address_(line_1)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-l69byv9b04bedudm59pfclvw> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Registry Office" ;
+    rdfs:isDefinedBy prov:Agent,
+        <https://niemopen.org/> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Registry Number" ;
+    rdfs:comment "Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions." ;
+    rdfs:isDefinedBy <http://schema.org/identifier>,
+        <https://www.wikidata.org/wiki/Q12047291> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-business_registry_number> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ndvtjiq0cke0q1trw58rtrq2> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "person_given_name" ;
+    rdfs:comment "Given (first) name of the person agent." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q202444> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-person_given_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-nfrvvp87c5imu5h9ups92kgy> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Cordova Phone Number" ;
+    rdfs:comment "Cordova national telephone number. Format: +99-PPP-NNN-NNNN where +99 is the country code and PPP is the area code. Area codes: Porto Sereno=100, Vistamar=110, Rioseco=120, Campoluz=200, Tierraverde=210, Montecara=220, Novaciudad=300, Piedrasol=310, Lagunavista=320." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q214995> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-cordova_phone_number> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "National ID (CID)" ;
+    rdfs:comment "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions." ;
+    rdfs:isDefinedBy <http://schema.org/identifier>,
+        <https://www.wikidata.org/wiki/Q1140371> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-national_id_(cid)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-oeh0dgfy3cytw829hkvuhjzv> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Registry Attestation Reason" ;
+    rdfs:comment "Reason for attesting this business registration" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q132364> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-business_registry_attestation_reason> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-pndsgg7zczz4bgnmh11g40ka> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Registry Office" ;
+    rdfs:comment "Government office responsible for maintaining the national business registry. W3C PROV-DM Agent (Organization)." ;
+    rdfs:isDefinedBy <http://schema.org/GovernmentOrganization>,
+        prov:Agent,
+        schema:Organization,
+        <https://www.wikidata.org/wiki/Q1423020> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-business_registry_office> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-qdjnidjfc0jk55qdw8mlw6ab> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Registry Workflow" ;
+    rdfs:isDefinedBy prov:Activity,
+        <https://niemopen.org/> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-sxtoz5f7z2jbvckaczaetrto> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Registry Attestation" ;
+    rdfs:comment "Attestation for business registration records. The registry office attests to the validity of the business entity registration. W3C PROV-DM, GDPR/UN CEB." ;
+    rdfs:isDefinedBy prov:Activity,
+        <https://www.w3.org/TR/vc-data-model/#credentials>,
+        <https://www.wikidata.org/wiki/Q116890704> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q4830453> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-business_registry_attestation> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:AttestationType> .
+
+<sdc4:mc-u8kz7rlfx1jjvkn7kgyao4tw> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Registered Address" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q65616986> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-uinddfbzfk0jdikmt1jwcq78> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Organization Name" ;
+    rdfs:comment "A name of an organization (NIEM nc:OrganizationName). BFO alignment: organization is a material entity (BFO:0000040) that is a collection of persons organized for a purpose." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q168678> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-uizvwh8uzojpwcih36rmk9ed> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Resignation Date" ;
+    rdfs:comment "Date the officer resigned or was removed. Null for current officers." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q121875611> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-resignation_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-ule5u2z3rjpa9pooaifwj1n3> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_identifier" ;
+    rdfs:comment "Official identifier for the organization (e.g., DUNS, tax ID)." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q11378663> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_identifier> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-uv8dwudhyf0gnmzgiyyd1sb1> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Entity" ;
+    rdfs:isDefinedBy <https://niemopen.org/>,
+        <https://www.wikidata.org/wiki/Q1269299> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-vo9jtmexkaaol3y657fm0xn8> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Registration Date" ;
+    rdfs:comment "Date the business was officially registered in Cordova" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q137375576> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-registration_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-x0na649n17if0ukul82cmrx3> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Cordova Email Address" ;
+    rdfs:comment "Email address using one of the Cordova national email providers. Providers: cordomail.co, novamail.co, portocorreo.co" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1273217> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-cordova_email_address> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-x250838l7oi6l3yavg9twc1i> a schema:Dataset,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Registry" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1423020> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q829135> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:DMType> .
+
+<sdc4:mc-zs9ciw4nypx4plo856h3m95d> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "person_family_name" ;
+    rdfs:comment "Family (last) name of the person agent." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q4116295> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-person_family_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+

@@ -1,0 +1,219 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "vaw4g2kusit5z0kox5mog54g",
+  "dm_type": "dm-vaw4g2kusit5z0kox5mog54g",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Tax and Revenue Record",
+    "dm_encoding": "utf-8",
+    "instance_id": "xhf3gaf88jvxm51e488v98g7",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-03-08T03:29:26.282518",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "w9v4eo1l0wy5r65tqx5mjyxh",
+    "label": "Tax Filing",
+    "type": "Cluster",
+    "description": "A single tax filing for an individual or business.\nBusiness Context: Links to Civil Registry (individual) or Business Registry (business)\nPurpose: Document a tax filing with type, period, amounts, and payment status",
+    "items": [
+      {
+        "component_id": "a2yks4n49m6gcgpa7qc9hyg1",
+        "label": "Filing ID",
+        "type": "XdString",
+        "description": "Unique identifier for this tax filing",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 50
+        }
+      },
+      {
+        "component_id": "hwmy9yj7cbhe94pjnq0n2oo5",
+        "label": "Tax Filing Status",
+        "type": "XdToken",
+        "description": "Filing status for annual Cordova tax returns.",
+        "value": "Individual",
+        "constraints": {
+          "enumerations": [
+            "Individual",
+            "Joint",
+            "Business",
+            "Estate"
+          ]
+        }
+      },
+      {
+        "component_id": "zb956wxcjf1fccvqezivgrv7",
+        "label": "Tax Type",
+        "type": "XdToken",
+        "description": "Category of tax being filed",
+        "value": "Property Tax",
+        "constraints": {
+          "enumerations": [
+            "Income Tax",
+            "Business Tax",
+            "Property Tax",
+            "Port Fee",
+            "Fine Collection",
+            "Import Duty"
+          ]
+        }
+      },
+      {
+        "component_id": "cuazcmxeeo8osfybrgdpe9g7",
+        "label": "Filing Date",
+        "type": "XdTemporal",
+        "description": "Date the filing was submitted",
+        "value": "2024-01-01T00:00:00"
+      },
+      {
+        "component_id": "j4drl0w17dmw49maf3swgi18",
+        "label": "Payment",
+        "type": "Cluster",
+        "description": "Payment records for the tax filing.\nPurpose: Track payments against tax assessments\nParent Cluster: Tax Filing",
+        "items": [
+          {
+            "component_id": "fqgaf7s7gkwi6j4hh88meudp",
+            "label": "Payment Method",
+            "type": "XdToken",
+            "description": "How the payment was made",
+            "value": "Cash",
+            "constraints": {
+              "enumerations": [
+                "Bank Transfer",
+                "Check",
+                "Cash",
+                "Payroll Deduction"
+              ]
+            }
+          },
+          {
+            "component_id": "vt5nh89ol3g5gj0oz35tl6y0",
+            "label": "Payment Status",
+            "type": "XdToken",
+            "description": "Whether the fee has been paid",
+            "value": "Overdue",
+            "constraints": {
+              "enumerations": [
+                "Paid",
+                "Invoiced",
+                "Overdue"
+              ]
+            }
+          },
+          {
+            "component_id": "tzrg36a15rigk48nj20sbw4v",
+            "label": "Payment Amount",
+            "type": "XdQuantity",
+            "description": "Tax payment amount received in Cordova Córdoba. Records the actual amount remitted by the taxpayer for a specific tax filing period.",
+            "value": 18.5,
+            "magnitude": {
+              "value": 18.5,
+              "min_inclusive": 0.0
+            },
+            "units": {
+              "label": "Cordova Córdoba (COR)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          },
+          {
+            "component_id": "xrjzng8dyk9eveyzi03abuhr",
+            "label": "Payment Date",
+            "type": "XdTemporal",
+            "description": "Date payment was received",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "kwb0rpk8stxtaitb7k5hahlq",
+        "label": "Source Reference",
+        "type": "Cluster",
+        "description": "Links this tax filing to its originating domain record.\nBusiness Context: Enables graph queries from tax revenue back to the source domain\nPurpose: Trace the provenance of tax revenue back to the originating transaction\nParent Cluster: Tax Filing",
+        "items": [
+          {
+            "component_id": "hcfz6urx5c2ayvt8npjl0t4l",
+            "label": "Source Record ID",
+            "type": "XdString",
+            "description": "Identifier of the originating record in the source domain (e.g., Port Call ID, Parcel Number, Incident Report Number)",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 50
+            }
+          },
+          {
+            "component_id": "hh750k4i187bqzot5md216r1",
+            "label": "Source Domain",
+            "type": "XdToken",
+            "description": "The domain that generated this tax obligation",
+            "value": "Maritime",
+            "constraints": {
+              "enumerations": [
+                "Employment",
+                "Business Registry",
+                "Property Registry",
+                "Maritime",
+                "Law Enforcement"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "component_id": "ekmjsthf4vkzcff9pwodqg5n",
+        "label": "Tax Assessment",
+        "type": "Cluster",
+        "description": "Tax amounts assessed and due.\nPurpose: Record the financial details of the tax assessment\nParent Cluster: Tax Filing",
+        "items": [
+          {
+            "component_id": "q1sbdhsdk8glmdr8q1x3mlte",
+            "label": "Taxable Income",
+            "type": "XdQuantity",
+            "description": "Gross income minus allowable deductions for the filing period in Cordova Córdoba. Serves as the base amount for tax rate application.",
+            "value": 65.8,
+            "magnitude": {
+              "value": 65.8,
+              "min_inclusive": 0.0
+            },
+            "units": {
+              "label": "Cordova Córdoba (COR)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          },
+          {
+            "component_id": "l5t2s5y0m4ybwom4ryndzaf9",
+            "label": "Tax Assessment Amount",
+            "type": "XdQuantity",
+            "description": "Total tax liability assessed for the filing period in Cordova Córdoba. Calculated by the Tax Authority based on taxable income, applicable rates, and deductions.",
+            "value": 84.7,
+            "magnitude": {
+              "value": 84.7,
+              "min_inclusive": 0.0
+            },
+            "units": {
+              "label": "Cordova Córdoba (COR)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "subject": {
+    "component_id": "hbosti8lu7hhu5liq7klammn",
+    "label": "Taxpayer",
+    "type": "Party",
+    "description": "Person or organization filing taxes. W3C PROV-DM Agent with Cordova CID (individual) and BRN (corporate) identifiers."
+  },
+  "provider": {
+    "component_id": "h809aepw09m83xjn7cav2f9m",
+    "label": "Tax Authority",
+    "type": "Party",
+    "description": "Government tax and revenue authority responsible for tax collection and compliance. W3C PROV-DM Agent (Organization)."
+  }
+}

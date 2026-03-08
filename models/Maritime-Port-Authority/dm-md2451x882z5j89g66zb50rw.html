@@ -1,0 +1,2616 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maritime Port Authority - Schema Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --sdc-primary: #2ca58d;
+            --sdc-primary-dark: #1a7a6b;
+            --sdc-primary-light: #dcfce7;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        .section-card { background: white; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 1.5rem; }
+        .info-grid { display: grid; grid-template-columns: 180px 1fr; gap: 1rem; }
+        .info-label { font-weight: 600; color: #4b5563; }
+        .info-value { color: #1f2937; }
+        .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; }
+        .badge-published { background-color: var(--sdc-primary-light); color: var(--sdc-primary-dark); }
+        .component-card { background: #f9fafb; border-left: 4px solid var(--sdc-primary); padding: 1rem; margin-bottom: 1rem; border-radius: 0.5rem; }
+        .constraint-item { background: #f3f4f6; padding: 0.5rem; margin: 0.25rem 0; border-radius: 0.375rem; font-size: 0.875rem; }
+        details { cursor: pointer; }
+        details summary { font-weight: 600; padding: 0.5rem; background: #f3f4f6; border-radius: 0.375rem; margin-bottom: 0.5rem; }
+        details[open] summary { background: var(--sdc-primary-light); color: var(--sdc-primary-dark); }
+        @media print { body { background: white; } .section-card { box-shadow: none; border: 1px solid #e5e7eb; } }
+    </style>
+</head>
+<body class="bg-gray-50 p-6">
+    <div class="max-w-5xl mx-auto">
+
+        <!-- Header Section -->
+        <header class="section-card mb-8">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h1 class="text-4xl font-bold mb-2" style="color: var(--sdc-primary);">Maritime Port Authority</h1>
+                    <span class="badge badge-published">Published</span>
+                </div>
+            </div>
+            <p class="text-lg text-gray-700 mt-4">Record all maritime operations, vessel movements, crew, cargo, and customs at Porto Sereno.</p>
+        </header>
+
+        <!-- Metadata Section -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Metadata</h2>
+            <div class="info-grid">
+
+                <div class="info-label">Identifier:</div>
+                <div class="info-value">dm-md2451x882z5j89g66zb50rw</div>
+
+                <div class="info-label">Author:</div>
+                <div class="info-value">Timothy Cook</div>
+
+                <div class="info-label">Published:</div>
+                <div class="info-value">2026-03-07 20:03</div>
+
+                <div class="info-label">Language:</div>
+                <div class="info-value">en-US</div>
+
+                <div class="info-label">Format:</div>
+                <div class="info-value">text/xml</div>
+
+                <div class="info-label">Rights:</div>
+                <div class="info-value">CC-BY http://creativecommons.org/licenses/by/3.0/</div>
+
+                <div class="info-label">Coverage:</div>
+                <div class="info-value">Universal</div>
+
+                <div class="info-label">Relation:</div>
+                <div class="info-value">None</div>
+
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Downloads</h2>
+            <div class="flex flex-wrap gap-3">
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Maritime_Port_Authority/dm-md2451x882z5j89g66zb50rw.xsd"
+                   class="inline-block px-4 py-2 text-white rounded-lg hover:opacity-90 transition"
+                   style="background-color: #3b82f6;">
+                    XSD Schema
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Maritime_Port_Authority/dm-md2451x882z5j89g66zb50rw.xml"
+                   class="inline-block px-4 py-2 text-white rounded-lg hover:opacity-90 transition"
+                   style="background-color: #10b981;">
+                    XML Instance
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Maritime_Port_Authority/dm-md2451x882z5j89g66zb50rw-instance.json"
+                   class="inline-block px-4 py-2 text-white rounded-lg hover:opacity-90 transition"
+                   style="background-color: #f59e0b;">
+                    JSON Instance
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Maritime_Port_Authority/dm-md2451x882z5j89g66zb50rw.jsonld"
+                   class="inline-block px-4 py-2 text-white rounded-lg hover:opacity-90 transition"
+                   style="background-color: #f97316;">
+                    JSON-LD Schema
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Schema Overview -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Schema Overview</h2>
+            <div class="mb-4">
+                <p class="text-gray-700 mb-2"><strong>Target Namespace:</strong> https://semanticdatacharter.com/ns/sdc4/</p>
+                <p class="text-gray-700 mb-2"><strong>Total Components:</strong> 66</p>
+                <p class="text-gray-700 mb-2"><strong>Encoding:</strong> utf-8</p>
+            </div>
+
+            <details class="mt-4">
+                <summary>Component Type Breakdown</summary>
+                <div class="mt-3 grid grid-cols-2 gap-2">
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">Clusters:</span> 7
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdBoolean:</span> 4
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdLink:</span> 1
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdString:</span> 28
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdToken:</span> 11
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdFile:</span> 2
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdCount:</span> 3
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdQuantity:</span> 6
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdTemporal:</span> 4
+                    </div>
+
+                </div>
+            </details>
+        </section>
+
+        <!-- Component Documentation -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Components</h2>
+            <p class="text-gray-600 mb-4">Detailed documentation of all components in this data model.</p>
+
+            <details class="mt-4">
+                <summary>Clusters (7)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Cargo Manifest</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ibb8e7c8equpeqiv5wxrxxll</p>
+
+                        <p class="text-gray-700 mt-2">Cargo loaded or discharged during this port call.
+Purpose: Record cargo movements for customs, safety, and tax purposes
+Parent Cluster: Port Call Record</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q105851048" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q105851048</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx" target="_blank" class="text-blue-600 hover:underline">https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Crew Member</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> zf9y55c89jybgi19734g0ls5</p>
+
+                        <p class="text-gray-700 mt-2">Party details for crew members aboard a vessel. W3C PROV-DM agent identity (Person) with maritime-specific attributes (passport, nationality, shore leave, medical needs).</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank" class="text-blue-600 hover:underline">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx" target="_blank" class="text-blue-600 hover:underline">https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q45199" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q45199</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Maritime Port Workflow</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> bzdgd652adlbc1v287s8yrm1</p>
+
+                        <p class="text-gray-700 mt-2">Workflow for maritime port operations lifecycle. States: Pre-Arrival Notification → Clearance Pending → Berthed → Cargo Operations → Inspected → Departed. Tracks vessel arrival through departure.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx" target="_blank" class="text-blue-600 hover:underline">https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q652812" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q652812</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Activity" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Activity</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q627335" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q627335</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Port Authority</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ub2t6n4xolr6nhc3oj50fnla</p>
+
+                        <p class="text-gray-700 mt-2">Details cluster for the maritime port authority managing vessel arrivals and departures. W3C PROV-DM Agent (Organization).</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank" class="text-blue-600 hover:underline">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q652812" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q652812</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Port Call Record</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> i8cjmvihdces5rqvb2snqwmo</p>
+
+                        <p class="text-gray-700 mt-2">A single port call — one vessel arriving at and departing from Porto Sereno.
+Business Context: Primary operational record for port authority. Links to cargo, crew, fees, and customs.
+Purpose: Document a vessel's visit to Porto Sereno with all associated records</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx" target="_blank" class="text-blue-600 hover:underline">https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/Report" target="_blank" class="text-blue-600 hover:underline">http://schema.org/Report</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Port Fees</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> emtr91lypy400ttgzz2ti4et</p>
+
+                        <p class="text-gray-700 mt-2">Financial charges for this port call. Links to Tax &amp; Revenue domain.
+Purpose: Record port fees for billing, tax reporting, and financial auditing
+Parent Cluster: Port Call Record</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#Fee" target="_blank" class="text-blue-600 hover:underline">http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#Fee</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx" target="_blank" class="text-blue-600 hover:underline">https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Vessel Owner/Operator (PROV Agent)</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> nyjf6osy2dsn9jtmp7zvvmtx</p>
+
+                        <p class="text-gray-700 mt-2">Details cluster for the vessel owner or operator organization. W3C PROV-DM Agent (Organization) with FOAF and Dublin Core identifiers from ProvGov.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank" class="text-blue-600 hover:underline">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx" target="_blank" class="text-blue-600 hover:underline">https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q500251" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q500251</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Boolean Components (4)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Crew Shore Leave Requested</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdBoolean</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> cl7genh6if8u2s7cl7pt0ij2</p>
+
+                        <p class="text-gray-700 mt-2">Whether crew shore leave is requested</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>True Values:</strong> Yes, True, Y
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>False Values:</strong> No, False, N
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Boolean" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Boolean</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1062380" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1062380</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Customs Declaration Filed</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdBoolean</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> wxjyv4dmwb0rws14mn5xy3ju</p>
+
+                        <p class="text-gray-700 mt-2">Whether customs declaration has been filed</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>True Values:</strong> Yes, True, Y
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>False Values:</strong> No, False, N
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q847595" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q847595</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Boolean" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Boolean</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Hazardous Cargo</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdBoolean</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> n7x39orkbwjejdf8r93trlaa</p>
+
+                        <p class="text-gray-700 mt-2">Whether vessel is carrying hazardous materials</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>True Values:</strong> Yes, True, Y
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>False Values:</strong> No, False, N
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q13537426" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q13537426</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Boolean" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Boolean</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Medical Assistance Required</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdBoolean</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ptc8dfx1oxeycopfjof6vjab</p>
+
+                        <p class="text-gray-700 mt-2">Whether medical assistance is needed upon arrival</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>True Values:</strong> Yes, True, Y
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>False Values:</strong> No, False, N
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q26839421" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q26839421</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Boolean" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Boolean</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Link Components (1)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Maritime Port Access Control</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdLink</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> wqs7c6hl5vgq6f4ub25th5tr</p>
+
+                        <p class="text-gray-700 mt-2">Access control policy for maritime port data using W3C Data Privacy Vocabulary. Enforces role-based access for port authority officials, shipping agents, and customs officers. Governs dpv:CommercialData including vessel manifests, cargo declarations, and port clearance records.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q185799" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q185799</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://w3id.org/dpv#AccessControlMethod" target="_blank" class="text-blue-600 hover:underline">https://w3id.org/dpv#AccessControlMethod</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://w3id.org/dpv" target="_blank" class="text-blue-600 hover:underline">https://w3id.org/dpv</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://w3id.org/dpv#CommercialData" target="_blank" class="text-blue-600 hover:underline">https://w3id.org/dpv#CommercialData</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1348006" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1348006</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>String Components (28)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">agent_id</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> hhfnj5hd1yzt252jfq5pdjj1</p>
+
+                        <p class="text-gray-700 mt-2">Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 255
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q37882474" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q37882474</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Berth Assignment</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> lnjzw0racjo2oxol5w82tp1y</p>
+
+                        <p class="text-gray-700 mt-2">Planned berth assignment for a vessel at port.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q57964937" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q57964937</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Business Registry Number</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> l8f0m7op4xhrxqy1jrnvbuly</p>
+
+                        <p class="text-gray-700 mt-2">Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q12047291" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q12047291</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">http://schema.org/identifier</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Cargo Description</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> z7zqo56erimvk8dqvl07ihfr</p>
+
+                        <p class="text-gray-700 mt-2">Description of cargo contents</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://release.niem.gov/niem/niem-core/6.0/niem-core.owl#CargoDescriptionText" target="_blank" class="text-blue-600 hover:underline">http://release.niem.gov/niem/niem-core/6.0/niem-core.owl#CargoDescriptionText</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/description" target="_blank" class="text-blue-600 hover:underline">https://schema.org/description</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Cargo Destination</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> an9kafb2l1enwh20ngvo1n7y</p>
+
+                        <p class="text-gray-700 mt-2">Final destination for this cargo (may be Porto Sereno or transshipment)</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q5254083" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q5254083</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/description" target="_blank" class="text-blue-600 hover:underline">https://schema.org/description</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Cargo Origin</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> rt510ljj3vz05fxwcm85i990</p>
+
+                        <p class="text-gray-700 mt-2">Port or country of origin for this cargo</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/description" target="_blank" class="text-blue-600 hover:underline">https://schema.org/description</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/shippingOrigin" target="_blank" class="text-blue-600 hover:underline">http://schema.org/shippingOrigin</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">contact_name</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> a127ihw8xbfbl24lbcvnspv0</p>
+
+                        <p class="text-gray-700 mt-2">Contact name for the service.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://www.w3.org/ns/dcat#contactPoint" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/dcat#contactPoint</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">contact_phone</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> pdykwzsug7pfncjsrry73x1s</p>
+
+                        <p class="text-gray-700 mt-2">Primary contact phone number.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 7
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 20
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q214995" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q214995</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Customs Reference Number</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> dp1dkn09vydj2ss6ho37kyhv</p>
+
+                        <p class="text-gray-700 mt-2">Customs filing reference number</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">http://schema.org/identifier</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Flag State</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> k7a0poa5c7co38oc65i6jppo</p>
+
+                        <p class="text-gray-700 mt-2">Country of vessel registration (flag state)</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q3591841" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q3591841</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/name" target="_blank" class="text-blue-600 hover:underline">https://schema.org/name</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Job Title</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> wfws1oj1kgeaijciw7wkzdi7</p>
+
+                        <p class="text-gray-700 mt-2">Current job title or occupation</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q828803" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q828803</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Maritime Attestation Reason</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> uczf4drfrkpue41q9x8ffvja</p>
+
+                        <p class="text-gray-700 mt-2">Reason for attesting this maritime document</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q132364" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q132364</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q44782" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q44782</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Maritime Port Protocol</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> c75jy9i3wmcbaewdoeivt2v5</p>
+
+                        <p class="text-gray-700 mt-2">Protocol reference for the Maritime Port Authority data model. Informed by the IMO Convention on Facilitation of International Maritime Traffic (FAL Convention), the International Ship and Port Facility Security Code (ISPS), and the UN/CEFACT Single Window standards for port operations.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q132364" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q132364</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q7884" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q7884</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q317623" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q317623</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">National ID (CID)</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> nj7s1gk45tfgyooxpz0qaha3</p>
+
+                        <p class="text-gray-700 mt-2">Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">http://schema.org/identifier</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1140371" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1140371</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Next Port of Call</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> gxt0t3cs4u6v5ob55qkc6ha0</p>
+
+                        <p class="text-gray-700 mt-2">Next port after this arrival</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q119382961" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q119382961</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">organization_contact_email</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> oqzw4x05dkkucs1yzkisbqgy</p>
+
+                        <p class="text-gray-700 mt-2">Contact email for the organization.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 5
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 254
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q125471304" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q125471304</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">organization_identifier</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ule5u2z3rjpa9pooaifwj1n3</p>
+
+                        <p class="text-gray-700 mt-2">Official identifier for the organization (e.g., DUNS, tax ID).</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 255
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q11378663" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q11378663</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">organization_name</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ifw5zfe4oiijbxjn1ylc2wm3</p>
+
+                        <p class="text-gray-700 mt-2">Legal or official name of the organization.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q168678" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q168678</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Passport Number</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> nd1w50yuam0i6f0u1ixoj8fr</p>
+
+                        <p class="text-gray-700 mt-2">Passport number (XdString)</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q784177" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q784177</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">person_family_name</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> zs9ciw4nypx4plo856h3m95d</p>
+
+                        <p class="text-gray-700 mt-2">Family (last) name of the person agent.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q4116295" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q4116295</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">person_given_name</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ndvtjiq0cke0q1trw58rtrq2</p>
+
+                        <p class="text-gray-700 mt-2">Given (first) name of the person agent.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q202444" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q202444</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Port Call ID</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> pbfvurdvio38rt6puifhippe</p>
+
+                        <p class="text-gray-700 mt-2">Unique identifier for this port call record. Assigned by Porto Sereno Port Authority.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://purl.obolibrary.org/obo/BFO_0000009" target="_blank" class="text-blue-600 hover:underline">http://purl.obolibrary.org/obo/BFO_0000009</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Port of Departure</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> s0qun9zalf98t3ffsefh34rj</p>
+
+                        <p class="text-gray-700 mt-2">Last port of departure</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q76455346" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q76455346</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Vessel Call Sign</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> qlqdwbglcq4v3rg8i8iy7dk0</p>
+
+                        <p class="text-gray-700 mt-2">Vessel radio call sign</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q23581925" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q23581925</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Vessel IMO Number</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ycy71t767wlyqma97o82r2m9</p>
+
+                        <p class="text-gray-700 mt-2">International Maritime Organization (IMO) number</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1970938" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1970938</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Vessel MMSI</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> cl1hiqht7tm42a8lh8c4c1hz</p>
+
+                        <p class="text-gray-700 mt-2">Maritime Mobile Service Identity (MMSI) number</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1795701" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1795701</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Vessel Name</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> s5zeapfup3xdj6wbqjjkf1nd</p>
+
+                        <p class="text-gray-700 mt-2">Name of vessel (XdString)</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q56351075" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q56351075</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Voyage Number</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> bmoixtn8r8pu62gbgd1tl8qn</p>
+
+                        <p class="text-gray-700 mt-2">Voyage or trip identifier</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q130365988" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q130365988</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Token Components (11)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Cargo Type</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> bfaa3m23ye8q0qphv0x24if6</p>
+
+                        <p class="text-gray-700 mt-2">Primary type of cargo</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> containers, bulk_dry, bulk_liquid, vehicles, general_cargo ...
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q319224" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q319224</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Country Code</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> olte7w6y3ktfuu6kqk0e6dv9</p>
+
+                        <p class="text-gray-700 mt-2">ISO 3166-1 alpha-2 country codes</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> US, CA, MX, GB, FR ...
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1140221" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1140221</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Crew Participation Function</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ni5dvv9ic8uus9dl8fsqtzy8</p>
+
+                        <p class="text-gray-700 mt-2">Function of the crew member in the port call (e.g., Bridge Officer, Engineer).</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> bridge-officer, chief-engineer, deck-officer, chief-steward, bosun ...
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Crew Participation Mode</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> dz2jxiusj9162dwokwuh5n8x</p>
+
+                        <p class="text-gray-700 mt-2">Mode of crew participation in the port call (e.g., on board, shore-based remote).</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> on-board, shore-based-remote, in-person-at-port
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Fee Type</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> wvfcfa6u4ers75egrbi25x9l</p>
+
+                        <p class="text-gray-700 mt-2">Type of port fee assessed</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Berth Fee, Pilotage, Tug Service, Cargo Handling, Customs Processing ...
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1912682" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1912682</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Hazmat Class</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> gqbvto3l0o5e6uorrgjwdig2</p>
+
+                        <p class="text-gray-700 mt-2">Hazardous material classes on board (if applicable)</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> 1-explosives,2-gases,3-flammable-liquids,4-flammable-solids,5-oxidizers,6-toxic,7-radioactive,8-corrosives,9-misc
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">organization_type</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> bpqtzla39dwentygpwea8276</p>
+
+                        <p class="text-gray-700 mt-2">Type of organization.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> corporation, government, nonprofit, academic, department ...
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q17197366" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q17197366</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Payment Status</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> vt5nh89ol3g5gj0oz35tl6y0</p>
+
+                        <p class="text-gray-700 mt-2">Whether the fee has been paid</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Paid, Invoiced, Overdue
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/PaymentStatusType" target="_blank" class="text-blue-600 hover:underline">http://schema.org/PaymentStatusType</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">PROV Agent Type</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> nesxtz8c5o665swc9lhvqkjj</p>
+
+                        <p class="text-gray-700 mt-2">Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Person, Organization, SoftwareAgent
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">PROV Role Type</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> u1i23yha2rvz5nbxjz3l8x48</p>
+
+                        <p class="text-gray-700 mt-2">Functional roles that agents, entities, or activities can assume within provenance relationships.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Author, Publisher, Contributor, Custodian, Reviewer ...
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.w3.org/TR/prov-o/#qualifiedInvolvement" target="_blank" class="text-blue-600 hover:underline">https://www.w3.org/TR/prov-o/#qualifiedInvolvement</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Purpose of Call</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> lyh7y1in5j9ka5cxk2zw2qdj</p>
+
+                        <p class="text-gray-700 mt-2">Purpose of port call</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> load_cargo, discharge_cargo, load_discharge, refuel, provisions ...
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q20729393" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q20729393</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>File Components (2)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Digital Signature Proof</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdFile</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> gug5dhtqfv7exbgmm2raxpkq</p>
+
+                        <p class="text-gray-700 mt-2">Cryptographic proof of attestation (digital signature)</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.w3.org/TR/vc-data-model/#credentials" target="_blank" class="text-blue-600 hover:underline">https://www.w3.org/TR/vc-data-model/#credentials</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q210824" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q210824</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://www.w3.org/ns/prov#Entity" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Entity</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Maritime Attested View</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdFile</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> oghg470klqpuiaglq79ktmpy</p>
+
+                        <p class="text-gray-700 mt-2">Attested view of a maritime port authority document</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/DigitalDocument" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DigitalDocument</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q44782" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q44782</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://www.w3.org/ns/prov#Entity" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Entity</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Count Components (3)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Container Count</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdCount</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> y5se2qd3r6xx6pz8t7d8cqvf</p>
+
+                        <p class="text-gray-700 mt-2">Number of shipping containers in the cargo consignment measured in TEU (Twenty-foot Equivalent Units). Used for berth planning, crane allocation, and port throughput statistics.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Cordova : Twenty-foot Equivalent Units (TEU)
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q380340" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q380340</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1366867" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1366867</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Crew Count</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdCount</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> p5qzw565y1dm5f3s6lg2q3ft</p>
+
+                        <p class="text-gray-700 mt-2">Total number of crew members aboard the vessel at time of port call. Required for immigration processing, shore leave management, and emergency muster planning.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum (inclusive):</strong> 1.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Cordova : Persons
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Integer" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Integer</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q2513968" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q2513968</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Passenger Count</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdCount</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> x720xrlooqij75bk26pvzrtl</p>
+
+                        <p class="text-gray-700 mt-2">Total number of passengers aboard the vessel at time of port call. Required for immigration processing, disembarkation planning, and port facility capacity management. Zero for cargo-only vessels.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Cordova : Persons
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q319604" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q319604</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Integer" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Integer</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Quantity Components (6)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Cargo Weight</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdQuantity</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> lqqypwp22ohzb0ud3wq81r9s</p>
+
+                        <p class="text-gray-700 mt-2">Total weight of the cargo consignment in kilograms as declared on the bill of lading. Required for vessel stability calculations and port crane scheduling.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Default : Mass/Weight (SI - Metric)
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q319224" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q319224</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx" target="_blank" class="text-blue-600 hover:underline">https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Number" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Number</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Port Fee Amount</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdQuantity</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> e92ud8io69rm826g9b1jrrgh</p>
+
+                        <p class="text-gray-700 mt-2">Fee amount assessed for port services in Cordova Córdoba. Includes berth rental, pilotage, tug assistance, waste disposal, and other harbor charges per the Porto Sereno fee schedule.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Cordova : Cordova Córdoba (COR)
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/MonetaryAmount" target="_blank" class="text-blue-600 hover:underline">https://schema.org/MonetaryAmount</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://qudt.org/vocab/quantitykind/Currency" target="_blank" class="text-blue-600 hover:underline">http://qudt.org/vocab/quantitykind/Currency</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1194642" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1194642</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Vessel Draft</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdQuantity</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> xccdfbmuqcy5yzv2n6ef0hrs</p>
+
+                        <p class="text-gray-700 mt-2">Maximum draft (depth below waterline) of the vessel in meters at time of port entry. Critical for channel and berth depth clearance at Porto Sereno harbor.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum (inclusive):</strong> 0.50000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum (inclusive):</strong> 30.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Default : Length/Distance (SI - Metric)
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q863247" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q863247</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx" target="_blank" class="text-blue-600 hover:underline">https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Number" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Number</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Vessel Gross Tonnage</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdQuantity</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> wtph0sqt244h38lyzf9ot1op</p>
+
+                        <p class="text-gray-700 mt-2">Vessel's gross tonnage as registered under the IMO Tonnage Convention (1969). Determines applicable port fees, pilotage requirements, and berth assignment at Porto Sereno.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum (inclusive):</strong> 1.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Cordova : Gross Tonnage
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q217792" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q217792</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx" target="_blank" class="text-blue-600 hover:underline">https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Number" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Number</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Vessel Length Overall</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdQuantity</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> jnxxwzl046rkmkbtm33naueu</p>
+
+                        <p class="text-gray-700 mt-2">Length overall (LOA) of the vessel in meters, measured from the foremost to the aftermost point. Required for berth assignment and pilotage planning at Porto Sereno.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum (inclusive):</strong> 1.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum (inclusive):</strong> 500.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Default : Length/Distance (SI - Metric)
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx" target="_blank" class="text-blue-600 hover:underline">https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1424988" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1424988</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Number" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Number</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Vessel Net Tonnage</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdQuantity</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> lh0ufebnovngzzgfggud6ae6</p>
+
+                        <p class="text-gray-700 mt-2">Vessel's net tonnage as registered under the IMO Tonnage Convention (1969). Represents usable cargo capacity. Used for canal transit fees and some port tariff calculations.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum (inclusive):</strong> 1.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Cordova : Net Tonnage
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx" target="_blank" class="text-blue-600 hover:underline">https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q756933" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q756933</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Number" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Number</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Temporal Components (4)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Arrival Date/Time</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdTemporal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> upvi6l9pyb4f0p4vfunietsw</p>
+
+                        <p class="text-gray-700 mt-2">Date and time the vessel arrived at Porto Sereno</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#ArrivalDateTime" target="_blank" class="text-blue-600 hover:underline">http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#ArrivalDateTime</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Date" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Date</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/DateTime" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DateTime</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Birth Date</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdTemporal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> g3k6bj8su3rvkszg2700dhyh</p>
+
+                        <p class="text-gray-700 mt-2">Date of birth of the participant. UMLS CUI: C0421451 (Date of birth). LOINC: 21112-8 (Birth date).</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q2389905" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q2389905</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/DateTime" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DateTime</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Departure Date/Time</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdTemporal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> sqpcl9uk7sze8bdqxxqwuqrn</p>
+
+                        <p class="text-gray-700 mt-2">Date and time the vessel departed Porto Sereno. Null if vessel is currently in port.
+
+---</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q52943" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q52943</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Date" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Date</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/DateTime" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DateTime</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Fee Date</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdTemporal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> zub98dao6k8cbbhsddzoq62w</p>
+
+                        <p class="text-gray-700 mt-2">Date the fee was assessed</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://release.niem.gov/niem/niem-core/6.0/AssessmentDate" target="_blank" class="text-blue-600 hover:underline">http://release.niem.gov/niem/niem-core/6.0/AssessmentDate</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Date" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Date</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+        </section>
+
+        <!-- Semantic Links -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Semantic Links</h2>
+            <p class="text-gray-600 mb-4">Ontology mappings and semantic relationships defined in this schema.</p>
+
+            <div class="mt-3">
+                <h3 class="font-semibold mb-2">Data Model Level Links:</h3>
+
+                <div class="constraint-item mb-2">
+                    <strong>skos:exactMatch:</strong>
+                    <a href="http://www.w3.org/ns/dcat#Dataset" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/dcat#Dataset</a>
+                </div>
+
+                <div class="constraint-item mb-2">
+                    <strong>rdfs:seeAlso:</strong>
+                    <a href="https://www.wikidata.org/wiki/Q131332" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q131332</a>
+                </div>
+
+                <div class="constraint-item mb-2">
+                    <strong>rdfs:isDefinedBy:</strong>
+                    <a href="https://www.wikidata.org/wiki/Q187939" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q187939</a>
+                </div>
+
+                <div class="constraint-item mb-2">
+                    <strong>rdf:type:</strong>
+                    <a href="https://schema.org/Dataset" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Dataset</a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Usage Guide -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Usage Guide</h2>
+
+            <h3 class="font-semibold text-lg mb-2">How to Use This Schema</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
+                <li>Use the XSD schema file to validate XML instances conforming to this data model.</li>
+                <li>Refer to the XML instance file for an example of valid data structure.</li>
+                <li>Use the JSON file for JSON-based data exchange formats.</li>
+                <li>Use the SHACL shapes file (dm-md2451x882z5j89g66zb50rw_shacl.ttl) to validate RDF data.</li>
+            </ol>
+
+            <h3 class="font-semibold text-lg mb-2">Validation</h3>
+            <p class="text-gray-700 mb-2">
+                <strong>Recommended:</strong> <a href="https://pypi.org/project/sdcvalidator/" target="_blank" class="text-blue-600 hover:underline">sdcvalidator</a> -
+                A Python XML Schema validator with SDC extensions including ExceptionValue injection for documenting
+                justified constraint violations.
+            </p>
+            <p class="text-gray-700 mb-4">
+                <strong>Alternatives:</strong> Standard XML validators like Xerces and Saxon EE support XSD 1.1 validation
+                but do not include SDC-specific extension capabilities.
+            </p>
+
+            <h3 class="font-semibold text-lg mb-2">SHACL Validation</h3>
+            <p class="text-gray-700 mb-4">For detailed instructions on using the SHACL shapes file, refer to the SHACL_README.md included in the complete package.</p>
+
+            <h3 class="font-semibold text-lg mb-2">Example Data</h3>
+            <p class="text-gray-700">
+                The XML instance file (<code>dm-md2451x882z5j89g66zb50rw.xml</code>) provides a complete example
+                showing the structure and data types used in this schema.
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="section-card text-center text-gray-600 text-sm">
+            <p>Generated by SDCStudio on 2026-03-08 03:27:43</p>
+            <p class="mt-1">Semantic Data Charter (SDC4) Compliant Schema</p>
+        </footer>
+    </div>
+</body>
+</html>

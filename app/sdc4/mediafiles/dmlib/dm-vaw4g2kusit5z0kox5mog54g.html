@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax and Revenue Record - Schema Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --sdc-primary: #2ca58d;
+            --sdc-primary-dark: #1a7a6b;
+            --sdc-primary-light: #dcfce7;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        .section-card { background: white; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 1.5rem; }
+        .info-grid { display: grid; grid-template-columns: 180px 1fr; gap: 1rem; }
+        .info-label { font-weight: 600; color: #4b5563; }
+        .info-value { color: #1f2937; }
+        .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; }
+        .badge-published { background-color: var(--sdc-primary-light); color: var(--sdc-primary-dark); }
+        .component-card { background: #f9fafb; border-left: 4px solid var(--sdc-primary); padding: 1rem; margin-bottom: 1rem; border-radius: 0.5rem; }
+        .constraint-item { background: #f3f4f6; padding: 0.5rem; margin: 0.25rem 0; border-radius: 0.375rem; font-size: 0.875rem; }
+        details { cursor: pointer; }
+        details summary { font-weight: 600; padding: 0.5rem; background: #f3f4f6; border-radius: 0.375rem; margin-bottom: 0.5rem; }
+        details[open] summary { background: var(--sdc-primary-light); color: var(--sdc-primary-dark); }
+        @media print { body { background: white; } .section-card { box-shadow: none; border: 1px solid #e5e7eb; } }
+    </style>
+</head>
+<body class="bg-gray-50 p-6">
+    <div class="max-w-5xl mx-auto">
+
+        <!-- Header Section -->
+        <header class="section-card mb-8">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h1 class="text-4xl font-bold mb-2" style="color: var(--sdc-primary);">Tax and Revenue Record</h1>
+                    <span class="badge badge-published">Published</span>
+                </div>
+            </div>
+            <p class="text-lg text-gray-700 mt-4">Record all tax filings, assessments, and revenue collection for Cordova.</p>
+        </header>
+
+        <!-- Metadata Section -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Metadata</h2>
+            <div class="info-grid">
+
+                <div class="info-label">Identifier:</div>
+                <div class="info-value">dm-vaw4g2kusit5z0kox5mog54g</div>
+
+                <div class="info-label">Author:</div>
+                <div class="info-value">Timothy Cook</div>
+
+                <div class="info-label">Published:</div>
+                <div class="info-value">2026-03-07 20:03</div>
+
+                <div class="info-label">Language:</div>
+                <div class="info-value">en-US</div>
+
+                <div class="info-label">Format:</div>
+                <div class="info-value">text/xml</div>
+
+                <div class="info-label">Rights:</div>
+                <div class="info-value">CC-BY http://creativecommons.org/licenses/by/3.0/</div>
+
+                <div class="info-label">Coverage:</div>
+                <div class="info-value">Universal</div>
+
+                <div class="info-label">Relation:</div>
+                <div class="info-value">None</div>
+
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Downloads</h2>
+            <div class="flex flex-wrap gap-3">
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Tax_and_Revenue_Record/dm-vaw4g2kusit5z0kox5mog54g.xsd"
+                   class="inline-block px-4 py-2 text-white rounded-lg hover:opacity-90 transition"
+                   style="background-color: #3b82f6;">
+                    XSD Schema
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Tax_and_Revenue_Record/dm-vaw4g2kusit5z0kox5mog54g.xml"
+                   class="inline-block px-4 py-2 text-white rounded-lg hover:opacity-90 transition"
+                   style="background-color: #10b981;">
+                    XML Instance
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Tax_and_Revenue_Record/dm-vaw4g2kusit5z0kox5mog54g-instance.json"
+                   class="inline-block px-4 py-2 text-white rounded-lg hover:opacity-90 transition"
+                   style="background-color: #f59e0b;">
+                    JSON Instance
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Tax_and_Revenue_Record/dm-vaw4g2kusit5z0kox5mog54g.jsonld"
+                   class="inline-block px-4 py-2 text-white rounded-lg hover:opacity-90 transition"
+                   style="background-color: #f97316;">
+                    JSON-LD Schema
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Schema Overview -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Schema Overview</h2>
+            <div class="mb-4">
+                <p class="text-gray-700 mb-2"><strong>Target Namespace:</strong> https://semanticdatacharter.com/ns/sdc4/</p>
+                <p class="text-gray-700 mb-2"><strong>Total Components:</strong> 33</p>
+                <p class="text-gray-700 mb-2"><strong>Encoding:</strong> utf-8</p>
+            </div>
+
+            <details class="mt-4">
+                <summary>Component Type Breakdown</summary>
+                <div class="mt-3 grid grid-cols-2 gap-2">
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">Clusters:</span> 7
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdLink:</span> 1
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdString:</span> 11
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdToken:</span> 7
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdFile:</span> 2
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdQuantity:</span> 3
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdTemporal:</span> 2
+                    </div>
+
+                </div>
+            </details>
+        </section>
+
+        <!-- Component Documentation -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Components</h2>
+            <p class="text-gray-600 mb-4">Detailed documentation of all components in this data model.</p>
+
+            <details class="mt-4">
+                <summary>Clusters (7)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Payment</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> j4drl0w17dmw49maf3swgi18</p>
+
+                        <p class="text-gray-700 mt-2">Payment records for the tax filing.
+Purpose: Track payments against tax assessments
+Parent Cluster: Tax Filing</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1148747" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1148747</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Source Reference</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> kwb0rpk8stxtaitb7k5hahlq</p>
+
+                        <p class="text-gray-700 mt-2">Links this tax filing to its originating domain record.
+Business Context: Enables graph queries from tax revenue back to the source domain
+Purpose: Trace the provenance of tax revenue back to the originating transaction
+Parent Cluster: Tax Filing</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1713" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1713</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Tax and Revenue Workflow</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> a5zovp9e53axdny09q97z8g2</p>
+
+                        <p class="text-gray-700 mt-2">Workflow for tax record lifecycle. States: Assessment Issued → Filing Period Open → Filed → Under Review → Accepted → Payment Due → Paid → Delinquent → Appealed. Tracks filing and collection.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://niemopen.org/" target="_blank" class="text-blue-600 hover:underline">https://niemopen.org/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Activity" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Activity</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q20850377" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q20850377</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q627335" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q627335</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Tax Assessment</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ekmjsthf4vkzcff9pwodqg5n</p>
+
+                        <p class="text-gray-700 mt-2">Tax amounts assessed and due.
+Purpose: Record the financial details of the tax assessment
+Parent Cluster: Tax Filing</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q851176" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q851176</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Tax Authority</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> yof5a3od754zakx00pldypiy</p>
+
+                        <p class="text-gray-700 mt-2">Details cluster for the government tax and revenue authority. W3C PROV-DM Agent (Organization).</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank" class="text-blue-600 hover:underline">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://niemopen.org/" target="_blank" class="text-blue-600 hover:underline">https://niemopen.org/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q20850377" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q20850377</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Tax Filing</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> w9v4eo1l0wy5r65tqx5mjyxh</p>
+
+                        <p class="text-gray-700 mt-2">A single tax filing for an individual or business.
+Business Context: Links to Civil Registry (individual) or Business Registry (business)
+Purpose: Document a tax filing with type, period, amounts, and payment status</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://niemopen.org/" target="_blank" class="text-blue-600 hover:underline">https://niemopen.org/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q2861384" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q2861384</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Taxpayer</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> h4eohjv7ao1ai3yanyjv6yzn</p>
+
+                        <p class="text-gray-700 mt-2">Party details for the taxpayer (person or organization). W3C PROV-DM agent identity supporting both Person (CID) and Organization (BRN) with Cordova national identifiers.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank" class="text-blue-600 hover:underline">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/Person" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Person</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Link Components (1)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Tax Record Access Control</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdLink</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> n4fhdacb4d2nu14s79t2pnq2</p>
+
+                        <p class="text-gray-700 mt-2">Access control policy for tax records using W3C Data Privacy Vocabulary. Enforces role-based access for tax authority officials, taxpayers, and authorized accountants. Governs dpv:FinancialData including tax returns, assessments, and payment records.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q185799" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q185799</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://w3id.org/dpv#AccessControlMethod" target="_blank" class="text-blue-600 hover:underline">https://w3id.org/dpv#AccessControlMethod</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://w3id.org/dpv" target="_blank" class="text-blue-600 hover:underline">https://w3id.org/dpv</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://w3id.org/dpv#FinancialData" target="_blank" class="text-blue-600 hover:underline">https://w3id.org/dpv#FinancialData</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q2861384" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q2861384</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>String Components (11)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">agent_id</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> hhfnj5hd1yzt252jfq5pdjj1</p>
+
+                        <p class="text-gray-700 mt-2">Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 255
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q37882474" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q37882474</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Business Registry Number</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> l8f0m7op4xhrxqy1jrnvbuly</p>
+
+                        <p class="text-gray-700 mt-2">Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q12047291" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q12047291</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">http://schema.org/identifier</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Filing ID</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> a2yks4n49m6gcgpa7qc9hyg1</p>
+
+                        <p class="text-gray-700 mt-2">Unique identifier for this tax filing</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#IdentificationType" target="_blank" class="text-blue-600 hover:underline">http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#IdentificationType</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">National ID (CID)</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> nj7s1gk45tfgyooxpz0qaha3</p>
+
+                        <p class="text-gray-700 mt-2">Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">http://schema.org/identifier</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1140371" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1140371</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">organization_identifier</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ule5u2z3rjpa9pooaifwj1n3</p>
+
+                        <p class="text-gray-700 mt-2">Official identifier for the organization (e.g., DUNS, tax ID).</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 255
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q11378663" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q11378663</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">organization_name</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ifw5zfe4oiijbxjn1ylc2wm3</p>
+
+                        <p class="text-gray-700 mt-2">Legal or official name of the organization.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q168678" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q168678</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">person_family_name</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> zs9ciw4nypx4plo856h3m95d</p>
+
+                        <p class="text-gray-700 mt-2">Family (last) name of the person agent.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q4116295" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q4116295</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">person_given_name</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ndvtjiq0cke0q1trw58rtrq2</p>
+
+                        <p class="text-gray-700 mt-2">Given (first) name of the person agent.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q202444" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q202444</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Source Record ID</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> hcfz6urx5c2ayvt8npjl0t4l</p>
+
+                        <p class="text-gray-700 mt-2">Identifier of the originating record in the source domain (e.g., Port Call ID, Parcel Number, Incident Report Number)</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#hadPrimaryId" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#hadPrimaryId</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Tax Record Attestation Reason</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> d0ctiowb4rjrat07u1erjhqe</p>
+
+                        <p class="text-gray-700 mt-2">Reason for attesting this tax record</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q132364" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q132364</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q7918" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q7918</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Tax Records Protocol</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> z8bsecpgj1lsk4bjoiwaqn40</p>
+
+                        <p class="text-gray-700 mt-2">Protocol reference for the Tax and Revenue Record data model. Informed by the OECD Common Reporting Standard (CRS) for automatic exchange of financial account information, the Standard for Automatic Exchange of Financial Account Information in Tax Matters, and national tax administration frameworks.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q132364" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q132364</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q7842" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q7842</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q317623" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q317623</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Token Components (7)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">organization_type</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> bpqtzla39dwentygpwea8276</p>
+
+                        <p class="text-gray-700 mt-2">Type of organization.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> corporation, government, nonprofit, academic, department ...
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q17197366" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q17197366</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Payment Method</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> fqgaf7s7gkwi6j4hh88meudp</p>
+
+                        <p class="text-gray-700 mt-2">How the payment was made</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Bank Transfer, Check, Cash, Payroll Deduction
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1912682" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1912682</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Payment Status</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> vt5nh89ol3g5gj0oz35tl6y0</p>
+
+                        <p class="text-gray-700 mt-2">Whether the fee has been paid</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Paid, Invoiced, Overdue
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/PaymentStatusType" target="_blank" class="text-blue-600 hover:underline">http://schema.org/PaymentStatusType</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">PROV Agent Type</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> nesxtz8c5o665swc9lhvqkjj</p>
+
+                        <p class="text-gray-700 mt-2">Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Person, Organization, SoftwareAgent
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Source Domain</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> hh750k4i187bqzot5md216r1</p>
+
+                        <p class="text-gray-700 mt-2">The domain that generated this tax obligation</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Employment, Business Registry, Property Registry, Maritime, Law Enforcement
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q7363" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q7363</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Tax Filing Status</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> hwmy9yj7cbhe94pjnq0n2oo5</p>
+
+                        <p class="text-gray-700 mt-2">Filing status for annual Cordova tax returns.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Individual, Joint, Business, Estate
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q5448453" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q5448453</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Tax Type</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> zb956wxcjf1fccvqezivgrv7</p>
+
+                        <p class="text-gray-700 mt-2">Category of tax being filed</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Income Tax, Business Tax, Property Tax, Port Fee, Fine Collection ...
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q130109687" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q130109687</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>File Components (2)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Digital Signature Proof</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdFile</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> gug5dhtqfv7exbgmm2raxpkq</p>
+
+                        <p class="text-gray-700 mt-2">Cryptographic proof of attestation (digital signature)</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.w3.org/TR/vc-data-model/#credentials" target="_blank" class="text-blue-600 hover:underline">https://www.w3.org/TR/vc-data-model/#credentials</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q210824" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q210824</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://www.w3.org/ns/prov#Entity" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Entity</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Tax Record Attested View</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdFile</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> nmkf22x1u56a1odbvnaanf7t</p>
+
+                        <p class="text-gray-700 mt-2">Attested view of a tax record document</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/DigitalDocument" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DigitalDocument</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q7918" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q7918</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://www.w3.org/ns/prov#Entity" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Entity</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Quantity Components (3)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Payment Amount</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdQuantity</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> tzrg36a15rigk48nj20sbw4v</p>
+
+                        <p class="text-gray-700 mt-2">Tax payment amount received in Cordova Córdoba. Records the actual amount remitted by the taxpayer for a specific tax filing period.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Cordova : Cordova Córdoba (COR)
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/MonetaryAmount" target="_blank" class="text-blue-600 hover:underline">https://schema.org/MonetaryAmount</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://qudt.org/vocab/quantitykind/Currency" target="_blank" class="text-blue-600 hover:underline">http://qudt.org/vocab/quantitykind/Currency</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1148747" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1148747</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Taxable Income</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdQuantity</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> q1sbdhsdk8glmdr8q1x3mlte</p>
+
+                        <p class="text-gray-700 mt-2">Gross income minus allowable deductions for the filing period in Cordova Córdoba. Serves as the base amount for tax rate application.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Cordova : Cordova Córdoba (COR)
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/MonetaryAmount" target="_blank" class="text-blue-600 hover:underline">https://schema.org/MonetaryAmount</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://qudt.org/vocab/quantitykind/Currency" target="_blank" class="text-blue-600 hover:underline">http://qudt.org/vocab/quantitykind/Currency</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q786825" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q786825</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Tax Assessment Amount</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdQuantity</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> l5t2s5y0m4ybwom4ryndzaf9</p>
+
+                        <p class="text-gray-700 mt-2">Total tax liability assessed for the filing period in Cordova Córdoba. Calculated by the Tax Authority based on taxable income, applicable rates, and deductions.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Cordova : Cordova Córdoba (COR)
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/MonetaryAmount" target="_blank" class="text-blue-600 hover:underline">https://schema.org/MonetaryAmount</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://qudt.org/vocab/quantitykind/Currency" target="_blank" class="text-blue-600 hover:underline">http://qudt.org/vocab/quantitykind/Currency</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q7688416" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q7688416</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Temporal Components (2)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Filing Date</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdTemporal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> cuazcmxeeo8osfybrgdpe9g7</p>
+
+                        <p class="text-gray-700 mt-2">Date the filing was submitted</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Date" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Date</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q107296042" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q107296042</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Payment Date</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdTemporal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> xrjzng8dyk9eveyzi03abuhr</p>
+
+                        <p class="text-gray-700 mt-2">Date payment was received</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://release.niem.gov/niem/niem-core/5.0/#PaymentDate" target="_blank" class="text-blue-600 hover:underline">http://release.niem.gov/niem/niem-core/5.0/#PaymentDate</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Date" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Date</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+        </section>
+
+        <!-- Semantic Links -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Semantic Links</h2>
+            <p class="text-gray-600 mb-4">Ontology mappings and semantic relationships defined in this schema.</p>
+
+            <div class="mt-3">
+                <h3 class="font-semibold mb-2">Data Model Level Links:</h3>
+
+                <div class="constraint-item mb-2">
+                    <strong>skos:exactMatch:</strong>
+                    <a href="http://www.w3.org/ns/dcat#Dataset" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/dcat#Dataset</a>
+                </div>
+
+                <div class="constraint-item mb-2">
+                    <strong>rdfs:seeAlso:</strong>
+                    <a href="https://www.wikidata.org/wiki/Q182031" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q182031</a>
+                </div>
+
+                <div class="constraint-item mb-2">
+                    <strong>rdf:type:</strong>
+                    <a href="https://schema.org/Dataset" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Dataset</a>
+                </div>
+
+                <div class="constraint-item mb-2">
+                    <strong>rdfs:isDefinedBy:</strong>
+                    <a href="https://www.wikidata.org/wiki/Q8161" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q8161</a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Usage Guide -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Usage Guide</h2>
+
+            <h3 class="font-semibold text-lg mb-2">How to Use This Schema</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
+                <li>Use the XSD schema file to validate XML instances conforming to this data model.</li>
+                <li>Refer to the XML instance file for an example of valid data structure.</li>
+                <li>Use the JSON file for JSON-based data exchange formats.</li>
+                <li>Use the SHACL shapes file (dm-vaw4g2kusit5z0kox5mog54g_shacl.ttl) to validate RDF data.</li>
+            </ol>
+
+            <h3 class="font-semibold text-lg mb-2">Validation</h3>
+            <p class="text-gray-700 mb-2">
+                <strong>Recommended:</strong> <a href="https://pypi.org/project/sdcvalidator/" target="_blank" class="text-blue-600 hover:underline">sdcvalidator</a> -
+                A Python XML Schema validator with SDC extensions including ExceptionValue injection for documenting
+                justified constraint violations.
+            </p>
+            <p class="text-gray-700 mb-4">
+                <strong>Alternatives:</strong> Standard XML validators like Xerces and Saxon EE support XSD 1.1 validation
+                but do not include SDC-specific extension capabilities.
+            </p>
+
+            <h3 class="font-semibold text-lg mb-2">SHACL Validation</h3>
+            <p class="text-gray-700 mb-4">For detailed instructions on using the SHACL shapes file, refer to the SHACL_README.md included in the complete package.</p>
+
+            <h3 class="font-semibold text-lg mb-2">Example Data</h3>
+            <p class="text-gray-700">
+                The XML instance file (<code>dm-vaw4g2kusit5z0kox5mog54g.xml</code>) provides a complete example
+                showing the structure and data types used in this schema.
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="section-card text-center text-gray-600 text-sm">
+            <p>Generated by SDCStudio on 2026-03-08 03:29:29</p>
+            <p class="mt-1">Semantic Data Charter (SDC4) Compliant Schema</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law Enforcement Record - Schema Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --sdc-primary: #2ca58d;
+            --sdc-primary-dark: #1a7a6b;
+            --sdc-primary-light: #dcfce7;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        .section-card { background: white; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 1.5rem; }
+        .info-grid { display: grid; grid-template-columns: 180px 1fr; gap: 1rem; }
+        .info-label { font-weight: 600; color: #4b5563; }
+        .info-value { color: #1f2937; }
+        .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; }
+        .badge-published { background-color: var(--sdc-primary-light); color: var(--sdc-primary-dark); }
+        .component-card { background: #f9fafb; border-left: 4px solid var(--sdc-primary); padding: 1rem; margin-bottom: 1rem; border-radius: 0.5rem; }
+        .constraint-item { background: #f3f4f6; padding: 0.5rem; margin: 0.25rem 0; border-radius: 0.375rem; font-size: 0.875rem; }
+        details { cursor: pointer; }
+        details summary { font-weight: 600; padding: 0.5rem; background: #f3f4f6; border-radius: 0.375rem; margin-bottom: 0.5rem; }
+        details[open] summary { background: var(--sdc-primary-light); color: var(--sdc-primary-dark); }
+        @media print { body { background: white; } .section-card { box-shadow: none; border: 1px solid #e5e7eb; } }
+    </style>
+</head>
+<body class="bg-gray-50 p-6">
+    <div class="max-w-5xl mx-auto">
+
+        <!-- Header Section -->
+        <header class="section-card mb-8">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h1 class="text-4xl font-bold mb-2" style="color: var(--sdc-primary);">Law Enforcement Record</h1>
+                    <span class="badge badge-published">Published</span>
+                </div>
+            </div>
+            <p class="text-lg text-gray-700 mt-4">Record public safety incidents, charges, and dispositions in Cordova.</p>
+        </header>
+
+        <!-- Metadata Section -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Metadata</h2>
+            <div class="info-grid">
+
+                <div class="info-label">Identifier:</div>
+                <div class="info-value">dm-yh0opq0bnu6y9y56oukg92uf</div>
+
+                <div class="info-label">Author:</div>
+                <div class="info-value">Timothy Cook</div>
+
+                <div class="info-label">Published:</div>
+                <div class="info-value">2026-03-07 20:03</div>
+
+                <div class="info-label">Language:</div>
+                <div class="info-value">en-US</div>
+
+                <div class="info-label">Format:</div>
+                <div class="info-value">text/xml</div>
+
+                <div class="info-label">Rights:</div>
+                <div class="info-value">CC-BY http://creativecommons.org/licenses/by/3.0/</div>
+
+                <div class="info-label">Coverage:</div>
+                <div class="info-value">Universal</div>
+
+                <div class="info-label">Relation:</div>
+                <div class="info-value">None</div>
+
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Downloads</h2>
+            <div class="flex flex-wrap gap-3">
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Law_Enforcement_Record/dm-yh0opq0bnu6y9y56oukg92uf.xsd"
+                   class="inline-block px-4 py-2 text-white rounded-lg hover:opacity-90 transition"
+                   style="background-color: #3b82f6;">
+                    XSD Schema
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Law_Enforcement_Record/dm-yh0opq0bnu6y9y56oukg92uf.xml"
+                   class="inline-block px-4 py-2 text-white rounded-lg hover:opacity-90 transition"
+                   style="background-color: #10b981;">
+                    XML Instance
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Law_Enforcement_Record/dm-yh0opq0bnu6y9y56oukg92uf-instance.json"
+                   class="inline-block px-4 py-2 text-white rounded-lg hover:opacity-90 transition"
+                   style="background-color: #f59e0b;">
+                    JSON Instance
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Law_Enforcement_Record/dm-yh0opq0bnu6y9y56oukg92uf.jsonld"
+                   class="inline-block px-4 py-2 text-white rounded-lg hover:opacity-90 transition"
+                   style="background-color: #f97316;">
+                    JSON-LD Schema
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Schema Overview -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Schema Overview</h2>
+            <div class="mb-4">
+                <p class="text-gray-700 mb-2"><strong>Target Namespace:</strong> https://semanticdatacharter.com/ns/sdc4/</p>
+                <p class="text-gray-700 mb-2"><strong>Total Components:</strong> 39</p>
+                <p class="text-gray-700 mb-2"><strong>Encoding:</strong> utf-8</p>
+            </div>
+
+            <details class="mt-4">
+                <summary>Component Type Breakdown</summary>
+                <div class="mt-3 grid grid-cols-2 gap-2">
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">Clusters:</span> 6
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdLink:</span> 1
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdString:</span> 14
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdToken:</span> 10
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdFile:</span> 2
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdQuantity:</span> 1
+                    </div>
+
+                    <div class="constraint-item">
+                        <span class="font-semibold">XdTemporal:</span> 5
+                    </div>
+
+                </div>
+            </details>
+        </section>
+
+        <!-- Component Documentation -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Components</h2>
+            <p class="text-gray-600 mb-4">Detailed documentation of all components in this data model.</p>
+
+            <details class="mt-4">
+                <summary>Clusters (6)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Charge and Disposition</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> c3eoo0vfid9c8riruf7uoyz2</p>
+
+                        <p class="text-gray-700 mt-2">Charges filed and case outcome. Cordova has misdemeanor-level offenses only.
+Purpose: Record charges and their disposition
+Parent Cluster: Incident Report</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://release.niem.gov/niem/niem-core/6.0/#Charge" target="_blank" class="text-blue-600 hover:underline">http://release.niem.gov/niem/niem-core/6.0/#Charge</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://niemopen.org/" target="_blank" class="text-blue-600 hover:underline">https://niemopen.org/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Incident Report</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> songhwxr1fp8niqba4fd0yd9</p>
+
+                        <p class="text-gray-700 mt-2">A single public safety incident recorded by Cordova National Police.
+Business Context: Links to Civil Registry for person identification
+Purpose: Document an incident with location, category, involved parties, and outcome</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q6014597" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q6014597</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://niemopen.org/" target="_blank" class="text-blue-600 hover:underline">https://niemopen.org/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Law Enforcement Involved Person</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> k5mkvc34kuo9ln5fvzvrhcj3</p>
+
+                        <p class="text-gray-700 mt-2">Party details for persons involved in law enforcement incidents (suspect, victim, witness). W3C PROV-DM agent identity with Cordova involvement metadata.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank" class="text-blue-600 hover:underline">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://niemopen.org/" target="_blank" class="text-blue-600 hover:underline">https://niemopen.org/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/Person" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Person</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Law Enforcement Reporting Officer</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> y8yh47jf1ewpq1r6q6gnkjjh</p>
+
+                        <p class="text-gray-700 mt-2">Details cluster for the reporting officer in law enforcement incidents. W3C PROV-DM agent identity: badge as agent_id, name via given/family, unit as department.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank" class="text-blue-600 hover:underline">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q6503343" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q6503343</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://niemopen.org/" target="_blank" class="text-blue-600 hover:underline">https://niemopen.org/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Law Enforcement Workflow</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> axzq49patk0yxj2ib8uzs4p1</p>
+
+                        <p class="text-gray-700 mt-2">Workflow for law enforcement incident lifecycle. States: Reported → Under Investigation → Evidence Collection → Charges Filed → Adjudicated → Closed. Tracks case progression and disposition.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q6503343" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q6503343</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://niemopen.org/" target="_blank" class="text-blue-600 hover:underline">https://niemopen.org/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Activity" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Activity</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q627335" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q627335</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Quarantine Enforcement</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> Cluster</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> avmmc3r38dol0ghko42yeyp4</p>
+
+                        <p class="text-gray-700 mt-2">Special sub-cluster for public health quarantine orders. Used in the Contagion scenario.
+Business Context: Links Law Enforcement to Healthcare domain through quarantine orders
+Purpose: Document quarantine zone establishment and compliance monitoring
+Parent Cluster: Incident Report</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx" target="_blank" class="text-blue-600 hover:underline">https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q186588" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q186588</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank" class="text-blue-600 hover:underline">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Link Components (1)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Law Enforcement Access Control</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdLink</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> bkuhivi6ot6nxll6vam7yobp</p>
+
+                        <p class="text-gray-700 mt-2">Access control policy for law enforcement data using W3C Data Privacy Vocabulary. Enforces role-based access for law enforcement officers, judicial authorities, and defense counsel. Governs dpv:CriminalOffenceData including incident reports, arrest records, and case files.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q185799" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q185799</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://w3id.org/dpv#AccessControlMethod" target="_blank" class="text-blue-600 hover:underline">https://w3id.org/dpv#AccessControlMethod</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://w3id.org/dpv" target="_blank" class="text-blue-600 hover:underline">https://w3id.org/dpv</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://w3id.org/dpv#CriminalOffenceData" target="_blank" class="text-blue-600 hover:underline">https://w3id.org/dpv#CriminalOffenceData</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q6014597" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q6014597</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>String Components (14)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">agent_id</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> hhfnj5hd1yzt252jfq5pdjj1</p>
+
+                        <p class="text-gray-700 mt-2">Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 255
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q37882474" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q37882474</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Charge Description</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> eoqim4xj9gsxtxrqko1hh55o</p>
+
+                        <p class="text-gray-700 mt-2">A description of a charge (NIEM j:ChargeDescriptionText)</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/name" target="_blank" class="text-blue-600 hover:underline">http://schema.org/name</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Incident Report Number</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> yi2189u4pinqitlmm5t6ccrd</p>
+
+                        <p class="text-gray-700 mt-2">A report number for an incident (NIEM j:IncidentReportNumber)</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q111653916" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q111653916</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Incident Summary</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> rguhpkd7s2d9a51392aon7ir</p>
+
+                        <p class="text-gray-700 mt-2">Brief summary of incident (one paragraph)</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 2000
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/description" target="_blank" class="text-blue-600 hover:underline">http://schema.org/description</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Issuing Authority</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ixmedhicidzpi7g6g2huqzvv</p>
+
+                        <p class="text-gray-700 mt-2">The authority that issued the quarantine order (e.g., "Provincial Health Authority, Aldara")</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q136462915" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q136462915</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/name" target="_blank" class="text-blue-600 hover:underline">https://schema.org/name</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Law Enforcement Attestation Reason</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> qrsl6qfgznm2kix8jdlpfwwg</p>
+
+                        <p class="text-gray-700 mt-2">Reason for attesting this law enforcement record</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q132364" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q132364</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q31207" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q31207</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Law Enforcement Records Protocol</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> rhu2opcioifbl83m7ph3rbhw</p>
+
+                        <p class="text-gray-700 mt-2">Protocol reference for the Law Enforcement Record data model. Informed by INTERPOL data exchange standards, the National Information Exchange Model (NIEM) Justice domain, and the Global Justice XML Data Model for criminal justice information sharing.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q132364" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q132364</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q6956407" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q6956407</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q317623" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q317623</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Location Street Full Text</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> b6nahtg2we4rh5qsk2j7qfvz</p>
+
+                        <p class="text-gray-700 mt-2">A complete street address (NIEM nc:LocationStreetFullText). BFO alignment: address is an information content entity (IAO:0000030) referring to a site (BFO:0000029).</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q24574749" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q24574749</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">National ID (CID)</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> nj7s1gk45tfgyooxpz0qaha3</p>
+
+                        <p class="text-gray-700 mt-2">Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">http://schema.org/identifier</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1140371" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1140371</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank" class="text-blue-600 hover:underline">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">person_department</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> pqxnguwtjyyfaildgx3hi0bo</p>
+
+                        <p class="text-gray-700 mt-2">Department or team the person belongs to.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q2366457" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q2366457</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">person_family_name</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> zs9ciw4nypx4plo856h3m95d</p>
+
+                        <p class="text-gray-700 mt-2">Family (last) name of the person agent.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q4116295" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q4116295</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">person_given_name</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ndvtjiq0cke0q1trw58rtrq2</p>
+
+                        <p class="text-gray-700 mt-2">Given (first) name of the person agent.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q202444" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q202444</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Quarantine Zone</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> r34gm210y9jifbyxa0fcxy96</p>
+
+                        <p class="text-gray-700 mt-2">Description of the geographic area under quarantine (e.g., "Porto Sereno Port District, Berths 1-12")</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q356936" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q356936</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/description" target="_blank" class="text-blue-600 hover:underline">https://schema.org/description</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Witness Statement</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdString</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> dsqo7rt3gooouv2sfaqhjl43</p>
+
+                        <p class="text-gray-700 mt-2">Summary of witness statement</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 2000
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q8028402" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q8028402</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Token Components (10)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Charge Category (Cordova)</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> hc91pdnj3bb6997l5z4ndchz</p>
+
+                        <p class="text-gray-700 mt-2">Categories of misdemeanor offenses in Cordova law enforcement records. Cordova has no felony classification — all criminal matters are misdemeanor-level.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Petty Theft, Public Intoxication, Trespassing, Disorderly Conduct, Traffic Violation ...
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1752346" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q1752346</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">City</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> atdtdfzruh7tya0iv5cz365l</p>
+
+                        <p class="text-gray-700 mt-2">One of the nine cities in the Republic of Cordova.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Porto Sereno, Vistamar, Rioseco, Campoluz, Tierraverde ...
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/City" target="_blank" class="text-blue-600 hover:underline">http://schema.org/City</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Compliance Status</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ihoatduhb7fckjw0ezq5u7g1</p>
+
+                        <p class="text-gray-700 mt-2">Whether the quarantine is being complied with</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Compliant, Violation Detected, Under Review
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q752476" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q752476</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Disposition (Cordova)</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> rnje7nq6m08vh01g8eg23say</p>
+
+                        <p class="text-gray-700 mt-2">Outcome of a law enforcement case in Cordova.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Fine, Community Service, Case Dismissed, Pending
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q2972905" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q2972905</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Incident Category Code</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> nc7aq6ofnccavkmczsb2dudy</p>
+
+                        <p class="text-gray-700 mt-2">Categories of incidents per NIEM j:IncidentCategoryCode</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> accident, assault, burglary, robbery, theft ...
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#Concept</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Incident Status</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> e83h36jqgi59dhy1dttp22qm</p>
+
+                        <p class="text-gray-700 mt-2">Current status of the incident</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Open, Closed, Pending
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q2443992" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q2443992</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Involvement Type</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> upepv8ko1sf0ty04me5hou46</p>
+
+                        <p class="text-gray-700 mt-2">How the person is involved in the incident</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Subject, Complainant, Witness
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://release.niem.gov/niem/niem-core/6.0/#PersonInvolvementCategoryCode" target="_blank" class="text-blue-600 hover:underline">http://release.niem.gov/niem/niem-core/6.0/#PersonInvolvementCategoryCode</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">PROV Agent Type</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> nesxtz8c5o665swc9lhvqkjj</p>
+
+                        <p class="text-gray-700 mt-2">Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Person, Organization, SoftwareAgent
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Province</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> kv5qqs3o4jwcwz9javgw1pzh</p>
+
+                        <p class="text-gray-700 mt-2">One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Aldara, Brevina, Celara
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/AdministrativeArea" target="_blank" class="text-blue-600 hover:underline">http://schema.org/AdministrativeArea</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/State" target="_blank" class="text-blue-600 hover:underline">https://schema.org/State</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">PROV Role Type</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdToken</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> u1i23yha2rvz5nbxjz3l8x48</p>
+
+                        <p class="text-gray-700 mt-2">Functional roles that agents, entities, or activities can assume within provenance relationships.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Author, Publisher, Contributor, Custodian, Reviewer ...
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.w3.org/TR/prov-o/#qualifiedInvolvement" target="_blank" class="text-blue-600 hover:underline">https://www.w3.org/TR/prov-o/#qualifiedInvolvement</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>File Components (2)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Digital Signature Proof</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdFile</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> gug5dhtqfv7exbgmm2raxpkq</p>
+
+                        <p class="text-gray-700 mt-2">Cryptographic proof of attestation (digital signature)</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.w3.org/TR/vc-data-model/#credentials" target="_blank" class="text-blue-600 hover:underline">https://www.w3.org/TR/vc-data-model/#credentials</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q210824" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q210824</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://www.w3.org/ns/prov#Entity" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Entity</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Law Enforcement Attested View</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdFile</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> hhbwj5k5rxticrbzwhp1lnjt</p>
+
+                        <p class="text-gray-700 mt-2">Attested view of a law enforcement record document</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/DigitalDocument" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DigitalDocument</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q31207" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q31207</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://www.w3.org/ns/prov#Entity" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/prov#Entity</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Quantity Components (1)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Fine or Bail Amount</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdQuantity</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> yahksk4xc5to981ows7bpp6z</p>
+
+                        <p class="text-gray-700 mt-2">Monetary amount of the fine imposed or bail set for the charge in Cordova Córdoba. Null if no financial penalty applies or bail is denied.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Constraints:</p>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Cordova : Cordova Córdoba (COR)
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q313614" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q313614</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q186361" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q186361</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/MonetaryAmount" target="_blank" class="text-blue-600 hover:underline">https://schema.org/MonetaryAmount</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details class="mt-4">
+                <summary>Temporal Components (5)</summary>
+                <div class="mt-2">
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Charge Filing Date</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdTemporal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> l0esdclu01pg7qw429oe7kjk</p>
+
+                        <p class="text-gray-700 mt-2">A date a charge was filed (NIEM j:ChargeFilingDate)</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/datePublished" target="_blank" class="text-blue-600 hover:underline">http://schema.org/datePublished</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/DateTime" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DateTime</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Disposition Date</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdTemporal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> qse1jwofk5lm2wnsrn3f06l0</p>
+
+                        <p class="text-gray-700 mt-2">Date the disposition was recorded
+
+---</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q117195543" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q117195543</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Date" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Date</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Incident Date</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdTemporal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> ohk2uwcomsz8wegfvz0v0yod</p>
+
+                        <p class="text-gray-700 mt-2">A date and time an incident occurred (NIEM j:IncidentDate). BFO alignment: incident is a process (BFO:0000015) occurring at a temporal region.</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://purl.obolibrary.org/obo/BFO_0000015" target="_blank" class="text-blue-600 hover:underline">http://purl.obolibrary.org/obo/BFO_0000015</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/DateTime" target="_blank" class="text-blue-600 hover:underline">https://schema.org/DateTime</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Quarantine End Date</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdTemporal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> lohvu07ok3c3xvesa16htf2m</p>
+
+                        <p class="text-gray-700 mt-2">Date the quarantine order was lifted. Null if still active.
+
+---</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/endDate" target="_blank" class="text-blue-600 hover:underline">http://schema.org/endDate</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Date" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Date</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4 class="font-bold text-lg mb-2" style="color: var(--sdc-primary);">Quarantine Start Date</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Type:</strong> XdTemporal</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>ID:</strong> vq30hd0dl6v59d3ttyyvg6rp</p>
+
+                        <p class="text-gray-700 mt-2">Date the quarantine order took effect</p>
+
+                        <div class="mt-3">
+                            <p class="font-semibold text-sm mb-2">Semantic Links:</p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Date" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Date</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/startDate" target="_blank" class="text-blue-600 hover:underline">http://schema.org/startDate</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+        </section>
+
+        <!-- Semantic Links -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Semantic Links</h2>
+            <p class="text-gray-600 mb-4">Ontology mappings and semantic relationships defined in this schema.</p>
+
+            <div class="mt-3">
+                <h3 class="font-semibold mb-2">Data Model Level Links:</h3>
+
+                <div class="constraint-item mb-2">
+                    <strong>rdfs:seeAlso:</strong>
+                    <a href="https://www.wikidata.org/wiki/Q2920921" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q2920921</a>
+                </div>
+
+                <div class="constraint-item mb-2">
+                    <strong>skos:exactMatch:</strong>
+                    <a href="http://www.w3.org/ns/dcat#Dataset" target="_blank" class="text-blue-600 hover:underline">http://www.w3.org/ns/dcat#Dataset</a>
+                </div>
+
+                <div class="constraint-item mb-2">
+                    <strong>rdfs:isDefinedBy:</strong>
+                    <a href="https://www.wikidata.org/wiki/Q44782" target="_blank" class="text-blue-600 hover:underline">https://www.wikidata.org/wiki/Q44782</a>
+                </div>
+
+                <div class="constraint-item mb-2">
+                    <strong>rdf:type:</strong>
+                    <a href="https://schema.org/Dataset" target="_blank" class="text-blue-600 hover:underline">https://schema.org/Dataset</a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Usage Guide -->
+        <section class="section-card">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--sdc-primary);">Usage Guide</h2>
+
+            <h3 class="font-semibold text-lg mb-2">How to Use This Schema</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
+                <li>Use the XSD schema file to validate XML instances conforming to this data model.</li>
+                <li>Refer to the XML instance file for an example of valid data structure.</li>
+                <li>Use the JSON file for JSON-based data exchange formats.</li>
+                <li>Use the SHACL shapes file (dm-yh0opq0bnu6y9y56oukg92uf_shacl.ttl) to validate RDF data.</li>
+            </ol>
+
+            <h3 class="font-semibold text-lg mb-2">Validation</h3>
+            <p class="text-gray-700 mb-2">
+                <strong>Recommended:</strong> <a href="https://pypi.org/project/sdcvalidator/" target="_blank" class="text-blue-600 hover:underline">sdcvalidator</a> -
+                A Python XML Schema validator with SDC extensions including ExceptionValue injection for documenting
+                justified constraint violations.
+            </p>
+            <p class="text-gray-700 mb-4">
+                <strong>Alternatives:</strong> Standard XML validators like Xerces and Saxon EE support XSD 1.1 validation
+                but do not include SDC-specific extension capabilities.
+            </p>
+
+            <h3 class="font-semibold text-lg mb-2">SHACL Validation</h3>
+            <p class="text-gray-700 mb-4">For detailed instructions on using the SHACL shapes file, refer to the SHACL_README.md included in the complete package.</p>
+
+            <h3 class="font-semibold text-lg mb-2">Example Data</h3>
+            <p class="text-gray-700">
+                The XML instance file (<code>dm-yh0opq0bnu6y9y56oukg92uf.xml</code>) provides a complete example
+                showing the structure and data types used in this schema.
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="section-card text-center text-gray-600 text-sm">
+            <p>Generated by SDCStudio on 2026-03-08 03:26:44</p>
+            <p class="mt-1">Semantic Data Charter (SDC4) Compliant Schema</p>
+        </footer>
+    </div>
+</body>
+</html>

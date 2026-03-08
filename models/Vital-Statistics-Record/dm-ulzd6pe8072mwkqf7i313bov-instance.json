@@ -1,0 +1,246 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "ulzd6pe8072mwkqf7i313bov",
+  "dm_type": "dm-ulzd6pe8072mwkqf7i313bov",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Vital Statistics Record",
+    "dm_encoding": "utf-8",
+    "instance_id": "avx8uxttpurgq7cb67w296jw",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-03-08T03:30:17.545282",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "tard9hhq13m95hinbh4h7k5j",
+    "label": "Vital Event",
+    "type": "Cluster",
+    "description": "A single life event recorded in the Cordova vital statistics registry.\nBusiness Context: Links to Civil Registry for person identification\nPurpose: Common fields shared across all vital event types",
+    "items": [
+      {
+        "component_id": "ajfsyoyrz38094hswxh13i3x",
+        "label": "Certificate Number",
+        "type": "XdString",
+        "description": "Unique certificate number for this vital record",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 50
+        }
+      },
+      {
+        "component_id": "atdtdfzruh7tya0iv5cz365l",
+        "label": "City",
+        "type": "XdToken",
+        "description": "One of the nine cities in the Republic of Cordova.",
+        "value": "Montecara",
+        "constraints": {
+          "enumerations": [
+            "Porto Sereno",
+            "Vistamar",
+            "Rioseco",
+            "Campoluz",
+            "Tierraverde",
+            "Montecara",
+            "Novaciudad",
+            "Piedrasol",
+            "Lagunavista"
+          ]
+        }
+      },
+      {
+        "component_id": "jz7vc6ikueqig8g0lvb2czzr",
+        "label": "Event Type",
+        "type": "XdToken",
+        "description": "Type of vital event (XdToken)",
+        "value": "Divorce",
+        "constraints": {
+          "enumerations": [
+            "Birth",
+            "Death",
+            "Marriage",
+            "Divorce"
+          ]
+        }
+      },
+      {
+        "component_id": "kv5qqs3o4jwcwz9javgw1pzh",
+        "label": "Province",
+        "type": "XdToken",
+        "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+        "value": "Aldara",
+        "constraints": {
+          "enumerations": [
+            "Aldara",
+            "Brevina",
+            "Celara"
+          ]
+        }
+      },
+      {
+        "component_id": "yri6g628ipi0jqoa0ijnzxxu",
+        "label": "Record Status",
+        "type": "XdToken",
+        "description": "Status of the vital record",
+        "value": "Voided",
+        "constraints": {
+          "enumerations": [
+            "Active",
+            "Amended",
+            "Voided"
+          ]
+        }
+      },
+      {
+        "component_id": "e3sfb43zh1vjlgceb5guh0mj",
+        "label": "Event Date",
+        "type": "XdTemporal",
+        "description": "Date the vital event occurred",
+        "value": "2024-01-01T00:00:00"
+      },
+      {
+        "component_id": "vo9jtmexkaaol3y657fm0xn8",
+        "label": "Registration Date",
+        "type": "XdTemporal",
+        "description": "Date the business was officially registered in Cordova",
+        "value": "2024-01-01T00:00:00"
+      },
+      {
+        "component_id": "az8kem3v58y9zenys7mthqxe",
+        "label": "Birth Record",
+        "type": "Cluster",
+        "description": "Details specific to birth certificates.\nBusiness Context: Links newborn and parents to Civil Registry, physician to Healthcare\nPurpose: Document a birth with parents, attending physician, and location\nParent Cluster: Vital Event",
+        "items": [
+          {
+            "component_id": "nj7s1gk45tfgyooxpz0qaha3",
+            "label": "National ID (CID)",
+            "type": "XdString",
+            "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
+            "value": "DefaultString"
+          },
+          {
+            "component_id": "pmw2cq7fioqlbs2ljdh34rkn",
+            "label": "Person Full Name",
+            "type": "XdString",
+            "description": "A complete name of a person (NIEM nc:PersonFullName)",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 100
+            }
+          },
+          {
+            "component_id": "mw9qdn71urog8egjbp5t3y00",
+            "label": "Sex",
+            "type": "XdToken",
+            "description": "Biological sex assigned at birth based on physical characteristics. UMLS CUI: C0079399 (Biologic Sex). Aligned with OMB standards for reporting.",
+            "value": "Male",
+            "constraints": {
+              "enumerations": [
+                "Male",
+                "Female",
+                "Intersex",
+                "Unknown"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "component_id": "tdz3pxrf7k6z2df2bfm7ebcp",
+        "label": "Death Record",
+        "type": "Cluster",
+        "description": "Details specific to death certificates.\nBusiness Context: Links to Healthcare (certifying physician), enables public health statistics\nPurpose: Document a death with cause, certifying physician, and circumstances\nParent Cluster: Vital Event",
+        "items": [
+          {
+            "component_id": "m3gsphdej7z9csemrrk8uymy",
+            "label": "Cause of Death",
+            "type": "XdString",
+            "description": "Primary cause of death as determined by certifying physician",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "ftuxt5nrrffwjb2vymn80yx2",
+            "label": "Manner of Death",
+            "type": "XdToken",
+            "description": "Manner in which death occurred",
+            "value": "Homicide",
+            "constraints": {
+              "enumerations": [
+                "Natural",
+                "Accident",
+                "Homicide",
+                "Suicide",
+                "Undetermined",
+                "Pending Investigation"
+              ]
+            }
+          },
+          {
+            "component_id": "dsoyfaplxw8ide1opo5w8fxg",
+            "label": "Place of Death",
+            "type": "XdToken",
+            "description": "Type of location where death occurred",
+            "value": "Other",
+            "constraints": {
+              "enumerations": [
+                "Hospital",
+                "Residence",
+                "Other"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "component_id": "obybok0oaoa79b11b0ync1zf",
+        "label": "Divorce Record",
+        "type": "Cluster",
+        "description": "Details specific to divorce decrees.\nPurpose: Document a divorce with both parties and court details\nParent Cluster: Vital Event",
+        "items": [
+          {
+            "component_id": "ycujkecjszwwrcd6dhxesk73",
+            "label": "Marriage Certificate Number",
+            "type": "XdString",
+            "description": "Certificate number of the original marriage being dissolved",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 50
+            }
+          },
+          {
+            "component_id": "ft4kk6m3r1goxkte0d7wflk8",
+            "label": "Decree Date",
+            "type": "XdTemporal",
+            "description": "Date the divorce decree was issued by the court",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "chtyne5i6qcwbrby29vbuh2k",
+        "label": "Marriage Record",
+        "type": "Cluster",
+        "description": "Details specific to marriage certificates.\nBusiness Context: Links both parties to Civil Registry identities\nPurpose: Document a marriage with both parties, officiant, and witnesses\nParent Cluster: Vital Event",
+        "items": []
+      }
+    ]
+  },
+  "subject": {
+    "component_id": "qcofdwdb4hrmxeby89g8sjl1",
+    "label": "Vital Record Subject",
+    "type": "Party",
+    "description": "Person who is the subject of a vital statistics record (birth, death, marriage, divorce). W3C PROV-DM Agent (Person) with Cordova CID."
+  },
+  "provider": {
+    "component_id": "xqhxjh5kzvgrzu0u87v3fxb2",
+    "label": "Vital Statistics Office",
+    "type": "Party",
+    "description": "Government office responsible for recording and certifying vital events (births, deaths, marriages, divorces). W3C PROV-DM Agent (Organization)."
+  }
+}

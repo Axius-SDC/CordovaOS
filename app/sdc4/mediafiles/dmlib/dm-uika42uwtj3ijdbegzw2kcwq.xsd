@@ -1,0 +1,2680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sdc4="https://semanticdatacharter.com/ns/sdc4/"
+  xmlns:sdc4-meta="https://semanticdatacharter.com/ontology/sdc4-meta/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+  targetNamespace="https://semanticdatacharter.com/ns/sdc4/"
+  vc:minVersion="1.1">
+  <!-- Dublin Core Metadata for the Data Model -->
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:RDF>
+        <rdf:Description
+          rdf:about="dm-uika42uwtj3ijdbegzw2kcwq">
+          <dc:title>Civil Registry</dc:title>
+          <dc:creator>Timothy Cook</dc:creator>
+          <dc:subject></dc:subject>
+          <dc:rights>CC-BY http://creativecommons.org/licenses/by/3.0/</dc:rights>
+          <dc:relation>None</dc:relation>
+          <dc:coverage>Universal</dc:coverage>
+          <dc:type>SDC Data Model (DM)</dc:type>
+          <dc:identifier>dm-uika42uwtj3ijdbegzw2kcwq</dc:identifier>
+          <dc:description>Maintain the authoritative identity record for every person in Cordova.</dc:description>
+          <dc:publisher></dc:publisher>
+          <dc:date>2026-03-07 20:03:48.234521+00:00</dc:date>
+          <dc:format>text/xml</dc:format>
+          <dc:language>en-US</dc:language>
+        </rdf:Description>
+      </rdf:RDF>
+    </xsd:appinfo>
+  </xsd:annotation>
+
+<xsd:include schemaLocation="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd"/>
+
+<!-- Schema for DM Civil Registry (uika42uwtj3ijdbegzw2kcwq) -->
+
+<xsd:element name="dm-uika42uwtj3ijdbegzw2kcwq" substitutionGroup="sdc4:DM" type="sdc4:mc-uika42uwtj3ijdbegzw2kcwq"/>
+<xsd:complexType name="mc-uika42uwtj3ijdbegzw2kcwq">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-uika42uwtj3ijdbegzw2kcwq">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:DMType"/>
+        <rdfs:label>Civil Registry</rdfs:label>        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q83708009"/>
+        <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q83708009"/>
+        <skos:exactMatch rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+        <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q131721"/>
+        <rdf:type rdf:resource="https://schema.org/Dataset"/>
+
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:DMType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="dm-label" type="xsd:string" fixed="Civil Registry"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="dm-language" type="xsd:language" fixed="en-US"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="dm-encoding" type="xsd:string" fixed="utf-8"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="creation_timestamp" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="instance_id" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="instance_version" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="source_instance_id" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="source_version_id" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="current-state" type="xsd:string" default=""/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-bgjt4mvgvkxcn6hurg37u21b"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="subject" type="sdc4:PartyType"/>
+        <xsd:element maxOccurs="unbounded" minOccurs="0" name="provider" type="sdc4:PartyType"/>
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Participation"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="protocol" type="sdc4:XdStringType"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="workflow" type="sdc4:ClusterType"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="acs" type="sdc4:XdLinkType"/>
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Audit"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="attestation" type="sdc4:AttestationType"/>
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:XdLink"/>
+      </xsd:sequence>
+    </xsd:restriction>
+  </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component National ID (CID) (nj7s1gk45tfgyooxpz0qaha3) -->
+  <xsd:complexType name="mc-nj7s1gk45tfgyooxpz0qaha3" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>National ID (CID)</rdfs:label>
+          <rdfs:comment>Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-national_id_(cid)"/>
+          <rdfs:isDefinedBy rdf:resource="http://schema.org/identifier"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1140371"/>
+          <skos:broadMatch rdf:resource="https://schema.org/identifier"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="National ID (CID)"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:pattern value="COR-(AL|BR|CE)0[1-3]-[0-9]{6}"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Country of Birth (cfg2l8ym4ve833ritrxu765t) -->
+  <xsd:complexType name="mc-cfg2l8ym4ve833ritrxu765t" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-cfg2l8ym4ve833ritrxu765t">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>Country of Birth</rdfs:label>
+          <rdfs:comment>Country where participant was born</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-cfg2l8ym4ve833ritrxu765t"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-country_of_birth"/>
+          <rdfs:isDefinedBy rdf:resource="https://uts.nlm.nih.gov/uts/umls/concept/C1300001"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Country of Birth"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="200"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Given Name (Person) (kfyzf8u8gdafcpt5kfh2qg3q) -->
+  <xsd:complexType name="mc-kfyzf8u8gdafcpt5kfh2qg3q" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-kfyzf8u8gdafcpt5kfh2qg3q">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>Given Name (Person)</rdfs:label>
+          <rdfs:comment>name typically used to differentiate people from the same family, clan, or other social group who have a common last name
+aka. first name or forename</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-kfyzf8u8gdafcpt5kfh2qg3q"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-given_name_(person)"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q202444"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Given Name (Person)"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Middle Name (Person) (oit0ueglhjfcyq80z22kl2z3) -->
+  <xsd:complexType name="mc-oit0ueglhjfcyq80z22kl2z3" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-oit0ueglhjfcyq80z22kl2z3">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>Middle Name (Person)</rdfs:label>
+          <rdfs:comment>Middle or other name(s) given to identify a person</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-oit0ueglhjfcyq80z22kl2z3"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-middle_name_(person)"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q245025"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Middle Name (Person)"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Surname (Person) (v8jgjo2sml12jo7zrb8swoxi) -->
+  <xsd:complexType name="mc-v8jgjo2sml12jo7zrb8swoxi" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-v8jgjo2sml12jo7zrb8swoxi">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>Surname (Person)</rdfs:label>
+          <rdfs:comment>The surname or family name of a person, part of a naming scheme for individuals, used in many cultures worldwide
+aka: last name, fam name, family surname, surname, clan name</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-v8jgjo2sml12jo7zrb8swoxi"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-surname_(person)"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q101352"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Surname (Person)"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component City (atdtdfzruh7tya0iv5cz365l) -->
+  <xsd:complexType name="mc-atdtdfzruh7tya0iv5cz365l" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-atdtdfzruh7tya0iv5cz365l">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+          <rdfs:label>City</rdfs:label>
+          <rdfs:comment>One of the nine cities in the Republic of Cordova.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-atdtdfzruh7tya0iv5cz365l"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-city"/>
+          <rdfs:isDefinedBy rdf:resource="http://schema.org/City"/>
+          <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
+          <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTokenType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="City"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdtoken-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:token">
+                <xsd:enumeration value="Porto Sereno">
+                  <xsd:annotation>
+                        <xsd:documentation>Capital of Aldara. National port city and sole international port. Area code 100.</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Porto Sereno">
+                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                        <rdfs:label>Porto Sereno</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Vistamar">
+                  <xsd:annotation>
+                        <xsd:documentation>Coastal city in Aldara. Area code 110.</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Vistamar">
+                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                        <rdfs:label>Vistamar</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Rioseco">
+                  <xsd:annotation>
+                        <xsd:documentation>River city in Aldara. Area code 120.</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Rioseco">
+                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                        <rdfs:label>Rioseco</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Campoluz">
+                  <xsd:annotation>
+                        <xsd:documentation>Capital of Brevina. Home to Universidad Nacional de Cordova. Area code 200.</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Campoluz">
+                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                        <rdfs:label>Campoluz</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Tierraverde">
+                  <xsd:annotation>
+                        <xsd:documentation>Agricultural town in Brevina. Area code 210.</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Tierraverde">
+                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                        <rdfs:label>Tierraverde</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Montecara">
+                  <xsd:annotation>
+                        <xsd:documentation>Mountain town in Brevina. Area code 220.</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Montecara">
+                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                        <rdfs:label>Montecara</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Novaciudad">
+                  <xsd:annotation>
+                        <xsd:documentation>Capital of Celara and national capital. Government center. Area code 300.</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Novaciudad">
+                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                        <rdfs:label>Novaciudad</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Piedrasol">
+                  <xsd:annotation>
+                        <xsd:documentation>City in Celara. Area code 310.</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Piedrasol">
+                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                        <rdfs:label>Piedrasol</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Lagunavista">
+                  <xsd:annotation>
+                        <xsd:documentation>Lakeside city in Celara. Area code 320.</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Lagunavista">
+                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                        <rdfs:label>Lagunavista</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdtoken-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Marital Status (Cordova) (vjfgimlbb90ds2xg55tfn941) -->
+  <xsd:complexType name="mc-vjfgimlbb90ds2xg55tfn941" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-vjfgimlbb90ds2xg55tfn941">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+          <rdfs:label>Marital Status (Cordova)</rdfs:label>
+          <rdfs:comment>Marital status as recorded in the Cordova Civil Registry. Aligned with vital statistics records.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-vjfgimlbb90ds2xg55tfn941"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-marital_status_(cordova)"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q11920938"/>
+          <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
+          <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTokenType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Marital Status (Cordova)"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdtoken-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:token">
+                <xsd:enumeration value="Single">
+                  <xsd:annotation>
+                        <xsd:documentation>Never married</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-vjfgimlbb90ds2xg55tfn941/xdtoken-value/Single">
+                        <rdfs:subPropertyOf rdf:resource="mc-vjfgimlbb90ds2xg55tfn941"/>
+                        <rdfs:label>Single</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Married">
+                  <xsd:annotation>
+                        <xsd:documentation>Currently in a legal marriage</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-vjfgimlbb90ds2xg55tfn941/xdtoken-value/Married">
+                        <rdfs:subPropertyOf rdf:resource="mc-vjfgimlbb90ds2xg55tfn941"/>
+                        <rdfs:label>Married</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Divorced">
+                  <xsd:annotation>
+                        <xsd:documentation>Marriage legally dissolved</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-vjfgimlbb90ds2xg55tfn941/xdtoken-value/Divorced">
+                        <rdfs:subPropertyOf rdf:resource="mc-vjfgimlbb90ds2xg55tfn941"/>
+                        <rdfs:label>Divorced</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Widowed">
+                  <xsd:annotation>
+                        <xsd:documentation>Spouse deceased</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-vjfgimlbb90ds2xg55tfn941/xdtoken-value/Widowed">
+                        <rdfs:subPropertyOf rdf:resource="mc-vjfgimlbb90ds2xg55tfn941"/>
+                        <rdfs:label>Widowed</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Separated">
+                  <xsd:annotation>
+                        <xsd:documentation>Legally separated but not divorced</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-vjfgimlbb90ds2xg55tfn941/xdtoken-value/Separated">
+                        <rdfs:subPropertyOf rdf:resource="mc-vjfgimlbb90ds2xg55tfn941"/>
+                        <rdfs:label>Separated</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdtoken-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Province (kv5qqs3o4jwcwz9javgw1pzh) -->
+  <xsd:complexType name="mc-kv5qqs3o4jwcwz9javgw1pzh" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+          <rdfs:label>Province</rdfs:label>
+          <rdfs:comment>One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-province"/>
+          <rdfs:isDefinedBy rdf:resource="http://schema.org/AdministrativeArea"/>
+          <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
+          <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+          <rdfs:isDefinedBy rdf:resource="https://schema.org/State"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTokenType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Province"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdtoken-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:token">
+                <xsd:enumeration value="Aldara">
+                  <xsd:annotation>
+                        <xsd:documentation>Western province. Capital: Porto Sereno. Contains the national port and coastal cities Vistamar and Rioseco.</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Aldara">
+                        <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+                        <rdfs:label>Aldara</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Brevina">
+                  <xsd:annotation>
+                        <xsd:documentation>Central province. Capital: Campoluz. Agricultural and university region with Tierraverde and Montecara.</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Brevina">
+                        <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+                        <rdfs:label>Brevina</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Celara">
+                  <xsd:annotation>
+                        <xsd:documentation>Eastern province. Capital: Novaciudad. National capital province and government center with Piedrasol and Lagunavista.</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Celara">
+                        <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+                        <rdfs:label>Celara</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdtoken-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Gender Identity (cymq16em5zb20whgtfzki6n5) -->
+  <xsd:complexType name="mc-cymq16em5zb20whgtfzki6n5" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-cymq16em5zb20whgtfzki6n5">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+          <rdfs:label>Gender Identity</rdfs:label>
+          <rdfs:comment>Self-reported gender identity of the participant</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-cymq16em5zb20whgtfzki6n5"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-gender_identity"/>
+          <rdfs:isDefinedBy rdf:resource="https://uts.nlm.nih.gov/uts/umls/concept/C0017249"/>
+          <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
+          <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTokenType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Gender Identity"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdtoken-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:token">
+                <xsd:enumeration value="Male">
+                  <xsd:annotation>
+                        <xsd:documentation>Identifies as male gender</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Male">
+                        <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+                        <rdfs:label>Male</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Female">
+                  <xsd:annotation>
+                        <xsd:documentation>Identifies as female gender</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Female">
+                        <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+                        <rdfs:label>Female</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Transgender male">
+                  <xsd:annotation>
+                        <xsd:documentation>Assigned female at birth, identifies as male</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Transgender male">
+                        <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+                        <rdfs:label>Transgender male</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Transgender female">
+                  <xsd:annotation>
+                        <xsd:documentation>Assigned male at birth, identifies as female</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Transgender female">
+                        <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+                        <rdfs:label>Transgender female</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Non-binary">
+                  <xsd:annotation>
+                        <xsd:documentation>Gender identity outside the male/female binary</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Non-binary">
+                        <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+                        <rdfs:label>Non-binary</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Genderqueer">
+                  <xsd:annotation>
+                        <xsd:documentation>Gender identity that is not exclusively male or female</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Genderqueer">
+                        <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+                        <rdfs:label>Genderqueer</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Other">
+                  <xsd:annotation>
+                        <xsd:documentation>Gender identity not listed</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Other">
+                        <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+                        <rdfs:label>Other</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Prefer not to answer">
+                  <xsd:annotation>
+                        <xsd:documentation>Participant declines to provide gender identity</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Prefer not to answer">
+                        <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+                        <rdfs:label>Prefer not to answer</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Unknown">
+                  <xsd:annotation>
+                        <xsd:documentation>Gender identity is not known</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Unknown">
+                        <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+                        <rdfs:label>Unknown</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdtoken-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Sex (mw9qdn71urog8egjbp5t3y00) -->
+  <xsd:complexType name="mc-mw9qdn71urog8egjbp5t3y00" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-mw9qdn71urog8egjbp5t3y00">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+          <rdfs:label>Sex</rdfs:label>
+          <rdfs:comment>Biological sex assigned at birth based on physical characteristics. UMLS CUI: C0079399 (Biologic Sex). Aligned with OMB standards for reporting.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-mw9qdn71urog8egjbp5t3y00"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-sex"/>
+          <rdfs:isDefinedBy rdf:resource="https://uts.nlm.nih.gov/uts/umls/concept/C5236503"/>
+          <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
+          <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTokenType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Sex"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdtoken-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:token">
+                <xsd:enumeration value="Male">
+                  <xsd:annotation>
+                        <xsd:documentation>Biological male sex</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-mw9qdn71urog8egjbp5t3y00/xdtoken-value/Male">
+                        <rdfs:subPropertyOf rdf:resource="mc-mw9qdn71urog8egjbp5t3y00"/>
+                        <rdfs:label>Male</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Female">
+                  <xsd:annotation>
+                        <xsd:documentation>Biological female sex</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-mw9qdn71urog8egjbp5t3y00/xdtoken-value/Female">
+                        <rdfs:subPropertyOf rdf:resource="mc-mw9qdn71urog8egjbp5t3y00"/>
+                        <rdfs:label>Female</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Intersex">
+                  <xsd:annotation>
+                        <xsd:documentation>Biological characteristics of both male and female</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-mw9qdn71urog8egjbp5t3y00/xdtoken-value/Intersex">
+                        <rdfs:subPropertyOf rdf:resource="mc-mw9qdn71urog8egjbp5t3y00"/>
+                        <rdfs:label>Intersex</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Unknown">
+                  <xsd:annotation>
+                        <xsd:documentation>Sex is not known or not recorded</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-mw9qdn71urog8egjbp5t3y00/xdtoken-value/Unknown">
+                        <rdfs:subPropertyOf rdf:resource="mc-mw9qdn71urog8egjbp5t3y00"/>
+                        <rdfs:label>Unknown</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdtoken-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Birth Date (g3k6bj8su3rvkszg2700dhyh) -->
+
+  <xsd:complexType name="mc-g3k6bj8su3rvkszg2700dhyh" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-g3k6bj8su3rvkszg2700dhyh">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+          <rdfs:label>Birth Date</rdfs:label>
+          <rdfs:comment>Date of birth of the participant. UMLS CUI: C0421451 (Date of birth). LOINC: 21112-8 (Birth date).</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-g3k6bj8su3rvkszg2700dhyh"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-birth_date"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2389905"/>
+          <rdf:type rdf:resource="https://schema.org/DateTime"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTemporalType">
+        <xsd:sequence>
+    <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Birth Date"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+    <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:ReferenceRange"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="normal-status" type="xsd:string"/>
+    <xsd:choice minOccurs="0" maxOccurs="1">
+      <xsd:element name="xdtemporal-date" type="xsd:date"/>
+      <xsd:element name="xdtemporal-year" type="xsd:gYear"/>
+      <xsd:element name="xdtemporal-year-month" type="xsd:gYearMonth"/>
+    </xsd:choice>
+        </xsd:sequence>
+      </xsd:restriction></xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Cordova Email Address (x0na649n17if0ukul82cmrx3) -->
+  <xsd:complexType name="mc-x0na649n17if0ukul82cmrx3" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-x0na649n17if0ukul82cmrx3">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>Cordova Email Address</rdfs:label>
+          <rdfs:comment>Email address using one of the Cordova national email providers. Providers: cordomail.co, novamail.co, portocorreo.co</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-x0na649n17if0ukul82cmrx3"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-cordova_email_address"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1273217"/>
+          <skos:broadMatch rdf:resource="https://schema.org/name"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Cordova Email Address"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:pattern value="[-a-zA-Z0-9._%+]+@(cordomail|novamail|portocorreo)\.co"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Cordova Phone Number (nfrvvp87c5imu5h9ups92kgy) -->
+  <xsd:complexType name="mc-nfrvvp87c5imu5h9ups92kgy" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-nfrvvp87c5imu5h9ups92kgy">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>Cordova Phone Number</rdfs:label>
+          <rdfs:comment>Cordova national telephone number. Format: +99-PPP-NNN-NNNN where +99 is the country code and PPP is the area code. Area codes: Porto Sereno=100, Vistamar=110, Rioseco=120, Campoluz=200, Tierraverde=210, Montecara=220, Novaciudad=300, Piedrasol=310, Lagunavista=320.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-nfrvvp87c5imu5h9ups92kgy"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-cordova_phone_number"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q214995"/>
+          <skos:relatedMatch rdf:resource="https://www.wikidata.org/wiki/Q214995"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Cordova Phone Number"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:pattern value="\+99-[123][012]0-[0-9]{3}-[0-9]{4}"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Preferred Contact Method (zlz64jydsmhb5zmytcm2ewyg) -->
+  <xsd:complexType name="mc-zlz64jydsmhb5zmytcm2ewyg" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-zlz64jydsmhb5zmytcm2ewyg">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+          <rdfs:label>Preferred Contact Method</rdfs:label>
+          <rdfs:comment>Participant's preferred method of contact</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-zlz64jydsmhb5zmytcm2ewyg"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-preferred_contact_method"/>
+          <skos:relatedMatch rdf:resource="https://www.wikidata.org/wiki/Q2336001"/>
+          <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
+          <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTokenType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Preferred Contact Method"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdtoken-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:token">
+                <xsd:enumeration value="Phone">
+                  <xsd:annotation>
+                        <xsd:documentation>Telephone call</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-zlz64jydsmhb5zmytcm2ewyg/xdtoken-value/Phone">
+                        <rdfs:subPropertyOf rdf:resource="mc-zlz64jydsmhb5zmytcm2ewyg"/>
+                        <rdfs:label>Phone</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Email">
+                  <xsd:annotation>
+                        <xsd:documentation>Electronic mail</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-zlz64jydsmhb5zmytcm2ewyg/xdtoken-value/Email">
+                        <rdfs:subPropertyOf rdf:resource="mc-zlz64jydsmhb5zmytcm2ewyg"/>
+                        <rdfs:label>Email</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Text/SMS">
+                  <xsd:annotation>
+                        <xsd:documentation>Text message</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-zlz64jydsmhb5zmytcm2ewyg/xdtoken-value/Text/SMS">
+                        <rdfs:subPropertyOf rdf:resource="mc-zlz64jydsmhb5zmytcm2ewyg"/>
+                        <rdfs:label>Text/SMS</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Mail">
+                  <xsd:annotation>
+                        <xsd:documentation>Postal mail</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-zlz64jydsmhb5zmytcm2ewyg/xdtoken-value/Mail">
+                        <rdfs:subPropertyOf rdf:resource="mc-zlz64jydsmhb5zmytcm2ewyg"/>
+                        <rdfs:label>Mail</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="No preference">
+                  <xsd:annotation>
+                        <xsd:documentation>No stated preference</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-zlz64jydsmhb5zmytcm2ewyg/xdtoken-value/No preference">
+                        <rdfs:subPropertyOf rdf:resource="mc-zlz64jydsmhb5zmytcm2ewyg"/>
+                        <rdfs:label>No preference</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdtoken-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Address (Line 1) (l338k7nlvnq2am0owa19yxfc) -->
+  <xsd:complexType name="mc-l338k7nlvnq2am0owa19yxfc" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-l338k7nlvnq2am0owa19yxfc">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>Address (Line 1)</rdfs:label>
+          <rdfs:comment>Street address line, building/apartment number, or P.O. Box number.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-l338k7nlvnq2am0owa19yxfc"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-address_(line_1)"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+          <rdfs:isDefinedBy rdf:resource="https://schema.org/streetAddress"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Address (Line 1)"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="200"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Address (Line 2) (ek5h6dsqpd9kz0l4mcckmxpt) -->
+  <xsd:complexType name="mc-ek5h6dsqpd9kz0l4mcckmxpt" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-ek5h6dsqpd9kz0l4mcckmxpt">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>Address (Line 2)</rdfs:label>
+          <rdfs:comment>Street address line, building/apartment number, or P.O. Box number.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-ek5h6dsqpd9kz0l4mcckmxpt"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-address_(line_2)"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+          <rdfs:isDefinedBy rdf:resource="https://schema.org/streetAddress"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Address (Line 2)"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="200"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Relationship Type (be9apjt8mvjjv86qzycorcjl) -->
+  <xsd:complexType name="mc-be9apjt8mvjjv86qzycorcjl" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-be9apjt8mvjjv86qzycorcjl">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+          <rdfs:label>Relationship Type</rdfs:label>
+          <rdfs:comment>Familial or legal relationship between two persons in the Cordova Civil Registry.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-be9apjt8mvjjv86qzycorcjl"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-relationship_type"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q69901743"/>
+          <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
+          <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTokenType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Relationship Type"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdtoken-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:token">
+                <xsd:enumeration value="Spouse">
+                  <xsd:annotation>
+                        <xsd:documentation>Married partner</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Spouse">
+                        <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+                        <rdfs:label>Spouse</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Parent">
+                  <xsd:annotation>
+                        <xsd:documentation>Biological or adoptive parent</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Parent">
+                        <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+                        <rdfs:label>Parent</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Child">
+                  <xsd:annotation>
+                        <xsd:documentation>Biological or adopted child</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Child">
+                        <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+                        <rdfs:label>Child</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Sibling">
+                  <xsd:annotation>
+                        <xsd:documentation>Brother or sister (biological, half, or adoptive)</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Sibling">
+                        <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+                        <rdfs:label>Sibling</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Grandparent">
+                  <xsd:annotation>
+                        <xsd:documentation>Paternal or maternal grandparent</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Grandparent">
+                        <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+                        <rdfs:label>Grandparent</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Grandchild">
+                  <xsd:annotation>
+                        <xsd:documentation>Child of one's child</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Grandchild">
+                        <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+                        <rdfs:label>Grandchild</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Guardian">
+                  <xsd:annotation>
+                        <xsd:documentation>Legal guardian (non-parent)</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Guardian">
+                        <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+                        <rdfs:label>Guardian</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdtoken-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Relationship End Date (o7vjxwswi0pxo543hq504jjx) -->
+
+  <xsd:complexType name="mc-o7vjxwswi0pxo543hq504jjx" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-o7vjxwswi0pxo543hq504jjx">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+          <rdfs:label>Relationship End Date</rdfs:label>
+          <rdfs:comment>Date the relationship ended, if applicable (e.g., divorce date, death date). Null for active relationships.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-o7vjxwswi0pxo543hq504jjx"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-relationship_end_date"/>
+          <skos:broadMatch rdf:resource="https://schema.org/Date"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q121875611"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTemporalType">
+        <xsd:sequence>
+    <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Relationship End Date"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+    <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:ReferenceRange"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="normal-status" type="xsd:string"/>
+    <xsd:choice minOccurs="0" maxOccurs="1">
+      <xsd:element name="xdtemporal-date" type="xsd:date"/>
+    </xsd:choice>
+        </xsd:sequence>
+      </xsd:restriction></xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Relationship Start Date (k9ptlhkq3j41p6umlg3tc80x) -->
+
+  <xsd:complexType name="mc-k9ptlhkq3j41p6umlg3tc80x" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-k9ptlhkq3j41p6umlg3tc80x">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+          <rdfs:label>Relationship Start Date</rdfs:label>
+          <rdfs:comment>Date the relationship was established or recorded (e.g., marriage date, birth date of child, guardianship order date)
+
+---</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-k9ptlhkq3j41p6umlg3tc80x"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-relationship_start_date"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q3406134"/>
+          <skos:broadMatch rdf:resource="https://schema.org/Date"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTemporalType">
+        <xsd:sequence>
+    <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Relationship Start Date"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+    <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:ReferenceRange"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="normal-status" type="xsd:string"/>
+    <xsd:choice minOccurs="0" maxOccurs="1">
+      <xsd:element name="xdtemporal-date" type="xsd:date"/>
+    </xsd:choice>
+        </xsd:sequence>
+      </xsd:restriction></xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Related Person (avqpyqft9tm22yyink3ltcty) -->
+  <xsd:complexType name="mc-avqpyqft9tm22yyink3ltcty" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-avqpyqft9tm22yyink3ltcty">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+          <rdfs:label>Related Person</rdfs:label>
+          <rdfs:comment>Person related to the civil registry subject via family relationship (parent, child, spouse, etc.). W3C PROV-DM Agent (Person) with Cordova CID.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-avqpyqft9tm22yyink3ltcty"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-related_person"/>
+          <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+          <rdfs:isDefinedBy rdf:resource="https://schema.org/Person"/>
+          <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q22988604"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:PartyType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Related Person"/>
+          <xsd:element name="party-details" type="sdc4:mc-v0m4pdtqjtsbj6e4zubge8ul"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component agent_id (hhfnj5hd1yzt252jfq5pdjj1) -->
+  <xsd:complexType name="mc-hhfnj5hd1yzt252jfq5pdjj1" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>agent_id</rdfs:label>
+          <rdfs:comment>Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-agent_id"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q37882474"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="agent_id"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="255"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component person_family_name (zs9ciw4nypx4plo856h3m95d) -->
+  <xsd:complexType name="mc-zs9ciw4nypx4plo856h3m95d" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-zs9ciw4nypx4plo856h3m95d">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>person_family_name</rdfs:label>
+          <rdfs:comment>Family (last) name of the person agent.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-zs9ciw4nypx4plo856h3m95d"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-person_family_name"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q4116295"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="person_family_name"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component person_given_name (ndvtjiq0cke0q1trw58rtrq2) -->
+  <xsd:complexType name="mc-ndvtjiq0cke0q1trw58rtrq2" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>person_given_name</rdfs:label>
+          <rdfs:comment>Given (first) name of the person agent.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-person_given_name"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q202444"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="person_given_name"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component PROV Agent Type (nesxtz8c5o665swc9lhvqkjj) -->
+  <xsd:complexType name="mc-nesxtz8c5o665swc9lhvqkjj" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-nesxtz8c5o665swc9lhvqkjj">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+          <rdfs:label>PROV Agent Type</rdfs:label>
+          <rdfs:comment>Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-nesxtz8c5o665swc9lhvqkjj"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prov_agent_type"/>
+          <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+          <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
+          <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTokenType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="PROV Agent Type"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdtoken-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:token">
+                <xsd:enumeration value="Person">
+                  <xsd:annotation>
+                        <xsd:documentation>Human individual acting as an agent</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Person">
+                        <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+                        <rdfs:label>Person</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Organization">
+                  <xsd:annotation>
+                        <xsd:documentation>Institutional or corporate entity acting as an agent</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Organization">
+                        <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+                        <rdfs:label>Organization</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="SoftwareAgent">
+                  <xsd:annotation>
+                        <xsd:documentation>Automated software system or service acting as an agent</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/SoftwareAgent">
+                        <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+                        <rdfs:label>SoftwareAgent</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdtoken-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Civil Registry Office (piaz5w21hsuq3hpysyetuvvk) -->
+  <xsd:complexType name="mc-piaz5w21hsuq3hpysyetuvvk" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-piaz5w21hsuq3hpysyetuvvk">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+          <rdfs:label>Civil Registry Office</rdfs:label>
+          <rdfs:comment>Government office responsible for civil registry records (births, marriages, deaths, name changes). W3C PROV-DM Agent (Organization).</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-piaz5w21hsuq3hpysyetuvvk"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-civil_registry_office"/>
+          <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+          <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q327333"/>
+          <rdfs:isDefinedBy rdf:resource="http://schema.org/GovernmentOrganization"/>
+          <rdfs:isDefinedBy rdf:resource="https://schema.org/Organization"/>
+          <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q745221"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:PartyType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Civil Registry Office"/>
+          <xsd:element name="party-details" type="sdc4:mc-lev3nug1ml7l43icdjcyleqe"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component organization_identifier (ule5u2z3rjpa9pooaifwj1n3) -->
+  <xsd:complexType name="mc-ule5u2z3rjpa9pooaifwj1n3" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-ule5u2z3rjpa9pooaifwj1n3">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>organization_identifier</rdfs:label>
+          <rdfs:comment>Official identifier for the organization (e.g., DUNS, tax ID).</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-organization_identifier"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q11378663"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="organization_identifier"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="255"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component organization_name (ifw5zfe4oiijbxjn1ylc2wm3) -->
+  <xsd:complexType name="mc-ifw5zfe4oiijbxjn1ylc2wm3" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>organization_name</rdfs:label>
+          <rdfs:comment>Legal or official name of the organization.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-organization_name"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q168678"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="organization_name"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="200"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component organization_type (bpqtzla39dwentygpwea8276) -->
+  <xsd:complexType name="mc-bpqtzla39dwentygpwea8276" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-bpqtzla39dwentygpwea8276">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+          <rdfs:label>organization_type</rdfs:label>
+          <rdfs:comment>Type of organization.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-bpqtzla39dwentygpwea8276"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-organization_type"/>
+          <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
+          <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q17197366"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTokenType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="organization_type"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdtoken-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:token">
+                <xsd:enumeration value="corporation">
+                  <xsd:annotation>
+                        <xsd:documentation>Commercial corporation</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/corporation">
+                        <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+                        <rdfs:label>corporation</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="government">
+                  <xsd:annotation>
+                        <xsd:documentation>Government agency</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/government">
+                        <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+                        <rdfs:label>government</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="nonprofit">
+                  <xsd:annotation>
+                        <xsd:documentation>Non-profit organization</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/nonprofit">
+                        <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+                        <rdfs:label>nonprofit</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="academic">
+                  <xsd:annotation>
+                        <xsd:documentation>Academic institution</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/academic">
+                        <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+                        <rdfs:label>academic</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="department">
+                  <xsd:annotation>
+                        <xsd:documentation>Internal department or team</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/department">
+                        <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+                        <rdfs:label>department</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="vendor">
+                  <xsd:annotation>
+                        <xsd:documentation>Third-party vendor or partner</xsd:documentation>
+                    <xsd:appinfo>
+                      <rdfs:Class rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/vendor">
+                        <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+                        <rdfs:label>vendor</rdfs:label>
+                      </rdfs:Class>
+                    </xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:enumeration>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdtoken-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Civil Registry Attestation (pf1mrtzd9ld1939qanem0olk) -->
+  <xsd:complexType name="mc-pf1mrtzd9ld1939qanem0olk" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-pf1mrtzd9ld1939qanem0olk">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:AttestationType"/>
+          <rdfs:label>Civil Registry Attestation</rdfs:label>
+          <rdfs:comment>Attestation for civil registry records (births, marriages, name changes). The civil registry office attests to record accuracy. W3C PROV-DM, GDPR/UN CEB.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-pf1mrtzd9ld1939qanem0olk"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-civil_registry_attestation"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q116890704"/>
+          <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q12047392"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
+          <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+          <skos:exactMatch rdf:resource="https://schema.org/EndorseAction"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:AttestationType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Civil Registry Attestation"/>
+          <xsd:element name="view" type="sdc4:mc-ys32wo3tw9p37i7v4gcvxahk"/>
+          <xsd:element name="proof" type="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
+          <xsd:element name="reason" type="sdc4:mc-a6zjaj7dunnwxdtc2skdpepx"/>
+          <xsd:element name="committer" type="sdc4:mc-piaz5w21hsuq3hpysyetuvvk"/>
+          <xsd:element name="committed" type="xsd:dateTime"/>
+          <xsd:element name="pending" type="xsd:boolean"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Civil Registry Attested View (ys32wo3tw9p37i7v4gcvxahk) -->
+
+<xsd:complexType name="mc-ys32wo3tw9p37i7v4gcvxahk" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-ys32wo3tw9p37i7v4gcvxahk">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+        <rdfs:label>Civil Registry Attested View</rdfs:label>
+        
+        <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q4830453"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.org/DigitalDocument"/>
+        <skos:broadMatch rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:XdFileType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Civil Registry Attested View"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="size" type="xsd:integer"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="encoding" type="xsd:string" fixed="utf-8"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="xdfile-language" type="xsd:language" fixed="en-US"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="formalism" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="media-type" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="compression-type" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="hash-result" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="hash-function" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="alt-txt" type="xsd:string"/>
+        <xsd:choice maxOccurs="1" minOccurs="1">
+            <xsd:element name="uri" type="xsd:anyURI"/>
+            <xsd:element name="media-content" type="xsd:base64Binary"/>
+        </xsd:choice>
+      </xsd:sequence>
+    </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component Digital Signature Proof (gug5dhtqfv7exbgmm2raxpkq) -->
+
+<xsd:complexType name="mc-gug5dhtqfv7exbgmm2raxpkq" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+        <rdfs:label>Digital Signature Proof</rdfs:label>
+        
+        <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q210824"/>
+        <skos:broadMatch rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:XdFileType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Digital Signature Proof"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="size" type="xsd:integer"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="encoding" type="xsd:string" fixed="utf-8"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="xdfile-language" type="xsd:language" fixed="en-US"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="formalism" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="media-type" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="compression-type" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="hash-result" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="hash-function" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="alt-txt" type="xsd:string"/>
+        <xsd:choice maxOccurs="1" minOccurs="1">
+            <xsd:element name="uri" type="xsd:anyURI"/>
+            <xsd:element name="media-content" type="xsd:base64Binary"/>
+        </xsd:choice>
+      </xsd:sequence>
+    </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component Civil Registry Attestation Reason (a6zjaj7dunnwxdtc2skdpepx) -->
+  <xsd:complexType name="mc-a6zjaj7dunnwxdtc2skdpepx" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-a6zjaj7dunnwxdtc2skdpepx">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>Civil Registry Attestation Reason</rdfs:label>
+          <rdfs:comment>Reason for attesting this civil registry record</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-a6zjaj7dunnwxdtc2skdpepx"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-civil_registry_attestation_reason"/>
+          <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q4830453"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
+          <skos:broadMatch rdf:resource="https://schema.org/Text"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Civil Registry Attestation Reason"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="500"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Civil Registration Protocol (azmp0vkmkmtne1goba54qubu) -->
+  <xsd:complexType name="mc-azmp0vkmkmtne1goba54qubu" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-azmp0vkmkmtne1goba54qubu">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>Civil Registration Protocol</rdfs:label>
+          <rdfs:comment>Protocol reference for the Civil Registry data model. Informed by the United Nations Guidelines on Civil Registration and Vital Statistics Systems, the Handbook on Civil Registration and Vital Statistics (UN Statistics Division), and regional civil code frameworks.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-azmp0vkmkmtne1goba54qubu"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-civil_registration_protocol"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
+          <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q317623"/>
+          <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q69484"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Civil Registration Protocol"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="500"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component Civil Registry Access Control (fdwlhbher1gm91zfmf8mno6c) -->
+
+<xsd:complexType name="mc-fdwlhbher1gm91zfmf8mno6c" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-fdwlhbher1gm91zfmf8mno6c">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdLinkType"/>
+        <rdfs:label>Civil Registry Access Control</rdfs:label>
+        
+        <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q185799"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/dpv#AccessControlMethod"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q83708009"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/dpv"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/dpv#IdentifyingPersonalData"/>
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:XdLinkType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Civil Registry Access Control"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="link" type="xsd:anyURI" fixed="https://w3id.org/dpv/2.2"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="relation" type="xsd:string" fixed="external"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="relation-uri" type="xsd:anyURI" fixed="https://w3id.org/dpv#AccessControlMethod"/>
+      </xsd:sequence>
+    </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<!-- XdAdapterType Wrappers for XdAnyType Components in Clusters -->
+  <!-- Adapter wrapper for National ID (CID) (nj7s1gk45tfgyooxpz0qaha3) -->
+  <xsd:complexType name="mc-sf5d0dzjo5yqp545skp6tmw3">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: National ID (CID)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-nj7s1gk45tfgyooxpz0qaha3"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Country of Birth (cfg2l8ym4ve833ritrxu765t) -->
+  <xsd:complexType name="mc-ppatwamypgm2vvl1ixbvbdk8">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Country of Birth</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-cfg2l8ym4ve833ritrxu765t"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Given Name (Person) (kfyzf8u8gdafcpt5kfh2qg3q) -->
+  <xsd:complexType name="mc-v0yppmgjerq6v83aufxk4bnt">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Given Name (Person)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-kfyzf8u8gdafcpt5kfh2qg3q"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Middle Name (Person) (oit0ueglhjfcyq80z22kl2z3) -->
+  <xsd:complexType name="mc-wt8pjkqdkwzuyg68q8eks8rk">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Middle Name (Person)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-oit0ueglhjfcyq80z22kl2z3"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Surname (Person) (v8jgjo2sml12jo7zrb8swoxi) -->
+  <xsd:complexType name="mc-lquaqukhj8g8jkuxwua9t3f3">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Surname (Person)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-v8jgjo2sml12jo7zrb8swoxi"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for City (atdtdfzruh7tya0iv5cz365l) -->
+  <xsd:complexType name="mc-flg3okcdrds65w1twhfdkqj2">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: City</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-atdtdfzruh7tya0iv5cz365l"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Marital Status (Cordova) (vjfgimlbb90ds2xg55tfn941) -->
+  <xsd:complexType name="mc-xb1lgx6byojidqm8ffdrogah">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Marital Status (Cordova)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-vjfgimlbb90ds2xg55tfn941"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Province (kv5qqs3o4jwcwz9javgw1pzh) -->
+  <xsd:complexType name="mc-yr5nlcn9muub8g69ui0iyrwa">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Province</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-kv5qqs3o4jwcwz9javgw1pzh"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Gender Identity (cymq16em5zb20whgtfzki6n5) -->
+  <xsd:complexType name="mc-zah3durtmxt4ssipr5309it9">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Gender Identity</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-cymq16em5zb20whgtfzki6n5"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Sex (mw9qdn71urog8egjbp5t3y00) -->
+  <xsd:complexType name="mc-kprttn2ok3qk7iqm6l1z1uie">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Sex</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-mw9qdn71urog8egjbp5t3y00"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Birth Date (g3k6bj8su3rvkszg2700dhyh) -->
+  <xsd:complexType name="mc-jmn2v720qkuydsc5ftpphqrl">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Birth Date</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-g3k6bj8su3rvkszg2700dhyh"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Cordova Email Address (x0na649n17if0ukul82cmrx3) -->
+  <xsd:complexType name="mc-yqxxoehqidrfcbto4s0xdacm">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Cordova Email Address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-x0na649n17if0ukul82cmrx3"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Cordova Phone Number (nfrvvp87c5imu5h9ups92kgy) -->
+  <xsd:complexType name="mc-y0vfbpi76tunsfgq8861cpi9">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Cordova Phone Number</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-nfrvvp87c5imu5h9ups92kgy"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Preferred Contact Method (zlz64jydsmhb5zmytcm2ewyg) -->
+  <xsd:complexType name="mc-jicqhez3mky3tbtwnmuv1pcd">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Preferred Contact Method</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-zlz64jydsmhb5zmytcm2ewyg"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Address (Line 1) (l338k7nlvnq2am0owa19yxfc) -->
+  <xsd:complexType name="mc-viugivc8kxgjrpgxyebpgzbs">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Address (Line 1)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-l338k7nlvnq2am0owa19yxfc"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Address (Line 2) (ek5h6dsqpd9kz0l4mcckmxpt) -->
+  <xsd:complexType name="mc-drwt9abubt16wo0dtklbe7of">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Address (Line 2)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-ek5h6dsqpd9kz0l4mcckmxpt"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Relationship Type (be9apjt8mvjjv86qzycorcjl) -->
+  <xsd:complexType name="mc-ewvqx9e8k6bmkvagzo5mahrs">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Relationship Type</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-be9apjt8mvjjv86qzycorcjl"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Relationship End Date (o7vjxwswi0pxo543hq504jjx) -->
+  <xsd:complexType name="mc-lvyllvk6q9ojxv90phudd3d9">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Relationship End Date</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-o7vjxwswi0pxo543hq504jjx"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Relationship Start Date (k9ptlhkq3j41p6umlg3tc80x) -->
+  <xsd:complexType name="mc-dbdmw1sy83yfkqkj6ypqn0ms">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Relationship Start Date</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-k9ptlhkq3j41p6umlg3tc80x"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for agent_id (hhfnj5hd1yzt252jfq5pdjj1) -->
+  <xsd:complexType name="mc-t5omroeou895gg1du6tevc0t">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: agent_id</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-hhfnj5hd1yzt252jfq5pdjj1"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for person_family_name (zs9ciw4nypx4plo856h3m95d) -->
+  <xsd:complexType name="mc-jm0mqajin906obcfnffjfy3y">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: person_family_name</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-zs9ciw4nypx4plo856h3m95d"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for person_given_name (ndvtjiq0cke0q1trw58rtrq2) -->
+  <xsd:complexType name="mc-exutj7vfaflme7vtjqoqba36">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: person_given_name</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-ndvtjiq0cke0q1trw58rtrq2"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for PROV Agent Type (nesxtz8c5o665swc9lhvqkjj) -->
+  <xsd:complexType name="mc-z2dwsa00014fgcmf8lly5ayb">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: PROV Agent Type</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-nesxtz8c5o665swc9lhvqkjj"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for organization_identifier (ule5u2z3rjpa9pooaifwj1n3) -->
+  <xsd:complexType name="mc-n1j0grpaaswnom7xpbfhahlk">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: organization_identifier</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-ule5u2z3rjpa9pooaifwj1n3"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for organization_name (ifw5zfe4oiijbxjn1ylc2wm3) -->
+  <xsd:complexType name="mc-fortqbgiia7j02piw0ayx93t">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: organization_name</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-ifw5zfe4oiijbxjn1ylc2wm3"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for organization_type (bpqtzla39dwentygpwea8276) -->
+  <xsd:complexType name="mc-cscw8kt39qo70kw02exseszw">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: organization_type</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-bpqtzla39dwentygpwea8276"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Civil Registration Protocol (azmp0vkmkmtne1goba54qubu) -->
+  <xsd:complexType name="mc-sv6tr3h7k9c0exmaocxpfqjx">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Civil Registration Protocol</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-azmp0vkmkmtne1goba54qubu"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for Civil Registry Attestation Reason (a6zjaj7dunnwxdtc2skdpepx) -->
+  <xsd:complexType name="mc-yos92sa6gylhhmz4uvahxtpb">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: Civil Registry Attestation Reason</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-a6zjaj7dunnwxdtc2skdpepx"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+<!-- Cluster Schemas -->
+<!-- Schema for component Civil Registry Record (bgjt4mvgvkxcn6hurg37u21b) -->
+
+<xsd:complexType name="mc-bgjt4mvgvkxcn6hurg37u21b" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-bgjt4mvgvkxcn6hurg37u21b">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+        <rdfs:label>Civil Registry Record</rdfs:label>        <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q18562479"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)"/>
+
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:ClusterType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Civil Registry Record"/>
+        <!-- Item: XdAdapter wrappers and nested Clusters are in the sdc4:Item substitution group -->
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Item"/>
+      </xsd:sequence>
+    </xsd:restriction>
+  </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component Contact Information (sv48g8am8vqs46nodiugripz) -->
+
+<xsd:complexType name="mc-sv48g8am8vqs46nodiugripz" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-sv48g8am8vqs46nodiugripz">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+        <rdfs:label>Contact Information</rdfs:label>        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2996679"/>
+        <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
+
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:ClusterType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Contact Information"/>
+        <!-- Item: XdAdapter wrappers and nested Clusters are in the sdc4:Item substitution group -->
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Item"/>
+      </xsd:sequence>
+    </xsd:restriction>
+  </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component Current Address (ytctcqbr30kxsmvx4jk7lae2) -->
+
+<xsd:complexType name="mc-ytctcqbr30kxsmvx4jk7lae2" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-ytctcqbr30kxsmvx4jk7lae2">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+        <rdfs:label>Current Address</rdfs:label>        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q75618710"/>
+        <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
+
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:ClusterType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Current Address"/>
+        <!-- Item: XdAdapter wrappers and nested Clusters are in the sdc4:Item substitution group -->
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Item"/>
+      </xsd:sequence>
+    </xsd:restriction>
+  </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component Family Relationships (l9k2fmlc5vn477r3kpi1ufal) -->
+
+<xsd:complexType name="mc-l9k2fmlc5vn477r3kpi1ufal" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-l9k2fmlc5vn477r3kpi1ufal">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+        <rdfs:label>Family Relationships</rdfs:label>        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q69901743"/>
+        <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
+
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:ClusterType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Family Relationships"/>
+        <!-- Item: XdAdapter wrappers and nested Clusters are in the sdc4:Item substitution group -->
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Item"/>
+      </xsd:sequence>
+    </xsd:restriction>
+  </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component Related Person (v0m4pdtqjtsbj6e4zubge8ul) -->
+
+<xsd:complexType name="mc-v0m4pdtqjtsbj6e4zubge8ul" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-v0m4pdtqjtsbj6e4zubge8ul">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+        <rdfs:label>Related Person</rdfs:label>        <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
+        <skos:exactMatch rdf:resource="https://schema.org/Person"/>
+
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:ClusterType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Related Person"/>
+        <!-- Item: XdAdapter wrappers and nested Clusters are in the sdc4:Item substitution group -->
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Item"/>
+      </xsd:sequence>
+    </xsd:restriction>
+  </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component Civil Registry Office (lev3nug1ml7l43icdjcyleqe) -->
+
+<xsd:complexType name="mc-lev3nug1ml7l43icdjcyleqe" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-lev3nug1ml7l43icdjcyleqe">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+        <rdfs:label>Civil Registry Office</rdfs:label>        <skos:exactMatch rdf:resource="https://www.wikidata.org/wiki/Q97211668"/>
+        <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)"/>
+
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:ClusterType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Civil Registry Office"/>
+        <!-- Item: XdAdapter wrappers and nested Clusters are in the sdc4:Item substitution group -->
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Item"/>
+      </xsd:sequence>
+    </xsd:restriction>
+  </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component Civil Registry Workflow (qy0bhr8p5mbux9k8mbb6zsx0) -->
+
+<xsd:complexType name="mc-qy0bhr8p5mbux9k8mbb6zsx0" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-qy0bhr8p5mbux9k8mbb6zsx0">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+        <rdfs:label>Civil Registry Workflow</rdfs:label>        <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q97211668"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)"/>
+        <skos:exactMatch rdf:resource="https://www.wikidata.org/wiki/Q627335"/>
+
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:ClusterType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Civil Registry Workflow"/>
+        <!-- Item: XdAdapter wrappers and nested Clusters are in the sdc4:Item substitution group -->
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Item"/>
+      </xsd:sequence>
+    </xsd:restriction>
+  </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Substitution Groups -->
+  <xsd:element name="ms-mw9qdn71urog8egjbp5t3y00" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-mw9qdn71urog8egjbp5t3y00"/>
+  <xsd:element name="ms-o7vjxwswi0pxo543hq504jjx" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-o7vjxwswi0pxo543hq504jjx"/>
+  <xsd:element name="ms-v0m4pdtqjtsbj6e4zubge8ul" substitutionGroup="sdc4:Item" type="sdc4:mc-v0m4pdtqjtsbj6e4zubge8ul"/>
+  <xsd:element name="ms-azmp0vkmkmtne1goba54qubu" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-azmp0vkmkmtne1goba54qubu"/>
+  <xsd:element name="ms-ytctcqbr30kxsmvx4jk7lae2" substitutionGroup="sdc4:Item" type="sdc4:mc-ytctcqbr30kxsmvx4jk7lae2"/>
+  <xsd:element name="ms-nj7s1gk45tfgyooxpz0qaha3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"/>
+  <xsd:element name="ms-zlz64jydsmhb5zmytcm2ewyg" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zlz64jydsmhb5zmytcm2ewyg"/>
+  <xsd:element name="ms-cfg2l8ym4ve833ritrxu765t" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-cfg2l8ym4ve833ritrxu765t"/>
+  <xsd:element name="ms-k9ptlhkq3j41p6umlg3tc80x" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-k9ptlhkq3j41p6umlg3tc80x"/>
+  <xsd:element name="ms-be9apjt8mvjjv86qzycorcjl" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-be9apjt8mvjjv86qzycorcjl"/>
+  <xsd:element name="ms-bpqtzla39dwentygpwea8276" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bpqtzla39dwentygpwea8276"/>
+  <xsd:element name="ms-nfrvvp87c5imu5h9ups92kgy" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nfrvvp87c5imu5h9ups92kgy"/>
+  <xsd:element name="ms-avqpyqft9tm22yyink3ltcty" substitutionGroup="sdc4:Party" type="sdc4:mc-avqpyqft9tm22yyink3ltcty"/>
+  <xsd:element name="ms-ndvtjiq0cke0q1trw58rtrq2" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"/>
+  <xsd:element name="ms-vjfgimlbb90ds2xg55tfn941" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-vjfgimlbb90ds2xg55tfn941"/>
+  <xsd:element name="ms-kfyzf8u8gdafcpt5kfh2qg3q" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-kfyzf8u8gdafcpt5kfh2qg3q"/>
+  <xsd:element name="ms-bgjt4mvgvkxcn6hurg37u21b" substitutionGroup="sdc4:Item" type="sdc4:mc-bgjt4mvgvkxcn6hurg37u21b"/>
+  <xsd:element name="ms-ek5h6dsqpd9kz0l4mcckmxpt" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ek5h6dsqpd9kz0l4mcckmxpt"/>
+  <xsd:element name="ms-ule5u2z3rjpa9pooaifwj1n3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"/>
+  <xsd:element name="ms-qy0bhr8p5mbux9k8mbb6zsx0" substitutionGroup="sdc4:Item" type="sdc4:mc-qy0bhr8p5mbux9k8mbb6zsx0"/>
+  <xsd:element name="ms-kv5qqs3o4jwcwz9javgw1pzh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+  <xsd:element name="ms-piaz5w21hsuq3hpysyetuvvk" substitutionGroup="sdc4:Party" type="sdc4:mc-piaz5w21hsuq3hpysyetuvvk"/>
+  <xsd:element name="ms-a6zjaj7dunnwxdtc2skdpepx" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-a6zjaj7dunnwxdtc2skdpepx"/>
+  <xsd:element name="ms-hhfnj5hd1yzt252jfq5pdjj1" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"/>
+  <xsd:element name="ms-l338k7nlvnq2am0owa19yxfc" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-l338k7nlvnq2am0owa19yxfc"/>
+  <xsd:element name="ms-pf1mrtzd9ld1939qanem0olk" substitutionGroup="sdc4:Attestation" type="sdc4:mc-pf1mrtzd9ld1939qanem0olk"/>
+  <xsd:element name="ms-cymq16em5zb20whgtfzki6n5" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-cymq16em5zb20whgtfzki6n5"/>
+  <xsd:element name="ms-g3k6bj8su3rvkszg2700dhyh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-g3k6bj8su3rvkszg2700dhyh"/>
+  <xsd:element name="ms-nesxtz8c5o665swc9lhvqkjj" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nesxtz8c5o665swc9lhvqkjj"/>
+  <xsd:element name="ms-v8jgjo2sml12jo7zrb8swoxi" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-v8jgjo2sml12jo7zrb8swoxi"/>
+  <xsd:element name="ms-ys32wo3tw9p37i7v4gcvxahk" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ys32wo3tw9p37i7v4gcvxahk"/>
+  <xsd:element name="ms-gug5dhtqfv7exbgmm2raxpkq" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
+  <xsd:element name="ms-l9k2fmlc5vn477r3kpi1ufal" substitutionGroup="sdc4:Item" type="sdc4:mc-l9k2fmlc5vn477r3kpi1ufal"/>
+  <xsd:element name="ms-zs9ciw4nypx4plo856h3m95d" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zs9ciw4nypx4plo856h3m95d"/>
+  <xsd:element name="ms-fdwlhbher1gm91zfmf8mno6c" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-fdwlhbher1gm91zfmf8mno6c"/>
+  <xsd:element name="ms-sv48g8am8vqs46nodiugripz" substitutionGroup="sdc4:Item" type="sdc4:mc-sv48g8am8vqs46nodiugripz"/>
+  <xsd:element name="ms-atdtdfzruh7tya0iv5cz365l" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-atdtdfzruh7tya0iv5cz365l"/>
+  <xsd:element name="ms-ifw5zfe4oiijbxjn1ylc2wm3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"/>
+  <xsd:element name="ms-oit0ueglhjfcyq80z22kl2z3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-oit0ueglhjfcyq80z22kl2z3"/>
+  <xsd:element name="ms-x0na649n17if0ukul82cmrx3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-x0na649n17if0ukul82cmrx3"/>
+  <xsd:element name="ms-lev3nug1ml7l43icdjcyleqe" substitutionGroup="sdc4:Item" type="sdc4:mc-lev3nug1ml7l43icdjcyleqe"/>
+  <xsd:element name="ms-kprttn2ok3qk7iqm6l1z1uie" substitutionGroup="sdc4:Item" type="sdc4:mc-kprttn2ok3qk7iqm6l1z1uie"/>
+  <xsd:element name="ms-lvyllvk6q9ojxv90phudd3d9" substitutionGroup="sdc4:Item" type="sdc4:mc-lvyllvk6q9ojxv90phudd3d9"/>
+  <xsd:element name="ms-sv6tr3h7k9c0exmaocxpfqjx" substitutionGroup="sdc4:Item" type="sdc4:mc-sv6tr3h7k9c0exmaocxpfqjx"/>
+  <xsd:element name="ms-sf5d0dzjo5yqp545skp6tmw3" substitutionGroup="sdc4:Item" type="sdc4:mc-sf5d0dzjo5yqp545skp6tmw3"/>
+  <xsd:element name="ms-jicqhez3mky3tbtwnmuv1pcd" substitutionGroup="sdc4:Item" type="sdc4:mc-jicqhez3mky3tbtwnmuv1pcd"/>
+  <xsd:element name="ms-dbdmw1sy83yfkqkj6ypqn0ms" substitutionGroup="sdc4:Item" type="sdc4:mc-dbdmw1sy83yfkqkj6ypqn0ms"/>
+  <xsd:element name="ms-ppatwamypgm2vvl1ixbvbdk8" substitutionGroup="sdc4:Item" type="sdc4:mc-ppatwamypgm2vvl1ixbvbdk8"/>
+  <xsd:element name="ms-ewvqx9e8k6bmkvagzo5mahrs" substitutionGroup="sdc4:Item" type="sdc4:mc-ewvqx9e8k6bmkvagzo5mahrs"/>
+  <xsd:element name="ms-cscw8kt39qo70kw02exseszw" substitutionGroup="sdc4:Item" type="sdc4:mc-cscw8kt39qo70kw02exseszw"/>
+  <xsd:element name="ms-y0vfbpi76tunsfgq8861cpi9" substitutionGroup="sdc4:Item" type="sdc4:mc-y0vfbpi76tunsfgq8861cpi9"/>
+  <xsd:element name="ms-exutj7vfaflme7vtjqoqba36" substitutionGroup="sdc4:Item" type="sdc4:mc-exutj7vfaflme7vtjqoqba36"/>
+  <xsd:element name="ms-xb1lgx6byojidqm8ffdrogah" substitutionGroup="sdc4:Item" type="sdc4:mc-xb1lgx6byojidqm8ffdrogah"/>
+  <xsd:element name="ms-v0yppmgjerq6v83aufxk4bnt" substitutionGroup="sdc4:Item" type="sdc4:mc-v0yppmgjerq6v83aufxk4bnt"/>
+  <xsd:element name="ms-drwt9abubt16wo0dtklbe7of" substitutionGroup="sdc4:Item" type="sdc4:mc-drwt9abubt16wo0dtklbe7of"/>
+  <xsd:element name="ms-n1j0grpaaswnom7xpbfhahlk" substitutionGroup="sdc4:Item" type="sdc4:mc-n1j0grpaaswnom7xpbfhahlk"/>
+  <xsd:element name="ms-yr5nlcn9muub8g69ui0iyrwa" substitutionGroup="sdc4:Item" type="sdc4:mc-yr5nlcn9muub8g69ui0iyrwa"/>
+  <xsd:element name="ms-yos92sa6gylhhmz4uvahxtpb" substitutionGroup="sdc4:Item" type="sdc4:mc-yos92sa6gylhhmz4uvahxtpb"/>
+  <xsd:element name="ms-t5omroeou895gg1du6tevc0t" substitutionGroup="sdc4:Item" type="sdc4:mc-t5omroeou895gg1du6tevc0t"/>
+  <xsd:element name="ms-viugivc8kxgjrpgxyebpgzbs" substitutionGroup="sdc4:Item" type="sdc4:mc-viugivc8kxgjrpgxyebpgzbs"/>
+  <xsd:element name="ms-zah3durtmxt4ssipr5309it9" substitutionGroup="sdc4:Item" type="sdc4:mc-zah3durtmxt4ssipr5309it9"/>
+  <xsd:element name="ms-jmn2v720qkuydsc5ftpphqrl" substitutionGroup="sdc4:Item" type="sdc4:mc-jmn2v720qkuydsc5ftpphqrl"/>
+  <xsd:element name="ms-z2dwsa00014fgcmf8lly5ayb" substitutionGroup="sdc4:Item" type="sdc4:mc-z2dwsa00014fgcmf8lly5ayb"/>
+  <xsd:element name="ms-lquaqukhj8g8jkuxwua9t3f3" substitutionGroup="sdc4:Item" type="sdc4:mc-lquaqukhj8g8jkuxwua9t3f3"/>
+  <xsd:element name="ms-jm0mqajin906obcfnffjfy3y" substitutionGroup="sdc4:Item" type="sdc4:mc-jm0mqajin906obcfnffjfy3y"/>
+  <xsd:element name="ms-flg3okcdrds65w1twhfdkqj2" substitutionGroup="sdc4:Item" type="sdc4:mc-flg3okcdrds65w1twhfdkqj2"/>
+  <xsd:element name="ms-fortqbgiia7j02piw0ayx93t" substitutionGroup="sdc4:Item" type="sdc4:mc-fortqbgiia7j02piw0ayx93t"/>
+  <xsd:element name="ms-wt8pjkqdkwzuyg68q8eks8rk" substitutionGroup="sdc4:Item" type="sdc4:mc-wt8pjkqdkwzuyg68q8eks8rk"/>
+  <xsd:element name="ms-yqxxoehqidrfcbto4s0xdacm" substitutionGroup="sdc4:Item" type="sdc4:mc-yqxxoehqidrfcbto4s0xdacm"/>
+
+</xsd:schema>

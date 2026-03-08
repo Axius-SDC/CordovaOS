@@ -1,0 +1,231 @@
+{
+  "@context": {
+    "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "label": "rdfs:label",
+    "description": "rdfs:comment",
+    "type": "@type",
+    "id": "@id"
+  },
+  "@type": "DataModel",
+  "@id": "sdc4:dm-vaw4g2kusit5z0kox5mog54g",
+  "identifier": "vaw4g2kusit5z0kox5mog54g",
+  "label": "Tax and Revenue Record",
+  "description": "Record all tax filings, assessments, and revenue collection for Cordova.",
+  "metadata": {
+    "dc:title": "Tax and Revenue Record",
+    "dc:creator": "Timothy Cook",
+    "dc:description": "Record all tax filings, assessments, and revenue collection for Cordova.",
+    "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
+    "dc:language": "en-US",
+    "dc:format": "text/xml",
+    "dc:date": "2026-03-07T20:03:44.798663+00:00"
+  },
+  "components": [
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-w9v4eo1l0wy5r65tqx5mjyxh",
+      "label": "Tax Filing",
+      "description": "A single tax filing for an individual or business.\nBusiness Context: Links to Civil Registry (individual) or Business Registry (business)\nPurpose: Document a tax filing with type, period, amounts, and payment status",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-a2yks4n49m6gcgpa7qc9hyg1",
+          "label": "Filing ID",
+          "description": "Unique identifier for this tax filing",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 50
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#IdentificationType"
+            },
+            {
+              "predicate": "skos:broadMatch",
+              "object": "https://schema.org/identifier"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-hwmy9yj7cbhe94pjnq0n2oo5",
+          "label": "Tax Filing Status",
+          "description": "Filing status for annual Cordova tax returns.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "Individual",
+              "Joint",
+              "Business",
+              "Estate"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "skos:relatedMatch",
+              "object": "https://www.wikidata.org/wiki/Q5448453"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-zb956wxcjf1fccvqezivgrv7",
+          "label": "Tax Type",
+          "description": "Category of tax being filed",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "Income Tax",
+              "Business Tax",
+              "Property Tax",
+              "Port Fee",
+              "Fine Collection",
+              "Import Duty"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q130109687"
+            }
+          ]
+        },
+        {
+          "@type": "XdTemporalType",
+          "@id": "sdc4:mc-cuazcmxeeo8osfybrgdpe9g7",
+          "label": "Filing Date",
+          "description": "Date the filing was submitted",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "dataType": "xsd:dateTime",
+          "semanticLinks": [
+            {
+              "predicate": "skos:broadMatch",
+              "object": "https://schema.org/Date"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q107296042"
+            }
+          ]
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://niemopen.org/"
+        },
+        {
+          "predicate": "skos:broadMatch",
+          "object": "https://schema.org/ItemList"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2861384"
+        }
+      ]
+    }
+  ],
+  "structural_components": {
+    "subject": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-hbosti8lu7hhu5liq7klammn",
+      "label": "Taxpayer",
+      "description": "Person or organization filing taxes. W3C PROV-DM Agent with Cordova CID (individual) and BRN (corporate) identifiers.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1414816"
+        }
+      ]
+    },
+    "provider": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-h809aepw09m83xjn7cav2f9m",
+      "label": "Tax Authority",
+      "description": "Government tax and revenue authority responsible for tax collection and compliance. W3C PROV-DM Agent (Organization).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "skos:broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q327333"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://schema.org/GovernmentOrganization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Organization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q573607"
+        }
+      ]
+    }
+  }
+}

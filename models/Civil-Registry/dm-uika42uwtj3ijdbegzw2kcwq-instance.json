@@ -1,0 +1,287 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "uika42uwtj3ijdbegzw2kcwq",
+  "dm_type": "dm-uika42uwtj3ijdbegzw2kcwq",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Civil Registry",
+    "dm_encoding": "utf-8",
+    "instance_id": "myufotyk35sllufhw4pmp04s",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-03-08T03:21:33.677429",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "bgjt4mvgvkxcn6hurg37u21b",
+    "label": "Civil Registry Record",
+    "type": "Cluster",
+    "description": "A complete civil registry entry for one person. This is the anchor node in the Cordova graph — the Person cell that every other domain references.\nBusiness Context: Authoritative source of truth for all government identity verification\nPurpose: Complete identity record for a Cordova resident",
+    "items": [
+      {
+        "component_id": "nj7s1gk45tfgyooxpz0qaha3",
+        "label": "National ID (CID)",
+        "type": "XdString",
+        "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
+        "value": "DefaultString"
+      },
+      {
+        "component_id": "cfg2l8ym4ve833ritrxu765t",
+        "label": "Country of Birth",
+        "type": "XdString",
+        "description": "Country where participant was born",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 200
+        }
+      },
+      {
+        "component_id": "kfyzf8u8gdafcpt5kfh2qg3q",
+        "label": "Given Name (Person)",
+        "type": "XdString",
+        "description": "name typically used to differentiate people from the same family, clan, or other social group who have a common last name\naka. first name or forename",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 100
+        }
+      },
+      {
+        "component_id": "oit0ueglhjfcyq80z22kl2z3",
+        "label": "Middle Name (Person)",
+        "type": "XdString",
+        "description": "Middle or other name(s) given to identify a person",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 100
+        }
+      },
+      {
+        "component_id": "v8jgjo2sml12jo7zrb8swoxi",
+        "label": "Surname (Person)",
+        "type": "XdString",
+        "description": "The surname or family name of a person, part of a naming scheme for individuals, used in many cultures worldwide\r\naka: last name, fam name, family surname, surname, clan name",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 100
+        }
+      },
+      {
+        "component_id": "atdtdfzruh7tya0iv5cz365l",
+        "label": "City",
+        "type": "XdToken",
+        "description": "One of the nine cities in the Republic of Cordova.",
+        "value": "Montecara",
+        "constraints": {
+          "enumerations": [
+            "Porto Sereno",
+            "Vistamar",
+            "Rioseco",
+            "Campoluz",
+            "Tierraverde",
+            "Montecara",
+            "Novaciudad",
+            "Piedrasol",
+            "Lagunavista"
+          ]
+        }
+      },
+      {
+        "component_id": "vjfgimlbb90ds2xg55tfn941",
+        "label": "Marital Status (Cordova)",
+        "type": "XdToken",
+        "description": "Marital status as recorded in the Cordova Civil Registry. Aligned with vital statistics records.",
+        "value": "Widowed",
+        "constraints": {
+          "enumerations": [
+            "Single",
+            "Married",
+            "Divorced",
+            "Widowed",
+            "Separated"
+          ]
+        }
+      },
+      {
+        "component_id": "kv5qqs3o4jwcwz9javgw1pzh",
+        "label": "Province",
+        "type": "XdToken",
+        "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+        "value": "Brevina",
+        "constraints": {
+          "enumerations": [
+            "Aldara",
+            "Brevina",
+            "Celara"
+          ]
+        }
+      },
+      {
+        "component_id": "cymq16em5zb20whgtfzki6n5",
+        "label": "Gender Identity",
+        "type": "XdToken",
+        "description": "Self-reported gender identity of the participant",
+        "value": "Prefer not to answer",
+        "constraints": {
+          "enumerations": [
+            "Male",
+            "Female",
+            "Transgender male",
+            "Transgender female",
+            "Non-binary",
+            "Genderqueer",
+            "Other",
+            "Prefer not to answer",
+            "Unknown"
+          ]
+        }
+      },
+      {
+        "component_id": "mw9qdn71urog8egjbp5t3y00",
+        "label": "Sex",
+        "type": "XdToken",
+        "description": "Biological sex assigned at birth based on physical characteristics. UMLS CUI: C0079399 (Biologic Sex). Aligned with OMB standards for reporting.",
+        "value": "Unknown",
+        "constraints": {
+          "enumerations": [
+            "Male",
+            "Female",
+            "Intersex",
+            "Unknown"
+          ]
+        }
+      },
+      {
+        "component_id": "g3k6bj8su3rvkszg2700dhyh",
+        "label": "Birth Date",
+        "type": "XdTemporal",
+        "description": "Date of birth of the participant. UMLS CUI: C0421451 (Date of birth). LOINC: 21112-8 (Birth date).",
+        "value": "2024-01-01T00:00:00"
+      },
+      {
+        "component_id": "sv48g8am8vqs46nodiugripz",
+        "label": "Contact Information",
+        "type": "Cluster",
+        "description": "Phone, email, and preferred contact method for the person.\nPurpose: Enable government communication with the person\nParent Cluster: Civil Registry Record",
+        "items": [
+          {
+            "component_id": "x0na649n17if0ukul82cmrx3",
+            "label": "Cordova Email Address",
+            "type": "XdString",
+            "description": "Email address using one of the Cordova national email providers. Providers: cordomail.co, novamail.co, portocorreo.co",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 5,
+              "max_length": 254
+            }
+          },
+          {
+            "component_id": "nfrvvp87c5imu5h9ups92kgy",
+            "label": "Cordova Phone Number",
+            "type": "XdString",
+            "description": "Cordova national telephone number. Format: +99-PPP-NNN-NNNN where +99 is the country code and PPP is the area code. Area codes: Porto Sereno=100, Vistamar=110, Rioseco=120, Campoluz=200, Tierraverde=210, Montecara=220, Novaciudad=300, Piedrasol=310, Lagunavista=320.",
+            "value": "DefaultString"
+          },
+          {
+            "component_id": "zlz64jydsmhb5zmytcm2ewyg",
+            "label": "Preferred Contact Method",
+            "type": "XdToken",
+            "description": "Participant's preferred method of contact",
+            "value": "Phone",
+            "constraints": {
+              "enumerations": [
+                "Phone",
+                "Email",
+                "Text/SMS",
+                "Mail",
+                "No preference"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "component_id": "ytctcqbr30kxsmvx4jk7lae2",
+        "label": "Current Address",
+        "type": "Cluster",
+        "description": "The person's current residential address within Cordova.\nPurpose: Current residential address for correspondence and jurisdiction determination\nParent Cluster: Civil Registry Record",
+        "items": [
+          {
+            "component_id": "l338k7nlvnq2am0owa19yxfc",
+            "label": "Address (Line 1)",
+            "type": "XdString",
+            "description": "Street address line, building/apartment number, or P.O. Box number.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "ek5h6dsqpd9kz0l4mcckmxpt",
+            "label": "Address (Line 2)",
+            "type": "XdString",
+            "description": "Street address line, building/apartment number, or P.O. Box number.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 200
+            }
+          }
+        ]
+      },
+      {
+        "component_id": "l9k2fmlc5vn477r3kpi1ufal",
+        "label": "Family Relationships",
+        "type": "Cluster",
+        "description": "Links between persons in the Civil Registry. Each relationship record connects two National IDs.\nBusiness Context: Enables cross-person queries (family units, next of kin, guardianship)\nPurpose: Record familial and legal relationships between persons\nParent Cluster: Civil Registry Record",
+        "items": [
+          {
+            "component_id": "be9apjt8mvjjv86qzycorcjl",
+            "label": "Relationship Type",
+            "type": "XdToken",
+            "description": "Familial or legal relationship between two persons in the Cordova Civil Registry.",
+            "value": "Guardian",
+            "constraints": {
+              "enumerations": [
+                "Spouse",
+                "Parent",
+                "Child",
+                "Sibling",
+                "Grandparent",
+                "Grandchild",
+                "Guardian"
+              ]
+            }
+          },
+          {
+            "component_id": "o7vjxwswi0pxo543hq504jjx",
+            "label": "Relationship End Date",
+            "type": "XdTemporal",
+            "description": "Date the relationship ended, if applicable (e.g., divorce date, death date). Null for active relationships.",
+            "value": "2024-01-01T00:00:00"
+          },
+          {
+            "component_id": "k9ptlhkq3j41p6umlg3tc80x",
+            "label": "Relationship Start Date",
+            "type": "XdTemporal",
+            "description": "Date the relationship was established or recorded (e.g., marriage date, birth date of child, guardianship order date)\n\n---",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      }
+    ]
+  },
+  "subject": {
+    "component_id": "avqpyqft9tm22yyink3ltcty",
+    "label": "Related Person",
+    "type": "Party",
+    "description": "Person related to the civil registry subject via family relationship (parent, child, spouse, etc.). W3C PROV-DM Agent (Person) with Cordova CID."
+  },
+  "provider": {
+    "component_id": "piaz5w21hsuq3hpysyetuvvk",
+    "label": "Civil Registry Office",
+    "type": "Party",
+    "description": "Government office responsible for civil registry records (births, marriages, deaths, name changes). W3C PROV-DM Agent (Organization)."
+  }
+}

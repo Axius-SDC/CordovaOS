@@ -1,0 +1,365 @@
+{
+  "@context": {
+    "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "label": "rdfs:label",
+    "description": "rdfs:comment",
+    "type": "@type",
+    "id": "@id"
+  },
+  "@type": "DataModel",
+  "@id": "sdc4:dm-x44vt69qqri2bl7vwxb8ck7n",
+  "identifier": "x44vt69qqri2bl7vwxb8ck7n",
+  "label": "Property Registry",
+  "description": "Maintain the authoritative registry of land and property ownership in Cordova.",
+  "metadata": {
+    "dc:title": "Property Registry",
+    "dc:creator": "Timothy Cook",
+    "dc:description": "Maintain the authoritative registry of land and property ownership in Cordova.",
+    "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
+    "dc:language": "en-US",
+    "dc:format": "text/xml",
+    "dc:date": "2026-03-07T20:03:45.246192+00:00"
+  },
+  "components": [
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-bgc4n3424bzb8gpgnjhxxha9",
+      "label": "Property Record",
+      "description": "A registered land parcel or property in Cordova.\nBusiness Context: Links to Civil Registry (person owners) and Business Registry (business owners)\nPurpose: Document a property with location, type, and current ownership",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-hs7197k4s33eg7wbspgudu4u",
+          "label": "Parcel Number",
+          "description": "Cordova property parcel identifier. Format: PP-CC-NNNNNN where PP is the province code, CC is the city code, and NNNNNN is a parcel sequence number.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "http://schema.org/identifier"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q47161795"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q66502406"
+            },
+            {
+              "predicate": "skos:broadMatch",
+              "object": "https://schema.org/identifier"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-l338k7nlvnq2am0owa19yxfc",
+          "label": "Address (Line 1)",
+          "description": "Street address line, building/apartment number, or P.O. Box number.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "maxLength": 200
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://schema.org/streetAddress"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-ek5h6dsqpd9kz0l4mcckmxpt",
+          "label": "Address (Line 2)",
+          "description": "Street address line, building/apartment number, or P.O. Box number.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "maxLength": 200
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://schema.org/streetAddress"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-atdtdfzruh7tya0iv5cz365l",
+          "label": "City",
+          "description": "One of the nine cities in the Republic of Cordova.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "Porto Sereno",
+              "Vistamar",
+              "Rioseco",
+              "Campoluz",
+              "Tierraverde",
+              "Montecara",
+              "Novaciudad",
+              "Piedrasol",
+              "Lagunavista"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "http://schema.org/City"
+            },
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-xtljf8q6rfyfewdkgu4e5ouj",
+          "label": "Property Status",
+          "description": "Current status of the property in the registry",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "Active",
+              "Encumbered",
+              "In Transfer",
+              "Government Seized",
+              "Abandoned"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q937228"
+            },
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-l79ua955rihnjbrxyhu7z5ac",
+          "label": "Property Type (Cordova)",
+          "description": "Classification of real property in the Cordova Property Registry.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "Residential",
+              "Commercial",
+              "Agricultural",
+              "Government",
+              "Industrial"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "http://schema.org/Property"
+            },
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh",
+          "label": "Province",
+          "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "Aldara",
+              "Brevina",
+              "Celara"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "http://schema.org/AdministrativeArea"
+            },
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://schema.org/State"
+            }
+          ]
+        },
+        {
+          "@type": "XdTemporalType",
+          "@id": "sdc4:mc-vo9jtmexkaaol3y657fm0xn8",
+          "label": "Registration Date",
+          "description": "Date the business was officially registered in Cordova",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "dataType": "xsd:dateTime",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q137375576"
+            },
+            {
+              "predicate": "skos:broadMatch",
+              "object": "https://schema.org/Date"
+            }
+          ]
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://niemopen.org/"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q66502406"
+        },
+        {
+          "predicate": "skos:broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    }
+  ],
+  "structural_components": {
+    "subject": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-rnts5ygyfvpor7vvk0gn96uq",
+      "label": "Property Owner",
+      "description": "Person or organization that owns a property. W3C PROV-DM Agent with ownership type and start date. Supports both CID (individual) and BRN (corporate) identifiers.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q20631856"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    },
+    "provider": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-ji4myggtxrapitnioimmzm7i",
+      "label": "Property Registry Office",
+      "description": "Government office responsible for property records, land titles, and transfer registration. W3C PROV-DM Agent (Organization).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "skos:broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q327333"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://schema.org/GovernmentOrganization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q557307"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Organization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    }
+  }
+}

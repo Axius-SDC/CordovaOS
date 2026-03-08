@@ -1,0 +1,684 @@
+{
+  "@context": {
+    "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "label": "rdfs:label",
+    "description": "rdfs:comment",
+    "type": "@type",
+    "id": "@id"
+  },
+  "@type": "DataModel",
+  "@id": "sdc4:dm-md2451x882z5j89g66zb50rw",
+  "identifier": "md2451x882z5j89g66zb50rw",
+  "label": "Maritime Port Authority",
+  "description": "Record all maritime operations, vessel movements, crew, cargo, and customs at Porto Sereno.",
+  "metadata": {
+    "dc:title": "Maritime Port Authority",
+    "dc:creator": "Timothy Cook",
+    "dc:description": "Record all maritime operations, vessel movements, crew, cargo, and customs at Porto Sereno.",
+    "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
+    "dc:language": "en-US",
+    "dc:format": "text/xml",
+    "dc:date": "2026-03-07T20:03:45.784607+00:00"
+  },
+  "components": [
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-i8cjmvihdces5rqvb2snqwmo",
+      "label": "Port Call Record",
+      "description": "A single port call — one vessel arriving at and departing from Porto Sereno.\nBusiness Context: Primary operational record for port authority. Links to cargo, crew, fees, and customs.\nPurpose: Document a vessel's visit to Porto Sereno with all associated records",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-k7a0poa5c7co38oc65i6jppo",
+          "label": "Flag State",
+          "description": "Country of vessel registration (flag state)",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q3591841"
+            },
+            {
+              "predicate": "skos:broadMatch",
+              "object": "https://schema.org/name"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-pbfvurdvio38rt6puifhippe",
+          "label": "Port Call ID",
+          "description": "Unique identifier for this port call record. Assigned by Porto Sereno Port Authority.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 50
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "http://purl.obolibrary.org/obo/BFO_0000009"
+            },
+            {
+              "predicate": "skos:broadMatch",
+              "object": "https://schema.org/identifier"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-lnjzw0racjo2oxol5w82tp1y",
+          "label": "Berth Assignment",
+          "description": "Planned berth assignment for a vessel at port.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q57964937"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-gxt0t3cs4u6v5ob55qkc6ha0",
+          "label": "Next Port of Call",
+          "description": "Next port after this arrival",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q119382961"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-s0qun9zalf98t3ffsefh34rj",
+          "label": "Port of Departure",
+          "description": "Last port of departure",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q76455346"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-qlqdwbglcq4v3rg8i8iy7dk0",
+          "label": "Vessel Call Sign",
+          "description": "Vessel radio call sign",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 50
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q23581925"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-ycy71t767wlyqma97o82r2m9",
+          "label": "Vessel IMO Number",
+          "description": "International Maritime Organization (IMO) number",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q1970938"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-cl1hiqht7tm42a8lh8c4c1hz",
+          "label": "Vessel MMSI",
+          "description": "Maritime Mobile Service Identity (MMSI) number",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q1795701"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-s5zeapfup3xdj6wbqjjkf1nd",
+          "label": "Vessel Name",
+          "description": "Name of vessel (XdString)",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q56351075"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-bmoixtn8r8pu62gbgd1tl8qn",
+          "label": "Voyage Number",
+          "description": "Voyage or trip identifier",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 50
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q130365988"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-bfaa3m23ye8q0qphv0x24if6",
+          "label": "Cargo Type",
+          "description": "Primary type of cargo",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "containers",
+              "bulk_dry",
+              "bulk_liquid",
+              "vehicles",
+              "general_cargo",
+              "refrigerated",
+              "livestock",
+              "none"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "skos:relatedMatch",
+              "object": "https://www.wikidata.org/wiki/Q319224"
+            },
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-lyh7y1in5j9ka5cxk2zw2qdj",
+          "label": "Purpose of Call",
+          "description": "Purpose of port call",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "load_cargo",
+              "discharge_cargo",
+              "load_discharge",
+              "refuel",
+              "provisions",
+              "repairs",
+              "crew_change",
+              "emergency",
+              "other"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q20729393"
+            },
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            }
+          ]
+        },
+        {
+          "@type": "XdCountType",
+          "@id": "sdc4:mc-p5qzw565y1dm5f3s6lg2q3ft",
+          "label": "Crew Count",
+          "description": "Total number of crew members aboard the vessel at time of port call. Required for immigration processing, shore leave management, and emergency muster planning.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minInclusive": 1.0,
+            "units": {
+              "@type": "Units",
+              "label": "Persons",
+              "@id": "sdc4:mc-qb5xnfq8e7qzlxr2q1sc5qhy"
+            }
+          },
+          "dataType": "xsd:integer",
+          "semanticLinks": [
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Integer"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q2513968"
+            }
+          ]
+        },
+        {
+          "@type": "XdCountType",
+          "@id": "sdc4:mc-x720xrlooqij75bk26pvzrtl",
+          "label": "Passenger Count",
+          "description": "Total number of passengers aboard the vessel at time of port call. Required for immigration processing, disembarkation planning, and port facility capacity management. Zero for cargo-only vessels.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minInclusive": 0.0,
+            "units": {
+              "@type": "Units",
+              "label": "Persons",
+              "@id": "sdc4:mc-qb5xnfq8e7qzlxr2q1sc5qhy"
+            }
+          },
+          "dataType": "xsd:integer",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q319604"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Integer"
+            }
+          ]
+        },
+        {
+          "@type": "XdQuantityType",
+          "@id": "sdc4:mc-xccdfbmuqcy5yzv2n6ef0hrs",
+          "label": "Vessel Draft",
+          "description": "Maximum draft (depth below waterline) of the vessel in meters at time of port entry. Critical for channel and berth depth clearance at Porto Sereno harbor.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minInclusive": 0.5,
+            "maxInclusive": 30.0,
+            "units": {
+              "@type": "Units",
+              "label": "Length/Distance (SI - Metric)",
+              "@id": "sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf"
+            }
+          },
+          "dataType": "xsd:decimal",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q863247"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Number"
+            }
+          ]
+        },
+        {
+          "@type": "XdQuantityType",
+          "@id": "sdc4:mc-wtph0sqt244h38lyzf9ot1op",
+          "label": "Vessel Gross Tonnage",
+          "description": "Vessel's gross tonnage as registered under the IMO Tonnage Convention (1969). Determines applicable port fees, pilotage requirements, and berth assignment at Porto Sereno.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minInclusive": 1.0,
+            "units": {
+              "@type": "Units",
+              "label": "Gross Tonnage",
+              "@id": "sdc4:mc-qq516wt8ynu4jny0dn2no51n"
+            }
+          },
+          "dataType": "xsd:decimal",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q217792"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Number"
+            }
+          ]
+        },
+        {
+          "@type": "XdQuantityType",
+          "@id": "sdc4:mc-jnxxwzl046rkmkbtm33naueu",
+          "label": "Vessel Length Overall",
+          "description": "Length overall (LOA) of the vessel in meters, measured from the foremost to the aftermost point. Required for berth assignment and pilotage planning at Porto Sereno.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minInclusive": 1.0,
+            "maxInclusive": 500.0,
+            "units": {
+              "@type": "Units",
+              "label": "Length/Distance (SI - Metric)",
+              "@id": "sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf"
+            }
+          },
+          "dataType": "xsd:decimal",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q1424988"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Number"
+            }
+          ]
+        },
+        {
+          "@type": "XdQuantityType",
+          "@id": "sdc4:mc-lh0ufebnovngzzgfggud6ae6",
+          "label": "Vessel Net Tonnage",
+          "description": "Vessel's net tonnage as registered under the IMO Tonnage Convention (1969). Represents usable cargo capacity. Used for canal transit fees and some port tariff calculations.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minInclusive": 1.0,
+            "units": {
+              "@type": "Units",
+              "label": "Net Tonnage",
+              "@id": "sdc4:mc-rln82e53qjn6zo832iuyfgng"
+            }
+          },
+          "dataType": "xsd:decimal",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q756933"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Number"
+            }
+          ]
+        },
+        {
+          "@type": "XdTemporalType",
+          "@id": "sdc4:mc-upvi6l9pyb4f0p4vfunietsw",
+          "label": "Arrival Date/Time",
+          "description": "Date and time the vessel arrived at Porto Sereno",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "dataType": "xsd:dateTime",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#ArrivalDateTime"
+            },
+            {
+              "predicate": "skos:broadMatch",
+              "object": "https://schema.org/Date"
+            },
+            {
+              "predicate": "skos:broadMatch",
+              "object": "https://schema.org/DateTime"
+            }
+          ]
+        },
+        {
+          "@type": "XdTemporalType",
+          "@id": "sdc4:mc-sqpcl9uk7sze8bdqxxqwuqrn",
+          "label": "Departure Date/Time",
+          "description": "Date and time the vessel departed Porto Sereno. Null if vessel is currently in port.\n\n---",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "dataType": "xsd:dateTime",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q52943"
+            },
+            {
+              "predicate": "skos:broadMatch",
+              "object": "https://schema.org/Date"
+            },
+            {
+              "predicate": "skos:broadMatch",
+              "object": "https://schema.org/DateTime"
+            }
+          ]
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://schema.org/Report"
+        },
+        {
+          "predicate": "skos:broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    }
+  ],
+  "structural_components": {
+    "subject": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-i2e1qhvmkvbnkt0le7rczw5x",
+      "label": "Vessel Owner/Operator",
+      "description": "The organization that owns or operates the vessel. W3C PROV-DM Agent (Organization) with registry number as identifier.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Organization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q500251"
+        }
+      ]
+    },
+    "provider": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-l29wc96z6g1a432bhcxxo7dy",
+      "label": "Port Authority",
+      "description": "Maritime port authority managing vessel traffic, arrivals, and departures. W3C PROV-DM Agent (Organization).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "skos:broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q327333"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://schema.org/GovernmentOrganization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Organization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1348006"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    }
+  }
+}

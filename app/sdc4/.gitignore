@@ -16,21 +16,10 @@ build/
 db.sqlite3
 db.sqlite3-journal
 /staticfiles/
-/mediafiles/
 
-# Database and service volumes (contains actual data)
-# Note: These are in mediafiles/ for easy backup
-# Remove from .gitignore if you want to version control test data
-mediafiles/postgres/
-mediafiles/graphdb/
-mediafiles/sirixdb/
-mediafiles/keycloak/
-
-# Keep .gitkeep files to ensure directories exist in template
-!mediafiles/graphdb/home/.gitkeep
-!mediafiles/graphdb/import/.gitkeep
-!mediafiles/sirixdb/.gitkeep
-!mediafiles/keycloak/import/.gitkeep
+# Ignore mediafiles/ except dmlib/ (generated schema artifacts for GraphDB)
+/mediafiles/*
+!/mediafiles/dmlib/
 
 # Environment
 .env
