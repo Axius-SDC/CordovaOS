@@ -17,7 +17,7 @@ def _discover_local_apps():
     """Auto-discover installed DM apps by scanning for directories with apps.py."""
     from django.apps import AppConfig as _AppConfig
     _skip = {
-        'api', 'core', 'generic_storage', 'sdc4_shared',
+        'api', 'core', 'demo', 'generic_storage', 'sdc4_shared',
         'templates', 'staticfiles', 'mediafiles', 'ontologies',
         Path(__file__).resolve().parent.name,  # project config package
     }
@@ -64,7 +64,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
 
     # Third-party apps
     'crispy_forms',
@@ -73,16 +72,11 @@ INSTALLED_APPS = [
     'django_htmx',
     'widget_tweaks',
 
-    # Authentication (Keycloak SSO)
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.openid_connect',
-
     # Project apps
     'core',  # Management commands and utilities
     'generic_storage',  # File storage backend
     'api',  # REST API endpoints
+    'demo',  # C-Suite demo presentation
 ] + _discover_local_apps()
 
 MIDDLEWARE = [
@@ -95,7 +89,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_htmx.middleware.HtmxMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'sdc4.urls'
@@ -208,54 +201,17 @@ GRAPHDB_REPOSITORY = config('GRAPHDB_REPOSITORY', default='sdc4_rdf')
 GRAPHDB_USER = config('GRAPHDB_USER', default='admin')
 GRAPHDB_PASSWORD = config('GRAPHDB_PASSWORD', default='admin123')
 
-# SirixDB Configuration (Temporal JSON/XML Database)
-# Provides time-travel queries and temporal versioning
-SIRIX_URL = config('SIRIX_URL', default='https://localhost:9443')
-SIRIX_USER = config('SIRIX_USER', default='admin')
-SIRIX_PASSWORD = config('SIRIX_PASSWORD', default='admin123')
-SIRIX_DATABASE = config('SIRIX_DATABASE', default='sdc4_temporal')
-# Disable SSL verification for local development (SirixDB uses self-signed certs)
-SIRIX_VERIFY_SSL = config('SIRIX_VERIFY_SSL', default=False, cast=bool)
-
-# Keycloak Configuration (SSO/RBAC Authentication)
-# Provides OAuth2, OIDC, and SAML 2.0 support
-KEYCLOAK_URL = config('KEYCLOAK_URL', default='http://localhost:8080')
-KEYCLOAK_REALM = config('KEYCLOAK_REALM', default='sdc4')
-KEYCLOAK_CLIENT_ID = config('KEYCLOAK_CLIENT_ID', default='sdc4-web')
-KEYCLOAK_CLIENT_SECRET = config('KEYCLOAK_CLIENT_SECRET', default='changeme')
-
-# Django Sites Framework (required for django-allauth)
-SITE_ID = 1
-
-# Authentication Backends
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
-
-# Django-Allauth Configuration
-ACCOUNT_EMAIL_VERIFICATION = 'none'  # Keycloak handles email verification
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-ACCOUNT_EMAIL_REQUIRED = True
+# Authentication
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-# Keycloak OIDC Provider Configuration (django-allauth)
-SOCIALACCOUNT_PROVIDERS = {
-    'openid_connect': {
-        'APPS': [
-            {
-                'provider_id': 'keycloak',
-                'name': 'Keycloak',
-                'client_id': KEYCLOAK_CLIENT_ID,
-                'secret': KEYCLOAK_CLIENT_SECRET,
-                'settings': {
-                    'server_url': f'{KEYCLOAK_URL}/realms/{KEYCLOAK_REALM}/.well-known/openid-configuration',
-                },
-            },
-        ],
-    },
-}
+# =============================================================================
+# GCP / Production Configuration
+# =============================================================================
 
-# Enterprise Stack Indicator
-SDC4_STACK = config('SDC4_STACK', default='enterprise')
+# Trust X-Forwarded-Proto from Cloud Run load balancer
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# CSRF trusted origins (comma-separated in env)
+_csrf_origins = config('CSRF_TRUSTED_ORIGINS', default='', cast=Csv())
+CSRF_TRUSTED_ORIGINS = [o for o in _csrf_origins if o]

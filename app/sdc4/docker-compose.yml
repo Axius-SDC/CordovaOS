@@ -121,6 +121,7 @@ services:
     volumes:
       - .:/app
       - ./import_data:/import_data
+      - ../../sparql:/sparql:ro
     ports:
       - "${WEB_PORT:-18000}:8000"
     depends_on:

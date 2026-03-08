@@ -2,6 +2,7 @@
 Django==5.2.11
 psycopg2-binary==2.9.10
 djangorestframework==3.15.2
+gunicorn==23.0.0
 
 # Django Extensions
 django-crispy-forms==2.3
@@ -29,12 +30,3 @@ pyshacl==0.30.0
 lxml==5.3.0
 sdcvalidator==4.1.0
 
-# Enterprise Stack Dependencies
-# Keycloak SSO/OIDC Authentication
-python-keycloak==4.7.3
-django-allauth==65.13.0
-PyJWT==2.10.1
-
-# SirixDB Client (HTTPS requests)
-httpx==0.28.1
-urllib3==2.6.3
