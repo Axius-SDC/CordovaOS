@@ -55,6 +55,32 @@ STREET_NAMES = [
     "Calle Bolivar", "Avenida de la Costa", "Calle Independencia",
     "Paseo de las Americas", "Calle Esperanza", "Calle del Rio",
     "Avenida Central", "Calle Nueva", "Calle Progreso",
+    "Calle de los Heroes", "Avenida Maritima", "Calle Juarez",
+    "Boulevard del Norte", "Calle de la Iglesia", "Avenida Republica",
+    "Calle Minerva", "Paseo de los Presidentes", "Calle del Molino",
+    "Avenida de los Volcanes", "Calle Primavera", "Calle del Mercado",
+    "Boulevard de las Palmas", "Avenida de la Constitucion", "Calle Coral",
+    "Calle Horizonte", "Paseo de la Sierra", "Calle de los Pescadores",
+    "Avenida del Lago", "Calle Magnolia", "Calle de la Bahia",
+    "Boulevard Tropical", "Avenida de los Pinos", "Calle Mirador",
+    "Calle San Pedro", "Paseo de la Playa", "Calle de la Fuente",
+    "Avenida Industrial", "Calle Almendro", "Calle de la Colina",
+    "Boulevard San Jose", "Avenida de los Cedros", "Calle Otoño",
+    "Calle del Faro", "Paseo de las Gaviotas", "Calle de los Naranjos",
+    "Avenida del Sur", "Calle Real", "Calle de la Estacion",
+    "Boulevard de la Selva", "Avenida los Andes", "Calle Jazmin",
+    "Calle del Bosque", "Paseo de los Laureles", "Calle de los Olivos",
+    "Avenida del Este", "Calle Roble", "Calle de la Cumbre",
+    "Boulevard de las Aguas", "Avenida de la Marina", "Calle Orquidea",
+    "Calle del Valle", "Paseo de las Rosas", "Calle del Muelle",
+    "Avenida del Oeste", "Calle Girasol", "Calle de las Palomas",
+    "Boulevard del Amanecer", "Avenida de los Manglares", "Calle Ceiba",
+    "Calle de los Corales", "Paseo del Atardecer", "Calle del Arroyo",
+    "Avenida Panamericana", "Calle Mariposa", "Calle de la Cascada",
+    "Boulevard los Flamboyanes", "Avenida de las Islas", "Calle Bamboo",
+    "Calle del Puente", "Paseo de los Cocoteros", "Calle de la Cuesta",
+    "Avenida de los Tamarindos", "Calle Amapola", "Calle del Tesoro",
+    "Boulevard del Caribe", "Avenida de la Reserva",
 ]
 
 
@@ -74,7 +100,31 @@ MALE_GIVEN = [
     "Francisco", "Ricardo", "Antonio", "Miguel", "Jorge", "Roberto",
     "Daniel", "Pedro", "Ramon", "Sergio", "Alberto", "Enrique",
     "Arturo", "Cesar", "Emilio", "Gustavo", "Ignacio", "Joaquin",
-    "Leonardo", "Marco", "Patricio",
+    "Leonardo", "Marco", "Patricio", "Adrian", "Agustin", "Alonso",
+    "Alvaro", "Amado", "Angel", "Armando", "Baltazar", "Bautista",
+    "Benito", "Bernardo", "Bruno", "Camilo", "Claudio", "Clemente",
+    "Cristian", "Dario", "David", "Domingo", "Edgar", "Elias",
+    "Ernesto", "Esteban", "Fabian", "Federico", "Felipe", "Felix",
+    "Fidel", "Florencio", "Genaro", "Gerardo", "German", "Gilberto",
+    "Gonzalo", "Gregorio", "Guillermo", "Hernan", "Hugo", "Ismael",
+    "Isidro", "Jaime", "Jesus", "Joel", "Jose", "Juan",
+    "Julian", "Julio", "Lazaro", "Leandro", "Lorenzo", "Luciano",
+    "Marcelo", "Mario", "Martin", "Mateo", "Matias", "Maximo",
+    "Moises", "Nelson", "Nestor", "Norberto", "Octavio", "Omar",
+    "Orlando", "Oswaldo", "Paco", "Pascual", "Paulino", "Ramiro",
+    "Raul", "Reinaldo", "Rene", "Rigoberto", "Rodolfo", "Rodrigo",
+    "Rolando", "Roque", "Rosendo", "Ruben", "Salvador", "Samuel",
+    "Santos", "Sebastian", "Silvio", "Simon", "Tadeo", "Teodoro",
+    "Timoteo", "Tobias", "Trinidad", "Ulises", "Valentin", "Vicente",
+    "Virgilio", "Walter", "Wilfredo", "Xavier", "Yago", "Zacarias",
+    "Alfonso", "Benicio", "Carmelo", "Damian", "Efrain", "Fausto",
+    "Gael", "Horacio", "Iker", "Jacinto", "Kilian", "Lisandro",
+    "Mauro", "Nicanor", "Olegario", "Pancho", "Quintin", "Renato",
+    "Sabino", "Thiago", "Urbano", "Ventura", "Wenceslao", "Ximeno",
+    "Yanuel", "Zenon", "Abelardo", "Bartolome", "Celestino", "Desiderio",
+    "Eugenio", "Fortunato", "Gaspar", "Heriberto", "Ireneo", "Juventino",
+    "Ladislao", "Maximino", "Nazario", "Otoniel", "Primitivo", "Reginaldo",
+    "Saturnino", "Teofilo", "Ubaldo", "Valerio", "Waldo", "Zeferino",
 ]
 
 FEMALE_GIVEN = [
@@ -84,7 +134,28 @@ FEMALE_GIVEN = [
     "Catalina", "Diana", "Eva", "Fernanda", "Gloria", "Helena",
     "Julia", "Lorena", "Monica", "Patricia", "Sandra", "Alicia",
     "Beatriz", "Clara", "Dolores", "Esperanza", "Francisca",
-    "Ines", "Julieta", "Liliana", "Marta",
+    "Ines", "Julieta", "Liliana", "Marta", "Adriana", "Agustina",
+    "Alejandra", "Amelia", "Amparo", "Angela", "Antonia", "Araceli",
+    "Aurora", "Barbara", "Belen", "Bianca", "Blanca", "Brenda",
+    "Carla", "Carolina", "Cecilia", "Celeste", "Claudia", "Consuelo",
+    "Cristina", "Dalia", "Debora", "Delfina", "Dora", "Edith",
+    "Elisa", "Emilia", "Estela", "Eugenia", "Fabiola", "Fatima",
+    "Felicia", "Flor", "Florencia", "Frida", "Gisela", "Graciela",
+    "Guadalupe", "Hortensia", "Irene", "Iris", "Ivonne", "Jacinta",
+    "Jimena", "Josefina", "Juana", "Karla", "Karina", "Leonor",
+    "Leticia", "Lilia", "Lina", "Luisa", "Lourdes", "Luz",
+    "Magdalena", "Manuela", "Marcela", "Margarita", "Marina", "Marisol",
+    "Mercedes", "Milagros", "Miriam", "Nadia", "Nelly", "Nerea",
+    "Nilda", "Noemi", "Norma", "Olga", "Paloma", "Pamela",
+    "Paz", "Perla", "Pilar", "Priscila", "Rafaela", "Raquel",
+    "Rebeca", "Regina", "Renata", "Rocio", "Romina", "Ruth",
+    "Sabrina", "Sara", "Selena", "Silvia", "Soledad", "Sonia",
+    "Susana", "Tamara", "Tatiana", "Vanessa", "Veronica", "Violeta",
+    "Virginia", "Viviana", "Ximena", "Yolanda", "Zara", "Zoila",
+    "Alba", "Alma", "Benita", "Candelaria", "Dina", "Elvira",
+    "Fermina", "Gertrudis", "Herminia", "Iliana", "Justina", "Lidia",
+    "Matilde", "Natividad", "Ofelia", "Pastora", "Remedios", "Rosalia",
+    "Salvadora", "Teodora", "Ursula", "Venancia", "Wanda", "Zulema",
 ]
 
 SURNAMES = [
@@ -96,14 +167,65 @@ SURNAMES = [
     "Vega", "Moreno", "Jimenez", "Ramos", "Medina", "Guerrero",
     "Castro", "Soto", "Paredes", "Espinoza", "Cardenas", "Rojas",
     "Aguilar", "Cabrera", "Campos", "Fuentes", "Leon", "Navarro",
-    "Pena", "Rios",
+    "Pena", "Rios", "Acosta", "Aguirre", "Alarcon", "Alvarado",
+    "Amaya", "Arce", "Arellano", "Arias", "Ayala", "Barrera",
+    "Barrientos", "Bautista", "Becerra", "Benavides", "Bermudez", "Bravo",
+    "Brito", "Bustamante", "Caballero", "Calderon", "Camacho", "Cano",
+    "Carrillo", "Carvajal", "Castellanos", "Cervantes", "Chavez", "Cisneros",
+    "Contreras", "Cordero", "Coronado", "Cortes", "Crespo", "Cuevas",
+    "Davila", "Dominguez", "Duarte", "Duran", "Echeverria", "Escalante",
+    "Escobar", "Esquivel", "Estrada", "Fajardo", "Figueroa", "Franco",
+    "Galarza", "Gallardo", "Gallegos", "Garay", "Garrido", "Gimenez",
+    "Godoy", "Gomez", "Gracia", "Guzman", "Heredia", "Herrera",
+    "Hurtado", "Ibarra", "Iglesias", "Jaramillo", "Lara", "Ledesma",
+    "Lira", "Lizarraga", "Llanos", "Luna", "Machado", "Maldonado",
+    "Marin", "Marquez", "Mata", "Mejia", "Mena", "Miranda",
+    "Molina", "Montalvo", "Montero", "Montoya", "Mora", "Moya",
+    "Munoz", "Murillo", "Naranjo", "Narvaez", "Nava", "Nieto",
+    "Ochoa", "Ojeda", "Olivares", "Olvera", "Orozco", "Orrego",
+    "Osorio", "Otero", "Pacheco", "Padilla", "Palacios", "Pantoja",
+    "Parra", "Paz", "Peralta", "Pimentel", "Pineda", "Pinzon",
+    "Ponce", "Portillo", "Posada", "Prado", "Prieto", "Puentes",
+    "Quevedo", "Quintana", "Quintero", "Quiroga", "Rangel", "Rendon",
+    "Restrepo", "Rincon", "Rivas", "Robledo", "Rocha", "Roman",
+    "Rosado", "Rosales", "Rubio", "Rueda", "Ruiz", "Saavedra",
+    "Salas", "Saldana", "Sambrano", "Sandoval", "Santana", "Segura",
+    "Serrano", "Sierra", "Silva", "Solano", "Solis", "Soriano",
+    "Suarez", "Tapia", "Tejada", "Tellez", "Tirado", "Tovar",
+    "Trejo", "Trevino", "Trujillo", "Uribe", "Urrutia", "Valdes",
+    "Valencia", "Valenzuela", "Vallejo", "Vasquez", "Velasco", "Velasquez",
+    "Velez", "Vera", "Vergara", "Vidal", "Villalobos", "Villanueva",
+    "Villarreal", "Villegas", "Yanez", "Zambrano", "Zamora", "Zapata",
+    "Zarate", "Zavala", "Zelaya", "Zepeda", "Zuniga", "Araya",
+    "Balderas", "Barajas", "Barrios", "Batista", "Blanco", "Bonilla",
+    "Borrego", "Canales", "Carmona", "Casanova", "Casas", "Centeno",
+    "Cerda", "Chacon", "Cifuentes", "Colon", "Conde", "Corona",
+    "Curiel", "Delvalle", "Enriquez", "Farias", "Ferreira", "Fierro",
+    "Gaitan", "Galindo", "Gamboa", "Granados", "Grijalva", "Guevara",
+    "Guillen", "Hinojosa", "Huerta", "Izquierdo", "Jurado", "Leal",
+    "Leiva", "Linares", "Loaiza", "Lomeli", "Lozada", "Lozano",
+    "Macias", "Madrigal", "Magana", "Manzano", "Marmol", "Melendez",
+    "Mercado", "Mesa", "Montes", "Murrieta", "Noriega", "Oliva",
 ]
 
 MIDDLE_NAMES = [
     "Antonio", "Maria", "Jose", "Rosa", "Luis", "Teresa", "Angel",
     "Carmen", "Francisco", "Isabel", "Manuel", "Lucia", "Alberto",
     "Elena", "Eduardo", "Gloria", "Ricardo", "Alicia", "Ernesto",
-    "Patricia",
+    "Patricia", "Alejandro", "Beatriz", "Carlos", "Dolores", "Emilio",
+    "Fernanda", "Guillermo", "Helena", "Ignacio", "Josefina", "Leonardo",
+    "Margarita", "Nicolas", "Olga", "Pedro", "Raquel", "Santiago",
+    "Valentina", "Victor", "Andrea", "Benito", "Catalina", "Diego",
+    "Esperanza", "Felipe", "Gabriela", "Horacio", "Ines", "Javier",
+    "Lourdes", "Miguel", "Natalia", "Oscar", "Pilar", "Rafael",
+    "Silvia", "Tomas", "Ursula", "Xavier", "Yolanda", "Andres",
+    "Blanca", "Cesar", "Diana", "Esteban", "Florencia", "Gerardo",
+    "Irene", "Julian", "Lorena", "Marcos", "Norberto", "Orlando",
+    "Paloma", "Roberto", "Susana", "Teodoro", "Virginia", "Armando",
+    "Cecilia", "Damian", "Estela", "Fabian", "Graciela", "Hernan",
+    "Ivonne", "Joaquin", "Laura", "Marisol", "Nadia", "Pablo",
+    "Remedios", "Salvador", "Tatiana", "Ulises", "Violeta", "Waldo",
+    "Ximena", "Zacarias",
 ]
 
 
@@ -186,12 +308,32 @@ def generate_parcel(province_code, city_code):
 
 # ─── Date Helpers ────────────────────────────────────────────────────────────
 
-def random_dob(min_age=18, max_age=75):
-    """Return a random date of birth as YYYY-MM-DD string."""
-    year = 2026 - random.randint(min_age, max_age)
+def random_dob(min_age=18, max_age=75, distribution=None):
+    """Return a random date of birth as YYYY-MM-DD string.
+
+    distribution: optional dict mapping (min_age, max_age) -> weight for
+    realistic age pyramids. If None, uniform between min_age and max_age.
+    """
+    if distribution:
+        ranges, weights = zip(*distribution.items())
+        chosen = random.choices(ranges, weights=weights, k=1)[0]
+        age = random.randint(chosen[0], chosen[1])
+    else:
+        age = random.randint(min_age, max_age)
+    year = 2026 - age
     month = random.randint(1, 12)
     day = random.randint(1, 28)
     return f"{year:04d}-{month:02d}-{day:02d}"
+
+
+# Realistic age distribution for Cordova's 25,000 population
+AGE_DISTRIBUTION = {
+    (0, 17): 22,     # children 22%
+    (18, 35): 28,    # young adults 28%
+    (36, 55): 25,    # middle-age 25%
+    (56, 75): 18,    # older 18%
+    (76, 95): 7,     # elderly 7%
+}
 
 
 def random_date(start_year=2020, end_year=2025):
