@@ -340,6 +340,7 @@ class BulkImportProcessor:
                             xml_content=xml_content,
                             instance_id=instance_id,
                             validation_status=validation_status,
+                            auto_corrected_fields=[],
                         )
 
                         if rdf_content:
