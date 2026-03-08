@@ -63,6 +63,7 @@ class RDFExtractor:
     # XSD datatype mappings for SDC4 types
     XSD_DATATYPES = {
         'XdString': 'xsd:string',
+        'XdToken': 'xsd:string',
         'XdBoolean': 'xsd:boolean',
         'XdCount': 'xsd:integer',
         'XdOrdinal': 'xsd:integer',
@@ -77,6 +78,7 @@ class RDFExtractor:
     # Value element names for each type
     VALUE_ELEMENTS = {
         'XdString': 'xdstring-value',
+        'XdToken': 'xdtoken-value',
         'XdBoolean': 'xdboolean-value',
         'XdCount': 'xdcount-value',
         'XdOrdinal': 'xdordinal-value',

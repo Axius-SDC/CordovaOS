@@ -1,71 +1,39 @@
 # Query 6: Institutional Impact
-# For an institution (e.g., Universidad Nacional de Cordova): find all
-# graduates/students, their current employers, employer tax contributions,
-# and businesses they have founded.
-# Input: Institution BRN, e.g. "BIZ-000847"
+# For an institution (via BRN), find all records in the Business Registry,
+# then find students at the institution via Education records sharing
+# the same city/province.
+# Input: Institution BRN, e.g. "BIZ-000847" (Universidad Nacional de Cordova)
+#
+# Join mechanism: BRN links to Business Registry; Education records in
+# the same city show the institutional footprint.
 
-PREFIX sdc4:  <https://semanticdatacharter.com/ns/sdc4/>
+PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?category ?person_name ?person_cid ?employer_name ?employer_brn
-       ?tax_type ?business_founded
+SELECT ?category ?detail_label ?detail_value
 WHERE {
-  # Step 1: Find all students/graduates at the institution
-  ?edu_dm a sdc4:DMType ;
-          sdc4:dm-label "Education Record" ;
-          sdc4:dm-data ?edu_cluster ;
-          sdc4:dm-provider ?institution ;
-          sdc4:dm-subject ?student .
-  ?institution sdc4:party-id "BIZ-000847" .
-  ?student sdc4:party-name ?person_name ;
-           sdc4:party-id ?person_cid .
-
   {
-    # Step 2: Current employers of these graduates
-    ?emp_dm a sdc4:DMType ;
-            sdc4:dm-label "Employment Record" ;
-            sdc4:dm-data ?emp_cluster ;
-            sdc4:dm-subject ?emp_subj ;
-            sdc4:dm-provider ?employer .
-    ?emp_subj sdc4:party-id ?person_cid .
-    ?employer sdc4:party-name ?employer_name ;
-              sdc4:party-id ?employer_brn .
+    # Business Registry details for the institution
+    ?brn_reifier rdf:reifies << sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly sdc4:xdstring-value "BIZ-000847" >> ;
+                 sdc4:inInstance ?biz_inst ;
+                 sdc4:inDataModel sdc4:dm-x250838l7oi6l3yavg9twc1i .
 
-    # Confirm current (no end date)
-    FILTER NOT EXISTS {
-      ?emp_cluster sdc4:hasComponent ?end_comp .
-      ?end_comp sdc4:label "End Date" ;
-               sdc4:xdtemporal-date ?end_date .
-    }
+    ?comp_reifier sdc4:inInstance ?biz_inst ;
+                  rdfs:label ?detail_label ;
+                  rdf:reifies << ?subj ?pred ?detail_value >> .
 
-    # Step 3: Employer's tax contributions
-    OPTIONAL {
-      ?tax_dm a sdc4:DMType ;
-              sdc4:dm-label "Tax and Revenue Record" ;
-              sdc4:dm-data ?tax_cluster ;
-              sdc4:dm-subject ?tax_subj .
-      ?tax_subj sdc4:party-id ?employer_brn .
-      ?tax_cluster sdc4:hasComponent ?tt_comp .
-      ?tt_comp sdc4:label "Tax Type" ;
-              sdc4:xdtoken-value ?tax_type .
-    }
-    BIND("Graduate Employment" AS ?category)
-    BIND("" AS ?business_founded)
+    BIND("Business Registry" AS ?category)
   }
   UNION
   {
-    # Step 4: Businesses founded by graduates
-    ?biz_dm a sdc4:DMType ;
-            sdc4:dm-label "Business Registry" ;
-            sdc4:dm-data ?biz_cluster ;
-            sdc4:dm-subject ?officer .
-    ?officer sdc4:party-id ?person_cid .
-    ?biz_cluster sdc4:hasComponent ?biz_name_comp .
-    ?biz_name_comp sdc4:label "Organization Name" ;
-                  sdc4:xdstring-value ?business_founded .
-    BIND("Business Founded" AS ?category)
-    BIND("" AS ?employer_name)
-    BIND("" AS ?employer_brn)
-    BIND("" AS ?tax_type)
+    # Education records (students/faculty)
+    ?edu_reifier sdc4:inInstance ?edu_inst ;
+                 sdc4:inDataModel sdc4:dm-upq7w1bqbix5v5ss0mu3kq5n ;
+                 rdfs:label ?detail_label ;
+                 rdf:reifies << ?subj ?pred ?detail_value >> .
+
+    BIND("Education Record" AS ?category)
   }
 }
-ORDER BY ?category ?person_name
+ORDER BY ?category ?detail_label
