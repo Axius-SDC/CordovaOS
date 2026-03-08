@@ -1,0 +1,999 @@
+@base <https://semanticdatacharter.com/ns/sdc4/dm-md2451x882z5j89g66zb50rw> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sdc4-meta: <https://semanticdatacharter.com/ontology/sdc4-meta/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<mc-bfaa3m23ye8q0qphv0x24if6/xdtoken-value/bulk_dry> a rdfs:Class ;
+    rdfs:label "bulk_dry" ;
+    rdfs:subPropertyOf <mc-bfaa3m23ye8q0qphv0x24if6> .
+
+<mc-bfaa3m23ye8q0qphv0x24if6/xdtoken-value/bulk_liquid> a rdfs:Class ;
+    rdfs:label "bulk_liquid" ;
+    rdfs:subPropertyOf <mc-bfaa3m23ye8q0qphv0x24if6> .
+
+<mc-bfaa3m23ye8q0qphv0x24if6/xdtoken-value/containers> a rdfs:Class ;
+    rdfs:label "containers" ;
+    rdfs:subPropertyOf <mc-bfaa3m23ye8q0qphv0x24if6> .
+
+<mc-bfaa3m23ye8q0qphv0x24if6/xdtoken-value/general_cargo> a rdfs:Class ;
+    rdfs:label "general_cargo" ;
+    rdfs:subPropertyOf <mc-bfaa3m23ye8q0qphv0x24if6> .
+
+<mc-bfaa3m23ye8q0qphv0x24if6/xdtoken-value/livestock> a rdfs:Class ;
+    rdfs:label "livestock" ;
+    rdfs:subPropertyOf <mc-bfaa3m23ye8q0qphv0x24if6> .
+
+<mc-bfaa3m23ye8q0qphv0x24if6/xdtoken-value/none> a rdfs:Class ;
+    rdfs:label "none" ;
+    rdfs:subPropertyOf <mc-bfaa3m23ye8q0qphv0x24if6> .
+
+<mc-bfaa3m23ye8q0qphv0x24if6/xdtoken-value/refrigerated> a rdfs:Class ;
+    rdfs:label "refrigerated" ;
+    rdfs:subPropertyOf <mc-bfaa3m23ye8q0qphv0x24if6> .
+
+<mc-bfaa3m23ye8q0qphv0x24if6/xdtoken-value/vehicles> a rdfs:Class ;
+    rdfs:label "vehicles" ;
+    rdfs:subPropertyOf <mc-bfaa3m23ye8q0qphv0x24if6> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/academic> a rdfs:Class ;
+    rdfs:label "academic" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/corporation> a rdfs:Class ;
+    rdfs:label "corporation" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/department> a rdfs:Class ;
+    rdfs:label "department" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/government> a rdfs:Class ;
+    rdfs:label "government" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/nonprofit> a rdfs:Class ;
+    rdfs:label "nonprofit" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/vendor> a rdfs:Class ;
+    rdfs:label "vendor" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-dz2jxiusj9162dwokwuh5n8x/xdtoken-value/in-person-at-port> a rdfs:Class ;
+    rdfs:label "in-person-at-port" ;
+    rdfs:subPropertyOf <mc-dz2jxiusj9162dwokwuh5n8x> .
+
+<mc-dz2jxiusj9162dwokwuh5n8x/xdtoken-value/on-board> a rdfs:Class ;
+    rdfs:label "on-board" ;
+    rdfs:subPropertyOf <mc-dz2jxiusj9162dwokwuh5n8x> .
+
+<mc-dz2jxiusj9162dwokwuh5n8x/xdtoken-value/shore-based-remote> a rdfs:Class ;
+    rdfs:label "shore-based-remote" ;
+    rdfs:subPropertyOf <mc-dz2jxiusj9162dwokwuh5n8x> .
+
+<mc-gqbvto3l0o5e6uorrgjwdig2/xdtoken-value/1-explosives,2-gases,3-flammable-liquids,4-flammable-solids,5-oxidizers,6-toxic,7-radioactive,8-corrosives,9-misc> a rdfs:Class ;
+    rdfs:label "1-explosives,2-gases,3-flammable-liquids,4-flammable-solids,5-oxidizers,6-toxic,7-radioactive,8-corrosives,9-misc" ;
+    rdfs:subPropertyOf <mc-gqbvto3l0o5e6uorrgjwdig2> .
+
+<mc-lyh7y1in5j9ka5cxk2zw2qdj/xdtoken-value/crew_change> a rdfs:Class ;
+    rdfs:label "crew_change" ;
+    rdfs:subPropertyOf <mc-lyh7y1in5j9ka5cxk2zw2qdj> .
+
+<mc-lyh7y1in5j9ka5cxk2zw2qdj/xdtoken-value/discharge_cargo> a rdfs:Class ;
+    rdfs:label "discharge_cargo" ;
+    rdfs:subPropertyOf <mc-lyh7y1in5j9ka5cxk2zw2qdj> .
+
+<mc-lyh7y1in5j9ka5cxk2zw2qdj/xdtoken-value/emergency> a rdfs:Class ;
+    rdfs:label "emergency" ;
+    rdfs:subPropertyOf <mc-lyh7y1in5j9ka5cxk2zw2qdj> .
+
+<mc-lyh7y1in5j9ka5cxk2zw2qdj/xdtoken-value/load_cargo> a rdfs:Class ;
+    rdfs:label "load_cargo" ;
+    rdfs:subPropertyOf <mc-lyh7y1in5j9ka5cxk2zw2qdj> .
+
+<mc-lyh7y1in5j9ka5cxk2zw2qdj/xdtoken-value/load_discharge> a rdfs:Class ;
+    rdfs:label "load_discharge" ;
+    rdfs:subPropertyOf <mc-lyh7y1in5j9ka5cxk2zw2qdj> .
+
+<mc-lyh7y1in5j9ka5cxk2zw2qdj/xdtoken-value/other> a rdfs:Class ;
+    rdfs:label "other" ;
+    rdfs:subPropertyOf <mc-lyh7y1in5j9ka5cxk2zw2qdj> .
+
+<mc-lyh7y1in5j9ka5cxk2zw2qdj/xdtoken-value/provisions> a rdfs:Class ;
+    rdfs:label "provisions" ;
+    rdfs:subPropertyOf <mc-lyh7y1in5j9ka5cxk2zw2qdj> .
+
+<mc-lyh7y1in5j9ka5cxk2zw2qdj/xdtoken-value/refuel> a rdfs:Class ;
+    rdfs:label "refuel" ;
+    rdfs:subPropertyOf <mc-lyh7y1in5j9ka5cxk2zw2qdj> .
+
+<mc-lyh7y1in5j9ka5cxk2zw2qdj/xdtoken-value/repairs> a rdfs:Class ;
+    rdfs:label "repairs" ;
+    rdfs:subPropertyOf <mc-lyh7y1in5j9ka5cxk2zw2qdj> .
+
+<mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Organization> a rdfs:Class ;
+    rdfs:label "Organization" ;
+    rdfs:subPropertyOf <mc-nesxtz8c5o665swc9lhvqkjj> .
+
+<mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Person> a rdfs:Class ;
+    rdfs:label "Person" ;
+    rdfs:subPropertyOf <mc-nesxtz8c5o665swc9lhvqkjj> .
+
+<mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/SoftwareAgent> a rdfs:Class ;
+    rdfs:label "SoftwareAgent" ;
+    rdfs:subPropertyOf <mc-nesxtz8c5o665swc9lhvqkjj> .
+
+<mc-ni5dvv9ic8uus9dl8fsqtzy8/xdtoken-value/bosun> a rdfs:Class ;
+    rdfs:label "bosun" ;
+    rdfs:subPropertyOf <mc-ni5dvv9ic8uus9dl8fsqtzy8> .
+
+<mc-ni5dvv9ic8uus9dl8fsqtzy8/xdtoken-value/bridge-officer> a rdfs:Class ;
+    rdfs:label "bridge-officer" ;
+    rdfs:subPropertyOf <mc-ni5dvv9ic8uus9dl8fsqtzy8> .
+
+<mc-ni5dvv9ic8uus9dl8fsqtzy8/xdtoken-value/chief-engineer> a rdfs:Class ;
+    rdfs:label "chief-engineer" ;
+    rdfs:subPropertyOf <mc-ni5dvv9ic8uus9dl8fsqtzy8> .
+
+<mc-ni5dvv9ic8uus9dl8fsqtzy8/xdtoken-value/chief-steward> a rdfs:Class ;
+    rdfs:label "chief-steward" ;
+    rdfs:subPropertyOf <mc-ni5dvv9ic8uus9dl8fsqtzy8> .
+
+<mc-ni5dvv9ic8uus9dl8fsqtzy8/xdtoken-value/deck-officer> a rdfs:Class ;
+    rdfs:label "deck-officer" ;
+    rdfs:subPropertyOf <mc-ni5dvv9ic8uus9dl8fsqtzy8> .
+
+<mc-ni5dvv9ic8uus9dl8fsqtzy8/xdtoken-value/radio-officer> a rdfs:Class ;
+    rdfs:label "radio-officer" ;
+    rdfs:subPropertyOf <mc-ni5dvv9ic8uus9dl8fsqtzy8> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/AE> a rdfs:Class ;
+    rdfs:label "AE" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/AF> a rdfs:Class ;
+    rdfs:label "AF" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/AR> a rdfs:Class ;
+    rdfs:label "AR" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/AU> a rdfs:Class ;
+    rdfs:label "AU" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/BD> a rdfs:Class ;
+    rdfs:label "BD" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/BR> a rdfs:Class ;
+    rdfs:label "BR" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/CA> a rdfs:Class ;
+    rdfs:label "CA" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/CL> a rdfs:Class ;
+    rdfs:label "CL" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/CN> a rdfs:Class ;
+    rdfs:label "CN" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/CO> a rdfs:Class ;
+    rdfs:label "CO" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/DE> a rdfs:Class ;
+    rdfs:label "DE" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/EG> a rdfs:Class ;
+    rdfs:label "EG" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/ES> a rdfs:Class ;
+    rdfs:label "ES" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/FR> a rdfs:Class ;
+    rdfs:label "FR" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/GB> a rdfs:Class ;
+    rdfs:label "GB" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/ID> a rdfs:Class ;
+    rdfs:label "ID" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/IL> a rdfs:Class ;
+    rdfs:label "IL" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/IN> a rdfs:Class ;
+    rdfs:label "IN" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/IQ> a rdfs:Class ;
+    rdfs:label "IQ" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/IR> a rdfs:Class ;
+    rdfs:label "IR" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/IT> a rdfs:Class ;
+    rdfs:label "IT" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/JO> a rdfs:Class ;
+    rdfs:label "JO" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/JP> a rdfs:Class ;
+    rdfs:label "JP" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/KR> a rdfs:Class ;
+    rdfs:label "KR" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/LB> a rdfs:Class ;
+    rdfs:label "LB" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/MX> a rdfs:Class ;
+    rdfs:label "MX" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/MY> a rdfs:Class ;
+    rdfs:label "MY" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/NG> a rdfs:Class ;
+    rdfs:label "NG" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/NZ> a rdfs:Class ;
+    rdfs:label "NZ" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/PE> a rdfs:Class ;
+    rdfs:label "PE" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/PH> a rdfs:Class ;
+    rdfs:label "PH" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/PK> a rdfs:Class ;
+    rdfs:label "PK" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/RU> a rdfs:Class ;
+    rdfs:label "RU" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/SA> a rdfs:Class ;
+    rdfs:label "SA" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/SG> a rdfs:Class ;
+    rdfs:label "SG" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/SY> a rdfs:Class ;
+    rdfs:label "SY" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/TH> a rdfs:Class ;
+    rdfs:label "TH" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/TR> a rdfs:Class ;
+    rdfs:label "TR" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/US> a rdfs:Class ;
+    rdfs:label "US" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/VN> a rdfs:Class ;
+    rdfs:label "VN" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/YE> a rdfs:Class ;
+    rdfs:label "YE" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-olte7w6y3ktfuu6kqk0e6dv9/xdtoken-value/ZA> a rdfs:Class ;
+    rdfs:label "ZA" ;
+    rdfs:subPropertyOf <mc-olte7w6y3ktfuu6kqk0e6dv9> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Aggregator> a rdfs:Class ;
+    rdfs:label "Aggregator" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Approver> a rdfs:Class ;
+    rdfs:label "Approver" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Author> a rdfs:Class ;
+    rdfs:label "Author" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Contributor> a rdfs:Class ;
+    rdfs:label "Contributor" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Custodian> a rdfs:Class ;
+    rdfs:label "Custodian" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Publisher> a rdfs:Class ;
+    rdfs:label "Publisher" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Reviewer> a rdfs:Class ;
+    rdfs:label "Reviewer" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Transformer> a rdfs:Class ;
+    rdfs:label "Transformer" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-vt5nh89ol3g5gj0oz35tl6y0/xdtoken-value/Invoiced> a rdfs:Class ;
+    rdfs:label "Invoiced" ;
+    rdfs:subPropertyOf <mc-vt5nh89ol3g5gj0oz35tl6y0> .
+
+<mc-vt5nh89ol3g5gj0oz35tl6y0/xdtoken-value/Overdue> a rdfs:Class ;
+    rdfs:label "Overdue" ;
+    rdfs:subPropertyOf <mc-vt5nh89ol3g5gj0oz35tl6y0> .
+
+<mc-vt5nh89ol3g5gj0oz35tl6y0/xdtoken-value/Paid> a rdfs:Class ;
+    rdfs:label "Paid" ;
+    rdfs:subPropertyOf <mc-vt5nh89ol3g5gj0oz35tl6y0> .
+
+<mc-wvfcfa6u4ers75egrbi25x9l/xdtoken-value/Berth%20Fee> a rdfs:Class ;
+    rdfs:label "Berth Fee" ;
+    rdfs:subPropertyOf <mc-wvfcfa6u4ers75egrbi25x9l> .
+
+<mc-wvfcfa6u4ers75egrbi25x9l/xdtoken-value/Cargo%20Handling> a rdfs:Class ;
+    rdfs:label "Cargo Handling" ;
+    rdfs:subPropertyOf <mc-wvfcfa6u4ers75egrbi25x9l> .
+
+<mc-wvfcfa6u4ers75egrbi25x9l/xdtoken-value/Customs%20Processing> a rdfs:Class ;
+    rdfs:label "Customs Processing" ;
+    rdfs:subPropertyOf <mc-wvfcfa6u4ers75egrbi25x9l> .
+
+<mc-wvfcfa6u4ers75egrbi25x9l/xdtoken-value/Fresh%20Water> a rdfs:Class ;
+    rdfs:label "Fresh Water" ;
+    rdfs:subPropertyOf <mc-wvfcfa6u4ers75egrbi25x9l> .
+
+<mc-wvfcfa6u4ers75egrbi25x9l/xdtoken-value/Pilotage> a rdfs:Class ;
+    rdfs:label "Pilotage" ;
+    rdfs:subPropertyOf <mc-wvfcfa6u4ers75egrbi25x9l> .
+
+<mc-wvfcfa6u4ers75egrbi25x9l/xdtoken-value/Provisions> a rdfs:Class ;
+    rdfs:label "Provisions" ;
+    rdfs:subPropertyOf <mc-wvfcfa6u4ers75egrbi25x9l> .
+
+<mc-wvfcfa6u4ers75egrbi25x9l/xdtoken-value/Tug%20Service> a rdfs:Class ;
+    rdfs:label "Tug Service" ;
+    rdfs:subPropertyOf <mc-wvfcfa6u4ers75egrbi25x9l> .
+
+<mc-wvfcfa6u4ers75egrbi25x9l/xdtoken-value/Waste%20Disposal> a rdfs:Class ;
+    rdfs:label "Waste Disposal" ;
+    rdfs:subPropertyOf <mc-wvfcfa6u4ers75egrbi25x9l> .
+
+<dm-md2451x882z5j89g66zb50rw> dc:coverage "Universal" ;
+    dc:creator "Timothy Cook" ;
+    dc:date "2026-03-07 20:03:45.784607+00:00" ;
+    dc:description "Record all maritime operations, vessel movements, crew, cargo, and customs at Porto Sereno." ;
+    dc:format "text/xml" ;
+    dc:identifier "dm-md2451x882z5j89g66zb50rw" ;
+    dc:language "en-US" ;
+    dc:relation "None" ;
+    dc:rights "CC-BY http://creativecommons.org/licenses/by/3.0/" ;
+    dc:title "Maritime Port Authority" ;
+    dc:type "SDC Data Model (DM)" .
+
+<mc-cipk6pha3nz62dd4vwmkg5yo-rr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Non-negative Weight" ;
+    rdfs:isDefinedBy <http://qudt.org/vocab/quantitykind/Mass> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ReferenceRangeType> .
+
+<mc-gr4c7suzjf87x7svli8oiqi6-rr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Non-negative Currency Amount" ;
+    rdfs:isDefinedBy schema:MonetaryAmount ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ReferenceRangeType> .
+
+<mc-qosfvstmnxvwjw37cibh82j6-rr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Positive Headcount" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q3480944> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ReferenceRangeType> .
+
+<sdc4:mc-0g1qkok68nj2uku6dj71a6xu> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Crew Member" ;
+    rdfs:comment "Person serving as crew member aboard a vessel. W3C PROV-DM Agent (Person) with passport, nationality, and operational status." ;
+    rdfs:isDefinedBy prov:Agent,
+        schema:Person,
+        <https://www.wikidata.org/wiki/Q45199> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-crew_member> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-3vigq1h363z05vpb4aw06sei> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Crew Participation" ;
+    rdfs:comment "Participation of crew members in a port call. The performer is a crew member (W3C PROV-DM Agent) with job title as function." ;
+    rdfs:isDefinedBy prov:Association,
+        <https://www.wikidata.org/wiki/Q56512863> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q949149> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-crew_participation> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ParticipationType> .
+
+<sdc4:mc-a127ihw8xbfbl24lbcvnspv0> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "contact_name" ;
+    rdfs:comment "Contact name for the service." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-contact_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-an9kafb2l1enwh20ngvo1n7y> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Cargo Destination" ;
+    rdfs:comment "Final destination for this cargo (may be Porto Sereno or transshipment)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q5254083> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-cargo_destination> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-bfaa3m23ye8q0qphv0x24if6> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Cargo Type" ;
+    rdfs:comment "Primary type of cargo" ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-cargo_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-bmoixtn8r8pu62gbgd1tl8qn> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Voyage Number" ;
+    rdfs:comment "Voyage or trip identifier" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q130365988> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-voyage_number> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-bpqtzla39dwentygpwea8276> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_type" ;
+    rdfs:comment "Type of organization." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q17197366> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-bzdgd652adlbc1v287s8yrm1> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Maritime Port Workflow" ;
+    rdfs:isDefinedBy prov:Activity,
+        <https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-c75jy9i3wmcbaewdoeivt2v5> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Maritime Port Protocol" ;
+    rdfs:comment "Protocol reference for the Maritime Port Authority data model. Informed by the IMO Convention on Facilitation of International Maritime Traffic (FAL Convention), the International Ship and Port Facility Security Code (ISPS), and the UN/CEFACT Single Window standards for port operations." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q132364> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q7884> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-maritime_port_protocol> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-cl1hiqht7tm42a8lh8c4c1hz> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vessel MMSI" ;
+    rdfs:comment "Maritime Mobile Service Identity (MMSI) number" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1795701> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vessel_mmsi> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-cl7genh6if8u2s7cl7pt0ij2> a schema:Boolean,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Crew Shore Leave Requested" ;
+    rdfs:comment "Whether crew shore leave is requested" ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-crew_shore_leave_requested> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdBooleanType> .
+
+<sdc4:mc-dp1dkn09vydj2ss6ho37kyhv> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Customs Reference Number" ;
+    rdfs:comment "Customs filing reference number" ;
+    rdfs:isDefinedBy <http://schema.org/identifier> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-customs_reference_number> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-dz2jxiusj9162dwokwuh5n8x> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Crew Participation Mode" ;
+    rdfs:comment "Mode of crew participation in the port call (e.g., on board, shore-based remote)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-crew_participation_mode> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-e92ud8io69rm826g9b1jrrgh> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Port Fee Amount" ;
+    rdfs:comment "Fee amount assessed for port services in Cordova Córdoba. Includes berth rental, pilotage, tug assistance, waste disposal, and other harbor charges per the Porto Sereno fee schedule." ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
+
+<sdc4:mc-emtr91lypy400ttgzz2ti4et> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Port Fees" ;
+    rdfs:isDefinedBy <http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#Fee>,
+        <https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-g3k6bj8su3rvkszg2700dhyh> a schema:DateTime,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Birth Date" ;
+    rdfs:comment "Date of birth of the participant. UMLS CUI: C0421451 (Date of birth). LOINC: 21112-8 (Birth date)." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2389905> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-birth_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-glweqzwevdjr0j56r9gcuphk> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Positive Headcount" ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdIntervalType> .
+
+<sdc4:mc-gqbvto3l0o5e6uorrgjwdig2> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Hazmat Class" ;
+    rdfs:comment "Hazardous material classes on board (if applicable)" ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-hazmat_class> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-gug5dhtqfv7exbgmm2raxpkq> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Digital Signature Proof" ;
+    rdfs:isDefinedBy <https://www.w3.org/TR/vc-data-model/#credentials>,
+        <https://www.wikidata.org/wiki/Q210824> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
+
+<sdc4:mc-gxt0t3cs4u6v5ob55qkc6ha0> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Next Port of Call" ;
+    rdfs:comment "Next port after this arrival" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q119382961> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-next_port_of_call> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "agent_id" ;
+    rdfs:comment "Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q37882474> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-agent_id> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-i2e1qhvmkvbnkt0le7rczw5x> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vessel Owner/Operator" ;
+    rdfs:comment "The organization that owns or operates the vessel. W3C PROV-DM Agent (Organization) with registry number as identifier." ;
+    rdfs:isDefinedBy prov:Agent,
+        schema:Organization,
+        <https://www.wikidata.org/wiki/Q500251> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vessel_owner-operator> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-i8cjmvihdces5rqvb2snqwmo> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Port Call Record" ;
+    rdfs:isDefinedBy <http://schema.org/Report>,
+        <https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-ibb8e7c8equpeqiv5wxrxxll> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Cargo Manifest" ;
+    rdfs:isDefinedBy <https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx>,
+        <https://www.wikidata.org/wiki/Q105851048> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_name" ;
+    rdfs:comment "Legal or official name of the organization." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q168678> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-jnxxwzl046rkmkbtm33naueu> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vessel Length Overall" ;
+    rdfs:comment "Length overall (LOA) of the vessel in meters, measured from the foremost to the aftermost point. Required for berth assignment and pilotage planning at Porto Sereno." ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
+
+<sdc4:mc-k7a0poa5c7co38oc65i6jppo> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Flag State" ;
+    rdfs:comment "Country of vessel registration (flag state)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q3591841> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-flag_state> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-kmd0ncqu6c70mt5ri4bxucgg> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Maritime Attestation" ;
+    rdfs:comment "Attestation for maritime port records. The port authority attests to vessel arrival/departure data and crew manifests. W3C PROV-DM, GDPR/UN CEB." ;
+    rdfs:isDefinedBy prov:Activity,
+        <https://www.w3.org/TR/vc-data-model/#credentials>,
+        <https://www.wikidata.org/wiki/Q116890704> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q949149> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-maritime_attestation> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:AttestationType> .
+
+<sdc4:mc-l29wc96z6g1a432bhcxxo7dy> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Port Authority" ;
+    rdfs:comment "Maritime port authority managing vessel traffic, arrivals, and departures. W3C PROV-DM Agent (Organization)." ;
+    rdfs:isDefinedBy <http://schema.org/GovernmentOrganization>,
+        prov:Agent,
+        schema:Organization,
+        <https://www.wikidata.org/wiki/Q1348006> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-port_authority> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Registry Number" ;
+    rdfs:comment "Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions." ;
+    rdfs:isDefinedBy <http://schema.org/identifier>,
+        <https://www.wikidata.org/wiki/Q12047291> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-business_registry_number> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-lh0ufebnovngzzgfggud6ae6> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vessel Net Tonnage" ;
+    rdfs:comment "Vessel's net tonnage as registered under the IMO Tonnage Convention (1969). Represents usable cargo capacity. Used for canal transit fees and some port tariff calculations." ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
+
+<sdc4:mc-lnjzw0racjo2oxol5w82tp1y> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Berth Assignment" ;
+    rdfs:comment "Planned berth assignment for a vessel at port." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q57964937> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-berth_assignment> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-lqqypwp22ohzb0ud3wq81r9s> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Cargo Weight" ;
+    rdfs:comment "Total weight of the cargo consignment in kilograms as declared on the bill of lading. Required for vessel stability calculations and port crane scheduling." ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
+
+<sdc4:mc-lyh7y1in5j9ka5cxk2zw2qdj> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Purpose of Call" ;
+    rdfs:comment "Purpose of port call" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q20729393> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-purpose_of_call> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-md2451x882z5j89g66zb50rw> a schema:Dataset,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Maritime Port Authority" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q187939> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q131332> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:DMType> .
+
+<sdc4:mc-n7x39orkbwjejdf8r93trlaa> a schema:Boolean,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Hazardous Cargo" ;
+    rdfs:comment "Whether vessel is carrying hazardous materials" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q13537426> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-hazardous_cargo> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdBooleanType> .
+
+<sdc4:mc-nd1w50yuam0i6f0u1ixoj8fr> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Passport Number" ;
+    rdfs:comment "Passport number (XdString)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q784177> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-passport_number> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ndvtjiq0cke0q1trw58rtrq2> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "person_given_name" ;
+    rdfs:comment "Given (first) name of the person agent." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q202444> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-person_given_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-nesxtz8c5o665swc9lhvqkjj> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "PROV Agent Type" ;
+    rdfs:comment "Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation." ;
+    rdfs:isDefinedBy prov:Agent ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prov_agent_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-ni5dvv9ic8uus9dl8fsqtzy8> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Crew Participation Function" ;
+    rdfs:comment "Function of the crew member in the port call (e.g., Bridge Officer, Engineer)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-crew_participation_function> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "National ID (CID)" ;
+    rdfs:comment "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions." ;
+    rdfs:isDefinedBy <http://schema.org/identifier>,
+        <https://www.wikidata.org/wiki/Q1140371> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-national_id_(cid)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-nyjf6osy2dsn9jtmp7zvvmtx> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vessel Owner/Operator (PROV Agent)" ;
+    rdfs:isDefinedBy prov:Agent,
+        <https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-oghg470klqpuiaglq79ktmpy> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Maritime Attested View" ;
+    rdfs:isDefinedBy schema:DigitalDocument ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q44782> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
+
+<sdc4:mc-olte7w6y3ktfuu6kqk0e6dv9> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Country Code" ;
+    rdfs:comment "ISO 3166-1 alpha-2 country codes" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1140221> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-country_code> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-oqzw4x05dkkucs1yzkisbqgy> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_contact_email" ;
+    rdfs:comment "Contact email for the organization." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q125471304> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_contact_email> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-p5qzw565y1dm5f3s6lg2q3ft> a schema:Integer,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Crew Count" ;
+    rdfs:comment "Total number of crew members aboard the vessel at time of port call. Required for immigration processing, shore leave management, and emergency muster planning." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2513968> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-crew_count> ;
+    sdc4-meta:hasUnit <sdc4:mc-qb5xnfq8e7qzlxr2q1sc5qhy> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdCountType> .
+
+<sdc4:mc-pbfvurdvio38rt6puifhippe> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Port Call ID" ;
+    rdfs:comment "Unique identifier for this port call record. Assigned by Porto Sereno Port Authority." ;
+    rdfs:isDefinedBy <http://purl.obolibrary.org/obo/BFO_0000009> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-port_call_id> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-pdykwzsug7pfncjsrry73x1s> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "contact_phone" ;
+    rdfs:comment "Primary contact phone number." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q214995> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-contact_phone> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-plob4z6l86w98xcvt7sz324v> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Non-negative Weight" ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdIntervalType> .
+
+<sdc4:mc-ptc8dfx1oxeycopfjof6vjab> a schema:Boolean,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Medical Assistance Required" ;
+    rdfs:comment "Whether medical assistance is needed upon arrival" ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-medical_assistance_required> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdBooleanType> .
+
+<sdc4:mc-qlqdwbglcq4v3rg8i8iy7dk0> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vessel Call Sign" ;
+    rdfs:comment "Vessel radio call sign" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q23581925> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vessel_call_sign> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-qq516wt8ynu4jny0dn2no51n> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Gross Tonnage" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q217792> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-rln82e53qjn6zo832iuyfgng> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Net Tonnage" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q756933> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-rt510ljj3vz05fxwcm85i990> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Cargo Origin" ;
+    rdfs:comment "Port or country of origin for this cargo" ;
+    rdfs:isDefinedBy <http://schema.org/shippingOrigin> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-cargo_origin> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-s0qun9zalf98t3ffsefh34rj> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Port of Departure" ;
+    rdfs:comment "Last port of departure" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q76455346> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-port_of_departure> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-s5zeapfup3xdj6wbqjjkf1nd> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vessel Name" ;
+    rdfs:comment "Name of vessel (XdString)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q56351075> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vessel_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-sqpcl9uk7sze8bdqxxqwuqrn> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Departure Date/Time" ;
+    rdfs:comment """Date and time the vessel departed Porto Sereno. Null if vessel is currently in port.
+
+---""" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q52943> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-departure_date-time> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-tj85qvj83sce9ny9l2e4oofv> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Non-negative Currency Amount" ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdIntervalType> .
+
+<sdc4:mc-tjxxdsd6idyzqygrncojauxn> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Mass/Weight (SI - Metric)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q3197317> ;
+    rdfs:seeAlso <http://qudt.org/vocab/quantitykind/Mass> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-u18l77xlj2omcbmnpi5j7fff> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Cordova Córdoba (COR)" ;
+    rdfs:isDefinedBy schema:Currency ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-u1i23yha2rvz5nbxjz3l8x48> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "PROV Role Type" ;
+    rdfs:comment "Functional roles that agents, entities, or activities can assume within provenance relationships." ;
+    rdfs:isDefinedBy <https://www.w3.org/TR/prov-o/#qualifiedInvolvement> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prov_role_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-ub2t6n4xolr6nhc3oj50fnla> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Port Authority" ;
+    rdfs:isDefinedBy prov:Agent ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-uczf4drfrkpue41q9x8ffvja> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Maritime Attestation Reason" ;
+    rdfs:comment "Reason for attesting this maritime document" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q132364> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q44782> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-maritime_attestation_reason> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ule5u2z3rjpa9pooaifwj1n3> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_identifier" ;
+    rdfs:comment "Official identifier for the organization (e.g., DUNS, tax ID)." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q11378663> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_identifier> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-upvi6l9pyb4f0p4vfunietsw> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Arrival Date/Time" ;
+    rdfs:comment "Date and time the vessel arrived at Porto Sereno" ;
+    rdfs:isDefinedBy <http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#ArrivalDateTime> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-arrival_date-time> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-vt5nh89ol3g5gj0oz35tl6y0> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Payment Status" ;
+    rdfs:comment "Whether the fee has been paid" ;
+    rdfs:isDefinedBy <http://schema.org/PaymentStatusType> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-payment_status> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-wfws1oj1kgeaijciw7wkzdi7> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Job Title" ;
+    rdfs:comment "Current job title or occupation" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q828803> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-job_title> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-wqs7c6hl5vgq6f4ub25th5tr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Maritime Port Access Control" ;
+    rdfs:isDefinedBy <https://w3id.org/dpv#AccessControlMethod> ;
+    rdfs:seeAlso <https://w3id.org/dpv> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
+
+<sdc4:mc-wtph0sqt244h38lyzf9ot1op> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vessel Gross Tonnage" ;
+    rdfs:comment "Vessel's gross tonnage as registered under the IMO Tonnage Convention (1969). Determines applicable port fees, pilotage requirements, and berth assignment at Porto Sereno." ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
+
+<sdc4:mc-wvfcfa6u4ers75egrbi25x9l> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Fee Type" ;
+    rdfs:comment "Type of port fee assessed" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1912682> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-fee_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-wxjyv4dmwb0rws14mn5xy3ju> a schema:Boolean,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Customs Declaration Filed" ;
+    rdfs:comment "Whether customs declaration has been filed" ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-customs_declaration_filed> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdBooleanType> .
+
+<sdc4:mc-x720xrlooqij75bk26pvzrtl> a schema:Integer,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Passenger Count" ;
+    rdfs:comment "Total number of passengers aboard the vessel at time of port call. Required for immigration processing, disembarkation planning, and port facility capacity management. Zero for cargo-only vessels." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q319604> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-passenger_count> ;
+    sdc4-meta:hasUnit <sdc4:mc-qb5xnfq8e7qzlxr2q1sc5qhy> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdCountType> .
+
+<sdc4:mc-xccdfbmuqcy5yzv2n6ef0hrs> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vessel Draft" ;
+    rdfs:comment "Maximum draft (depth below waterline) of the vessel in meters at time of port entry. Critical for channel and berth depth clearance at Porto Sereno harbor." ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
+
+<sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Length/Distance (SI - Metric)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1344778> ;
+    rdfs:seeAlso <http://qudt.org/vocab/quantitykind/Length> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-y5se2qd3r6xx6pz8t7d8cqvf> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Container Count" ;
+    rdfs:comment "Number of shipping containers in the cargo consignment measured in TEU (Twenty-foot Equivalent Units). Used for berth planning, crane allocation, and port throughput statistics." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1366867> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-container_count> ;
+    sdc4-meta:hasUnit <sdc4:mc-l4a5u5ed3qv9rc4rqv9cebqt> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdCountType> .
+
+<sdc4:mc-ycy71t767wlyqma97o82r2m9> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vessel IMO Number" ;
+    rdfs:comment "International Maritime Organization (IMO) number" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1970938> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vessel_imo_number> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-z7zqo56erimvk8dqvl07ihfr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Cargo Description" ;
+    rdfs:comment "Description of cargo contents" ;
+    rdfs:isDefinedBy <http://release.niem.gov/niem/niem-core/6.0/niem-core.owl#CargoDescriptionText> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-cargo_description> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-zf9y55c89jybgi19734g0ls5> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Crew Member" ;
+    rdfs:isDefinedBy prov:Agent,
+        <https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-zs9ciw4nypx4plo856h3m95d> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "person_family_name" ;
+    rdfs:comment "Family (last) name of the person agent." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q4116295> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-person_family_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-zub98dao6k8cbbhsddzoq62w> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Fee Date" ;
+    rdfs:comment "Date the fee was assessed" ;
+    rdfs:isDefinedBy <http://release.niem.gov/niem/niem-core/6.0/AssessmentDate> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-fee_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-l4a5u5ed3qv9rc4rqv9cebqt> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Twenty-foot Equivalent Units (TEU)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1366867> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-qb5xnfq8e7qzlxr2q1sc5qhy> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Persons" ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+

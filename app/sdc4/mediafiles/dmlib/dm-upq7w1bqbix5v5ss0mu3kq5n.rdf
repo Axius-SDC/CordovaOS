@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xml:base="https://semanticdatacharter.com/ns/sdc4/dm-upq7w1bqbix5v5ss0mu3kq5n"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:sdc4-meta="https://semanticdatacharter.com/ontology/sdc4-meta/"
+>
+  <rdf:Description rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Brevina">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+    <rdfs:label>Brevina</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Primary%20Certificate">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+    <rdfs:label>Primary Certificate</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-squd8e2s6pk8xoafu9ec0t9k">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Enrollment Status</rdfs:label>
+    <rdfs:comment>Current enrollment status</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-enrollment_status"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q76649493"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>agent_id</rdfs:label>
+    <rdfs:comment>Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-agent_id"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q37882474"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Person">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+    <rdfs:label>Person</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Rioseco">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Rioseco</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-c7qvfjtu0omg4wagiaiy5hej/xdtoken-value/Summa%20Cum%20Laude">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-c7qvfjtu0omg4wagiaiy5hej"/>
+    <rdfs:label>Summa Cum Laude</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-c7qvfjtu0omg4wagiaiy5hej/xdtoken-value/Magna%20Cum%20Laude">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-c7qvfjtu0omg4wagiaiy5hej"/>
+    <rdfs:label>Magna Cum Laude</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Organization">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+    <rdfs:label>Organization</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-i4bkuj6quo2gv9sbghhdocaj">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+    <rdfs:label>Student</rdfs:label>
+    <rdfs:comment>Person enrolled in an educational program. W3C PROV-DM Agent (Person) with Cordova CID.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-student"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/Person"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q48282"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-sxkjp09cbjb6n13j8a0eg37i">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Credential Type</rdfs:label>
+    <rdfs:comment>Type of academic credential awarded</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-credential_type"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.w3.org/2018/credentials#type"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/government">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>government</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/nonprofit">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>nonprofit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ouqi09d8kjqeojlr7vnclysj">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Field of Study</rdfs:label>
+    <rdfs:comment>Major field of study</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-field_of_study"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1047113"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Province</rdfs:label>
+    <rdfs:comment>One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-province"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/AdministrativeArea"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/State"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/Primary%20School">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-xd84m1q7hpxeneud0tb3q3kk"/>
+    <rdfs:label>Primary School</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/department">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>department</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Associate%20Degree">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+    <rdfs:label>Associate Degree</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/Graduate%20School">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-xd84m1q7hpxeneud0tb3q3kk"/>
+    <rdfs:label>Graduate School</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-vdwqv3o1qf00yjq9cv7kcpos">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Education Records Protocol</rdfs:label>
+    <rdfs:comment>Protocol reference for the Education Record data model. Informed by the UNESCO International Standard Classification of Education (ISCED 2011), the Bologna Process framework for higher education records, and national student records management standards.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-education_records_protocol"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q826700"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-z72jnzdib9hi311s338zwdog">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>Enrollment Date</rdfs:label>
+    <rdfs:comment>Date the student enrolled in the program</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-enrollment_date"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q137375576"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-xd84m1q7hpxeneud0tb3q3kk">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Institution Type</rdfs:label>
+    <rdfs:comment>Classification of the educational institution</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-institution_type"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q117023459"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="dm-upq7w1bqbix5v5ss0mu3kq5n">
+    <dc:title>Education Record</dc:title>
+    <dc:creator>Timothy Cook</dc:creator>
+    <dc:rights>CC-BY http://creativecommons.org/licenses/by/3.0/</dc:rights>
+    <dc:relation>None</dc:relation>
+    <dc:coverage>Universal</dc:coverage>
+    <dc:type>SDC Data Model (DM)</dc:type>
+    <dc:identifier>dm-upq7w1bqbix5v5ss0mu3kq5n</dc:identifier>
+    <dc:description>Track student enrollment and academic credentials at Cordova educational institutions.</dc:description>
+    <dc:date>2026-03-07 20:03:47.726832+00:00</dc:date>
+    <dc:format>text/xml</dc:format>
+    <dc:language>en-US</dc:language>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Novaciudad">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Novaciudad</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-fpxka4mvhbmka33c0enhzfxl">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+    <rdfs:label>Educational Institution</rdfs:label>
+    <rdfs:comment>Educational institution (university, college, school, etc.) granting credentials. W3C PROV-DM Agent (Organization) with Cordova institution classification.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-educational_institution"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2385804"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/Organization"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-qwy0t84c1zzo68vm770xhx51">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:AttestationType"/>
+    <rdfs:label>Education Record Attestation</rdfs:label>
+    <rdfs:comment>Attestation for educational records. The educational institution attests to enrollment, completion, and credential issuance. W3C PROV-DM, GDPR/UN CEB.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-education_record_attestation"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q116890704"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-c7qvfjtu0omg4wagiaiy5hej/xdtoken-value/None">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-c7qvfjtu0omg4wagiaiy5hej"/>
+    <rdfs:label>None</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-r97mt4prbpxp04qmdc8iimb8">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Enrollment</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.cdc.gov/vaccines/hcp/imz-schedules/index.html"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q102252225"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-upq7w1bqbix5v5ss0mu3kq5n">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Dataset"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:DMType"/>
+    <rdfs:label>Education Record</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q189533"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q2385804"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q109391654"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/corporation">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>corporation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ht98owgvxhff3ge85i4h80lp">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdBooleanType"/>
+    <rdfs:label>Yes/No</rdfs:label>
+    <rdfs:comment>Standard Yes/No binary response for clinical data collection</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-yes-no"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Montecara">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Montecara</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ifgq7a670csnbv7vcpuiabp0">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Education Record</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q131156977"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-v5sie2pqx747k9j182fv86tf">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Student</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Aldara">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+    <rdfs:label>Aldara</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-xi99tao4v75wdrkq0ot02vfd">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>Date Awarded</rdfs:label>
+    <rdfs:comment>Date the credential was officially awarded</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-date_awarded"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/issued"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/vendor">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>vendor</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>person_given_name</rdfs:label>
+    <rdfs:comment>Given (first) name of the person agent.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-person_given_name"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q202444"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-v2r1ax7golsycgmxdqezvkev">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Education Record Attestation Reason</rdfs:label>
+    <rdfs:comment>Reason for attesting this education record</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-education_record_attestation_reason"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q12047392"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-zs9ciw4nypx4plo856h3m95d">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>person_family_name</rdfs:label>
+    <rdfs:comment>Family (last) name of the person agent.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-person_family_name"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q4116295"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/On%20Leave">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-squd8e2s6pk8xoafu9ec0t9k"/>
+    <rdfs:label>On Leave</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Porto%20Sereno">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Porto Sereno</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-c7qvfjtu0omg4wagiaiy5hej">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Honors</rdfs:label>
+    <rdfs:comment>Academic honors received, if any</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-honors"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q11415564"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-atdtdfzruh7tya0iv5cz365l">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>City</rdfs:label>
+    <rdfs:comment>One of the nine cities in the Republic of Cordova.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-city"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ule5u2z3rjpa9pooaifwj1n3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>organization_identifier</rdfs:label>
+    <rdfs:comment>Official identifier for the organization (e.g., DUNS, tax ID).</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-organization_identifier"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q11378663"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/Technical%20Institute">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-xd84m1q7hpxeneud0tb3q3kk"/>
+    <rdfs:label>Technical Institute</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Piedrasol">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Piedrasol</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-khbvruwpu9hnttg8y0mnih6a">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Student ID</rdfs:label>
+    <rdfs:comment>Institution-assigned student identifier</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-student_id"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q906630"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/Withdrawn">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-squd8e2s6pk8xoafu9ec0t9k"/>
+    <rdfs:label>Withdrawn</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/Graduated">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-squd8e2s6pk8xoafu9ec0t9k"/>
+    <rdfs:label>Graduated</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/SoftwareAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+    <rdfs:label>SoftwareAgent</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Lagunavista">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Lagunavista</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/University">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-xd84m1q7hpxeneud0tb3q3kk"/>
+    <rdfs:label>University</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-rw24p8yjm8dmdnvw7egxi2uv">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdLinkType"/>
+    <rdfs:label>Education Record Access Control</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/dpv#AccessControlMethod"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/dpv"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/dpv#AcademicData"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>organization_name</rdfs:label>
+    <rdfs:comment>Legal or official name of the organization.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-organization_name"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q168678"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+    <rdfs:label>Digital Signature Proof</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q210824"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>National ID (CID)</rdfs:label>
+    <rdfs:comment>Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-national_id_(cid)"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/identifier"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1140371"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/Suspended">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-squd8e2s6pk8xoafu9ec0t9k"/>
+    <rdfs:label>Suspended</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-1ylumrkck2vv635djov01tte4">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdOrdinalType"/>
+    <rdfs:label>Education Level</rdfs:label>
+    <rdfs:comment>Highest level of education completed</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-education_level"/>
+    <rdfs:isDefinedBy rdf:resource="https://uts.nlm.nih.gov/uts/umls/concept/C2030935"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-bpqtzla39dwentygpwea8276">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>organization_type</rdfs:label>
+    <rdfs:comment>Type of organization.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-organization_type"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q17197366"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Master's%20Degree">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+    <rdfs:label>Master's Degree</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-nesxtz8c5o665swc9lhvqkjj">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>PROV Agent Type</rdfs:label>
+    <rdfs:comment>Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prov_agent_type"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Tierraverde">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Tierraverde</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/Active">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-squd8e2s6pk8xoafu9ec0t9k"/>
+    <rdfs:label>Active</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Bachelor's%20Degree">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+    <rdfs:label>Bachelor's Degree</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-c7qvfjtu0omg4wagiaiy5hej/xdtoken-value/Cum%20Laude">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-c7qvfjtu0omg4wagiaiy5hej"/>
+    <rdfs:label>Cum Laude</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-o87tv977uxnegwckzso3xf4z">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+    <rdfs:label>Education Record Attested View</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q12047392"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/DigitalDocument"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/academic">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>academic</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-nyf0w3u2hs0svcjnqkb6zzlb">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Credential</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q16861606"/>
+    <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Secondary%20Diploma">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+    <rdfs:label>Secondary Diploma</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-rr5shkxzw7yi0gtp1k3in8og">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Educational Institution</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-g6ntdb41otp1mtwsyb52mez3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>Expected Completion Date</rdfs:label>
+    <rdfs:comment>Expected date of program completion
+
+---</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-expected_completion_date"/>
+    <rdfs:isDefinedBy rdf:resource="http://release.niem.gov/niem/niem-core/6.0/ProgramPlannedEndDate"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Vistamar">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Vistamar</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Professional%20Certificate">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+    <rdfs:label>Professional Certificate</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-n58lqwsi6acr50y0ovihjedv">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Education Record Workflow</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/Secondary%20School">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-xd84m1q7hpxeneud0tb3q3kk"/>
+    <rdfs:label>Secondary School</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Campoluz">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Campoluz</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Celara">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+    <rdfs:label>Celara</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Doctoral%20Degree">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+    <rdfs:label>Doctoral Degree</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

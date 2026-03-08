@@ -1,0 +1,289 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "yh0opq0bnu6y9y56oukg92uf",
+  "dm_type": "dm-yh0opq0bnu6y9y56oukg92uf",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Law Enforcement Record",
+    "dm_encoding": "utf-8",
+    "instance_id": "pvtfyhdxlkij3e5d4wpqkt8k",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-03-08T03:26:41.843918",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "songhwxr1fp8niqba4fd0yd9",
+    "label": "Incident Report",
+    "type": "Cluster",
+    "description": "A single public safety incident recorded by Cordova National Police.\nBusiness Context: Links to Civil Registry for person identification\nPurpose: Document an incident with location, category, involved parties, and outcome",
+    "items": [
+      {
+        "component_id": "yi2189u4pinqitlmm5t6ccrd",
+        "label": "Incident Report Number",
+        "type": "XdString",
+        "description": "A report number for an incident (NIEM j:IncidentReportNumber)",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 50
+        }
+      },
+      {
+        "component_id": "rguhpkd7s2d9a51392aon7ir",
+        "label": "Incident Summary",
+        "type": "XdString",
+        "description": "Brief summary of incident (one paragraph)",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 2000
+        }
+      },
+      {
+        "component_id": "b6nahtg2we4rh5qsk2j7qfvz",
+        "label": "Location Street Full Text",
+        "type": "XdString",
+        "description": "A complete street address (NIEM nc:LocationStreetFullText). BFO alignment: address is an information content entity (IAO:0000030) referring to a site (BFO:0000029).",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 200
+        }
+      },
+      {
+        "component_id": "atdtdfzruh7tya0iv5cz365l",
+        "label": "City",
+        "type": "XdToken",
+        "description": "One of the nine cities in the Republic of Cordova.",
+        "value": "Porto Sereno",
+        "constraints": {
+          "enumerations": [
+            "Porto Sereno",
+            "Vistamar",
+            "Rioseco",
+            "Campoluz",
+            "Tierraverde",
+            "Montecara",
+            "Novaciudad",
+            "Piedrasol",
+            "Lagunavista"
+          ]
+        }
+      },
+      {
+        "component_id": "e83h36jqgi59dhy1dttp22qm",
+        "label": "Incident Status",
+        "type": "XdToken",
+        "description": "Current status of the incident",
+        "value": "Pending",
+        "constraints": {
+          "enumerations": [
+            "Open",
+            "Closed",
+            "Pending"
+          ]
+        }
+      },
+      {
+        "component_id": "kv5qqs3o4jwcwz9javgw1pzh",
+        "label": "Province",
+        "type": "XdToken",
+        "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+        "value": "Aldara",
+        "constraints": {
+          "enumerations": [
+            "Aldara",
+            "Brevina",
+            "Celara"
+          ]
+        }
+      },
+      {
+        "component_id": "nc7aq6ofnccavkmczsb2dudy",
+        "label": "Incident Category Code",
+        "type": "XdToken",
+        "description": "Categories of incidents per NIEM j:IncidentCategoryCode",
+        "value": "robbery",
+        "constraints": {
+          "enumerations": [
+            "accident",
+            "assault",
+            "burglary",
+            "robbery",
+            "theft",
+            "vandalism",
+            "fraud",
+            "drug_offense",
+            "dui",
+            "domestic_violence",
+            "harassment",
+            "missing_person",
+            "suspicious_activity",
+            "traffic",
+            "fire",
+            "medical",
+            "other"
+          ]
+        }
+      },
+      {
+        "component_id": "ohk2uwcomsz8wegfvz0v0yod",
+        "label": "Incident Date",
+        "type": "XdTemporal",
+        "description": "A date and time an incident occurred (NIEM j:IncidentDate). BFO alignment: incident is a process (BFO:0000015) occurring at a temporal region.",
+        "value": "2024-01-01T00:00:00"
+      },
+      {
+        "component_id": "c3eoo0vfid9c8riruf7uoyz2",
+        "label": "Charge and Disposition",
+        "type": "Cluster",
+        "description": "Charges filed and case outcome. Cordova has misdemeanor-level offenses only.\nPurpose: Record charges and their disposition\nParent Cluster: Incident Report",
+        "items": [
+          {
+            "component_id": "eoqim4xj9gsxtxrqko1hh55o",
+            "label": "Charge Description",
+            "type": "XdString",
+            "description": "A description of a charge (NIEM j:ChargeDescriptionText)",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "hc91pdnj3bb6997l5z4ndchz",
+            "label": "Charge Category (Cordova)",
+            "type": "XdToken",
+            "description": "Categories of misdemeanor offenses in Cordova law enforcement records. Cordova has no felony classification — all criminal matters are misdemeanor-level.",
+            "value": "Petty Theft",
+            "constraints": {
+              "enumerations": [
+                "Petty Theft",
+                "Public Intoxication",
+                "Trespassing",
+                "Disorderly Conduct",
+                "Traffic Violation",
+                "Minor Vandalism"
+              ]
+            }
+          },
+          {
+            "component_id": "rnje7nq6m08vh01g8eg23say",
+            "label": "Disposition (Cordova)",
+            "type": "XdToken",
+            "description": "Outcome of a law enforcement case in Cordova.",
+            "value": "Fine",
+            "constraints": {
+              "enumerations": [
+                "Fine",
+                "Community Service",
+                "Case Dismissed",
+                "Pending"
+              ]
+            }
+          },
+          {
+            "component_id": "yahksk4xc5to981ows7bpp6z",
+            "label": "Fine or Bail Amount",
+            "type": "XdQuantity",
+            "description": "Monetary amount of the fine imposed or bail set for the charge in Cordova Córdoba. Null if no financial penalty applies or bail is denied.",
+            "value": 21.8,
+            "magnitude": {
+              "value": 21.8,
+              "min_inclusive": 0.0
+            },
+            "units": {
+              "label": "Cordova Córdoba (COR)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          },
+          {
+            "component_id": "qse1jwofk5lm2wnsrn3f06l0",
+            "label": "Disposition Date",
+            "type": "XdTemporal",
+            "description": "Date the disposition was recorded\n\n---",
+            "value": "2024-01-01T00:00:00"
+          },
+          {
+            "component_id": "l0esdclu01pg7qw429oe7kjk",
+            "label": "Charge Filing Date",
+            "type": "XdTemporal",
+            "description": "A date a charge was filed (NIEM j:ChargeFilingDate)",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "avmmc3r38dol0ghko42yeyp4",
+        "label": "Quarantine Enforcement",
+        "type": "Cluster",
+        "description": "Special sub-cluster for public health quarantine orders. Used in the Contagion scenario.\nBusiness Context: Links Law Enforcement to Healthcare domain through quarantine orders\nPurpose: Document quarantine zone establishment and compliance monitoring\nParent Cluster: Incident Report",
+        "items": [
+          {
+            "component_id": "ixmedhicidzpi7g6g2huqzvv",
+            "label": "Issuing Authority",
+            "type": "XdString",
+            "description": "The authority that issued the quarantine order (e.g., \"Provincial Health Authority, Aldara\")",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "r34gm210y9jifbyxa0fcxy96",
+            "label": "Quarantine Zone",
+            "type": "XdString",
+            "description": "Description of the geographic area under quarantine (e.g., \"Porto Sereno Port District, Berths 1-12\")",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "ihoatduhb7fckjw0ezq5u7g1",
+            "label": "Compliance Status",
+            "type": "XdToken",
+            "description": "Whether the quarantine is being complied with",
+            "value": "Compliant",
+            "constraints": {
+              "enumerations": [
+                "Compliant",
+                "Violation Detected",
+                "Under Review"
+              ]
+            }
+          },
+          {
+            "component_id": "lohvu07ok3c3xvesa16htf2m",
+            "label": "Quarantine End Date",
+            "type": "XdTemporal",
+            "description": "Date the quarantine order was lifted. Null if still active.\n\n---",
+            "value": "2024-01-01T00:00:00"
+          },
+          {
+            "component_id": "vq30hd0dl6v59d3ttyyvg6rp",
+            "label": "Quarantine Start Date",
+            "type": "XdTemporal",
+            "description": "Date the quarantine order took effect",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      }
+    ]
+  },
+  "subject": {
+    "component_id": "7i4jw2wkw7om94135c1bq03h",
+    "label": "Involved Person",
+    "type": "Party",
+    "description": "Person involved in a law enforcement incident (suspect, victim, witness). W3C PROV-DM Agent (Person) with involvement classification."
+  },
+  "provider": {
+    "component_id": "m2lj6lu22oez88prwrdgmnc2",
+    "label": "Reporting Officer",
+    "type": "Party",
+    "description": "The law enforcement officer who filed the incident report. W3C PROV-DM Agent (Person) with badge number as identifier."
+  }
+}

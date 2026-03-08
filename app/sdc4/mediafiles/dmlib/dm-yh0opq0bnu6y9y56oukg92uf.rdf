@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xml:base="https://semanticdatacharter.com/ns/sdc4/dm-yh0opq0bnu6y9y56oukg92uf"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:sdc4-meta="https://semanticdatacharter.com/ontology/sdc4-meta/"
+>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Piedrasol">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Piedrasol</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Organization">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+    <rdfs:label>Organization</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/theft">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>theft</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>National ID (CID)</rdfs:label>
+    <rdfs:comment>Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-national_id_(cid)"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/identifier"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1140371"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Province</rdfs:label>
+    <rdfs:comment>One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-province"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/AdministrativeArea"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/State"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-pqxnguwtjyyfaildgx3hi0bo">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>person_department</rdfs:label>
+    <rdfs:comment>Department or team the person belongs to.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-person_department"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2366457"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/harassment">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>harassment</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-u1i23yha2rvz5nbxjz3l8x48">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>PROV Role Type</rdfs:label>
+    <rdfs:comment>Functional roles that agents, entities, or activities can assume within provenance relationships.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prov_role_type"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/prov-o/#qualifiedInvolvement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Lagunavista">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Lagunavista</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/suspicious_activity">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>suspicious_activity</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-hhbwj5k5rxticrbzwhp1lnjt">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+    <rdfs:label>Law Enforcement Attested View</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/DigitalDocument"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q31207"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Transformer">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-u1i23yha2rvz5nbxjz3l8x48"/>
+    <rdfs:label>Transformer</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-vq30hd0dl6v59d3ttyyvg6rp">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>Quarantine Start Date</rdfs:label>
+    <rdfs:comment>Date the quarantine order took effect</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-quarantine_start_date"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/startDate"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-y8yh47jf1ewpq1r6q6gnkjjh">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Law Enforcement Reporting Officer</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-c3eoo0vfid9c8riruf7uoyz2">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Charge and Disposition</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://release.niem.gov/niem/niem-core/6.0/#Charge"/>
+    <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-dsqo7rt3gooouv2sfaqhjl43">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Witness Statement</rdfs:label>
+    <rdfs:comment>Summary of witness statement</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-witness_statement"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q8028402"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-rguhpkd7s2d9a51392aon7ir">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Incident Summary</rdfs:label>
+    <rdfs:comment>Brief summary of incident (one paragraph)</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-incident_summary"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/description"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-hc91pdnj3bb6997l5z4ndchz">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Charge Category (Cordova)</rdfs:label>
+    <rdfs:comment>Categories of misdemeanor offenses in Cordova law enforcement records. Cordova has no felony classification — all criminal matters are misdemeanor-level.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-charge_category_(cordova)"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1752346"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-atdtdfzruh7tya0iv5cz365l">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>City</rdfs:label>
+    <rdfs:comment>One of the nine cities in the Republic of Cordova.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-city"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-e83h36jqgi59dhy1dttp22qm/xdtoken-value/Pending">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-e83h36jqgi59dhy1dttp22qm"/>
+    <rdfs:label>Pending</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>agent_id</rdfs:label>
+    <rdfs:comment>Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-agent_id"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q37882474"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Trespassing">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hc91pdnj3bb6997l5z4ndchz"/>
+    <rdfs:label>Trespassing</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/robbery">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>robbery</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ohk2uwcomsz8wegfvz0v0yod">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/DateTime"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>Incident Date</rdfs:label>
+    <rdfs:comment>A date and time an incident occurred (NIEM j:IncidentDate). BFO alignment: incident is a process (BFO:0000015) occurring at a temporal region.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-incident_date"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-ihoatduhb7fckjw0ezq5u7g1/xdtoken-value/Compliant">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-ihoatduhb7fckjw0ezq5u7g1"/>
+    <rdfs:label>Compliant</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-yh0opq0bnu6y9y56oukg92uf">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Dataset"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:DMType"/>
+    <rdfs:label>Law Enforcement Record</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q2920921"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q44782"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-eoqim4xj9gsxtxrqko1hh55o">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Charge Description</rdfs:label>
+    <rdfs:comment>A description of a charge (NIEM j:ChargeDescriptionText)</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-charge_description"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/name"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/domestic_violence">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>domestic_violence</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Montecara">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Montecara</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Vistamar">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Vistamar</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-lohvu07ok3c3xvesa16htf2m">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>Quarantine End Date</rdfs:label>
+    <rdfs:comment>Date the quarantine order was lifted. Null if still active.
+
+---</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-quarantine_end_date"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/endDate"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-qrsl6qfgznm2kix8jdlpfwwg">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Law Enforcement Attestation Reason</rdfs:label>
+    <rdfs:comment>Reason for attesting this law enforcement record</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-law_enforcement_attestation_reason"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q31207"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-yahksk4xc5to981ows7bpp6z">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdQuantityType"/>
+    <rdfs:label>Fine or Bail Amount</rdfs:label>
+    <rdfs:comment>Monetary amount of the fine imposed or bail set for the charge in Cordova Córdoba. Null if no financial penalty applies or bail is denied.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/SoftwareAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+    <rdfs:label>SoftwareAgent</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Brevina">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+    <rdfs:label>Brevina</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-bkuhivi6ot6nxll6vam7yobp">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdLinkType"/>
+    <rdfs:label>Law Enforcement Access Control</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/dpv#AccessControlMethod"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q6014597"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/dpv"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/dpv#CriminalOffenceData"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Tierraverde">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Tierraverde</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-e83h36jqgi59dhy1dttp22qm">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Incident Status</rdfs:label>
+    <rdfs:comment>Current status of the incident</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-incident_status"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2443992"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/fraud">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>fraud</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-upepv8ko1sf0ty04me5hou46/xdtoken-value/Witness">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-upepv8ko1sf0ty04me5hou46"/>
+    <rdfs:label>Witness</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-ihoatduhb7fckjw0ezq5u7g1/xdtoken-value/Violation%20Detected">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-ihoatduhb7fckjw0ezq5u7g1"/>
+    <rdfs:label>Violation Detected</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-rnje7nq6m08vh01g8eg23say">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Disposition (Cordova)</rdfs:label>
+    <rdfs:comment>Outcome of a law enforcement case in Cordova.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-disposition_(cordova)"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2972905"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-upepv8ko1sf0ty04me5hou46">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Involvement Type</rdfs:label>
+    <rdfs:comment>How the person is involved in the incident</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-involvement_type"/>
+    <rdfs:isDefinedBy rdf:resource="http://release.niem.gov/niem/niem-core/6.0/#PersonInvolvementCategoryCode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-upepv8ko1sf0ty04me5hou46/xdtoken-value/Subject">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-upepv8ko1sf0ty04me5hou46"/>
+    <rdfs:label>Subject</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Author">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-u1i23yha2rvz5nbxjz3l8x48"/>
+    <rdfs:label>Author</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-m2lj6lu22oez88prwrdgmnc2">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+    <rdfs:label>Reporting Officer</rdfs:label>
+    <rdfs:comment>The law enforcement officer who filed the incident report. W3C PROV-DM Agent (Person) with badge number as identifier.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-reporting_officer"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/Person"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q384593"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-zs9ciw4nypx4plo856h3m95d">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>person_family_name</rdfs:label>
+    <rdfs:comment>Family (last) name of the person agent.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-person_family_name"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q4116295"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ixmedhicidzpi7g6g2huqzvv">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Issuing Authority</rdfs:label>
+    <rdfs:comment>The authority that issued the quarantine order (e.g., "Provincial Health Authority, Aldara")</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-issuing_authority"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q136462915"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-r34gm210y9jifbyxa0fcxy96">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Quarantine Zone</rdfs:label>
+    <rdfs:comment>Description of the geographic area under quarantine (e.g., "Porto Sereno Port District, Berths 1-12")</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-quarantine_zone"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q356936"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-ihoatduhb7fckjw0ezq5u7g1/xdtoken-value/Under%20Review">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-ihoatduhb7fckjw0ezq5u7g1"/>
+    <rdfs:label>Under Review</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-i8g57yrmdthdj1k5tcmj3ecx">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:AttestationType"/>
+    <rdfs:label>Law Enforcement Attestation</rdfs:label>
+    <rdfs:comment>Attestation for law enforcement incident records. The reporting officer attests to the accuracy of the incident report. W3C PROV-DM, GDPR/UN CEB.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-law_enforcement_attestation"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q116890704"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q44782"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Celara">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+    <rdfs:label>Celara</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ihoatduhb7fckjw0ezq5u7g1">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Compliance Status</rdfs:label>
+    <rdfs:comment>Whether the quarantine is being complied with</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-compliance_status"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q752476"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Person">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+    <rdfs:label>Person</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Petty%20Theft">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hc91pdnj3bb6997l5z4ndchz"/>
+    <rdfs:label>Petty Theft</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-7i4jw2wkw7om94135c1bq03h">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+    <rdfs:label>Involved Person</rdfs:label>
+    <rdfs:comment>Person involved in a law enforcement incident (suspect, victim, witness). W3C PROV-DM Agent (Person) with involvement classification.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-involved_person"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/Person"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-e83h36jqgi59dhy1dttp22qm/xdtoken-value/Closed">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-e83h36jqgi59dhy1dttp22qm"/>
+    <rdfs:label>Closed</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/dui">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>dui</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-rhu2opcioifbl83m7ph3rbhw">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Law Enforcement Records Protocol</rdfs:label>
+    <rdfs:comment>Protocol reference for the Law Enforcement Record data model. Informed by INTERPOL data exchange standards, the National Information Exchange Model (NIEM) Justice domain, and the Global Justice XML Data Model for criminal justice information sharing.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-law_enforcement_records_protocol"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q6956407"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/drug_offense">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>drug_offense</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-e83h36jqgi59dhy1dttp22qm/xdtoken-value/Open">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-e83h36jqgi59dhy1dttp22qm"/>
+    <rdfs:label>Open</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="dm-yh0opq0bnu6y9y56oukg92uf">
+    <dc:title>Law Enforcement Record</dc:title>
+    <dc:creator>Timothy Cook</dc:creator>
+    <dc:rights>CC-BY http://creativecommons.org/licenses/by/3.0/</dc:rights>
+    <dc:relation>None</dc:relation>
+    <dc:coverage>Universal</dc:coverage>
+    <dc:type>SDC Data Model (DM)</dc:type>
+    <dc:identifier>dm-yh0opq0bnu6y9y56oukg92uf</dc:identifier>
+    <dc:description>Record public safety incidents, charges, and dispositions in Cordova.</dc:description>
+    <dc:date>2026-03-07 20:03:46.314116+00:00</dc:date>
+    <dc:format>text/xml</dc:format>
+    <dc:language>en-US</dc:language>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-qse1jwofk5lm2wnsrn3f06l0">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>Disposition Date</rdfs:label>
+    <rdfs:comment>Date the disposition was recorded
+
+---</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-disposition_date"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q117195543"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/assault">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>assault</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-nc7aq6ofnccavkmczsb2dudy">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Incident Category Code</rdfs:label>
+    <rdfs:comment>Categories of incidents per NIEM j:IncidentCategoryCode</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-incident_category_code"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/missing_person">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>missing_person</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/burglary">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>burglary</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>person_given_name</rdfs:label>
+    <rdfs:comment>Given (first) name of the person agent.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-person_given_name"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q202444"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-k5mkvc34kuo9ln5fvzvrhcj3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Law Enforcement Involved Person</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Reviewer">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-u1i23yha2rvz5nbxjz3l8x48"/>
+    <rdfs:label>Reviewer</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Rioseco">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Rioseco</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Contributor">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-u1i23yha2rvz5nbxjz3l8x48"/>
+    <rdfs:label>Contributor</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-b6nahtg2we4rh5qsk2j7qfvz">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Location Street Full Text</rdfs:label>
+    <rdfs:comment>A complete street address (NIEM nc:LocationStreetFullText). BFO alignment: address is an information content entity (IAO:0000030) referring to a site (BFO:0000029).</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-location_street_full_text"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q24574749"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Porto%20Sereno">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Porto Sereno</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-upepv8ko1sf0ty04me5hou46/xdtoken-value/Complainant">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-upepv8ko1sf0ty04me5hou46"/>
+    <rdfs:label>Complainant</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/medical">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>medical</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Custodian">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-u1i23yha2rvz5nbxjz3l8x48"/>
+    <rdfs:label>Custodian</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-yi2189u4pinqitlmm5t6ccrd">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Incident Report Number</rdfs:label>
+    <rdfs:comment>A report number for an incident (NIEM j:IncidentReportNumber)</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-incident_report_number"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q111653916"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-u18l77xlj2omcbmnpi5j7fff">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Cordova Córdoba (COR)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/Currency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+    <rdfs:label>Digital Signature Proof</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q210824"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/accident">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>accident</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-rnje7nq6m08vh01g8eg23say/xdtoken-value/Case%20Dismissed">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-rnje7nq6m08vh01g8eg23say"/>
+    <rdfs:label>Case Dismissed</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Publisher">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-u1i23yha2rvz5nbxjz3l8x48"/>
+    <rdfs:label>Publisher</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Disorderly%20Conduct">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hc91pdnj3bb6997l5z4ndchz"/>
+    <rdfs:label>Disorderly Conduct</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-l0esdclu01pg7qw429oe7kjk">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/DateTime"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>Charge Filing Date</rdfs:label>
+    <rdfs:comment>A date a charge was filed (NIEM j:ChargeFilingDate)</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-charge_filing_date"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/datePublished"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-nesxtz8c5o665swc9lhvqkjj">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>PROV Agent Type</rdfs:label>
+    <rdfs:comment>Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prov_agent_type"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Minor%20Vandalism">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hc91pdnj3bb6997l5z4ndchz"/>
+    <rdfs:label>Minor Vandalism</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-axzq49patk0yxj2ib8uzs4p1">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Law Enforcement Workflow</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/vandalism">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>vandalism</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Public%20Intoxication">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hc91pdnj3bb6997l5z4ndchz"/>
+    <rdfs:label>Public Intoxication</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-gr4c7suzjf87x7svli8oiqi6-rr">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ReferenceRangeType"/>
+    <rdfs:label>Non-negative Currency Amount</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/MonetaryAmount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-avmmc3r38dol0ghko42yeyp4">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Quarantine Enforcement</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q186588"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-songhwxr1fp8niqba4fd0yd9">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Incident Report</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q6014597"/>
+    <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Aggregator">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-u1i23yha2rvz5nbxjz3l8x48"/>
+    <rdfs:label>Aggregator</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Traffic%20Violation">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-hc91pdnj3bb6997l5z4ndchz"/>
+    <rdfs:label>Traffic Violation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Novaciudad">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Novaciudad</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/fire">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>fire</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/traffic">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>traffic</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Approver">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-u1i23yha2rvz5nbxjz3l8x48"/>
+    <rdfs:label>Approver</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-rnje7nq6m08vh01g8eg23say/xdtoken-value/Pending">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-rnje7nq6m08vh01g8eg23say"/>
+    <rdfs:label>Pending</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nc7aq6ofnccavkmczsb2dudy/xdtoken-value/other">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nc7aq6ofnccavkmczsb2dudy"/>
+    <rdfs:label>other</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-tj85qvj83sce9ny9l2e4oofv">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdIntervalType"/>
+    <rdfs:label>Non-negative Currency Amount</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Aldara">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+    <rdfs:label>Aldara</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Campoluz">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Campoluz</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-rnje7nq6m08vh01g8eg23say/xdtoken-value/Community%20Service">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-rnje7nq6m08vh01g8eg23say"/>
+    <rdfs:label>Community Service</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-rnje7nq6m08vh01g8eg23say/xdtoken-value/Fine">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-rnje7nq6m08vh01g8eg23say"/>
+    <rdfs:label>Fine</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

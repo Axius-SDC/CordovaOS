@@ -1,0 +1,205 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "upq7w1bqbix5v5ss0mu3kq5n",
+  "dm_type": "dm-upq7w1bqbix5v5ss0mu3kq5n",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Education Record",
+    "dm_encoding": "utf-8",
+    "instance_id": "qn4s8g0ep0y10yva4pkraqu6",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-03-08T03:22:40.207954",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "ifgq7a670csnbv7vcpuiabp0",
+    "label": "Education Record",
+    "type": "Cluster",
+    "description": "A student's enrollment or completed credential at an educational institution.\nBusiness Context: Links persons to campuses and academic programs\nPurpose: Document academic enrollment, program, and credential attainment",
+    "items": [
+      {
+        "component_id": "nj7s1gk45tfgyooxpz0qaha3",
+        "label": "National ID (CID)",
+        "type": "XdString",
+        "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
+        "value": "DefaultString"
+      },
+      {
+        "component_id": "khbvruwpu9hnttg8y0mnih6a",
+        "label": "Student ID",
+        "type": "XdString",
+        "description": "Institution-assigned student identifier",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 50
+        }
+      },
+      {
+        "component_id": "atdtdfzruh7tya0iv5cz365l",
+        "label": "City",
+        "type": "XdToken",
+        "description": "One of the nine cities in the Republic of Cordova.",
+        "value": "Tierraverde",
+        "constraints": {
+          "enumerations": [
+            "Porto Sereno",
+            "Vistamar",
+            "Rioseco",
+            "Campoluz",
+            "Tierraverde",
+            "Montecara",
+            "Novaciudad",
+            "Piedrasol",
+            "Lagunavista"
+          ]
+        }
+      },
+      {
+        "component_id": "kv5qqs3o4jwcwz9javgw1pzh",
+        "label": "Province",
+        "type": "XdToken",
+        "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+        "value": "Brevina",
+        "constraints": {
+          "enumerations": [
+            "Aldara",
+            "Brevina",
+            "Celara"
+          ]
+        }
+      },
+      {
+        "component_id": "nyf0w3u2hs0svcjnqkb6zzlb",
+        "label": "Credential",
+        "type": "Cluster",
+        "description": "Academic degree, diploma, or certificate earned.\nPurpose: Record awarded credentials for verification and workforce qualification\nParent Cluster: Education Record",
+        "items": [
+          {
+            "component_id": "ht98owgvxhff3ge85i4h80lp",
+            "label": "Yes/No",
+            "type": "XdBoolean",
+            "description": "Standard Yes/No binary response for clinical data collection",
+            "value": true,
+            "constraints": {
+              "true_values": [
+                "Yes"
+              ],
+              "false_values": [
+                "No"
+              ]
+            }
+          },
+          {
+            "component_id": "ouqi09d8kjqeojlr7vnclysj",
+            "label": "Field of Study",
+            "type": "XdString",
+            "description": "Major field of study",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "sxkjp09cbjb6n13j8a0eg37i",
+            "label": "Credential Type",
+            "type": "XdToken",
+            "description": "Type of academic credential awarded",
+            "value": "Associate Degree",
+            "constraints": {
+              "enumerations": [
+                "Primary Certificate",
+                "Secondary Diploma",
+                "Associate Degree",
+                "Bachelor's Degree",
+                "Master's Degree",
+                "Doctoral Degree",
+                "Professional Certificate"
+              ]
+            }
+          },
+          {
+            "component_id": "c7qvfjtu0omg4wagiaiy5hej",
+            "label": "Honors",
+            "type": "XdToken",
+            "description": "Academic honors received, if any",
+            "value": "Cum Laude",
+            "constraints": {
+              "enumerations": [
+                "None",
+                "Cum Laude",
+                "Magna Cum Laude",
+                "Summa Cum Laude"
+              ]
+            }
+          },
+          {
+            "component_id": "xi99tao4v75wdrkq0ot02vfd",
+            "label": "Date Awarded",
+            "type": "XdTemporal",
+            "description": "Date the credential was officially awarded",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "r97mt4prbpxp04qmdc8iimb8",
+        "label": "Enrollment",
+        "type": "Cluster",
+        "description": "Current or historical enrollment in an academic program.\nPurpose: Track enrollment period and program details\nParent Cluster: Education Record",
+        "items": [
+          {
+            "component_id": "squd8e2s6pk8xoafu9ec0t9k",
+            "label": "Enrollment Status",
+            "type": "XdToken",
+            "description": "Current enrollment status",
+            "value": "Graduated",
+            "constraints": {
+              "enumerations": [
+                "Active",
+                "Graduated",
+                "Withdrawn",
+                "Suspended",
+                "On Leave"
+              ]
+            }
+          },
+          {
+            "component_id": "1ylumrkck2vv635djov01tte4",
+            "label": "Education Level",
+            "type": "XdOrdinal",
+            "description": "Highest level of education completed",
+            "value": 1
+          },
+          {
+            "component_id": "z72jnzdib9hi311s338zwdog",
+            "label": "Enrollment Date",
+            "type": "XdTemporal",
+            "description": "Date the student enrolled in the program",
+            "value": "2024-01-01T00:00:00"
+          },
+          {
+            "component_id": "g6ntdb41otp1mtwsyb52mez3",
+            "label": "Expected Completion Date",
+            "type": "XdTemporal",
+            "description": "Expected date of program completion\n\n---",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      }
+    ]
+  },
+  "subject": {
+    "component_id": "i4bkuj6quo2gv9sbghhdocaj",
+    "label": "Student",
+    "type": "Party",
+    "description": "Person enrolled in an educational program. W3C PROV-DM Agent (Person) with Cordova CID."
+  },
+  "provider": {
+    "component_id": "fpxka4mvhbmka33c0enhzfxl",
+    "label": "Educational Institution",
+    "type": "Party",
+    "description": "Educational institution (university, college, school, etc.) granting credentials. W3C PROV-DM Agent (Organization) with Cordova institution classification."
+  }
+}

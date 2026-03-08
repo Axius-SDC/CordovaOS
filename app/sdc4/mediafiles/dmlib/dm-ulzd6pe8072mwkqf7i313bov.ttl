@@ -1,0 +1,908 @@
+@base <https://semanticdatacharter.com/ns/sdc4/dm-ulzd6pe8072mwkqf7i313bov> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sdc4-meta: <https://semanticdatacharter.com/ontology/sdc4-meta/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<mc-af9izy31oyly2dc66rujb3zi/xdtoken-value/birth-center> a rdfs:Class ;
+    rdfs:label "birth-center" ;
+    rdfs:subPropertyOf <mc-af9izy31oyly2dc66rujb3zi> .
+
+<mc-af9izy31oyly2dc66rujb3zi/xdtoken-value/delivering-hospital> a rdfs:Class ;
+    rdfs:label "delivering-hospital" ;
+    rdfs:subPropertyOf <mc-af9izy31oyly2dc66rujb3zi> .
+
+<mc-af9izy31oyly2dc66rujb3zi/xdtoken-value/home-delivery-attendant> a rdfs:Class ;
+    rdfs:label "home-delivery-attendant" ;
+    rdfs:subPropertyOf <mc-af9izy31oyly2dc66rujb3zi> .
+
+<mc-af9izy31oyly2dc66rujb3zi/xdtoken-value/midwifery-center> a rdfs:Class ;
+    rdfs:label "midwifery-center" ;
+    rdfs:subPropertyOf <mc-af9izy31oyly2dc66rujb3zi> .
+
+<mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Campoluz> a rdfs:Class ;
+    rdfs:label "Campoluz" ;
+    rdfs:subPropertyOf <mc-atdtdfzruh7tya0iv5cz365l> .
+
+<mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Lagunavista> a rdfs:Class ;
+    rdfs:label "Lagunavista" ;
+    rdfs:subPropertyOf <mc-atdtdfzruh7tya0iv5cz365l> .
+
+<mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Montecara> a rdfs:Class ;
+    rdfs:label "Montecara" ;
+    rdfs:subPropertyOf <mc-atdtdfzruh7tya0iv5cz365l> .
+
+<mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Novaciudad> a rdfs:Class ;
+    rdfs:label "Novaciudad" ;
+    rdfs:subPropertyOf <mc-atdtdfzruh7tya0iv5cz365l> .
+
+<mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Piedrasol> a rdfs:Class ;
+    rdfs:label "Piedrasol" ;
+    rdfs:subPropertyOf <mc-atdtdfzruh7tya0iv5cz365l> .
+
+<mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Porto%20Sereno> a rdfs:Class ;
+    rdfs:label "Porto Sereno" ;
+    rdfs:subPropertyOf <mc-atdtdfzruh7tya0iv5cz365l> .
+
+<mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Rioseco> a rdfs:Class ;
+    rdfs:label "Rioseco" ;
+    rdfs:subPropertyOf <mc-atdtdfzruh7tya0iv5cz365l> .
+
+<mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Tierraverde> a rdfs:Class ;
+    rdfs:label "Tierraverde" ;
+    rdfs:subPropertyOf <mc-atdtdfzruh7tya0iv5cz365l> .
+
+<mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Vistamar> a rdfs:Class ;
+    rdfs:label "Vistamar" ;
+    rdfs:subPropertyOf <mc-atdtdfzruh7tya0iv5cz365l> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/academic> a rdfs:Class ;
+    rdfs:label "academic" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/corporation> a rdfs:Class ;
+    rdfs:label "corporation" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/department> a rdfs:Class ;
+    rdfs:label "department" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/government> a rdfs:Class ;
+    rdfs:label "government" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/nonprofit> a rdfs:Class ;
+    rdfs:label "nonprofit" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/vendor> a rdfs:Class ;
+    rdfs:label "vendor" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-ch3s3a199lob4mjt1bb41yug/xdtoken-value/by-mail> a rdfs:Class ;
+    rdfs:label "by-mail" ;
+    rdfs:subPropertyOf <mc-ch3s3a199lob4mjt1bb41yug> .
+
+<mc-ch3s3a199lob4mjt1bb41yug/xdtoken-value/electronic-reporting> a rdfs:Class ;
+    rdfs:label "electronic-reporting" ;
+    rdfs:subPropertyOf <mc-ch3s3a199lob4mjt1bb41yug> .
+
+<mc-ch3s3a199lob4mjt1bb41yug/xdtoken-value/in-person> a rdfs:Class ;
+    rdfs:label "in-person" ;
+    rdfs:subPropertyOf <mc-ch3s3a199lob4mjt1bb41yug> .
+
+<mc-dsoyfaplxw8ide1opo5w8fxg/xdtoken-value/Hospital> a rdfs:Class ;
+    rdfs:label "Hospital" ;
+    rdfs:subPropertyOf <mc-dsoyfaplxw8ide1opo5w8fxg> .
+
+<mc-dsoyfaplxw8ide1opo5w8fxg/xdtoken-value/Other> a rdfs:Class ;
+    rdfs:label "Other" ;
+    rdfs:subPropertyOf <mc-dsoyfaplxw8ide1opo5w8fxg> .
+
+<mc-dsoyfaplxw8ide1opo5w8fxg/xdtoken-value/Residence> a rdfs:Class ;
+    rdfs:label "Residence" ;
+    rdfs:subPropertyOf <mc-dsoyfaplxw8ide1opo5w8fxg> .
+
+<mc-ftuxt5nrrffwjb2vymn80yx2/xdtoken-value/Accident> a rdfs:Class ;
+    rdfs:label "Accident" ;
+    rdfs:subPropertyOf <mc-ftuxt5nrrffwjb2vymn80yx2> .
+
+<mc-ftuxt5nrrffwjb2vymn80yx2/xdtoken-value/Homicide> a rdfs:Class ;
+    rdfs:label "Homicide" ;
+    rdfs:subPropertyOf <mc-ftuxt5nrrffwjb2vymn80yx2> .
+
+<mc-ftuxt5nrrffwjb2vymn80yx2/xdtoken-value/Natural> a rdfs:Class ;
+    rdfs:label "Natural" ;
+    rdfs:subPropertyOf <mc-ftuxt5nrrffwjb2vymn80yx2> .
+
+<mc-ftuxt5nrrffwjb2vymn80yx2/xdtoken-value/Pending%20Investigation> a rdfs:Class ;
+    rdfs:label "Pending Investigation" ;
+    rdfs:subPropertyOf <mc-ftuxt5nrrffwjb2vymn80yx2> .
+
+<mc-ftuxt5nrrffwjb2vymn80yx2/xdtoken-value/Suicide> a rdfs:Class ;
+    rdfs:label "Suicide" ;
+    rdfs:subPropertyOf <mc-ftuxt5nrrffwjb2vymn80yx2> .
+
+<mc-ftuxt5nrrffwjb2vymn80yx2/xdtoken-value/Undetermined> a rdfs:Class ;
+    rdfs:label "Undetermined" ;
+    rdfs:subPropertyOf <mc-ftuxt5nrrffwjb2vymn80yx2> .
+
+<mc-h2duffuwucoqpk65zde9nr1p/xdtoken-value/captain-at-sea> a rdfs:Class ;
+    rdfs:label "captain-at-sea" ;
+    rdfs:subPropertyOf <mc-h2duffuwucoqpk65zde9nr1p> .
+
+<mc-h2duffuwucoqpk65zde9nr1p/xdtoken-value/civil-officiant> a rdfs:Class ;
+    rdfs:label "civil-officiant" ;
+    rdfs:subPropertyOf <mc-h2duffuwucoqpk65zde9nr1p> .
+
+<mc-h2duffuwucoqpk65zde9nr1p/xdtoken-value/judge> a rdfs:Class ;
+    rdfs:label "judge" ;
+    rdfs:subPropertyOf <mc-h2duffuwucoqpk65zde9nr1p> .
+
+<mc-h2duffuwucoqpk65zde9nr1p/xdtoken-value/notary> a rdfs:Class ;
+    rdfs:label "notary" ;
+    rdfs:subPropertyOf <mc-h2duffuwucoqpk65zde9nr1p> .
+
+<mc-h2duffuwucoqpk65zde9nr1p/xdtoken-value/religious-officiant> a rdfs:Class ;
+    rdfs:label "religious-officiant" ;
+    rdfs:subPropertyOf <mc-h2duffuwucoqpk65zde9nr1p> .
+
+<mc-i9fk7u167k5z50jhv081o32u/xdtoken-value/by-proxy> a rdfs:Class ;
+    rdfs:label "by-proxy" ;
+    rdfs:subPropertyOf <mc-i9fk7u167k5z50jhv081o32u> .
+
+<mc-i9fk7u167k5z50jhv081o32u/xdtoken-value/in-person> a rdfs:Class ;
+    rdfs:label "in-person" ;
+    rdfs:subPropertyOf <mc-i9fk7u167k5z50jhv081o32u> .
+
+<mc-i9fk7u167k5z50jhv081o32u/xdtoken-value/video-conference> a rdfs:Class ;
+    rdfs:label "video-conference" ;
+    rdfs:subPropertyOf <mc-i9fk7u167k5z50jhv081o32u> .
+
+<mc-jz7vc6ikueqig8g0lvb2czzr/xdtoken-value/Birth> a rdfs:Class ;
+    rdfs:label "Birth" ;
+    rdfs:subPropertyOf <mc-jz7vc6ikueqig8g0lvb2czzr> .
+
+<mc-jz7vc6ikueqig8g0lvb2czzr/xdtoken-value/Death> a rdfs:Class ;
+    rdfs:label "Death" ;
+    rdfs:subPropertyOf <mc-jz7vc6ikueqig8g0lvb2czzr> .
+
+<mc-jz7vc6ikueqig8g0lvb2czzr/xdtoken-value/Divorce> a rdfs:Class ;
+    rdfs:label "Divorce" ;
+    rdfs:subPropertyOf <mc-jz7vc6ikueqig8g0lvb2czzr> .
+
+<mc-jz7vc6ikueqig8g0lvb2czzr/xdtoken-value/Marriage> a rdfs:Class ;
+    rdfs:label "Marriage" ;
+    rdfs:subPropertyOf <mc-jz7vc6ikueqig8g0lvb2czzr> .
+
+<mc-krjrijisqnzbzio802s1kvmz/xdtoken-value/attending-physician> a rdfs:Class ;
+    rdfs:label "attending-physician" ;
+    rdfs:subPropertyOf <mc-krjrijisqnzbzio802s1kvmz> .
+
+<mc-krjrijisqnzbzio802s1kvmz/xdtoken-value/coroner> a rdfs:Class ;
+    rdfs:label "coroner" ;
+    rdfs:subPropertyOf <mc-krjrijisqnzbzio802s1kvmz> .
+
+<mc-krjrijisqnzbzio802s1kvmz/xdtoken-value/medical-examiner> a rdfs:Class ;
+    rdfs:label "medical-examiner" ;
+    rdfs:subPropertyOf <mc-krjrijisqnzbzio802s1kvmz> .
+
+<mc-krjrijisqnzbzio802s1kvmz/xdtoken-value/pronouncing-physician> a rdfs:Class ;
+    rdfs:label "pronouncing-physician" ;
+    rdfs:subPropertyOf <mc-krjrijisqnzbzio802s1kvmz> .
+
+<mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Aldara> a rdfs:Class ;
+    rdfs:label "Aldara" ;
+    rdfs:subPropertyOf <mc-kv5qqs3o4jwcwz9javgw1pzh> .
+
+<mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Brevina> a rdfs:Class ;
+    rdfs:label "Brevina" ;
+    rdfs:subPropertyOf <mc-kv5qqs3o4jwcwz9javgw1pzh> .
+
+<mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Celara> a rdfs:Class ;
+    rdfs:label "Celara" ;
+    rdfs:subPropertyOf <mc-kv5qqs3o4jwcwz9javgw1pzh> .
+
+<mc-l4oiyjy4qc2fozn4qaj49t81/xdtoken-value/consent> a rdfs:Class ;
+    rdfs:label "consent" ;
+    rdfs:subPropertyOf <mc-l4oiyjy4qc2fozn4qaj49t81> .
+
+<mc-l4oiyjy4qc2fozn4qaj49t81/xdtoken-value/data_transfer> a rdfs:Class ;
+    rdfs:label "data_transfer" ;
+    rdfs:subPropertyOf <mc-l4oiyjy4qc2fozn4qaj49t81> .
+
+<mc-l4oiyjy4qc2fozn4qaj49t81/xdtoken-value/impact_assessment> a rdfs:Class ;
+    rdfs:label "impact_assessment" ;
+    rdfs:subPropertyOf <mc-l4oiyjy4qc2fozn4qaj49t81> .
+
+<mc-l4oiyjy4qc2fozn4qaj49t81/xdtoken-value/lawful_basis> a rdfs:Class ;
+    rdfs:label "lawful_basis" ;
+    rdfs:subPropertyOf <mc-l4oiyjy4qc2fozn4qaj49t81> .
+
+<mc-l4oiyjy4qc2fozn4qaj49t81/xdtoken-value/principle_compliance> a rdfs:Class ;
+    rdfs:label "principle_compliance" ;
+    rdfs:subPropertyOf <mc-l4oiyjy4qc2fozn4qaj49t81> .
+
+<mc-l4oiyjy4qc2fozn4qaj49t81/xdtoken-value/retention> a rdfs:Class ;
+    rdfs:label "retention" ;
+    rdfs:subPropertyOf <mc-l4oiyjy4qc2fozn4qaj49t81> .
+
+<mc-lkxku0zz32xvacl9lxa3zxik/xdtoken-value/appeals-court> a rdfs:Class ;
+    rdfs:label "appeals-court" ;
+    rdfs:subPropertyOf <mc-lkxku0zz32xvacl9lxa3zxik> .
+
+<mc-lkxku0zz32xvacl9lxa3zxik/xdtoken-value/filing-court> a rdfs:Class ;
+    rdfs:label "filing-court" ;
+    rdfs:subPropertyOf <mc-lkxku0zz32xvacl9lxa3zxik> .
+
+<mc-lkxku0zz32xvacl9lxa3zxik/xdtoken-value/presiding-court> a rdfs:Class ;
+    rdfs:label "presiding-court" ;
+    rdfs:subPropertyOf <mc-lkxku0zz32xvacl9lxa3zxik> .
+
+<mc-mfhycxuhhbanyrr3tacaj43b/xdtoken-value/by-mail> a rdfs:Class ;
+    rdfs:label "by-mail" ;
+    rdfs:subPropertyOf <mc-mfhycxuhhbanyrr3tacaj43b> .
+
+<mc-mfhycxuhhbanyrr3tacaj43b/xdtoken-value/electronic-certification> a rdfs:Class ;
+    rdfs:label "electronic-certification" ;
+    rdfs:subPropertyOf <mc-mfhycxuhhbanyrr3tacaj43b> .
+
+<mc-mfhycxuhhbanyrr3tacaj43b/xdtoken-value/in-person> a rdfs:Class ;
+    rdfs:label "in-person" ;
+    rdfs:subPropertyOf <mc-mfhycxuhhbanyrr3tacaj43b> .
+
+<mc-mw9qdn71urog8egjbp5t3y00/xdtoken-value/Female> a rdfs:Class ;
+    rdfs:label "Female" ;
+    rdfs:subPropertyOf <mc-mw9qdn71urog8egjbp5t3y00> .
+
+<mc-mw9qdn71urog8egjbp5t3y00/xdtoken-value/Intersex> a rdfs:Class ;
+    rdfs:label "Intersex" ;
+    rdfs:subPropertyOf <mc-mw9qdn71urog8egjbp5t3y00> .
+
+<mc-mw9qdn71urog8egjbp5t3y00/xdtoken-value/Male> a rdfs:Class ;
+    rdfs:label "Male" ;
+    rdfs:subPropertyOf <mc-mw9qdn71urog8egjbp5t3y00> .
+
+<mc-mw9qdn71urog8egjbp5t3y00/xdtoken-value/Unknown> a rdfs:Class ;
+    rdfs:label "Unknown" ;
+    rdfs:subPropertyOf <mc-mw9qdn71urog8egjbp5t3y00> .
+
+<mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Organization> a rdfs:Class ;
+    rdfs:label "Organization" ;
+    rdfs:subPropertyOf <mc-nesxtz8c5o665swc9lhvqkjj> .
+
+<mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Person> a rdfs:Class ;
+    rdfs:label "Person" ;
+    rdfs:subPropertyOf <mc-nesxtz8c5o665swc9lhvqkjj> .
+
+<mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/SoftwareAgent> a rdfs:Class ;
+    rdfs:label "SoftwareAgent" ;
+    rdfs:subPropertyOf <mc-nesxtz8c5o665swc9lhvqkjj> .
+
+<mc-ngm0a3w2xml4h4d5ireqzucn/xdtoken-value/attested> a rdfs:Class ;
+    rdfs:label "attested" ;
+    rdfs:subPropertyOf <mc-ngm0a3w2xml4h4d5ireqzucn> .
+
+<mc-ngm0a3w2xml4h4d5ireqzucn/xdtoken-value/expired> a rdfs:Class ;
+    rdfs:label "expired" ;
+    rdfs:subPropertyOf <mc-ngm0a3w2xml4h4d5ireqzucn> .
+
+<mc-ngm0a3w2xml4h4d5ireqzucn/xdtoken-value/not_applicable> a rdfs:Class ;
+    rdfs:label "not_applicable" ;
+    rdfs:subPropertyOf <mc-ngm0a3w2xml4h4d5ireqzucn> .
+
+<mc-ngm0a3w2xml4h4d5ireqzucn/xdtoken-value/pending> a rdfs:Class ;
+    rdfs:label "pending" ;
+    rdfs:subPropertyOf <mc-ngm0a3w2xml4h4d5ireqzucn> .
+
+<mc-ngm0a3w2xml4h4d5ireqzucn/xdtoken-value/revoked> a rdfs:Class ;
+    rdfs:label "revoked" ;
+    rdfs:subPropertyOf <mc-ngm0a3w2xml4h4d5ireqzucn> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Aggregator> a rdfs:Class ;
+    rdfs:label "Aggregator" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Approver> a rdfs:Class ;
+    rdfs:label "Approver" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Author> a rdfs:Class ;
+    rdfs:label "Author" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Contributor> a rdfs:Class ;
+    rdfs:label "Contributor" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Custodian> a rdfs:Class ;
+    rdfs:label "Custodian" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Publisher> a rdfs:Class ;
+    rdfs:label "Publisher" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Reviewer> a rdfs:Class ;
+    rdfs:label "Reviewer" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Transformer> a rdfs:Class ;
+    rdfs:label "Transformer" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-vbzw08smpn0vfxyna7mrh69c/xdtoken-value/by-mail> a rdfs:Class ;
+    rdfs:label "by-mail" ;
+    rdfs:subPropertyOf <mc-vbzw08smpn0vfxyna7mrh69c> .
+
+<mc-vbzw08smpn0vfxyna7mrh69c/xdtoken-value/electronic-filing> a rdfs:Class ;
+    rdfs:label "electronic-filing" ;
+    rdfs:subPropertyOf <mc-vbzw08smpn0vfxyna7mrh69c> .
+
+<mc-vbzw08smpn0vfxyna7mrh69c/xdtoken-value/in-person> a rdfs:Class ;
+    rdfs:label "in-person" ;
+    rdfs:subPropertyOf <mc-vbzw08smpn0vfxyna7mrh69c> .
+
+<mc-yri6g628ipi0jqoa0ijnzxxu/xdtoken-value/Active> a rdfs:Class ;
+    rdfs:label "Active" ;
+    rdfs:subPropertyOf <mc-yri6g628ipi0jqoa0ijnzxxu> .
+
+<mc-yri6g628ipi0jqoa0ijnzxxu/xdtoken-value/Amended> a rdfs:Class ;
+    rdfs:label "Amended" ;
+    rdfs:subPropertyOf <mc-yri6g628ipi0jqoa0ijnzxxu> .
+
+<mc-yri6g628ipi0jqoa0ijnzxxu/xdtoken-value/Voided> a rdfs:Class ;
+    rdfs:label "Voided" ;
+    rdfs:subPropertyOf <mc-yri6g628ipi0jqoa0ijnzxxu> .
+
+<dm-ulzd6pe8072mwkqf7i313bov> dc:coverage "Universal" ;
+    dc:creator "Timothy Cook" ;
+    dc:date "2026-03-07 20:03:44.327034+00:00" ;
+    dc:description "Maintain the authoritative registry of life events in Cordova." ;
+    dc:format "text/xml" ;
+    dc:identifier "dm-ulzd6pe8072mwkqf7i313bov" ;
+    dc:language "en-US" ;
+    dc:relation "None" ;
+    dc:rights "CC-BY http://creativecommons.org/licenses/by/3.0/" ;
+    dc:title "Vital Statistics Record" ;
+    dc:type "SDC Data Model (DM)" .
+
+<sdc4:mc-1grdwsacarjyl5qycrfbi9sn> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Court Participation" ;
+    rdfs:comment "Participation of the court in a divorce proceeding." ;
+    rdfs:isDefinedBy prov:Association,
+        <https://www.wikidata.org/wiki/Q56512863> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-court_participation> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ParticipationType> .
+
+<sdc4:mc-1xwq87veqgo726qs7dfst5tf> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Birth Facility" ;
+    rdfs:isDefinedBy prov:Agent,
+        <https://hl7.org/fhir/> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-5ot0y92q1gf6zyjh5ytsv4nr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Officiant" ;
+    rdfs:isDefinedBy prov:Agent ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-6evc5hevcpf831mkyyo1d5qo> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Record Attestor" ;
+    rdfs:isDefinedBy prov:Agent,
+        <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)>,
+        <https://www.wikidata.org/wiki/Q116890704> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-9c1cvv1flhotrmhjd881qcko> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Certifying Physician" ;
+    rdfs:isDefinedBy prov:Agent,
+        <https://hl7.org/fhir/> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-af9izy31oyly2dc66rujb3zi> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Birth Facility Participation Function" ;
+    rdfs:comment "Function of the birth facility in the vital birth event (e.g., Delivering Hospital, Birth Center)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-birth_facility_participation_function> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-ajfsyoyrz38094hswxh13i3x> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Certificate Number" ;
+    rdfs:comment "Unique certificate number for this vital record" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q108891191> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-certificate_number> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-atdtdfzruh7tya0iv5cz365l> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "City" ;
+    rdfs:comment "One of the nine cities in the Republic of Cordova." ;
+    rdfs:isDefinedBy <http://schema.org/City> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-city> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-az8kem3v58y9zenys7mthqxe> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Birth Record" ;
+    rdfs:isDefinedBy <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)>,
+        <https://www.wikidata.org/wiki/Q83900> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-bpqtzla39dwentygpwea8276> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_type" ;
+    rdfs:comment "Type of organization." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q17197366> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-bzj79tikzsv5s4qu83f7qx3m> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Statistics Protocol" ;
+    rdfs:comment "Protocol reference for the Vital Statistics Record data model. Informed by the United Nations Principles and Recommendations for a Vital Statistics System (Revision 3), WHO International Form of Medical Certificate of Cause of Death, and regional vital statistics reporting standards." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q132364> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vital_statistics_protocol> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-cbmahibaix50kxd3b2qrai5m> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "verifier_organization" ;
+    rdfs:comment "Organization the verifier represents." ;
+    rdfs:isDefinedBy <http://schema.org/Organization> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-verifier_organization> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ch3s3a199lob4mjt1bb41yug> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Birth Facility Participation Mode" ;
+    rdfs:comment "Mode of birth facility participation in the birth event (e.g., in person, electronic filing)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-birth_facility_participation_mode> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-chtyne5i6qcwbrby29vbuh2k> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Marriage Record" ;
+    rdfs:isDefinedBy <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)>,
+        <https://www.wikidata.org/wiki/Q1299632> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-cii2ou2zjm297wmub074gwmc> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Statistics Workflow" ;
+    rdfs:isDefinedBy prov:Activity,
+        <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-d3zrns9w8vc5zvbycew6ctn9> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Certifying Physician License" ;
+    rdfs:comment "Medical license number of the certifying physician" ;
+    rdfs:isDefinedBy dcterms:License ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-certifying_physician_license> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-dsoyfaplxw8ide1opo5w8fxg> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Place of Death" ;
+    rdfs:comment "Type of location where death occurred" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q18658526> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-place_of_death> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-e3sfb43zh1vjlgceb5guh0mj> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Event Date" ;
+    rdfs:comment "Date the vital event occurred" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q7911665> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-event_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-e9l9kwg7wcnnt4buerfdcz0h> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Statistics Office" ;
+    rdfs:isDefinedBy prov:Agent,
+        <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-eckgmjd1jfuoh0e151i15eay> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Officiant Participation" ;
+    rdfs:comment "Participation of the officiant in a marriage ceremony." ;
+    rdfs:isDefinedBy prov:Association,
+        <https://www.wikidata.org/wiki/Q56512863> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-officiant_participation> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ParticipationType> .
+
+<sdc4:mc-ft4kk6m3r1goxkte0d7wflk8> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Decree Date" ;
+    rdfs:comment "Date the divorce decree was issued by the court" ;
+    rdfs:isDefinedBy <http://release.niem.gov/niem/niem-core/5.0/DocumentIssueDate> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-decree_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-ftuxt5nrrffwjb2vymn80yx2> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Manner of Death" ;
+    rdfs:comment "Manner in which death occurred" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2438541> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-manner_of_death> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-gug5dhtqfv7exbgmm2raxpkq> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Digital Signature Proof" ;
+    rdfs:isDefinedBy <https://www.w3.org/TR/vc-data-model/#credentials>,
+        <https://www.wikidata.org/wiki/Q210824> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
+
+<sdc4:mc-h2duffuwucoqpk65zde9nr1p> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Officiant Participation Function" ;
+    rdfs:comment "Function of the officiant in the marriage ceremony (e.g., Religious Officiant, Civil Officiant, Judge)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-officiant_participation_function> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-h5lim28ft1knebmf8wykft75> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Certifying Physician Participation" ;
+    rdfs:comment "Participation of the certifying physician in a death record event." ;
+    rdfs:isDefinedBy prov:Association,
+        <https://www.wikidata.org/wiki/Q56512863> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-certifying_physician_participation> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ParticipationType> .
+
+<sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "agent_id" ;
+    rdfs:comment "Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q37882474> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-agent_id> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-hmkt7hjij02be28ym9f4sitc> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Record Subject" ;
+    rdfs:isDefinedBy prov:Agent,
+        <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-hrf8anjydeb8rl6x3wv26r73> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Officiant Title" ;
+    rdfs:comment "Title or capacity of the officiant (e.g., \"Judge\", \"Minister\", \"Civil Registrar\")" ;
+    rdfs:isDefinedBy <http://schema.org/jobTitle> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-officiant_title> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-i9fk7u167k5z50jhv081o32u> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Officiant Participation Mode" ;
+    rdfs:comment "Mode of officiant participation in the marriage ceremony (e.g., in person, by proxy)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-officiant_participation_mode> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_name" ;
+    rdfs:comment "Legal or official name of the organization." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q168678> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-jz7vc6ikueqig8g0lvb2czzr> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Event Type" ;
+    rdfs:comment "Type of vital event (XdToken)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q108586636> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-event_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-kaefys4w92tgr7iwuptn9uea> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "verifier_title" ;
+    rdfs:comment "Title/role of the verifier." ;
+    rdfs:isDefinedBy <http://schema.org/jobTitle> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-verifier_title> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-kawqbb2n9qmpm57lh5ftswf7> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Court" ;
+    rdfs:comment "Court that issued a divorce decree. W3C PROV-DM Agent (Organization)." ;
+    rdfs:isDefinedBy <http://schema.org/GovernmentOrganization>,
+        prov:Agent,
+        schema:Organization,
+        <https://www.wikidata.org/wiki/Q41487> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-court> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-krjrijisqnzbzio802s1kvmz> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Certifying Physician Participation Function" ;
+    rdfs:comment "Function of the certifying physician in the death record event (e.g., Attending Physician, Medical Examiner)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-certifying_physician_participation_function> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Province" ;
+    rdfs:comment "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records." ;
+    rdfs:isDefinedBy <http://schema.org/AdministrativeArea>,
+        schema:State ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-province> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-l4oiyjy4qc2fozn4qaj49t81> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "attestation_type" ;
+    rdfs:comment "Type of attestation." ;
+    rdfs:isDefinedBy <https://w3id.org/dpv/dpv-owl#Purpose> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-attestation_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-lkxku0zz32xvacl9lxa3zxik> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Court Participation Function" ;
+    rdfs:comment "Function of the court in the divorce proceeding (e.g., Presiding Court, Filing Court)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-court_participation_function> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-lttamvusgiol900y0f9xl3h8> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Record Attested View" ;
+    rdfs:isDefinedBy schema:DigitalDocument ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q484652> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
+
+<sdc4:mc-m21mv7pyouct7a4uxgkxzj54> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Birth Facility" ;
+    rdfs:comment "Name of the hospital or facility where birth occurred" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1322263> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-birth_facility> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-m3gsphdej7z9csemrrk8uymy> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Cause of Death" ;
+    rdfs:comment "Primary cause of death as determined by certifying physician" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1931388> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-cause_of_death> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-mfhycxuhhbanyrr3tacaj43b> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Certifying Physician Participation Mode" ;
+    rdfs:comment "Mode of certifying physician participation in the death record (e.g., in person, electronic certification)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-certifying_physician_participation_mode> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-mw9qdn71urog8egjbp5t3y00> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Sex" ;
+    rdfs:comment "Biological sex assigned at birth based on physical characteristics. UMLS CUI: C0079399 (Biologic Sex). Aligned with OMB standards for reporting." ;
+    rdfs:isDefinedBy <https://uts.nlm.nih.gov/uts/umls/concept/C5236503> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-sex> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-ndvtjiq0cke0q1trw58rtrq2> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "person_given_name" ;
+    rdfs:comment "Given (first) name of the person agent." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q202444> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-person_given_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-nesxtz8c5o665swc9lhvqkjj> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "PROV Agent Type" ;
+    rdfs:comment "Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation." ;
+    rdfs:isDefinedBy prov:Agent ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prov_agent_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-nfdasfsu4it1oycwvvbco2w9> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Certifying Physician" ;
+    rdfs:comment "Physician who certified a death. W3C PROV-DM Agent (Person) with medical license as identifier." ;
+    rdfs:isDefinedBy prov:Agent,
+        schema:Person,
+        <https://www.wikidata.org/wiki/Q2063704> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-certifying_physician> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-ngm0a3w2xml4h4d5ireqzucn> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Attestation Status" ;
+    rdfs:comment "Status of compliance attestation or certification." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q485475> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-attestation_status> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "National ID (CID)" ;
+    rdfs:comment "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions." ;
+    rdfs:isDefinedBy <http://schema.org/identifier>,
+        <https://www.wikidata.org/wiki/Q1140371> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-national_id_(cid)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-nrqy1c3rg2d0me4lyrf49cme> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Court Name" ;
+    rdfs:comment "Name of the court that issued the decree" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1780854> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-court_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-obybok0oaoa79b11b0ync1zf> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Divorce Record" ;
+    rdfs:isDefinedBy <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)>,
+        <https://www.wikidata.org/wiki/Q131460403> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-ohnx3tyeu2s6vwikzgyp1bq4> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Record Attestor" ;
+    rdfs:comment "The person who formally attests to the vital record — registrar, officiant, or certifying authority. W3C PROV-DM Agent pattern." ;
+    rdfs:isDefinedBy prov:Agent,
+        schema:Person,
+        <https://www.wikidata.org/wiki/Q116890704> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vital_record_attestor> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Person Full Name" ;
+    rdfs:comment "A complete name of a person (NIEM nc:PersonFullName)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1071027> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-person_full_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-qcofdwdb4hrmxeby89g8sjl1> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Record Subject" ;
+    rdfs:comment "Person who is the subject of a vital statistics record (birth, death, marriage, divorce). W3C PROV-DM Agent (Person) with Cordova CID." ;
+    rdfs:isDefinedBy prov:Agent,
+        schema:Person,
+        <https://www.wikidata.org/wiki/Q18562479> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vital_record_subject> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-rqeuaeoe81e9siuma9cu7zz1> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Statistics Access Control" ;
+    rdfs:isDefinedBy <https://w3id.org/dpv#AccessControlMethod>,
+        <https://www.wikidata.org/wiki/Q18562479> ;
+    rdfs:seeAlso <https://w3id.org/dpv>,
+        <https://w3id.org/dpv#SpecialCategoryPersonalData> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
+
+<sdc4:mc-rt6c1qzw12vd19ke3gii08gf> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "verifier_name" ;
+    rdfs:comment "Name of the person making the attestation." ;
+    rdfs:isDefinedBy <http://schema.org/name> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-verifier_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-tard9hhq13m95hinbh4h7k5j> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Event" ;
+    rdfs:isDefinedBy <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-tdz3pxrf7k6z2df2bfm7ebcp> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Death Record" ;
+    rdfs:isDefinedBy <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)>,
+        <https://www.wikidata.org/wiki/Q708653> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-tjy4olhj5jrjco73clt6fkue> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Court" ;
+    rdfs:isDefinedBy prov:Agent ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-tzbg1lgj3vdy4ctfdxr90qix> a schema:DateTime,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "attestation_date" ;
+    rdfs:comment "Date and time when the attestation was made." ;
+    rdfs:isDefinedBy <http://schema.org/dateCreated> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-attestation_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-u1i23yha2rvz5nbxjz3l8x48> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "PROV Role Type" ;
+    rdfs:comment "Functional roles that agents, entities, or activities can assume within provenance relationships." ;
+    rdfs:isDefinedBy <https://www.w3.org/TR/prov-o/#qualifiedInvolvement> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prov_role_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-ule5u2z3rjpa9pooaifwj1n3> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_identifier" ;
+    rdfs:comment "Official identifier for the organization (e.g., DUNS, tax ID)." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q11378663> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_identifier> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ulzd6pe8072mwkqf7i313bov> a schema:Dataset,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Statistics Record" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2728461> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q18562479>,
+        <https://www.wikidata.org/wiki/Q2728461> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:DMType> .
+
+<sdc4:mc-uwb15eii2sfm8l38k2a3jvwr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Birth Facility" ;
+    rdfs:comment "Healthcare facility where a birth was recorded. W3C PROV-DM Agent (Organization)." ;
+    rdfs:isDefinedBy prov:Agent,
+        schema:Organization,
+        <https://www.wikidata.org/wiki/Q958822> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-birth_facility> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-vbzw08smpn0vfxyna7mrh69c> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Court Participation Mode" ;
+    rdfs:comment "Mode of court participation in the divorce proceeding (e.g., in person, electronic filing)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-court_participation_mode> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-vh5jbumsfax6iw9vez68om83> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Record Attestation" ;
+    rdfs:comment "Attestation for vital record events (births, deaths, marriages, divorces). Linked to the registrar or certifying authority via Party. Standards: W3C PROV-DM, GDPR/UN CEB." ;
+    rdfs:isDefinedBy prov:Activity,
+        <https://www.w3.org/TR/vc-data-model/#credentials>,
+        <https://www.wikidata.org/wiki/Q116890704> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vital_record_attestation> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:AttestationType> .
+
+<sdc4:mc-vkp3r2zatse50s4xc8d8gujh> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Officiant" ;
+    rdfs:comment "Person officiating a marriage ceremony (judge, clergy, etc.). W3C PROV-DM Agent (Person)." ;
+    rdfs:isDefinedBy prov:Agent,
+        schema:Person,
+        <https://www.wikidata.org/wiki/Q1708100> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-officiant> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-vo9jtmexkaaol3y657fm0xn8> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Registration Date" ;
+    rdfs:comment "Date the business was officially registered in Cordova" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q137375576> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-registration_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-wn5su07s9sgs1dhuuomiza68> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Record Attestation Reason" ;
+    rdfs:comment "Reason for attesting this vital record" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q132364> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q484652> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vital_record_attestation_reason> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-xqhxjh5kzvgrzu0u87v3fxb2> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Statistics Office" ;
+    rdfs:comment "Government office responsible for recording and certifying vital events (births, deaths, marriages, divorces). W3C PROV-DM Agent (Organization)." ;
+    rdfs:isDefinedBy <http://schema.org/GovernmentOrganization>,
+        prov:Agent,
+        schema:Organization,
+        <https://www.wikidata.org/wiki/Q2728461> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vital_statistics_office> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-y9a1vu8pgplj8q5nu6rfwtxt> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Birth Facility Participation" ;
+    rdfs:comment "Participation of the birth facility in the vital birth event." ;
+    rdfs:isDefinedBy prov:Association,
+        <https://www.wikidata.org/wiki/Q56512863> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-birth_facility_participation> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ParticipationType> .
+
+<sdc4:mc-ycujkecjszwwrcd6dhxesk73> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Marriage Certificate Number" ;
+    rdfs:comment "Certificate number of the original marriage being dissolved" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1299632> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-marriage_certificate_number> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-yn69whk0qtnwp9sbb9n8jfu3> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Notary Registration Number" ;
+    rdfs:comment "Official registration number of the attesting notary" ;
+    rdfs:isDefinedBy <http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#NotaryPublicIdentificationID> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-notary_registration_number> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-yri6g628ipi0jqoa0ijnzxxu> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Record Status" ;
+    rdfs:comment "Status of the vital record" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q65720124> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-record_status> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-zs9ciw4nypx4plo856h3m95d> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "person_family_name" ;
+    rdfs:comment "Family (last) name of the person agent." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q4116295> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-person_family_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+

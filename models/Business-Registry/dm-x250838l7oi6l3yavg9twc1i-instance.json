@@ -1,0 +1,201 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "x250838l7oi6l3yavg9twc1i",
+  "dm_type": "dm-x250838l7oi6l3yavg9twc1i",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Business Registry",
+    "dm_encoding": "utf-8",
+    "instance_id": "ucz968tknchrg4r0pqt3t0zg",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-03-08T03:20:34.302550",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "uv8dwudhyf0gnmzgiyyd1sb1",
+    "label": "Business Entity",
+    "type": "Cluster",
+    "description": "A registered business in the Republic of Cordova.\nBusiness Context: Links to Employment, Maritime, Tax, and Property domains\nPurpose: Complete business registration record",
+    "items": [
+      {
+        "component_id": "l8f0m7op4xhrxqy1jrnvbuly",
+        "label": "Business Registry Number",
+        "type": "XdString",
+        "description": "Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions.",
+        "value": "DefaultString"
+      },
+      {
+        "component_id": "uinddfbzfk0jdikmt1jwcq78",
+        "label": "Organization Name",
+        "type": "XdString",
+        "description": "A name of an organization (NIEM nc:OrganizationName). BFO alignment: organization is a material entity (BFO:0000040) that is a collection of persons organized for a purpose.",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 200
+        }
+      },
+      {
+        "component_id": "gu15c6jojx09jy9at1px0ufh",
+        "label": "Organization Tax ID",
+        "type": "XdString",
+        "description": "A tax identification number (TIN/EIN) for an organization (NIEM nc:OrganizationTaxIdentification)",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 50
+        }
+      },
+      {
+        "component_id": "puz7m7a7rtuehrgp10tm17qn",
+        "label": "Business Type (Cordova)",
+        "type": "XdToken",
+        "description": "Legal structure of a business entity in the Cordova Business Registry.",
+        "value": "Partnership",
+        "constraints": {
+          "enumerations": [
+            "Sole Proprietor",
+            "Partnership",
+            "Corporation",
+            "Cooperative"
+          ]
+        }
+      },
+      {
+        "component_id": "m0i63npis09ch7ag08ntoneu",
+        "label": "Industry",
+        "type": "XdToken",
+        "description": "Primary industry classification",
+        "value": "Construction",
+        "constraints": {
+          "enumerations": [
+            "Agriculture",
+            "Manufacturing",
+            "Shipping",
+            "Retail",
+            "Healthcare",
+            "Education",
+            "Technology",
+            "Construction",
+            "Finance",
+            "Government Services",
+            "Hospitality"
+          ]
+        }
+      },
+      {
+        "component_id": "cs34ekiq4o9pazzs5baiobis",
+        "label": "Status",
+        "type": "XdToken",
+        "description": "Current registration status",
+        "value": "Suspended",
+        "constraints": {
+          "enumerations": [
+            "Active",
+            "Suspended",
+            "Dissolved"
+          ]
+        }
+      },
+      {
+        "component_id": "vo9jtmexkaaol3y657fm0xn8",
+        "label": "Registration Date",
+        "type": "XdTemporal",
+        "description": "Date the business was officially registered in Cordova",
+        "value": "2024-01-01T00:00:00"
+      },
+      {
+        "component_id": "u8kz7rlfx1jjvkn7kgyao4tw",
+        "label": "Registered Address",
+        "type": "Cluster",
+        "description": "Official business address on file with the registry.\nPurpose: Legal address for service and correspondence\nParent Cluster: Business Entity",
+        "items": [
+          {
+            "component_id": "x0na649n17if0ukul82cmrx3",
+            "label": "Cordova Email Address",
+            "type": "XdString",
+            "description": "Email address using one of the Cordova national email providers. Providers: cordomail.co, novamail.co, portocorreo.co",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 5,
+              "max_length": 254
+            }
+          },
+          {
+            "component_id": "nfrvvp87c5imu5h9ups92kgy",
+            "label": "Cordova Phone Number",
+            "type": "XdString",
+            "description": "Cordova national telephone number. Format: +99-PPP-NNN-NNNN where +99 is the country code and PPP is the area code. Area codes: Porto Sereno=100, Vistamar=110, Rioseco=120, Campoluz=200, Tierraverde=210, Montecara=220, Novaciudad=300, Piedrasol=310, Lagunavista=320.",
+            "value": "DefaultString"
+          },
+          {
+            "component_id": "l338k7nlvnq2am0owa19yxfc",
+            "label": "Address (Line 1)",
+            "type": "XdString",
+            "description": "Street address line, building/apartment number, or P.O. Box number.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "ek5h6dsqpd9kz0l4mcckmxpt",
+            "label": "Address (Line 2)",
+            "type": "XdString",
+            "description": "Street address line, building/apartment number, or P.O. Box number.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "atdtdfzruh7tya0iv5cz365l",
+            "label": "City",
+            "type": "XdToken",
+            "description": "One of the nine cities in the Republic of Cordova.",
+            "value": "Piedrasol",
+            "constraints": {
+              "enumerations": [
+                "Porto Sereno",
+                "Vistamar",
+                "Rioseco",
+                "Campoluz",
+                "Tierraverde",
+                "Montecara",
+                "Novaciudad",
+                "Piedrasol",
+                "Lagunavista"
+              ]
+            }
+          },
+          {
+            "component_id": "kv5qqs3o4jwcwz9javgw1pzh",
+            "label": "Province",
+            "type": "XdToken",
+            "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+            "value": "Aldara",
+            "constraints": {
+              "enumerations": [
+                "Aldara",
+                "Brevina",
+                "Celara"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "subject": {
+    "component_id": "d79vg5e2e4nnoxontodl9co7",
+    "label": "Business Officer",
+    "type": "Party",
+    "description": "Person acting as an officer of a business entity (director, secretary, etc.). W3C PROV-DM Agent (Person) with appointment lifecycle."
+  },
+  "provider": {
+    "component_id": "pndsgg7zczz4bgnmh11g40ka",
+    "label": "Business Registry Office",
+    "type": "Party",
+    "description": "Government office responsible for maintaining the national business registry. W3C PROV-DM Agent (Organization)."
+  }
+}

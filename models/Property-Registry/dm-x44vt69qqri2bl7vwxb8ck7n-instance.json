@@ -1,0 +1,280 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "x44vt69qqri2bl7vwxb8ck7n",
+  "dm_type": "dm-x44vt69qqri2bl7vwxb8ck7n",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Property Registry",
+    "dm_encoding": "utf-8",
+    "instance_id": "ugauo03jkdg0wx0yq4wjpi71",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-03-08T03:28:32.791461",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "bgc4n3424bzb8gpgnjhxxha9",
+    "label": "Property Record",
+    "type": "Cluster",
+    "description": "A registered land parcel or property in Cordova.\nBusiness Context: Links to Civil Registry (person owners) and Business Registry (business owners)\nPurpose: Document a property with location, type, and current ownership",
+    "items": [
+      {
+        "component_id": "hs7197k4s33eg7wbspgudu4u",
+        "label": "Parcel Number",
+        "type": "XdString",
+        "description": "Cordova property parcel identifier. Format: PP-CC-NNNNNN where PP is the province code, CC is the city code, and NNNNNN is a parcel sequence number.",
+        "value": "DefaultString"
+      },
+      {
+        "component_id": "l338k7nlvnq2am0owa19yxfc",
+        "label": "Address (Line 1)",
+        "type": "XdString",
+        "description": "Street address line, building/apartment number, or P.O. Box number.",
+        "value": "DefaultString",
+        "constraints": {
+          "max_length": 200
+        }
+      },
+      {
+        "component_id": "ek5h6dsqpd9kz0l4mcckmxpt",
+        "label": "Address (Line 2)",
+        "type": "XdString",
+        "description": "Street address line, building/apartment number, or P.O. Box number.",
+        "value": "DefaultString",
+        "constraints": {
+          "max_length": 200
+        }
+      },
+      {
+        "component_id": "atdtdfzruh7tya0iv5cz365l",
+        "label": "City",
+        "type": "XdToken",
+        "description": "One of the nine cities in the Republic of Cordova.",
+        "value": "Porto Sereno",
+        "constraints": {
+          "enumerations": [
+            "Porto Sereno",
+            "Vistamar",
+            "Rioseco",
+            "Campoluz",
+            "Tierraverde",
+            "Montecara",
+            "Novaciudad",
+            "Piedrasol",
+            "Lagunavista"
+          ]
+        }
+      },
+      {
+        "component_id": "xtljf8q6rfyfewdkgu4e5ouj",
+        "label": "Property Status",
+        "type": "XdToken",
+        "description": "Current status of the property in the registry",
+        "value": "Encumbered",
+        "constraints": {
+          "enumerations": [
+            "Active",
+            "Encumbered",
+            "In Transfer",
+            "Government Seized",
+            "Abandoned"
+          ]
+        }
+      },
+      {
+        "component_id": "l79ua955rihnjbrxyhu7z5ac",
+        "label": "Property Type (Cordova)",
+        "type": "XdToken",
+        "description": "Classification of real property in the Cordova Property Registry.",
+        "value": "Agricultural",
+        "constraints": {
+          "enumerations": [
+            "Residential",
+            "Commercial",
+            "Agricultural",
+            "Government",
+            "Industrial"
+          ]
+        }
+      },
+      {
+        "component_id": "kv5qqs3o4jwcwz9javgw1pzh",
+        "label": "Province",
+        "type": "XdToken",
+        "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+        "value": "Celara",
+        "constraints": {
+          "enumerations": [
+            "Aldara",
+            "Brevina",
+            "Celara"
+          ]
+        }
+      },
+      {
+        "component_id": "vo9jtmexkaaol3y657fm0xn8",
+        "label": "Registration Date",
+        "type": "XdTemporal",
+        "description": "Date the business was officially registered in Cordova",
+        "value": "2024-01-01T00:00:00"
+      },
+      {
+        "component_id": "tjkw46wy20kstzgg1y60clxx",
+        "label": "Liens and Encumbrances",
+        "type": "Cluster",
+        "description": "Outstanding liens, mortgages, or legal encumbrances on the property.\nPurpose: Record financial and legal claims against the property\nParent Cluster: Property Record",
+        "items": [
+          {
+            "component_id": "kzalko16uuwdw74yohvr5t50",
+            "label": "Lien Status",
+            "type": "XdToken",
+            "description": "Current status of the lien",
+            "value": "Satisfied",
+            "constraints": {
+              "enumerations": [
+                "Active",
+                "Satisfied",
+                "Released"
+              ]
+            }
+          },
+          {
+            "component_id": "cy92p3uebrmjf191wcs07t3o",
+            "label": "Lien Type",
+            "type": "XdToken",
+            "description": "Type of lien or encumbrance",
+            "value": "Tax Lien",
+            "constraints": {
+              "enumerations": [
+                "Mortgage",
+                "Tax Lien",
+                "Judgment Lien",
+                "Mechanic's Lien",
+                "Easement"
+              ]
+            }
+          },
+          {
+            "component_id": "da261k0tox4747gnkmmek15i",
+            "label": "Lien Amount",
+            "type": "XdQuantity",
+            "description": "Monetary value of the lien or encumbrance recorded against the property in Cordova Córdoba. Represents the outstanding obligation secured by the property.",
+            "value": 67.8,
+            "magnitude": {
+              "value": 67.8,
+              "min_inclusive": 0.0
+            },
+            "units": {
+              "label": "Cordova Córdoba (COR)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          },
+          {
+            "component_id": "zicto01f2grmzuqtgdonv83w",
+            "label": "Lien Date",
+            "type": "XdTemporal",
+            "description": "Date the lien was recorded",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "cexrgb7uy29kn6w27tpmujtv",
+        "label": "Property Value Assessment",
+        "type": "Cluster",
+        "description": "Property value assessment for tax purposes.\nPurpose: Record assessed values that link to Tax & Revenue for property tax filings\nParent Cluster: Property Record",
+        "items": [
+          {
+            "component_id": "j3y76yob1s958dry2d551tew",
+            "label": "Assessment Status",
+            "type": "XdToken",
+            "description": "Status of the assessment",
+            "value": "Final",
+            "constraints": {
+              "enumerations": [
+                "Final",
+                "Under Appeal",
+                "Preliminary"
+              ]
+            }
+          },
+          {
+            "component_id": "hlg1jmx1v9t4zkq16c1i66bg",
+            "label": "Assessed Value",
+            "type": "XdQuantity",
+            "description": "Government-determined market value of the property in Cordova Córdoba. Used as the basis for property tax calculation by the Cordova Tax Authority.",
+            "value": 73.3,
+            "magnitude": {
+              "value": 73.3,
+              "min_inclusive": 0.0
+            },
+            "units": {
+              "label": "Cordova Córdoba (COR)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          },
+          {
+            "component_id": "rbq2sjcb8h284c8dnzjdna5h",
+            "label": "Land Area",
+            "type": "XdQuantity",
+            "description": "Total area of the land parcel in square meters as recorded in the cadastral survey. Used for property assessment, zoning compliance, and land use planning.",
+            "value": 53.0,
+            "magnitude": {
+              "value": 53.0,
+              "min_inclusive": 0.0
+            },
+            "units": {
+              "label": "Square Meters",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          }
+        ]
+      },
+      {
+        "component_id": "vdf0oczbk8uxsm2le09l27ke",
+        "label": "Transfer History",
+        "type": "Cluster",
+        "description": "Record of property ownership transfers with notary attestation.\nBusiness Context: Demonstrates full Attestation — notary-attested transfers with buyer, seller, and price\nPurpose: Document the provenance chain of property ownership changes\nParent Cluster: Property Record",
+        "items": [
+          {
+            "component_id": "j8gn6xsrzbnzkqlnpk2dkwam",
+            "label": "Transfer Amount",
+            "type": "XdQuantity",
+            "description": "Sale price or transfer value of the property transaction in Cordova Córdoba. Recorded at the time of ownership transfer for tax and registry purposes.",
+            "value": 63.8,
+            "magnitude": {
+              "value": 63.8,
+              "min_inclusive": 0.0
+            },
+            "units": {
+              "label": "Cordova Córdoba (COR)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          },
+          {
+            "component_id": "y6isg5qaxfpt1qpg102uwkn4",
+            "label": "Transfer Date",
+            "type": "XdTemporal",
+            "description": "Date the transfer was executed",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      }
+    ]
+  },
+  "subject": {
+    "component_id": "rnts5ygyfvpor7vvk0gn96uq",
+    "label": "Property Owner",
+    "type": "Party",
+    "description": "Person or organization that owns a property. W3C PROV-DM Agent with ownership type and start date. Supports both CID (individual) and BRN (corporate) identifiers."
+  },
+  "provider": {
+    "component_id": "ji4myggtxrapitnioimmzm7i",
+    "label": "Property Registry Office",
+    "type": "Party",
+    "description": "Government office responsible for property records, land titles, and transfer registration. W3C PROV-DM Agent (Organization)."
+  }
+}
