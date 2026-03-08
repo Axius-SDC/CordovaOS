@@ -319,6 +319,7 @@ class BulkImportProcessor:
                     search_text=search_text,
                     validation_status=validation_status,
                     validation_errors=validation_errors,
+                    rdf_sync_status='disabled',
                 )
                 instance.save()
 
