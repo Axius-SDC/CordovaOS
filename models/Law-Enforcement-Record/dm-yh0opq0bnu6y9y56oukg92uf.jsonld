@@ -1,0 +1,365 @@
+{
+  "@context": {
+    "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "label": "rdfs:label",
+    "description": "rdfs:comment",
+    "type": "@type",
+    "id": "@id"
+  },
+  "@type": "DataModel",
+  "@id": "sdc4:dm-yh0opq0bnu6y9y56oukg92uf",
+  "identifier": "yh0opq0bnu6y9y56oukg92uf",
+  "label": "Law Enforcement Record",
+  "description": "Record public safety incidents, charges, and dispositions in Cordova.",
+  "metadata": {
+    "dc:title": "Law Enforcement Record",
+    "dc:creator": "Timothy Cook",
+    "dc:description": "Record public safety incidents, charges, and dispositions in Cordova.",
+    "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
+    "dc:language": "en-US",
+    "dc:format": "text/xml",
+    "dc:date": "2026-03-07T20:03:46.314116+00:00"
+  },
+  "components": [
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-songhwxr1fp8niqba4fd0yd9",
+      "label": "Incident Report",
+      "description": "A single public safety incident recorded by Cordova National Police.\nBusiness Context: Links to Civil Registry for person identification\nPurpose: Document an incident with location, category, involved parties, and outcome",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-yi2189u4pinqitlmm5t6ccrd",
+          "label": "Incident Report Number",
+          "description": "A report number for an incident (NIEM j:IncidentReportNumber)",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 50
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q111653916"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-rguhpkd7s2d9a51392aon7ir",
+          "label": "Incident Summary",
+          "description": "Brief summary of incident (one paragraph)",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "http://schema.org/description"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-b6nahtg2we4rh5qsk2j7qfvz",
+          "label": "Location Street Full Text",
+          "description": "A complete street address (NIEM nc:LocationStreetFullText). BFO alignment: address is an information content entity (IAO:0000030) referring to a site (BFO:0000029).",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q24574749"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-atdtdfzruh7tya0iv5cz365l",
+          "label": "City",
+          "description": "One of the nine cities in the Republic of Cordova.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "Porto Sereno",
+              "Vistamar",
+              "Rioseco",
+              "Campoluz",
+              "Tierraverde",
+              "Montecara",
+              "Novaciudad",
+              "Piedrasol",
+              "Lagunavista"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "http://schema.org/City"
+            },
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-e83h36jqgi59dhy1dttp22qm",
+          "label": "Incident Status",
+          "description": "Current status of the incident",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "Open",
+              "Closed",
+              "Pending"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q2443992"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh",
+          "label": "Province",
+          "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "Aldara",
+              "Brevina",
+              "Celara"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "http://schema.org/AdministrativeArea"
+            },
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://schema.org/State"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-nc7aq6ofnccavkmczsb2dudy",
+          "label": "Incident Category Code",
+          "description": "Categories of incidents per NIEM j:IncidentCategoryCode",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "accident",
+              "assault",
+              "burglary",
+              "robbery",
+              "theft",
+              "vandalism",
+              "fraud",
+              "drug_offense",
+              "dui",
+              "domestic_violence",
+              "harassment",
+              "missing_person",
+              "suspicious_activity",
+              "traffic",
+              "fire",
+              "medical",
+              "other"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "http://www.w3.org/2004/02/skos/core#Concept"
+            },
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            }
+          ]
+        },
+        {
+          "@type": "XdTemporalType",
+          "@id": "sdc4:mc-ohk2uwcomsz8wegfvz0v0yod",
+          "label": "Incident Date",
+          "description": "A date and time an incident occurred (NIEM j:IncidentDate). BFO alignment: incident is a process (BFO:0000015) occurring at a temporal region.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "dataType": "xsd:dateTime",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "http://purl.obolibrary.org/obo/BFO_0000015"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/DateTime"
+            }
+          ]
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q6014597"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://niemopen.org/"
+        },
+        {
+          "predicate": "skos:broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    }
+  ],
+  "structural_components": {
+    "subject": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-7i4jw2wkw7om94135c1bq03h",
+      "label": "Involved Person",
+      "description": "Person involved in a law enforcement incident (suspect, victim, witness). W3C PROV-DM Agent (Person) with involvement classification.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "skos:broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q196939"
+        }
+      ]
+    },
+    "provider": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-m2lj6lu22oez88prwrdgmnc2",
+      "label": "Reporting Officer",
+      "description": "The law enforcement officer who filed the incident report. W3C PROV-DM Agent (Person) with badge number as identifier.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q384593"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    }
+  }
+}

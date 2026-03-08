@@ -1,0 +1,746 @@
+@base <https://semanticdatacharter.com/ns/sdc4/dm-ftluo2nybgxmn7mawttoos20> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sdc4-meta: <https://semanticdatacharter.com/ontology/sdc4-meta/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/electronic-order> a rdfs:Class ;
+    rdfs:label "electronic-order" ;
+    rdfs:subPropertyOf <mc-ba1ezyhgf6aaw03an2uve57o> .
+
+<mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/fax> a rdfs:Class ;
+    rdfs:label "fax" ;
+    rdfs:subPropertyOf <mc-ba1ezyhgf6aaw03an2uve57o> .
+
+<mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/in-person> a rdfs:Class ;
+    rdfs:label "in-person" ;
+    rdfs:subPropertyOf <mc-ba1ezyhgf6aaw03an2uve57o> .
+
+<mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/telehealth> a rdfs:Class ;
+    rdfs:label "telehealth" ;
+    rdfs:subPropertyOf <mc-ba1ezyhgf6aaw03an2uve57o> .
+
+<mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/verbal-order> a rdfs:Class ;
+    rdfs:label "verbal-order" ;
+    rdfs:subPropertyOf <mc-ba1ezyhgf6aaw03an2uve57o> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/academic> a rdfs:Class ;
+    rdfs:label "academic" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/corporation> a rdfs:Class ;
+    rdfs:label "corporation" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/department> a rdfs:Class ;
+    rdfs:label "department" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/government> a rdfs:Class ;
+    rdfs:label "government" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/nonprofit> a rdfs:Class ;
+    rdfs:label "nonprofit" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/vendor> a rdfs:Class ;
+    rdfs:label "vendor" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-l9sjn7wj10y5b27ldkv3j8mt/xdtoken-value/Baseline> a rdfs:Class ;
+    rdfs:label "Baseline" ;
+    rdfs:subPropertyOf <mc-l9sjn7wj10y5b27ldkv3j8mt> .
+
+<mc-l9sjn7wj10y5b27ldkv3j8mt/xdtoken-value/Early%20termination> a rdfs:Class ;
+    rdfs:label "Early termination" ;
+    rdfs:subPropertyOf <mc-l9sjn7wj10y5b27ldkv3j8mt> .
+
+<mc-l9sjn7wj10y5b27ldkv3j8mt/xdtoken-value/Final> a rdfs:Class ;
+    rdfs:label "Final" ;
+    rdfs:subPropertyOf <mc-l9sjn7wj10y5b27ldkv3j8mt> .
+
+<mc-l9sjn7wj10y5b27ldkv3j8mt/xdtoken-value/Follow-up> a rdfs:Class ;
+    rdfs:label "Follow-up" ;
+    rdfs:subPropertyOf <mc-l9sjn7wj10y5b27ldkv3j8mt> .
+
+<mc-l9sjn7wj10y5b27ldkv3j8mt/xdtoken-value/Screening> a rdfs:Class ;
+    rdfs:label "Screening" ;
+    rdfs:subPropertyOf <mc-l9sjn7wj10y5b27ldkv3j8mt> .
+
+<mc-l9sjn7wj10y5b27ldkv3j8mt/xdtoken-value/Unscheduled> a rdfs:Class ;
+    rdfs:label "Unscheduled" ;
+    rdfs:subPropertyOf <mc-l9sjn7wj10y5b27ldkv3j8mt> .
+
+<mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Admitted> a rdfs:Class ;
+    rdfs:label "Admitted" ;
+    rdfs:subPropertyOf <mc-lccs354vpxmtyo69ba5cu48v> .
+
+<mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Follow-up%20Scheduled> a rdfs:Class ;
+    rdfs:label "Follow-up Scheduled" ;
+    rdfs:subPropertyOf <mc-lccs354vpxmtyo69ba5cu48v> .
+
+<mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/No%20Treatment%20Required> a rdfs:Class ;
+    rdfs:label "No Treatment Required" ;
+    rdfs:subPropertyOf <mc-lccs354vpxmtyo69ba5cu48v> .
+
+<mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Referred> a rdfs:Class ;
+    rdfs:label "Referred" ;
+    rdfs:subPropertyOf <mc-lccs354vpxmtyo69ba5cu48v> .
+
+<mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Treated%20and%20Released> a rdfs:Class ;
+    rdfs:label "Treated and Released" ;
+    rdfs:subPropertyOf <mc-lccs354vpxmtyo69ba5cu48v> .
+
+<mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Organization> a rdfs:Class ;
+    rdfs:label "Organization" ;
+    rdfs:subPropertyOf <mc-nesxtz8c5o665swc9lhvqkjj> .
+
+<mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Person> a rdfs:Class ;
+    rdfs:label "Person" ;
+    rdfs:subPropertyOf <mc-nesxtz8c5o665swc9lhvqkjj> .
+
+<mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/SoftwareAgent> a rdfs:Class ;
+    rdfs:label "SoftwareAgent" ;
+    rdfs:subPropertyOf <mc-nesxtz8c5o665swc9lhvqkjj> .
+
+<mc-trvg8tpie5w2zlf6b0nl3zhb/xdtoken-value/administering-site> a rdfs:Class ;
+    rdfs:label "administering-site" ;
+    rdfs:subPropertyOf <mc-trvg8tpie5w2zlf6b0nl3zhb> .
+
+<mc-trvg8tpie5w2zlf6b0nl3zhb/xdtoken-value/distribution-center> a rdfs:Class ;
+    rdfs:label "distribution-center" ;
+    rdfs:subPropertyOf <mc-trvg8tpie5w2zlf6b0nl3zhb> .
+
+<mc-trvg8tpie5w2zlf6b0nl3zhb/xdtoken-value/reporting-site> a rdfs:Class ;
+    rdfs:label "reporting-site" ;
+    rdfs:subPropertyOf <mc-trvg8tpie5w2zlf6b0nl3zhb> .
+
+<mc-trvg8tpie5w2zlf6b0nl3zhb/xdtoken-value/storage-facility> a rdfs:Class ;
+    rdfs:label "storage-facility" ;
+    rdfs:subPropertyOf <mc-trvg8tpie5w2zlf6b0nl3zhb> .
+
+<mc-tz13p9d4dpbw3pe9bx51nbou/xdtoken-value/Active> a rdfs:Class ;
+    rdfs:label "Active" ;
+    rdfs:subPropertyOf <mc-tz13p9d4dpbw3pe9bx51nbou> .
+
+<mc-tz13p9d4dpbw3pe9bx51nbou/xdtoken-value/In%20Remission> a rdfs:Class ;
+    rdfs:label "In Remission" ;
+    rdfs:subPropertyOf <mc-tz13p9d4dpbw3pe9bx51nbou> .
+
+<mc-tz13p9d4dpbw3pe9bx51nbou/xdtoken-value/Resolved> a rdfs:Class ;
+    rdfs:label "Resolved" ;
+    rdfs:subPropertyOf <mc-tz13p9d4dpbw3pe9bx51nbou> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Aggregator> a rdfs:Class ;
+    rdfs:label "Aggregator" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Approver> a rdfs:Class ;
+    rdfs:label "Approver" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Author> a rdfs:Class ;
+    rdfs:label "Author" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Contributor> a rdfs:Class ;
+    rdfs:label "Contributor" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Custodian> a rdfs:Class ;
+    rdfs:label "Custodian" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Publisher> a rdfs:Class ;
+    rdfs:label "Publisher" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Reviewer> a rdfs:Class ;
+    rdfs:label "Reviewer" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-u1i23yha2rvz5nbxjz3l8x48/xdtoken-value/Transformer> a rdfs:Class ;
+    rdfs:label "Transformer" ;
+    rdfs:subPropertyOf <mc-u1i23yha2rvz5nbxjz3l8x48> .
+
+<mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/attending-physician> a rdfs:Class ;
+    rdfs:label "attending-physician" ;
+    rdfs:subPropertyOf <mc-v5p12fdr4figf0k2rulfqrxl> .
+
+<mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/consulting-physician> a rdfs:Class ;
+    rdfs:label "consulting-physician" ;
+    rdfs:subPropertyOf <mc-v5p12fdr4figf0k2rulfqrxl> .
+
+<mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/primary-care-provider> a rdfs:Class ;
+    rdfs:label "primary-care-provider" ;
+    rdfs:subPropertyOf <mc-v5p12fdr4figf0k2rulfqrxl> .
+
+<mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/resident> a rdfs:Class ;
+    rdfs:label "resident" ;
+    rdfs:subPropertyOf <mc-v5p12fdr4figf0k2rulfqrxl> .
+
+<mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/specialist> a rdfs:Class ;
+    rdfs:label "specialist" ;
+    rdfs:subPropertyOf <mc-v5p12fdr4figf0k2rulfqrxl> .
+
+<mc-yi46egvfmz66gd0dhypl6t6m/xdtoken-value/drive-through> a rdfs:Class ;
+    rdfs:label "drive-through" ;
+    rdfs:subPropertyOf <mc-yi46egvfmz66gd0dhypl6t6m> .
+
+<mc-yi46egvfmz66gd0dhypl6t6m/xdtoken-value/home-visit> a rdfs:Class ;
+    rdfs:label "home-visit" ;
+    rdfs:subPropertyOf <mc-yi46egvfmz66gd0dhypl6t6m> .
+
+<mc-yi46egvfmz66gd0dhypl6t6m/xdtoken-value/in-person> a rdfs:Class ;
+    rdfs:label "in-person" ;
+    rdfs:subPropertyOf <mc-yi46egvfmz66gd0dhypl6t6m> .
+
+<mc-yi46egvfmz66gd0dhypl6t6m/xdtoken-value/mobile-clinic> a rdfs:Class ;
+    rdfs:label "mobile-clinic" ;
+    rdfs:subPropertyOf <mc-yi46egvfmz66gd0dhypl6t6m> .
+
+<dm-ftluo2nybgxmn7mawttoos20> dc:coverage "Universal" ;
+    dc:creator "Timothy Cook" ;
+    dc:date "2026-03-04 23:29:29.461578+00:00" ;
+    dc:description "Maintain basic medical records for all persons in Cordova." ;
+    dc:format "text/xml" ;
+    dc:identifier "dm-ftluo2nybgxmn7mawttoos20" ;
+    dc:language "en-US" ;
+    dc:relation "None" ;
+    dc:rights "CC-BY http://creativecommons.org/licenses/by/3.0/" ;
+    dc:title "Healthcare Record" ;
+    dc:type "SDC Data Model (DM)" .
+
+<mc-cipk6pha3nz62dd4vwmkg5yo-rr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Non-negative Weight" ;
+    rdfs:isDefinedBy <http://qudt.org/vocab/quantitykind/Mass> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ReferenceRangeType> .
+
+<mc-uoah076eqs0x6qkh1eadvoob-rr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Normal Diastolic Blood Pressure" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q82642> ;
+    rdfs:seeAlso <https://loinc.org/8462-4/> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ReferenceRangeType> .
+
+<mc-v44d5xo2wdxttf9kq5zm4o1h-rr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Normal Body Temperature" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1066998> ;
+    rdfs:seeAlso <https://loinc.org/8310-5/> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ReferenceRangeType> .
+
+<mc-yjuzkpzh4d55dto22xdfnj1w-rr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Normal Systolic Blood Pressure" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q82642> ;
+    rdfs:seeAlso <https://loinc.org/8480-6/> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ReferenceRangeType> .
+
+<sdc4:mc-07osold8ovbjsqzvz00f3ked2> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Severity (3-Point)" ;
+    rdfs:comment "Three-point severity scale for clinical findings" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q10870002> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-severity_(3-point)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdOrdinalType> .
+
+<sdc4:mc-0khgfzp8h42kw99wj07udbzw> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Administering Facility" ;
+    rdfs:isDefinedBy prov:Agent,
+        <https://hl7.org/fhir/> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-1fjdouzda29z43u2spfcbpig> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vaccination Facility Participation" ;
+    rdfs:comment "Participation of the administering facility in vaccination events." ;
+    rdfs:isDefinedBy prov:Association,
+        <https://www.wikidata.org/wiki/Q56512863> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q31207> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vaccination_facility_participation> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ParticipationType> .
+
+<sdc4:mc-4tqaalcjeojrh2e068qzlpjy> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Prescriber" ;
+    rdfs:comment "Physician who prescribed medication. W3C PROV-DM Agent (Person)." ;
+    rdfs:isDefinedBy prov:Agent,
+        schema:Person,
+        <https://www.wikidata.org/wiki/Q99393050> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prescriber> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-5scaiw897xhuqa1k8sso932e> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Healthcare Provider" ;
+    rdfs:isDefinedBy prov:Agent,
+        <https://hl7.org/fhir/> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-7gkespcenmxwbctpbwjs43yk> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Prescriber" ;
+    rdfs:isDefinedBy prov:Agent,
+        <https://hl7.org/fhir/> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-b5zse0kmvpkj74ggqvgk647l> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Body Temperature" ;
+    rdfs:comment "Patient body temperature measured in degrees Celsius during a clinical visit. Normal adult range is 36.1–37.2°C. Triage screening vital sign." ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
+
+<sdc4:mc-ba1ezyhgf6aaw03an2uve57o> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Prescriber Participation Mode" ;
+    rdfs:comment "Mode of prescriber participation in the medication order (e.g., in person, telehealth)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prescriber_participation_mode> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-bc1ivx4vqa5gh3p5l1pjs1q2> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Primary Care Assignment" ;
+    rdfs:comment "Patient's assigned primary care provider (clinician) and primary care facility. W3C PROV-DM Agent supporting Person and Organization." ;
+    rdfs:isDefinedBy prov:Agent,
+        schema:Person,
+        <https://www.wikidata.org/wiki/Q269941> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-primary_care_assignment> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-bpqtzla39dwentygpwea8276> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_type" ;
+    rdfs:comment "Type of organization." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q17197366> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-cm0nqqnjcylc8vkfph7db2lh> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Chronic Condition" ;
+    rdfs:comment "Name or description of a chronic medical condition (e.g., hypertension, diabetes, asthma)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q383126> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-chronic_condition> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-cntj1t9t2xjugnux1enpigmf> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Clinical Impression" ;
+    rdfs:comment "Overall clinical impression from neurological examination" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q69067902> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-clinical_impression> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-cq6m46w59ouu1cu8tkw1fhib> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Prescription Date" ;
+    rdfs:comment "Date the medication was prescribed" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q193521> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prescription_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-cuxxvwyqn5vhlqjymovegmn7> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Provider Name" ;
+    rdfs:comment "Name of the attending physician or provider" ;
+    rdfs:isDefinedBy <http://schema.org/name> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-provider_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-dnxrp0bpfs33b4x5ks8he9ag> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Primary Care Provider" ;
+    rdfs:comment "Name of the patient's assigned primary care physician" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q55379489> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-primary_care_provider> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-dyfz05n20jhc1elhozrbjug0> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vaccine Date" ;
+    rdfs:comment "Date the vaccine was administered" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q192995> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vaccine_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-emov6wuhen2tuyjlppqmmjjl> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Healthcare Records Protocol" ;
+    rdfs:comment "Protocol reference for the Healthcare Record data model. Informed by the WHO International Classification of Diseases (ICD-11), HL7 FHIR resource concepts for clinical data exchange, and national health information management standards for patient records." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q132364> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q35869> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-healthcare_records_protocol> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-eq4h86worv571cl5iiy9unkw> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vaccination History" ;
+    rdfs:isDefinedBy <https://www.cdc.gov/vaccines/hcp/imz-schedules/index.html>,
+        <https://www.wikidata.org/wiki/Q93623446> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-f8ptus0eraxmipvhd96ddbdq> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Prescriber" ;
+    rdfs:comment "Name of the prescribing physician" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q99393050> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prescriber> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-fi1qu4j2zd0801fcqtix35h5> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vaccine Name" ;
+    rdfs:comment "Name of the vaccine administered" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q134808> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vaccine_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ftluo2nybgxmn7mawttoos20> a schema:Dataset,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Healthcare Record" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q31207> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q1132455> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:DMType> .
+
+<sdc4:mc-gug5dhtqfv7exbgmm2raxpkq> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Digital Signature Proof" ;
+    rdfs:isDefinedBy <https://www.w3.org/TR/vc-data-model/#credentials>,
+        <https://www.wikidata.org/wiki/Q210824> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
+
+<sdc4:mc-hbk1xmzqefk2lchmd7jooz7a> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Healthcare Record Access Control" ;
+    rdfs:isDefinedBy <https://w3id.org/dpv#AccessControlMethod>,
+        <https://www.wikidata.org/wiki/Q1324077> ;
+    rdfs:seeAlso <https://w3id.org/dpv>,
+        <https://w3id.org/dpv#SpecialCategoryPersonalData> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
+
+<sdc4:mc-hd9295k8o49j91lvgftul1a0> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Visit Record" ;
+    rdfs:isDefinedBy <https://hl7.org/fhir/>,
+        <https://www.wikidata.org/wiki/Q29182> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "agent_id" ;
+    rdfs:comment "Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q37882474> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-agent_id> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-hwbq0pr8aqy2qp16ehbhu2ga> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Prescriber Participation" ;
+    rdfs:comment "Participation of prescribing physician in medication orders." ;
+    rdfs:isDefinedBy prov:Association,
+        <https://www.wikidata.org/wiki/Q56512863> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q31207> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prescriber_participation> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ParticipationType> .
+
+<sdc4:mc-hzkatya8ymk8xmbuecb7jfae> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Administering Facility" ;
+    rdfs:comment "Healthcare facility that administered a vaccination. W3C PROV-DM Agent (Organization)." ;
+    rdfs:isDefinedBy prov:Agent,
+        schema:Organization,
+        <https://www.wikidata.org/wiki/Q105765728> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-administering_facility> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_name" ;
+    rdfs:comment "Legal or official name of the organization." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q168678> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ihugcgyqyfjp3u9y5qva1fwz> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Temperature (SI - Metric)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q11466> ;
+    rdfs:seeAlso <http://qudt.org/vocab/quantitykind/Temperature> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-iprf7jqg9emvm92wo9gkiqcu> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Frequency (5-Point)" ;
+    rdfs:comment "Five-point frequency scale for symptom or behavior occurrence" ;
+    rdfs:isDefinedBy <https://uts.nlm.nih.gov/uts/umls/concept/C0436350> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-frequency_(5-point)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdOrdinalType> .
+
+<sdc4:mc-iufcfze52lha16v84kccgxyh> a schema:DateTime,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Visit Date" ;
+    rdfs:comment "Date of clinical visit" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q577> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-visit_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-jz2hqntyol8lopw6q6zdud78> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Medical Record Number" ;
+    rdfs:comment "Institution-specific medical record number for linking to clinical records" ;
+    rdfs:isDefinedBy <https://uts.nlm.nih.gov/uts/umls/concept/C1301894> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-medical_record_number> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-kokquuk73pm2ohlh4ftnu7wb> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Systolic Blood Pressure" ;
+    rdfs:comment "Peak arterial pressure during cardiac contraction, measured in mmHg. Normal adult range is 90–120 mmHg. Values ≥140 mmHg indicate hypertension per WHO/AHA guidelines." ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
+
+<sdc4:mc-l9sjn7wj10y5b27ldkv3j8mt> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Visit Type" ;
+    rdfs:comment "Type of clinical visit or encounter" ;
+    rdfs:isDefinedBy <https://uts.nlm.nih.gov/uts/umls/concept/C5708072> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-visit_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-lccs354vpxmtyo69ba5cu48v> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Outcome" ;
+    rdfs:comment "Outcome of the visit" ;
+    rdfs:isDefinedBy <http://schema.org/result> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-outcome> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-lu2w1avj9fic5wrmyftt9fhi> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Diastolic Blood Pressure" ;
+    rdfs:comment "Minimum arterial pressure during cardiac relaxation, measured in mmHg. Normal adult range is 60–80 mmHg. Values ≥90 mmHg indicate hypertension per WHO/AHA guidelines." ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
+
+<sdc4:mc-mxjh9oqcnjl6njqqi75odozh> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Healthcare Record Attestation Reason" ;
+    rdfs:comment "Reason for attesting this healthcare record" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q132364> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q656365> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-healthcare_record_attestation_reason> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ndvtjiq0cke0q1trw58rtrq2> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "person_given_name" ;
+    rdfs:comment "Given (first) name of the person agent." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q202444> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-person_given_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-nesxtz8c5o665swc9lhvqkjj> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "PROV Agent Type" ;
+    rdfs:comment "Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation." ;
+    rdfs:isDefinedBy prov:Agent ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prov_agent_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "National ID (CID)" ;
+    rdfs:comment "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions." ;
+    rdfs:isDefinedBy <http://schema.org/identifier>,
+        <https://www.wikidata.org/wiki/Q1140371> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-national_id_(cid)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-nnu04d5qgrmn1bim8bpu0l65> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Diagnosis" ;
+    rdfs:comment "Clinical diagnosis resulting from this visit. This cell carries Restricted:PatientCare policy — it cannot be composed into public reports." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q14860489> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-diagnosis> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-nomiekce61caq5n9a49d0eu6> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Medication Name" ;
+    rdfs:comment "Name of the prescribed medication (generic or brand name)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q70848614> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-medication_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ntk4zsr15bcca2jmocdkcpcc> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Allergy Description" ;
+    rdfs:comment "Description of a known allergy (drug, food, environmental)" ;
+    rdfs:isDefinedBy <http://schema.org/description> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-allergy_description> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-p14jkmk8xqs97daq3zvyhrsj> a schema:DateTime,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Onset Date" ;
+    rdfs:comment "Date of symptom or disease onset" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q577> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-onset_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-plob4z6l86w98xcvt7sz324v> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Non-negative Weight" ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdIntervalType> .
+
+<sdc4:mc-q8mgqxefnj2v39cn83lsjetb> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Primary Care Assignment" ;
+    rdfs:isDefinedBy prov:Agent,
+        <https://hl7.org/fhir/> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-q8x2nc8i8ud3tqo42g850vwz> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Healthcare Record Attestation" ;
+    rdfs:comment "Attestation for healthcare records. The healthcare provider attests to the accuracy of clinical observations and treatments. W3C PROV-DM, GDPR/UN CEB." ;
+    rdfs:isDefinedBy prov:Activity,
+        <https://www.w3.org/TR/vc-data-model/#credentials>,
+        <https://www.wikidata.org/wiki/Q116890704> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q31207> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-healthcare_record_attestation> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:AttestationType> .
+
+<sdc4:mc-qoogfcksod6jtymyto974smz> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Normal Body Temperature" ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdIntervalType> .
+
+<sdc4:mc-qouanq414kzylojpvqt7d78y> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Normal Diastolic Blood Pressure" ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdIntervalType> .
+
+<sdc4:mc-qvmb5f4xmy56y98q8raelpl9> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Facility" ;
+    rdfs:comment "Healthcare facility where the visit occurred" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q9386252> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-facility> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-qzmcum3kwmskrkj7nhkf8fkm> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Reason for Visit" ;
+    rdfs:comment "Chief complaint or reason for the clinical encounter" ;
+    rdfs:isDefinedBy <http://snomed.info/id/409586006> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-reason_for_visit> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-s6oo99lbq85kfz0v5nqv9yaf> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Patient Weight" ;
+    rdfs:comment "Patient body weight in kilograms measured during a clinical visit. Used for medication dosing calculations, BMI computation, and tracking health trends." ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
+
+<sdc4:mc-td5j1frz2fa8g4uh1hor7w11> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Lot Number" ;
+    rdfs:comment "Vaccine lot number for traceability" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q28698186> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-lot_number> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-tjxxdsd6idyzqygrncojauxn> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Mass/Weight (SI - Metric)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q3197317> ;
+    rdfs:seeAlso <http://qudt.org/vocab/quantitykind/Mass> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-trvg8tpie5w2zlf6b0nl3zhb> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vaccination Facility Participation Function" ;
+    rdfs:comment "Function of the facility in the vaccination event (e.g., Administering Site, Storage Facility)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vaccination_facility_participation_function> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-tz13p9d4dpbw3pe9bx51nbou> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Condition Status" ;
+    rdfs:comment "Current status of the condition" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q12136> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-condition_status> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-tzzp7weh4dmg323u6kfalo0g> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Healthcare Record Attested View" ;
+    rdfs:isDefinedBy schema:DigitalDocument ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q656365> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
+
+<sdc4:mc-u1hjad8m99xlnkyj5clvjnpa> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Administering Facility" ;
+    rdfs:comment "Healthcare facility where the vaccine was given" ;
+    rdfs:isDefinedBy <http://snomed.info/id/264362003> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-administering_facility> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-u1i23yha2rvz5nbxjz3l8x48> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "PROV Role Type" ;
+    rdfs:comment "Functional roles that agents, entities, or activities can assume within provenance relationships." ;
+    rdfs:isDefinedBy <https://www.w3.org/TR/prov-o/#qualifiedInvolvement> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prov_role_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-ule5u2z3rjpa9pooaifwj1n3> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_identifier" ;
+    rdfs:comment "Official identifier for the organization (e.g., DUNS, tax ID)." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q11378663> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_identifier> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-v5p12fdr4figf0k2rulfqrxl> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Prescriber Participation Function" ;
+    rdfs:comment "Function of the prescriber in the medication order (e.g., Attending Physician, Consultant)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prescriber_participation_function> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-vh2scyehy68pw7sbvzdg3cn9> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Patient Height" ;
+    rdfs:comment "Patient standing height in centimeters measured during a clinical visit. Used for BMI computation and growth tracking." ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
+
+<sdc4:mc-vhjvhm6vz2om2jfn6b923gw7> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Medications" ;
+    rdfs:isDefinedBy <https://hl7.org/fhir/>,
+        <https://www.wikidata.org/wiki/Q12140> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-vyscq0dtz0hsigh2hbsvqajr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Healthcare Provider" ;
+    rdfs:comment "Healthcare provider (facility and/or clinician) delivering care. W3C PROV-DM Agent supporting both Person and Organization types." ;
+    rdfs:isDefinedBy prov:Agent,
+        schema:Organization ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-healthcare_provider> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-xd97z3tju6zwhlq4cu84v0bw> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Normal Systolic Blood Pressure" ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdIntervalType> .
+
+<sdc4:mc-xplqihmynccwa3o4o8s7gqml> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Allergies and Conditions" ;
+    rdfs:isDefinedBy <https://hl7.org/fhir/>,
+        <https://www.wikidata.org/wiki/Q42982> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Length/Distance (SI - Metric)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1344778> ;
+    rdfs:seeAlso <http://qudt.org/vocab/quantitykind/Length> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-y7k4p12co0b9v6asll531fhv> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Medication Dosage Amount" ;
+    rdfs:comment "Prescribed dosage amount of the medication in milligrams. Represents the per-administration dose as ordered by the prescribing physician." ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
+
+<sdc4:mc-ygtbvvmzcw3ukfsg3axqry97> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Patient Record" ;
+    rdfs:isDefinedBy <https://hl7.org/fhir/>,
+        <https://www.wikidata.org/wiki/Q1324077> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-yi46egvfmz66gd0dhypl6t6m> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vaccination Facility Participation Mode" ;
+    rdfs:comment "Mode of facility participation in the vaccination event (e.g., in person, mobile clinic)." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vaccination_facility_participation_mode> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-ylue5x7upcvcrat329hmnv9z> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Healthcare Record Workflow" ;
+    rdfs:isDefinedBy prov:Activity,
+        <https://hl7.org/fhir/> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Pressure" ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-z28bjtjekyybe300ukuyjpi4> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Dosage" ;
+    rdfs:comment "Prescribed dosage (e.g., \"500mg\", \"10mg/mL\")" ;
+    rdfs:isDefinedBy <http://qudt.org/vocab/quantitykind/AmountOfSubstance> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-dosage> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-zs9ciw4nypx4plo856h3m95d> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "person_family_name" ;
+    rdfs:comment "Family (last) name of the person agent." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q4116295> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-person_family_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+

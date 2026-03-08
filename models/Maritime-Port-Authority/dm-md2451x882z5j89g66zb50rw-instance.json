@@ -1,0 +1,477 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "md2451x882z5j89g66zb50rw",
+  "dm_type": "dm-md2451x882z5j89g66zb50rw",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Maritime Port Authority",
+    "dm_encoding": "utf-8",
+    "instance_id": "ag9wljhe9u1fbsho4ytevjud",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-03-08T03:27:39.169139",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "i8cjmvihdces5rqvb2snqwmo",
+    "label": "Port Call Record",
+    "type": "Cluster",
+    "description": "A single port call — one vessel arriving at and departing from Porto Sereno.\nBusiness Context: Primary operational record for port authority. Links to cargo, crew, fees, and customs.\nPurpose: Document a vessel's visit to Porto Sereno with all associated records",
+    "items": [
+      {
+        "component_id": "k7a0poa5c7co38oc65i6jppo",
+        "label": "Flag State",
+        "type": "XdString",
+        "description": "Country of vessel registration (flag state)",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 200
+        }
+      },
+      {
+        "component_id": "pbfvurdvio38rt6puifhippe",
+        "label": "Port Call ID",
+        "type": "XdString",
+        "description": "Unique identifier for this port call record. Assigned by Porto Sereno Port Authority.",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 50
+        }
+      },
+      {
+        "component_id": "lnjzw0racjo2oxol5w82tp1y",
+        "label": "Berth Assignment",
+        "type": "XdString",
+        "description": "Planned berth assignment for a vessel at port.",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 200
+        }
+      },
+      {
+        "component_id": "gxt0t3cs4u6v5ob55qkc6ha0",
+        "label": "Next Port of Call",
+        "type": "XdString",
+        "description": "Next port after this arrival",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 200
+        }
+      },
+      {
+        "component_id": "s0qun9zalf98t3ffsefh34rj",
+        "label": "Port of Departure",
+        "type": "XdString",
+        "description": "Last port of departure",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 200
+        }
+      },
+      {
+        "component_id": "qlqdwbglcq4v3rg8i8iy7dk0",
+        "label": "Vessel Call Sign",
+        "type": "XdString",
+        "description": "Vessel radio call sign",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 50
+        }
+      },
+      {
+        "component_id": "ycy71t767wlyqma97o82r2m9",
+        "label": "Vessel IMO Number",
+        "type": "XdString",
+        "description": "International Maritime Organization (IMO) number",
+        "value": "DefaultString"
+      },
+      {
+        "component_id": "cl1hiqht7tm42a8lh8c4c1hz",
+        "label": "Vessel MMSI",
+        "type": "XdString",
+        "description": "Maritime Mobile Service Identity (MMSI) number",
+        "value": "DefaultString"
+      },
+      {
+        "component_id": "s5zeapfup3xdj6wbqjjkf1nd",
+        "label": "Vessel Name",
+        "type": "XdString",
+        "description": "Name of vessel (XdString)",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 200
+        }
+      },
+      {
+        "component_id": "bmoixtn8r8pu62gbgd1tl8qn",
+        "label": "Voyage Number",
+        "type": "XdString",
+        "description": "Voyage or trip identifier",
+        "value": "DefaultString",
+        "constraints": {
+          "min_length": 1,
+          "max_length": 50
+        }
+      },
+      {
+        "component_id": "bfaa3m23ye8q0qphv0x24if6",
+        "label": "Cargo Type",
+        "type": "XdToken",
+        "description": "Primary type of cargo",
+        "value": "refrigerated",
+        "constraints": {
+          "enumerations": [
+            "containers",
+            "bulk_dry",
+            "bulk_liquid",
+            "vehicles",
+            "general_cargo",
+            "refrigerated",
+            "livestock",
+            "none"
+          ]
+        }
+      },
+      {
+        "component_id": "lyh7y1in5j9ka5cxk2zw2qdj",
+        "label": "Purpose of Call",
+        "type": "XdToken",
+        "description": "Purpose of port call",
+        "value": "crew_change",
+        "constraints": {
+          "enumerations": [
+            "load_cargo",
+            "discharge_cargo",
+            "load_discharge",
+            "refuel",
+            "provisions",
+            "repairs",
+            "crew_change",
+            "emergency",
+            "other"
+          ]
+        }
+      },
+      {
+        "component_id": "p5qzw565y1dm5f3s6lg2q3ft",
+        "label": "Crew Count",
+        "type": "XdCount",
+        "description": "Total number of crew members aboard the vessel at time of port call. Required for immigration processing, shore leave management, and emergency muster planning.",
+        "value": 58,
+        "units": {
+          "label": "Persons",
+          "value": "Cordova : Persons"
+        }
+      },
+      {
+        "component_id": "x720xrlooqij75bk26pvzrtl",
+        "label": "Passenger Count",
+        "type": "XdCount",
+        "description": "Total number of passengers aboard the vessel at time of port call. Required for immigration processing, disembarkation planning, and port facility capacity management. Zero for cargo-only vessels.",
+        "value": 71,
+        "units": {
+          "label": "Persons",
+          "value": "Cordova : Persons"
+        }
+      },
+      {
+        "component_id": "xccdfbmuqcy5yzv2n6ef0hrs",
+        "label": "Vessel Draft",
+        "type": "XdQuantity",
+        "description": "Maximum draft (depth below waterline) of the vessel in meters at time of port entry. Critical for channel and berth depth clearance at Porto Sereno harbor.",
+        "value": 76.7,
+        "magnitude": {
+          "value": 76.7,
+          "min_inclusive": 0.5,
+          "max_inclusive": 30.0
+        },
+        "units": {
+          "label": "Length/Distance (SI - Metric)",
+          "symbol": "%",
+          "system": "ISO"
+        }
+      },
+      {
+        "component_id": "wtph0sqt244h38lyzf9ot1op",
+        "label": "Vessel Gross Tonnage",
+        "type": "XdQuantity",
+        "description": "Vessel's gross tonnage as registered under the IMO Tonnage Convention (1969). Determines applicable port fees, pilotage requirements, and berth assignment at Porto Sereno.",
+        "value": 50.3,
+        "magnitude": {
+          "value": 50.3,
+          "min_inclusive": 1.0
+        },
+        "units": {
+          "label": "Gross Tonnage",
+          "symbol": "%",
+          "system": "ISO"
+        }
+      },
+      {
+        "component_id": "jnxxwzl046rkmkbtm33naueu",
+        "label": "Vessel Length Overall",
+        "type": "XdQuantity",
+        "description": "Length overall (LOA) of the vessel in meters, measured from the foremost to the aftermost point. Required for berth assignment and pilotage planning at Porto Sereno.",
+        "value": 51.1,
+        "magnitude": {
+          "value": 51.1,
+          "min_inclusive": 1.0,
+          "max_inclusive": 500.0
+        },
+        "units": {
+          "label": "Length/Distance (SI - Metric)",
+          "symbol": "%",
+          "system": "ISO"
+        }
+      },
+      {
+        "component_id": "lh0ufebnovngzzgfggud6ae6",
+        "label": "Vessel Net Tonnage",
+        "type": "XdQuantity",
+        "description": "Vessel's net tonnage as registered under the IMO Tonnage Convention (1969). Represents usable cargo capacity. Used for canal transit fees and some port tariff calculations.",
+        "value": 3.3,
+        "magnitude": {
+          "value": 3.3,
+          "min_inclusive": 1.0
+        },
+        "units": {
+          "label": "Net Tonnage",
+          "symbol": "%",
+          "system": "ISO"
+        }
+      },
+      {
+        "component_id": "upvi6l9pyb4f0p4vfunietsw",
+        "label": "Arrival Date/Time",
+        "type": "XdTemporal",
+        "description": "Date and time the vessel arrived at Porto Sereno",
+        "value": "2024-01-01T00:00:00"
+      },
+      {
+        "component_id": "sqpcl9uk7sze8bdqxxqwuqrn",
+        "label": "Departure Date/Time",
+        "type": "XdTemporal",
+        "description": "Date and time the vessel departed Porto Sereno. Null if vessel is currently in port.\n\n---",
+        "value": "2024-01-01T00:00:00"
+      },
+      {
+        "component_id": "ibb8e7c8equpeqiv5wxrxxll",
+        "label": "Cargo Manifest",
+        "type": "Cluster",
+        "description": "Cargo loaded or discharged during this port call.\nPurpose: Record cargo movements for customs, safety, and tax purposes\nParent Cluster: Port Call Record",
+        "items": [
+          {
+            "component_id": "wxjyv4dmwb0rws14mn5xy3ju",
+            "label": "Customs Declaration Filed",
+            "type": "XdBoolean",
+            "description": "Whether customs declaration has been filed",
+            "value": false,
+            "constraints": {
+              "true_values": [
+                "Yes",
+                "True",
+                "Y"
+              ],
+              "false_values": [
+                "No",
+                "False",
+                "N"
+              ]
+            }
+          },
+          {
+            "component_id": "n7x39orkbwjejdf8r93trlaa",
+            "label": "Hazardous Cargo",
+            "type": "XdBoolean",
+            "description": "Whether vessel is carrying hazardous materials",
+            "value": false,
+            "constraints": {
+              "true_values": [
+                "Yes",
+                "True",
+                "Y"
+              ],
+              "false_values": [
+                "No",
+                "False",
+                "N"
+              ]
+            }
+          },
+          {
+            "component_id": "l8f0m7op4xhrxqy1jrnvbuly",
+            "label": "Business Registry Number",
+            "type": "XdString",
+            "description": "Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions.",
+            "value": "DefaultString"
+          },
+          {
+            "component_id": "z7zqo56erimvk8dqvl07ihfr",
+            "label": "Cargo Description",
+            "type": "XdString",
+            "description": "Description of cargo contents",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "an9kafb2l1enwh20ngvo1n7y",
+            "label": "Cargo Destination",
+            "type": "XdString",
+            "description": "Final destination for this cargo (may be Porto Sereno or transshipment)",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "rt510ljj3vz05fxwcm85i990",
+            "label": "Cargo Origin",
+            "type": "XdString",
+            "description": "Port or country of origin for this cargo",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 200
+            }
+          },
+          {
+            "component_id": "dp1dkn09vydj2ss6ho37kyhv",
+            "label": "Customs Reference Number",
+            "type": "XdString",
+            "description": "Customs filing reference number",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 50
+            }
+          },
+          {
+            "component_id": "gqbvto3l0o5e6uorrgjwdig2",
+            "label": "Hazmat Class",
+            "type": "XdToken",
+            "description": "Hazardous material classes on board (if applicable)",
+            "value": "1-explosives,2-gases,3-flammable-liquids,4-flammable-solids,5-oxidizers,6-toxic,7-radioactive,8-corrosives,9-misc",
+            "constraints": {
+              "enumerations": [
+                "1-explosives,2-gases,3-flammable-liquids,4-flammable-solids,5-oxidizers,6-toxic,7-radioactive,8-corrosives,9-misc"
+              ]
+            }
+          },
+          {
+            "component_id": "y5se2qd3r6xx6pz8t7d8cqvf",
+            "label": "Container Count",
+            "type": "XdCount",
+            "description": "Number of shipping containers in the cargo consignment measured in TEU (Twenty-foot Equivalent Units). Used for berth planning, crane allocation, and port throughput statistics.",
+            "value": 56,
+            "units": {
+              "label": "Twenty-foot Equivalent Units (TEU)",
+              "value": "Cordova : Twenty-foot Equivalent Units (TEU)"
+            }
+          },
+          {
+            "component_id": "lqqypwp22ohzb0ud3wq81r9s",
+            "label": "Cargo Weight",
+            "type": "XdQuantity",
+            "description": "Total weight of the cargo consignment in kilograms as declared on the bill of lading. Required for vessel stability calculations and port crane scheduling.",
+            "value": 52.5,
+            "magnitude": {
+              "value": 52.5,
+              "min_inclusive": 0.0
+            },
+            "units": {
+              "label": "Mass/Weight (SI - Metric)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          }
+        ]
+      },
+      {
+        "component_id": "emtr91lypy400ttgzz2ti4et",
+        "label": "Port Fees",
+        "type": "Cluster",
+        "description": "Financial charges for this port call. Links to Tax & Revenue domain.\nPurpose: Record port fees for billing, tax reporting, and financial auditing\nParent Cluster: Port Call Record",
+        "items": [
+          {
+            "component_id": "wvfcfa6u4ers75egrbi25x9l",
+            "label": "Fee Type",
+            "type": "XdToken",
+            "description": "Type of port fee assessed",
+            "value": "Waste Disposal",
+            "constraints": {
+              "enumerations": [
+                "Berth Fee",
+                "Pilotage",
+                "Tug Service",
+                "Cargo Handling",
+                "Customs Processing",
+                "Waste Disposal",
+                "Fresh Water",
+                "Provisions"
+              ]
+            }
+          },
+          {
+            "component_id": "vt5nh89ol3g5gj0oz35tl6y0",
+            "label": "Payment Status",
+            "type": "XdToken",
+            "description": "Whether the fee has been paid",
+            "value": "Overdue",
+            "constraints": {
+              "enumerations": [
+                "Paid",
+                "Invoiced",
+                "Overdue"
+              ]
+            }
+          },
+          {
+            "component_id": "e92ud8io69rm826g9b1jrrgh",
+            "label": "Port Fee Amount",
+            "type": "XdQuantity",
+            "description": "Fee amount assessed for port services in Cordova Córdoba. Includes berth rental, pilotage, tug assistance, waste disposal, and other harbor charges per the Porto Sereno fee schedule.",
+            "value": 54.3,
+            "magnitude": {
+              "value": 54.3,
+              "min_inclusive": 0.0
+            },
+            "units": {
+              "label": "Cordova Córdoba (COR)",
+              "symbol": "%",
+              "system": "ISO"
+            }
+          },
+          {
+            "component_id": "zub98dao6k8cbbhsddzoq62w",
+            "label": "Fee Date",
+            "type": "XdTemporal",
+            "description": "Date the fee was assessed",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      }
+    ]
+  },
+  "subject": {
+    "component_id": "i2e1qhvmkvbnkt0le7rczw5x",
+    "label": "Vessel Owner/Operator",
+    "type": "Party",
+    "description": "The organization that owns or operates the vessel. W3C PROV-DM Agent (Organization) with registry number as identifier."
+  },
+  "provider": {
+    "component_id": "l29wc96z6g1a432bhcxxo7dy",
+    "label": "Port Authority",
+    "type": "Party",
+    "description": "Maritime port authority managing vessel traffic, arrivals, and departures. W3C PROV-DM Agent (Organization)."
+  }
+}

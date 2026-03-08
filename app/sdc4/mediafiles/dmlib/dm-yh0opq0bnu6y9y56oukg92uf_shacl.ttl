@@ -1,0 +1,871 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sdc4: <https://semanticdatacharter.com/ns/sdc4/> .
+@prefix sdc4-meta: <https://semanticdatacharter.com/ontology/sdc4-meta/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sdc4:AttestationBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Attestation view must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:attestation-view ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Attestation proof must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:attestation-proof ] ;
+    sh:targetClass sdc4:AttestationType .
+
+sdc4:AuditBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:message "Audit must have a timestamp" ;
+            sh:minCount 1 ;
+            sh:path sdc4:audit-time ],
+        [ sh:class sdc4:PartyType ;
+            sh:maxCount 1 ;
+            sh:message "Audit committer must be a Party" ;
+            sh:minCount 0 ;
+            sh:path sdc4:audit-committer ] ;
+    sh:targetClass sdc4:AuditType .
+
+sdc4:ParticipationBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Participation function must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:participation-function ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Participation mode must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:participation-mode ] ;
+    sh:targetClass sdc4:ParticipationType .
+
+sdc4:PartyBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Party must have a name" ;
+            sh:minCount 1 ;
+            sh:path sdc4:party-name ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Party ID must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:party-id ] ;
+    sh:targetClass sdc4:PartyType .
+
+sdc4:ReferenceRangeBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "ReferenceRange must have a meaning" ;
+            sh:minCount 1 ;
+            sh:path sdc4:range-meaning ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "ReferenceRange lower bound must be a decimal" ;
+            sh:minCount 0 ;
+            sh:path sdc4:range-lower ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "ReferenceRange upper bound must be a decimal" ;
+            sh:minCount 0 ;
+            sh:path sdc4:range-upper ] ;
+    sh:targetClass sdc4:ReferenceRangeType .
+
+sdc4:SDC4ComponentShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "All SDC4 components must have a label" ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class rdfs:Class ;
+            sh:message "All SDC4 components must have an rdf:type" ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass rdfs:Class .
+
+sdc4:XdBooleanBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdBoolean must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:message "XdBoolean must have a boolean value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdboolean-value ] ;
+    sh:targetClass sdc4:XdBooleanType .
+
+sdc4:XdCountBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdCount must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:message "XdCount must have an integer value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdcount-value ],
+        [ sh:class sdc4:UnitsType ;
+            sh:maxCount 1 ;
+            sh:message "XdCount requires a Units component" ;
+            sh:minCount 1 ;
+            sh:path sdc4-meta:hasUnit ] ;
+    sh:targetClass sdc4:XdCountType .
+
+sdc4:XdDoubleBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdDouble must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:message "XdDouble must have a double value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xddouble-value ],
+        [ sh:class sdc4:UnitsType ;
+            sh:maxCount 1 ;
+            sh:message "XdDouble requires a Units component" ;
+            sh:minCount 1 ;
+            sh:path sdc4-meta:hasUnit ] ;
+    sh:targetClass sdc4:XdDoubleType .
+
+sdc4:XdFileBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdFile must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:message "XdFile must have a valid URI" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdfile-uri ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdFile media type must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdfile-media-type ] ;
+    sh:targetClass sdc4:XdFileType .
+
+sdc4:XdFloatBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdFloat must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:float ;
+            sh:maxCount 1 ;
+            sh:message "XdFloat must have a float value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdfloat-value ],
+        [ sh:class sdc4:UnitsType ;
+            sh:maxCount 1 ;
+            sh:message "XdFloat requires a Units component" ;
+            sh:minCount 1 ;
+            sh:path sdc4-meta:hasUnit ] ;
+    sh:targetClass sdc4:XdFloatType .
+
+sdc4:XdIntervalBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdInterval must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:maxCount 1 ;
+            sh:message "XdInterval lower bound is optional" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdinterval-lower ],
+        [ sh:maxCount 1 ;
+            sh:message "XdInterval upper bound is optional" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdinterval-upper ] ;
+    sh:targetClass sdc4:XdIntervalType .
+
+sdc4:XdLinkBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdLink must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:message "XdLink must have a valid URI" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdlink-url ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdLink relation must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdlink-relation ] ;
+    sh:targetClass sdc4:XdLinkType .
+
+sdc4:XdOrdinalBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdOrdinal must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:message "XdOrdinal must have an integer value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdordinal-value ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdOrdinal symbol must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdordinal-symbol ] ;
+    sh:targetClass sdc4:XdOrdinalType .
+
+sdc4:dm-yh0opq0bnu6y9y56oukg92uf-shape a sh:NodeShape ;
+    rdfs:label "Law Enforcement Record" ;
+    dc:coverage "Universal" ;
+    dc:language "en-US" ;
+    dc:rights "CC-BY http://creativecommons.org/licenses/by/3.0/" ;
+    rdfs:comment "Record public safety incidents, charges, and dispositions in Cordova." ;
+    sh:node sdc4:DMBaseShape ;
+    sh:property [ sh:maxCount 1 ;
+            sh:message "Data Model must have a root data Cluster" ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-songhwxr1fp8niqba4fd0yd9-shape ;
+            sh:path sdc4:dm-data ] ;
+    sh:targetNode sdc4:dm-yh0opq0bnu6y9y56oukg92uf ;
+    sdc4:dm-encoding "utf-8" ;
+    sdc4:dm-language "en-US" ;
+    sdc4-meta:generatedAt "2026-03-08T03:26:41.019426+00:00"^^xsd:dateTime .
+
+sdc4:DMBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Data Model must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:dm-label ],
+        [ sh:datatype xsd:language ;
+            sh:maxCount 1 ;
+            sh:message "Data Model must specify a language" ;
+            sh:minCount 1 ;
+            sh:path sdc4:dm-language ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Data Model must specify encoding" ;
+            sh:minCount 1 ;
+            sh:path sdc4:dm-encoding ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Data Model must have a mandatory instance_id (CUID2)" ;
+            sh:minCount 1 ;
+            sh:path sdc4:instance_id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path sdc4:source_instance_id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path sdc4:source_version_id ] ;
+    sh:targetClass sdc4:DMType .
+
+sdc4:SimpleReferenceRangeBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "SimpleReferenceRange lower bound must be a decimal" ;
+            sh:minCount 0 ;
+            sh:path sdc4:simple-range-lower ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "SimpleReferenceRange upper bound must be a decimal" ;
+            sh:minCount 0 ;
+            sh:path sdc4:simple-range-upper ] ;
+    sh:targetClass sdc4:SimpleReferenceRangeType .
+
+sdc4:UnitsBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Units must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Units code must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:units-code ] ;
+    sh:targetClass sdc4:UnitsType .
+
+sdc4:XdQuantityBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdQuantity must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "XdQuantity must have a decimal value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdquantity-value ],
+        [ sh:class sdc4:UnitsType ;
+            sh:maxCount 1 ;
+            sh:message "XdQuantity requires a Units component" ;
+            sh:minCount 1 ;
+            sh:path sdc4-meta:hasUnit ] ;
+    sh:targetClass sdc4:XdQuantityType .
+
+sdc4:mc-atdtdfzruh7tya0iv5cz365l-shape a sh:NodeShape ;
+    rdfs:label "City" ;
+    rdfs:comment "One of the nine cities in the Republic of Cordova." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ],
+        [ rdfs:label "City" ;
+            sh:hasValue <http://schema.org/City> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Porto Sereno" "Vistamar" "Rioseco" "Campoluz" "Tierraverde" "Montecara" "Novaciudad" "Piedrasol" "Lagunavista" ) ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-avmmc3r38dol0ghko42yeyp4-shape a sh:NodeShape ;
+    rdfs:label "Quarantine Enforcement" ;
+    rdfs:comment """Special sub-cluster for public health quarantine orders. Used in the Contagion scenario.
+Business Context: Links Law Enforcement to Healthcare domain through quarantine orders
+Purpose: Document quarantine zone establishment and compliance monitoring
+Parent Cluster: Incident Report""" ;
+    sh:message "Assert: not(w33a4q5hoiqnex7t3dv5v43v/xdtemporal-date) or hcsadpovanyp7x6p8wwnw6k6/xdtemporal-date le w33a4q5hoiqnex7t3dv5v43v/xdtemporal-date" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ rdfs:label "schema:ItemList" ;
+            sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-ixmedhicidzpi7g6g2huqzvv-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "quarantine" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q186588> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-r34gm210y9jifbyxa0fcxy96-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-lohvu07ok3c3xvesa16htf2m-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-vq30hd0dl6v59d3ttyyvg6rp-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "IMO Tonnage Measurement Convention" ;
+            sh:hasValue <https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-ihoatduhb7fckjw0ezq5u7g1-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-avmmc3r38dol0ghko42yeyp4 .
+
+sdc4:mc-b6nahtg2we4rh5qsk2j7qfvz-shape a sh:NodeShape ;
+    rdfs:label "Location Street Full Text" ;
+    rdfs:comment "A complete street address (NIEM nc:LocationStreetFullText). BFO alignment: address is an information content entity (IAO:0000030) referring to a site (BFO:0000029)." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ rdfs:label "street address" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q24574749> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxLength 200 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ rdfs:label "schema:Text" ;
+            sh:hasValue schema:Text ;
+            sh:path rdf:type ] ;
+    sh:targetNode sdc4:mc-b6nahtg2we4rh5qsk2j7qfvz ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-c3eoo0vfid9c8riruf7uoyz2-shape a sh:NodeShape ;
+    rdfs:label "Charge and Disposition" ;
+    rdfs:comment """Charges filed and case outcome. Cordova has misdemeanor-level offenses only.
+Purpose: Record charges and their disposition
+Parent Cluster: Incident Report""" ;
+    sh:message "Assert: not(slbi4r6w1k42qtswbsowzhz6/xdtoken-value = 'Fine') or boolean(y8yx9mjnek5l2kmfo3h7re3i)" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-eoqim4xj9gsxtxrqko1hh55o-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-hc91pdnj3bb6997l5z4ndchz-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-qse1jwofk5lm2wnsrn3f06l0-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "NIEM Open Standard" ;
+            sh:hasValue <https://niemopen.org/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "Charge" ;
+            sh:hasValue <http://release.niem.gov/niem/niem-core/6.0/#Charge> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-rnje7nq6m08vh01g8eg23say-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-yahksk4xc5to981ows7bpp6z-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-l0esdclu01pg7qw429oe7kjk-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "schema:ItemList" ;
+            sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-c3eoo0vfid9c8riruf7uoyz2 .
+
+sdc4:mc-e83h36jqgi59dhy1dttp22qm-shape a sh:NodeShape ;
+    rdfs:label "Incident Status" ;
+    rdfs:comment "Current status of the incident" ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Open" "Closed" "Pending" ) ;
+            sh:path sdc4:xdtoken-value ],
+        [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ rdfs:label "Status (Q2443992)" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q2443992> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-e83h36jqgi59dhy1dttp22qm ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-eoqim4xj9gsxtxrqko1hh55o-shape a sh:NodeShape ;
+    rdfs:label "Charge Description" ;
+    rdfs:comment "A description of a charge (NIEM j:ChargeDescriptionText)" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxLength 200 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ rdfs:label "schema:Text" ;
+            sh:hasValue schema:Text ;
+            sh:path rdf:type ],
+        [ rdfs:label "name" ;
+            sh:hasValue <http://schema.org/name> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-eoqim4xj9gsxtxrqko1hh55o ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-hc91pdnj3bb6997l5z4ndchz-shape a sh:NodeShape ;
+    rdfs:label "Charge Category (Cordova)" ;
+    rdfs:comment "Categories of misdemeanor offenses in Cordova law enforcement records. Cordova has no felony classification — all criminal matters are misdemeanor-level." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ rdfs:label "Criminal charge (Q1752346)" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q1752346> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Petty Theft" "Public Intoxication" "Trespassing" "Disorderly Conduct" "Traffic Violation" "Minor Vandalism" ) ;
+            sh:path sdc4:xdtoken-value ],
+        [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ] ;
+    sh:targetNode sdc4:mc-hc91pdnj3bb6997l5z4ndchz ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-ihoatduhb7fckjw0ezq5u7g1-shape a sh:NodeShape ;
+    rdfs:label "Compliance Status" ;
+    rdfs:comment "Whether the quarantine is being complied with" ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ rdfs:label "regulatory compliance" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q752476> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Compliant" "Violation Detected" "Under Review" ) ;
+            sh:path sdc4:xdtoken-value ],
+        [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ] ;
+    sh:targetNode sdc4:mc-ihoatduhb7fckjw0ezq5u7g1 ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-ixmedhicidzpi7g6g2huqzvv-shape a sh:NodeShape ;
+    rdfs:label "Issuing Authority" ;
+    rdfs:comment "The authority that issued the quarantine order (e.g., \"Provincial Health Authority, Aldara\")" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ rdfs:label "health authority" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q136462915> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "schema:name" ;
+            sh:hasValue schema:name ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxLength 200 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-ixmedhicidzpi7g6g2huqzvv ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape a sh:NodeShape ;
+    rdfs:label "Province" ;
+    rdfs:comment "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ rdfs:label "State/Province" ;
+            sh:hasValue schema:State ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Aldara" "Brevina" "Celara" ) ;
+            sh:path sdc4:xdtoken-value ],
+        [ rdfs:label "AdministrativeArea" ;
+            sh:hasValue <http://schema.org/AdministrativeArea> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-l0esdclu01pg7qw429oe7kjk-shape a sh:NodeShape ;
+    rdfs:label "Charge Filing Date" ;
+    rdfs:comment "A date a charge was filed (NIEM j:ChargeFilingDate)" ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ rdfs:label "datePublished" ;
+            sh:hasValue <http://schema.org/datePublished> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "schema:DateTime" ;
+            sh:hasValue schema:DateTime ;
+            sh:path rdf:type ] ;
+    sh:targetNode sdc4:mc-l0esdclu01pg7qw429oe7kjk ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-lohvu07ok3c3xvesa16htf2m-shape a sh:NodeShape ;
+    rdfs:label "Quarantine End Date" ;
+    rdfs:comment """Date the quarantine order was lifted. Null if still active.
+
+---""" ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ rdfs:label "endDate" ;
+            sh:hasValue <http://schema.org/endDate> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ rdfs:label "schema:Date" ;
+            sh:hasValue schema:Date ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-lohvu07ok3c3xvesa16htf2m ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-nc7aq6ofnccavkmczsb2dudy-shape a sh:NodeShape ;
+    rdfs:label "Incident Category Code" ;
+    rdfs:comment "Categories of incidents per NIEM j:IncidentCategoryCode" ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "accident" "assault" "burglary" "robbery" "theft" "vandalism" "fraud" "drug_offense" "dui" "domestic_violence" "harassment" "missing_person" "suspicious_activity" "traffic" "fire" "medical" "other" ) ;
+            sh:path sdc4:xdtoken-value ],
+        [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ],
+        [ rdfs:label "Concept" ;
+            sh:hasValue skos:Concept ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-nc7aq6ofnccavkmczsb2dudy ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-ohk2uwcomsz8wegfvz0v0yod-shape a sh:NodeShape ;
+    rdfs:label "Incident Date" ;
+    rdfs:comment "A date and time an incident occurred (NIEM j:IncidentDate). BFO alignment: incident is a process (BFO:0000015) occurring at a temporal region." ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ sh:datatype xsd:gYearMonth ;
+            sh:maxCount 1 ;
+            sh:path sdc4:xdtemporal-year-month ],
+        [ rdfs:label "process" ;
+            sh:hasValue <http://purl.obolibrary.org/obo/BFO_0000015> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "schema:DateTime" ;
+            sh:hasValue schema:DateTime ;
+            sh:path rdf:type ] ;
+    sh:targetNode sdc4:mc-ohk2uwcomsz8wegfvz0v0yod ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-qse1jwofk5lm2wnsrn3f06l0-shape a sh:NodeShape ;
+    rdfs:label "Disposition Date" ;
+    rdfs:comment """Date the disposition was recorded
+
+---""" ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ rdfs:label "schema:Date" ;
+            sh:hasValue schema:Date ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ rdfs:label "disposal date" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q117195543> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-qse1jwofk5lm2wnsrn3f06l0 ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-r34gm210y9jifbyxa0fcxy96-shape a sh:NodeShape ;
+    rdfs:label "Quarantine Zone" ;
+    rdfs:comment "Description of the geographic area under quarantine (e.g., \"Porto Sereno Port District, Berths 1-12\")" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ rdfs:label "schema:description" ;
+            sh:hasValue schema:description ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxLength 200 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ rdfs:label "exclusion zone" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q356936> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-r34gm210y9jifbyxa0fcxy96 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-rguhpkd7s2d9a51392aon7ir-shape a sh:NodeShape ;
+    rdfs:label "Incident Summary" ;
+    rdfs:comment "Brief summary of incident (one paragraph)" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ rdfs:label "description" ;
+            sh:hasValue <http://schema.org/description> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxLength 2000 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ rdfs:label "schema:Text" ;
+            sh:hasValue schema:Text ;
+            sh:path rdf:type ] ;
+    sh:targetNode sdc4:mc-rguhpkd7s2d9a51392aon7ir ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-rnje7nq6m08vh01g8eg23say-shape a sh:NodeShape ;
+    rdfs:label "Disposition (Cordova)" ;
+    rdfs:comment "Outcome of a law enforcement case in Cordova." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "Fine" "Community Service" "Case Dismissed" "Pending" ) ;
+            sh:path sdc4:xdtoken-value ],
+        [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ],
+        [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ rdfs:label "legal disposition" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q2972905> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-rnje7nq6m08vh01g8eg23say ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-songhwxr1fp8niqba4fd0yd9-shape a sh:NodeShape ;
+    rdfs:label "Incident Report" ;
+    rdfs:comment """A single public safety incident recorded by Cordova National Police.
+Business Context: Links to Civil Registry for person identification
+Purpose: Document an incident with location, category, involved parties, and outcome""" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ rdfs:label "NIEM Open Standard" ;
+            sh:hasValue <https://niemopen.org/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-ohk2uwcomsz8wegfvz0v0yod-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-yi2189u4pinqitlmm5t6ccrd-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-b6nahtg2we4rh5qsk2j7qfvz-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-e83h36jqgi59dhy1dttp22qm-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "schema:ItemList" ;
+            sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-atdtdfzruh7tya0iv5cz365l-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-nc7aq6ofnccavkmczsb2dudy-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-rguhpkd7s2d9a51392aon7ir-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-c3eoo0vfid9c8riruf7uoyz2-shape ;
+            sh:order 9 ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "incident report" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q6014597> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-avmmc3r38dol0ghko42yeyp4-shape ;
+            sh:order 10 ;
+            sh:path sdc4:hasCluster ] ;
+    sh:targetNode sdc4:mc-songhwxr1fp8niqba4fd0yd9 .
+
+sdc4:mc-u18l77xlj2omcbmnpi5j7fff-shape a sh:NodeShape ;
+    rdfs:label "Cordova Córdoba (COR)" ;
+    rdfs:comment "National currency of the Republic of Cordova. ISO 4217-style code: COR. Used for all domestic financial transactions including salaries, taxes, property assessments, port fees, and legal encumbrances." ;
+    sh:node sdc4:UnitsBaseShape ;
+    sh:property [ rdfs:label "currency" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q8142> ;
+            sh:path skos:broadMatch ],
+        [ rdfs:label "Currency" ;
+            sh:hasValue schema:Currency ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-u18l77xlj2omcbmnpi5j7fff ;
+    sdc4-meta:sdcType "UnitsType" .
+
+sdc4:mc-vq30hd0dl6v59d3ttyyvg6rp-shape a sh:NodeShape ;
+    rdfs:label "Quarantine Start Date" ;
+    rdfs:comment "Date the quarantine order took effect" ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ rdfs:label "startDate" ;
+            sh:hasValue <http://schema.org/startDate> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "schema:Date" ;
+            sh:hasValue schema:Date ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:path sdc4:xdtemporal-date ] ;
+    sh:targetNode sdc4:mc-vq30hd0dl6v59d3ttyyvg6rp ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-yahksk4xc5to981ows7bpp6z-shape a sh:NodeShape ;
+    rdfs:label "Fine or Bail Amount" ;
+    rdfs:comment "Monetary amount of the fine imposed or bail set for the charge in Cordova Córdoba. Null if no financial penalty applies or bail is denied." ;
+    sh:node sdc4:XdQuantityBaseShape ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-u18l77xlj2omcbmnpi5j7fff-shape ;
+            sh:path sdc4-meta:hasUnit ],
+        [ rdfs:label "fine" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q186361> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:SimpleReferenceRangeBaseShape ;
+            sh:path sdc4-meta:hasSimpleReferenceRange ],
+        [ sh:datatype xsd:decimal ;
+            sh:minInclusive 0.00000 ;
+            sh:path sdc4:xdquantity-value ;
+            sdc4-meta:fractionDigits 2 ;
+            sdc4-meta:totalDigits 12 ],
+        [ rdfs:label "MonetaryAmount" ;
+            sh:hasValue schema:MonetaryAmount ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "bail" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q313614> ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-yahksk4xc5to981ows7bpp6z ;
+    sdc4-meta:sdcType "XdQuantityType" .
+
+sdc4:mc-yi2189u4pinqitlmm5t6ccrd-shape a sh:NodeShape ;
+    rdfs:label "Incident Report Number" ;
+    rdfs:comment "A report number for an incident (NIEM j:IncidentReportNumber)" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ rdfs:label "schema:Text" ;
+            sh:hasValue schema:Text ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxLength 50 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ rdfs:label "ticket number" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q111653916> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-yi2189u4pinqitlmm5t6ccrd ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:ClusterBaseShape a sh:NodeShape ;
+    sh:property [ sh:message "Cluster can contain zero or more components" ;
+            sh:minCount 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Cluster must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ] ;
+    sh:targetClass sdc4:ClusterType .
+
+sdc4:XdTemporalBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal date must be a valid date" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal datetime must be a valid datetime" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdtemporal-datetime ],
+        [ sh:datatype xsd:time ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal time must be a valid time" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdtemporal-time ],
+        [ sh:datatype xsd:gYearMonth ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal year-month must be a valid gYearMonth" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdtemporal-year-month ] ;
+    sh:targetClass sdc4:XdTemporalType .
+
+sdc4:XdStringBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdString must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdString value must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:datatype xsd:language ;
+            sh:maxCount 1 ;
+            sh:message "XdString language must be a valid language code" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdstring-language ] ;
+    sh:targetClass sdc4:XdStringType .
+
+sdc4:XdTokenBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdToken must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:token ;
+            sh:maxCount 1 ;
+            sh:message "XdToken must have a token value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetClass sdc4:XdTokenType .
+

@@ -1,0 +1,835 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sdc4: <https://semanticdatacharter.com/ns/sdc4/> .
+@prefix sdc4-meta: <https://semanticdatacharter.com/ontology/sdc4-meta/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sdc4:AttestationBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Attestation view must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:attestation-view ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Attestation proof must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:attestation-proof ] ;
+    sh:targetClass sdc4:AttestationType .
+
+sdc4:AuditBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:message "Audit must have a timestamp" ;
+            sh:minCount 1 ;
+            sh:path sdc4:audit-time ],
+        [ sh:class sdc4:PartyType ;
+            sh:maxCount 1 ;
+            sh:message "Audit committer must be a Party" ;
+            sh:minCount 0 ;
+            sh:path sdc4:audit-committer ] ;
+    sh:targetClass sdc4:AuditType .
+
+sdc4:ParticipationBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Participation function must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:participation-function ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Participation mode must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:participation-mode ] ;
+    sh:targetClass sdc4:ParticipationType .
+
+sdc4:PartyBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Party must have a name" ;
+            sh:minCount 1 ;
+            sh:path sdc4:party-name ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Party ID must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:party-id ] ;
+    sh:targetClass sdc4:PartyType .
+
+sdc4:ReferenceRangeBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "ReferenceRange must have a meaning" ;
+            sh:minCount 1 ;
+            sh:path sdc4:range-meaning ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "ReferenceRange lower bound must be a decimal" ;
+            sh:minCount 0 ;
+            sh:path sdc4:range-lower ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "ReferenceRange upper bound must be a decimal" ;
+            sh:minCount 0 ;
+            sh:path sdc4:range-upper ] ;
+    sh:targetClass sdc4:ReferenceRangeType .
+
+sdc4:SDC4ComponentShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "All SDC4 components must have a label" ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class rdfs:Class ;
+            sh:message "All SDC4 components must have an rdf:type" ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass rdfs:Class .
+
+sdc4:SimpleReferenceRangeBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "SimpleReferenceRange lower bound must be a decimal" ;
+            sh:minCount 0 ;
+            sh:path sdc4:simple-range-lower ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "SimpleReferenceRange upper bound must be a decimal" ;
+            sh:minCount 0 ;
+            sh:path sdc4:simple-range-upper ] ;
+    sh:targetClass sdc4:SimpleReferenceRangeType .
+
+sdc4:UnitsBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Units must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Units code must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:units-code ] ;
+    sh:targetClass sdc4:UnitsType .
+
+sdc4:XdBooleanBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdBoolean must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:message "XdBoolean must have a boolean value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdboolean-value ] ;
+    sh:targetClass sdc4:XdBooleanType .
+
+sdc4:XdCountBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdCount must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:message "XdCount must have an integer value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdcount-value ],
+        [ sh:class sdc4:UnitsType ;
+            sh:maxCount 1 ;
+            sh:message "XdCount requires a Units component" ;
+            sh:minCount 1 ;
+            sh:path sdc4-meta:hasUnit ] ;
+    sh:targetClass sdc4:XdCountType .
+
+sdc4:XdDoubleBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdDouble must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:message "XdDouble must have a double value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xddouble-value ],
+        [ sh:class sdc4:UnitsType ;
+            sh:maxCount 1 ;
+            sh:message "XdDouble requires a Units component" ;
+            sh:minCount 1 ;
+            sh:path sdc4-meta:hasUnit ] ;
+    sh:targetClass sdc4:XdDoubleType .
+
+sdc4:XdFileBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdFile must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:message "XdFile must have a valid URI" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdfile-uri ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdFile media type must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdfile-media-type ] ;
+    sh:targetClass sdc4:XdFileType .
+
+sdc4:XdFloatBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdFloat must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:float ;
+            sh:maxCount 1 ;
+            sh:message "XdFloat must have a float value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdfloat-value ],
+        [ sh:class sdc4:UnitsType ;
+            sh:maxCount 1 ;
+            sh:message "XdFloat requires a Units component" ;
+            sh:minCount 1 ;
+            sh:path sdc4-meta:hasUnit ] ;
+    sh:targetClass sdc4:XdFloatType .
+
+sdc4:XdIntervalBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdInterval must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:maxCount 1 ;
+            sh:message "XdInterval lower bound is optional" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdinterval-lower ],
+        [ sh:maxCount 1 ;
+            sh:message "XdInterval upper bound is optional" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdinterval-upper ] ;
+    sh:targetClass sdc4:XdIntervalType .
+
+sdc4:XdLinkBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdLink must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:message "XdLink must have a valid URI" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdlink-url ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdLink relation must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdlink-relation ] ;
+    sh:targetClass sdc4:XdLinkType .
+
+sdc4:XdOrdinalBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdOrdinal must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:message "XdOrdinal must have an integer value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdordinal-value ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdOrdinal symbol must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdordinal-symbol ] ;
+    sh:targetClass sdc4:XdOrdinalType .
+
+sdc4:XdQuantityBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdQuantity must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "XdQuantity must have a decimal value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdquantity-value ],
+        [ sh:class sdc4:UnitsType ;
+            sh:maxCount 1 ;
+            sh:message "XdQuantity requires a Units component" ;
+            sh:minCount 1 ;
+            sh:path sdc4-meta:hasUnit ] ;
+    sh:targetClass sdc4:XdQuantityType .
+
+sdc4:dm-ulzd6pe8072mwkqf7i313bov-shape a sh:NodeShape ;
+    rdfs:label "Vital Statistics Record" ;
+    dc:coverage "Universal" ;
+    dc:language "en-US" ;
+    dc:rights "CC-BY http://creativecommons.org/licenses/by/3.0/" ;
+    rdfs:comment "Maintain the authoritative registry of life events in Cordova." ;
+    sh:node sdc4:DMBaseShape ;
+    sh:property [ sh:maxCount 1 ;
+            sh:message "Data Model must have a root data Cluster" ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-tard9hhq13m95hinbh4h7k5j-shape ;
+            sh:path sdc4:dm-data ] ;
+    sh:targetNode sdc4:dm-ulzd6pe8072mwkqf7i313bov ;
+    sdc4:dm-encoding "utf-8" ;
+    sdc4:dm-language "en-US" ;
+    sdc4-meta:generatedAt "2026-03-08T03:30:16.612948+00:00"^^xsd:dateTime .
+
+sdc4:DMBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Data Model must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:dm-label ],
+        [ sh:datatype xsd:language ;
+            sh:maxCount 1 ;
+            sh:message "Data Model must specify a language" ;
+            sh:minCount 1 ;
+            sh:path sdc4:dm-language ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Data Model must specify encoding" ;
+            sh:minCount 1 ;
+            sh:path sdc4:dm-encoding ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Data Model must have a mandatory instance_id (CUID2)" ;
+            sh:minCount 1 ;
+            sh:path sdc4:instance_id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path sdc4:source_instance_id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path sdc4:source_version_id ] ;
+    sh:targetClass sdc4:DMType .
+
+sdc4:mc-ajfsyoyrz38094hswxh13i3x-shape a sh:NodeShape ;
+    rdfs:label "Certificate Number" ;
+    rdfs:comment "Unique certificate number for this vital record" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ rdfs:label "schema:identifier" ;
+            sh:hasValue schema:identifier ;
+            sh:path skos:broadMatch ],
+        [ rdfs:label "Register of Practitioners registration number" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q108891191> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxLength 50 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-ajfsyoyrz38094hswxh13i3x ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-atdtdfzruh7tya0iv5cz365l-shape a sh:NodeShape ;
+    rdfs:label "City" ;
+    rdfs:comment "One of the nine cities in the Republic of Cordova." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ],
+        [ rdfs:label "City" ;
+            sh:hasValue <http://schema.org/City> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Porto Sereno" "Vistamar" "Rioseco" "Campoluz" "Tierraverde" "Montecara" "Novaciudad" "Piedrasol" "Lagunavista" ) ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-az8kem3v58y9zenys7mthqxe-shape a sh:NodeShape ;
+    rdfs:label "Birth Record" ;
+    rdfs:comment """Details specific to birth certificates.
+Business Context: Links newborn and parents to Civil Registry, physician to Healthcare
+Purpose: Document a birth with parents, attending physician, and location
+Parent Cluster: Vital Event""" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ rdfs:label "WHO Civil Registration and Vital Statistics" ;
+            sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "birth certificate" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q83900> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-mw9qdn71urog8egjbp5t3y00-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "schema:ItemList" ;
+            sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-az8kem3v58y9zenys7mthqxe .
+
+sdc4:mc-chtyne5i6qcwbrby29vbuh2k-shape a sh:NodeShape ;
+    rdfs:label "Marriage Record" ;
+    rdfs:comment """Details specific to marriage certificates.
+Business Context: Links both parties to Civil Registry identities
+Purpose: Document a marriage with both parties, officiant, and witnesses
+Parent Cluster: Vital Event""" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ rdfs:label "schema:ItemList" ;
+            sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ rdfs:label "marriage certificate" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q1299632> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "WHO Civil Registration and Vital Statistics" ;
+            sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-chtyne5i6qcwbrby29vbuh2k .
+
+sdc4:mc-dsoyfaplxw8ide1opo5w8fxg-shape a sh:NodeShape ;
+    rdfs:label "Place of Death" ;
+    rdfs:comment "Type of location where death occurred" ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ rdfs:label "place of death" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q18658526> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Hospital" "Residence" "Other" ) ;
+            sh:path sdc4:xdtoken-value ],
+        [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ] ;
+    sh:targetNode sdc4:mc-dsoyfaplxw8ide1opo5w8fxg ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-e3sfb43zh1vjlgceb5guh0mj-shape a sh:NodeShape ;
+    rdfs:label "Event Date" ;
+    rdfs:comment "Date the vital event occurred" ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ rdfs:label "valid time" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q7911665> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "schema:Date" ;
+            sh:hasValue schema:Date ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:gYearMonth ;
+            sh:maxCount 1 ;
+            sh:path sdc4:xdtemporal-year-month ] ;
+    sh:targetNode sdc4:mc-e3sfb43zh1vjlgceb5guh0mj ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-ft4kk6m3r1goxkte0d7wflk8-shape a sh:NodeShape ;
+    rdfs:label "Decree Date" ;
+    rdfs:comment "Date the divorce decree was issued by the court" ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ rdfs:label "schema:Date" ;
+            sh:hasValue schema:Date ;
+            sh:path skos:broadMatch ],
+        [ rdfs:label "Document Issue Date" ;
+            sh:hasValue <http://release.niem.gov/niem/niem-core/5.0/DocumentIssueDate> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:path sdc4:xdtemporal-date ] ;
+    sh:targetNode sdc4:mc-ft4kk6m3r1goxkte0d7wflk8 ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-ftuxt5nrrffwjb2vymn80yx2-shape a sh:NodeShape ;
+    rdfs:label "Manner of Death" ;
+    rdfs:comment "Manner in which death occurred" ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ],
+        [ rdfs:label "manner of death" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q2438541> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Natural" "Accident" "Homicide" "Suicide" "Undetermined" "Pending Investigation" ) ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-ftuxt5nrrffwjb2vymn80yx2 ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-jz7vc6ikueqig8g0lvb2czzr-shape a sh:NodeShape ;
+    rdfs:label "Event Type" ;
+    rdfs:comment "Type of vital event (XdToken)" ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "Birth" "Death" "Marriage" "Divorce" ) ;
+            sh:path sdc4:xdtoken-value ],
+        [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ],
+        [ rdfs:label "form of event" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q108586636> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-jz7vc6ikueqig8g0lvb2czzr ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape a sh:NodeShape ;
+    rdfs:label "Province" ;
+    rdfs:comment "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ rdfs:label "State/Province" ;
+            sh:hasValue schema:State ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Aldara" "Brevina" "Celara" ) ;
+            sh:path sdc4:xdtoken-value ],
+        [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ],
+        [ rdfs:label "AdministrativeArea" ;
+            sh:hasValue <http://schema.org/AdministrativeArea> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-m3gsphdej7z9csemrrk8uymy-shape a sh:NodeShape ;
+    rdfs:label "Cause of Death" ;
+    rdfs:comment "Primary cause of death as determined by certifying physician" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ rdfs:label "cause of death" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q1931388> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxLength 200 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ rdfs:label "schema:description" ;
+            sh:hasValue schema:description ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-m3gsphdej7z9csemrrk8uymy ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-mw9qdn71urog8egjbp5t3y00-shape a sh:NodeShape ;
+    rdfs:label "Sex" ;
+    rdfs:comment "Biological sex assigned at birth based on physical characteristics. UMLS CUI: C0079399 (Biologic Sex). Aligned with OMB standards for reporting." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Male" "Female" "Intersex" "Unknown" ) ;
+            sh:path sdc4:xdtoken-value ],
+        [ rdfs:label "Biological sex" ;
+            sh:hasValue <https://uts.nlm.nih.gov/uts/umls/concept/C5236503> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ] ;
+    sh:targetNode sdc4:mc-mw9qdn71urog8egjbp5t3y00 ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-obybok0oaoa79b11b0ync1zf-shape a sh:NodeShape ;
+    rdfs:label "Divorce Record" ;
+    rdfs:comment """Details specific to divorce decrees.
+Purpose: Document a divorce with both parties and court details
+Parent Cluster: Vital Event""" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "divorce record" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q131460403> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-ft4kk6m3r1goxkte0d7wflk8-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ycujkecjszwwrcd6dhxesk73-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "schema:ItemList" ;
+            sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ rdfs:label "WHO Civil Registration and Vital Statistics" ;
+            sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-obybok0oaoa79b11b0ync1zf .
+
+sdc4:mc-tard9hhq13m95hinbh4h7k5j-shape a sh:NodeShape ;
+    rdfs:label "Vital Event" ;
+    rdfs:comment """A single life event recorded in the Cordova vital statistics registry.
+Business Context: Links to Civil Registry for person identification
+Purpose: Common fields shared across all vital event types""" ;
+    sh:message "Assert: not(ti1efft41nnipki8xxa66rx5/xdtemporal-date and b69biqbujb16w4a624hizmyh/xdtemporal-date) or ti1efft41nnipki8xxa66rx5/xdtemporal-date le b69biqbujb16w4a624hizmyh/xdtemporal-date" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-chtyne5i6qcwbrby29vbuh2k-shape ;
+            sh:order 11 ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-tdz3pxrf7k6z2df2bfm7ebcp-shape ;
+            sh:order 9 ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-jz7vc6ikueqig8g0lvb2czzr-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ajfsyoyrz38094hswxh13i3x-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "WHO Civil Registration and Vital Statistics" ;
+            sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "vital record (exact)" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q18562479> ;
+            sh:path skos:exactMatch ],
+        [ rdfs:label "civil registration (related)" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q97211668> ;
+            sh:path skos:relatedMatch ],
+        [ sh:node sdc4:mc-atdtdfzruh7tya0iv5cz365l-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-obybok0oaoa79b11b0ync1zf-shape ;
+            sh:order 10 ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-az8kem3v58y9zenys7mthqxe-shape ;
+            sh:order 8 ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-e3sfb43zh1vjlgceb5guh0mj-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "vital statistics (broad)" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q1131372> ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-vo9jtmexkaaol3y657fm0xn8-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-yri6g628ipi0jqoa0ijnzxxu-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "schema:ItemList" ;
+            sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-tard9hhq13m95hinbh4h7k5j .
+
+sdc4:mc-tdz3pxrf7k6z2df2bfm7ebcp-shape a sh:NodeShape ;
+    rdfs:label "Death Record" ;
+    rdfs:comment """Details specific to death certificates.
+Business Context: Links to Healthcare (certifying physician), enables public health statistics
+Purpose: Document a death with cause, certifying physician, and circumstances
+Parent Cluster: Vital Event""" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-m3gsphdej7z9csemrrk8uymy-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "death certificate" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q708653> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-ftuxt5nrrffwjb2vymn80yx2-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "schema:ItemList" ;
+            sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-dsoyfaplxw8ide1opo5w8fxg-shape ;
+            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ rdfs:label "WHO Civil Registration and Vital Statistics" ;
+            sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-tdz3pxrf7k6z2df2bfm7ebcp .
+
+sdc4:mc-vo9jtmexkaaol3y657fm0xn8-shape a sh:NodeShape ;
+    rdfs:label "Registration Date" ;
+    rdfs:comment "Date the business was officially registered in Cordova" ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ rdfs:label "registration date" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q137375576> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "schema:Date" ;
+            sh:hasValue schema:Date ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-vo9jtmexkaaol3y657fm0xn8 ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-ycujkecjszwwrcd6dhxesk73-shape a sh:NodeShape ;
+    rdfs:label "Marriage Certificate Number" ;
+    rdfs:comment "Certificate number of the original marriage being dissolved" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxLength 50 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ rdfs:label "marriage certificate" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q1299632> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "certificate number" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q820655> ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-ycujkecjszwwrcd6dhxesk73 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-yri6g628ipi0jqoa0ijnzxxu-shape a sh:NodeShape ;
+    rdfs:label "Record Status" ;
+    rdfs:comment "Status of the vital record" ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ rdfs:label "schema:DefinedTermSet" ;
+            sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Active" "Amended" "Voided" ) ;
+            sh:path sdc4:xdtoken-value ],
+        [ rdfs:label "skos:ConceptScheme" ;
+            sh:hasValue skos:ConceptScheme ;
+            sh:path rdf:type ],
+        [ rdfs:label "document status" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q65720124> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-yri6g628ipi0jqoa0ijnzxxu ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:XdTemporalBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal date must be a valid date" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal datetime must be a valid datetime" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdtemporal-datetime ],
+        [ sh:datatype xsd:time ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal time must be a valid time" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdtemporal-time ],
+        [ sh:datatype xsd:gYearMonth ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal year-month must be a valid gYearMonth" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdtemporal-year-month ] ;
+    sh:targetClass sdc4:XdTemporalType .
+
+sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape a sh:NodeShape ;
+    rdfs:label "National ID (CID)" ;
+    rdfs:comment "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ rdfs:label "national identification number" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q1140371> ;
+            sh:path rdfs:isDefinedBy ],
+        [ rdfs:label "schema:identifier" ;
+            sh:hasValue schema:identifier ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxLength 16 ;
+            sh:minLength 16 ;
+            sh:path sdc4:xdstring-value ;
+            sh:pattern "COR-(AL|BR|CE)0[1-3]-[0-9]{6}" ],
+        [ rdfs:label "identifier" ;
+            sh:hasValue <http://schema.org/identifier> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn-shape a sh:NodeShape ;
+    rdfs:label "Person Full Name" ;
+    rdfs:comment "A complete name of a person (NIEM nc:PersonFullName)" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ rdfs:label "schema:Text" ;
+            sh:hasValue schema:Text ;
+            sh:path rdf:type ],
+        [ rdfs:label "full name" ;
+            sh:hasValue <https://www.wikidata.org/wiki/Q1071027> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxLength 100 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:ClusterBaseShape a sh:NodeShape ;
+    sh:property [ sh:message "Cluster can contain zero or more components" ;
+            sh:minCount 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Cluster must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ] ;
+    sh:targetClass sdc4:ClusterType .
+
+sdc4:XdStringBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdString must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdString value must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:datatype xsd:language ;
+            sh:maxCount 1 ;
+            sh:message "XdString language must be a valid language code" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdstring-language ] ;
+    sh:targetClass sdc4:XdStringType .
+
+sdc4:XdTokenBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdToken must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:token ;
+            sh:maxCount 1 ;
+            sh:message "XdToken must have a token value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetClass sdc4:XdTokenType .
+

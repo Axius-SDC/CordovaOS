@@ -1,0 +1,326 @@
+{
+  "@context": {
+    "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "label": "rdfs:label",
+    "description": "rdfs:comment",
+    "type": "@type",
+    "id": "@id"
+  },
+  "@type": "DataModel",
+  "@id": "sdc4:dm-x250838l7oi6l3yavg9twc1i",
+  "identifier": "x250838l7oi6l3yavg9twc1i",
+  "label": "Business Registry",
+  "description": "Maintain the authoritative registry of business entities in Cordova.",
+  "metadata": {
+    "dc:title": "Business Registry",
+    "dc:creator": "Timothy Cook",
+    "dc:description": "Maintain the authoritative registry of business entities in Cordova.",
+    "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
+    "dc:language": "en-US",
+    "dc:format": "text/xml",
+    "dc:date": "2026-03-07T20:03:48.856413+00:00"
+  },
+  "components": [
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-uv8dwudhyf0gnmzgiyyd1sb1",
+      "label": "Business Entity",
+      "description": "A registered business in the Republic of Cordova.\nBusiness Context: Links to Employment, Maritime, Tax, and Property domains\nPurpose: Complete business registration record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly",
+          "label": "Business Registry Number",
+          "description": "Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q12047291"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "http://schema.org/identifier"
+            },
+            {
+              "predicate": "skos:broadMatch",
+              "object": "https://schema.org/identifier"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-uinddfbzfk0jdikmt1jwcq78",
+          "label": "Organization Name",
+          "description": "A name of an organization (NIEM nc:OrganizationName). BFO alignment: organization is a material entity (BFO:0000040) that is a collection of persons organized for a purpose.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q168678"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            }
+          ]
+        },
+        {
+          "@type": "XdStringType",
+          "@id": "sdc4:mc-gu15c6jojx09jy9at1px0ufh",
+          "label": "Organization Tax ID",
+          "description": "A tax identification number (TIN/EIN) for an organization (NIEM nc:OrganizationTaxIdentification)",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "minLength": 1,
+            "maxLength": 50
+          },
+          "dataType": "xsd:string",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q2397748"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "https://schema.org/Text"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-puz7m7a7rtuehrgp10tm17qn",
+          "label": "Business Type (Cordova)",
+          "description": "Legal structure of a business entity in the Cordova Business Registry.",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "Sole Proprietor",
+              "Partnership",
+              "Corporation",
+              "Cooperative"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q1058914"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-m0i63npis09ch7ag08ntoneu",
+          "label": "Industry",
+          "description": "Primary industry classification",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "Agriculture",
+              "Manufacturing",
+              "Shipping",
+              "Retail",
+              "Healthcare",
+              "Education",
+              "Technology",
+              "Construction",
+              "Finance",
+              "Government Services",
+              "Hospitality"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q2976602"
+            },
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            }
+          ]
+        },
+        {
+          "@type": "XdTokenType",
+          "@id": "sdc4:mc-cs34ekiq4o9pazzs5baiobis",
+          "label": "Status",
+          "description": "Current registration status",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "constraints": {
+            "enumeration": [
+              "Active",
+              "Suspended",
+              "Dissolved"
+            ]
+          },
+          "dataType": "xsd:token",
+          "semanticLinks": [
+            {
+              "predicate": "skos:exactMatch",
+              "object": "https://schema.org/DefinedTermSet"
+            },
+            {
+              "predicate": "rdf:type",
+              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            },
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q856698"
+            }
+          ]
+        },
+        {
+          "@type": "XdTemporalType",
+          "@id": "sdc4:mc-vo9jtmexkaaol3y657fm0xn8",
+          "label": "Registration Date",
+          "description": "Date the business was officially registered in Cordova",
+          "cardinality": {
+            "minOccurs": 0,
+            "maxOccurs": 1
+          },
+          "dataType": "xsd:dateTime",
+          "semanticLinks": [
+            {
+              "predicate": "rdfs:isDefinedBy",
+              "object": "https://www.wikidata.org/wiki/Q137375576"
+            },
+            {
+              "predicate": "skos:broadMatch",
+              "object": "https://schema.org/Date"
+            }
+          ]
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://niemopen.org/"
+        },
+        {
+          "predicate": "skos:broadMatch",
+          "object": "https://schema.org/ItemList"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1269299"
+        }
+      ]
+    }
+  ],
+  "structural_components": {
+    "subject": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-d79vg5e2e4nnoxontodl9co7",
+      "label": "Business Officer",
+      "description": "Person acting as an officer of a business entity (director, secretary, etc.). W3C PROV-DM Agent (Person) with appointment lifecycle.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q11488158"
+        },
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    },
+    "provider": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-pndsgg7zczz4bgnmh11g40ka",
+      "label": "Business Registry Office",
+      "description": "Government office responsible for maintaining the national business registry. W3C PROV-DM Agent (Organization).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1423020"
+        },
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "skos:broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q327333"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://schema.org/GovernmentOrganization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Organization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    }
+  }
+}

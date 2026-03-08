@@ -1,0 +1,266 @@
+@base <https://semanticdatacharter.com/ns/sdc4/dm-uika42uwtj3ijdbegzw2kcwq> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sdc4-meta: <https://semanticdatacharter.com/ontology/sdc4-meta/> .
+
+<dm-uika42uwtj3ijdbegzw2kcwq> dc:coverage "Universal" ;
+    dc:creator "Timothy Cook" ;
+    dc:date "2026-03-03 20:03:42.483080+00:00" ;
+    dc:description "Maintain the authoritative identity record for every person in Cordova." ;
+    dc:format "text/xml" ;
+    dc:identifier "dm-uika42uwtj3ijdbegzw2kcwq" ;
+    dc:language "en-US" ;
+    dc:relation "None" ;
+    dc:rights "CC-BY http://creativecommons.org/licenses/by/3.0/" ;
+    dc:title "Civil Registry" ;
+    dc:type "SDC Data Model (DM)" .
+
+<sdc4:mc-a6zjaj7dunnwxdtc2skdpepx> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Civil Registry Attestation Reason" ;
+    rdfs:comment "Reason for attesting this civil registry record" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q132364> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q4830453> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-civil_registry_attestation_reason> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-avqpyqft9tm22yyink3ltcty> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Related Person" ;
+    rdfs:comment "Person related to the civil registry subject via family relationship (parent, child, spouse, etc.). W3C PROV-DM Agent (Person) with Cordova CID." ;
+    rdfs:isDefinedBy prov:Agent,
+        schema:Person,
+        <https://www.wikidata.org/wiki/Q22988604> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-related_person> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-azmp0vkmkmtne1goba54qubu> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Civil Registration Protocol" ;
+    rdfs:comment "Protocol reference for the Civil Registry data model. Informed by the United Nations Guidelines on Civil Registration and Vital Statistics Systems, the Handbook on Civil Registration and Vital Statistics (UN Statistics Division), and regional civil code frameworks." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q132364> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q69484> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-civil_registration_protocol> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-bgjt4mvgvkxcn6hurg37u21b> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Civil Registry Record" ;
+    rdfs:isDefinedBy <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)>,
+        <https://www.wikidata.org/wiki/Q18562479> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-cfg2l8ym4ve833ritrxu765t> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Country of Birth" ;
+    rdfs:comment "Country where participant was born" ;
+    rdfs:isDefinedBy <https://uts.nlm.nih.gov/uts/umls/concept/C1300001> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-country_of_birth> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ek5h6dsqpd9kz0l4mcckmxpt> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Address (Line 2)" ;
+    rdfs:comment "Street address line, building/apartment number, or P.O. Box number." ;
+    rdfs:isDefinedBy schema:streetAddress ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-address_(line_2)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-fdwlhbher1gm91zfmf8mno6c> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Civil Registry Access Control" ;
+    rdfs:isDefinedBy <https://w3id.org/dpv#AccessControlMethod>,
+        <https://www.wikidata.org/wiki/Q83708009> ;
+    rdfs:seeAlso <https://w3id.org/dpv>,
+        <https://w3id.org/dpv#IdentifyingPersonalData> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
+
+<sdc4:mc-g3k6bj8su3rvkszg2700dhyh> a schema:DateTime,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Birth Date" ;
+    rdfs:comment "Date of birth of the participant. UMLS CUI: C0421451 (Date of birth). LOINC: 21112-8 (Birth date)." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2389905> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-birth_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-gug5dhtqfv7exbgmm2raxpkq> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Digital Signature Proof" ;
+    rdfs:isDefinedBy <https://www.w3.org/TR/vc-data-model/#credentials>,
+        <https://www.wikidata.org/wiki/Q210824> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
+
+<sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "agent_id" ;
+    rdfs:comment "Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q37882474> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-agent_id> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_name" ;
+    rdfs:comment "Legal or official name of the organization." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q168678> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-k9ptlhkq3j41p6umlg3tc80x> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Relationship Start Date" ;
+    rdfs:comment """Date the relationship was established or recorded (e.g., marriage date, birth date of child, guardianship order date)
+
+---""" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q3406134> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-relationship_start_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-kfyzf8u8gdafcpt5kfh2qg3q> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Given Name (Person)" ;
+    rdfs:comment """name typically used to differentiate people from the same family, clan, or other social group who have a common last name
+aka. first name or forename""" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q202444> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-given_name_(person)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-l338k7nlvnq2am0owa19yxfc> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Address (Line 1)" ;
+    rdfs:comment "Street address line, building/apartment number, or P.O. Box number." ;
+    rdfs:isDefinedBy schema:streetAddress ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-address_(line_1)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-l9k2fmlc5vn477r3kpi1ufal> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Family Relationships" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q69901743> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-lev3nug1ml7l43icdjcyleqe> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Civil Registry Office" ;
+    rdfs:isDefinedBy prov:Agent,
+        <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-ndvtjiq0cke0q1trw58rtrq2> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "person_given_name" ;
+    rdfs:comment "Given (first) name of the person agent." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q202444> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-person_given_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-nfrvvp87c5imu5h9ups92kgy> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Cordova Phone Number" ;
+    rdfs:comment "Cordova national telephone number. Format: +99-PPP-NNN-NNNN where +99 is the country code and PPP is the area code. Area codes: Porto Sereno=100, Vistamar=110, Rioseco=120, Campoluz=200, Tierraverde=210, Montecara=220, Novaciudad=300, Piedrasol=310, Lagunavista=320." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q214995> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-cordova_phone_number> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "National ID (CID)" ;
+    rdfs:comment "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions." ;
+    rdfs:isDefinedBy <http://schema.org/identifier>,
+        <https://www.wikidata.org/wiki/Q1140371> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-national_id_(cid)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-o7vjxwswi0pxo543hq504jjx> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Relationship End Date" ;
+    rdfs:comment "Date the relationship ended, if applicable (e.g., divorce date, death date). Null for active relationships." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q121875611> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-relationship_end_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-oit0ueglhjfcyq80z22kl2z3> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Middle Name (Person)" ;
+    rdfs:comment "Middle or other name(s) given to identify a person" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q245025> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-middle_name_(person)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-pf1mrtzd9ld1939qanem0olk> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Civil Registry Attestation" ;
+    rdfs:comment "Attestation for civil registry records (births, marriages, name changes). The civil registry office attests to record accuracy. W3C PROV-DM, GDPR/UN CEB." ;
+    rdfs:isDefinedBy prov:Activity,
+        <https://www.w3.org/TR/vc-data-model/#credentials>,
+        <https://www.wikidata.org/wiki/Q116890704> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q12047392> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-civil_registry_attestation> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:AttestationType> .
+
+<sdc4:mc-piaz5w21hsuq3hpysyetuvvk> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Civil Registry Office" ;
+    rdfs:comment "Government office responsible for civil registry records (births, marriages, deaths, name changes). W3C PROV-DM Agent (Organization)." ;
+    rdfs:isDefinedBy <http://schema.org/GovernmentOrganization>,
+        prov:Agent,
+        schema:Organization,
+        <https://www.wikidata.org/wiki/Q745221> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-civil_registry_office> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-qy0bhr8p5mbux9k8mbb6zsx0> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Civil Registry Workflow" ;
+    rdfs:isDefinedBy prov:Activity,
+        <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-sv48g8am8vqs46nodiugripz> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Contact Information" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2996679> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-uika42uwtj3ijdbegzw2kcwq> a schema:Dataset,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Civil Registry" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q83708009> ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q131721>,
+        <https://www.wikidata.org/wiki/Q83708009> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:DMType> .
+
+<sdc4:mc-ule5u2z3rjpa9pooaifwj1n3> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_identifier" ;
+    rdfs:comment "Official identifier for the organization (e.g., DUNS, tax ID)." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q11378663> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_identifier> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-v0m4pdtqjtsbj6e4zubge8ul> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Related Person" ;
+    rdfs:isDefinedBy prov:Agent ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-v8jgjo2sml12jo7zrb8swoxi> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Surname (Person)" ;
+    rdfs:comment """The surname or family name of a person, part of a naming scheme for individuals, used in many cultures worldwide
+aka: last name, fam name, family surname, surname, clan name""" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q101352> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-surname_(person)> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-x0na649n17if0ukul82cmrx3> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Cordova Email Address" ;
+    rdfs:comment "Email address using one of the Cordova national email providers. Providers: cordomail.co, novamail.co, portocorreo.co" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1273217> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-cordova_email_address> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ys32wo3tw9p37i7v4gcvxahk> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Civil Registry Attested View" ;
+    rdfs:isDefinedBy schema:DigitalDocument ;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Q4830453> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
+
+<sdc4:mc-ytctcqbr30kxsmvx4jk7lae2> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Current Address" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q75618710> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-zs9ciw4nypx4plo856h3m95d> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "person_family_name" ;
+    rdfs:comment "Family (last) name of the person agent." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q4116295> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-person_family_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
