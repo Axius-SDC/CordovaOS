@@ -13,32 +13,39 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?given_name ?surname ?cid_value ?diagnosis ?facility
 WHERE {
   # Find people in Porto Sereno via Civil Registry
-  ?city_reifier rdf:reifies << sdc4:mc-atdtdfzruh7tya0iv5cz365l sdc4:xdtoken-value "Porto Sereno" >> ;
+  ?city_reifier sdc4:forComponent sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
+                sdc4:componentValue "Porto Sereno" ;
                 sdc4:inInstance ?civil_inst ;
                 sdc4:inDataModel sdc4:dm-uika42uwtj3ijdbegzw2kcwq .
 
   # Get their CID from the same civil registry instance
-  ?cid_reifier rdf:reifies << sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 sdc4:xdstring-value ?cid_value >> ;
+  ?cid_reifier sdc4:forComponent sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ;
+               sdc4:componentValue ?cid_value ;
                sdc4:inInstance ?civil_inst .
 
   # Get their name
-  ?given_reifier rdf:reifies << sdc4:mc-kfyzf8u8gdafcpt5kfh2qg3q sdc4:xdstring-value ?given_name >> ;
+  ?given_reifier sdc4:forComponent sdc4:mc-kfyzf8u8gdafcpt5kfh2qg3q ;
+                 sdc4:componentValue ?given_name ;
                  sdc4:inInstance ?civil_inst .
-  ?surname_reifier rdf:reifies << sdc4:mc-v8jgjo2sml12jo7zrb8swoxi sdc4:xdstring-value ?surname >> ;
+  ?surname_reifier sdc4:forComponent sdc4:mc-v8jgjo2sml12jo7zrb8swoxi ;
+                   sdc4:componentValue ?surname ;
                    sdc4:inInstance ?civil_inst .
 
   # Cross-domain join: find healthcare records with the same CID
-  ?hc_cid_reifier rdf:reifies << sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 sdc4:xdstring-value ?cid_value >> ;
+  ?hc_cid_reifier sdc4:forComponent sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ;
+                  sdc4:componentValue ?cid_value ;
                   sdc4:inInstance ?hc_inst ;
                   sdc4:inDataModel sdc4:dm-ftluo2nybgxmn7mawttoos20 .
 
   # Get diagnosis from healthcare instance
-  ?diag_reifier rdf:reifies << sdc4:mc-nnu04d5qgrmn1bim8bpu0l65 sdc4:xdstring-value ?diagnosis >> ;
+  ?diag_reifier sdc4:forComponent sdc4:mc-nnu04d5qgrmn1bim8bpu0l65 ;
+                sdc4:componentValue ?diagnosis ;
                 sdc4:inInstance ?hc_inst .
 
   # Get facility
   OPTIONAL {
-    ?fac_reifier rdf:reifies << sdc4:mc-qvmb5f4xmy56y98q8raelpl9 sdc4:xdstring-value ?facility >> ;
+    ?fac_reifier sdc4:forComponent sdc4:mc-qvmb5f4xmy56y98q8raelpl9 ;
+                 sdc4:componentValue ?facility ;
                  sdc4:inInstance ?hc_inst .
   }
 }

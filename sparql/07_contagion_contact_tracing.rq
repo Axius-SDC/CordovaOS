@@ -20,27 +20,31 @@ WHERE {
   {
     # TIER 1: Patient Zero — Healthcare Record
     # Confirm Carlos's symptomatic visit
-    ?cid_reifier rdf:reifies << sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 sdc4:xdstring-value "COR-AL01-271845" >> ;
+    ?cid_reifier sdc4:forComponent sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ;
+                 sdc4:componentValue "COR-AL01-271845" ;
                  sdc4:inInstance ?hc_inst ;
                  sdc4:inDataModel sdc4:dm-ftluo2nybgxmn7mawttoos20 .
 
     ?comp_reifier sdc4:inInstance ?hc_inst ;
                   rdfs:label ?detail_label ;
-                  rdf:reifies << ?subj ?pred ?detail_value >> .
+                  sdc4:componentValue ?detail_value .
 
     BIND("1 - Patient Zero" AS ?tier)
     BIND("Healthcare" AS ?domain)
   }
   UNION
   {
-    # TIER 2: Maritime Vessel — All port calls at Porto Sereno
-    # Traces vessels that were in port during the exposure window
-    ?mar_comp rdf:reifies << ?mar_subj ?mar_pred ?detail_value >> ;
+    # TIER 2: Maritime Vessel — Port calls at Porto Sereno
+    # Find maritime instances in Porto Sereno
+    ?mar_city sdc4:forComponent sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
+              sdc4:componentValue "Porto Sereno" ;
               sdc4:inInstance ?mar_inst ;
-              sdc4:inDataModel sdc4:dm-md2451x882z5j89g66zb50rw ;
-              rdfs:label ?detail_label .
+              sdc4:inDataModel sdc4:dm-md2451x882z5j89g66zb50rw .
 
-    # Filter to vessel records (get key fields only)
+    ?mar_comp sdc4:inInstance ?mar_inst ;
+              rdfs:label ?detail_label ;
+              sdc4:componentValue ?detail_value .
+
     FILTER(?detail_label IN ("Vessel Name", "Port Call ID", "Arrival Date/Time",
                               "Departure Date/Time", "Crew Count", "Flag State"))
 
@@ -49,11 +53,15 @@ WHERE {
   }
   UNION
   {
-    # TIER 3: Quarantine Enforcement — Law Enforcement records
-    ?le_comp rdf:reifies << ?le_subj ?le_pred ?detail_value >> ;
+    # TIER 3: Quarantine Enforcement — Law Enforcement records in Porto Sereno
+    ?le_city sdc4:forComponent sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
+             sdc4:componentValue "Porto Sereno" ;
              sdc4:inInstance ?le_inst ;
-             sdc4:inDataModel sdc4:dm-yh0opq0bnu6y9y56oukg92uf ;
-             rdfs:label ?detail_label .
+             sdc4:inDataModel sdc4:dm-yh0opq0bnu6y9y56oukg92uf .
+
+    ?le_comp sdc4:inInstance ?le_inst ;
+             rdfs:label ?detail_label ;
+             sdc4:componentValue ?detail_value .
 
     FILTER(?detail_label IN ("Incident Summary", "Incident Category Code",
                               "Quarantine Zone", "Compliance Status",
@@ -65,14 +73,14 @@ WHERE {
   UNION
   {
     # TIER 4: Contact Population — Education records in affected area
-    # Students at UNC Campoluz (contact tracing checkpoint established)
-    ?edu_city rdf:reifies << sdc4:mc-atdtdfzruh7tya0iv5cz365l sdc4:xdtoken-value "Campoluz" >> ;
+    ?edu_city sdc4:forComponent sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
+              sdc4:componentValue "Campoluz" ;
               sdc4:inInstance ?edu_inst ;
               sdc4:inDataModel sdc4:dm-upq7w1bqbix5v5ss0mu3kq5n .
 
-    ?edu_comp rdf:reifies << ?edu_subj ?edu_pred ?detail_value >> ;
-              sdc4:inInstance ?edu_inst ;
-              rdfs:label ?detail_label .
+    ?edu_comp sdc4:inInstance ?edu_inst ;
+              rdfs:label ?detail_label ;
+              sdc4:componentValue ?detail_value .
 
     FILTER(?detail_label IN ("National ID (CID)", "Student ID", "Field of Study",
                               "Enrollment Status"))
