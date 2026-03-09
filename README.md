@@ -9,7 +9,7 @@ CordovaOS is a proof-of-concept demonstrating how [SDC4](https://semanticdatacha
 
 ## Live Demo
 
-[CordovaOS Demo](https://cordovaos-web-hodap4s4iq-uc.a.run.app/demo/)
+[CordovaOS Demo](https://cordovaos-web-43199315497.us-central1.run.app/demo/)
 
 ## Architecture
 
