@@ -314,6 +314,9 @@ class RDFExtractor:
 
             # RDF 1.2 reifies syntax with quoted triple
             lines.append(f"{reifier_uri} rdf:reifies << sdc4:mc-{ct_id} sdc4:{value_elem_name} {value_literal} >> ;")
+            # Flat indexed triples for fast SPARQL lookups (triple terms are not indexed)
+            lines.append(f"    sdc4:forComponent sdc4:mc-{ct_id} ;")
+            lines.append(f"    sdc4:componentValue {value_literal} ;")
         else:
             # EV-only case - create a statement about the EV without a value triple
             lines.append(f"{reifier_uri} a sdc4:ExceptionalValueStatement ;")
