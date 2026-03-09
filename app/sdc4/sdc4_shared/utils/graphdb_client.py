@@ -176,8 +176,12 @@ class GraphDBClient:
                 'Accept': 'application/json'
             }
 
+            # Disable OWL 2 RL reasoning for queries — demo data has all
+            # explicit triples; reasoning expands the search space ~70x.
+            query_url = f"{self.query_endpoint}?infer=false"
+
             response = requests.post(
-                self.query_endpoint,
+                query_url,
                 data=sparql_query.encode('utf-8'),
                 headers=headers,
                 auth=self.auth,

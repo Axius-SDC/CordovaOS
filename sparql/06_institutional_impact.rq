@@ -15,23 +15,42 @@ SELECT ?category ?detail_label ?detail_value
 WHERE {
   {
     # Business Registry details for the institution
-    ?brn_reifier rdf:reifies << sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly sdc4:xdstring-value "BIZ-000847" >> ;
+    ?brn_reifier sdc4:forComponent sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ;
+                 sdc4:componentValue "BIZ-000847" ;
                  sdc4:inInstance ?biz_inst ;
                  sdc4:inDataModel sdc4:dm-x250838l7oi6l3yavg9twc1i .
 
     ?comp_reifier sdc4:inInstance ?biz_inst ;
                   rdfs:label ?detail_label ;
-                  rdf:reifies << ?subj ?pred ?detail_value >> .
+                  sdc4:componentValue ?detail_value .
 
     BIND("Business Registry" AS ?category)
   }
   UNION
   {
-    # Education records (students/faculty)
-    ?edu_reifier sdc4:inInstance ?edu_inst ;
-                 sdc4:inDataModel sdc4:dm-upq7w1bqbix5v5ss0mu3kq5n ;
-                 rdfs:label ?detail_label ;
-                 rdf:reifies << ?subj ?pred ?detail_value >> .
+    # Education records — find students in the same city as the institution
+    # First get the institution's city
+    ?brn_reifier2 sdc4:forComponent sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ;
+                  sdc4:componentValue "BIZ-000847" ;
+                  sdc4:inInstance ?biz_inst2 ;
+                  sdc4:inDataModel sdc4:dm-x250838l7oi6l3yavg9twc1i .
+
+    ?biz_city_reifier sdc4:forComponent sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
+                      sdc4:componentValue ?inst_city ;
+                      sdc4:inInstance ?biz_inst2 .
+
+    # Find education records in that city
+    ?edu_city_reifier sdc4:forComponent sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
+                      sdc4:componentValue ?inst_city ;
+                      sdc4:inInstance ?edu_inst ;
+                      sdc4:inDataModel sdc4:dm-upq7w1bqbix5v5ss0mu3kq5n .
+
+    ?edu_comp sdc4:inInstance ?edu_inst ;
+              rdfs:label ?detail_label ;
+              sdc4:componentValue ?detail_value .
+
+    FILTER(?detail_label IN ("National ID (CID)", "Student ID", "Field of Study",
+                              "Enrollment Status", "Institution Name"))
 
     BIND("Education Record" AS ?category)
   }
