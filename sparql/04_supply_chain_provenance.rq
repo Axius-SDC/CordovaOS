@@ -14,42 +14,48 @@ SELECT ?vessel_name ?port_call_id ?arrival ?cargo_type ?flag
        ?brn ?org_name ?org_city
 WHERE {
   # Step 1: Find the vessel in Maritime domain
-  ?vessel_reifier rdf:reifies << sdc4:mc-s5zeapfup3xdj6wbqjjkf1nd sdc4:xdstring-value ?vessel_name >> ;
+  ?vessel_reifier sdc4:forComponent sdc4:mc-s5zeapfup3xdj6wbqjjkf1nd ;
+                  sdc4:componentValue ?vessel_name ;
                   sdc4:inInstance ?mar_inst ;
                   sdc4:inDataModel sdc4:dm-md2451x882z5j89g66zb50rw .
   FILTER(?vessel_name = "MV Estrella del Sur")
 
   # Get port call details from same maritime instance
-  ?pcid_reifier rdf:reifies << sdc4:mc-pbfvurdvio38rt6puifhippe sdc4:xdstring-value ?port_call_id >> ;
+  ?pcid_reifier sdc4:forComponent sdc4:mc-pbfvurdvio38rt6puifhippe ;
+                sdc4:componentValue ?port_call_id ;
                 sdc4:inInstance ?mar_inst .
 
-  ?arr_reifier rdf:reifies << ?arr_subj sdc4:xdtemporal-datetime ?arrival >> ;
-               sdc4:inInstance ?mar_inst ;
-               rdfs:label "Arrival Date/Time" .
+  ?arr_reifier sdc4:inInstance ?mar_inst ;
+               rdfs:label "Arrival Date/Time" ;
+               sdc4:componentValue ?arrival .
 
-  ?cargo_reifier rdf:reifies << ?cargo_subj sdc4:xdtoken-value ?cargo_type >> ;
-                 sdc4:inInstance ?mar_inst ;
-                 rdfs:label "Cargo Type" .
+  ?cargo_reifier sdc4:inInstance ?mar_inst ;
+                 rdfs:label "Cargo Type" ;
+                 sdc4:componentValue ?cargo_type .
 
-  ?flag_reifier rdf:reifies << ?flag_subj sdc4:xdstring-value ?flag >> ;
-                sdc4:inInstance ?mar_inst ;
-                rdfs:label "Flag State" .
+  ?flag_reifier sdc4:inInstance ?mar_inst ;
+                rdfs:label "Flag State" ;
+                sdc4:componentValue ?flag .
 
   # Get BRN from the same maritime instance
-  ?mar_brn_reifier rdf:reifies << sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly sdc4:xdstring-value ?brn >> ;
+  ?mar_brn_reifier sdc4:forComponent sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ;
+                   sdc4:componentValue ?brn ;
                    sdc4:inInstance ?mar_inst .
 
   # Step 2: Cross-domain join to Business Registry via BRN
   OPTIONAL {
-    ?biz_brn_reifier rdf:reifies << sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly sdc4:xdstring-value ?brn >> ;
+    ?biz_brn_reifier sdc4:forComponent sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ;
+                     sdc4:componentValue ?brn ;
                      sdc4:inInstance ?biz_inst ;
                      sdc4:inDataModel sdc4:dm-x250838l7oi6l3yavg9twc1i .
 
-    ?org_reifier rdf:reifies << sdc4:mc-uinddfbzfk0jdikmt1jwcq78 sdc4:xdstring-value ?org_name >> ;
+    ?org_reifier sdc4:forComponent sdc4:mc-uinddfbzfk0jdikmt1jwcq78 ;
+                 sdc4:componentValue ?org_name ;
                  sdc4:inInstance ?biz_inst .
 
     OPTIONAL {
-      ?biz_city_reifier rdf:reifies << sdc4:mc-atdtdfzruh7tya0iv5cz365l sdc4:xdtoken-value ?org_city >> ;
+      ?biz_city_reifier sdc4:forComponent sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
+                        sdc4:componentValue ?org_city ;
                         sdc4:inInstance ?biz_inst .
     }
   }
