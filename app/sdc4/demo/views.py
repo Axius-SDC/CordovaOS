@@ -48,7 +48,7 @@ def dashboard(request):
             bindings = result['results'].get('bindings', [])
             if bindings:
                 triple_count = int(bindings[0]['cnt']['value'])
-                cache.set('dashboard_triple_count', triple_count, 3600)
+                cache.set('dashboard_triple_count', triple_count, 30)
 
     context = {
         'domains': domains,
@@ -116,7 +116,7 @@ def run_query(request):
             'variables': variables,
             'rows': rows,
             'row_count': len(rows),
-            'elapsed': '0.000 (cached)',
+            'elapsed': '0.000',
         }
     else:
         # Execute against GraphDB
