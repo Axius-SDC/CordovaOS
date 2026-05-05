@@ -27,7 +27,7 @@ Design, build, and validate a set of standards-based, generic governance compone
 
 3. **Minimum knowledge.** Each governance component captures only what distinguishes it from nearby concepts. A workflow state captures the state symbol, ordinal position, and label - not the business logic that uses it.
 
-4. **Publication-ready.** Templates must parse correctly in SDCStudio's AI processing pipeline. This means correct YAML frontmatter, correct cluster/sub-cluster hierarchy, correct column definitions, and correct semantic link format.
+4. **Publication-ready.** Templates must parse correctly in SDCStudio's md2pd pipeline. The parser creates **flat clusters only** - no sub-cluster nesting is supported in the template format. All structural nesting (workflow paths, validation-details groupings, party detail clusters) must be manually constructed in SDCStudio after the leaf components are created from the flat template.
 
 5. **Tested end-to-end.** Every component must survive the full pipeline: template -> SDCStudio upload -> AI processing -> human review -> publication -> XSD generation -> XML instance creation -> sdcvalidator pass -> sdcgovernance XACML decision.
 
@@ -35,7 +35,7 @@ Design, build, and validate a set of standards-based, generic governance compone
 
 ### 3.1 Workflow State Machines
 
-Each workflow is a ClusterType with sub-clusters defining valid paths. Each sub-cluster contains XdOrdinal components for sequenced states.
+The finished workflow structure is a ClusterType with sub-clusters defining valid paths, each sub-cluster containing XdOrdinal components for sequenced states. **However, this structure cannot be built via templates.** The md2pd parser only produces flat clusters. The template creates the individual XdOrdinal leaf components; the workflow ClusterType with sub-cluster paths is manually constructed in SDCStudio after the leaf components exist.
 
 | Template | States | Paths | Use Case |
 |---|---|---|---|
@@ -81,7 +81,7 @@ Create, Update, Delete, Accept, Reject, Add, Remove, Move, Read, View, Approve
 | **Provider** | Party with function "provider" | Data source/originator |
 | **Processor** | Party with function "processor" | Automated system acting on data |
 
-Each Party has a details Cluster (name, identifier, contact) and optional external references (XdLink).
+Each Party has a details Cluster (name, identifier, contact) and optional external references (XdLink). **The Party detail Cluster structure is manually constructed in SDCStudio** after the leaf components (name, identifier, email, organization) are created from the flat template.
 
 ### 3.5 Decision Tables (OMG DMN)
 
@@ -112,20 +112,30 @@ Each Party has a details Cluster (name, identifier, contact) and optional extern
 
 ## 4. Template Design and Construction Strategy
 
-### The Constraint
+### The Constraints
 
-SDCStudio is designed to build complete data models. When it processes a markdown template, it creates a data Cluster containing all the components and a DM wrapping it. We don't want full models - we want individual components in the catalog that can be composed into any domain model later.
+1. **SDCStudio creates complete models.** When it processes a markdown template, it creates a data Cluster containing all the components and a DM wrapping it. We don't want full models - we want individual components in the catalog that can be composed into any domain model later.
+
+2. **The md2pd parser produces flat clusters only.** No sub-cluster nesting is supported in the template format. The parser recognizes `## Data: Name` and `## Workflow: Name` as section headers with `### Column: name` entries inside them, but everything within a section is flat - no hierarchy, no nested clusters.
+
+This means ALL structural nesting must be built manually in SDCStudio:
+- Workflow ClusterTypes with sub-cluster paths containing XdOrdinal sequences
+- Party detail Clusters grouping identity components
+- Validation-details Clusters with entity-state-before/after sub-groupings
 
 ### The Approach
 
-1. **One markdown template per governance dimension** - pack ALL components for that dimension into a single flat Cluster. SDCStudio creates them all in one upload.
+1. **One markdown template per governance dimension** - pack ALL components for that dimension into a single flat Cluster using `## Data: [Dimension] Components` with `### Column:` entries. SDCStudio creates the leaf components in one upload.
 2. **SDCStudio AI processes the template** - generates typed SDC4 components from the column definitions.
 3. **HITL review** - verify every component (types, constraints, labels, vocabulary bindings). The AI is probabilistic - expect corrections.
-4. **Delete the auto-generated Cluster and DM** via Django admin - we only wanted the leaf components.
-5. **Manually create proper Clusters** for components that need structural grouping (workflow sub-clusters with paths, validation-details, etc.).
-6. **Publish bottom-up** - leaf components first, then Clusters, following the 5-level publication order.
+4. **Delete the auto-generated flat Cluster and DM** via Django admin - we only wanted the leaf components.
+5. **Manually create all structural Clusters** in SDCStudio:
+   - 4 workflow ClusterTypes, each with sub-clusters defining valid paths, XdOrdinal components assigned to paths
+   - Party detail Clusters grouping identity components (name, identifier, email, org)
+   - Validation-details Cluster with entity-state-before and entity-state-after sub-groupings
+6. **Publish bottom-up** - leaf components first, then manually-created Clusters, following the 5-level publication order.
 
-This is a hack - using SDCStudio as a component factory rather than a model builder. Since the Django admin allows deletion of unpublished Clusters/DMs before publication, it works cleanly.
+This is a component factory approach - using SDCStudio's AI to create leaf components from templates, then manually building the structural hierarchy. Since the Django admin allows deletion of unpublished Clusters/DMs before publication, the hack works cleanly.
 
 ### Template Design Location
 
