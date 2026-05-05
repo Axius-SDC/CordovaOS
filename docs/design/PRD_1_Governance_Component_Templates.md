@@ -13,7 +13,7 @@ Design, build, and validate a set of standards-based, generic governance compone
 
 ## 2. Design Principles
 
-1. **Generic first.** Every governance component must work across domains. A document approval workflow works the same for a healthcare record, a law enforcement report, or a port manifest. Domain-specific adaptation happens at composition time in PRD 2, not at component design time.
+1. **Generic by design, not by mandate.** These components are designed to be reusable across domains - a document approval workflow can work for a healthcare record, a law enforcement report, or a port manifest. However, practitioners can always build domain-specific governance components when their use case requires it. The SDC RM guarantees structural interoperability regardless of how components are modeled. Domain-specific adaptation happens at composition time in PRD 2.
 
 2. **Standards-bound.** Every component binds to a published standard vocabulary:
    - Workflow: W3C SCXML concepts of state and transition
