@@ -1,0 +1,2106 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sdc4: <https://semanticdatacharter.com/ns/sdc4/> .
+@prefix sdc4-meta: <https://semanticdatacharter.com/ontology/sdc4-meta/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sdc4:AttestationBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Attestation view must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:attestation-view ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Attestation proof must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:attestation-proof ] ;
+    sh:targetClass sdc4:AttestationType .
+
+sdc4:AuditBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:message "Audit must have a timestamp" ;
+            sh:minCount 1 ;
+            sh:path sdc4:audit-time ],
+        [ sh:class sdc4:PartyType ;
+            sh:maxCount 1 ;
+            sh:message "Audit committer must be a Party" ;
+            sh:minCount 0 ;
+            sh:path sdc4:audit-committer ] ;
+    sh:targetClass sdc4:AuditType .
+
+sdc4:ParticipationBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Participation function must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:participation-function ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Participation mode must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:participation-mode ] ;
+    sh:targetClass sdc4:ParticipationType .
+
+sdc4:PartyBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Party must have a name" ;
+            sh:minCount 1 ;
+            sh:path sdc4:party-name ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Party ID must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:party-id ] ;
+    sh:targetClass sdc4:PartyType .
+
+sdc4:ReferenceRangeBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "ReferenceRange must have a meaning" ;
+            sh:minCount 1 ;
+            sh:path sdc4:range-meaning ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "ReferenceRange lower bound must be a decimal" ;
+            sh:minCount 0 ;
+            sh:path sdc4:range-lower ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "ReferenceRange upper bound must be a decimal" ;
+            sh:minCount 0 ;
+            sh:path sdc4:range-upper ] ;
+    sh:targetClass sdc4:ReferenceRangeType .
+
+sdc4:SDC4ComponentShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "All SDC4 components must have a label" ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class rdfs:Class ;
+            sh:message "All SDC4 components must have an rdf:type" ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass rdfs:Class .
+
+sdc4:SimpleReferenceRangeBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "SimpleReferenceRange lower bound must be a decimal" ;
+            sh:minCount 0 ;
+            sh:path sdc4:simple-range-lower ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "SimpleReferenceRange upper bound must be a decimal" ;
+            sh:minCount 0 ;
+            sh:path sdc4:simple-range-upper ] ;
+    sh:targetClass sdc4:SimpleReferenceRangeType .
+
+sdc4:UnitsBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Units must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Units code must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:units-code ] ;
+    sh:targetClass sdc4:UnitsType .
+
+sdc4:XdBooleanBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdBoolean must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:message "XdBoolean must have a boolean value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdboolean-value ] ;
+    sh:targetClass sdc4:XdBooleanType .
+
+sdc4:XdCountBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdCount must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:message "XdCount must have an integer value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdcount-value ],
+        [ sh:class sdc4:UnitsType ;
+            sh:maxCount 1 ;
+            sh:message "XdCount requires a Units component" ;
+            sh:minCount 1 ;
+            sh:path sdc4-meta:hasUnit ] ;
+    sh:targetClass sdc4:XdCountType .
+
+sdc4:XdDoubleBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdDouble must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:message "XdDouble must have a double value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xddouble-value ],
+        [ sh:class sdc4:UnitsType ;
+            sh:maxCount 1 ;
+            sh:message "XdDouble requires a Units component" ;
+            sh:minCount 1 ;
+            sh:path sdc4-meta:hasUnit ] ;
+    sh:targetClass sdc4:XdDoubleType .
+
+sdc4:XdFloatBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdFloat must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:float ;
+            sh:maxCount 1 ;
+            sh:message "XdFloat must have a float value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdfloat-value ],
+        [ sh:class sdc4:UnitsType ;
+            sh:maxCount 1 ;
+            sh:message "XdFloat requires a Units component" ;
+            sh:minCount 1 ;
+            sh:path sdc4-meta:hasUnit ] ;
+    sh:targetClass sdc4:XdFloatType .
+
+sdc4:XdIntervalBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdInterval must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:maxCount 1 ;
+            sh:message "XdInterval lower bound is optional" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdinterval-lower ],
+        [ sh:maxCount 1 ;
+            sh:message "XdInterval upper bound is optional" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdinterval-upper ] ;
+    sh:targetClass sdc4:XdIntervalType .
+
+sdc4:mc-0khgfzp8h42kw99wj07udbzw-shape a sh:NodeShape ;
+    rdfs:label "Administering Facility" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue foaf:Agent ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-bpqtzla39dwentygpwea8276-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://hl7.org/fhir/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue prov:Agent ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-u1hjad8m99xlnkyj5clvjnpa-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ule5u2z3rjpa9pooaifwj1n3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:MedicalClinic ;
+            sh:path skos:relatedMatch ] ;
+    sh:targetNode sdc4:mc-0khgfzp8h42kw99wj07udbzw .
+
+sdc4:mc-5scaiw897xhuqa1k8sso932e-shape a sh:NodeShape ;
+    rdfs:label "Healthcare Provider" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-ule5u2z3rjpa9pooaifwj1n3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:HealthcareOrganization ;
+            sh:path skos:relatedMatch ],
+        [ sh:node sdc4:mc-u1i23yha2rvz5nbxjz3l8x48-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-zs9ciw4nypx4plo856h3m95d-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-cuxxvwyqn5vhlqjymovegmn7-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue foaf:Agent ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://hl7.org/fhir/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue prov:Agent ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-ndvtjiq0cke0q1trw58rtrq2-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-5scaiw897xhuqa1k8sso932e .
+
+sdc4:mc-7gkespcenmxwbctpbwjs43yk-shape a sh:NodeShape ;
+    rdfs:label "Prescriber" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-f8ptus0eraxmipvhd96ddbdq-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-ndvtjiq0cke0q1trw58rtrq2-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue foaf:Agent ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue prov:Agent ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://hl7.org/fhir/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q99393050> ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-u1i23yha2rvz5nbxjz3l8x48-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-zs9ciw4nypx4plo856h3m95d-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-7gkespcenmxwbctpbwjs43yk .
+
+sdc4:mc-ftluo2nybgxmn7mawttoos20-shape a sh:NodeShape ;
+    rdfs:label "Healthcare Record" ;
+    sh:node sdc4:DMBaseShape ;
+    sh:property [ sh:maxCount 1 ;
+            sh:message "Data Model must have a root data Cluster" ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-w0lu0us3nbxaedfum9i8itpc-shape ;
+            sh:path sdc4:dm-data ] ;
+    sh:targetNode sdc4:mc-ftluo2nybgxmn7mawttoos20 ;
+    sdc4-meta:generatedAt "2026-07-29T15:26:26.610334+00:00"^^xsd:dateTime .
+
+sdc4:mc-gug5dhtqfv7exbgmm2raxpkq-shape a sh:NodeShape ;
+    rdfs:label "Digital Signature Proof" ;
+    rdfs:comment "Cryptographic proof of attestation (digital signature)" ;
+    sh:node sdc4:XdFileBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:formalism ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q210824> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue prov:Entity ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:encoding ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:size ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:uri ],
+        [ sh:datatype xsd:language ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdfile-language ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:hash-result ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:media-type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:alt-txt ],
+        [ sh:datatype xsd:base64Binary ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:media-content ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:hash-function ],
+        [ sh:hasValue <https://www.w3.org/TR/vc-data-model/#credentials> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:compression-type ] ;
+    sh:targetNode sdc4:mc-gug5dhtqfv7exbgmm2raxpkq ;
+    sdc4-meta:sdcType "XdFileType" .
+
+sdc4:mc-hbk1xmzqefk2lchmd7jooz7a-shape a sh:NodeShape ;
+    rdfs:label "Healthcare Record Access Control" ;
+    rdfs:comment "Access control policy for healthcare data using W3C Data Privacy Vocabulary. Enforces role-based access for healthcare providers, patients, and authorized representatives. Governs dpv:SpecialCategoryPersonalData including medical records, diagnoses, and treatment plans." ;
+    sh:node sdc4:XdLinkBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation ],
+        [ sh:hasValue <https://w3id.org/dpv> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1324077> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation-uri ],
+        [ sh:hasValue <https://w3id.org/dpv#SpecialCategoryPersonalData> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:link ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q185799> ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://w3id.org/dpv#AccessControlMethod> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-hbk1xmzqefk2lchmd7jooz7a ;
+    sdc4-meta:sdcType "XdLinkType" .
+
+sdc4:mc-km4azswrxe9tdrjmqvun5463-shape a sh:NodeShape ;
+    rdfs:label "Software Agent Details" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-d839tf07spk43dmg0dqb939b-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-rsjfjz8m5z7a58h5793duqbs-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-tep9wanrrtqfw0k76huv6tvd-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-xvnv7mrhvfweajl72pmngeya-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-px6j779dnapp4fjlohula4mh-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q2297769> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-km4azswrxe9tdrjmqvun5463 .
+
+sdc4:mc-plob4z6l86w98xcvt7sz324v-shape a sh:NodeShape ;
+    rdfs:label "Non-negative Weight" ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:upper_included ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:upper_bounded ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:lower_included ],
+        [ sh:datatype xsd:decimal ;
+            sh:in ( "0" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:invl-decimal ],
+        [ sh:datatype sdc4:InvlUnits ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:interval-units ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:lower_bounded ] ;
+    sh:targetNode sdc4:mc-plob4z6l86w98xcvt7sz324v ;
+    sdc4-meta:sdcType "XdIntervalType" .
+
+sdc4:mc-q8mgqxefnj2v39cn83lsjetb-shape a sh:NodeShape ;
+    rdfs:label "Primary Care Assignment" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-zs9ciw4nypx4plo856h3m95d-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue prov:Agent ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue foaf:Agent ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue schema:Patient ;
+            sh:path skos:relatedMatch ],
+        [ sh:hasValue <https://hl7.org/fhir/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-dnxrp0bpfs33b4x5ks8he9ag-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-bpqtzla39dwentygpwea8276-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ule5u2z3rjpa9pooaifwj1n3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-ndvtjiq0cke0q1trw58rtrq2-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-q8mgqxefnj2v39cn83lsjetb .
+
+sdc4:mc-qoogfcksod6jtymyto974smz-shape a sh:NodeShape ;
+    rdfs:label "Normal Body Temperature" ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:lower_included ],
+        [ sh:datatype xsd:decimal ;
+            sh:in ( "36.1" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:invl-decimal ],
+        [ sh:datatype xsd:decimal ;
+            sh:in ( "37.2" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:invl-decimal ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:lower_bounded ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:upper_bounded ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:upper_included ],
+        [ sh:datatype sdc4:InvlUnits ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:interval-units ] ;
+    sh:targetNode sdc4:mc-qoogfcksod6jtymyto974smz ;
+    sdc4-meta:sdcType "XdIntervalType" .
+
+sdc4:mc-qouanq414kzylojpvqt7d78y-shape a sh:NodeShape ;
+    rdfs:label "Normal Diastolic Blood Pressure" ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:lower_included ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:upper_included ],
+        [ sh:datatype xsd:integer ;
+            sh:in ( "80" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:invl-int ],
+        [ sh:datatype xsd:integer ;
+            sh:in ( "60" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:invl-int ],
+        [ sh:datatype sdc4:InvlUnits ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:interval-units ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:lower_bounded ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:upper_bounded ] ;
+    sh:targetNode sdc4:mc-qouanq414kzylojpvqt7d78y ;
+    sdc4-meta:sdcType "XdIntervalType" .
+
+sdc4:mc-tzzp7weh4dmg323u6kfalo0g-shape a sh:NodeShape ;
+    rdfs:label "Healthcare Record Attested View" ;
+    rdfs:comment "Attested view of a healthcare record document" ;
+    sh:node sdc4:XdFileBaseShape ;
+    sh:property [ sh:datatype xsd:language ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdfile-language ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:formalism ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:compression-type ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:uri ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:hash-result ],
+        [ sh:hasValue prov:Entity ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:base64Binary ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:media-content ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:encoding ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:media-type ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:size ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:hash-function ],
+        [ sh:hasValue schema:DigitalDocument ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:alt-txt ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q656365> ;
+            sh:path rdfs:seeAlso ] ;
+    sh:targetNode sdc4:mc-tzzp7weh4dmg323u6kfalo0g ;
+    sdc4-meta:sdcType "XdFileType" .
+
+sdc4:mc-w06vxo6uxtrzjkimmafmue7g-shape a sh:NodeShape ;
+    rdfs:label "Contact and Access" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-pdykwzsug7pfncjsrry73x1s-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-a127ihw8xbfbl24lbcvnspv0-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q2996679> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-jtuheuri2wzfhctcjqv4ozmy-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-rw1cjzeynsl87va6gvhv2k7e-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-w06vxo6uxtrzjkimmafmue7g .
+
+sdc4:mc-xd97z3tju6zwhlq4cu84v0bw-shape a sh:NodeShape ;
+    rdfs:label "Normal Systolic Blood Pressure" ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:lower_bounded ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:upper_bounded ],
+        [ sh:datatype sdc4:InvlUnits ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:interval-units ],
+        [ sh:datatype xsd:integer ;
+            sh:in ( "120" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:invl-int ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:lower_included ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:upper_included ],
+        [ sh:datatype xsd:integer ;
+            sh:in ( "90" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:invl-int ] ;
+    sh:targetNode sdc4:mc-xd97z3tju6zwhlq4cu84v0bw ;
+    sdc4-meta:sdcType "XdIntervalType" .
+
+sdc4:mc-ylue5x7upcvcrat329hmnv9z-shape a sh:NodeShape ;
+    rdfs:label "Healthcare Record Workflow" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue prov:Activity ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-yi46egvfmz66gd0dhypl6t6m-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ba1ezyhgf6aaw03an2uve57o-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:MedicalRecord ;
+            sh:path skos:relatedMatch ],
+        [ sh:node sdc4:mc-trvg8tpie5w2zlf6b0nl3zhb-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-v5p12fdr4figf0k2rulfqrxl-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://hl7.org/fhir/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-emov6wuhen2tuyjlppqmmjjl-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q627335> ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-mxjh9oqcnjl6njqqi75odozh-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-ylue5x7upcvcrat329hmnv9z .
+
+sdc4:DMBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Data Model must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:dm-label ],
+        [ sh:datatype xsd:language ;
+            sh:maxCount 1 ;
+            sh:message "Data Model must specify a language" ;
+            sh:minCount 1 ;
+            sh:path sdc4:dm-language ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Data Model must specify encoding" ;
+            sh:minCount 1 ;
+            sh:path sdc4:dm-encoding ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Data Model must have a mandatory instance_id (CUID2)" ;
+            sh:minCount 1 ;
+            sh:path sdc4:instance_id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path sdc4:source_instance_id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path sdc4:source_version_id ] ;
+    sh:targetClass sdc4:DMType .
+
+sdc4:mc-07osold8ovbjsqzvz00f3ked2-shape a sh:NodeShape ;
+    rdfs:label "Severity (3-Point)" ;
+    rdfs:comment "Three-point severity scale for clinical findings" ;
+    sh:node sdc4:XdOrdinalBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:in ( "Mild" "Moderate" "Severe" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:symbol ],
+        [ sh:datatype xsd:decimal ;
+            sh:in ( "0" "1" "2" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:ordinal ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q10870002> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ] ;
+    sh:targetNode sdc4:mc-07osold8ovbjsqzvz00f3ked2 ;
+    sdc4-meta:sdcType "XdOrdinalType" .
+
+sdc4:mc-a127ihw8xbfbl24lbcvnspv0-shape a sh:NodeShape ;
+    rdfs:label "contact_name" ;
+    rdfs:comment "Contact name for the service." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue dcat:contactPoint ;
+            sh:path skos:exactMatch ] ;
+    sh:targetNode sdc4:mc-a127ihw8xbfbl24lbcvnspv0 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-b5zse0kmvpkj74ggqvgk647l-shape a sh:NodeShape ;
+    rdfs:label "Body Temperature" ;
+    rdfs:comment "Patient body temperature measured in degrees Celsius during a clinical visit. Normal adult range is 36.1–37.2°C. Triage screening vital sign." ;
+    sh:node sdc4:XdQuantityBaseShape ;
+    sh:property [ sh:hasValue <https://loinc.org/8310-5/> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1066998> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-ihugcgyqyfjp3u9y5qva1fwz-shape ;
+            sh:path sdc4-meta:hasUnit ],
+        [ sh:hasValue <https://www.ncbi.nlm.nih.gov/books/NBK331/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 45.00000 ;
+            sh:minCount 1 ;
+            sh:minInclusive 30.00000 ;
+            sh:path sdc4:xdquantity-value ],
+        [ sh:hasValue <http://snomed.info/id/386725007> ;
+            sh:path skos:exactMatch ] ;
+    sh:targetNode sdc4:mc-b5zse0kmvpkj74ggqvgk647l ;
+    sdc4-meta:sdcType "XdQuantityType" .
+
+sdc4:mc-ba1ezyhgf6aaw03an2uve57o-shape a sh:NodeShape ;
+    rdfs:label "Prescriber Participation Mode" ;
+    rdfs:comment "Mode of prescriber participation in the medication order (e.g., in person, telehealth)." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "in-person" "telehealth" "electronic-order" "verbal-order" "fax" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-ba1ezyhgf6aaw03an2uve57o ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-bd3s8t23d6m3zizmpwavc32y-shape a sh:NodeShape ;
+    rdfs:label "system_identifier" ;
+    rdfs:comment "Identifier of the system that handled the data. Maps to prov:Entity context in the PROV-O export. This is the AuditType.system-id field." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q7663715> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 50 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-bd3s8t23d6m3zizmpwavc32y ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-ccj1yq2wtwknobszkgzzdbtr-shape a sh:NodeShape ;
+    rdfs:label "prov_activity_type" ;
+    rdfs:comment "Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q125542526> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-ccj1yq2wtwknobszkgzzdbtr ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-cm0nqqnjcylc8vkfph7db2lh-shape a sh:NodeShape ;
+    rdfs:label "Chronic Condition" ;
+    rdfs:comment "Name or description of a chronic medical condition (e.g., hypertension, diabetes, asthma)" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 500 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue schema:description ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q383126> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-cm0nqqnjcylc8vkfph7db2lh ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-cntj1t9t2xjugnux1enpigmf-shape a sh:NodeShape ;
+    rdfs:label "Clinical Impression" ;
+    rdfs:comment "Overall clinical impression from neurological examination" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q69067902> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 2000 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-cntj1t9t2xjugnux1enpigmf ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-cq6m46w59ouu1cu8tkw1fhib-shape a sh:NodeShape ;
+    rdfs:label "Prescription Date" ;
+    rdfs:comment "Date the medication was prescribed" ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ sh:hasValue schema:DateTime ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q193521> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-cq6m46w59ouu1cu8tkw1fhib ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-cuxxvwyqn5vhlqjymovegmn7-shape a sh:NodeShape ;
+    rdfs:label "Provider Name" ;
+    rdfs:comment "Name of the attending physician or provider" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <http://schema.org/name> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:name ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-cuxxvwyqn5vhlqjymovegmn7 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-d839tf07spk43dmg0dqb939b-shape a sh:NodeShape ;
+    rdfs:label "software_runtime_environment" ;
+    rdfs:comment "Runtime environment or platform for the software." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q241317> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-d839tf07spk43dmg0dqb939b ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-dnxrp0bpfs33b4x5ks8he9ag-shape a sh:NodeShape ;
+    rdfs:label "Primary Care Provider" ;
+    rdfs:comment "Name of the patient's assigned primary care physician" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q55379489> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue schema:name ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-dnxrp0bpfs33b4x5ks8he9ag ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-dyfz05n20jhc1elhozrbjug0-shape a sh:NodeShape ;
+    rdfs:label "Vaccine Date" ;
+    rdfs:comment "Date the vaccine was administered" ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ sh:hasValue schema:Date ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q192995> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:gYearMonth ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-year-month ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-date ] ;
+    sh:targetNode sdc4:mc-dyfz05n20jhc1elhozrbjug0 ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-edvvjznmaoibzmfna0uuoo37-shape a sh:NodeShape ;
+    rdfs:label "activity_timestamp_end" ;
+    rdfs:comment "When the provenance activity completed. Maps to prov:endedAtTime. ISO 8601 format." ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-datetime ],
+        [ sh:datatype xsd:time ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-time ],
+        [ sh:hasValue <http://www.ontology-of-units-of-measure.org/resource/om-2/Activity> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-edvvjznmaoibzmfna0uuoo37 ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-emov6wuhen2tuyjlppqmmjjl-shape a sh:NodeShape ;
+    rdfs:label "Healthcare Records Protocol" ;
+    rdfs:comment "Protocol reference for the Healthcare Record data model. Informed by the WHO International Classification of Diseases (ICD-11), HL7 FHIR resource concepts for clinical data exchange, and national health information management standards for patient records." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 500 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q35869> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q132364> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q317623> ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-emov6wuhen2tuyjlppqmmjjl ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-eq4h86worv571cl5iiy9unkw-shape a sh:NodeShape ;
+    rdfs:label "Vaccination History" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-td5j1frz2fa8g4uh1hor7w11-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-fi1qu4j2zd0801fcqtix35h5-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q93623446> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-dyfz05n20jhc1elhozrbjug0-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.cdc.gov/vaccines/hcp/imz-schedules/index.html> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-eq4h86worv571cl5iiy9unkw .
+
+sdc4:mc-f8ptus0eraxmipvhd96ddbdq-shape a sh:NodeShape ;
+    rdfs:label "Prescriber" ;
+    rdfs:comment "Name of the prescribing physician" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q99393050> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue schema:name ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-f8ptus0eraxmipvhd96ddbdq ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-fi1qu4j2zd0801fcqtix35h5-shape a sh:NodeShape ;
+    rdfs:label "Vaccine Name" ;
+    rdfs:comment "Name of the vaccine administered" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue schema:Drug ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q134808> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-fi1qu4j2zd0801fcqtix35h5 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-fnodzqkbyskwe7nh58rs336k-shape a sh:NodeShape ;
+    rdfs:label "system_location_name" ;
+    rdfs:comment "Name of the physical or logical location where the system resides. Maps to prov:atLocation." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q11307204> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-fnodzqkbyskwe7nh58rs336k ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc-shape a sh:NodeShape ;
+    rdfs:label "software_vendor" ;
+    rdfs:comment "Vendor or maintainer of the software." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q7554349> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-hd9295k8o49j91lvgftul1a0-shape a sh:NodeShape ;
+    rdfs:label "Visit Record" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-nnu04d5qgrmn1bim8bpu0l65-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-s6oo99lbq85kfz0v5nqv9yaf-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q29182> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-cntj1t9t2xjugnux1enpigmf-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-kokquuk73pm2ohlh4ftnu7wb-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-qvmb5f4xmy56y98q8raelpl9-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-qzmcum3kwmskrkj7nhkf8fkm-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-vh2scyehy68pw7sbvzdg3cn9-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-b5zse0kmvpkj74ggqvgk647l-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-lu2w1avj9fic5wrmyftt9fhi-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-l9sjn7wj10y5b27ldkv3j8mt-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://hl7.org/fhir/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-lccs354vpxmtyo69ba5cu48v-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-iufcfze52lha16v84kccgxyh-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-hd9295k8o49j91lvgftul1a0 .
+
+sdc4:mc-hdhjfg00tngir2txgqyka9cv-shape a sh:NodeShape ;
+    rdfs:label "Provenance Components" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q1172162> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-edvvjznmaoibzmfna0uuoo37-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-fnodzqkbyskwe7nh58rs336k-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-m9xg6e182m1oq77ssrf9iujv-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-o72s5793973fzho35rnaughs-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-bd3s8t23d6m3zizmpwavc32y-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-zr59goe24qkocprl3feul3mt-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ccj1yq2wtwknobszkgzzdbtr-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-hdhjfg00tngir2txgqyka9cv .
+
+sdc4:mc-ihugcgyqyfjp3u9y5qva1fwz-shape a sh:NodeShape ;
+    rdfs:label "Temperature (SI - Metric)" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q11466> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q12457> ;
+            sh:path skos:relatedMatch ],
+        [ sh:hasValue <http://qudt.org/vocab/quantitykind/Temperature> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q47574> ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-ihugcgyqyfjp3u9y5qva1fwz ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-iprf7jqg9emvm92wo9gkiqcu-shape a sh:NodeShape ;
+    rdfs:label "Frequency (5-Point)" ;
+    rdfs:comment "Five-point frequency scale for symptom or behavior occurrence" ;
+    sh:node sdc4:XdOrdinalBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:in ( "Never" "Rarely" "Sometimes" "Often" "Always" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:symbol ],
+        [ sh:hasValue <https://uts.nlm.nih.gov/uts/umls/concept/C0436350> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:decimal ;
+            sh:in ( "1" "2" "3" "4" "5" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:ordinal ] ;
+    sh:targetNode sdc4:mc-iprf7jqg9emvm92wo9gkiqcu ;
+    sdc4-meta:sdcType "XdOrdinalType" .
+
+sdc4:mc-iufcfze52lha16v84kccgxyh-shape a sh:NodeShape ;
+    rdfs:label "Visit Date" ;
+    rdfs:comment "Date of clinical visit" ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q577> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-iufcfze52lha16v84kccgxyh ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-jtuheuri2wzfhctcjqv4ozmy-shape a sh:NodeShape ;
+    rdfs:label "contact_email" ;
+    rdfs:comment "Contact email for the service." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q1273217> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ;
+            sh:pattern ".+@.+\\..+" ] ;
+    sh:targetNode sdc4:mc-jtuheuri2wzfhctcjqv4ozmy ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-jz2hqntyol8lopw6q6zdud78-shape a sh:NodeShape ;
+    rdfs:label "Medical Record Number" ;
+    rdfs:comment "Institution-specific medical record number for linking to clinical records" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 50 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://uts.nlm.nih.gov/uts/umls/concept/C1301894> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-jz2hqntyol8lopw6q6zdud78 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-kokquuk73pm2ohlh4ftnu7wb-shape a sh:NodeShape ;
+    rdfs:label "Systolic Blood Pressure" ;
+    rdfs:comment "Peak arterial pressure during cardiac contraction, measured in mmHg. Normal adult range is 90–120 mmHg. Values ≥140 mmHg indicate hypertension per WHO/AHA guidelines." ;
+    sh:node sdc4:XdQuantityBaseShape ;
+    sh:property [ sh:hasValue <http://snomed.info/id/271649006> ;
+            sh:path skos:exactMatch ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv-shape ;
+            sh:path sdc4-meta:hasUnit ],
+        [ sh:hasValue <https://loinc.org/8480-6/> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue <https://professional.heart.org/en/science-news/2017-hypertension-clinical-guidelines> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q82642> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 300.00000 ;
+            sh:minCount 1 ;
+            sh:minInclusive 40.00000 ;
+            sh:path sdc4:xdquantity-value ] ;
+    sh:targetNode sdc4:mc-kokquuk73pm2ohlh4ftnu7wb ;
+    sdc4-meta:sdcType "XdQuantityType" .
+
+sdc4:mc-l9sjn7wj10y5b27ldkv3j8mt-shape a sh:NodeShape ;
+    rdfs:label "Visit Type" ;
+    rdfs:comment "Type of clinical visit or encounter" ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "Screening" "Baseline" "Follow-up" "Unscheduled" "Early termination" "Final" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://uts.nlm.nih.gov/uts/umls/concept/C5708072> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-l9sjn7wj10y5b27ldkv3j8mt ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-lccs354vpxmtyo69ba5cu48v-shape a sh:NodeShape ;
+    rdfs:label "Outcome" ;
+    rdfs:comment "Outcome of the visit" ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Treated and Released" "Admitted" "Referred" "Follow-up Scheduled" "No Treatment Required" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ],
+        [ sh:hasValue <http://schema.org/result> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-lccs354vpxmtyo69ba5cu48v ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-lu2w1avj9fic5wrmyftt9fhi-shape a sh:NodeShape ;
+    rdfs:label "Diastolic Blood Pressure" ;
+    rdfs:comment "Minimum arterial pressure during cardiac relaxation, measured in mmHg. Normal adult range is 60–80 mmHg. Values ≥90 mmHg indicate hypertension per WHO/AHA guidelines." ;
+    sh:node sdc4:XdQuantityBaseShape ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 200.00000 ;
+            sh:minCount 1 ;
+            sh:minInclusive 20.00000 ;
+            sh:path sdc4:xdquantity-value ],
+        [ sh:hasValue <https://professional.heart.org/en/science-news/2017-hypertension-clinical-guidelines> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv-shape ;
+            sh:path sdc4-meta:hasUnit ],
+        [ sh:hasValue <https://loinc.org/8462-4/> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q82642> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <http://snomed.info/id/271650006> ;
+            sh:path skos:exactMatch ] ;
+    sh:targetNode sdc4:mc-lu2w1avj9fic5wrmyftt9fhi ;
+    sdc4-meta:sdcType "XdQuantityType" .
+
+sdc4:mc-m9xg6e182m1oq77ssrf9iujv-shape a sh:NodeShape ;
+    rdfs:label "activity_description" ;
+    rdfs:comment "Detailed description of what this activity does and its purpose." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.w3.org/TR/prov-dm/> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 2000 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-m9xg6e182m1oq77ssrf9iujv ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-mxjh9oqcnjl6njqqi75odozh-shape a sh:NodeShape ;
+    rdfs:label "Healthcare Record Attestation Reason" ;
+    rdfs:comment "Reason for attesting this healthcare record" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 500 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q656365> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q132364> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:Text ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-mxjh9oqcnjl6njqqi75odozh ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape a sh:NodeShape ;
+    rdfs:label "National ID (CID)" ;
+    rdfs:comment "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q1140371> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ;
+            sh:pattern "COR-(AL|BR|CE)0[1-3]-[0-9]{6}" ],
+        [ sh:hasValue schema:identifier ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <http://schema.org/identifier> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-nnu04d5qgrmn1bim8bpu0l65-shape a sh:NodeShape ;
+    rdfs:label "Diagnosis" ;
+    rdfs:comment "Clinical diagnosis resulting from this visit. This cell carries Restricted:PatientCare policy — it cannot be composed into public reports." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue schema:MedicalCode ;
+            sh:path skos:relatedMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 500 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q14860489> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-nnu04d5qgrmn1bim8bpu0l65 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-nomiekce61caq5n9a49d0eu6-shape a sh:NodeShape ;
+    rdfs:label "Medication Name" ;
+    rdfs:comment "Name of the prescribed medication (generic or brand name)" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue schema:name ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q70848614> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-nomiekce61caq5n9a49d0eu6 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-ntk4zsr15bcca2jmocdkcpcc-shape a sh:NodeShape ;
+    rdfs:label "Allergy Description" ;
+    rdfs:comment "Description of a known allergy (drug, food, environmental)" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue schema:description ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 500 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <http://schema.org/description> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-ntk4zsr15bcca2jmocdkcpcc ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-o72s5793973fzho35rnaughs-shape a sh:NodeShape ;
+    rdfs:label "activity_timestamp_start" ;
+    rdfs:comment "When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format." ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-datetime ],
+        [ sh:hasValue <http://www.ontology-of-units-of-measure.org/resource/om-2/Activity> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:time ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-time ] ;
+    sh:targetNode sdc4:mc-o72s5793973fzho35rnaughs ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-p14jkmk8xqs97daq3zvyhrsj-shape a sh:NodeShape ;
+    rdfs:label "Onset Date" ;
+    rdfs:comment "Date of symptom or disease onset" ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ sh:datatype xsd:gYearMonth ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-year-month ],
+        [ sh:datatype xsd:gYear ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-year ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q577> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-date ] ;
+    sh:targetNode sdc4:mc-p14jkmk8xqs97daq3zvyhrsj ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-pdykwzsug7pfncjsrry73x1s-shape a sh:NodeShape ;
+    rdfs:label "contact_phone" ;
+    rdfs:comment "Primary contact phone number." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q214995> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ;
+            sh:pattern "\\+?\\d[\\d\\s\\-\\(\\)]{6,18}" ] ;
+    sh:targetNode sdc4:mc-pdykwzsug7pfncjsrry73x1s ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-px6j779dnapp4fjlohula4mh-shape a sh:NodeShape ;
+    rdfs:label "software_service_endpoint" ;
+    rdfs:comment "API endpoint or service URL if applicable." ;
+    sh:node sdc4:XdLinkBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q5376585> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:link ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation-uri ] ;
+    sh:targetNode sdc4:mc-px6j779dnapp4fjlohula4mh ;
+    sdc4-meta:sdcType "XdLinkType" .
+
+sdc4:mc-qvmb5f4xmy56y98q8raelpl9-shape a sh:NodeShape ;
+    rdfs:label "Facility" ;
+    rdfs:comment "Healthcare facility where the visit occurred" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q9386252> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue schema:name ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-qvmb5f4xmy56y98q8raelpl9 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-qzmcum3kwmskrkj7nhkf8fkm-shape a sh:NodeShape ;
+    rdfs:label "Reason for Visit" ;
+    rdfs:comment "Chief complaint or reason for the clinical encounter" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <http://snomed.info/id/409586006> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:description ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 500 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-qzmcum3kwmskrkj7nhkf8fkm ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-rsjfjz8m5z7a58h5793duqbs-shape a sh:NodeShape ;
+    rdfs:label "software_name" ;
+    rdfs:comment "Name of the software system or service." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q30335969> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-rsjfjz8m5z7a58h5793duqbs ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-rw1cjzeynsl87va6gvhv2k7e-shape a sh:NodeShape ;
+    rdfs:label "service_account_id" ;
+    rdfs:comment "Service account or system account identifier for software agents." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 255 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <http://schema.org/identifier> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-rw1cjzeynsl87va6gvhv2k7e ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-s6oo99lbq85kfz0v5nqv9yaf-shape a sh:NodeShape ;
+    rdfs:label "Patient Weight" ;
+    rdfs:comment "Patient body weight in kilograms measured during a clinical visit. Used for medication dosing calculations, BMI computation, and tracking health trends." ;
+    sh:node sdc4:XdQuantityBaseShape ;
+    sh:property [ sh:hasValue <http://snomed.info/id/27113001> ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 500.00000 ;
+            sh:minCount 1 ;
+            sh:minInclusive 0.50000 ;
+            sh:path sdc4:xdquantity-value ],
+        [ sh:hasValue <https://loinc.org/29463-7/> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q18247> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.cdc.gov/nchs/fastats/body-measurements.htm> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-tjxxdsd6idyzqygrncojauxn-shape ;
+            sh:path sdc4-meta:hasUnit ] ;
+    sh:targetNode sdc4:mc-s6oo99lbq85kfz0v5nqv9yaf ;
+    sdc4-meta:sdcType "XdQuantityType" .
+
+sdc4:mc-td5j1frz2fa8g4uh1hor7w11-shape a sh:NodeShape ;
+    rdfs:label "Lot Number" ;
+    rdfs:comment "Vaccine lot number for traceability" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue schema:identifier ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q28698186> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-td5j1frz2fa8g4uh1hor7w11 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-tep9wanrrtqfw0k76huv6tvd-shape a sh:NodeShape ;
+    rdfs:label "software_version" ;
+    rdfs:comment "Version of the software." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 50 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q20826013> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-tep9wanrrtqfw0k76huv6tvd ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-trvg8tpie5w2zlf6b0nl3zhb-shape a sh:NodeShape ;
+    rdfs:label "Vaccination Facility Participation Function" ;
+    rdfs:comment "Function of the facility in the vaccination event (e.g., Administering Site, Storage Facility)." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "administering-site" "storage-facility" "reporting-site" "distribution-center" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-trvg8tpie5w2zlf6b0nl3zhb ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-tz13p9d4dpbw3pe9bx51nbou-shape a sh:NodeShape ;
+    rdfs:label "Condition Status" ;
+    rdfs:comment "Current status of the condition" ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q12136> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Active" "Resolved" "In Remission" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-tz13p9d4dpbw3pe9bx51nbou ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-u1hjad8m99xlnkyj5clvjnpa-shape a sh:NodeShape ;
+    rdfs:label "Administering Facility" ;
+    rdfs:comment "Healthcare facility where the vaccine was given" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <http://snomed.info/id/264362003> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue schema:name ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-u1hjad8m99xlnkyj5clvjnpa ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-v5p12fdr4figf0k2rulfqrxl-shape a sh:NodeShape ;
+    rdfs:label "Prescriber Participation Function" ;
+    rdfs:comment "Function of the prescriber in the medication order (e.g., Attending Physician, Consultant)." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "attending-physician" "consulting-physician" "primary-care-provider" "specialist" "resident" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-v5p12fdr4figf0k2rulfqrxl ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-vh2scyehy68pw7sbvzdg3cn9-shape a sh:NodeShape ;
+    rdfs:label "Patient Height" ;
+    rdfs:comment "Patient standing height in centimeters measured during a clinical visit. Used for BMI computation and growth tracking." ;
+    sh:node sdc4:XdQuantityBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q81938> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.cdc.gov/nchs/fastats/body-measurements.htm> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf-shape ;
+            sh:path sdc4-meta:hasUnit ],
+        [ sh:hasValue <https://loinc.org/8302-2/> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue <http://snomed.info/id/50373000> ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 300.00000 ;
+            sh:minCount 1 ;
+            sh:minInclusive 20.00000 ;
+            sh:path sdc4:xdquantity-value ] ;
+    sh:targetNode sdc4:mc-vh2scyehy68pw7sbvzdg3cn9 ;
+    sdc4-meta:sdcType "XdQuantityType" .
+
+sdc4:mc-vhjvhm6vz2om2jfn6b923gw7-shape a sh:NodeShape ;
+    rdfs:label "Medications" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-y7k4p12co0b9v6asll531fhv-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-z28bjtjekyybe300ukuyjpi4-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-cq6m46w59ouu1cu8tkw1fhib-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://hl7.org/fhir/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q12140> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-nomiekce61caq5n9a49d0eu6-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-iprf7jqg9emvm92wo9gkiqcu-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-vhjvhm6vz2om2jfn6b923gw7 .
+
+sdc4:mc-w0lu0us3nbxaedfum9i8itpc-shape a sh:NodeShape ;
+    rdfs:label "Healthcare Governed Record" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-hdhjfg00tngir2txgqyka9cv-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-ygtbvvmzcw3ukfsg3axqry97-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q95459148> ;
+            sh:path skos:closeMatch ] ;
+    sh:targetNode sdc4:mc-w0lu0us3nbxaedfum9i8itpc .
+
+sdc4:mc-xplqihmynccwa3o4o8s7gqml-shape a sh:NodeShape ;
+    rdfs:label "Allergies and Conditions" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-07osold8ovbjsqzvz00f3ked2-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-tz13p9d4dpbw3pe9bx51nbou-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://hl7.org/fhir/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q42982> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-p14jkmk8xqs97daq3zvyhrsj-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ntk4zsr15bcca2jmocdkcpcc-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-cm0nqqnjcylc8vkfph7db2lh-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-xplqihmynccwa3o4o8s7gqml .
+
+sdc4:mc-xvnv7mrhvfweajl72pmngeya-shape a sh:NodeShape ;
+    rdfs:label "software_documentation_url" ;
+    rdfs:comment "URL to software documentation or repository." ;
+    sh:node sdc4:XdLinkBaseShape ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation-uri ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:link ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q3133368> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-xvnv7mrhvfweajl72pmngeya ;
+    sdc4-meta:sdcType "XdLinkType" .
+
+sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf-shape a sh:NodeShape ;
+    rdfs:label "Length/Distance (SI - Metric)" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q1344778> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q47574> ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <http://qudt.org/vocab/quantitykind/Length> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q12457> ;
+            sh:path skos:relatedMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-y7k4p12co0b9v6asll531fhv-shape a sh:NodeShape ;
+    rdfs:label "Medication Dosage Amount" ;
+    rdfs:comment "Prescribed dosage amount of the medication in milligrams. Represents the per-administration dose as ordered by the prescribing physician." ;
+    sh:node sdc4:XdQuantityBaseShape ;
+    sh:property [ sh:hasValue <http://snomed.info/id/398232005> ;
+            sh:path skos:exactMatch ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-tjxxdsd6idyzqygrncojauxn-shape ;
+            sh:path sdc4-meta:hasUnit ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdquantity-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q473420> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://hl7.org/fhir/> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-y7k4p12co0b9v6asll531fhv ;
+    sdc4-meta:sdcType "XdQuantityType" .
+
+sdc4:mc-ygtbvvmzcw3ukfsg3axqry97-shape a sh:NodeShape ;
+    rdfs:label "Patient Record" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-eq4h86worv571cl5iiy9unkw-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://hl7.org/fhir/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-hd9295k8o49j91lvgftul1a0-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-xplqihmynccwa3o4o8s7gqml-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-vhjvhm6vz2om2jfn6b923gw7-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-jz2hqntyol8lopw6q6zdud78-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1324077> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-ygtbvvmzcw3ukfsg3axqry97 .
+
+sdc4:mc-yi46egvfmz66gd0dhypl6t6m-shape a sh:NodeShape ;
+    rdfs:label "Vaccination Facility Participation Mode" ;
+    rdfs:comment "Mode of facility participation in the vaccination event (e.g., in person, mobile clinic)." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "in-person" "mobile-clinic" "drive-through" "home-visit" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-yi46egvfmz66gd0dhypl6t6m ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-z28bjtjekyybe300ukuyjpi4-shape a sh:NodeShape ;
+    rdfs:label "Dosage" ;
+    rdfs:comment "Prescribed dosage (e.g., \"500mg\", \"10mg/mL\")" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue schema:description ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <http://qudt.org/vocab/quantitykind/AmountOfSubstance> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-z28bjtjekyybe300ukuyjpi4 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-zr59goe24qkocprl3feul3mt-shape a sh:NodeShape ;
+    rdfs:label "system_location_identifier" ;
+    rdfs:comment "Code or identifier for the system location. Used for cross-system location resolution." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 50 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q36214810> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-zr59goe24qkocprl3feul3mt ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:XdFileBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdFile must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:message "XdFile must have a valid URI" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdfile-uri ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdFile media type must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdfile-media-type ] ;
+    sh:targetClass sdc4:XdFileType .
+
+sdc4:XdOrdinalBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdOrdinal must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:message "XdOrdinal must have an integer value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdordinal-value ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdOrdinal symbol must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdordinal-symbol ] ;
+    sh:targetClass sdc4:XdOrdinalType .
+
+sdc4:mc-bpqtzla39dwentygpwea8276-shape a sh:NodeShape ;
+    rdfs:label "organization_type" ;
+    rdfs:comment "Type of organization." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q17197366> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "corporation" "government" "nonprofit" "academic" "department" "vendor" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-bpqtzla39dwentygpwea8276 ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-tjxxdsd6idyzqygrncojauxn-shape a sh:NodeShape ;
+    rdfs:label "Mass/Weight (SI - Metric)" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <http://qudt.org/vocab/quantitykind/Mass> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q47574> ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q12457> ;
+            sh:path skos:relatedMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q3197317> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-tjxxdsd6idyzqygrncojauxn ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-u1i23yha2rvz5nbxjz3l8x48-shape a sh:NodeShape ;
+    rdfs:label "PROV Role Type" ;
+    rdfs:comment "Functional roles that agents, entities, or activities can assume within provenance relationships." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "Author" "Publisher" "Contributor" "Custodian" "Reviewer" "Approver" "Transformer" "Aggregator" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://www.w3.org/TR/prov-o/#qualifiedInvolvement> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-u1i23yha2rvz5nbxjz3l8x48 ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv-shape a sh:NodeShape ;
+    rdfs:label "Pressure" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:XdLinkBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdLink must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:message "XdLink must have a valid URI" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdlink-url ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdLink relation must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdlink-relation ] ;
+    sh:targetClass sdc4:XdLinkType .
+
+sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1-shape a sh:NodeShape ;
+    rdfs:label "agent_id" ;
+    rdfs:comment "Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 255 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q37882474> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape a sh:NodeShape ;
+    rdfs:label "organization_name" ;
+    rdfs:comment "Legal or official name of the organization." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q168678> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-ndvtjiq0cke0q1trw58rtrq2-shape a sh:NodeShape ;
+    rdfs:label "person_given_name" ;
+    rdfs:comment "Given (first) name of the person agent." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q202444> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-ndvtjiq0cke0q1trw58rtrq2 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-ule5u2z3rjpa9pooaifwj1n3-shape a sh:NodeShape ;
+    rdfs:label "organization_identifier" ;
+    rdfs:comment "Official identifier for the organization (e.g., DUNS, tax ID)." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q11378663> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 255 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-ule5u2z3rjpa9pooaifwj1n3 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-zs9ciw4nypx4plo856h3m95d-shape a sh:NodeShape ;
+    rdfs:label "person_family_name" ;
+    rdfs:comment "Family (last) name of the person agent." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q4116295> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-zs9ciw4nypx4plo856h3m95d ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape a sh:NodeShape ;
+    rdfs:label "PROV Agent Type" ;
+    rdfs:comment "Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:hasValue prov:Agent ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Person" "Organization" "SoftwareAgent" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-nesxtz8c5o665swc9lhvqkjj ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:XdQuantityBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdQuantity must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:message "XdQuantity must have a decimal value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdquantity-value ],
+        [ sh:class sdc4:UnitsType ;
+            sh:maxCount 1 ;
+            sh:message "XdQuantity requires a Units component" ;
+            sh:minCount 1 ;
+            sh:path sdc4-meta:hasUnit ] ;
+    sh:targetClass sdc4:XdQuantityType .
+
+sdc4:XdTemporalBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal date must be a valid date" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal datetime must be a valid datetime" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdtemporal-datetime ],
+        [ sh:datatype xsd:time ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal time must be a valid time" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdtemporal-time ],
+        [ sh:datatype xsd:gYearMonth ;
+            sh:maxCount 1 ;
+            sh:message "XdTemporal year-month must be a valid gYearMonth" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdtemporal-year-month ] ;
+    sh:targetClass sdc4:XdTemporalType .
+
+sdc4:XdTokenBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdToken must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:token ;
+            sh:maxCount 1 ;
+            sh:message "XdToken must have a token value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetClass sdc4:XdTokenType .
+
+sdc4:ClusterBaseShape a sh:NodeShape ;
+    sh:property [ sh:message "Cluster can contain zero or more components" ;
+            sh:minCount 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "Cluster must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ] ;
+    sh:targetClass sdc4:ClusterType .
+
+sdc4:XdStringBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdString must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdString value must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:datatype xsd:language ;
+            sh:maxCount 1 ;
+            sh:message "XdString language must be a valid language code" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdstring-language ] ;
+    sh:targetClass sdc4:XdStringType .
+

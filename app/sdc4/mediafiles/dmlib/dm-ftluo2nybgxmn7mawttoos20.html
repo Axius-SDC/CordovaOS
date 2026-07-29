@@ -1,0 +1,2999 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Record - Schema Documentation</title>
+    <style>
+        :root {
+            --sdc-primary: #2ca58d;
+            --sdc-primary-dark: #1a7a6b;
+            --sdc-primary-light: #dcfce7;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f9fafb; padding: 1.5rem; margin: 0; color: #1f2937; line-height: 1.6; }
+        .container { max-width: 64rem; margin: 0 auto; }
+        h1 { font-size: 2rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--sdc-primary); }
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 0 0 1rem 0; color: var(--sdc-primary); }
+        h3 { font-size: 1.125rem; font-weight: 600; margin: 0 0 0.5rem 0; }
+        h4 { font-size: 1.05rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--sdc-primary); }
+        p { margin: 0 0 0.5rem 0; }
+        a { color: #2563eb; }
+        a:hover { text-decoration: underline; }
+        code { background: #f3f4f6; padding: 0.125rem 0.375rem; border-radius: 0.25rem; font-size: 0.875rem; }
+        .section-card { background: white; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 1.5rem; }
+        .info-grid { display: grid; grid-template-columns: 180px 1fr; gap: 1rem; }
+        .info-label { font-weight: 600; color: #4b5563; }
+        .info-value { color: #1f2937; }
+        .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; }
+        .badge-published { background-color: var(--sdc-primary-light); color: var(--sdc-primary-dark); }
+        .component-card { background: #f9fafb; border-left: 4px solid var(--sdc-primary); padding: 1rem; margin-bottom: 1rem; border-radius: 0.5rem; }
+        .constraint-item { background: #f3f4f6; padding: 0.5rem; margin: 0.25rem 0; border-radius: 0.375rem; font-size: 0.875rem; }
+        .download-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .download-link { display: inline-block; padding: 0.5rem 1rem; color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 500; }
+        .download-link:hover { opacity: 0.9; color: white; text-decoration: none; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.75rem; }
+        .note-box { margin-top: 1rem; padding: 0.75rem; background: #eff6ff; border-radius: 0.5rem; font-size: 0.875rem; color: #374151; }
+        .muted { color: #6b7280; }
+        .italic { font-style: italic; }
+        .small { font-size: 0.875rem; }
+        ol { padding-left: 1.5rem; }
+        ol li { margin-bottom: 0.5rem; }
+        details { cursor: pointer; margin-top: 1rem; }
+        details summary { font-weight: 600; padding: 0.5rem; background: #f3f4f6; border-radius: 0.375rem; margin-bottom: 0.5rem; }
+        details[open] summary { background: var(--sdc-primary-light); color: var(--sdc-primary-dark); }
+        .footer { text-align: center; font-size: 0.875rem; color: #6b7280; }
+        @media print { body { background: white; } .section-card { box-shadow: none; border: 1px solid #e5e7eb; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header Section -->
+        <header class="section-card" style="margin-bottom: 2rem;">
+            <h1>Healthcare Record</h1>
+            <span class="badge badge-published">Published</span>
+            <p style="font-size: 1.125rem; margin-top: 1rem;">Maintain basic medical records for all persons in Cordova.</p>
+        </header>
+
+        <!-- Metadata Section -->
+        <section class="section-card">
+            <h2>Metadata</h2>
+            <div class="info-grid">
+
+                <div class="info-label">Identifier:</div>
+                <div class="info-value">dm-ftluo2nybgxmn7mawttoos20</div>
+
+                <div class="info-label">Author:</div>
+                <div class="info-value">Timothy Cook</div>
+
+                <div class="info-label">Publisher:</div>
+                <div class="info-value">Axius SDC, Inc.</div>
+
+                <div class="info-label">Published:</div>
+                <div class="info-value">2026-07-29 15:26</div>
+
+                <div class="info-label">Subject:</div>
+                <div class="info-value">Healthcare Record</div>
+
+                <div class="info-label">Language:</div>
+                <div class="info-value">en-US</div>
+
+                <div class="info-label">Format:</div>
+                <div class="info-value">text/xml</div>
+
+                <div class="info-label">Rights:</div>
+                <div class="info-value">CC-BY http://creativecommons.org/licenses/by/3.0/</div>
+
+                <div class="info-label">Coverage:</div>
+                <div class="info-value">Universal</div>
+
+                <div class="info-label">Relation:</div>
+                <div class="info-value">None</div>
+
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="section-card">
+            <h2>Downloads</h2>
+            <div class="download-links">
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Healthcare_Record/dm-ftluo2nybgxmn7mawttoos20.xsd" class="download-link" style="background-color: #3b82f6;">
+                    XSD Schema
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Healthcare_Record/dm-ftluo2nybgxmn7mawttoos20.xml" class="download-link" style="background-color: #10b981;">
+                    XML Instance
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Healthcare_Record/dm-ftluo2nybgxmn7mawttoos20-instance.json" class="download-link" style="background-color: #f59e0b;">
+                    JSON Instance
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Healthcare_Record/dm-ftluo2nybgxmn7mawttoos20.jsonld" class="download-link" style="background-color: #f97316;">
+                    JSON-LD Schema
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Schema Overview -->
+        <section class="section-card">
+            <h2>Schema Overview</h2>
+            <div>
+                <p><strong>Target Namespace:</strong> https://semanticdatacharter.com/ns/sdc4/</p>
+                <p><strong>Total Components:</strong> 79</p>
+                <p><strong>Encoding:</strong> utf-8</p>
+            </div>
+
+            <details>
+                <summary>Component Type Breakdown</summary>
+                <div class="stat-grid">
+
+                    <div class="constraint-item">
+                        <strong>Clusters:</strong> 14
+                    </div>
+
+                    <div class="constraint-item">
+                        <strong>XdLink:</strong> 3
+                    </div>
+
+                    <div class="constraint-item">
+                        <strong>XdString:</strong> 36
+                    </div>
+
+                    <div class="constraint-item">
+                        <strong>XdToken:</strong> 10
+                    </div>
+
+                    <div class="constraint-item">
+                        <strong>XdFile:</strong> 2
+                    </div>
+
+                    <div class="constraint-item">
+                        <strong>XdOrdinal:</strong> 2
+                    </div>
+
+                    <div class="constraint-item">
+                        <strong>XdQuantity:</strong> 6
+                    </div>
+
+                    <div class="constraint-item">
+                        <strong>XdTemporal:</strong> 6
+                    </div>
+
+                </div>
+            </details>
+        </section>
+
+        <!-- Component Documentation -->
+        <section class="section-card">
+            <h2>Components</h2>
+            <p class="muted">Detailed documentation of all components in this data model.</p>
+
+            <details>
+                <summary>Clusters (14)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>Administering Facility</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> 0khgfzp8h42kw99wj07udbzw</p>
+
+                        <p style="margin-top: 0.5rem;">Party details for the facility that administered a vaccination. W3C PROV-DM agent identity (Organization) with ProvGov components.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://hl7.org/fhir/" target="_blank">https://hl7.org/fhir/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://schema.org/MedicalClinic" target="_blank">https://schema.org/MedicalClinic</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Allergies and Conditions</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> xplqihmynccwa3o4o8s7gqml</p>
+
+                        <p style="margin-top: 0.5rem;">Known allergies and chronic conditions.
+Purpose: Document allergies and ongoing medical conditions for clinical decision-making
+Parent Cluster: Patient Record</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q42982" target="_blank">https://www.wikidata.org/wiki/Q42982</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://hl7.org/fhir/" target="_blank">https://hl7.org/fhir/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Contact and Access</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> w06vxo6uxtrzjkimmafmue7g</p>
+
+                        <p style="margin-top: 0.5rem;">Purpose: Contact information and access credentials for the agent
+Parent Cluster: PROV Agent</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q2996679" target="_blank">https://www.wikidata.org/wiki/Q2996679</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Healthcare Governed Record</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> w0lu0us3nbxaedfum9i8itpc</p>
+
+                        <p style="margin-top: 0.5rem;">Root data cluster (DMType Item) for a governed healthcare record in CordovaOS: an individual's clinical and health information. Wraps the domain's data components with the shared W3C PROV-O Provenance cluster so each record carries its lineage bound alongside its data. Workflow, attestation, parties, and the system audit trail sit in the DMType's native governance slots; access control and retention apply as bound sdcgovernance policy.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:closeMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q95459148" target="_blank">https://www.wikidata.org/wiki/Q95459148</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Healthcare Provider</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> 5scaiw897xhuqa1k8sso932e</p>
+
+                        <p style="margin-top: 0.5rem;">Party details for healthcare providers (facility and clinician). W3C PROV-DM agent identity with ProvGov organization and person components for facility and provider identification.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://hl7.org/fhir/" target="_blank">https://hl7.org/fhir/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://schema.org/HealthcareOrganization" target="_blank">https://schema.org/HealthcareOrganization</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Healthcare Record Workflow</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> ylue5x7upcvcrat329hmnv9z</p>
+
+                        <p style="margin-top: 0.5rem;">Workflow for healthcare record lifecycle. States: Encounter Opened → In Progress → Pending Results → Completed → Signed → Amended. Tracks clinical encounter documentation and sign-off.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://hl7.org/fhir/" target="_blank">https://hl7.org/fhir/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Activity" target="_blank">http://www.w3.org/ns/prov#Activity</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://schema.org/MedicalRecord" target="_blank">https://schema.org/MedicalRecord</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q627335" target="_blank">https://www.wikidata.org/wiki/Q627335</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Medications</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> vhjvhm6vz2om2jfn6b923gw7</p>
+
+                        <p style="margin-top: 0.5rem;">Current medication list.
+Purpose: Track active medications for drug interaction checking and care coordination
+Parent Cluster: Patient Record</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://hl7.org/fhir/" target="_blank">https://hl7.org/fhir/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q12140" target="_blank">https://www.wikidata.org/wiki/Q12140</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Patient Record</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> ygtbvvmzcw3ukfsg3axqry97</p>
+
+                        <p style="margin-top: 0.5rem;">A person's medical record in the Cordova healthcare system.
+Business Context: Links to Civil Registry via National ID. All clinical cells carry Restricted:PatientCare policy.
+Purpose: Comprehensive medical record for a Cordova resident</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://hl7.org/fhir/" target="_blank">https://hl7.org/fhir/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1324077" target="_blank">https://www.wikidata.org/wiki/Q1324077</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Prescriber</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> 7gkespcenmxwbctpbwjs43yk</p>
+
+                        <p style="margin-top: 0.5rem;">Party details for the prescribing physician. W3C PROV-DM agent identity (Person) with ProvGov components.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://hl7.org/fhir/" target="_blank">https://hl7.org/fhir/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q99393050" target="_blank">https://www.wikidata.org/wiki/Q99393050</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Primary Care Assignment</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> q8mgqxefnj2v39cn83lsjetb</p>
+
+                        <p style="margin-top: 0.5rem;">Party details for the patient's assigned primary care provider and facility. W3C PROV-DM agent identity supporting both Person (clinician) and Organization (facility).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://hl7.org/fhir/" target="_blank">https://hl7.org/fhir/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://schema.org/Patient" target="_blank">https://schema.org/Patient</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Provenance Components</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> hdhjfg00tngir2txgqyka9cv</p>
+
+                        <p style="margin-top: 0.5rem;">Cluster for Provenance Components</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1172162" target="_blank">https://www.wikidata.org/wiki/Q1172162</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Software Agent Details</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> km4azswrxe9tdrjmqvun5463</p>
+
+                        <p style="margin-top: 0.5rem;">Purpose: Additional details when agent_type is SoftwareAgent
+Parent Cluster: PROV Agent</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q2297769" target="_blank">https://www.wikidata.org/wiki/Q2297769</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vaccination History</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> eq4h86worv571cl5iiy9unkw</p>
+
+                        <p style="margin-top: 0.5rem;">Immunization records.
+Purpose: Track vaccinations for public health compliance and clinical reference
+Parent Cluster: Patient Record</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.cdc.gov/vaccines/hcp/imz-schedules/index.html" target="_blank">https://www.cdc.gov/vaccines/hcp/imz-schedules/index.html</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q93623446" target="_blank">https://www.wikidata.org/wiki/Q93623446</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Visit Record</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> hd9295k8o49j91lvgftul1a0</p>
+
+                        <p style="margin-top: 0.5rem;">An encounter at a healthcare facility.
+Business Context: Visit records link to the Contagion scenario — Carlos Mendoza's admission to Porto Sereno General Hospital
+Purpose: Document each clinical encounter with date, provider, reason, diagnosis, and outcome
+Parent Cluster: Patient Record</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q29182" target="_blank">https://www.wikidata.org/wiki/Q29182</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://hl7.org/fhir/" target="_blank">https://hl7.org/fhir/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details>
+                <summary>Link Components (3)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>Healthcare Record Access Control</h4>
+                        <p class="small muted"><strong>Type:</strong> XdLink</p>
+                        <p class="small muted"><strong>ID:</strong> hbk1xmzqefk2lchmd7jooz7a</p>
+
+                        <p style="margin-top: 0.5rem;">Access control policy for healthcare data using W3C Data Privacy Vocabulary. Enforces role-based access for healthcare providers, patients, and authorized representatives. Governs dpv:SpecialCategoryPersonalData including medical records, diagnoses, and treatment plans.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q185799" target="_blank">https://www.wikidata.org/wiki/Q185799</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://w3id.org/dpv#AccessControlMethod" target="_blank">https://w3id.org/dpv#AccessControlMethod</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://w3id.org/dpv" target="_blank">https://w3id.org/dpv</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://w3id.org/dpv#SpecialCategoryPersonalData" target="_blank">https://w3id.org/dpv#SpecialCategoryPersonalData</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1324077" target="_blank">https://www.wikidata.org/wiki/Q1324077</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>software_documentation_url</h4>
+                        <p class="small muted"><strong>Type:</strong> XdLink</p>
+                        <p class="small muted"><strong>ID:</strong> xvnv7mrhvfweajl72pmngeya</p>
+
+                        <p style="margin-top: 0.5rem;">URL to software documentation or repository.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/URL" target="_blank">https://schema.org/URL</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q3133368" target="_blank">https://www.wikidata.org/wiki/Q3133368</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>software_service_endpoint</h4>
+                        <p class="small muted"><strong>Type:</strong> XdLink</p>
+                        <p class="small muted"><strong>ID:</strong> px6j779dnapp4fjlohula4mh</p>
+
+                        <p style="margin-top: 0.5rem;">API endpoint or service URL if applicable.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q5376585" target="_blank">https://www.wikidata.org/wiki/Q5376585</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/URL" target="_blank">https://schema.org/URL</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details>
+                <summary>String Components (36)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>activity_description</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> m9xg6e182m1oq77ssrf9iujv</p>
+
+                        <p style="margin-top: 0.5rem;">Detailed description of what this activity does and its purpose.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 2000
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/description" target="_blank">https://schema.org/description</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/description" target="_blank">https://schema.org/description</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.w3.org/TR/prov-dm/" target="_blank">https://www.w3.org/TR/prov-dm/</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Administering Facility</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> u1hjad8m99xlnkyj5clvjnpa</p>
+
+                        <p style="margin-top: 0.5rem;">Healthcare facility where the vaccine was given</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://snomed.info/id/264362003" target="_blank">http://snomed.info/id/264362003</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/name" target="_blank">https://schema.org/name</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>agent_id</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> hhfnj5hd1yzt252jfq5pdjj1</p>
+
+                        <p style="margin-top: 0.5rem;">Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 255
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q37882474" target="_blank">https://www.wikidata.org/wiki/Q37882474</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Allergy Description</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> ntk4zsr15bcca2jmocdkcpcc</p>
+
+                        <p style="margin-top: 0.5rem;">Description of a known allergy (drug, food, environmental)</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/description" target="_blank">http://schema.org/description</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/description" target="_blank">https://schema.org/description</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Chronic Condition</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> cm0nqqnjcylc8vkfph7db2lh</p>
+
+                        <p style="margin-top: 0.5rem;">Name or description of a chronic medical condition (e.g., hypertension, diabetes, asthma)</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q383126" target="_blank">https://www.wikidata.org/wiki/Q383126</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/description" target="_blank">https://schema.org/description</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Clinical Impression</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> cntj1t9t2xjugnux1enpigmf</p>
+
+                        <p style="margin-top: 0.5rem;">Overall clinical impression from neurological examination</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 2000
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q69067902" target="_blank">https://www.wikidata.org/wiki/Q69067902</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>contact_email</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> jtuheuri2wzfhctcjqv4ozmy</p>
+
+                        <p style="margin-top: 0.5rem;">Contact email for the service.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 5
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 254
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1273217" target="_blank">https://www.wikidata.org/wiki/Q1273217</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>contact_name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> a127ihw8xbfbl24lbcvnspv0</p>
+
+                        <p style="margin-top: 0.5rem;">Contact name for the service.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://www.w3.org/ns/dcat#contactPoint" target="_blank">http://www.w3.org/ns/dcat#contactPoint</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>contact_phone</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> pdykwzsug7pfncjsrry73x1s</p>
+
+                        <p style="margin-top: 0.5rem;">Primary contact phone number.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 7
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 20
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q214995" target="_blank">https://www.wikidata.org/wiki/Q214995</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Diagnosis</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> nnu04d5qgrmn1bim8bpu0l65</p>
+
+                        <p style="margin-top: 0.5rem;">Clinical diagnosis resulting from this visit. This cell carries Restricted:PatientCare policy — it cannot be composed into public reports.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q14860489" target="_blank">https://www.wikidata.org/wiki/Q14860489</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://schema.org/MedicalCode" target="_blank">https://schema.org/MedicalCode</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Dosage</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> z28bjtjekyybe300ukuyjpi4</p>
+
+                        <p style="margin-top: 0.5rem;">Prescribed dosage (e.g., "500mg", "10mg/mL")</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://qudt.org/vocab/quantitykind/AmountOfSubstance" target="_blank">http://qudt.org/vocab/quantitykind/AmountOfSubstance</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/description" target="_blank">https://schema.org/description</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Facility</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> qvmb5f4xmy56y98q8raelpl9</p>
+
+                        <p style="margin-top: 0.5rem;">Healthcare facility where the visit occurred</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q9386252" target="_blank">https://www.wikidata.org/wiki/Q9386252</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/name" target="_blank">https://schema.org/name</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Healthcare Record Attestation Reason</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> mxjh9oqcnjl6njqqi75odozh</p>
+
+                        <p style="margin-top: 0.5rem;">Reason for attesting this healthcare record</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q132364" target="_blank">https://www.wikidata.org/wiki/Q132364</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q656365" target="_blank">https://www.wikidata.org/wiki/Q656365</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Healthcare Records Protocol</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> emov6wuhen2tuyjlppqmmjjl</p>
+
+                        <p style="margin-top: 0.5rem;">Protocol reference for the Healthcare Record data model. Informed by the WHO International Classification of Diseases (ICD-11), HL7 FHIR resource concepts for clinical data exchange, and national health information management standards for patient records.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q132364" target="_blank">https://www.wikidata.org/wiki/Q132364</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q35869" target="_blank">https://www.wikidata.org/wiki/Q35869</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q317623" target="_blank">https://www.wikidata.org/wiki/Q317623</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Lot Number</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> td5j1frz2fa8g4uh1hor7w11</p>
+
+                        <p style="margin-top: 0.5rem;">Vaccine lot number for traceability</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q28698186" target="_blank">https://www.wikidata.org/wiki/Q28698186</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Medical Record Number</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> jz2hqntyol8lopw6q6zdud78</p>
+
+                        <p style="margin-top: 0.5rem;">Institution-specific medical record number for linking to clinical records</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://uts.nlm.nih.gov/uts/umls/concept/C1301894" target="_blank">https://uts.nlm.nih.gov/uts/umls/concept/C1301894</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Medication Name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> nomiekce61caq5n9a49d0eu6</p>
+
+                        <p style="margin-top: 0.5rem;">Name of the prescribed medication (generic or brand name)</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q70848614" target="_blank">https://www.wikidata.org/wiki/Q70848614</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/name" target="_blank">https://schema.org/name</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>National ID (CID)</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> nj7s1gk45tfgyooxpz0qaha3</p>
+
+                        <p style="margin-top: 0.5rem;">Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/identifier" target="_blank">http://schema.org/identifier</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1140371" target="_blank">https://www.wikidata.org/wiki/Q1140371</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>organization_identifier</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> ule5u2z3rjpa9pooaifwj1n3</p>
+
+                        <p style="margin-top: 0.5rem;">Official identifier for the organization (e.g., DUNS, tax ID).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 255
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q11378663" target="_blank">https://www.wikidata.org/wiki/Q11378663</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>organization_name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> ifw5zfe4oiijbxjn1ylc2wm3</p>
+
+                        <p style="margin-top: 0.5rem;">Legal or official name of the organization.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q168678" target="_blank">https://www.wikidata.org/wiki/Q168678</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>person_family_name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> zs9ciw4nypx4plo856h3m95d</p>
+
+                        <p style="margin-top: 0.5rem;">Family (last) name of the person agent.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q4116295" target="_blank">https://www.wikidata.org/wiki/Q4116295</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>person_given_name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> ndvtjiq0cke0q1trw58rtrq2</p>
+
+                        <p style="margin-top: 0.5rem;">Given (first) name of the person agent.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q202444" target="_blank">https://www.wikidata.org/wiki/Q202444</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Prescriber</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> f8ptus0eraxmipvhd96ddbdq</p>
+
+                        <p style="margin-top: 0.5rem;">Name of the prescribing physician</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q99393050" target="_blank">https://www.wikidata.org/wiki/Q99393050</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/name" target="_blank">https://schema.org/name</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Primary Care Provider</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> dnxrp0bpfs33b4x5ks8he9ag</p>
+
+                        <p style="margin-top: 0.5rem;">Name of the patient's assigned primary care physician</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q55379489" target="_blank">https://www.wikidata.org/wiki/Q55379489</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/name" target="_blank">https://schema.org/name</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>prov_activity_type</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> ccj1yq2wtwknobszkgzzdbtr</p>
+
+                        <p style="margin-top: 0.5rem;">Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q125542526" target="_blank">https://www.wikidata.org/wiki/Q125542526</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Provider Name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> cuxxvwyqn5vhlqjymovegmn7</p>
+
+                        <p style="margin-top: 0.5rem;">Name of the attending physician or provider</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/name" target="_blank">http://schema.org/name</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/name" target="_blank">https://schema.org/name</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Reason for Visit</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> qzmcum3kwmskrkj7nhkf8fkm</p>
+
+                        <p style="margin-top: 0.5rem;">Chief complaint or reason for the clinical encounter</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://snomed.info/id/409586006" target="_blank">http://snomed.info/id/409586006</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/description" target="_blank">https://schema.org/description</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>service_account_id</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> rw1cjzeynsl87va6gvhv2k7e</p>
+
+                        <p style="margin-top: 0.5rem;">Service account or system account identifier for software agents.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 255
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/identifier" target="_blank">http://schema.org/identifier</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>software_name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> rsjfjz8m5z7a58h5793duqbs</p>
+
+                        <p style="margin-top: 0.5rem;">Name of the software system or service.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q30335969" target="_blank">https://www.wikidata.org/wiki/Q30335969</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>software_runtime_environment</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> d839tf07spk43dmg0dqb939b</p>
+
+                        <p style="margin-top: 0.5rem;">Runtime environment or platform for the software.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q241317" target="_blank">https://www.wikidata.org/wiki/Q241317</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>software_vendor</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> frdwjm7fxt6f5x4wx78pv7bc</p>
+
+                        <p style="margin-top: 0.5rem;">Vendor or maintainer of the software.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q7554349" target="_blank">https://www.wikidata.org/wiki/Q7554349</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>software_version</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> tep9wanrrtqfw0k76huv6tvd</p>
+
+                        <p style="margin-top: 0.5rem;">Version of the software.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q20826013" target="_blank">https://www.wikidata.org/wiki/Q20826013</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>system_identifier</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> bd3s8t23d6m3zizmpwavc32y</p>
+
+                        <p style="margin-top: 0.5rem;">Identifier of the system that handled the data. Maps to prov:Entity context in the PROV-O export. This is the AuditType.system-id field.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q7663715" target="_blank">https://www.wikidata.org/wiki/Q7663715</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>system_location_identifier</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> zr59goe24qkocprl3feul3mt</p>
+
+                        <p style="margin-top: 0.5rem;">Code or identifier for the system location. Used for cross-system location resolution.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q36214810" target="_blank">https://www.wikidata.org/wiki/Q36214810</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>system_location_name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> fnodzqkbyskwe7nh58rs336k</p>
+
+                        <p style="margin-top: 0.5rem;">Name of the physical or logical location where the system resides. Maps to prov:atLocation.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q11307204" target="_blank">https://www.wikidata.org/wiki/Q11307204</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vaccine Name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> fi1qu4j2zd0801fcqtix35h5</p>
+
+                        <p style="margin-top: 0.5rem;">Name of the vaccine administered</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Drug" target="_blank">https://schema.org/Drug</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q134808" target="_blank">https://www.wikidata.org/wiki/Q134808</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details>
+                <summary>Token Components (10)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>Condition Status</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> tz13p9d4dpbw3pe9bx51nbou</p>
+
+                        <p style="margin-top: 0.5rem;">Current status of the condition</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Active, Resolved, In Remission
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q12136" target="_blank">https://www.wikidata.org/wiki/Q12136</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>organization_type</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> bpqtzla39dwentygpwea8276</p>
+
+                        <p style="margin-top: 0.5rem;">Type of organization.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> corporation, government, nonprofit, academic, department ...
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q17197366" target="_blank">https://www.wikidata.org/wiki/Q17197366</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Outcome</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> lccs354vpxmtyo69ba5cu48v</p>
+
+                        <p style="margin-top: 0.5rem;">Outcome of the visit</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Treated and Released, Admitted, Referred, Follow-up Scheduled, No Treatment Required
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/result" target="_blank">http://schema.org/result</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Prescriber Participation Function</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> v5p12fdr4figf0k2rulfqrxl</p>
+
+                        <p style="margin-top: 0.5rem;">Function of the prescriber in the medication order (e.g., Attending Physician, Consultant).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> attending-physician, consulting-physician, primary-care-provider, specialist, resident
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Prescriber Participation Mode</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> ba1ezyhgf6aaw03an2uve57o</p>
+
+                        <p style="margin-top: 0.5rem;">Mode of prescriber participation in the medication order (e.g., in person, telehealth).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> in-person, telehealth, electronic-order, verbal-order, fax
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>PROV Agent Type</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> nesxtz8c5o665swc9lhvqkjj</p>
+
+                        <p style="margin-top: 0.5rem;">Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Person, Organization, SoftwareAgent
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>PROV Role Type</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> u1i23yha2rvz5nbxjz3l8x48</p>
+
+                        <p style="margin-top: 0.5rem;">Functional roles that agents, entities, or activities can assume within provenance relationships.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Author, Publisher, Contributor, Custodian, Reviewer ...
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.w3.org/TR/prov-o/#qualifiedInvolvement" target="_blank">https://www.w3.org/TR/prov-o/#qualifiedInvolvement</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vaccination Facility Participation Function</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> trvg8tpie5w2zlf6b0nl3zhb</p>
+
+                        <p style="margin-top: 0.5rem;">Function of the facility in the vaccination event (e.g., Administering Site, Storage Facility).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> administering-site, storage-facility, reporting-site, distribution-center
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vaccination Facility Participation Mode</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> yi46egvfmz66gd0dhypl6t6m</p>
+
+                        <p style="margin-top: 0.5rem;">Mode of facility participation in the vaccination event (e.g., in person, mobile clinic).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> in-person, mobile-clinic, drive-through, home-visit
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Visit Type</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> l9sjn7wj10y5b27ldkv3j8mt</p>
+
+                        <p style="margin-top: 0.5rem;">Type of clinical visit or encounter</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Screening, Baseline, Follow-up, Unscheduled, Early termination ...
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://uts.nlm.nih.gov/uts/umls/concept/C5708072" target="_blank">https://uts.nlm.nih.gov/uts/umls/concept/C5708072</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details>
+                <summary>File Components (2)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>Digital Signature Proof</h4>
+                        <p class="small muted"><strong>Type:</strong> XdFile</p>
+                        <p class="small muted"><strong>ID:</strong> gug5dhtqfv7exbgmm2raxpkq</p>
+
+                        <p style="margin-top: 0.5rem;">Cryptographic proof of attestation (digital signature)</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.w3.org/TR/vc-data-model/#credentials" target="_blank">https://www.w3.org/TR/vc-data-model/#credentials</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q210824" target="_blank">https://www.wikidata.org/wiki/Q210824</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://www.w3.org/ns/prov#Entity" target="_blank">http://www.w3.org/ns/prov#Entity</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Healthcare Record Attested View</h4>
+                        <p class="small muted"><strong>Type:</strong> XdFile</p>
+                        <p class="small muted"><strong>ID:</strong> tzzp7weh4dmg323u6kfalo0g</p>
+
+                        <p style="margin-top: 0.5rem;">Attested view of a healthcare record document</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/DigitalDocument" target="_blank">https://schema.org/DigitalDocument</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q656365" target="_blank">https://www.wikidata.org/wiki/Q656365</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://www.w3.org/ns/prov#Entity" target="_blank">http://www.w3.org/ns/prov#Entity</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details>
+                <summary>Ordinal Components (2)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>Frequency (5-Point)</h4>
+                        <p class="small muted"><strong>Type:</strong> XdOrdinal</p>
+                        <p class="small muted"><strong>ID:</strong> iprf7jqg9emvm92wo9gkiqcu</p>
+
+                        <p style="margin-top: 0.5rem;">Five-point frequency scale for symptom or behavior occurrence</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://uts.nlm.nih.gov/uts/umls/concept/C0436350" target="_blank">https://uts.nlm.nih.gov/uts/umls/concept/C0436350</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Severity (3-Point)</h4>
+                        <p class="small muted"><strong>Type:</strong> XdOrdinal</p>
+                        <p class="small muted"><strong>ID:</strong> 07osold8ovbjsqzvz00f3ked2</p>
+
+                        <p style="margin-top: 0.5rem;">Three-point severity scale for clinical findings</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q10870002" target="_blank">https://www.wikidata.org/wiki/Q10870002</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details>
+                <summary>Quantity Components (6)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>Body Temperature</h4>
+                        <p class="small muted"><strong>Type:</strong> XdQuantity</p>
+                        <p class="small muted"><strong>ID:</strong> b5zse0kmvpkj74ggqvgk647l</p>
+
+                        <p style="margin-top: 0.5rem;">Patient body temperature measured in degrees Celsius during a clinical visit. Normal adult range is 36.1–37.2°C. Triage screening vital sign.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum (inclusive):</strong> 30.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum (inclusive):</strong> 45.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Default : Temperature (SI - Metric)
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1066998" target="_blank">https://www.wikidata.org/wiki/Q1066998</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.ncbi.nlm.nih.gov/books/NBK331/" target="_blank">https://www.ncbi.nlm.nih.gov/books/NBK331/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://loinc.org/8310-5/" target="_blank">https://loinc.org/8310-5/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://snomed.info/id/386725007" target="_blank">http://snomed.info/id/386725007</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Diastolic Blood Pressure</h4>
+                        <p class="small muted"><strong>Type:</strong> XdQuantity</p>
+                        <p class="small muted"><strong>ID:</strong> lu2w1avj9fic5wrmyftt9fhi</p>
+
+                        <p style="margin-top: 0.5rem;">Minimum arterial pressure during cardiac relaxation, measured in mmHg. Normal adult range is 60–80 mmHg. Values ≥90 mmHg indicate hypertension per WHO/AHA guidelines.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum (inclusive):</strong> 20.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum (inclusive):</strong> 200.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Default : Pressure
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://professional.heart.org/en/science-news/2017-hypertension-clinical-guidelines" target="_blank">https://professional.heart.org/en/science-news/2017-hypertension-clinical-guidelines</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q82642" target="_blank">https://www.wikidata.org/wiki/Q82642</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://snomed.info/id/271650006" target="_blank">http://snomed.info/id/271650006</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://loinc.org/8462-4/" target="_blank">https://loinc.org/8462-4/</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Medication Dosage Amount</h4>
+                        <p class="small muted"><strong>Type:</strong> XdQuantity</p>
+                        <p class="small muted"><strong>ID:</strong> y7k4p12co0b9v6asll531fhv</p>
+
+                        <p style="margin-top: 0.5rem;">Prescribed dosage amount of the medication in milligrams. Represents the per-administration dose as ordered by the prescribing physician.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Default : Mass/Weight (SI - Metric)
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q473420" target="_blank">https://www.wikidata.org/wiki/Q473420</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://hl7.org/fhir/" target="_blank">https://hl7.org/fhir/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://snomed.info/id/398232005" target="_blank">http://snomed.info/id/398232005</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Patient Height</h4>
+                        <p class="small muted"><strong>Type:</strong> XdQuantity</p>
+                        <p class="small muted"><strong>ID:</strong> vh2scyehy68pw7sbvzdg3cn9</p>
+
+                        <p style="margin-top: 0.5rem;">Patient standing height in centimeters measured during a clinical visit. Used for BMI computation and growth tracking.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum (inclusive):</strong> 20.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum (inclusive):</strong> 300.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Default : Length/Distance (SI - Metric)
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://loinc.org/8302-2/" target="_blank">https://loinc.org/8302-2/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://snomed.info/id/50373000" target="_blank">http://snomed.info/id/50373000</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.cdc.gov/nchs/fastats/body-measurements.htm" target="_blank">https://www.cdc.gov/nchs/fastats/body-measurements.htm</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q81938" target="_blank">https://www.wikidata.org/wiki/Q81938</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Patient Weight</h4>
+                        <p class="small muted"><strong>Type:</strong> XdQuantity</p>
+                        <p class="small muted"><strong>ID:</strong> s6oo99lbq85kfz0v5nqv9yaf</p>
+
+                        <p style="margin-top: 0.5rem;">Patient body weight in kilograms measured during a clinical visit. Used for medication dosing calculations, BMI computation, and tracking health trends.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum (inclusive):</strong> 0.50000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum (inclusive):</strong> 500.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Default : Mass/Weight (SI - Metric)
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q18247" target="_blank">https://www.wikidata.org/wiki/Q18247</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://loinc.org/29463-7/" target="_blank">https://loinc.org/29463-7/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://snomed.info/id/27113001" target="_blank">http://snomed.info/id/27113001</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.cdc.gov/nchs/fastats/body-measurements.htm" target="_blank">https://www.cdc.gov/nchs/fastats/body-measurements.htm</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Systolic Blood Pressure</h4>
+                        <p class="small muted"><strong>Type:</strong> XdQuantity</p>
+                        <p class="small muted"><strong>ID:</strong> kokquuk73pm2ohlh4ftnu7wb</p>
+
+                        <p style="margin-top: 0.5rem;">Peak arterial pressure during cardiac contraction, measured in mmHg. Normal adult range is 90–120 mmHg. Values ≥140 mmHg indicate hypertension per WHO/AHA guidelines.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum (inclusive):</strong> 40.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum (inclusive):</strong> 300.00000
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Units:</strong> Default : Pressure
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://professional.heart.org/en/science-news/2017-hypertension-clinical-guidelines" target="_blank">https://professional.heart.org/en/science-news/2017-hypertension-clinical-guidelines</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q82642" target="_blank">https://www.wikidata.org/wiki/Q82642</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://snomed.info/id/271649006" target="_blank">http://snomed.info/id/271649006</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://loinc.org/8480-6/" target="_blank">https://loinc.org/8480-6/</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details>
+                <summary>Temporal Components (6)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>activity_timestamp_end</h4>
+                        <p class="small muted"><strong>Type:</strong> XdTemporal</p>
+                        <p class="small muted"><strong>ID:</strong> edvvjznmaoibzmfna0uuoo37</p>
+
+                        <p style="margin-top: 0.5rem;">When the provenance activity completed. Maps to prov:endedAtTime. ISO 8601 format.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.ontology-of-units-of-measure.org/resource/om-2/Activity" target="_blank">http://www.ontology-of-units-of-measure.org/resource/om-2/Activity</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>activity_timestamp_start</h4>
+                        <p class="small muted"><strong>Type:</strong> XdTemporal</p>
+                        <p class="small muted"><strong>ID:</strong> o72s5793973fzho35rnaughs</p>
+
+                        <p style="margin-top: 0.5rem;">When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.ontology-of-units-of-measure.org/resource/om-2/Activity" target="_blank">http://www.ontology-of-units-of-measure.org/resource/om-2/Activity</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Onset Date</h4>
+                        <p class="small muted"><strong>Type:</strong> XdTemporal</p>
+                        <p class="small muted"><strong>ID:</strong> p14jkmk8xqs97daq3zvyhrsj</p>
+
+                        <p style="margin-top: 0.5rem;">Date of symptom or disease onset</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q577" target="_blank">https://www.wikidata.org/wiki/Q577</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/DateTime" target="_blank">https://schema.org/DateTime</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Prescription Date</h4>
+                        <p class="small muted"><strong>Type:</strong> XdTemporal</p>
+                        <p class="small muted"><strong>ID:</strong> cq6m46w59ouu1cu8tkw1fhib</p>
+
+                        <p style="margin-top: 0.5rem;">Date the medication was prescribed</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q193521" target="_blank">https://www.wikidata.org/wiki/Q193521</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/DateTime" target="_blank">https://schema.org/DateTime</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vaccine Date</h4>
+                        <p class="small muted"><strong>Type:</strong> XdTemporal</p>
+                        <p class="small muted"><strong>ID:</strong> dyfz05n20jhc1elhozrbjug0</p>
+
+                        <p style="margin-top: 0.5rem;">Date the vaccine was administered</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Date" target="_blank">https://schema.org/Date</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q192995" target="_blank">https://www.wikidata.org/wiki/Q192995</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Visit Date</h4>
+                        <p class="small muted"><strong>Type:</strong> XdTemporal</p>
+                        <p class="small muted"><strong>ID:</strong> iufcfze52lha16v84kccgxyh</p>
+
+                        <p style="margin-top: 0.5rem;">Date of clinical visit</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q577" target="_blank">https://www.wikidata.org/wiki/Q577</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/DateTime" target="_blank">https://schema.org/DateTime</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+        </section>
+
+        <!-- Semantic Links -->
+        <section class="section-card">
+            <h2>Semantic Links</h2>
+            <p class="muted">Ontology mappings and semantic relationships defined in this schema.</p>
+
+            <div style="margin-top: 0.75rem;">
+                <h3>Data Model Level Links:</h3>
+
+                <div class="constraint-item">
+                    <strong>skos:exactMatch:</strong>
+                    <a href="http://www.w3.org/ns/dcat#Dataset" target="_blank">http://www.w3.org/ns/dcat#Dataset</a>
+                </div>
+
+                <div class="constraint-item">
+                    <strong>rdfs:seeAlso:</strong>
+                    <a href="https://www.wikidata.org/wiki/Q1132455" target="_blank">https://www.wikidata.org/wiki/Q1132455</a>
+                </div>
+
+                <div class="constraint-item">
+                    <strong>rdfs:isDefinedBy:</strong>
+                    <a href="https://www.wikidata.org/wiki/Q31207" target="_blank">https://www.wikidata.org/wiki/Q31207</a>
+                </div>
+
+                <div class="constraint-item">
+                    <strong>rdf:type:</strong>
+                    <a href="https://schema.org/Dataset" target="_blank">https://schema.org/Dataset</a>
+                </div>
+
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Note:</strong> Additional semantic data is available in the extracted RDF file
+                    (<code>dm-ftluo2nybgxmn7mawttoos20.rdf</code>) included in the complete package.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Usage Guide -->
+        <section class="section-card">
+            <h2>Usage Guide</h2>
+
+            <h3>How to Use This Schema</h3>
+            <ol>
+                <li>Use the XSD schema file to validate XML instances conforming to this data model.</li>
+                <li>Refer to the XML instance file for an example of valid data structure.</li>
+                <li>Use the JSON file for JSON-based data exchange formats.</li>
+                <li>Use the SHACL shapes file (dm-ftluo2nybgxmn7mawttoos20_shacl.ttl) to validate RDF data.</li>
+            </ol>
+
+            <h3>Validation</h3>
+            <p>
+                <strong>Recommended:</strong> <a href="https://pypi.org/project/sdcvalidator/" target="_blank">sdcvalidator</a> -
+                A Python XML Schema validator with SDC extensions including ExceptionValue injection for documenting
+                justified constraint violations.
+            </p>
+            <p>
+                <strong>Alternatives:</strong> Standard XML validators like Xerces and Saxon EE support XSD 1.1 validation
+                but do not include SDC-specific extension capabilities.
+            </p>
+
+            <h3>SHACL Validation</h3>
+            <p>For detailed instructions on using the SHACL shapes file, refer to the SHACL_README.md included in the complete package.</p>
+
+            <h3>Example Data</h3>
+            <p>
+                The XML instance file (<code>dm-ftluo2nybgxmn7mawttoos20.xml</code>) provides a complete example
+                showing the structure and data types used in this schema.
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="section-card footer">
+            <p>Generated by SDCStudio on 2026-07-29 15:26:32</p>
+            <p>Semantic Data Charter (SDC4) Compliant Schema</p>
+        </footer>
+    </div>
+</body>
+</html>

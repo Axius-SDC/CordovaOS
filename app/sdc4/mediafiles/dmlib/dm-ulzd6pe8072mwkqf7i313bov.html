@@ -1,0 +1,2954 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vital Statistics Record - Schema Documentation</title>
+    <style>
+        :root {
+            --sdc-primary: #2ca58d;
+            --sdc-primary-dark: #1a7a6b;
+            --sdc-primary-light: #dcfce7;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f9fafb; padding: 1.5rem; margin: 0; color: #1f2937; line-height: 1.6; }
+        .container { max-width: 64rem; margin: 0 auto; }
+        h1 { font-size: 2rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--sdc-primary); }
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 0 0 1rem 0; color: var(--sdc-primary); }
+        h3 { font-size: 1.125rem; font-weight: 600; margin: 0 0 0.5rem 0; }
+        h4 { font-size: 1.05rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--sdc-primary); }
+        p { margin: 0 0 0.5rem 0; }
+        a { color: #2563eb; }
+        a:hover { text-decoration: underline; }
+        code { background: #f3f4f6; padding: 0.125rem 0.375rem; border-radius: 0.25rem; font-size: 0.875rem; }
+        .section-card { background: white; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 1.5rem; }
+        .info-grid { display: grid; grid-template-columns: 180px 1fr; gap: 1rem; }
+        .info-label { font-weight: 600; color: #4b5563; }
+        .info-value { color: #1f2937; }
+        .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; }
+        .badge-published { background-color: var(--sdc-primary-light); color: var(--sdc-primary-dark); }
+        .component-card { background: #f9fafb; border-left: 4px solid var(--sdc-primary); padding: 1rem; margin-bottom: 1rem; border-radius: 0.5rem; }
+        .constraint-item { background: #f3f4f6; padding: 0.5rem; margin: 0.25rem 0; border-radius: 0.375rem; font-size: 0.875rem; }
+        .download-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .download-link { display: inline-block; padding: 0.5rem 1rem; color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 500; }
+        .download-link:hover { opacity: 0.9; color: white; text-decoration: none; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.75rem; }
+        .note-box { margin-top: 1rem; padding: 0.75rem; background: #eff6ff; border-radius: 0.5rem; font-size: 0.875rem; color: #374151; }
+        .muted { color: #6b7280; }
+        .italic { font-style: italic; }
+        .small { font-size: 0.875rem; }
+        ol { padding-left: 1.5rem; }
+        ol li { margin-bottom: 0.5rem; }
+        details { cursor: pointer; margin-top: 1rem; }
+        details summary { font-weight: 600; padding: 0.5rem; background: #f3f4f6; border-radius: 0.375rem; margin-bottom: 0.5rem; }
+        details[open] summary { background: var(--sdc-primary-light); color: var(--sdc-primary-dark); }
+        .footer { text-align: center; font-size: 0.875rem; color: #6b7280; }
+        @media print { body { background: white; } .section-card { box-shadow: none; border: 1px solid #e5e7eb; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header Section -->
+        <header class="section-card" style="margin-bottom: 2rem;">
+            <h1>Vital Statistics Record</h1>
+            <span class="badge badge-published">Published</span>
+            <p style="font-size: 1.125rem; margin-top: 1rem;">Maintain the authoritative registry of life events in Cordova.</p>
+        </header>
+
+        <!-- Metadata Section -->
+        <section class="section-card">
+            <h2>Metadata</h2>
+            <div class="info-grid">
+
+                <div class="info-label">Identifier:</div>
+                <div class="info-value">dm-ulzd6pe8072mwkqf7i313bov</div>
+
+                <div class="info-label">Author:</div>
+                <div class="info-value">Timothy Cook</div>
+
+                <div class="info-label">Publisher:</div>
+                <div class="info-value">Axius SDC, Inc.</div>
+
+                <div class="info-label">Published:</div>
+                <div class="info-value">2026-07-29 17:50</div>
+
+                <div class="info-label">Subject:</div>
+                <div class="info-value">Vital Statistics</div>
+
+                <div class="info-label">Language:</div>
+                <div class="info-value">en-US</div>
+
+                <div class="info-label">Format:</div>
+                <div class="info-value">text/xml</div>
+
+                <div class="info-label">Rights:</div>
+                <div class="info-value">CC-BY http://creativecommons.org/licenses/by/3.0/</div>
+
+                <div class="info-label">Coverage:</div>
+                <div class="info-value">Universal</div>
+
+                <div class="info-label">Relation:</div>
+                <div class="info-value">None</div>
+
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="section-card">
+            <h2>Downloads</h2>
+            <div class="download-links">
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Vital_Statistics_Record/dm-ulzd6pe8072mwkqf7i313bov.xsd" class="download-link" style="background-color: #3b82f6;">
+                    XSD Schema
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Vital_Statistics_Record/dm-ulzd6pe8072mwkqf7i313bov.xml" class="download-link" style="background-color: #10b981;">
+                    XML Instance
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Vital_Statistics_Record/dm-ulzd6pe8072mwkqf7i313bov-instance.json" class="download-link" style="background-color: #f59e0b;">
+                    JSON Instance
+                </a>
+
+                <a href="https://storage.googleapis.com/sdcstudio-user-uploads/dmlib/Cordova/Vital_Statistics_Record/dm-ulzd6pe8072mwkqf7i313bov.jsonld" class="download-link" style="background-color: #f97316;">
+                    JSON-LD Schema
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Schema Overview -->
+        <section class="section-card">
+            <h2>Schema Overview</h2>
+            <div>
+                <p><strong>Target Namespace:</strong> https://semanticdatacharter.com/ns/sdc4/</p>
+                <p><strong>Total Components:</strong> 81</p>
+                <p><strong>Encoding:</strong> utf-8</p>
+            </div>
+
+            <details>
+                <summary>Component Type Breakdown</summary>
+                <div class="stat-grid">
+
+                    <div class="constraint-item">
+                        <strong>Clusters:</strong> 17
+                    </div>
+
+                    <div class="constraint-item">
+                        <strong>XdLink:</strong> 3
+                    </div>
+
+                    <div class="constraint-item">
+                        <strong>XdString:</strong> 33
+                    </div>
+
+                    <div class="constraint-item">
+                        <strong>XdToken:</strong> 20
+                    </div>
+
+                    <div class="constraint-item">
+                        <strong>XdFile:</strong> 2
+                    </div>
+
+                    <div class="constraint-item">
+                        <strong>XdTemporal:</strong> 6
+                    </div>
+
+                </div>
+            </details>
+        </section>
+
+        <!-- Component Documentation -->
+        <section class="section-card">
+            <h2>Components</h2>
+            <p class="muted">Detailed documentation of all components in this data model.</p>
+
+            <details>
+                <summary>Clusters (17)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>Birth Facility</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> 1xwq87veqgo726qs7dfst5tf</p>
+
+                        <p style="margin-top: 0.5rem;">Party details for the facility where a birth occurred. W3C PROV-DM agent identity (Organization).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://hl7.org/fhir/" target="_blank">https://hl7.org/fhir/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://schema.org/Hospital" target="_blank">https://schema.org/Hospital</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Birth Record</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> az8kem3v58y9zenys7mthqxe</p>
+
+                        <p style="margin-top: 0.5rem;">Details specific to birth certificates.
+Business Context: Links newborn and parents to Civil Registry, physician to Healthcare
+Purpose: Document a birth with parents, attending physician, and location
+Parent Cluster: Vital Event</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q83900" target="_blank">https://www.wikidata.org/wiki/Q83900</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)" target="_blank">https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Certifying Physician</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> 9c1cvv1flhotrmhjd881qcko</p>
+
+                        <p style="margin-top: 0.5rem;">Party details for the physician certifying a death record. W3C PROV-DM agent identity (Person) with license identifier.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://hl7.org/fhir/" target="_blank">https://hl7.org/fhir/</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q39631" target="_blank">https://www.wikidata.org/wiki/Q39631</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Contact and Access</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> w06vxo6uxtrzjkimmafmue7g</p>
+
+                        <p style="margin-top: 0.5rem;">Purpose: Contact information and access credentials for the agent
+Parent Cluster: PROV Agent</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q2996679" target="_blank">https://www.wikidata.org/wiki/Q2996679</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Court</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> tjy4olhj5jrjco73clt6fkue</p>
+
+                        <p style="margin-top: 0.5rem;">Party details for the court issuing a divorce decree. W3C PROV-DM agent identity (Organization).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q41487" target="_blank">https://www.wikidata.org/wiki/Q41487</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Death Record</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> tdz3pxrf7k6z2df2bfm7ebcp</p>
+
+                        <p style="margin-top: 0.5rem;">Details specific to death certificates.
+Business Context: Links to Healthcare (certifying physician), enables public health statistics
+Purpose: Document a death with cause, certifying physician, and circumstances
+Parent Cluster: Vital Event</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q708653" target="_blank">https://www.wikidata.org/wiki/Q708653</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)" target="_blank">https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Divorce Record</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> obybok0oaoa79b11b0ync1zf</p>
+
+                        <p style="margin-top: 0.5rem;">Details specific to divorce decrees.
+Purpose: Document a divorce with both parties and court details
+Parent Cluster: Vital Event</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q131460403" target="_blank">https://www.wikidata.org/wiki/Q131460403</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)" target="_blank">https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Marriage Record</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> chtyne5i6qcwbrby29vbuh2k</p>
+
+                        <p style="margin-top: 0.5rem;">Details specific to marriage certificates.
+Business Context: Links both parties to Civil Registry identities
+Purpose: Document a marriage with both parties, officiant, and witnesses
+Parent Cluster: Vital Event</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1299632" target="_blank">https://www.wikidata.org/wiki/Q1299632</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)" target="_blank">https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Officiant</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> 5ot0y92q1gf6zyjh5ytsv4nr</p>
+
+                        <p style="margin-top: 0.5rem;">Party details for the officiant presiding over a marriage ceremony. W3C PROV-DM agent identity (Person).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q2661159" target="_blank">https://www.wikidata.org/wiki/Q2661159</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Provenance Components</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> hdhjfg00tngir2txgqyka9cv</p>
+
+                        <p style="margin-top: 0.5rem;">Cluster for Provenance Components</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1172162" target="_blank">https://www.wikidata.org/wiki/Q1172162</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Software Agent Details</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> km4azswrxe9tdrjmqvun5463</p>
+
+                        <p style="margin-top: 0.5rem;">Purpose: Additional details when agent_type is SoftwareAgent
+Parent Cluster: PROV Agent</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q2297769" target="_blank">https://www.wikidata.org/wiki/Q2297769</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vital Event</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> tard9hhq13m95hinbh4h7k5j</p>
+
+                        <p style="margin-top: 0.5rem;">A single life event recorded in the Cordova vital statistics registry.
+Business Context: Links to Civil Registry for person identification
+Purpose: Common fields shared across all vital event types</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q97211668" target="_blank">https://www.wikidata.org/wiki/Q97211668</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q18562479" target="_blank">https://www.wikidata.org/wiki/Q18562479</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1131372" target="_blank">https://www.wikidata.org/wiki/Q1131372</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)" target="_blank">https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vital Record Attestor</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> 6evc5hevcpf831mkyyo1d5qo</p>
+
+                        <p style="margin-top: 0.5rem;">Details cluster for the attestor of vital records. Uses W3C PROV-DM agent identity and GDPR/UN CEB attestation components from ProvGov.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q116890704" target="_blank">https://www.wikidata.org/wiki/Q116890704</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)" target="_blank">https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vital Record Subject</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> hmkt7hjij02be28ym9f4sitc</p>
+
+                        <p style="margin-top: 0.5rem;">Details cluster for the person a vital record pertains to (birth, death, marriage, divorce). W3C PROV-DM Agent (Person) with Cordova CID.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/Person" target="_blank">https://schema.org/Person</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q18562479" target="_blank">https://www.wikidata.org/wiki/Q18562479</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)" target="_blank">https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vital Statistics Governed Record</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> r2g662g70dx34eq12v9n4ng7</p>
+
+                        <p style="margin-top: 0.5rem;">Root data cluster (DMType Item) for a governed vital-statistics record in CordovaOS: vital events compiled for statistical use. Wraps the domain's data components with the shared W3C PROV-O Provenance cluster so each record carries its lineage bound alongside its data. Workflow, attestation, parties, and the system audit trail sit in the DMType's native governance slots; access control and retention apply as bound sdcgovernance policy.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q18562479" target="_blank">https://www.wikidata.org/wiki/Q18562479</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1131372" target="_blank">https://www.wikidata.org/wiki/Q1131372</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vital Statistics Office</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> e9l9kwg7wcnnt4buerfdcz0h</p>
+
+                        <p style="margin-top: 0.5rem;">Details cluster for the government office responsible for vital statistics (births, deaths, marriages, divorces). W3C PROV-DM Agent (Organization).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">http://xmlns.com/foaf/0.1/Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1131372" target="_blank">https://www.wikidata.org/wiki/Q1131372</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)" target="_blank">https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vital Statistics Workflow</h4>
+                        <p class="small muted"><strong>Type:</strong> Cluster</p>
+                        <p class="small muted"><strong>ID:</strong> cii2ou2zjm297wmub074gwmc</p>
+
+                        <p style="margin-top: 0.5rem;">Workflow for vital statistics record lifecycle. States: Event Reported → Documentation Received → Verified → Registered → Certificate Issued → Amended. Tracks vital event registration through certification.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Activity" target="_blank">http://www.w3.org/ns/prov#Activity</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/ItemList" target="_blank">https://schema.org/ItemList</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1131372" target="_blank">https://www.wikidata.org/wiki/Q1131372</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)" target="_blank">https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q627335" target="_blank">https://www.wikidata.org/wiki/Q627335</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details>
+                <summary>Link Components (3)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>software_documentation_url</h4>
+                        <p class="small muted"><strong>Type:</strong> XdLink</p>
+                        <p class="small muted"><strong>ID:</strong> xvnv7mrhvfweajl72pmngeya</p>
+
+                        <p style="margin-top: 0.5rem;">URL to software documentation or repository.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/URL" target="_blank">https://schema.org/URL</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q3133368" target="_blank">https://www.wikidata.org/wiki/Q3133368</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>software_service_endpoint</h4>
+                        <p class="small muted"><strong>Type:</strong> XdLink</p>
+                        <p class="small muted"><strong>ID:</strong> px6j779dnapp4fjlohula4mh</p>
+
+                        <p style="margin-top: 0.5rem;">API endpoint or service URL if applicable.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q5376585" target="_blank">https://www.wikidata.org/wiki/Q5376585</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/URL" target="_blank">https://schema.org/URL</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vital Statistics Access Control</h4>
+                        <p class="small muted"><strong>Type:</strong> XdLink</p>
+                        <p class="small muted"><strong>ID:</strong> rqeuaeoe81e9siuma9cu7zz1</p>
+
+                        <p style="margin-top: 0.5rem;">Access control policy for vital statistics data using W3C Data Privacy Vocabulary. Enforces role-based access for vital statistics officials, citizens, and authorized representatives. Governs dpv:SpecialCategoryPersonalData including birth certificates, death certificates, and demographic records.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q185799" target="_blank">https://www.wikidata.org/wiki/Q185799</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://w3id.org/dpv#AccessControlMethod" target="_blank">https://w3id.org/dpv#AccessControlMethod</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://w3id.org/dpv" target="_blank">https://w3id.org/dpv</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://w3id.org/dpv#SpecialCategoryPersonalData" target="_blank">https://w3id.org/dpv#SpecialCategoryPersonalData</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q18562479" target="_blank">https://www.wikidata.org/wiki/Q18562479</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details>
+                <summary>String Components (33)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>activity_description</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> m9xg6e182m1oq77ssrf9iujv</p>
+
+                        <p style="margin-top: 0.5rem;">Detailed description of what this activity does and its purpose.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 2000
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/description" target="_blank">https://schema.org/description</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/description" target="_blank">https://schema.org/description</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.w3.org/TR/prov-dm/" target="_blank">https://www.w3.org/TR/prov-dm/</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>agent_id</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> hhfnj5hd1yzt252jfq5pdjj1</p>
+
+                        <p style="margin-top: 0.5rem;">Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 255
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q37882474" target="_blank">https://www.wikidata.org/wiki/Q37882474</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Birth Facility</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> m21mv7pyouct7a4uxgkxzj54</p>
+
+                        <p style="margin-top: 0.5rem;">Name of the hospital or facility where birth occurred</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1322263" target="_blank">https://www.wikidata.org/wiki/Q1322263</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/name" target="_blank">https://schema.org/name</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Cause of Death</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> m3gsphdej7z9csemrrk8uymy</p>
+
+                        <p style="margin-top: 0.5rem;">Primary cause of death as determined by certifying physician</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1931388" target="_blank">https://www.wikidata.org/wiki/Q1931388</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/description" target="_blank">https://schema.org/description</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Certificate Number</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> ajfsyoyrz38094hswxh13i3x</p>
+
+                        <p style="margin-top: 0.5rem;">Unique certificate number for this vital record</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q108891191" target="_blank">https://www.wikidata.org/wiki/Q108891191</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Certifying Physician License</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> d3zrns9w8vc5zvbycew6ctn9</p>
+
+                        <p style="margin-top: 0.5rem;">Medical license number of the certifying physician</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://purl.org/dc/terms/License" target="_blank">http://purl.org/dc/terms/License</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>contact_email</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> jtuheuri2wzfhctcjqv4ozmy</p>
+
+                        <p style="margin-top: 0.5rem;">Contact email for the service.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 5
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 254
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1273217" target="_blank">https://www.wikidata.org/wiki/Q1273217</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>contact_name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> a127ihw8xbfbl24lbcvnspv0</p>
+
+                        <p style="margin-top: 0.5rem;">Contact name for the service.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="http://www.w3.org/ns/dcat#contactPoint" target="_blank">http://www.w3.org/ns/dcat#contactPoint</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>contact_phone</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> pdykwzsug7pfncjsrry73x1s</p>
+
+                        <p style="margin-top: 0.5rem;">Primary contact phone number.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 7
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 20
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q214995" target="_blank">https://www.wikidata.org/wiki/Q214995</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Court Name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> nrqy1c3rg2d0me4lyrf49cme</p>
+
+                        <p style="margin-top: 0.5rem;">Name of the court that issued the decree</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1780854" target="_blank">https://www.wikidata.org/wiki/Q1780854</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/name" target="_blank">https://schema.org/name</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Marriage Certificate Number</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> ycujkecjszwwrcd6dhxesk73</p>
+
+                        <p style="margin-top: 0.5rem;">Certificate number of the original marriage being dissolved</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q820655" target="_blank">https://www.wikidata.org/wiki/Q820655</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1299632" target="_blank">https://www.wikidata.org/wiki/Q1299632</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>National ID (CID)</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> nj7s1gk45tfgyooxpz0qaha3</p>
+
+                        <p style="margin-top: 0.5rem;">Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/identifier" target="_blank">http://schema.org/identifier</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1140371" target="_blank">https://www.wikidata.org/wiki/Q1140371</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Notary Registration Number</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> yn69whk0qtnwp9sbb9n8jfu3</p>
+
+                        <p style="margin-top: 0.5rem;">Official registration number of the attesting notary</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#NotaryPublicIdentificationID" target="_blank">http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#NotaryPublicIdentificationID</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/identifier" target="_blank">https://schema.org/identifier</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Officiant Title</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> hrf8anjydeb8rl6x3wv26r73</p>
+
+                        <p style="margin-top: 0.5rem;">Title or capacity of the officiant (e.g., "Judge", "Minister", "Civil Registrar")</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/jobTitle" target="_blank">http://schema.org/jobTitle</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/name" target="_blank">https://schema.org/name</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>organization_identifier</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> ule5u2z3rjpa9pooaifwj1n3</p>
+
+                        <p style="margin-top: 0.5rem;">Official identifier for the organization (e.g., DUNS, tax ID).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 255
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q11378663" target="_blank">https://www.wikidata.org/wiki/Q11378663</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>organization_name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> ifw5zfe4oiijbxjn1ylc2wm3</p>
+
+                        <p style="margin-top: 0.5rem;">Legal or official name of the organization.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q168678" target="_blank">https://www.wikidata.org/wiki/Q168678</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>person_family_name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> zs9ciw4nypx4plo856h3m95d</p>
+
+                        <p style="margin-top: 0.5rem;">Family (last) name of the person agent.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q4116295" target="_blank">https://www.wikidata.org/wiki/Q4116295</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Person Full Name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> pmw2cq7fioqlbs2ljdh34rkn</p>
+
+                        <p style="margin-top: 0.5rem;">A complete name of a person (NIEM nc:PersonFullName)</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q1071027" target="_blank">https://www.wikidata.org/wiki/Q1071027</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>person_given_name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> ndvtjiq0cke0q1trw58rtrq2</p>
+
+                        <p style="margin-top: 0.5rem;">Given (first) name of the person agent.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q202444" target="_blank">https://www.wikidata.org/wiki/Q202444</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>prov_activity_type</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> ccj1yq2wtwknobszkgzzdbtr</p>
+
+                        <p style="margin-top: 0.5rem;">Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q125542526" target="_blank">https://www.wikidata.org/wiki/Q125542526</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>service_account_id</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> rw1cjzeynsl87va6gvhv2k7e</p>
+
+                        <p style="margin-top: 0.5rem;">Service account or system account identifier for software agents.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 255
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/identifier" target="_blank">http://schema.org/identifier</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>software_name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> rsjfjz8m5z7a58h5793duqbs</p>
+
+                        <p style="margin-top: 0.5rem;">Name of the software system or service.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q30335969" target="_blank">https://www.wikidata.org/wiki/Q30335969</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>software_runtime_environment</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> d839tf07spk43dmg0dqb939b</p>
+
+                        <p style="margin-top: 0.5rem;">Runtime environment or platform for the software.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q241317" target="_blank">https://www.wikidata.org/wiki/Q241317</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>software_vendor</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> frdwjm7fxt6f5x4wx78pv7bc</p>
+
+                        <p style="margin-top: 0.5rem;">Vendor or maintainer of the software.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q7554349" target="_blank">https://www.wikidata.org/wiki/Q7554349</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>software_version</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> tep9wanrrtqfw0k76huv6tvd</p>
+
+                        <p style="margin-top: 0.5rem;">Version of the software.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q20826013" target="_blank">https://www.wikidata.org/wiki/Q20826013</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>system_identifier</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> bd3s8t23d6m3zizmpwavc32y</p>
+
+                        <p style="margin-top: 0.5rem;">Identifier of the system that handled the data. Maps to prov:Entity context in the PROV-O export. This is the AuditType.system-id field.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q7663715" target="_blank">https://www.wikidata.org/wiki/Q7663715</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>system_location_identifier</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> zr59goe24qkocprl3feul3mt</p>
+
+                        <p style="margin-top: 0.5rem;">Code or identifier for the system location. Used for cross-system location resolution.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 50
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q36214810" target="_blank">https://www.wikidata.org/wiki/Q36214810</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>system_location_name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> fnodzqkbyskwe7nh58rs336k</p>
+
+                        <p style="margin-top: 0.5rem;">Name of the physical or logical location where the system resides. Maps to prov:atLocation.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q11307204" target="_blank">https://www.wikidata.org/wiki/Q11307204</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>verifier_name</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> rt6c1qzw12vd19ke3gii08gf</p>
+
+                        <p style="margin-top: 0.5rem;">Name of the person making the attestation.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 100
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/name" target="_blank">http://schema.org/name</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>verifier_organization</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> cbmahibaix50kxd3b2qrai5m</p>
+
+                        <p style="margin-top: 0.5rem;">Organization the verifier represents.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/Organization" target="_blank">http://schema.org/Organization</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>verifier_title</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> kaefys4w92tgr7iwuptn9uea</p>
+
+                        <p style="margin-top: 0.5rem;">Title/role of the verifier.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 200
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/jobTitle" target="_blank">http://schema.org/jobTitle</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vital Record Attestation Reason</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> wn5su07s9sgs1dhuuomiza68</p>
+
+                        <p style="margin-top: 0.5rem;">Reason for attesting this vital record</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q132364" target="_blank">https://www.wikidata.org/wiki/Q132364</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Text" target="_blank">https://schema.org/Text</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q484652" target="_blank">https://www.wikidata.org/wiki/Q484652</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vital Statistics Protocol</h4>
+                        <p class="small muted"><strong>Type:</strong> XdString</p>
+                        <p class="small muted"><strong>ID:</strong> bzj79tikzsv5s4qu83f7qx3m</p>
+
+                        <p style="margin-top: 0.5rem;">Protocol reference for the Vital Statistics Record data model. Informed by the United Nations Principles and Recommendations for a Vital Statistics System (Revision 3), WHO International Form of Medical Certificate of Cause of Death, and regional vital statistics reporting standards.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Minimum Length:</strong> 1
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>Maximum Length:</strong> 500
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q132364" target="_blank">https://www.wikidata.org/wiki/Q132364</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q317623" target="_blank">https://www.wikidata.org/wiki/Q317623</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:relatedMatch:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q69484" target="_blank">https://www.wikidata.org/wiki/Q69484</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details>
+                <summary>Token Components (20)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>Attestation Status</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> ngm0a3w2xml4h4d5ireqzucn</p>
+
+                        <p style="margin-top: 0.5rem;">Status of compliance attestation or certification.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> pending, attested, expired, revoked, not_applicable
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q485475" target="_blank">https://www.wikidata.org/wiki/Q485475</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>attestation_type</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> l4oiyjy4qc2fozn4qaj49t81</p>
+
+                        <p style="margin-top: 0.5rem;">Type of attestation.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> principle_compliance, lawful_basis, data_transfer, consent, impact_assessment ...
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://w3id.org/dpv/dpv-owl#Purpose" target="_blank">https://w3id.org/dpv/dpv-owl#Purpose</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Birth Facility Participation Function</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> af9izy31oyly2dc66rujb3zi</p>
+
+                        <p style="margin-top: 0.5rem;">Function of the birth facility in the vital birth event (e.g., Delivering Hospital, Birth Center).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> delivering-hospital, birth-center, home-delivery-attendant, midwifery-center
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Birth Facility Participation Mode</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> ch3s3a199lob4mjt1bb41yug</p>
+
+                        <p style="margin-top: 0.5rem;">Mode of birth facility participation in the birth event (e.g., in person, electronic filing).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> in-person, electronic-reporting, by-mail
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Certifying Physician Participation Function</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> krjrijisqnzbzio802s1kvmz</p>
+
+                        <p style="margin-top: 0.5rem;">Function of the certifying physician in the death record event (e.g., Attending Physician, Medical Examiner).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> attending-physician, medical-examiner, coroner, pronouncing-physician
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Certifying Physician Participation Mode</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> mfhycxuhhbanyrr3tacaj43b</p>
+
+                        <p style="margin-top: 0.5rem;">Mode of certifying physician participation in the death record (e.g., in person, electronic certification).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> in-person, electronic-certification, by-mail
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>City</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> atdtdfzruh7tya0iv5cz365l</p>
+
+                        <p style="margin-top: 0.5rem;">One of the nine cities in the Republic of Cordova.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Porto Sereno, Vistamar, Rioseco, Campoluz, Tierraverde ...
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/City" target="_blank">http://schema.org/City</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Court Participation Function</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> lkxku0zz32xvacl9lxa3zxik</p>
+
+                        <p style="margin-top: 0.5rem;">Function of the court in the divorce proceeding (e.g., Presiding Court, Filing Court).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> presiding-court, filing-court, appeals-court
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Court Participation Mode</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> vbzw08smpn0vfxyna7mrh69c</p>
+
+                        <p style="margin-top: 0.5rem;">Mode of court participation in the divorce proceeding (e.g., in person, electronic filing).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> in-person, electronic-filing, by-mail
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Event Type</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> jz7vc6ikueqig8g0lvb2czzr</p>
+
+                        <p style="margin-top: 0.5rem;">Type of vital event (XdToken)</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Birth, Death, Marriage, Divorce
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q108586636" target="_blank">https://www.wikidata.org/wiki/Q108586636</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Manner of Death</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> ftuxt5nrrffwjb2vymn80yx2</p>
+
+                        <p style="margin-top: 0.5rem;">Manner in which death occurred</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Natural, Accident, Homicide, Suicide, Undetermined ...
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q2438541" target="_blank">https://www.wikidata.org/wiki/Q2438541</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Officiant Participation Function</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> h2duffuwucoqpk65zde9nr1p</p>
+
+                        <p style="margin-top: 0.5rem;">Function of the officiant in the marriage ceremony (e.g., Religious Officiant, Civil Officiant, Judge).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> religious-officiant, civil-officiant, judge, captain-at-sea, notary
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Officiant Participation Mode</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> i9fk7u167k5z50jhv081o32u</p>
+
+                        <p style="margin-top: 0.5rem;">Mode of officiant participation in the marriage ceremony (e.g., in person, by proxy).</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> in-person, by-proxy, video-conference
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>organization_type</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> bpqtzla39dwentygpwea8276</p>
+
+                        <p style="margin-top: 0.5rem;">Type of organization.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> corporation, government, nonprofit, academic, department ...
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q17197366" target="_blank">https://www.wikidata.org/wiki/Q17197366</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Place of Death</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> dsoyfaplxw8ide1opo5w8fxg</p>
+
+                        <p style="margin-top: 0.5rem;">Type of location where death occurred</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Hospital, Residence, Other
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q18658526" target="_blank">https://www.wikidata.org/wiki/Q18658526</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>PROV Agent Type</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> nesxtz8c5o665swc9lhvqkjj</p>
+
+                        <p style="margin-top: 0.5rem;">Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Person, Organization, SoftwareAgent
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.w3.org/ns/prov#Agent" target="_blank">http://www.w3.org/ns/prov#Agent</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Province</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> kv5qqs3o4jwcwz9javgw1pzh</p>
+
+                        <p style="margin-top: 0.5rem;">One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Aldara, Brevina, Celara
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/AdministrativeArea" target="_blank">http://schema.org/AdministrativeArea</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/State" target="_blank">https://schema.org/State</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>PROV Role Type</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> u1i23yha2rvz5nbxjz3l8x48</p>
+
+                        <p style="margin-top: 0.5rem;">Functional roles that agents, entities, or activities can assume within provenance relationships.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Author, Publisher, Contributor, Custodian, Reviewer ...
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.w3.org/TR/prov-o/#qualifiedInvolvement" target="_blank">https://www.w3.org/TR/prov-o/#qualifiedInvolvement</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Record Status</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> yri6g628ipi0jqoa0ijnzxxu</p>
+
+                        <p style="margin-top: 0.5rem;">Status of the vital record</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Active, Amended, Voided
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q65720124" target="_blank">https://www.wikidata.org/wiki/Q65720124</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Sex</h4>
+                        <p class="small muted"><strong>Type:</strong> XdToken</p>
+                        <p class="small muted"><strong>ID:</strong> mw9qdn71urog8egjbp5t3y00</p>
+
+                        <p style="margin-top: 0.5rem;">Biological sex assigned at birth based on physical characteristics. UMLS CUI: C0079399 (Biologic Sex). Aligned with OMB standards for reporting.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Constraints:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>Allowed Values:</strong> Male, Female, Intersex, Unknown
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://uts.nlm.nih.gov/uts/umls/concept/C5236503" target="_blank">https://uts.nlm.nih.gov/uts/umls/concept/C5236503</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:exactMatch:</strong>
+                                <a href="https://schema.org/DefinedTermSet" target="_blank">https://schema.org/DefinedTermSet</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details>
+                <summary>File Components (2)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>Digital Signature Proof</h4>
+                        <p class="small muted"><strong>Type:</strong> XdFile</p>
+                        <p class="small muted"><strong>ID:</strong> gug5dhtqfv7exbgmm2raxpkq</p>
+
+                        <p style="margin-top: 0.5rem;">Cryptographic proof of attestation (digital signature)</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.w3.org/TR/vc-data-model/#credentials" target="_blank">https://www.w3.org/TR/vc-data-model/#credentials</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q210824" target="_blank">https://www.wikidata.org/wiki/Q210824</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://www.w3.org/ns/prov#Entity" target="_blank">http://www.w3.org/ns/prov#Entity</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Vital Record Attested View</h4>
+                        <p class="small muted"><strong>Type:</strong> XdFile</p>
+                        <p class="small muted"><strong>ID:</strong> lttamvusgiol900y0f9xl3h8</p>
+
+                        <p style="margin-top: 0.5rem;">Attested view of a vital record document</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://schema.org/DigitalDocument" target="_blank">https://schema.org/DigitalDocument</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="http://www.w3.org/ns/prov#Entity" target="_blank">http://www.w3.org/ns/prov#Entity</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:seeAlso:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q484652" target="_blank">https://www.wikidata.org/wiki/Q484652</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+            <details>
+                <summary>Temporal Components (6)</summary>
+                <div>
+
+                    <div class="component-card">
+                        <h4>activity_timestamp_end</h4>
+                        <p class="small muted"><strong>Type:</strong> XdTemporal</p>
+                        <p class="small muted"><strong>ID:</strong> edvvjznmaoibzmfna0uuoo37</p>
+
+                        <p style="margin-top: 0.5rem;">When the provenance activity completed. Maps to prov:endedAtTime. ISO 8601 format.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.ontology-of-units-of-measure.org/resource/om-2/Activity" target="_blank">http://www.ontology-of-units-of-measure.org/resource/om-2/Activity</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>activity_timestamp_start</h4>
+                        <p class="small muted"><strong>Type:</strong> XdTemporal</p>
+                        <p class="small muted"><strong>ID:</strong> o72s5793973fzho35rnaughs</p>
+
+                        <p style="margin-top: 0.5rem;">When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://www.ontology-of-units-of-measure.org/resource/om-2/Activity" target="_blank">http://www.ontology-of-units-of-measure.org/resource/om-2/Activity</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>attestation_date</h4>
+                        <p class="small muted"><strong>Type:</strong> XdTemporal</p>
+                        <p class="small muted"><strong>ID:</strong> tzbg1lgj3vdy4ctfdxr90qix</p>
+
+                        <p style="margin-top: 0.5rem;">Date and time when the attestation was made.</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://schema.org/dateCreated" target="_blank">http://schema.org/dateCreated</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdf:type:</strong>
+                                <a href="https://schema.org/DateTime" target="_blank">https://schema.org/DateTime</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Decree Date</h4>
+                        <p class="small muted"><strong>Type:</strong> XdTemporal</p>
+                        <p class="small muted"><strong>ID:</strong> ft4kk6m3r1goxkte0d7wflk8</p>
+
+                        <p style="margin-top: 0.5rem;">Date the divorce decree was issued by the court</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="http://release.niem.gov/niem/niem-core/5.0/DocumentIssueDate" target="_blank">http://release.niem.gov/niem/niem-core/5.0/DocumentIssueDate</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Date" target="_blank">https://schema.org/Date</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Event Date</h4>
+                        <p class="small muted"><strong>Type:</strong> XdTemporal</p>
+                        <p class="small muted"><strong>ID:</strong> e3sfb43zh1vjlgceb5guh0mj</p>
+
+                        <p style="margin-top: 0.5rem;">Date the vital event occurred</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Date" target="_blank">https://schema.org/Date</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q7911665" target="_blank">https://www.wikidata.org/wiki/Q7911665</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="component-card">
+                        <h4>Registration Date</h4>
+                        <p class="small muted"><strong>Type:</strong> XdTemporal</p>
+                        <p class="small muted"><strong>ID:</strong> vo9jtmexkaaol3y657fm0xn8</p>
+
+                        <p style="margin-top: 0.5rem;">Date the business was officially registered in Cordova</p>
+
+                        <div style="margin-top: 0.75rem;">
+                            <p class="small"><strong>Semantic Links:</strong></p>
+
+                            <div class="constraint-item">
+                                <strong>rdfs:isDefinedBy:</strong>
+                                <a href="https://www.wikidata.org/wiki/Q137375576" target="_blank">https://www.wikidata.org/wiki/Q137375576</a>
+                            </div>
+
+                            <div class="constraint-item">
+                                <strong>skos:broadMatch:</strong>
+                                <a href="https://schema.org/Date" target="_blank">https://schema.org/Date</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </details>
+
+        </section>
+
+        <!-- Semantic Links -->
+        <section class="section-card">
+            <h2>Semantic Links</h2>
+            <p class="muted">Ontology mappings and semantic relationships defined in this schema.</p>
+
+            <div style="margin-top: 0.75rem;">
+                <h3>Data Model Level Links:</h3>
+
+                <div class="constraint-item">
+                    <strong>skos:exactMatch:</strong>
+                    <a href="http://www.w3.org/ns/dcat#Dataset" target="_blank">http://www.w3.org/ns/dcat#Dataset</a>
+                </div>
+
+                <div class="constraint-item">
+                    <strong>rdf:type:</strong>
+                    <a href="https://schema.org/Dataset" target="_blank">https://schema.org/Dataset</a>
+                </div>
+
+                <div class="constraint-item">
+                    <strong>rdfs:seeAlso:</strong>
+                    <a href="https://www.wikidata.org/wiki/Q18562479" target="_blank">https://www.wikidata.org/wiki/Q18562479</a>
+                </div>
+
+                <div class="constraint-item">
+                    <strong>rdfs:isDefinedBy:</strong>
+                    <a href="https://www.wikidata.org/wiki/Q2728461" target="_blank">https://www.wikidata.org/wiki/Q2728461</a>
+                </div>
+
+                <div class="constraint-item">
+                    <strong>rdfs:seeAlso:</strong>
+                    <a href="https://www.wikidata.org/wiki/Q2728461" target="_blank">https://www.wikidata.org/wiki/Q2728461</a>
+                </div>
+
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Note:</strong> Additional semantic data is available in the extracted RDF file
+                    (<code>dm-ulzd6pe8072mwkqf7i313bov.rdf</code>) included in the complete package.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Usage Guide -->
+        <section class="section-card">
+            <h2>Usage Guide</h2>
+
+            <h3>How to Use This Schema</h3>
+            <ol>
+                <li>Use the XSD schema file to validate XML instances conforming to this data model.</li>
+                <li>Refer to the XML instance file for an example of valid data structure.</li>
+                <li>Use the JSON file for JSON-based data exchange formats.</li>
+                <li>Use the SHACL shapes file (dm-ulzd6pe8072mwkqf7i313bov_shacl.ttl) to validate RDF data.</li>
+            </ol>
+
+            <h3>Validation</h3>
+            <p>
+                <strong>Recommended:</strong> <a href="https://pypi.org/project/sdcvalidator/" target="_blank">sdcvalidator</a> -
+                A Python XML Schema validator with SDC extensions including ExceptionValue injection for documenting
+                justified constraint violations.
+            </p>
+            <p>
+                <strong>Alternatives:</strong> Standard XML validators like Xerces and Saxon EE support XSD 1.1 validation
+                but do not include SDC-specific extension capabilities.
+            </p>
+
+            <h3>SHACL Validation</h3>
+            <p>For detailed instructions on using the SHACL shapes file, refer to the SHACL_README.md included in the complete package.</p>
+
+            <h3>Example Data</h3>
+            <p>
+                The XML instance file (<code>dm-ulzd6pe8072mwkqf7i313bov.xml</code>) provides a complete example
+                showing the structure and data types used in this schema.
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="section-card footer">
+            <p>Generated by SDCStudio on 2026-07-29 17:51:13</p>
+            <p>Semantic Data Charter (SDC4) Compliant Schema</p>
+        </footer>
+    </div>
+</body>
+</html>

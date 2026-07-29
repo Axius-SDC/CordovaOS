@@ -1,0 +1,112 @@
+{
+  "@context": {
+    "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "label": "rdfs:label",
+    "description": "rdfs:comment",
+    "type": "@type",
+    "id": "@id"
+  },
+  "@type": "DataModel",
+  "@id": "sdc4:dm-uika42uwtj3ijdbegzw2kcwq",
+  "identifier": "uika42uwtj3ijdbegzw2kcwq",
+  "label": "Civil Registry",
+  "description": "Maintain the authoritative identity record for every person in Cordova.",
+  "metadata": {
+    "dc:title": "Civil Registry",
+    "dc:creator": "Timothy Cook",
+    "dc:subject": "Civil Registry",
+    "dc:description": "Maintain the authoritative identity record for every person in Cordova.",
+    "dc:publisher": "Axius SDC, Inc.",
+    "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
+    "dc:language": "en-US",
+    "dc:format": "text/xml",
+    "dc:date": "2026-07-29T13:10:43.173521+00:00"
+  },
+  "components": [
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-aan7382wp8e2f58m9a2hvmkp",
+      "label": "Civil Registry Governed Record",
+      "description": "Root data cluster (DMType Item) for a governed civil-registry record in CordovaOS: a person's civil-status events such as births, marriages, and deaths. Wraps the domain's data components with the shared W3C PROV-O Provenance cluster so each record carries its lineage bound alongside its data. Workflow, attestation, parties, and the system audit trail sit in the DMType's native governance slots; access control and retention apply as bound sdcgovernance policy.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": []
+    }
+  ],
+  "structural_components": {
+    "subject": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-avqpyqft9tm22yyink3ltcty",
+      "label": "Related Person",
+      "description": "Person related to the civil registry subject via family relationship (parent, child, spouse, etc.). W3C PROV-DM Agent (Person) with Cordova CID.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q22988604"
+        }
+      ]
+    },
+    "provider": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-piaz5w21hsuq3hpysyetuvvk",
+      "label": "Civil Registry Office",
+      "description": "Government office responsible for civil registry records (births, marriages, deaths, name changes). W3C PROV-DM Agent (Organization).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "skos:broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q327333"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://schema.org/GovernmentOrganization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Organization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q745221"
+        }
+      ]
+    }
+  }
+}

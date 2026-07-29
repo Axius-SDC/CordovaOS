@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xml:base="https://semanticdatacharter.com/ns/sdc4/dm-uika42uwtj3ijdbegzw2kcwq"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:sdc4-meta="https://semanticdatacharter.com/ontology/sdc4-meta/"
+>
+  <rdf:Description rdf:about="sdc4:mc-be9apjt8mvjjv86qzycorcjl">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Relationship Type</rdfs:label>
+    <rdfs:comment>Familial or legal relationship between two persons in the Cordova Civil Registry.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-relationship_type"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q69901743"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Unknown">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+    <rdfs:label>Unknown</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-qy0bhr8p5mbux9k8mbb6zsx0">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Civil Registry Workflow</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-piaz5w21hsuq3hpysyetuvvk">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+    <rdfs:label>Civil Registry Office</rdfs:label>
+    <rdfs:comment>Government office responsible for civil registry records (births, marriages, deaths, name changes). W3C PROV-DM Agent (Organization).</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-civil_registry_office"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/GovernmentOrganization"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/Organization"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q745221"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-v0m4pdtqjtsbj6e4zubge8ul">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Related Person</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Transgender%2520female">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+    <rdfs:label>Transgender female</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-zlz64jydsmhb5zmytcm2ewyg/xdtoken-value/No%2520preference">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-zlz64jydsmhb5zmytcm2ewyg"/>
+    <rdfs:label>No preference</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-l9k2fmlc5vn477r3kpi1ufal">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Family Relationships</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q69901743"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-mw9qdn71urog8egjbp5t3y00/xdtoken-value/Female">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-mw9qdn71urog8egjbp5t3y00"/>
+    <rdfs:label>Female</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="dm-uika42uwtj3ijdbegzw2kcwq">
+    <dc:title>Civil Registry</dc:title>
+    <dc:creator>Timothy Cook</dc:creator>
+    <dc:subject>Civil Registry</dc:subject>
+    <dc:rights>CC-BY http://creativecommons.org/licenses/by/3.0/</dc:rights>
+    <dc:relation>None</dc:relation>
+    <dc:coverage>Universal</dc:coverage>
+    <dc:type>SDC Data Model (DM)</dc:type>
+    <dc:identifier>dm-uika42uwtj3ijdbegzw2kcwq</dc:identifier>
+    <dc:description>Maintain the authoritative identity record for every person in Cordova.</dc:description>
+    <dc:publisher>Axius SDC, Inc.</dc:publisher>
+    <dc:date>2026-07-29 13:10:43.173521+00:00</dc:date>
+    <dc:format>text/xml</dc:format>
+    <dc:language>en-US</dc:language>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-sv48g8am8vqs46nodiugripz">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Contact Information</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2996679"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>person_given_name</rdfs:label>
+    <rdfs:comment>Given (first) name of the person agent.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-person_given_name"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q202444"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-a6zjaj7dunnwxdtc2skdpepx">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Civil Registry Attestation Reason</rdfs:label>
+    <rdfs:comment>Reason for attesting this civil registry record</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-civil_registry_attestation_reason"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q4830453"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>software_vendor</rdfs:label>
+    <rdfs:comment>Vendor or maintainer of the software.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-software_vendor"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q7554349"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-px6j779dnapp4fjlohula4mh">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/URL"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdLinkType"/>
+    <rdfs:label>software_service_endpoint</rdfs:label>
+    <rdfs:comment>API endpoint or service URL if applicable.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-software_service_endpoint"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q5376585"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Vistamar">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Vistamar</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+    <rdfs:label>Digital Signature Proof</rdfs:label>
+    <rdfs:comment>Cryptographic proof of attestation (digital signature)</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-digital_signature_proof"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q210824"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Transgender%2520male">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+    <rdfs:label>Transgender male</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-xvnv7mrhvfweajl72pmngeya">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/URL"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdLinkType"/>
+    <rdfs:label>software_documentation_url</rdfs:label>
+    <rdfs:comment>URL to software documentation or repository.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-software_documentation_url"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q3133368"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-zs9ciw4nypx4plo856h3m95d">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>person_family_name</rdfs:label>
+    <rdfs:comment>Family (last) name of the person agent.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-person_family_name"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q4116295"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/vendor">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>vendor</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-vjfgimlbb90ds2xg55tfn941/xdtoken-value/Widowed">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-vjfgimlbb90ds2xg55tfn941"/>
+    <rdfs:label>Widowed</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ule5u2z3rjpa9pooaifwj1n3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>organization_identifier</rdfs:label>
+    <rdfs:comment>Official identifier for the organization (e.g., DUNS, tax ID).</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-organization_identifier"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q11378663"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-hdhjfg00tngir2txgqyka9cv">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Provenance Components</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1172162"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Rioseco">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Rioseco</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-nfrvvp87c5imu5h9ups92kgy">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Cordova Phone Number</rdfs:label>
+    <rdfs:comment>Cordova national telephone number. Format: +99-PPP-NNN-NNNN where +99 is the country code and PPP is the area code. Area codes: Porto Sereno=100, Vistamar=110, Rioseco=120, Campoluz=200, Tierraverde=210, Montecara=220, Novaciudad=300, Piedrasol=310, Lagunavista=320.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-cordova_phone_number"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q214995"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-o7vjxwswi0pxo543hq504jjx">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>Relationship End Date</rdfs:label>
+    <rdfs:comment>Date the relationship ended, if applicable (e.g., divorce date, death date). Null for active relationships.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-relationship_end_date"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q121875611"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-oit0ueglhjfcyq80z22kl2z3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Middle Name (Person)</rdfs:label>
+    <rdfs:comment>Middle or other name(s) given to identify a person</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-middle_name_(person)"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q245025"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-tep9wanrrtqfw0k76huv6tvd">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>software_version</rdfs:label>
+    <rdfs:comment>Version of the software.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-software_version"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q20826013"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Aldara">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+    <rdfs:label>Aldara</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Grandparent">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+    <rdfs:label>Grandparent</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-cfg2l8ym4ve833ritrxu765t">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Country of Birth</rdfs:label>
+    <rdfs:comment>Country where participant was born</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-country_of_birth"/>
+    <rdfs:isDefinedBy rdf:resource="https://uts.nlm.nih.gov/uts/umls/concept/C1300001"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Novaciudad">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Novaciudad</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-vjfgimlbb90ds2xg55tfn941/xdtoken-value/Single">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-vjfgimlbb90ds2xg55tfn941"/>
+    <rdfs:label>Single</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-d839tf07spk43dmg0dqb939b">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>software_runtime_environment</rdfs:label>
+    <rdfs:comment>Runtime environment or platform for the software.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-software_runtime_environment"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q241317"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-m9xg6e182m1oq77ssrf9iujv">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/description"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>activity_description</rdfs:label>
+    <rdfs:comment>Detailed description of what this activity does and its purpose.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-activity_description"/>
+    <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/prov-dm/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-zlz64jydsmhb5zmytcm2ewyg">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Preferred Contact Method</rdfs:label>
+    <rdfs:comment>Participant's preferred method of contact</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-preferred_contact_method"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-km4azswrxe9tdrjmqvun5463">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Software Agent Details</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2297769"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-vjfgimlbb90ds2xg55tfn941/xdtoken-value/Married">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-vjfgimlbb90ds2xg55tfn941"/>
+    <rdfs:label>Married</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-k9ptlhkq3j41p6umlg3tc80x">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>Relationship Start Date</rdfs:label>
+    <rdfs:comment>Date the relationship was established or recorded (e.g., marriage date, birth date of child, guardianship order date)
+
+---</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-relationship_start_date"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q3406134"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Campoluz">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Campoluz</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ek5h6dsqpd9kz0l4mcckmxpt">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Address (Line 2)</rdfs:label>
+    <rdfs:comment>Street address line, building/apartment number, or P.O. Box number.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-address_(line_2)"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/streetAddress"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-fnodzqkbyskwe7nh58rs336k">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>system_location_name</rdfs:label>
+    <rdfs:comment>Name of the physical or logical location where the system resides. Maps to prov:atLocation.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-system_location_name"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q11307204"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-mw9qdn71urog8egjbp5t3y00">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Sex</rdfs:label>
+    <rdfs:comment>Biological sex assigned at birth based on physical characteristics. UMLS CUI: C0079399 (Biologic Sex). Aligned with OMB standards for reporting.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-sex"/>
+    <rdfs:isDefinedBy rdf:resource="https://uts.nlm.nih.gov/uts/umls/concept/C5236503"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Grandchild">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+    <rdfs:label>Grandchild</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Guardian">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+    <rdfs:label>Guardian</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-cymq16em5zb20whgtfzki6n5">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Gender Identity</rdfs:label>
+    <rdfs:comment>Self-reported gender identity of the participant</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-gender_identity"/>
+    <rdfs:isDefinedBy rdf:resource="https://uts.nlm.nih.gov/uts/umls/concept/C0017249"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Other">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+    <rdfs:label>Other</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/government">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>government</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Spouse">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+    <rdfs:label>Spouse</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-nesxtz8c5o665swc9lhvqkjj">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>PROV Agent Type</rdfs:label>
+    <rdfs:comment>Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prov_agent_type"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>agent_id</rdfs:label>
+    <rdfs:comment>Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-agent_id"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q37882474"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-bgjt4mvgvkxcn6hurg37u21b">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Civil Registry Record</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q18562479"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-avqpyqft9tm22yyink3ltcty">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+    <rdfs:label>Related Person</rdfs:label>
+    <rdfs:comment>Person related to the civil registry subject via family relationship (parent, child, spouse, etc.). W3C PROV-DM Agent (Person) with Cordova CID.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-related_person"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/Person"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q22988604"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Montecara">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Montecara</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Porto%2520Sereno">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Porto Sereno</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-vitwhq5xsptnokmfq11b1jos">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+    <rdfs:label>System User</rdfs:label>
+    <rdfs:comment>Defines the operator or agent.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-system_user"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-v8jgjo2sml12jo7zrb8swoxi">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Surname (Person)</rdfs:label>
+    <rdfs:comment>The surname or family name of a person, part of a naming scheme for individuals, used in many cultures worldwide
+aka: last name, fam name, family surname, surname, clan name</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-surname_(person)"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q101352"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-edvvjznmaoibzmfna0uuoo37">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>activity_timestamp_end</rdfs:label>
+    <rdfs:comment>When the provenance activity completed. Maps to prov:endedAtTime. ISO 8601 format.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-activity_timestamp_end"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Activity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-pf1mrtzd9ld1939qanem0olk">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:AttestationType"/>
+    <rdfs:label>Civil Registry Attestation</rdfs:label>
+    <rdfs:comment>Attestation for civil registry records (births, marriages, name changes). The civil registry office attests to record accuracy. W3C PROV-DM, GDPR/UN CEB.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-civil_registry_attestation"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q116890704"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q12047392"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-rsjfjz8m5z7a58h5793duqbs">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>software_name</rdfs:label>
+    <rdfs:comment>Name of the software system or service.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-software_name"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q30335969"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-mw9qdn71urog8egjbp5t3y00/xdtoken-value/Male">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-mw9qdn71urog8egjbp5t3y00"/>
+    <rdfs:label>Male</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-vjfgimlbb90ds2xg55tfn941/xdtoken-value/Divorced">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-vjfgimlbb90ds2xg55tfn941"/>
+    <rdfs:label>Divorced</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Non-binary">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+    <rdfs:label>Non-binary</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Tierraverde">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Tierraverde</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-kfyzf8u8gdafcpt5kfh2qg3q">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Given Name (Person)</rdfs:label>
+    <rdfs:comment>name typically used to differentiate people from the same family, clan, or other social group who have a common last name
+aka. first name or forename</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-given_name_(person)"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q202444"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-mw9qdn71urog8egjbp5t3y00/xdtoken-value/Intersex">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-mw9qdn71urog8egjbp5t3y00"/>
+    <rdfs:label>Intersex</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-zlz64jydsmhb5zmytcm2ewyg/xdtoken-value/Email">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-zlz64jydsmhb5zmytcm2ewyg"/>
+    <rdfs:label>Email</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Celara">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+    <rdfs:label>Celara</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Brevina">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+    <rdfs:label>Brevina</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>organization_name</rdfs:label>
+    <rdfs:comment>Legal or official name of the organization.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-organization_name"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q168678"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>National ID (CID)</rdfs:label>
+    <rdfs:comment>Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-national_id_(cid)"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/identifier"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1140371"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-zlz64jydsmhb5zmytcm2ewyg/xdtoken-value/Phone">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-zlz64jydsmhb5zmytcm2ewyg"/>
+    <rdfs:label>Phone</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-atdtdfzruh7tya0iv5cz365l">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>City</rdfs:label>
+    <rdfs:comment>One of the nine cities in the Republic of Cordova.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-city"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/City"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Province</rdfs:label>
+    <rdfs:comment>One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-province"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/AdministrativeArea"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/State"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ccj1yq2wtwknobszkgzzdbtr">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>prov_activity_type</rdfs:label>
+    <rdfs:comment>Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prov_activity_type"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q125542526"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-pdykwzsug7pfncjsrry73x1s">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>contact_phone</rdfs:label>
+    <rdfs:comment>Primary contact phone number.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-contact_phone"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q214995"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-vjfgimlbb90ds2xg55tfn941/xdtoken-value/Separated">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-vjfgimlbb90ds2xg55tfn941"/>
+    <rdfs:label>Separated</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-g3k6bj8su3rvkszg2700dhyh">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/DateTime"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>Birth Date</rdfs:label>
+    <rdfs:comment>Date of birth of the participant. UMLS CUI: C0421451 (Date of birth). LOINC: 21112-8 (Birth date).</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-birth_date"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2389905"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-bd3s8t23d6m3zizmpwavc32y">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>system_identifier</rdfs:label>
+    <rdfs:comment>Identifier of the system that handled the data. Maps to prov:Entity context in the PROV-O export. This is the AuditType.system-id field.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-system_identifier"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q7663715"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Lagunavista">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Lagunavista</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-aan7382wp8e2f58m9a2hvmkp">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Civil Registry Governed Record</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Piedrasol">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+    <rdfs:label>Piedrasol</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-l338k7nlvnq2am0owa19yxfc">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Address (Line 1)</rdfs:label>
+    <rdfs:comment>Street address line, building/apartment number, or P.O. Box number.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-address_(line_1)"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/streetAddress"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-rw1cjzeynsl87va6gvhv2k7e">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>service_account_id</rdfs:label>
+    <rdfs:comment>Service account or system account identifier for software agents.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-service_account_id"/>
+    <rdfs:isDefinedBy rdf:resource="http://schema.org/identifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-bpqtzla39dwentygpwea8276">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>organization_type</rdfs:label>
+    <rdfs:comment>Type of organization.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-organization_type"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q17197366"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Male">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+    <rdfs:label>Male</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-jtuheuri2wzfhctcjqv4ozmy">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>contact_email</rdfs:label>
+    <rdfs:comment>Contact email for the service.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-contact_email"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1273217"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ys32wo3tw9p37i7v4gcvxahk">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+    <rdfs:label>Civil Registry Attested View</rdfs:label>
+    <rdfs:comment>Attested view of a civil registry document</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-civil_registry_attested_view"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q4830453"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.org/DigitalDocument"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-o72s5793973fzho35rnaughs">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+    <rdfs:label>activity_timestamp_start</rdfs:label>
+    <rdfs:comment>When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-activity_timestamp_start"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Activity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-ytctcqbr30kxsmvx4jk7lae2">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Current Address</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q75618710"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Genderqueer">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+    <rdfs:label>Genderqueer</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-zr59goe24qkocprl3feul3mt">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>system_location_identifier</rdfs:label>
+    <rdfs:comment>Code or identifier for the system location. Used for cross-system location resolution.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-system_location_identifier"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q36214810"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/corporation">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>corporation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-lev3nug1ml7l43icdjcyleqe">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Civil Registry Office</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-fotc5adg15ek2b9ermx2mcih">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:AuditType"/>
+    <rdfs:label>System Audit</rdfs:label>
+    <rdfs:comment>A domain-agnostic audit component. Can be copied to other projects for domain-specific semantics if desired.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-system_audit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-uika42uwtj3ijdbegzw2kcwq">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Dataset"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:DMType"/>
+    <rdfs:label>Civil Registry</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q83708009"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q83708009"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q131721"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-fdwlhbher1gm91zfmf8mno6c">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdLinkType"/>
+    <rdfs:label>Civil Registry Access Control</rdfs:label>
+    <rdfs:comment>Access control policy for civil registration data using W3C Data Privacy Vocabulary. Enforces role-based access for registry officials, citizens, and legal representatives. Governs dpv:IdentifyingPersonalData including birth, marriage, and death records.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-civil_registry_access_control"/>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/dpv#AccessControlMethod"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q83708009"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/dpv"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/dpv#IdentifyingPersonalData"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Sibling">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+    <rdfs:label>Sibling</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-mw9qdn71urog8egjbp5t3y00/xdtoken-value/Unknown">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-mw9qdn71urog8egjbp5t3y00"/>
+    <rdfs:label>Unknown</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-a127ihw8xbfbl24lbcvnspv0">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="https://schema.org/Text"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>contact_name</rdfs:label>
+    <rdfs:comment>Contact name for the service.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-contact_name"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Child">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+    <rdfs:label>Child</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-zlz64jydsmhb5zmytcm2ewyg/xdtoken-value/Mail">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-zlz64jydsmhb5zmytcm2ewyg"/>
+    <rdfs:label>Mail</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/department">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>department</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Female">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+    <rdfs:label>Female</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-azmp0vkmkmtne1goba54qubu">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Civil Registration Protocol</rdfs:label>
+    <rdfs:comment>Protocol reference for the Civil Registry data model. Informed by the United Nations Guidelines on Civil Registration and Vital Statistics Systems, the Handbook on Civil Registration and Vital Statistics (UN Statistics Division), and regional civil code frameworks.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-civil_registration_protocol"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
+    <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q69484"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-cymq16em5zb20whgtfzki6n5/xdtoken-value/Prefer%2520not%2520to%2520answer">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-cymq16em5zb20whgtfzki6n5"/>
+    <rdfs:label>Prefer not to answer</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/SoftwareAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+    <rdfs:label>SoftwareAgent</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/academic">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>academic</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-zlz64jydsmhb5zmytcm2ewyg/xdtoken-value/Text%252FSMS">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-zlz64jydsmhb5zmytcm2ewyg"/>
+    <rdfs:label>Text/SMS</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-x0na649n17if0ukul82cmrx3">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+    <rdfs:label>Cordova Email Address</rdfs:label>
+    <rdfs:comment>Email address using one of the Cordova national email providers. Providers: cordomail.co, novamail.co, portocorreo.co</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-cordova_email_address"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1273217"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-be9apjt8mvjjv86qzycorcjl/xdtoken-value/Parent">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-be9apjt8mvjjv86qzycorcjl"/>
+    <rdfs:label>Parent</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-vjfgimlbb90ds2xg55tfn941">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+    <rdfs:label>Marital Status (Cordova)</rdfs:label>
+    <rdfs:comment>Marital status as recorded in the Cordova Civil Registry. Aligned with vital statistics records.</rdfs:comment>
+    <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-marital_status_(cordova)"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q11920938"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-bpqtzla39dwentygpwea8276/xdtoken-value/nonprofit">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-bpqtzla39dwentygpwea8276"/>
+    <rdfs:label>nonprofit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="sdc4:mc-w06vxo6uxtrzjkimmafmue7g">
+    <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+    <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+    <rdfs:label>Contact and Access</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2996679"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Person">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+    <rdfs:label>Person</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Organization">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subPropertyOf rdf:resource="mc-nesxtz8c5o665swc9lhvqkjj"/>
+    <rdfs:label>Organization</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

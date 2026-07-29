@@ -1,0 +1,110 @@
+{
+  "@context": {
+    "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "label": "rdfs:label",
+    "description": "rdfs:comment",
+    "type": "@type",
+    "id": "@id"
+  },
+  "@type": "DataModel",
+  "@id": "sdc4:dm-yh0opq0bnu6y9y56oukg92uf",
+  "identifier": "yh0opq0bnu6y9y56oukg92uf",
+  "label": "Law Enforcement Record",
+  "description": "Record public safety incidents, charges, and dispositions in Cordova.",
+  "metadata": {
+    "dc:title": "Law Enforcement Record",
+    "dc:creator": "Timothy Cook",
+    "dc:subject": "Law Enforcement",
+    "dc:description": "Record public safety incidents, charges, and dispositions in Cordova.",
+    "dc:publisher": "Axius SDC, Inc.",
+    "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
+    "dc:language": "en-US",
+    "dc:format": "text/xml",
+    "dc:date": "2026-07-29T17:23:27.052767+00:00"
+  },
+  "components": [
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-kcam9lm7091vqtvb253ixjxr",
+      "label": "Law Enforcement Governed Record",
+      "description": "Root data cluster (DMType Item) for a governed law-enforcement record in CordovaOS: an incident, its investigation, and its chain of custody. Wraps the domain's data components with the shared W3C PROV-O Provenance cluster so each record carries its lineage bound alongside its data. Workflow, attestation, parties, and the system audit trail sit in the DMType's native governance slots; access control and retention apply as bound sdcgovernance policy.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [],
+      "semanticLinks": [
+        {
+          "predicate": "skos:relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q1399543"
+        }
+      ]
+    }
+  ],
+  "structural_components": {
+    "subject": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-7i4jw2wkw7om94135c1bq03h",
+      "label": "Involved Person",
+      "description": "Person involved in a law enforcement incident (suspect, victim, witness). W3C PROV-DM Agent (Person) with involvement classification.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "skos:broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q196939"
+        }
+      ]
+    },
+    "provider": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-m2lj6lu22oez88prwrdgmnc2",
+      "label": "Reporting Officer",
+      "description": "The law enforcement officer who filed the incident report. W3C PROV-DM Agent (Person) with badge number as identifier.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q384593"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    }
+  }
+}

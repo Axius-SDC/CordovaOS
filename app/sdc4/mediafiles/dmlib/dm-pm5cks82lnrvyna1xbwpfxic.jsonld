@@ -1,0 +1,110 @@
+{
+  "@context": {
+    "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "label": "rdfs:label",
+    "description": "rdfs:comment",
+    "type": "@type",
+    "id": "@id"
+  },
+  "@type": "DataModel",
+  "@id": "sdc4:dm-pm5cks82lnrvyna1xbwpfxic",
+  "identifier": "pm5cks82lnrvyna1xbwpfxic",
+  "label": "Employment Record",
+  "description": "Track employment relationships between persons and businesses in Cordova.",
+  "metadata": {
+    "dc:title": "Employment Record",
+    "dc:creator": "Timothy Cook",
+    "dc:subject": "Employment Registry",
+    "dc:description": "Track employment relationships between persons and businesses in Cordova.",
+    "dc:publisher": "Axius SDC, Inc.",
+    "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
+    "dc:language": "en-US",
+    "dc:format": "text/xml",
+    "dc:date": "2026-07-29T15:15:41.318373+00:00"
+  },
+  "components": [
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-xdu3vqk4vhuko5mghl4y4xxk",
+      "label": "Employment Governed Record",
+      "description": "Root data cluster (DMType Item) for a governed employment record in CordovaOS: an individual's employment and personnel history. Wraps the domain's data components with the shared W3C PROV-O Provenance cluster so each record carries its lineage bound alongside its data. Workflow, attestation, parties, and the system audit trail sit in the DMType's native governance slots; access control and retention apply as bound sdcgovernance policy.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [],
+      "semanticLinks": [
+        {
+          "predicate": "skos:relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q656365"
+        }
+      ]
+    }
+  ],
+  "structural_components": {
+    "subject": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-yowhhhxm3qnk40qd3ekaluh0",
+      "label": "Employee",
+      "description": "Person employed by an organization. W3C PROV-DM Agent (Person) with Cordova CID.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q703534"
+        },
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    },
+    "provider": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-8fc8bd0qo44g5s4re0gwrhlr",
+      "label": "Employer",
+      "description": "Organization employing the person. W3C PROV-DM Agent (Organization) with Cordova BRN.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q3053337"
+        },
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Organization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    }
+  }
+}

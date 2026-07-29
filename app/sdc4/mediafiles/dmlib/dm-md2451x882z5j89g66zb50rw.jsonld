@@ -1,0 +1,118 @@
+{
+  "@context": {
+    "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "label": "rdfs:label",
+    "description": "rdfs:comment",
+    "type": "@type",
+    "id": "@id"
+  },
+  "@type": "DataModel",
+  "@id": "sdc4:dm-md2451x882z5j89g66zb50rw",
+  "identifier": "md2451x882z5j89g66zb50rw",
+  "label": "Maritime Port Authority",
+  "description": "Record all maritime operations, vessel movements, crew, cargo, and customs at Porto Sereno.",
+  "metadata": {
+    "dc:title": "Maritime Port Authority",
+    "dc:creator": "Timothy Cook",
+    "dc:subject": "Maritime Port Call",
+    "dc:description": "Record all maritime operations, vessel movements, crew, cargo, and customs at Porto Sereno.",
+    "dc:publisher": "Axius SDC, Inc.",
+    "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
+    "dc:language": "en-US",
+    "dc:format": "text/xml",
+    "dc:date": "2026-07-29T17:58:18.385862+00:00"
+  },
+  "components": [
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-haoricee7rjlcybdp70akw9l",
+      "label": "Maritime Governed Record",
+      "description": "Root data cluster (DMType Item) for a governed maritime-port record in CordovaOS: a vessel call and its cargo manifest. Wraps the domain's data components with the shared W3C PROV-O Provenance cluster so each record carries its lineage bound alongside its data. Workflow, attestation, parties, and the system audit trail sit in the DMType's native governance slots; access control and retention apply as bound sdcgovernance policy.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [],
+      "semanticLinks": [
+        {
+          "predicate": "skos:relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q44782"
+        }
+      ]
+    }
+  ],
+  "structural_components": {
+    "subject": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-i2e1qhvmkvbnkt0le7rczw5x",
+      "label": "Vessel Owner/Operator",
+      "description": "The organization that owns or operates the vessel. W3C PROV-DM Agent (Organization) with registry number as identifier.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Organization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q500251"
+        }
+      ]
+    },
+    "provider": {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-l29wc96z6g1a432bhcxxo7dy",
+      "label": "Port Authority",
+      "description": "Maritime port authority managing vessel traffic, arrivals, and departures. W3C PROV-DM Agent (Organization).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "skos:exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "skos:broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q327333"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://schema.org/GovernmentOrganization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://schema.org/Organization"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1348006"
+        },
+        {
+          "predicate": "rdfs:isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    }
+  }
+}
