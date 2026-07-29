@@ -16,17 +16,20 @@ XSI_NS = "http://www.w3.org/2001/XMLSchema-instance"
 
 PROVINCES = ["Aldara", "Brevina", "Celara"]
 
+# City names MUST match the model's City enum exactly (shared across all domains).
+# Enum (from the City component): Porto Sereno, Vistamar, Rioseco (Aldara);
+# Campoluz, Tierraverde, Montecara (Brevina); Novaciudad, Piedrasol, Lagunavista (Celara).
 PROVINCE_CITIES = {
-    "Aldara": ["Porto Sereno", "Montecalvo", "Bahia Linda"],
-    "Brevina": ["Campoluz", "Sierra Verde", "Tierra Roja"],
-    "Celara": ["Novaciudad", "Costa Brava", "Lago Azul"],
+    "Aldara": ["Porto Sereno", "Vistamar", "Rioseco"],
+    "Brevina": ["Campoluz", "Tierraverde", "Montecara"],
+    "Celara": ["Novaciudad", "Piedrasol", "Lagunavista"],
 }
 
 PROVINCE_CODES = {"Aldara": "AL", "Brevina": "BR", "Celara": "CE"}
 CITY_CODES = {
-    "Porto Sereno": "01", "Montecalvo": "02", "Bahia Linda": "03",
-    "Campoluz": "01", "Sierra Verde": "02", "Tierra Roja": "03",
-    "Novaciudad": "01", "Costa Brava": "02", "Lago Azul": "03",
+    "Porto Sereno": "01", "Vistamar": "02", "Rioseco": "03",
+    "Campoluz": "01", "Tierraverde": "02", "Montecara": "03",
+    "Novaciudad": "01", "Piedrasol": "02", "Lagunavista": "03",
 }
 
 ALL_CITIES = [c for cities in PROVINCE_CITIES.values() for c in cities]
@@ -260,15 +263,17 @@ def generate_cid_for_city(city):
 
 # ─── Phone / Email ───────────────────────────────────────────────────────────
 
+# Area codes MUST satisfy the Cordova Phone Number pattern \+99-[123][012]0-...
+# i.e. the three digits are [123][012]0 (matches the City enum's documented codes).
 AREA_CODES = {
-    "Porto Sereno": "100", "Montecalvo": "102", "Bahia Linda": "104",
-    "Campoluz": "200", "Sierra Verde": "202", "Tierra Roja": "204",
-    "Novaciudad": "300", "Costa Brava": "302", "Lago Azul": "304",
+    "Porto Sereno": "100", "Vistamar": "110", "Rioseco": "120",
+    "Campoluz": "200", "Tierraverde": "210", "Montecara": "220",
+    "Novaciudad": "300", "Piedrasol": "310", "Lagunavista": "320",
 }
 
 
 def generate_phone(city):
-    """Generate Cordova phone: +99-PPP-NNN-NNNN."""
+    """Generate Cordova phone: +99-AAA-NNN-NNNN (area AAA = [123][012]0)."""
     area = AREA_CODES.get(city, "100")
     n1 = random.randint(100, 999)
     n2 = random.randint(1000, 9999)
@@ -277,7 +282,7 @@ def generate_phone(city):
 
 def generate_email(given, surname):
     """Generate a .cor email address."""
-    return f"{given.lower()}.{surname.lower()}@mail.cor"
+    return f"{given.lower()}.{surname.lower()}@{random.choice(['cordomail','novamail','portocorreo'])}.co"
 
 
 # ─── Business Registry Numbers ───────────────────────────────────────────────
@@ -349,6 +354,30 @@ def now_iso():
     return datetime.utcnow().isoformat()
 
 
+def make_provenance_values(system_name, activity_type="RecordCreation", city=None):
+    """Synthetic W3C PROV-O values for a record's Provenance Components cluster.
+
+    Returns the seven leaf values the new governance-composed models carry:
+    activity_description, prov_activity_type, system_identifier,
+    system_location_identifier, system_location_name, and the activity
+    timestamp start/end. `system_name` is the domain's handling system
+    (e.g. "Cordova Civil Registry System").
+    """
+    if city is None:
+        city = random_city_province()[0]
+    slug = system_name.lower().replace(" ", "-")
+    start = random_date(2020, 2025)
+    return {
+        "activity_description": f"{activity_type} performed in the {system_name}",
+        "prov_activity_type": activity_type,
+        "system_identifier": f"urn:cordova:system:{slug}",
+        "system_location_identifier": f"LOC-{city[:3].upper()}-{generate_brn()[-4:]}",
+        "system_location_name": f"{city} Data Center",
+        "activity_timestamp_start": f"{start}T08:00:00",
+        "activity_timestamp_end": f"{start}T08:00:05",
+    }
+
+
 # ─── XML Builders ────────────────────────────────────────────────────────────
 
 def xml_header(ct_id):
@@ -361,10 +390,15 @@ def xml_header(ct_id):
 '''
 
 
-def xml_preamble(dm_label, instance_id=None):
-    """Return dm-label through current-state elements."""
+def xml_preamble(dm_label, instance_id=None, current_state=None):
+    """Return dm-label through current-state elements.
+
+    current_state populates the DM's native workflow current-state slot
+    (a plain string, e.g. "Registered"); empty/self-closing if not given.
+    """
     iid = instance_id or cuid_generator()
     ts = now_iso()
+    cs = f'<current-state>{_esc(current_state)}</current-state>' if current_state else '<current-state/>'
     return f'''  <dm-label>{dm_label}</dm-label>
   <dm-language>en-US</dm-language>
   <dm-encoding>utf-8</dm-encoding>
@@ -373,7 +407,7 @@ def xml_preamble(dm_label, instance_id=None):
   <instance_version>1</instance_version>
   <source_instance_id/>
   <source_version_id/>
-  <current-state/>
+  {cs}
 '''
 
 
@@ -388,6 +422,13 @@ def xdstring(component_id, wrapper_id, label, value, indent=2):
     return f'''{pad}<sdc4:{wrapper_id}>
 {pad}  <sdc4:{component_id}>
 {pad}    <label>{label}</label>
+{pad}    <act></act>
+{pad}    <vtb>2020-01-01T00:00:00</vtb>
+{pad}    <vte>9999-12-31T23:59:59</vte>
+{pad}    <tr>2020-01-01T00:00:00</tr>
+{pad}    <modified>2020-01-01T00:00:00</modified>
+{pad}    <latitude>0.0</latitude>
+{pad}    <longitude>0.0</longitude>
 {pad}    <xdstring-value>{_esc(value)}</xdstring-value>
 {pad}  </sdc4:{component_id}>
 {pad}</sdc4:{wrapper_id}>
@@ -400,6 +441,13 @@ def xdtoken(component_id, wrapper_id, label, value, indent=2):
     return f'''{pad}<sdc4:{wrapper_id}>
 {pad}  <sdc4:{component_id}>
 {pad}    <label>{label}</label>
+{pad}    <act></act>
+{pad}    <vtb>2020-01-01T00:00:00</vtb>
+{pad}    <vte>9999-12-31T23:59:59</vte>
+{pad}    <tr>2020-01-01T00:00:00</tr>
+{pad}    <modified>2020-01-01T00:00:00</modified>
+{pad}    <latitude>0.0</latitude>
+{pad}    <longitude>0.0</longitude>
 {pad}    <xdtoken-value>{_esc(value)}</xdtoken-value>
 {pad}  </sdc4:{component_id}>
 {pad}</sdc4:{wrapper_id}>
@@ -412,6 +460,13 @@ def xdtemporal(component_id, wrapper_id, label, value, variant="date", indent=2)
     return f'''{pad}<sdc4:{wrapper_id}>
 {pad}  <sdc4:{component_id}>
 {pad}    <label>{label}</label>
+{pad}    <act></act>
+{pad}    <vtb>2020-01-01T00:00:00</vtb>
+{pad}    <vte>9999-12-31T23:59:59</vte>
+{pad}    <tr>2020-01-01T00:00:00</tr>
+{pad}    <modified>2020-01-01T00:00:00</modified>
+{pad}    <latitude>0.0</latitude>
+{pad}    <longitude>0.0</longitude>
 {pad}    <xdtemporal-{variant}>{value}</xdtemporal-{variant}>
 {pad}  </sdc4:{component_id}>
 {pad}</sdc4:{wrapper_id}>
@@ -429,6 +484,13 @@ def xdcount(component_id, wrapper_id, label, value, units_label, units_value=Non
     return f'''{pad}<sdc4:{wrapper_id}>
 {pad}  <sdc4:{component_id}>
 {pad}    <label>{label}</label>
+{pad}    <act></act>
+{pad}    <vtb>2020-01-01T00:00:00</vtb>
+{pad}    <vte>9999-12-31T23:59:59</vte>
+{pad}    <tr>2020-01-01T00:00:00</tr>
+{pad}    <modified>2020-01-01T00:00:00</modified>
+{pad}    <latitude>0.0</latitude>
+{pad}    <longitude>0.0</longitude>
 {pad}    <xdcount-value>{value}</xdcount-value>
 {pad}    <xdcount-units>
 {pad}      <label>{_esc(units_label)}</label>
@@ -450,6 +512,13 @@ def xdquantity(component_id, wrapper_id, label, value, units_label, units_value=
     return f'''{pad}<sdc4:{wrapper_id}>
 {pad}  <sdc4:{component_id}>
 {pad}    <label>{label}</label>
+{pad}    <act></act>
+{pad}    <vtb>2020-01-01T00:00:00</vtb>
+{pad}    <vte>9999-12-31T23:59:59</vte>
+{pad}    <tr>2020-01-01T00:00:00</tr>
+{pad}    <modified>2020-01-01T00:00:00</modified>
+{pad}    <latitude>0.0</latitude>
+{pad}    <longitude>0.0</longitude>
 {pad}    <xdquantity-value>{value}</xdquantity-value>
 {pad}    <xdquantity-units>
 {pad}      <label>{_esc(units_label)}</label>
@@ -467,6 +536,13 @@ def xdboolean(component_id, wrapper_id, label, value, indent=2):
     return f'''{pad}<sdc4:{wrapper_id}>
 {pad}  <sdc4:{component_id}>
 {pad}    <label>{label}</label>
+{pad}    <act></act>
+{pad}    <vtb>2020-01-01T00:00:00</vtb>
+{pad}    <vte>9999-12-31T23:59:59</vte>
+{pad}    <tr>2020-01-01T00:00:00</tr>
+{pad}    <modified>2020-01-01T00:00:00</modified>
+{pad}    <latitude>0.0</latitude>
+{pad}    <longitude>0.0</longitude>
 {pad}    <xdboolean-value>{val}</xdboolean-value>
 {pad}  </sdc4:{component_id}>
 {pad}</sdc4:{wrapper_id}>
@@ -539,6 +615,127 @@ def party_stub(cluster_id, label, indent=1):
 '''
 
 
+def _xdany_seq(ip):
+    """The XdAny optional element sequence (act..longitude) with valid values."""
+    return (f'{ip}<act></act>\n{ip}<vtb>2020-01-01T00:00:00</vtb>\n{ip}<vte>9999-12-31T23:59:59</vte>\n'
+            f'{ip}<tr>2020-01-01T00:00:00</tr>\n{ip}<modified>2020-01-01T00:00:00</modified>\n'
+            f'{ip}<latitude>0.0</latitude>\n{ip}<longitude>0.0</longitude>\n')
+
+
+def native_xdstring(name, label, value, indent=1):
+    """A native (non-component) XdStringType element, e.g. Audit/system-id."""
+    pad = "  " * indent
+    ip = pad + "  "
+    return (f'{pad}<{name}>\n{ip}<label>{label}</label>\n'
+            f'{_xdany_seq(ip)}'
+            f'{ip}<xdstring-value>{_esc(value)}</xdstring-value>\n{pad}</{name}>\n')
+
+
+def native_partytype(name, label, party_name=None, indent=1):
+    """A native PartyType element (DM subject/provider, Audit/system-user,
+    attestation/committer, etc.).
+
+    PartyType content model (from the RM): label?, party-name?, party-ref?,
+    party-details? — all optional. We emit label and, when supplied, the
+    human-readable party-name. party-ref (XdLinkType) and party-details
+    (ClusterType) are omitted; they add nothing for synthetic parties and
+    keeping the content minimal keeps every domain's parties valid.
+    """
+    pad = "  " * indent
+    ip = pad + "  "
+    out = f'{pad}<{name}>\n{ip}<label>{_esc(label)}</label>\n'
+    if party_name:
+        out += f'{ip}<party-name>{_esc(party_name)}</party-name>\n'
+    out += f'{pad}</{name}>\n'
+    return out
+
+
+# Backwards-compatible alias: earlier callers passed the party's name as the
+# second positional arg. Treat it as the party-name and reuse it as the label.
+def native_party(name, party_name, indent=1):
+    """A native PartyType element identified by its party-name."""
+    return native_partytype(name, party_name, party_name, indent)
+
+
+def audit(component_id, timestamp, system_id_value,
+          audit_label="System Audit",
+          system_id_label="service_account_id",
+          system_user_label="System User",
+          party_details_label="Contact and Access",
+          location_label="Software Agent Details",
+          indent=1):
+    """Emit a domain's MODELED System Audit component into the DM's Audit slot.
+
+    The DM's Audit slot is `ref="sdc4:Audit"` with maxOccurs="unbounded".
+    Tim's rule: unbounded slots are filled by the domain's own modeled ms-
+    component (which is declared `substitutionGroup="sdc4:Audit"`), NOT by the
+    generic `<sdc4:Audit>` head. That way the graph shows the real component
+    with its fixed label and typed sub-components.
+
+    `component_id` is the domain's System Audit ms- element id (e.g.
+    "ms-fotc5adg15ek2b9ermx2mcih" for Civil Registry). Its type restricts
+    AuditType and, unlike the base AuditType, makes EVERY sub-element required:
+
+      label       fixed to `audit_label`               ("System Audit")
+      system-id   XdString subtype, label fixed to `system_id_label`
+                  ("service_account_id"); value in `system_id_value`
+                  (1..255 chars)
+      system-user Party subtype, label fixed to `system_user_label`
+                  ("System User") and REQUIRES a party-details cluster whose
+                  label is fixed to `party_details_label` ("Contact and Access")
+      location    Cluster subtype, label fixed to `location_label`
+                  ("Software Agent Details")
+      timestamp   xsd:dateTime
+
+    Every *label* above is FIXED by the domain's XSD. The default strings are
+    Civil Registry's; a fan-out domain with different fixed labels passes its
+    own. The two sub-clusters (party-details, location) have only optional
+    children, so we emit just their fixed label; the system-id XdString still
+    follows the full XdAny leaf sequence (label, act, vtb, vte, tr, modified,
+    latitude, longitude, xdstring-value).
+    """
+    pad = "  " * indent
+    ip = pad + "  "
+    out = f'{pad}<sdc4:{component_id}>\n'
+    out += f'{ip}<label>{_esc(audit_label)}</label>\n'
+    # system-id: modeled XdString subtype (full XdAny leaf sequence + value)
+    out += native_xdstring("system-id", system_id_label, system_id_value, indent + 1)
+    # system-user: modeled Party subtype (fixed label + required party-details)
+    out += f'{ip}<system-user>\n'
+    out += f'{ip}  <label>{_esc(system_user_label)}</label>\n'
+    out += f'{ip}  <party-details>\n'
+    out += f'{ip}    <label>{_esc(party_details_label)}</label>\n'
+    out += f'{ip}  </party-details>\n'
+    out += f'{ip}</system-user>\n'
+    # location: modeled Cluster subtype (fixed label; children all optional)
+    out += f'{ip}<location>\n'
+    out += f'{ip}  <label>{_esc(location_label)}</label>\n'
+    out += f'{ip}</location>\n'
+    out += f'{ip}<timestamp>{timestamp}</timestamp>\n'
+    out += f'{pad}</sdc4:{component_id}>\n'
+    return out
+
+
+def attestation(pending, reason=None, committer=None, committed=None, indent=1):
+    """Emit a native <attestation> (AttestationType): who attested the record.
+
+    Order per AttestationType: label?, view?, proof?, reason?, committer?,
+    committed?, pending (req boolean). We emit reason, committer, committed,
+    pending in that sequence.
+    """
+    pad = "  " * indent
+    out = f'{pad}<attestation>\n'
+    if reason:
+        out += native_xdstring("reason", "Attestation Reason", reason, indent + 1)
+    if committer:
+        out += native_partytype("committer", "Committer", committer, indent + 1)
+    if committed:
+        out += f'{pad}  <committed>{committed}</committed>\n'
+    out += f'{pad}  <pending>{str(bool(pending)).lower()}</pending>\n'
+    out += f'{pad}</attestation>\n'
+    return out
+
+
 def write_xml(filepath, content):
     """Write XML content to file."""
     with open(filepath, 'w', encoding='utf-8') as f:
@@ -564,7 +761,7 @@ CAST = {
         "address": "42 Calle de las Flores", "address2": "Apt 3B",
         "country_of_birth": "Republic of Cordova",
         "marital_status": "Single",
-        "phone": "+99-100-555-1845", "email": "carlos.mendoza@mail.cor",
+        "phone": "+99-100-555-1845", "email": "carlos.mendoza@cordomail.co",
         "contact_pref": "Phone",
     },
     "elena": {
@@ -575,7 +772,7 @@ CAST = {
         "address": "18 Avenida Universidad", "address2": "Unit 12",
         "country_of_birth": "Republic of Cordova",
         "marital_status": "Single",
-        "phone": "+99-300-555-1903", "email": "elena.mendoza@mail.cor",
+        "phone": "+99-300-555-1903", "email": "elena.mendoza@cordomail.co",
         "contact_pref": "Email",
     },
     "dr_reyes": {
@@ -586,7 +783,7 @@ CAST = {
         "address": "7 Boulevard Costero", "address2": "",
         "country_of_birth": "Republic of Cordova",
         "marital_status": "Married",
-        "phone": "+99-100-555-5322", "email": "isabel.reyes@mail.cor",
+        "phone": "+99-100-555-5322", "email": "isabel.reyes@novamail.co",
         "contact_pref": "Email",
     },
     "governor_avila": {
@@ -597,7 +794,7 @@ CAST = {
         "address": "1 Avenida Nacional", "address2": "Governor's Residence",
         "country_of_birth": "Republic of Cordova",
         "marital_status": "Married",
-        "phone": "+99-300-555-4287", "email": "tomas.avila@gov.cor",
+        "phone": "+99-300-555-4287", "email": "tomas.avila@cordomail.co",
         "contact_pref": "Phone",
     },
     "sgt_santos": {
@@ -608,7 +805,7 @@ CAST = {
         "address": "55 Calle San Martin", "address2": "",
         "country_of_birth": "Republic of Cordova",
         "marital_status": "Single",
-        "phone": "+99-100-555-3847", "email": "maria.santos@cnp.cor",
+        "phone": "+99-100-555-3847", "email": "maria.santos@novamail.co",
         "contact_pref": "Phone",
     },
     "dr_ferrer": {
@@ -619,7 +816,7 @@ CAST = {
         "address": "23 Avenida Libertad", "address2": "",
         "country_of_birth": "Republic of Cordova",
         "marital_status": "Married",
-        "phone": "+99-100-555-8934", "email": "lucia.ferrer@health.cor",
+        "phone": "+99-100-555-8934", "email": "lucia.ferrer@portocorreo.co",
         "contact_pref": "Email",
     },
     "dr_gutierrez": {
@@ -630,7 +827,7 @@ CAST = {
         "address": "10 Calle del Sol", "address2": "",
         "country_of_birth": "Republic of Cordova",
         "marital_status": "Married",
-        "phone": "+99-200-555-4201", "email": "ramon.gutierrez@unc.cor",
+        "phone": "+99-200-555-4201", "email": "ramon.gutierrez@cordomail.co",
         "contact_pref": "Email",
     },
     "prof_lucero": {
@@ -641,7 +838,7 @@ CAST = {
         "address": "34 Avenida del Parque", "address2": "",
         "country_of_birth": "Republic of Cordova",
         "marital_status": "Married",
-        "phone": "+99-200-555-8744", "email": "ana.lucero@unc.cor",
+        "phone": "+99-200-555-8744", "email": "ana.lucero@novamail.co",
         "contact_pref": "Email",
     },
 }
