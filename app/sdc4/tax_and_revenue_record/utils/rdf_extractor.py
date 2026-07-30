@@ -217,6 +217,12 @@ class RDFExtractor:
         lines[-1] = lines[-1].rstrip(' ;') + ' .'
         lines.append('')
 
+        # DM-node metadata so cross-domain queries can resolve the domain title/label
+        dm_label_esc = self._escape_turtle(self.dm_label)
+        lines.append(f'sdc4:dm-{self.dm_ct_id} dc:title "{dm_label_esc}" ;')
+        lines.append(f'    rdfs:label "{dm_label_esc}" .')
+        lines.append('')
+
         return lines
 
     def _find_cluster_ct_id(self, tree: ET.Element) -> Optional[str]:
