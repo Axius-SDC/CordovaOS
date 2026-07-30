@@ -43,7 +43,7 @@
     rdfs:label "Piedrasol" ;
     rdfs:subPropertyOf <mc-atdtdfzruh7tya0iv5cz365l> .
 
-<mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Porto%20Sereno> a rdfs:Class ;
+<mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Porto%2520Sereno> a rdfs:Class ;
     rdfs:label "Porto Sereno" ;
     rdfs:subPropertyOf <mc-atdtdfzruh7tya0iv5cz365l> .
 
@@ -119,7 +119,7 @@
     rdfs:label "Natural" ;
     rdfs:subPropertyOf <mc-ftuxt5nrrffwjb2vymn80yx2> .
 
-<mc-ftuxt5nrrffwjb2vymn80yx2/xdtoken-value/Pending%20Investigation> a rdfs:Class ;
+<mc-ftuxt5nrrffwjb2vymn80yx2/xdtoken-value/Pending%2520Investigation> a rdfs:Class ;
     rdfs:label "Pending Investigation" ;
     rdfs:subPropertyOf <mc-ftuxt5nrrffwjb2vymn80yx2> .
 
@@ -361,13 +361,15 @@
 
 <dm-ulzd6pe8072mwkqf7i313bov> dc:coverage "Universal" ;
     dc:creator "Timothy Cook" ;
-    dc:date "2026-03-07 20:03:44.327034+00:00" ;
+    dc:date "2026-07-29 17:50:47.432663+00:00" ;
     dc:description "Maintain the authoritative registry of life events in Cordova." ;
     dc:format "text/xml" ;
     dc:identifier "dm-ulzd6pe8072mwkqf7i313bov" ;
     dc:language "en-US" ;
+    dc:publisher "Axius SDC, Inc." ;
     dc:relation "None" ;
     dc:rights "CC-BY http://creativecommons.org/licenses/by/3.0/" ;
+    dc:subject "Vital Statistics" ;
     dc:title "Vital Statistics Record" ;
     dc:type "SDC Data Model (DM)" .
 
@@ -403,6 +405,13 @@
         <https://hl7.org/fhir/> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
+<sdc4:mc-a127ihw8xbfbl24lbcvnspv0> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "contact_name" ;
+    rdfs:comment "Contact name for the service." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-contact_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-af9izy31oyly2dc66rujb3zi> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Birth Facility Participation Function" ;
     rdfs:comment "Function of the birth facility in the vital birth event (e.g., Delivering Hospital, Birth Center)." ;
@@ -430,6 +439,13 @@
         <https://www.wikidata.org/wiki/Q83900> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
+<sdc4:mc-bd3s8t23d6m3zizmpwavc32y> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "system_identifier" ;
+    rdfs:comment "Identifier of the system that handled the data. Maps to prov:Entity context in the PROV-O export. This is the AuditType.system-id field." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q7663715> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_identifier> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-bpqtzla39dwentygpwea8276> a skos:ConceptScheme,
         <sdc4-meta:ModelComponent> ;
     rdfs:label "organization_type" ;
@@ -451,6 +467,13 @@
     rdfs:comment "Organization the verifier represents." ;
     rdfs:isDefinedBy <http://schema.org/Organization> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-verifier_organization> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ccj1yq2wtwknobszkgzzdbtr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "prov_activity_type" ;
+    rdfs:comment "Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q125542526> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prov_activity_type> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-ch3s3a199lob4mjt1bb41yug> a <sdc4-meta:ModelComponent> ;
@@ -476,6 +499,14 @@
     rdfs:comment "Medical license number of the certifying physician" ;
     rdfs:isDefinedBy dcterms:License ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-certifying_physician_license> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-d839tf07spk43dmg0dqb939b> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_runtime_environment" ;
+    rdfs:comment "Runtime environment or platform for the software." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q241317> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_runtime_environment> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-dsoyfaplxw8ide1opo5w8fxg> a skos:ConceptScheme,
@@ -507,6 +538,34 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-officiant_participation> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ParticipationType> .
 
+<sdc4:mc-edvvjznmaoibzmfna0uuoo37> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "activity_timestamp_end" ;
+    rdfs:comment "When the provenance activity completed. Maps to prov:endedAtTime. ISO 8601 format." ;
+    rdfs:isDefinedBy <http://www.ontology-of-units-of-measure.org/resource/om-2/Activity> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-activity_timestamp_end> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-fnodzqkbyskwe7nh58rs336k> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "system_location_name" ;
+    rdfs:comment "Name of the physical or logical location where the system resides. Maps to prov:atLocation." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q11307204> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_location_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-fotc5adg15ek2b9ermx2mcih> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "System Audit" ;
+    rdfs:comment "A domain-agnostic audit component. Can be copied to other projects for domain-specific semantics if desired." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_audit> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:AuditType> .
+
+<sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_vendor" ;
+    rdfs:comment "Vendor or maintainer of the software." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q7554349> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_vendor> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-ft4kk6m3r1goxkte0d7wflk8> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Decree Date" ;
     rdfs:comment "Date the divorce decree was issued by the court" ;
@@ -524,8 +583,10 @@
 
 <sdc4:mc-gug5dhtqfv7exbgmm2raxpkq> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Digital Signature Proof" ;
+    rdfs:comment "Cryptographic proof of attestation (digital signature)" ;
     rdfs:isDefinedBy <https://www.w3.org/TR/vc-data-model/#credentials>,
         <https://www.wikidata.org/wiki/Q210824> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-digital_signature_proof> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
 
 <sdc4:mc-h2duffuwucoqpk65zde9nr1p> a <sdc4-meta:ModelComponent> ;
@@ -541,6 +602,11 @@
         <https://www.wikidata.org/wiki/Q56512863> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-certifying_physician_participation> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ParticipationType> .
+
+<sdc4:mc-hdhjfg00tngir2txgqyka9cv> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Provenance Components" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1172162> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
 <sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1> a schema:Text,
         <sdc4-meta:ModelComponent> ;
@@ -577,6 +643,14 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-organization_name> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
+<sdc4:mc-jtuheuri2wzfhctcjqv4ozmy> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "contact_email" ;
+    rdfs:comment "Contact email for the service." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1273217> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-contact_email> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-jz7vc6ikueqig8g0lvb2czzr> a skos:ConceptScheme,
         <sdc4-meta:ModelComponent> ;
     rdfs:label "Event Type" ;
@@ -602,6 +676,11 @@
         <https://www.wikidata.org/wiki/Q41487> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-court> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-km4azswrxe9tdrjmqvun5463> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Software Agent Details" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2297769> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
 <sdc4:mc-krjrijisqnzbzio802s1kvmz> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Certifying Physician Participation Function" ;
@@ -634,8 +713,10 @@
 
 <sdc4:mc-lttamvusgiol900y0f9xl3h8> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Vital Record Attested View" ;
+    rdfs:comment "Attested view of a vital record document" ;
     rdfs:isDefinedBy schema:DigitalDocument ;
     rdfs:seeAlso <https://www.wikidata.org/wiki/Q484652> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vital_record_attested_view> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
 
 <sdc4:mc-m21mv7pyouct7a4uxgkxzj54> a <sdc4-meta:ModelComponent> ;
@@ -650,6 +731,14 @@
     rdfs:comment "Primary cause of death as determined by certifying physician" ;
     rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1931388> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-cause_of_death> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-m9xg6e182m1oq77ssrf9iujv> a schema:description,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "activity_description" ;
+    rdfs:comment "Detailed description of what this activity does and its purpose." ;
+    rdfs:seeAlso <https://www.w3.org/TR/prov-dm/> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-activity_description> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-mfhycxuhhbanyrr3tacaj43b> a <sdc4-meta:ModelComponent> ;
@@ -714,6 +803,13 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-court_name> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
+<sdc4:mc-o72s5793973fzho35rnaughs> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "activity_timestamp_start" ;
+    rdfs:comment "When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format." ;
+    rdfs:isDefinedBy <http://www.ontology-of-units-of-measure.org/resource/om-2/Activity> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-activity_timestamp_start> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
 <sdc4:mc-obybok0oaoa79b11b0ync1zf> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Divorce Record" ;
     rdfs:isDefinedBy <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)>,
@@ -729,6 +825,14 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-vital_record_attestor> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
 
+<sdc4:mc-pdykwzsug7pfncjsrry73x1s> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "contact_phone" ;
+    rdfs:comment "Primary contact phone number." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q214995> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-contact_phone> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn> a schema:Text,
         <sdc4-meta:ModelComponent> ;
     rdfs:label "Person Full Name" ;
@@ -736,6 +840,14 @@
     rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1071027> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-person_full_name> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-px6j779dnapp4fjlohula4mh> a schema:URL,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_service_endpoint" ;
+    rdfs:comment "API endpoint or service URL if applicable." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q5376585> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_service_endpoint> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
 
 <sdc4:mc-qcofdwdb4hrmxeby89g8sjl1> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Vital Record Subject" ;
@@ -746,13 +858,27 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-vital_record_subject> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
 
+<sdc4:mc-r2g662g70dx34eq12v9n4ng7> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Vital Statistics Governed Record" ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
 <sdc4:mc-rqeuaeoe81e9siuma9cu7zz1> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Vital Statistics Access Control" ;
+    rdfs:comment "Access control policy for vital statistics data using W3C Data Privacy Vocabulary. Enforces role-based access for vital statistics officials, citizens, and authorized representatives. Governs dpv:SpecialCategoryPersonalData including birth certificates, death certificates, and demographic records." ;
     rdfs:isDefinedBy <https://w3id.org/dpv#AccessControlMethod>,
         <https://www.wikidata.org/wiki/Q18562479> ;
     rdfs:seeAlso <https://w3id.org/dpv>,
         <https://w3id.org/dpv#SpecialCategoryPersonalData> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-vital_statistics_access_control> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
+
+<sdc4:mc-rsjfjz8m5z7a58h5793duqbs> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_name" ;
+    rdfs:comment "Name of the software system or service." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q30335969> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-rt6c1qzw12vd19ke3gii08gf> a schema:Text,
         <sdc4-meta:ModelComponent> ;
@@ -760,6 +886,14 @@
     rdfs:comment "Name of the person making the attestation." ;
     rdfs:isDefinedBy <http://schema.org/name> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-verifier_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-rw1cjzeynsl87va6gvhv2k7e> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "service_account_id" ;
+    rdfs:comment "Service account or system account identifier for software agents." ;
+    rdfs:isDefinedBy <http://schema.org/identifier> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-service_account_id> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-tard9hhq13m95hinbh4h7k5j> a <sdc4-meta:ModelComponent> ;
@@ -772,6 +906,14 @@
     rdfs:isDefinedBy <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)>,
         <https://www.wikidata.org/wiki/Q708653> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-tep9wanrrtqfw0k76huv6tvd> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_version" ;
+    rdfs:comment "Version of the software." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q20826013> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_version> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-tjy4olhj5jrjco73clt6fkue> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Court" ;
@@ -834,6 +976,12 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-vital_record_attestation> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:AttestationType> .
 
+<sdc4:mc-vitwhq5xsptnokmfq11b1jos> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "System User" ;
+    rdfs:comment "Defines the operator or agent." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_user> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
 <sdc4:mc-vkp3r2zatse50s4xc8d8gujh> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Officiant" ;
     rdfs:comment "Person officiating a marriage ceremony (judge, clergy, etc.). W3C PROV-DM Agent (Person)." ;
@@ -849,6 +997,11 @@
     rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q137375576> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-registration_date> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-w06vxo6uxtrzjkimmafmue7g> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Contact and Access" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2996679> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
 <sdc4:mc-wn5su07s9sgs1dhuuomiza68> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Vital Record Attestation Reason" ;
@@ -867,6 +1020,14 @@
         <https://www.wikidata.org/wiki/Q2728461> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-vital_statistics_office> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-xvnv7mrhvfweajl72pmngeya> a schema:URL,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_documentation_url" ;
+    rdfs:comment "URL to software documentation or repository." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q3133368> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_documentation_url> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
 
 <sdc4:mc-y9a1vu8pgplj8q5nu6rfwtxt> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Birth Facility Participation" ;
@@ -897,6 +1058,13 @@
     rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q65720124> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-record_status> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-zr59goe24qkocprl3feul3mt> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "system_location_identifier" ;
+    rdfs:comment "Code or identifier for the system location. Used for cross-system location resolution." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q36214810> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_location_identifier> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-zs9ciw4nypx4plo856h3m95d> a schema:Text,
         <sdc4-meta:ModelComponent> ;

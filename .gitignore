@@ -205,3 +205,15 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Generated demo data — never commit (regenerate with datagen). This was the
+# source of the 100K-file repo bloat; keep only the .gitkeep placeholder.
+app/sdc4/import_data/*
+!app/sdc4/import_data/.gitkeep
+
+# Runtime container volumes — never commit (dmlib schemas ARE tracked, so not ignored)
+app/sdc4/mediafiles/postgres/
+app/sdc4/mediafiles/graphdb/
+app/sdc4/mediafiles/sirixdb/
+app/sdc4/mediafiles/keycloak/import/
+app/sdc4/staticfiles/

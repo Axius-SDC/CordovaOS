@@ -20,250 +20,33 @@
   "metadata": {
     "dc:title": "Vital Statistics Record",
     "dc:creator": "Timothy Cook",
+    "dc:subject": "Vital Statistics",
     "dc:description": "Maintain the authoritative registry of life events in Cordova.",
+    "dc:publisher": "Axius SDC, Inc.",
     "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
     "dc:language": "en-US",
     "dc:format": "text/xml",
-    "dc:date": "2026-03-07T20:03:44.327034+00:00"
+    "dc:date": "2026-07-29T17:50:47.432663+00:00"
   },
   "components": [
     {
       "@type": "ClusterType",
-      "@id": "sdc4:mc-tard9hhq13m95hinbh4h7k5j",
-      "label": "Vital Event",
-      "description": "A single life event recorded in the Cordova vital statistics registry.\nBusiness Context: Links to Civil Registry for person identification\nPurpose: Common fields shared across all vital event types",
+      "@id": "sdc4:mc-r2g662g70dx34eq12v9n4ng7",
+      "label": "Vital Statistics Governed Record",
+      "description": "Root data cluster (DMType Item) for a governed vital-statistics record in CordovaOS: vital events compiled for statistical use. Wraps the domain's data components with the shared W3C PROV-O Provenance cluster so each record carries its lineage bound alongside its data. Workflow, attestation, parties, and the system audit trail sit in the DMType's native governance slots; access control and retention apply as bound sdcgovernance policy.",
       "cardinality": {
         "minOccurs": 0,
         "maxOccurs": 1
       },
-      "contains": [
-        {
-          "@type": "XdStringType",
-          "@id": "sdc4:mc-ajfsyoyrz38094hswxh13i3x",
-          "label": "Certificate Number",
-          "description": "Unique certificate number for this vital record",
-          "cardinality": {
-            "minOccurs": 0,
-            "maxOccurs": 1
-          },
-          "constraints": {
-            "minLength": 1,
-            "maxLength": 50
-          },
-          "dataType": "xsd:string",
-          "semanticLinks": [
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "https://www.wikidata.org/wiki/Q108891191"
-            },
-            {
-              "predicate": "skos:broadMatch",
-              "object": "https://schema.org/identifier"
-            }
-          ]
-        },
-        {
-          "@type": "XdTokenType",
-          "@id": "sdc4:mc-atdtdfzruh7tya0iv5cz365l",
-          "label": "City",
-          "description": "One of the nine cities in the Republic of Cordova.",
-          "cardinality": {
-            "minOccurs": 0,
-            "maxOccurs": 1
-          },
-          "constraints": {
-            "enumeration": [
-              "Porto Sereno",
-              "Vistamar",
-              "Rioseco",
-              "Campoluz",
-              "Tierraverde",
-              "Montecara",
-              "Novaciudad",
-              "Piedrasol",
-              "Lagunavista"
-            ]
-          },
-          "dataType": "xsd:token",
-          "semanticLinks": [
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "http://schema.org/City"
-            },
-            {
-              "predicate": "skos:exactMatch",
-              "object": "https://schema.org/DefinedTermSet"
-            },
-            {
-              "predicate": "rdf:type",
-              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
-            }
-          ]
-        },
-        {
-          "@type": "XdTokenType",
-          "@id": "sdc4:mc-jz7vc6ikueqig8g0lvb2czzr",
-          "label": "Event Type",
-          "description": "Type of vital event (XdToken)",
-          "cardinality": {
-            "minOccurs": 0,
-            "maxOccurs": 1
-          },
-          "constraints": {
-            "enumeration": [
-              "Birth",
-              "Death",
-              "Marriage",
-              "Divorce"
-            ]
-          },
-          "dataType": "xsd:token",
-          "semanticLinks": [
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "https://www.wikidata.org/wiki/Q108586636"
-            },
-            {
-              "predicate": "skos:exactMatch",
-              "object": "https://schema.org/DefinedTermSet"
-            },
-            {
-              "predicate": "rdf:type",
-              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
-            }
-          ]
-        },
-        {
-          "@type": "XdTokenType",
-          "@id": "sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh",
-          "label": "Province",
-          "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
-          "cardinality": {
-            "minOccurs": 0,
-            "maxOccurs": 1
-          },
-          "constraints": {
-            "enumeration": [
-              "Aldara",
-              "Brevina",
-              "Celara"
-            ]
-          },
-          "dataType": "xsd:token",
-          "semanticLinks": [
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "http://schema.org/AdministrativeArea"
-            },
-            {
-              "predicate": "skos:exactMatch",
-              "object": "https://schema.org/DefinedTermSet"
-            },
-            {
-              "predicate": "rdf:type",
-              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
-            },
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "https://schema.org/State"
-            }
-          ]
-        },
-        {
-          "@type": "XdTokenType",
-          "@id": "sdc4:mc-yri6g628ipi0jqoa0ijnzxxu",
-          "label": "Record Status",
-          "description": "Status of the vital record",
-          "cardinality": {
-            "minOccurs": 0,
-            "maxOccurs": 1
-          },
-          "constraints": {
-            "enumeration": [
-              "Active",
-              "Amended",
-              "Voided"
-            ]
-          },
-          "dataType": "xsd:token",
-          "semanticLinks": [
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "https://www.wikidata.org/wiki/Q65720124"
-            },
-            {
-              "predicate": "skos:exactMatch",
-              "object": "https://schema.org/DefinedTermSet"
-            },
-            {
-              "predicate": "rdf:type",
-              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
-            }
-          ]
-        },
-        {
-          "@type": "XdTemporalType",
-          "@id": "sdc4:mc-e3sfb43zh1vjlgceb5guh0mj",
-          "label": "Event Date",
-          "description": "Date the vital event occurred",
-          "cardinality": {
-            "minOccurs": 0,
-            "maxOccurs": 1
-          },
-          "dataType": "xsd:dateTime",
-          "semanticLinks": [
-            {
-              "predicate": "skos:broadMatch",
-              "object": "https://schema.org/Date"
-            },
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "https://www.wikidata.org/wiki/Q7911665"
-            }
-          ]
-        },
-        {
-          "@type": "XdTemporalType",
-          "@id": "sdc4:mc-vo9jtmexkaaol3y657fm0xn8",
-          "label": "Registration Date",
-          "description": "Date the business was officially registered in Cordova",
-          "cardinality": {
-            "minOccurs": 0,
-            "maxOccurs": 1
-          },
-          "dataType": "xsd:dateTime",
-          "semanticLinks": [
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "https://www.wikidata.org/wiki/Q137375576"
-            },
-            {
-              "predicate": "skos:broadMatch",
-              "object": "https://schema.org/Date"
-            }
-          ]
-        }
-      ],
+      "contains": [],
       "semanticLinks": [
         {
           "predicate": "skos:relatedMatch",
-          "object": "https://www.wikidata.org/wiki/Q97211668"
-        },
-        {
-          "predicate": "skos:broadMatch",
-          "object": "https://schema.org/ItemList"
-        },
-        {
-          "predicate": "skos:exactMatch",
           "object": "https://www.wikidata.org/wiki/Q18562479"
         },
         {
           "predicate": "skos:broadMatch",
           "object": "https://www.wikidata.org/wiki/Q1131372"
-        },
-        {
-          "predicate": "rdfs:isDefinedBy",
-          "object": "https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)"
         }
       ]
     }

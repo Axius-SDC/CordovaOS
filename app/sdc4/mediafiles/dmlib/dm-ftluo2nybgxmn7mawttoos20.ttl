@@ -54,7 +54,7 @@
     rdfs:label "Baseline" ;
     rdfs:subPropertyOf <mc-l9sjn7wj10y5b27ldkv3j8mt> .
 
-<mc-l9sjn7wj10y5b27ldkv3j8mt/xdtoken-value/Early%20termination> a rdfs:Class ;
+<mc-l9sjn7wj10y5b27ldkv3j8mt/xdtoken-value/Early%2520termination> a rdfs:Class ;
     rdfs:label "Early termination" ;
     rdfs:subPropertyOf <mc-l9sjn7wj10y5b27ldkv3j8mt> .
 
@@ -78,11 +78,11 @@
     rdfs:label "Admitted" ;
     rdfs:subPropertyOf <mc-lccs354vpxmtyo69ba5cu48v> .
 
-<mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Follow-up%20Scheduled> a rdfs:Class ;
+<mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Follow-up%2520Scheduled> a rdfs:Class ;
     rdfs:label "Follow-up Scheduled" ;
     rdfs:subPropertyOf <mc-lccs354vpxmtyo69ba5cu48v> .
 
-<mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/No%20Treatment%20Required> a rdfs:Class ;
+<mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/No%2520Treatment%2520Required> a rdfs:Class ;
     rdfs:label "No Treatment Required" ;
     rdfs:subPropertyOf <mc-lccs354vpxmtyo69ba5cu48v> .
 
@@ -90,7 +90,7 @@
     rdfs:label "Referred" ;
     rdfs:subPropertyOf <mc-lccs354vpxmtyo69ba5cu48v> .
 
-<mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Treated%20and%20Released> a rdfs:Class ;
+<mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Treated%2520and%2520Released> a rdfs:Class ;
     rdfs:label "Treated and Released" ;
     rdfs:subPropertyOf <mc-lccs354vpxmtyo69ba5cu48v> .
 
@@ -126,7 +126,7 @@
     rdfs:label "Active" ;
     rdfs:subPropertyOf <mc-tz13p9d4dpbw3pe9bx51nbou> .
 
-<mc-tz13p9d4dpbw3pe9bx51nbou/xdtoken-value/In%20Remission> a rdfs:Class ;
+<mc-tz13p9d4dpbw3pe9bx51nbou/xdtoken-value/In%2520Remission> a rdfs:Class ;
     rdfs:label "In Remission" ;
     rdfs:subPropertyOf <mc-tz13p9d4dpbw3pe9bx51nbou> .
 
@@ -204,13 +204,15 @@
 
 <dm-ftluo2nybgxmn7mawttoos20> dc:coverage "Universal" ;
     dc:creator "Timothy Cook" ;
-    dc:date "2026-03-04 23:29:29.461578+00:00" ;
+    dc:date "2026-07-29 15:26:10.687394+00:00" ;
     dc:description "Maintain basic medical records for all persons in Cordova." ;
     dc:format "text/xml" ;
     dc:identifier "dm-ftluo2nybgxmn7mawttoos20" ;
     dc:language "en-US" ;
+    dc:publisher "Axius SDC, Inc." ;
     dc:relation "None" ;
     dc:rights "CC-BY http://creativecommons.org/licenses/by/3.0/" ;
+    dc:subject "Healthcare Record" ;
     dc:title "Healthcare Record" ;
     dc:type "SDC Data Model (DM)" .
 
@@ -281,9 +283,21 @@
         <https://hl7.org/fhir/> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
+<sdc4:mc-a127ihw8xbfbl24lbcvnspv0> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "contact_name" ;
+    rdfs:comment "Contact name for the service." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-contact_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-b5zse0kmvpkj74ggqvgk647l> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Body Temperature" ;
     rdfs:comment "Patient body temperature measured in degrees Celsius during a clinical visit. Normal adult range is 36.1–37.2°C. Triage screening vital sign." ;
+    rdfs:isDefinedBy <https://www.ncbi.nlm.nih.gov/books/NBK331/>,
+        <https://www.wikidata.org/wiki/Q1066998> ;
+    rdfs:seeAlso <https://loinc.org/8310-5/> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-body_temperature> ;
+    sdc4-meta:hasUnit <sdc4:mc-ihugcgyqyfjp3u9y5qva1fwz> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
 
 <sdc4:mc-ba1ezyhgf6aaw03an2uve57o> a <sdc4-meta:ModelComponent> ;
@@ -301,6 +315,13 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-primary_care_assignment> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
 
+<sdc4:mc-bd3s8t23d6m3zizmpwavc32y> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "system_identifier" ;
+    rdfs:comment "Identifier of the system that handled the data. Maps to prov:Entity context in the PROV-O export. This is the AuditType.system-id field." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q7663715> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_identifier> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-bpqtzla39dwentygpwea8276> a skos:ConceptScheme,
         <sdc4-meta:ModelComponent> ;
     rdfs:label "organization_type" ;
@@ -308,6 +329,13 @@
     rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q17197366> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-organization_type> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-ccj1yq2wtwknobszkgzzdbtr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "prov_activity_type" ;
+    rdfs:comment "Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q125542526> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prov_activity_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-cm0nqqnjcylc8vkfph7db2lh> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Chronic Condition" ;
@@ -338,6 +366,14 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-provider_name> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
+<sdc4:mc-d839tf07spk43dmg0dqb939b> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_runtime_environment" ;
+    rdfs:comment "Runtime environment or platform for the software." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q241317> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_runtime_environment> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-dnxrp0bpfs33b4x5ks8he9ag> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Primary Care Provider" ;
     rdfs:comment "Name of the patient's assigned primary care physician" ;
@@ -350,6 +386,13 @@
     rdfs:comment "Date the vaccine was administered" ;
     rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q192995> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-vaccine_date> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-edvvjznmaoibzmfna0uuoo37> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "activity_timestamp_end" ;
+    rdfs:comment "When the provenance activity completed. Maps to prov:endedAtTime. ISO 8601 format." ;
+    rdfs:isDefinedBy <http://www.ontology-of-units-of-measure.org/resource/om-2/Activity> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-activity_timestamp_end> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
 
 <sdc4:mc-emov6wuhen2tuyjlppqmmjjl> a <sdc4-meta:ModelComponent> ;
@@ -380,6 +423,27 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-vaccine_name> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
+<sdc4:mc-fnodzqkbyskwe7nh58rs336k> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "system_location_name" ;
+    rdfs:comment "Name of the physical or logical location where the system resides. Maps to prov:atLocation." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q11307204> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_location_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-fotc5adg15ek2b9ermx2mcih> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "System Audit" ;
+    rdfs:comment "A domain-agnostic audit component. Can be copied to other projects for domain-specific semantics if desired." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_audit> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:AuditType> .
+
+<sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_vendor" ;
+    rdfs:comment "Vendor or maintainer of the software." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q7554349> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_vendor> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-ftluo2nybgxmn7mawttoos20> a schema:Dataset,
         <sdc4-meta:ModelComponent> ;
     rdfs:label "Healthcare Record" ;
@@ -389,22 +453,31 @@
 
 <sdc4:mc-gug5dhtqfv7exbgmm2raxpkq> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Digital Signature Proof" ;
+    rdfs:comment "Cryptographic proof of attestation (digital signature)" ;
     rdfs:isDefinedBy <https://www.w3.org/TR/vc-data-model/#credentials>,
         <https://www.wikidata.org/wiki/Q210824> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-digital_signature_proof> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
 
 <sdc4:mc-hbk1xmzqefk2lchmd7jooz7a> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Healthcare Record Access Control" ;
+    rdfs:comment "Access control policy for healthcare data using W3C Data Privacy Vocabulary. Enforces role-based access for healthcare providers, patients, and authorized representatives. Governs dpv:SpecialCategoryPersonalData including medical records, diagnoses, and treatment plans." ;
     rdfs:isDefinedBy <https://w3id.org/dpv#AccessControlMethod>,
         <https://www.wikidata.org/wiki/Q1324077> ;
     rdfs:seeAlso <https://w3id.org/dpv>,
         <https://w3id.org/dpv#SpecialCategoryPersonalData> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-healthcare_record_access_control> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
 
 <sdc4:mc-hd9295k8o49j91lvgftul1a0> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Visit Record" ;
     rdfs:isDefinedBy <https://hl7.org/fhir/>,
         <https://www.wikidata.org/wiki/Q29182> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-hdhjfg00tngir2txgqyka9cv> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Provenance Components" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1172162> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
 <sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1> a schema:Text,
@@ -441,12 +514,6 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-organization_name> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
-<sdc4:mc-ihugcgyqyfjp3u9y5qva1fwz> a <sdc4-meta:ModelComponent> ;
-    rdfs:label "Temperature (SI - Metric)" ;
-    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q11466> ;
-    rdfs:seeAlso <http://qudt.org/vocab/quantitykind/Temperature> ;
-    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
-
 <sdc4:mc-iprf7jqg9emvm92wo9gkiqcu> a skos:ConceptScheme,
         <sdc4-meta:ModelComponent> ;
     rdfs:label "Frequency (5-Point)" ;
@@ -463,6 +530,14 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-visit_date> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
 
+<sdc4:mc-jtuheuri2wzfhctcjqv4ozmy> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "contact_email" ;
+    rdfs:comment "Contact email for the service." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1273217> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-contact_email> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-jz2hqntyol8lopw6q6zdud78> a schema:Text,
         <sdc4-meta:ModelComponent> ;
     rdfs:label "Medical Record Number" ;
@@ -471,9 +546,19 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-medical_record_number> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
+<sdc4:mc-km4azswrxe9tdrjmqvun5463> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Software Agent Details" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2297769> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
 <sdc4:mc-kokquuk73pm2ohlh4ftnu7wb> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Systolic Blood Pressure" ;
     rdfs:comment "Peak arterial pressure during cardiac contraction, measured in mmHg. Normal adult range is 90–120 mmHg. Values ≥140 mmHg indicate hypertension per WHO/AHA guidelines." ;
+    rdfs:isDefinedBy <https://professional.heart.org/en/science-news/2017-hypertension-clinical-guidelines>,
+        <https://www.wikidata.org/wiki/Q82642> ;
+    rdfs:seeAlso <https://loinc.org/8480-6/> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-systolic_blood_pressure> ;
+    sdc4-meta:hasUnit <sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
 
 <sdc4:mc-l9sjn7wj10y5b27ldkv3j8mt> a skos:ConceptScheme,
@@ -495,7 +580,20 @@
 <sdc4:mc-lu2w1avj9fic5wrmyftt9fhi> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Diastolic Blood Pressure" ;
     rdfs:comment "Minimum arterial pressure during cardiac relaxation, measured in mmHg. Normal adult range is 60–80 mmHg. Values ≥90 mmHg indicate hypertension per WHO/AHA guidelines." ;
+    rdfs:isDefinedBy <https://professional.heart.org/en/science-news/2017-hypertension-clinical-guidelines>,
+        <https://www.wikidata.org/wiki/Q82642> ;
+    rdfs:seeAlso <https://loinc.org/8462-4/> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-diastolic_blood_pressure> ;
+    sdc4-meta:hasUnit <sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
+
+<sdc4:mc-m9xg6e182m1oq77ssrf9iujv> a schema:description,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "activity_description" ;
+    rdfs:comment "Detailed description of what this activity does and its purpose." ;
+    rdfs:seeAlso <https://www.w3.org/TR/prov-dm/> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-activity_description> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-mxjh9oqcnjl6njqqi75odozh> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Healthcare Record Attestation Reason" ;
@@ -550,6 +648,13 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-allergy_description> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
+<sdc4:mc-o72s5793973fzho35rnaughs> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "activity_timestamp_start" ;
+    rdfs:comment "When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format." ;
+    rdfs:isDefinedBy <http://www.ontology-of-units-of-measure.org/resource/om-2/Activity> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-activity_timestamp_start> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
 <sdc4:mc-p14jkmk8xqs97daq3zvyhrsj> a schema:DateTime,
         <sdc4-meta:ModelComponent> ;
     rdfs:label "Onset Date" ;
@@ -558,9 +663,25 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-onset_date> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
 
+<sdc4:mc-pdykwzsug7pfncjsrry73x1s> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "contact_phone" ;
+    rdfs:comment "Primary contact phone number." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q214995> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-contact_phone> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-plob4z6l86w98xcvt7sz324v> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Non-negative Weight" ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdIntervalType> .
+
+<sdc4:mc-px6j779dnapp4fjlohula4mh> a schema:URL,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_service_endpoint" ;
+    rdfs:comment "API endpoint or service URL if applicable." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q5376585> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_service_endpoint> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
 
 <sdc4:mc-q8mgqxefnj2v39cn83lsjetb> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Primary Care Assignment" ;
@@ -600,9 +721,30 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-reason_for_visit> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
+<sdc4:mc-rsjfjz8m5z7a58h5793duqbs> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_name" ;
+    rdfs:comment "Name of the software system or service." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q30335969> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-rw1cjzeynsl87va6gvhv2k7e> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "service_account_id" ;
+    rdfs:comment "Service account or system account identifier for software agents." ;
+    rdfs:isDefinedBy <http://schema.org/identifier> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-service_account_id> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-s6oo99lbq85kfz0v5nqv9yaf> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Patient Weight" ;
     rdfs:comment "Patient body weight in kilograms measured during a clinical visit. Used for medication dosing calculations, BMI computation, and tracking health trends." ;
+    rdfs:isDefinedBy <https://www.cdc.gov/nchs/fastats/body-measurements.htm>,
+        <https://www.wikidata.org/wiki/Q18247> ;
+    rdfs:seeAlso <https://loinc.org/29463-7/> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-patient_weight> ;
+    sdc4-meta:hasUnit <sdc4:mc-tjxxdsd6idyzqygrncojauxn> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
 
 <sdc4:mc-td5j1frz2fa8g4uh1hor7w11> a <sdc4-meta:ModelComponent> ;
@@ -612,10 +754,12 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-lot_number> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
-<sdc4:mc-tjxxdsd6idyzqygrncojauxn> a <sdc4-meta:ModelComponent> ;
-    rdfs:label "Mass/Weight (SI - Metric)" ;
-    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q3197317> ;
-    rdfs:seeAlso <http://qudt.org/vocab/quantitykind/Mass> ;
+<sdc4:mc-tep9wanrrtqfw0k76huv6tvd> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_version" ;
+    rdfs:comment "Version of the software." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q20826013> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_version> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-trvg8tpie5w2zlf6b0nl3zhb> a <sdc4-meta:ModelComponent> ;
@@ -634,8 +778,10 @@
 
 <sdc4:mc-tzzp7weh4dmg323u6kfalo0g> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Healthcare Record Attested View" ;
+    rdfs:comment "Attested view of a healthcare record document" ;
     rdfs:isDefinedBy schema:DigitalDocument ;
     rdfs:seeAlso <https://www.wikidata.org/wiki/Q656365> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-healthcare_record_attested_view> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
 
 <sdc4:mc-u1hjad8m99xlnkyj5clvjnpa> a <sdc4-meta:ModelComponent> ;
@@ -670,6 +816,11 @@
 <sdc4:mc-vh2scyehy68pw7sbvzdg3cn9> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Patient Height" ;
     rdfs:comment "Patient standing height in centimeters measured during a clinical visit. Used for BMI computation and growth tracking." ;
+    rdfs:isDefinedBy <https://www.cdc.gov/nchs/fastats/body-measurements.htm>,
+        <https://www.wikidata.org/wiki/Q81938> ;
+    rdfs:seeAlso <https://loinc.org/8302-2/> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-patient_height> ;
+    sdc4-meta:hasUnit <sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
 
 <sdc4:mc-vhjvhm6vz2om2jfn6b923gw7> a <sdc4-meta:ModelComponent> ;
@@ -678,6 +829,12 @@
         <https://www.wikidata.org/wiki/Q12140> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
+<sdc4:mc-vitwhq5xsptnokmfq11b1jos> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "System User" ;
+    rdfs:comment "Defines the operator or agent." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_user> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
 <sdc4:mc-vyscq0dtz0hsigh2hbsvqajr> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Healthcare Provider" ;
     rdfs:comment "Healthcare provider (facility and/or clinician) delivering care. W3C PROV-DM Agent supporting both Person and Organization types." ;
@@ -685,6 +842,15 @@
         schema:Organization ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-healthcare_provider> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-w06vxo6uxtrzjkimmafmue7g> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Contact and Access" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2996679> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-w0lu0us3nbxaedfum9i8itpc> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Healthcare Governed Record" ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
 <sdc4:mc-xd97z3tju6zwhlq4cu84v0bw> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Normal Systolic Blood Pressure" ;
@@ -696,15 +862,21 @@
         <https://www.wikidata.org/wiki/Q42982> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
-<sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf> a <sdc4-meta:ModelComponent> ;
-    rdfs:label "Length/Distance (SI - Metric)" ;
-    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1344778> ;
-    rdfs:seeAlso <http://qudt.org/vocab/quantitykind/Length> ;
-    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+<sdc4:mc-xvnv7mrhvfweajl72pmngeya> a schema:URL,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_documentation_url" ;
+    rdfs:comment "URL to software documentation or repository." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q3133368> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_documentation_url> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
 
 <sdc4:mc-y7k4p12co0b9v6asll531fhv> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Medication Dosage Amount" ;
     rdfs:comment "Prescribed dosage amount of the medication in milligrams. Represents the per-administration dose as ordered by the prescribing physician." ;
+    rdfs:isDefinedBy <https://hl7.org/fhir/>,
+        <https://www.wikidata.org/wiki/Q473420> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-medication_dosage_amount> ;
+    sdc4-meta:hasUnit <sdc4:mc-tjxxdsd6idyzqygrncojauxn> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdQuantityType> .
 
 <sdc4:mc-ygtbvvmzcw3ukfsg3axqry97> a <sdc4-meta:ModelComponent> ;
@@ -725,15 +897,18 @@
         <https://hl7.org/fhir/> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
-<sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv> a <sdc4-meta:ModelComponent> ;
-    rdfs:label "Pressure" ;
-    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
-
 <sdc4:mc-z28bjtjekyybe300ukuyjpi4> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Dosage" ;
     rdfs:comment "Prescribed dosage (e.g., \"500mg\", \"10mg/mL\")" ;
     rdfs:isDefinedBy <http://qudt.org/vocab/quantitykind/AmountOfSubstance> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-dosage> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-zr59goe24qkocprl3feul3mt> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "system_location_identifier" ;
+    rdfs:comment "Code or identifier for the system location. Used for cross-system location resolution." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q36214810> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_location_identifier> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-zs9ciw4nypx4plo856h3m95d> a schema:Text,
@@ -742,5 +917,27 @@
     rdfs:comment "Family (last) name of the person agent." ;
     rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q4116295> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-person_family_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ihugcgyqyfjp3u9y5qva1fwz> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Temperature (SI - Metric)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q11466> ;
+    rdfs:seeAlso <http://qudt.org/vocab/quantitykind/Temperature> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Length/Distance (SI - Metric)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1344778> ;
+    rdfs:seeAlso <http://qudt.org/vocab/quantitykind/Length> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-tjxxdsd6idyzqygrncojauxn> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Mass/Weight (SI - Metric)" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q3197317> ;
+    rdfs:seeAlso <http://qudt.org/vocab/quantitykind/Mass> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Pressure" ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 

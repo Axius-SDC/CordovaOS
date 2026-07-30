@@ -4,16 +4,75 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix sdc4-meta: <https://semanticdatacharter.com/ontology/sdc4-meta/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/academic> a rdfs:Class ;
+    rdfs:label "academic" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/corporation> a rdfs:Class ;
+    rdfs:label "corporation" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/department> a rdfs:Class ;
+    rdfs:label "department" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/government> a rdfs:Class ;
+    rdfs:label "government" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/nonprofit> a rdfs:Class ;
+    rdfs:label "nonprofit" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-bpqtzla39dwentygpwea8276/xdtoken-value/vendor> a rdfs:Class ;
+    rdfs:label "vendor" ;
+    rdfs:subPropertyOf <mc-bpqtzla39dwentygpwea8276> .
+
+<mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Organization> a rdfs:Class ;
+    rdfs:label "Organization" ;
+    rdfs:subPropertyOf <mc-nesxtz8c5o665swc9lhvqkjj> .
+
+<mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/Person> a rdfs:Class ;
+    rdfs:label "Person" ;
+    rdfs:subPropertyOf <mc-nesxtz8c5o665swc9lhvqkjj> .
+
+<mc-nesxtz8c5o665swc9lhvqkjj/xdtoken-value/SoftwareAgent> a rdfs:Class ;
+    rdfs:label "SoftwareAgent" ;
+    rdfs:subPropertyOf <mc-nesxtz8c5o665swc9lhvqkjj> .
+
+<mc-o10qhddzmztfv33ulet0di97/xdtoken-value/Director> a rdfs:Class ;
+    rdfs:label "Director" ;
+    rdfs:subPropertyOf <mc-o10qhddzmztfv33ulet0di97> .
+
+<mc-o10qhddzmztfv33ulet0di97/xdtoken-value/Manager> a rdfs:Class ;
+    rdfs:label "Manager" ;
+    rdfs:subPropertyOf <mc-o10qhddzmztfv33ulet0di97> .
+
+<mc-o10qhddzmztfv33ulet0di97/xdtoken-value/Owner> a rdfs:Class ;
+    rdfs:label "Owner" ;
+    rdfs:subPropertyOf <mc-o10qhddzmztfv33ulet0di97> .
+
+<mc-o10qhddzmztfv33ulet0di97/xdtoken-value/Secretary> a rdfs:Class ;
+    rdfs:label "Secretary" ;
+    rdfs:subPropertyOf <mc-o10qhddzmztfv33ulet0di97> .
+
+<mc-o10qhddzmztfv33ulet0di97/xdtoken-value/Treasurer> a rdfs:Class ;
+    rdfs:label "Treasurer" ;
+    rdfs:subPropertyOf <mc-o10qhddzmztfv33ulet0di97> .
 
 <dm-x250838l7oi6l3yavg9twc1i> dc:coverage "Universal" ;
     dc:creator "Timothy Cook" ;
-    dc:date "2026-03-04 12:55:24.398258+00:00" ;
+    dc:date "2026-07-29 15:01:47.954710+00:00" ;
     dc:description "Maintain the authoritative registry of business entities in Cordova." ;
     dc:format "text/xml" ;
     dc:identifier "dm-x250838l7oi6l3yavg9twc1i" ;
     dc:language "en-US" ;
+    dc:publisher "Axius SDC, Inc." ;
     dc:relation "None" ;
     dc:rights "CC-BY http://creativecommons.org/licenses/by/3.0/" ;
+    dc:subject "Business Registry" ;
     dc:title "Business Registry" ;
     dc:type "SDC Data Model (DM)" .
 
@@ -22,12 +81,41 @@
     rdfs:isDefinedBy prov:Agent ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
+<sdc4:mc-a127ihw8xbfbl24lbcvnspv0> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "contact_name" ;
+    rdfs:comment "Contact name for the service." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-contact_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-a3v5ezi7h5cb7e0jkumtxtbm> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Appointment Date" ;
     rdfs:comment "Date the officer was appointed to their role" ;
     rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q96105089> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-appointment_date> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-bd3s8t23d6m3zizmpwavc32y> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "system_identifier" ;
+    rdfs:comment "Identifier of the system that handled the data. Maps to prov:Entity context in the PROV-O export. This is the AuditType.system-id field." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q7663715> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_identifier> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-bpqtzla39dwentygpwea8276> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "organization_type" ;
+    rdfs:comment "Type of organization." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q17197366> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-ccj1yq2wtwknobszkgzzdbtr> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "prov_activity_type" ;
+    rdfs:comment "Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q125542526> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prov_activity_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-d79vg5e2e4nnoxontodl9co7> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Business Officer" ;
@@ -38,6 +126,14 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-business_officer> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
 
+<sdc4:mc-d839tf07spk43dmg0dqb939b> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_runtime_environment" ;
+    rdfs:comment "Runtime environment or platform for the software." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q241317> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_runtime_environment> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
 <sdc4:mc-dr8983b4k8ngg02x78lrw560> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Business Registration Protocol" ;
     rdfs:comment "Protocol reference for the Business Registry data model. Informed by the UNCITRAL Model Law on Business Registries, national commercial registration codes, and the UN/CEFACT Core Component Library for standardized business entity representation." ;
@@ -46,27 +142,46 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-business_registration_protocol> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
-<sdc4:mc-ek5h6dsqpd9kz0l4mcckmxpt> a schema:Text,
-        <sdc4-meta:ModelComponent> ;
-    rdfs:label "Address (Line 2)" ;
-    rdfs:comment "Street address line, building/apartment number, or P.O. Box number." ;
-    rdfs:isDefinedBy schema:streetAddress ;
-    sdc4-meta:describesConceptualEntity <sdc4:concept-address_(line_2)> ;
+<sdc4:mc-edvvjznmaoibzmfna0uuoo37> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "activity_timestamp_end" ;
+    rdfs:comment "When the provenance activity completed. Maps to prov:endedAtTime. ISO 8601 format." ;
+    rdfs:isDefinedBy <http://www.ontology-of-units-of-measure.org/resource/om-2/Activity> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-activity_timestamp_end> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
+<sdc4:mc-fnodzqkbyskwe7nh58rs336k> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "system_location_name" ;
+    rdfs:comment "Name of the physical or logical location where the system resides. Maps to prov:atLocation." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q11307204> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_location_name> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
-<sdc4:mc-gu15c6jojx09jy9at1px0ufh> a schema:Text,
+<sdc4:mc-fotc5adg15ek2b9ermx2mcih> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "System Audit" ;
+    rdfs:comment "A domain-agnostic audit component. Can be copied to other projects for domain-specific semantics if desired." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_audit> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:AuditType> .
+
+<sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc> a schema:Text,
         <sdc4-meta:ModelComponent> ;
-    rdfs:label "Organization Tax ID" ;
-    rdfs:comment "A tax identification number (TIN/EIN) for an organization (NIEM nc:OrganizationTaxIdentification)" ;
-    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2397748> ;
-    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_tax_id> ;
+    rdfs:label "software_vendor" ;
+    rdfs:comment "Vendor or maintainer of the software." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q7554349> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_vendor> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-gug5dhtqfv7exbgmm2raxpkq> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Digital Signature Proof" ;
+    rdfs:comment "Cryptographic proof of attestation (digital signature)" ;
     rdfs:isDefinedBy <https://www.w3.org/TR/vc-data-model/#credentials>,
         <https://www.wikidata.org/wiki/Q210824> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-digital_signature_proof> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
+
+<sdc4:mc-hdhjfg00tngir2txgqyka9cv> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Provenance Components" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1172162> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
 <sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1> a schema:Text,
         <sdc4-meta:ModelComponent> ;
@@ -84,25 +199,34 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-organization_name> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
+<sdc4:mc-jtuheuri2wzfhctcjqv4ozmy> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "contact_email" ;
+    rdfs:comment "Contact email for the service." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1273217> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-contact_email> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-km4azswrxe9tdrjmqvun5463> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Software Agent Details" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2297769> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
 <sdc4:mc-ksvt73kzyktevaumrh5djpe7> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Business Registry Access Control" ;
+    rdfs:comment "Access control policy for business registration data using W3C Data Privacy Vocabulary. Enforces role-based access for registry clerks, business owners, and authorized agents. Governs dpv:CommercialData including registration documents, ownership records, and compliance filings." ;
     rdfs:isDefinedBy <https://w3id.org/dpv#AccessControlMethod> ;
     rdfs:seeAlso <https://w3id.org/dpv>,
         <https://w3id.org/dpv#CommercialData> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-business_registry_access_control> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
 
 <sdc4:mc-kwf6pkljihy5mqd9h3bgie39> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Business Registry Attested View" ;
+    rdfs:comment "Attested view of a business registration document" ;
     rdfs:isDefinedBy schema:DigitalDocument ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-business_registry_attested_view> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdFileType> .
-
-<sdc4:mc-l338k7nlvnq2am0owa19yxfc> a schema:Text,
-        <sdc4-meta:ModelComponent> ;
-    rdfs:label "Address (Line 1)" ;
-    rdfs:comment "Street address line, building/apartment number, or P.O. Box number." ;
-    rdfs:isDefinedBy schema:streetAddress ;
-    sdc4-meta:describesConceptualEntity <sdc4:concept-address_(line_1)> ;
-    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-l69byv9b04bedudm59pfclvw> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Business Registry Office" ;
@@ -110,12 +234,12 @@
         <https://niemopen.org/> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
 
-<sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly> a <sdc4-meta:ModelComponent> ;
-    rdfs:label "Business Registry Number" ;
-    rdfs:comment "Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions." ;
-    rdfs:isDefinedBy <http://schema.org/identifier>,
-        <https://www.wikidata.org/wiki/Q12047291> ;
-    sdc4-meta:describesConceptualEntity <sdc4:concept-business_registry_number> ;
+<sdc4:mc-m9xg6e182m1oq77ssrf9iujv> a schema:description,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "activity_description" ;
+    rdfs:comment "Detailed description of what this activity does and its purpose." ;
+    rdfs:seeAlso <https://www.w3.org/TR/prov-dm/> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-activity_description> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-ndvtjiq0cke0q1trw58rtrq2> a schema:Text,
@@ -126,12 +250,13 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-person_given_name> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
-<sdc4:mc-nfrvvp87c5imu5h9ups92kgy> a <sdc4-meta:ModelComponent> ;
-    rdfs:label "Cordova Phone Number" ;
-    rdfs:comment "Cordova national telephone number. Format: +99-PPP-NNN-NNNN where +99 is the country code and PPP is the area code. Area codes: Porto Sereno=100, Vistamar=110, Rioseco=120, Campoluz=200, Tierraverde=210, Montecara=220, Novaciudad=300, Piedrasol=310, Lagunavista=320." ;
-    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q214995> ;
-    sdc4-meta:describesConceptualEntity <sdc4:concept-cordova_phone_number> ;
-    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+<sdc4:mc-nesxtz8c5o665swc9lhvqkjj> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "PROV Agent Type" ;
+    rdfs:comment "Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation." ;
+    rdfs:isDefinedBy prov:Agent ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-prov_agent_type> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
 
 <sdc4:mc-nj7s1gk45tfgyooxpz0qaha3> a <sdc4-meta:ModelComponent> ;
     rdfs:label "National ID (CID)" ;
@@ -141,11 +266,38 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-national_id_(cid)> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
+<sdc4:mc-o10qhddzmztfv33ulet0di97> a skos:ConceptScheme,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "Officer Role" ;
+    rdfs:comment "Role of the person in the business" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q11488158> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-officer_role> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTokenType> .
+
+<sdc4:mc-o72s5793973fzho35rnaughs> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "activity_timestamp_start" ;
+    rdfs:comment "When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format." ;
+    rdfs:isDefinedBy <http://www.ontology-of-units-of-measure.org/resource/om-2/Activity> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-activity_timestamp_start> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
+
 <sdc4:mc-oeh0dgfy3cytw829hkvuhjzv> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Business Registry Attestation Reason" ;
     rdfs:comment "Reason for attesting this business registration" ;
     rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q132364> ;
     sdc4-meta:describesConceptualEntity <sdc4:concept-business_registry_attestation_reason> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-og2caskrf2nq0sszcztp3avx> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Business Registry Governed Record" ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-pdykwzsug7pfncjsrry73x1s> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "contact_phone" ;
+    rdfs:comment "Primary contact phone number." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q214995> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-contact_phone> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-pndsgg7zczz4bgnmh11g40ka> a <sdc4-meta:ModelComponent> ;
@@ -158,11 +310,35 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-business_registry_office> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
 
+<sdc4:mc-px6j779dnapp4fjlohula4mh> a schema:URL,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_service_endpoint" ;
+    rdfs:comment "API endpoint or service URL if applicable." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q5376585> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_service_endpoint> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
+
 <sdc4:mc-qdjnidjfc0jk55qdw8mlw6ab> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Business Registry Workflow" ;
     rdfs:isDefinedBy prov:Activity,
         <https://niemopen.org/> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
+
+<sdc4:mc-rsjfjz8m5z7a58h5793duqbs> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_name" ;
+    rdfs:comment "Name of the software system or service." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q30335969> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_name> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
+
+<sdc4:mc-rw1cjzeynsl87va6gvhv2k7e> a schema:Text,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "service_account_id" ;
+    rdfs:comment "Service account or system account identifier for software agents." ;
+    rdfs:isDefinedBy <http://schema.org/identifier> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-service_account_id> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-sxtoz5f7z2jbvckaczaetrto> a <sdc4-meta:ModelComponent> ;
     rdfs:label "Business Registry Attestation" ;
@@ -174,17 +350,12 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-business_registry_attestation> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:AttestationType> .
 
-<sdc4:mc-u8kz7rlfx1jjvkn7kgyao4tw> a <sdc4-meta:ModelComponent> ;
-    rdfs:label "Registered Address" ;
-    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q65616986> ;
-    sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
-
-<sdc4:mc-uinddfbzfk0jdikmt1jwcq78> a schema:Text,
+<sdc4:mc-tep9wanrrtqfw0k76huv6tvd> a schema:Text,
         <sdc4-meta:ModelComponent> ;
-    rdfs:label "Organization Name" ;
-    rdfs:comment "A name of an organization (NIEM nc:OrganizationName). BFO alignment: organization is a material entity (BFO:0000040) that is a collection of persons organized for a purpose." ;
-    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q168678> ;
-    sdc4-meta:describesConceptualEntity <sdc4:concept-organization_name> ;
+    rdfs:label "software_version" ;
+    rdfs:comment "Version of the software." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q20826013> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_version> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-uizvwh8uzojpwcih36rmk9ed> a <sdc4-meta:ModelComponent> ;
@@ -202,25 +373,16 @@
     sdc4-meta:describesConceptualEntity <sdc4:concept-organization_identifier> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
-<sdc4:mc-uv8dwudhyf0gnmzgiyyd1sb1> a <sdc4-meta:ModelComponent> ;
-    rdfs:label "Business Entity" ;
-    rdfs:isDefinedBy <https://niemopen.org/>,
-        <https://www.wikidata.org/wiki/Q1269299> ;
+<sdc4:mc-vitwhq5xsptnokmfq11b1jos> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "System User" ;
+    rdfs:comment "Defines the operator or agent." ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_user> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:PartyType> .
+
+<sdc4:mc-w06vxo6uxtrzjkimmafmue7g> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "Contact and Access" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q2996679> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:ClusterType> .
-
-<sdc4:mc-vo9jtmexkaaol3y657fm0xn8> a <sdc4-meta:ModelComponent> ;
-    rdfs:label "Registration Date" ;
-    rdfs:comment "Date the business was officially registered in Cordova" ;
-    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q137375576> ;
-    sdc4-meta:describesConceptualEntity <sdc4:concept-registration_date> ;
-    sdc4-meta:isConstrainedByRmComponent <sdc4:XdTemporalType> .
-
-<sdc4:mc-x0na649n17if0ukul82cmrx3> a <sdc4-meta:ModelComponent> ;
-    rdfs:label "Cordova Email Address" ;
-    rdfs:comment "Email address using one of the Cordova national email providers. Providers: cordomail.co, novamail.co, portocorreo.co" ;
-    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1273217> ;
-    sdc4-meta:describesConceptualEntity <sdc4:concept-cordova_email_address> ;
-    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-x250838l7oi6l3yavg9twc1i> a schema:Dataset,
         <sdc4-meta:ModelComponent> ;
@@ -228,6 +390,21 @@
     rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q1423020> ;
     rdfs:seeAlso <https://www.wikidata.org/wiki/Q829135> ;
     sdc4-meta:isConstrainedByRmComponent <sdc4:DMType> .
+
+<sdc4:mc-xvnv7mrhvfweajl72pmngeya> a schema:URL,
+        <sdc4-meta:ModelComponent> ;
+    rdfs:label "software_documentation_url" ;
+    rdfs:comment "URL to software documentation or repository." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q3133368> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-software_documentation_url> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdLinkType> .
+
+<sdc4:mc-zr59goe24qkocprl3feul3mt> a <sdc4-meta:ModelComponent> ;
+    rdfs:label "system_location_identifier" ;
+    rdfs:comment "Code or identifier for the system location. Used for cross-system location resolution." ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q36214810> ;
+    sdc4-meta:describesConceptualEntity <sdc4:concept-system_location_identifier> ;
+    sdc4-meta:isConstrainedByRmComponent <sdc4:XdStringType> .
 
 <sdc4:mc-zs9ciw4nypx4plo856h3m95d> a schema:Text,
         <sdc4-meta:ModelComponent> ;

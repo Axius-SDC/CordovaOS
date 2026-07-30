@@ -217,6 +217,12 @@ class RDFExtractor:
         lines[-1] = lines[-1].rstrip(' ;') + ' .'
         lines.append('')
 
+        # DM-node metadata so cross-domain queries can resolve the domain title/label
+        dm_label_esc = self._escape_turtle(self.dm_label)
+        lines.append(f'sdc4:dm-{self.dm_ct_id} dc:title "{dm_label_esc}" ;')
+        lines.append(f'    rdfs:label "{dm_label_esc}" .')
+        lines.append('')
+
         return lines
 
     def _find_cluster_ct_id(self, tree: ET.Element) -> Optional[str]:
@@ -314,9 +320,6 @@ class RDFExtractor:
 
             # RDF 1.2 reifies syntax with quoted triple
             lines.append(f"{reifier_uri} rdf:reifies << sdc4:mc-{ct_id} sdc4:{value_elem_name} {value_literal} >> ;")
-            # Flat indexed triples for fast SPARQL lookups (triple terms are not indexed)
-            lines.append(f"    sdc4:forComponent sdc4:mc-{ct_id} ;")
-            lines.append(f"    sdc4:componentValue {value_literal} ;")
         else:
             # EV-only case - create a statement about the EV without a value triple
             lines.append(f"{reifier_uri} a sdc4:ExceptionalValueStatement ;")

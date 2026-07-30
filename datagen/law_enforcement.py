@@ -1,6 +1,9 @@
 """
 Generate Law Enforcement Record XML instances for CordovaOS demo.
 
+Governance-composed model: Governed Record (Incident Report data cluster +
+Provenance Components) then native subject/provider, Audit and attestation.
+
 Quarantine enforcement from the Contagion narrative + routine incidents.
 Output: import_data/law_enforcement_record/
 """
@@ -8,11 +11,12 @@ import os
 import random
 
 from shared import (
-    random_city_province, random_address, random_date, ALL_CITIES,
-    CITY_TO_PROVINCE,
+    scaled,
+    random_address, random_date, ALL_CITIES, CITY_TO_PROVINCE,
     xml_header, xml_preamble, xml_footer, write_xml,
-    xdstring, xdtoken, xdtemporal, xdtemporal_multi, xdquantity,
-    cluster_open, cluster_close, party_stub,
+    xdstring, xdtoken, xdtemporal, xdquantity,
+    cluster_open, cluster_close, native_partytype,
+    make_provenance_values, audit, attestation,
     cuid_generator,
 )
 
@@ -20,33 +24,74 @@ CT_ID = "yh0opq0bnu6y9y56oukg92uf"
 DM_LABEL = "Law Enforcement Record"
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "app", "sdc4", "import_data", "law_enforcement_record")
 
-CL_ROOT       = "ms-songhwxr1fp8niqba4fd0yd9"
-W_INC_NUM     = ("ms-yi2189u4pinqitlmm5t6ccrd", "ms-chethzdz7hskd3o2xw62c1er")
-W_SUMMARY     = ("ms-rguhpkd7s2d9a51392aon7ir", "ms-pjqpd15ajj1ax0f1e0lfqu63")
-W_LOCATION    = ("ms-b6nahtg2we4rh5qsk2j7qfvz", "ms-t74qjqgzsm7ieijc3uc2nobv")
-W_CITY        = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-i0s8oqbjp6xqohydi8ai4eci")
-W_INC_STATUS  = ("ms-e83h36jqgi59dhy1dttp22qm", "ms-wuwrzhcqj9omz96comh5q4xl")
-W_PROVINCE    = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-dftklc78nz0zam5of1okubn8")
-W_INC_CAT     = ("ms-nc7aq6ofnccavkmczsb2dudy", "ms-segenmixvbvzqrdmtomkyh0y")
-W_INC_DATE    = ("ms-ohk2uwcomsz8wegfvz0v0yod", "ms-ajdp3q8jw5peqiuodykpw0tk")  # date+year-month
+# ─── Governance envelope (adapters re-keyed for v2) ──────────────────────────
+GOVERNED_RECORD = "ms-kcam9lm7091vqtvb253ixjxr"   # Item: Law Enforcement Governed Record
+CL_ROOT         = "ms-songhwxr1fp8niqba4fd0yd9"   # data cluster: Incident Report
+CL_PROV         = "ms-hdhjfg00tngir2txgqyka9cv"   # Provenance Components
 
+SYSTEM_AUDIT_ID = "ms-fotc5adg15ek2b9ermx2mcih"   # substitutionGroup="sdc4:Audit"
+
+# ─── Incident Report scalar adapters (leaf, adapter) ─────────────────────────
+W_INC_NUM     = ("ms-yi2189u4pinqitlmm5t6ccrd", "ms-cqbe5vu1q08cgrdeswahys95")
+W_SUMMARY     = ("ms-rguhpkd7s2d9a51392aon7ir", "ms-ajfei3kj0catindcyw36miar")
+W_LOCATION    = ("ms-b6nahtg2we4rh5qsk2j7qfvz", "ms-z7muvte1f61lsren66q6aesj")
+W_CITY        = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-lbg7sju2aixha09l1096f51j")
+W_INC_STATUS  = ("ms-e83h36jqgi59dhy1dttp22qm", "ms-ab56tt302ui9ewsigl0pw80r")
+W_PROVINCE    = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-h0ufyg4jzc4yvgvbw2x16ldp")
+W_INC_CAT     = ("ms-nc7aq6ofnccavkmczsb2dudy", "ms-u9rxp81ezrth1ilsa7i6cww3")
+W_INC_DATE    = ("ms-ohk2uwcomsz8wegfvz0v0yod", "ms-xjf5ojznmexiprt2cwffjq26")
+
+# ─── Charge and Disposition cluster ──────────────────────────────────────────
 CL_CHARGE     = "ms-c3eoo0vfid9c8riruf7uoyz2"
-W_CHARGE_DESC = ("ms-eoqim4xj9gsxtxrqko1hh55o", "ms-b5soc6dekjmya7uz83z701fa")
-W_CHARGE_CAT  = ("ms-hc91pdnj3bb6997l5z4ndchz", "ms-e4yj6vnrj5ayng5otauwr6so")
-W_DISPOSITION = ("ms-rnje7nq6m08vh01g8eg23say", "ms-ng6hvaf1otno7mz5blls4qfs")
-W_FINE_AMT    = ("ms-yahksk4xc5to981ows7bpp6z", "ms-r4gdeh4glsk08ryun163eypx")
-W_DISP_DATE   = ("ms-qse1jwofk5lm2wnsrn3f06l0", "ms-krblpwogobrv713nczj9xeq9")
-W_FILING_DATE = ("ms-l0esdclu01pg7qw429oe7kjk", "ms-q4e4b43wrcmp2j27uzxzypph")
+W_CHARGE_DESC = ("ms-eoqim4xj9gsxtxrqko1hh55o", "ms-y52g0zkfkc9yzizkwp7e0tzy")
+W_CHARGE_CAT  = ("ms-hc91pdnj3bb6997l5z4ndchz", "ms-mkh55cwkx4z8lh42aonbjrmq")
+W_DISPOSITION = ("ms-rnje7nq6m08vh01g8eg23say", "ms-tbj6k87237iq4djjdkoxzole")
+W_FINE_AMT    = ("ms-yahksk4xc5to981ows7bpp6z", "ms-krnq0g73h78f8eoswv5iqawb")
+W_DISP_DATE   = ("ms-qse1jwofk5lm2wnsrn3f06l0", "ms-nkkg2090cjcyi6dt0tlwzpf3")
+W_FILING_DATE = ("ms-l0esdclu01pg7qw429oe7kjk", "ms-tspbolq6jstxs0jl697rxdsz")
 
+# ─── Quarantine Enforcement cluster ──────────────────────────────────────────
 CL_QUARANTINE = "ms-avmmc3r38dol0ghko42yeyp4"
-W_ISSUING     = ("ms-ixmedhicidzpi7g6g2huqzvv", "ms-s0h7z1f3iialia4o1rz2xkni")
-W_QZ_ZONE     = ("ms-r34gm210y9jifbyxa0fcxy96", "ms-uww7ry5lzdh4upf6xcebpj4p")
-W_COMPLIANCE  = ("ms-ihoatduhb7fckjw0ezq5u7g1", "ms-vom57pue9a14j072h22cmf4t")
-W_QZ_END      = ("ms-lohvu07ok3c3xvesa16htf2m", "ms-ti8di97drly1ivwjv62jl0sw")
-W_QZ_START    = ("ms-vq30hd0dl6v59d3ttyyvg6rp", "ms-c3xl0avrvp7qsarvqtcncwhe")
+W_ISSUING     = ("ms-ixmedhicidzpi7g6g2huqzvv", "ms-l6hy83bsdsyrt3qqpum5bvnw")
+W_QZ_ZONE     = ("ms-r34gm210y9jifbyxa0fcxy96", "ms-ugy7o83u261932bv7p98jvxp")
+W_COMPLIANCE  = ("ms-ihoatduhb7fckjw0ezq5u7g1", "ms-ghdu9yo67u12s7grfazso7ps")
+W_QZ_END      = ("ms-lohvu07ok3c3xvesa16htf2m", "ms-htpnzj9lnqj70hnq7f7uyzkw")
+W_QZ_START    = ("ms-vq30hd0dl6v59d3ttyyvg6rp", "ms-knruat8wd4yo1b0pyaavlswx")
 
-PS_PERSON     = "ms-7i4jw2wkw7om94135c1bq03h"
-PS_OFFICER    = "ms-m2lj6lu22oez88prwrdgmnc2"
+# ─── Provenance Components leaves (leaf, adapter) ─────────────────────────────
+P_ACT_DESC    = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-ph2txq84cblscof873ona37z")
+P_ACT_TYPE    = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-ds15mxtm1b24zcvcvyjx54sx")
+P_SYS_ID      = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-pvijfx27byf9yfd38zuk84cp")
+P_LOC_ID      = ("ms-zr59goe24qkocprl3feul3mt", "ms-k6edsbb19ldzb9usqza3zcb2")
+P_LOC_NAME    = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-jphsfdruuz5smyq3sdd9zsoh")
+P_TS_END      = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-nvimxgx4gis7m5i1vpcms2yw")
+P_TS_START    = ("ms-o72s5793973fzho35rnaughs", "ms-rugwhqyckw9eslbt8ohm0rhx")
+
+# ─── Enum maps (values MUST match the model's enum components exactly) ────────
+# Incident Status: Open / Closed / Pending
+STATUS_MAP = {
+    "Active": "Open", "Under Investigation": "Pending", "Monitoring": "Pending",
+    "Open": "Open", "Closed": "Closed", "Pending": "Pending",
+}
+# Incident Category Code enum
+CATEGORY_MAP = {
+    "Public Health Emergency": "other", "Quarantine Enforcement": "other",
+    "Contact Tracing": "other", "Traffic": "traffic", "Property Crime": "theft",
+    "Civil Disturbance": "other", "Lost Property": "other", "Trespass": "other",
+    "Fraud": "fraud", "DUI": "dui", "Missing Person": "missing_person",
+    "Animal Control": "other", "Suspicious Activity": "suspicious_activity",
+    "Welfare Check": "medical", "Assault": "assault",
+}
+# Charge Category (Cordova) enum
+CHARGE_CATS = ["Traffic Violation", "Petty Theft", "Public Intoxication",
+               "Trespassing", "Disorderly Conduct", "Minor Vandalism"]
+# Disposition (Cordova) enum
+DISPOSITIONS = ["Fine", "Community Service", "Case Dismissed", "Pending"]
+# Compliance Status enum
+COMPLIANCE_MAP = {
+    "Enforced": "Compliant", "Compliant": "Compliant",
+    "Monitoring": "Under Review", "Violation": "Violation Detected",
+}
 
 _inc_counter = 0
 
@@ -58,42 +103,81 @@ def next_inc():
 
 
 def build_instance(rec):
+    """Build a governance-composed Law Enforcement Record instance for one incident."""
+    prov = make_provenance_values("Cordova Police System", "IncidentRecording", rec["city"])
+    status = STATUS_MAP.get(rec.get("status", "Closed"), "Closed")
+
     xml = xml_header(CT_ID)
-    xml += xml_preamble(DM_LABEL)
-    xml += cluster_open(CL_ROOT, "Incident Report")
+    xml += xml_preamble(DM_LABEL, current_state=status)
 
-    xml += xdstring(*W_INC_NUM, "Incident Report Number", rec["inc_num"])
-    xml += xdstring(*W_SUMMARY, "Incident Summary", rec["summary"])
-    xml += xdstring(*W_LOCATION, "Location Street Full Text", rec["location"])
-    xml += xdtoken(*W_CITY, "City", rec["city"])
-    xml += xdtoken(*W_INC_STATUS, "Incident Status", rec.get("status", "Closed"))
-    xml += xdtoken(*W_PROVINCE, "Province", rec["province"])
-    xml += xdtoken(*W_INC_CAT, "Incident Category Code", rec["category"])
-    xml += xdtemporal_multi(*W_INC_DATE, "Incident Date", rec["inc_date"], ("date", "year-month"))
+    # Item: Governed Record wrapper
+    xml += cluster_open(GOVERNED_RECORD, "Law Enforcement Governed Record", indent=1)
 
-    # Charge and Disposition
-    xml += cluster_open(CL_CHARGE, "Charge and Disposition", indent=2)
-    xml += xdstring(*W_CHARGE_DESC, "Charge Description", rec.get("charge_desc", "N/A"), indent=3)
-    xml += xdtoken(*W_CHARGE_CAT, "Charge Category (Cordova)", rec.get("charge_cat", "None"), indent=3)
-    xml += xdtoken(*W_DISPOSITION, "Disposition (Cordova)", rec.get("disposition", "No Charge"), indent=3)
-    xml += xdquantity(*W_FINE_AMT, "Fine or Bail Amount", str(rec.get("fine", 0)),
-                       "Cordova Córdoba (COR)", indent=3)
-    xml += xdtemporal(*W_DISP_DATE, "Disposition Date", rec.get("disp_date", rec["inc_date"]), "date", indent=3)
-    xml += xdtemporal(*W_FILING_DATE, "Charge Filing Date", rec["inc_date"], "date", indent=3)
-    xml += cluster_close(CL_CHARGE, indent=2)
+    # Data cluster (Incident Report). XSD sequence puts the Charge and
+    # Quarantine sub-clusters BEFORE the scalar adapters.
+    xml += cluster_open(CL_ROOT, "Incident Report", indent=2)
 
-    # Quarantine Enforcement
-    xml += cluster_open(CL_QUARANTINE, "Quarantine Enforcement", indent=2)
-    xml += xdstring(*W_ISSUING, "Issuing Authority", rec.get("qz_authority", "N/A"), indent=3)
-    xml += xdstring(*W_QZ_ZONE, "Quarantine Zone", rec.get("qz_zone", "N/A"), indent=3)
-    xml += xdtoken(*W_COMPLIANCE, "Compliance Status", rec.get("qz_compliance", "N/A"), indent=3)
-    xml += xdtemporal(*W_QZ_END, "Quarantine End Date", rec.get("qz_end", "1900-01-01"), "date", indent=3)
-    xml += xdtemporal(*W_QZ_START, "Quarantine Start Date", rec.get("qz_start", "1900-01-01"), "date", indent=3)
-    xml += cluster_close(CL_QUARANTINE, indent=2)
+    # Charge and Disposition (optional; only when charge data present)
+    if "charge_cat" in rec:
+        xml += cluster_open(CL_CHARGE, "Charge and Disposition", indent=3)
+        xml += xdstring(*W_CHARGE_DESC, "Charge Description",
+                        rec.get("charge_desc", rec["summary"])[:200], indent=4)
+        xml += xdtoken(*W_CHARGE_CAT, "Charge Category (Cordova)", rec["charge_cat"], indent=4)
+        xml += xdtoken(*W_DISPOSITION, "Disposition (Cordova)",
+                       rec.get("disposition", "Pending"), indent=4)
+        xml += xdquantity(*W_FINE_AMT, "Fine or Bail Amount", str(rec.get("fine", 0)),
+                          "Cordova Córdoba (COR)", indent=4)
+        xml += xdtemporal(*W_DISP_DATE, "Disposition Date",
+                          rec.get("disp_date", rec["inc_date"]), "date", indent=4)
+        xml += xdtemporal(*W_FILING_DATE, "Charge Filing Date", rec["inc_date"], "date", indent=4)
+        xml += cluster_close(CL_CHARGE, indent=3)
 
-    xml += cluster_close(CL_ROOT)
-    xml += party_stub(PS_PERSON, "Involved Person")
-    xml += party_stub(PS_OFFICER, "Reporting Officer")
+    # Quarantine Enforcement (optional; only when quarantine data present)
+    if "qz_zone" in rec:
+        xml += cluster_open(CL_QUARANTINE, "Quarantine Enforcement", indent=3)
+        xml += xdstring(*W_ISSUING, "Issuing Authority", rec.get("qz_authority", "N/A"), indent=4)
+        xml += xdstring(*W_QZ_ZONE, "Quarantine Zone", rec["qz_zone"], indent=4)
+        xml += xdtoken(*W_COMPLIANCE, "Compliance Status",
+                       COMPLIANCE_MAP.get(rec.get("qz_compliance", "Compliant"), "Under Review"),
+                       indent=4)
+        xml += xdtemporal(*W_QZ_END, "Quarantine End Date", rec.get("qz_end", "2026-12-31"), "date", indent=4)
+        xml += xdtemporal(*W_QZ_START, "Quarantine Start Date", rec.get("qz_start", "2026-01-01"), "date", indent=4)
+        xml += cluster_close(CL_QUARANTINE, indent=3)
+
+    # Scalars
+    xml += xdstring(*W_INC_NUM, "Incident Report Number", rec["inc_num"], indent=3)
+    xml += xdstring(*W_SUMMARY, "Incident Summary", rec["summary"][:2000], indent=3)
+    xml += xdstring(*W_LOCATION, "Location Street Full Text", rec["location"][:200], indent=3)
+    xml += xdtoken(*W_CITY, "City", rec["city"], indent=3)
+    xml += xdtoken(*W_INC_STATUS, "Incident Status", status, indent=3)
+    xml += xdtoken(*W_PROVINCE, "Province", rec["province"], indent=3)
+    xml += xdtoken(*W_INC_CAT, "Incident Category Code",
+                   CATEGORY_MAP.get(rec["category"], "other"), indent=3)
+    xml += xdtemporal(*W_INC_DATE, "Incident Date", rec["inc_date"], "date", indent=3)
+    xml += cluster_close(CL_ROOT, indent=2)
+
+    # Provenance Components cluster (sibling of data, inside Governed Record)
+    xml += cluster_open(CL_PROV, "Provenance Components", indent=2)
+    xml += xdstring(*P_ACT_DESC, "activity_description", prov["activity_description"], indent=3)
+    xml += xdstring(*P_ACT_TYPE, "prov_activity_type", prov["prov_activity_type"], indent=3)
+    xml += xdstring(*P_SYS_ID, "system_identifier", prov["system_identifier"], indent=3)
+    xml += xdstring(*P_LOC_ID, "system_location_identifier", prov["system_location_identifier"], indent=3)
+    xml += xdstring(*P_LOC_NAME, "system_location_name", prov["system_location_name"], indent=3)
+    xml += xdtemporal(*P_TS_END, "activity_timestamp_end", prov["activity_timestamp_end"], "datetime", indent=3)
+    xml += xdtemporal(*P_TS_START, "activity_timestamp_start", prov["activity_timestamp_start"], "datetime", indent=3)
+    xml += cluster_close(CL_PROV, indent=2)
+
+    xml += cluster_close(GOVERNED_RECORD, indent=1)
+
+    # Native governance slots, DM order: subject, provider, Audit, attestation.
+    xml += native_partytype("subject", "Involved Person", rec.get("subject_name", "Unidentified Person"))
+    xml += native_partytype("provider", "Reporting Officer",
+                            f"{rec['city']} Police Station")
+    xml += audit(SYSTEM_AUDIT_ID, prov["activity_timestamp_start"],
+                 system_id_value=prov["system_identifier"])
+    xml += attestation(pending=False, reason="Incident report filed and reviewed by station duty officer",
+                       committer="Reporting Officer", committed=prov["activity_timestamp_end"])
+
     xml += xml_footer(CT_ID)
     return xml
 
@@ -199,7 +283,7 @@ def generate():
     ]
 
     import random as _rand
-    for _ in range(192):
+    for _ in range(scaled(192, 38)):
         summary_template, cat = _rand.choice(incident_templates)
         city = _rand.choice(ALL_CITIES)
         prov = CITY_TO_PROVINCE[city]
@@ -212,8 +296,8 @@ def generate():
             "inc_date": random_date(2025, 2025),
             "status": _rand.choice(["Closed", "Closed", "Closed", "Open", "Under Investigation"]),
             "charge_desc": summary_template,
-            "charge_cat": _rand.choice(["Misdemeanor", "Infraction", "None", "None"]),
-            "disposition": _rand.choice(["No Charge", "Citation Issued", "Warning", "Referred to Court", "No Charge"]),
+            "charge_cat": _rand.choice(CHARGE_CATS),
+            "disposition": _rand.choice(DISPOSITIONS),
             "fine": _rand.choice([0, 0, 0, 50, 100, 200, 500]),
         }
         write_xml(os.path.join(OUTPUT_DIR, f"le-{cuid_generator()}.xml"), build_instance(rec))

@@ -3,9 +3,11 @@
 # port shipments, and business details.
 # Input: Business Registry Number, e.g. "BIZ-001102"
 #
-# Join mechanism: Shared component mc-l8f0m7op4xhrxqy1jrnvbuly (BRN)
-# links Business Registry and Maritime. Employment linked via employer
-# party-id pattern (not yet in RDF). Shows all records containing BRN.
+# Join mechanism: the business number value (e.g. "BIZ-001102") is carried by
+# differently-named components across domains (Business Registry
+# organization_identifier, Maritime Business Registry Number, Tax Source Record
+# ID). Matching the shared VALUE under ANY component surfaces the full network:
+# Business Registry, Maritime, and Tax records. Shows all records containing it.
 
 PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -14,9 +16,8 @@ PREFIX dc:   <http://purl.org/dc/elements/1.1/>
 
 SELECT ?domain ?component_label ?value
 WHERE {
-  # Find instances containing this BRN
-  ?brn_reifier sdc4:forComponent sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ;
-               sdc4:componentValue "BIZ-001102" ;
+  # Find instances containing this business number value under ANY component
+  ?brn_reifier rdf:reifies <<?mcBrn ?vpBrn "BIZ-001102">> ;
                sdc4:inInstance ?instance ;
                sdc4:inDataModel ?dm .
 
@@ -26,7 +27,7 @@ WHERE {
   # Get all components from the same instance
   ?comp_reifier sdc4:inInstance ?instance ;
                 rdfs:label ?component_label ;
-                sdc4:componentValue ?value .
+                rdf:reifies <<?mcC ?vpC ?value>> .
 }
 ORDER BY ?domain ?component_label
 LIMIT 500

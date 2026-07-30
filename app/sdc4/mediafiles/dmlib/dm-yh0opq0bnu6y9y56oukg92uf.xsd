@@ -18,15 +18,15 @@
           rdf:about="dm-yh0opq0bnu6y9y56oukg92uf">
           <dc:title>Law Enforcement Record</dc:title>
           <dc:creator>Timothy Cook</dc:creator>
-          <dc:subject></dc:subject>
+          <dc:subject>Law Enforcement</dc:subject>
           <dc:rights>CC-BY http://creativecommons.org/licenses/by/3.0/</dc:rights>
           <dc:relation>None</dc:relation>
           <dc:coverage>Universal</dc:coverage>
           <dc:type>SDC Data Model (DM)</dc:type>
           <dc:identifier>dm-yh0opq0bnu6y9y56oukg92uf</dc:identifier>
           <dc:description>Record public safety incidents, charges, and dispositions in Cordova.</dc:description>
-          <dc:publisher></dc:publisher>
-          <dc:date>2026-03-07 20:03:46.314116+00:00</dc:date>
+          <dc:publisher>Axius SDC, Inc.</dc:publisher>
+          <dc:date>2026-07-29 17:23:27.052767+00:00</dc:date>
           <dc:format>text/xml</dc:format>
           <dc:language>en-US</dc:language>
         </rdf:Description>
@@ -65,7 +65,7 @@
         <xsd:element maxOccurs="1" minOccurs="0" name="source_instance_id" type="xsd:string"/>
         <xsd:element maxOccurs="1" minOccurs="0" name="source_version_id" type="xsd:string"/>
         <xsd:element maxOccurs="1" minOccurs="0" name="current-state" type="xsd:string" default=""/>
-        <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-songhwxr1fp8niqba4fd0yd9"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-kcam9lm7091vqtvb253ixjxr"/>
         <xsd:element maxOccurs="1" minOccurs="0" name="subject" type="sdc4:PartyType"/>
         <xsd:element maxOccurs="unbounded" minOccurs="0" name="provider" type="sdc4:PartyType"/>
         <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Participation"/>
@@ -245,7 +245,7 @@
                   <xsd:annotation>
                         <xsd:documentation>Capital of Aldara. National port city and sole international port. Area code 100.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Porto Sereno">
+                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Porto%20Sereno">
                         <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Porto Sereno</rdfs:label>
                       </rdfs:Class>
@@ -849,7 +849,7 @@
                   <xsd:annotation>
                         <xsd:documentation>Theft of property valued under 500 pesos</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Petty Theft">
+                      <rdfs:Class rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Petty%20Theft">
                         <rdfs:subPropertyOf rdf:resource="mc-hc91pdnj3bb6997l5z4ndchz"/>
                         <rdfs:label>Petty Theft</rdfs:label>
                       </rdfs:Class>
@@ -860,7 +860,7 @@
                   <xsd:annotation>
                         <xsd:documentation>Intoxication in a public space causing disturbance</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Public Intoxication">
+                      <rdfs:Class rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Public%20Intoxication">
                         <rdfs:subPropertyOf rdf:resource="mc-hc91pdnj3bb6997l5z4ndchz"/>
                         <rdfs:label>Public Intoxication</rdfs:label>
                       </rdfs:Class>
@@ -882,7 +882,7 @@
                   <xsd:annotation>
                         <xsd:documentation>Behavior that disturbs public peace</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Disorderly Conduct">
+                      <rdfs:Class rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Disorderly%20Conduct">
                         <rdfs:subPropertyOf rdf:resource="mc-hc91pdnj3bb6997l5z4ndchz"/>
                         <rdfs:label>Disorderly Conduct</rdfs:label>
                       </rdfs:Class>
@@ -893,7 +893,7 @@
                   <xsd:annotation>
                         <xsd:documentation>Moving or parking violations</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Traffic Violation">
+                      <rdfs:Class rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Traffic%20Violation">
                         <rdfs:subPropertyOf rdf:resource="mc-hc91pdnj3bb6997l5z4ndchz"/>
                         <rdfs:label>Traffic Violation</rdfs:label>
                       </rdfs:Class>
@@ -904,7 +904,7 @@
                   <xsd:annotation>
                         <xsd:documentation>Damage to property valued under 500 pesos</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Minor Vandalism">
+                      <rdfs:Class rdf:about="mc-hc91pdnj3bb6997l5z4ndchz/xdtoken-value/Minor%20Vandalism">
                         <rdfs:subPropertyOf rdf:resource="mc-hc91pdnj3bb6997l5z4ndchz"/>
                         <rdfs:label>Minor Vandalism</rdfs:label>
                       </rdfs:Class>
@@ -968,7 +968,7 @@
                   <xsd:annotation>
                         <xsd:documentation>Ordered community service hours</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-rnje7nq6m08vh01g8eg23say/xdtoken-value/Community Service">
+                      <rdfs:Class rdf:about="mc-rnje7nq6m08vh01g8eg23say/xdtoken-value/Community%20Service">
                         <rdfs:subPropertyOf rdf:resource="mc-rnje7nq6m08vh01g8eg23say"/>
                         <rdfs:label>Community Service</rdfs:label>
                       </rdfs:Class>
@@ -979,7 +979,7 @@
                   <xsd:annotation>
                         <xsd:documentation>Charges dropped or dismissed</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-rnje7nq6m08vh01g8eg23say/xdtoken-value/Case Dismissed">
+                      <rdfs:Class rdf:about="mc-rnje7nq6m08vh01g8eg23say/xdtoken-value/Case%20Dismissed">
                         <rdfs:subPropertyOf rdf:resource="mc-rnje7nq6m08vh01g8eg23say"/>
                         <rdfs:label>Case Dismissed</rdfs:label>
                       </rdfs:Class>
@@ -1010,20 +1010,26 @@
 <!-- Schema for component Fine or Bail Amount (yahksk4xc5to981ows7bpp6z) -->
 
 
-<xsd:complexType name='mc-yahksk4xc5to981ows7bpp6z' xml:lang='en-US'>
+<xsd:complexType name="mc-yahksk4xc5to981ows7bpp6z" xml:lang="en-US">
     <xsd:annotation>
-        <xsd:appinfo>
-            <rdf:Description rdf:about='sdc4:mc-yahksk4xc5to981ows7bpp6z'>
-                <rdf:type rdf:resource='sdc4-meta:ModelComponent'/>
-                <sdc4-meta:isConstrainedByRmComponent rdf:resource='sdc4:XdQuantityType'/>
-                <rdfs:label>Fine or Bail Amount</rdfs:label>
-                <rdfs:comment>Monetary amount of the fine imposed or bail set for the charge in Cordova Córdoba. Null if no financial penalty applies or bail is denied.</rdfs:comment>
-                <sdc4-meta:ModelComponent rdf:about='sdc4:mc-yahksk4xc5to981ows7bpp6z'/>
-            </rdf:Description>
-        </xsd:appinfo>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-yahksk4xc5to981ows7bpp6z">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdQuantityType"/>
+          <rdfs:label>Fine or Bail Amount</rdfs:label>
+          <rdfs:comment>Monetary amount of the fine imposed or bail set for the charge in Cordova Córdoba. Null if no financial penalty applies or bail is denied.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-yahksk4xc5to981ows7bpp6z"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-fine_or_bail_amount"/>
+          <sdc4-meta:hasUnit rdf:resource="sdc4:mc-u18l77xlj2omcbmnpi5j7fff"/>
+          <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q313614"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q186361"/>
+          <rdfs:isDefinedBy rdf:resource="https://schema.org/MonetaryAmount"/>
+        </rdf:Description>
+      </xsd:appinfo>
     </xsd:annotation>
-<xsd:complexContent><xsd:restriction base="sdc4:XdQuantityType">
-<xsd:sequence>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdQuantityType">
+        <xsd:sequence>
     <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Fine or Bail Amount"/>
     <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
     <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
@@ -1033,18 +1039,21 @@
     <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
     <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
     <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
-    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:ReferenceRange"/>
-    <xsd:element maxOccurs="1" minOccurs="0" name="normal-status" type="xsd:string"/>
-    <xsd:element maxOccurs="1" minOccurs="0" name="magnitude-status" type="sdc4:MagnitudeStatus"/>
-    <xsd:element maxOccurs="1" minOccurs="0" name="accuracy_margin" type="xsd:decimal"/>
-    <xsd:element maxOccurs="1" minOccurs="0" name="precision_digits" type="xsd:nonNegativeInteger"/>
-    <xsd:element name="xdquantity-value">
-      <xsd:simpleType><xsd:restriction base="xsd:decimal"/></xsd:simpleType>
-    </xsd:element>
-    <xsd:element name="xdquantity-units" type="sdc4:mc-u18l77xlj2omcbmnpi5j7fff"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:ReferenceRange"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="normal-status" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="magnitude-status" type="sdc4:MagnitudeStatus"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="accuracy_margin" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="precision_digits" type="xsd:nonNegativeInteger"/>
+          <xsd:element name="xdquantity-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="xdquantity-units" type="sdc4:mc-u18l77xlj2omcbmnpi5j7fff"/>
         </xsd:sequence>
-      </xsd:restriction></xsd:complexContent>
-</xsd:complexType>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
 
 
 <!-- Schema for component Cordova Córdoba (COR) (u18l77xlj2omcbmnpi5j7fff) -->
@@ -1382,7 +1391,7 @@
                   <xsd:annotation>
                         <xsd:documentation>One or more violations of the quarantine order detected</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-ihoatduhb7fckjw0ezq5u7g1/xdtoken-value/Violation Detected">
+                      <rdfs:Class rdf:about="mc-ihoatduhb7fckjw0ezq5u7g1/xdtoken-value/Violation%20Detected">
                         <rdfs:subPropertyOf rdf:resource="mc-ihoatduhb7fckjw0ezq5u7g1"/>
                         <rdfs:label>Violation Detected</rdfs:label>
                       </rdfs:Class>
@@ -1393,7 +1402,7 @@
                   <xsd:annotation>
                         <xsd:documentation>Compliance status being assessed</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-ihoatduhb7fckjw0ezq5u7g1/xdtoken-value/Under Review">
+                      <rdfs:Class rdf:about="mc-ihoatduhb7fckjw0ezq5u7g1/xdtoken-value/Under%20Review">
                         <rdfs:subPropertyOf rdf:resource="mc-ihoatduhb7fckjw0ezq5u7g1"/>
                         <rdfs:label>Under Review</rdfs:label>
                       </rdfs:Class>
@@ -1484,6 +1493,295 @@
     <xsd:element maxOccurs="1" minOccurs="0" name="normal-status" type="xsd:string"/>
     <xsd:choice minOccurs="0" maxOccurs="1">
       <xsd:element name="xdtemporal-date" type="xsd:date"/>
+    </xsd:choice>
+        </xsd:sequence>
+      </xsd:restriction></xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component activity_description (m9xg6e182m1oq77ssrf9iujv) -->
+  <xsd:complexType name="mc-m9xg6e182m1oq77ssrf9iujv" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-m9xg6e182m1oq77ssrf9iujv">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>activity_description</rdfs:label>
+          <rdfs:comment>Detailed description of what this activity does and its purpose.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-m9xg6e182m1oq77ssrf9iujv"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-activity_description"/>
+          <rdf:type rdf:resource="https://schema.org/description"/>
+          <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/prov-dm/"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="activity_description"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="2000"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component prov_activity_type (ccj1yq2wtwknobszkgzzdbtr) -->
+  <xsd:complexType name="mc-ccj1yq2wtwknobszkgzzdbtr" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-ccj1yq2wtwknobszkgzzdbtr">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>prov_activity_type</rdfs:label>
+          <rdfs:comment>Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-ccj1yq2wtwknobszkgzzdbtr"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prov_activity_type"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q125542526"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="prov_activity_type"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="200"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component system_identifier (bd3s8t23d6m3zizmpwavc32y) -->
+  <xsd:complexType name="mc-bd3s8t23d6m3zizmpwavc32y" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-bd3s8t23d6m3zizmpwavc32y">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>system_identifier</rdfs:label>
+          <rdfs:comment>Identifier of the system that handled the data. Maps to prov:Entity context in the PROV-O export. This is the AuditType.system-id field.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-bd3s8t23d6m3zizmpwavc32y"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-system_identifier"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q7663715"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="system_identifier"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component system_location_identifier (zr59goe24qkocprl3feul3mt) -->
+  <xsd:complexType name="mc-zr59goe24qkocprl3feul3mt" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-zr59goe24qkocprl3feul3mt">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>system_location_identifier</rdfs:label>
+          <rdfs:comment>Code or identifier for the system location. Used for cross-system location resolution.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-zr59goe24qkocprl3feul3mt"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-system_location_identifier"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q36214810"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="system_location_identifier"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component system_location_name (fnodzqkbyskwe7nh58rs336k) -->
+  <xsd:complexType name="mc-fnodzqkbyskwe7nh58rs336k" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-fnodzqkbyskwe7nh58rs336k">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>system_location_name</rdfs:label>
+          <rdfs:comment>Name of the physical or logical location where the system resides. Maps to prov:atLocation.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-fnodzqkbyskwe7nh58rs336k"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-system_location_name"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q11307204"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="system_location_name"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component activity_timestamp_end (edvvjznmaoibzmfna0uuoo37) -->
+
+  <xsd:complexType name="mc-edvvjznmaoibzmfna0uuoo37" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-edvvjznmaoibzmfna0uuoo37">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+          <rdfs:label>activity_timestamp_end</rdfs:label>
+          <rdfs:comment>When the provenance activity completed. Maps to prov:endedAtTime. ISO 8601 format.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-edvvjznmaoibzmfna0uuoo37"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-activity_timestamp_end"/>
+          <rdfs:isDefinedBy rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Activity"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTemporalType">
+        <xsd:sequence>
+    <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="activity_timestamp_end"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+    <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:ReferenceRange"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="normal-status" type="xsd:string"/>
+    <xsd:choice minOccurs="0" maxOccurs="1">
+      <xsd:element name="xdtemporal-time" type="xsd:time"/>
+      <xsd:element name="xdtemporal-datetime" type="xsd:dateTime"/>
+    </xsd:choice>
+        </xsd:sequence>
+      </xsd:restriction></xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component activity_timestamp_start (o72s5793973fzho35rnaughs) -->
+
+  <xsd:complexType name="mc-o72s5793973fzho35rnaughs" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-o72s5793973fzho35rnaughs">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+          <rdfs:label>activity_timestamp_start</rdfs:label>
+          <rdfs:comment>When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-o72s5793973fzho35rnaughs"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-activity_timestamp_start"/>
+          <rdfs:isDefinedBy rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Activity"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdTemporalType">
+        <xsd:sequence>
+    <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="activity_timestamp_start"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+    <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:ReferenceRange"/>
+    <xsd:element maxOccurs="1" minOccurs="0" name="normal-status" type="xsd:string"/>
+    <xsd:choice minOccurs="0" maxOccurs="1">
+      <xsd:element name="xdtemporal-time" type="xsd:time"/>
+      <xsd:element name="xdtemporal-datetime" type="xsd:dateTime"/>
     </xsd:choice>
         </xsd:sequence>
       </xsd:restriction></xsd:complexContent>
@@ -2086,6 +2384,477 @@
   </xsd:complexType>
 
 
+<!-- Schema for component System Audit (fotc5adg15ek2b9ermx2mcih) -->
+  <xsd:complexType name="mc-fotc5adg15ek2b9ermx2mcih" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-fotc5adg15ek2b9ermx2mcih">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:AuditType"/>
+          <rdfs:label>System Audit</rdfs:label>
+          <rdfs:comment>A domain-agnostic audit component. Can be copied to other projects for domain-specific semantics if desired.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-fotc5adg15ek2b9ermx2mcih"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-system_audit"/>
+          <skos:exactMatch rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:AuditType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="System Audit"/>
+          <xsd:element name="system-id" type="sdc4:mc-rw1cjzeynsl87va6gvhv2k7e"/>
+          <xsd:element name="system-user" type="sdc4:mc-vitwhq5xsptnokmfq11b1jos"/>
+          <xsd:element name="location" type="sdc4:mc-km4azswrxe9tdrjmqvun5463"/>
+          <xsd:element name="timestamp" type="xsd:dateTime"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component service_account_id (rw1cjzeynsl87va6gvhv2k7e) -->
+  <xsd:complexType name="mc-rw1cjzeynsl87va6gvhv2k7e" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-rw1cjzeynsl87va6gvhv2k7e">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>service_account_id</rdfs:label>
+          <rdfs:comment>Service account or system account identifier for software agents.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-rw1cjzeynsl87va6gvhv2k7e"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-service_account_id"/>
+          <rdfs:isDefinedBy rdf:resource="http://schema.org/identifier"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="service_account_id"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="255"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component System User (vitwhq5xsptnokmfq11b1jos) -->
+  <xsd:complexType name="mc-vitwhq5xsptnokmfq11b1jos" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-vitwhq5xsptnokmfq11b1jos">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+          <rdfs:label>System User</rdfs:label>
+          <rdfs:comment>Defines the operator or agent.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-vitwhq5xsptnokmfq11b1jos"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-system_user"/>
+          <skos:exactMatch rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:PartyType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="System User"/>
+          <xsd:element name="party-details" type="sdc4:mc-w06vxo6uxtrzjkimmafmue7g"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component contact_email (jtuheuri2wzfhctcjqv4ozmy) -->
+  <xsd:complexType name="mc-jtuheuri2wzfhctcjqv4ozmy" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-jtuheuri2wzfhctcjqv4ozmy">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>contact_email</rdfs:label>
+          <rdfs:comment>Contact email for the service.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-jtuheuri2wzfhctcjqv4ozmy"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-contact_email"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1273217"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="contact_email"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:pattern value=".+@.+\..+"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component contact_name (a127ihw8xbfbl24lbcvnspv0) -->
+  <xsd:complexType name="mc-a127ihw8xbfbl24lbcvnspv0" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-a127ihw8xbfbl24lbcvnspv0">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>contact_name</rdfs:label>
+          <rdfs:comment>Contact name for the service.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-a127ihw8xbfbl24lbcvnspv0"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-contact_name"/>
+          <skos:exactMatch rdf:resource="http://www.w3.org/ns/dcat#contactPoint"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="contact_name"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component contact_phone (pdykwzsug7pfncjsrry73x1s) -->
+  <xsd:complexType name="mc-pdykwzsug7pfncjsrry73x1s" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-pdykwzsug7pfncjsrry73x1s">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>contact_phone</rdfs:label>
+          <rdfs:comment>Primary contact phone number.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-pdykwzsug7pfncjsrry73x1s"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-contact_phone"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q214995"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="contact_phone"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:pattern value="\+?\d[\d\s\-\(\)]{6,18}"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component software_documentation_url (xvnv7mrhvfweajl72pmngeya) -->
+
+<xsd:complexType name="mc-xvnv7mrhvfweajl72pmngeya" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-xvnv7mrhvfweajl72pmngeya">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdLinkType"/>
+        <rdfs:label>software_documentation_url</rdfs:label>
+        <rdfs:comment>URL to software documentation or repository.</rdfs:comment>
+        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-xvnv7mrhvfweajl72pmngeya"/>
+        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-software_documentation_url"/>
+        <rdf:type rdf:resource="https://schema.org/URL"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q3133368"/>
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:XdLinkType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="software_documentation_url"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="link" type="xsd:anyURI" fixed=""/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="relation" type="xsd:string" fixed="documentation"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="relation-uri" type="xsd:anyURI" fixed="http://schema.org/documentation"/>
+      </xsd:sequence>
+    </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component software_service_endpoint (px6j779dnapp4fjlohula4mh) -->
+
+<xsd:complexType name="mc-px6j779dnapp4fjlohula4mh" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-px6j779dnapp4fjlohula4mh">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdLinkType"/>
+        <rdfs:label>software_service_endpoint</rdfs:label>
+        <rdfs:comment>API endpoint or service URL if applicable.</rdfs:comment>
+        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-px6j779dnapp4fjlohula4mh"/>
+        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-software_service_endpoint"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q5376585"/>
+        <rdf:type rdf:resource="https://schema.org/URL"/>
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:XdLinkType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="software_service_endpoint"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+        <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="link" type="xsd:anyURI" fixed=""/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="relation" type="xsd:string" fixed="serviceEndpoint"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="relation-uri" type="xsd:anyURI" fixed="http://schema.org/url"/>
+      </xsd:sequence>
+    </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component software_name (rsjfjz8m5z7a58h5793duqbs) -->
+  <xsd:complexType name="mc-rsjfjz8m5z7a58h5793duqbs" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-rsjfjz8m5z7a58h5793duqbs">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>software_name</rdfs:label>
+          <rdfs:comment>Name of the software system or service.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-rsjfjz8m5z7a58h5793duqbs"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-software_name"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q30335969"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="software_name"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="200"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component software_runtime_environment (d839tf07spk43dmg0dqb939b) -->
+  <xsd:complexType name="mc-d839tf07spk43dmg0dqb939b" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-d839tf07spk43dmg0dqb939b">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>software_runtime_environment</rdfs:label>
+          <rdfs:comment>Runtime environment or platform for the software.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-d839tf07spk43dmg0dqb939b"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-software_runtime_environment"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q241317"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="software_runtime_environment"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component software_vendor (frdwjm7fxt6f5x4wx78pv7bc) -->
+  <xsd:complexType name="mc-frdwjm7fxt6f5x4wx78pv7bc" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>software_vendor</rdfs:label>
+          <rdfs:comment>Vendor or maintainer of the software.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-software_vendor"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q7554349"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="software_vendor"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="200"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+<!-- Schema for component software_version (tep9wanrrtqfw0k76huv6tvd) -->
+  <xsd:complexType name="mc-tep9wanrrtqfw0k76huv6tvd" xml:lang="en-US">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <rdf:Description rdf:about="sdc4:mc-tep9wanrrtqfw0k76huv6tvd">
+          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+          <rdfs:label>software_version</rdfs:label>
+          <rdfs:comment>Version of the software.</rdfs:comment>
+          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-tep9wanrrtqfw0k76huv6tvd"/>
+          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-software_version"/>
+          <rdf:type rdf:resource="https://schema.org/Text"/>
+          <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q20826013"/>
+        </rdf:Description>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdStringType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="software_version"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="act" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ExceptionalValue"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vtb" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vte" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tr" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="modified" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latitude" type="sdc4:lattype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="longitude" type="sdc4:lontype" nillable="true"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="xdstring-value">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="1"/>
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="xdstring-language" type="xsd:language" default="en-US"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
 <!-- Schema for component Law Enforcement Attestation (i8g57yrmdthdj1k5tcmj3ecx) -->
   <xsd:complexType name="mc-i8g57yrmdthdj1k5tcmj3ecx" xml:lang="en-US">
     <xsd:annotation>
@@ -2130,7 +2899,9 @@
         <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
         <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
         <rdfs:label>Law Enforcement Attested View</rdfs:label>
-        
+        <rdfs:comment>Attested view of a law enforcement record document</rdfs:comment>
+        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-hhbwj5k5rxticrbzwhp1lnjt"/>
+        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-law_enforcement_attested_view"/>
         <rdfs:isDefinedBy rdf:resource="https://schema.org/DigitalDocument"/>
         <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q31207"/>
         <skos:broadMatch rdf:resource="http://www.w3.org/ns/prov#Entity"/>
@@ -2176,7 +2947,9 @@
         <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
         <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
         <rdfs:label>Digital Signature Proof</rdfs:label>
-        
+        <rdfs:comment>Cryptographic proof of attestation (digital signature)</rdfs:comment>
+        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
+        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-digital_signature_proof"/>
         <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q210824"/>
         <skos:broadMatch rdf:resource="http://www.w3.org/ns/prov#Entity"/>
@@ -2310,7 +3083,9 @@
         <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
         <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdLinkType"/>
         <rdfs:label>Law Enforcement Access Control</rdfs:label>
-        
+        <rdfs:comment>Access control policy for law enforcement data using W3C Data Privacy Vocabulary. Enforces role-based access for law enforcement officers, judicial authorities, and defense counsel. Governs dpv:CriminalOffenceData including incident reports, arrest records, and case files.</rdfs:comment>
+        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-bkuhivi6ot6nxll6vam7yobp"/>
+        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-law_enforcement_access_control"/>
         <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q185799"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/dpv#AccessControlMethod"/>
         <rdfs:seeAlso rdf:resource="https://w3id.org/dpv"/>
@@ -2341,7 +3116,7 @@
 
 <!-- XdAdapterType Wrappers for XdAnyType Components in Clusters -->
   <!-- Adapter wrapper for Incident Report Number (yi2189u4pinqitlmm5t6ccrd) -->
-  <xsd:complexType name="mc-chethzdz7hskd3o2xw62c1er">
+  <xsd:complexType name="mc-cqbe5vu1q08cgrdeswahys95">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Incident Report Number</xsd:documentation>
     </xsd:annotation>
@@ -2354,7 +3129,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Incident Summary (rguhpkd7s2d9a51392aon7ir) -->
-  <xsd:complexType name="mc-pjqpd15ajj1ax0f1e0lfqu63">
+  <xsd:complexType name="mc-ajfei3kj0catindcyw36miar">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Incident Summary</xsd:documentation>
     </xsd:annotation>
@@ -2367,7 +3142,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Location Street Full Text (b6nahtg2we4rh5qsk2j7qfvz) -->
-  <xsd:complexType name="mc-t74qjqgzsm7ieijc3uc2nobv">
+  <xsd:complexType name="mc-z7muvte1f61lsren66q6aesj">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Location Street Full Text</xsd:documentation>
     </xsd:annotation>
@@ -2380,7 +3155,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for City (atdtdfzruh7tya0iv5cz365l) -->
-  <xsd:complexType name="mc-i0s8oqbjp6xqohydi8ai4eci">
+  <xsd:complexType name="mc-lbg7sju2aixha09l1096f51j">
     <xsd:annotation>
       <xsd:documentation>Adapter for: City</xsd:documentation>
     </xsd:annotation>
@@ -2393,7 +3168,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Incident Status (e83h36jqgi59dhy1dttp22qm) -->
-  <xsd:complexType name="mc-wuwrzhcqj9omz96comh5q4xl">
+  <xsd:complexType name="mc-ab56tt302ui9ewsigl0pw80r">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Incident Status</xsd:documentation>
     </xsd:annotation>
@@ -2406,7 +3181,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Province (kv5qqs3o4jwcwz9javgw1pzh) -->
-  <xsd:complexType name="mc-dftklc78nz0zam5of1okubn8">
+  <xsd:complexType name="mc-h0ufyg4jzc4yvgvbw2x16ldp">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Province</xsd:documentation>
     </xsd:annotation>
@@ -2419,7 +3194,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Incident Category Code (nc7aq6ofnccavkmczsb2dudy) -->
-  <xsd:complexType name="mc-segenmixvbvzqrdmtomkyh0y">
+  <xsd:complexType name="mc-u9rxp81ezrth1ilsa7i6cww3">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Incident Category Code</xsd:documentation>
     </xsd:annotation>
@@ -2432,7 +3207,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Incident Date (ohk2uwcomsz8wegfvz0v0yod) -->
-  <xsd:complexType name="mc-ajdp3q8jw5peqiuodykpw0tk">
+  <xsd:complexType name="mc-xjf5ojznmexiprt2cwffjq26">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Incident Date</xsd:documentation>
     </xsd:annotation>
@@ -2445,7 +3220,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Charge Description (eoqim4xj9gsxtxrqko1hh55o) -->
-  <xsd:complexType name="mc-b5soc6dekjmya7uz83z701fa">
+  <xsd:complexType name="mc-y52g0zkfkc9yzizkwp7e0tzy">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Charge Description</xsd:documentation>
     </xsd:annotation>
@@ -2458,7 +3233,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Charge Category (Cordova) (hc91pdnj3bb6997l5z4ndchz) -->
-  <xsd:complexType name="mc-e4yj6vnrj5ayng5otauwr6so">
+  <xsd:complexType name="mc-mkh55cwkx4z8lh42aonbjrmq">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Charge Category (Cordova)</xsd:documentation>
     </xsd:annotation>
@@ -2471,7 +3246,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Disposition (Cordova) (rnje7nq6m08vh01g8eg23say) -->
-  <xsd:complexType name="mc-ng6hvaf1otno7mz5blls4qfs">
+  <xsd:complexType name="mc-tbj6k87237iq4djjdkoxzole">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Disposition (Cordova)</xsd:documentation>
     </xsd:annotation>
@@ -2484,7 +3259,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Fine or Bail Amount (yahksk4xc5to981ows7bpp6z) -->
-  <xsd:complexType name="mc-r4gdeh4glsk08ryun163eypx">
+  <xsd:complexType name="mc-krnq0g73h78f8eoswv5iqawb">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Fine or Bail Amount</xsd:documentation>
     </xsd:annotation>
@@ -2497,7 +3272,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Disposition Date (qse1jwofk5lm2wnsrn3f06l0) -->
-  <xsd:complexType name="mc-krblpwogobrv713nczj9xeq9">
+  <xsd:complexType name="mc-nkkg2090cjcyi6dt0tlwzpf3">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Disposition Date</xsd:documentation>
     </xsd:annotation>
@@ -2510,7 +3285,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Charge Filing Date (l0esdclu01pg7qw429oe7kjk) -->
-  <xsd:complexType name="mc-q4e4b43wrcmp2j27uzxzypph">
+  <xsd:complexType name="mc-tspbolq6jstxs0jl697rxdsz">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Charge Filing Date</xsd:documentation>
     </xsd:annotation>
@@ -2523,7 +3298,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Issuing Authority (ixmedhicidzpi7g6g2huqzvv) -->
-  <xsd:complexType name="mc-s0h7z1f3iialia4o1rz2xkni">
+  <xsd:complexType name="mc-l6hy83bsdsyrt3qqpum5bvnw">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Issuing Authority</xsd:documentation>
     </xsd:annotation>
@@ -2536,7 +3311,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Quarantine Zone (r34gm210y9jifbyxa0fcxy96) -->
-  <xsd:complexType name="mc-uww7ry5lzdh4upf6xcebpj4p">
+  <xsd:complexType name="mc-ugy7o83u261932bv7p98jvxp">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Quarantine Zone</xsd:documentation>
     </xsd:annotation>
@@ -2549,7 +3324,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Compliance Status (ihoatduhb7fckjw0ezq5u7g1) -->
-  <xsd:complexType name="mc-vom57pue9a14j072h22cmf4t">
+  <xsd:complexType name="mc-ghdu9yo67u12s7grfazso7ps">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Compliance Status</xsd:documentation>
     </xsd:annotation>
@@ -2562,7 +3337,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Quarantine End Date (lohvu07ok3c3xvesa16htf2m) -->
-  <xsd:complexType name="mc-ti8di97drly1ivwjv62jl0sw">
+  <xsd:complexType name="mc-htpnzj9lnqj70hnq7f7uyzkw">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Quarantine End Date</xsd:documentation>
     </xsd:annotation>
@@ -2575,7 +3350,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Quarantine Start Date (vq30hd0dl6v59d3ttyyvg6rp) -->
-  <xsd:complexType name="mc-c3xl0avrvp7qsarvqtcncwhe">
+  <xsd:complexType name="mc-knruat8wd4yo1b0pyaavlswx">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Quarantine Start Date</xsd:documentation>
     </xsd:annotation>
@@ -2587,8 +3362,99 @@
         </xsd:sequence>
       </xsd:restriction>
     </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for activity_description (m9xg6e182m1oq77ssrf9iujv) -->
+  <xsd:complexType name="mc-ph2txq84cblscof873ona37z">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: activity_description</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-m9xg6e182m1oq77ssrf9iujv"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for prov_activity_type (ccj1yq2wtwknobszkgzzdbtr) -->
+  <xsd:complexType name="mc-ds15mxtm1b24zcvcvyjx54sx">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: prov_activity_type</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-ccj1yq2wtwknobszkgzzdbtr"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for system_identifier (bd3s8t23d6m3zizmpwavc32y) -->
+  <xsd:complexType name="mc-pvijfx27byf9yfd38zuk84cp">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: system_identifier</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-bd3s8t23d6m3zizmpwavc32y"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for system_location_identifier (zr59goe24qkocprl3feul3mt) -->
+  <xsd:complexType name="mc-k6edsbb19ldzb9usqza3zcb2">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: system_location_identifier</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-zr59goe24qkocprl3feul3mt"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for system_location_name (fnodzqkbyskwe7nh58rs336k) -->
+  <xsd:complexType name="mc-jphsfdruuz5smyq3sdd9zsoh">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: system_location_name</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-fnodzqkbyskwe7nh58rs336k"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for activity_timestamp_end (edvvjznmaoibzmfna0uuoo37) -->
+  <xsd:complexType name="mc-nvimxgx4gis7m5i1vpcms2yw">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: activity_timestamp_end</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-edvvjznmaoibzmfna0uuoo37"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for activity_timestamp_start (o72s5793973fzho35rnaughs) -->
+  <xsd:complexType name="mc-rugwhqyckw9eslbt8ohm0rhx">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: activity_timestamp_start</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-o72s5793973fzho35rnaughs"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for National ID (CID) (nj7s1gk45tfgyooxpz0qaha3) -->
-  <xsd:complexType name="mc-wklyzqie1sijgohzal0rimhi">
+  <xsd:complexType name="mc-jshd7lphj59re7tegwt64s7q">
     <xsd:annotation>
       <xsd:documentation>Adapter for: National ID (CID)</xsd:documentation>
     </xsd:annotation>
@@ -2601,7 +3467,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for agent_id (hhfnj5hd1yzt252jfq5pdjj1) -->
-  <xsd:complexType name="mc-kpbkkxqhrsrqw5y3w67xkphm">
+  <xsd:complexType name="mc-kz8jaq01qdj4jjgv8blcwa9y">
     <xsd:annotation>
       <xsd:documentation>Adapter for: agent_id</xsd:documentation>
     </xsd:annotation>
@@ -2614,7 +3480,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for person_family_name (zs9ciw4nypx4plo856h3m95d) -->
-  <xsd:complexType name="mc-k479qdjt9p5vk5dch1h8ra09">
+  <xsd:complexType name="mc-y0tkp15mpgjawf6buj80mwas">
     <xsd:annotation>
       <xsd:documentation>Adapter for: person_family_name</xsd:documentation>
     </xsd:annotation>
@@ -2627,7 +3493,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for person_given_name (ndvtjiq0cke0q1trw58rtrq2) -->
-  <xsd:complexType name="mc-e094iuh3qjajttzv59dhte6u">
+  <xsd:complexType name="mc-kumsksf9rnu0pa151f96vde0">
     <xsd:annotation>
       <xsd:documentation>Adapter for: person_given_name</xsd:documentation>
     </xsd:annotation>
@@ -2640,7 +3506,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Witness Statement (dsqo7rt3gooouv2sfaqhjl43) -->
-  <xsd:complexType name="mc-plzc3imu6i087c118lo1dkq6">
+  <xsd:complexType name="mc-jtp2g2ribevbkgsua1zc1h6v">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Witness Statement</xsd:documentation>
     </xsd:annotation>
@@ -2653,7 +3519,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Involvement Type (upepv8ko1sf0ty04me5hou46) -->
-  <xsd:complexType name="mc-s7gr3p4qex5jd3aildkigo0x">
+  <xsd:complexType name="mc-gm8gstv2vqvr01cns2d5s0ru">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Involvement Type</xsd:documentation>
     </xsd:annotation>
@@ -2666,7 +3532,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for PROV Agent Type (nesxtz8c5o665swc9lhvqkjj) -->
-  <xsd:complexType name="mc-wg4aop0it4dmnymhastxwli1">
+  <xsd:complexType name="mc-mwdjmhevzgvrgunsa17y44p5">
     <xsd:annotation>
       <xsd:documentation>Adapter for: PROV Agent Type</xsd:documentation>
     </xsd:annotation>
@@ -2679,7 +3545,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for PROV Role Type (u1i23yha2rvz5nbxjz3l8x48) -->
-  <xsd:complexType name="mc-i7z6crp4sxdb5exjs7de0dwy">
+  <xsd:complexType name="mc-azbz5q6hh7a9876gecd856of">
     <xsd:annotation>
       <xsd:documentation>Adapter for: PROV Role Type</xsd:documentation>
     </xsd:annotation>
@@ -2692,7 +3558,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for person_department (pqxnguwtjyyfaildgx3hi0bo) -->
-  <xsd:complexType name="mc-ozel2y0xfl82ze7woldfd8qf">
+  <xsd:complexType name="mc-igzw9cb3kjmgpjfmvlst03g2">
     <xsd:annotation>
       <xsd:documentation>Adapter for: person_department</xsd:documentation>
     </xsd:annotation>
@@ -2704,8 +3570,138 @@
         </xsd:sequence>
       </xsd:restriction>
     </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for contact_email (jtuheuri2wzfhctcjqv4ozmy) -->
+  <xsd:complexType name="mc-v73oogo6f2749py1i4ppbzlw">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: contact_email</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-jtuheuri2wzfhctcjqv4ozmy"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for contact_name (a127ihw8xbfbl24lbcvnspv0) -->
+  <xsd:complexType name="mc-gx906udcv4vww9xzvvfsv981">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: contact_name</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-a127ihw8xbfbl24lbcvnspv0"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for contact_phone (pdykwzsug7pfncjsrry73x1s) -->
+  <xsd:complexType name="mc-qd1frdaegyy7gu3kr72vxylm">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: contact_phone</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-pdykwzsug7pfncjsrry73x1s"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for service_account_id (rw1cjzeynsl87va6gvhv2k7e) -->
+  <xsd:complexType name="mc-llyta1qr8n4smnxsybcvgoq7">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: service_account_id</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-rw1cjzeynsl87va6gvhv2k7e"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for software_documentation_url (xvnv7mrhvfweajl72pmngeya) -->
+  <xsd:complexType name="mc-jjh3oflzy3kwv3b98gn5iua3">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: software_documentation_url</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-xvnv7mrhvfweajl72pmngeya"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for software_service_endpoint (px6j779dnapp4fjlohula4mh) -->
+  <xsd:complexType name="mc-var7p4ybsrh7hzgw5vqr6qg4">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: software_service_endpoint</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-px6j779dnapp4fjlohula4mh"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for software_name (rsjfjz8m5z7a58h5793duqbs) -->
+  <xsd:complexType name="mc-c6dbk6njs6y6oxpqz101z5f5">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: software_name</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-rsjfjz8m5z7a58h5793duqbs"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for software_runtime_environment (d839tf07spk43dmg0dqb939b) -->
+  <xsd:complexType name="mc-rpzob8zf8e3hvgayexcnuw90">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: software_runtime_environment</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-d839tf07spk43dmg0dqb939b"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for software_vendor (frdwjm7fxt6f5x4wx78pv7bc) -->
+  <xsd:complexType name="mc-eal2e9zota9x8chehsfbccmy">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: software_vendor</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-frdwjm7fxt6f5x4wx78pv7bc"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>  <!-- Adapter wrapper for software_version (tep9wanrrtqfw0k76huv6tvd) -->
+  <xsd:complexType name="mc-cbyywf3y18yq3h7w0qlp68bx">
+    <xsd:annotation>
+      <xsd:documentation>Adapter for: software_version</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:restriction base="sdc4:XdAdapterType">
+        <xsd:sequence>
+          <!-- Reference the individual Xd* type in the XdAdapter-value substitution group -->
+          <xsd:element maxOccurs="1" minOccurs="1" ref="sdc4:ms-tep9wanrrtqfw0k76huv6tvd"/>
+        </xsd:sequence>
+      </xsd:restriction>
+    </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Law Enforcement Attestation Reason (qrsl6qfgznm2kix8jdlpfwwg) -->
-  <xsd:complexType name="mc-twwe87i4qd91q7kmxcfheu0z">
+  <xsd:complexType name="mc-nwn3lz4ji15uwvdbscaqq7gj">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Law Enforcement Attestation Reason</xsd:documentation>
     </xsd:annotation>
@@ -2718,7 +3714,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Law Enforcement Records Protocol (rhu2opcioifbl83m7ph3rbhw) -->
-  <xsd:complexType name="mc-khwwfz8cosnogmejiyznx4qr">
+  <xsd:complexType name="mc-dt8cxev1i7p9viileo3mep3n">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Law Enforcement Records Protocol</xsd:documentation>
     </xsd:annotation>
@@ -2732,6 +3728,31 @@
     </xsd:complexContent>
   </xsd:complexType>
 <!-- Cluster Schemas -->
+<!-- Schema for component Law Enforcement Governed Record (kcam9lm7091vqtvb253ixjxr) -->
+
+<xsd:complexType name="mc-kcam9lm7091vqtvb253ixjxr" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-kcam9lm7091vqtvb253ixjxr">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+        <rdfs:label>Law Enforcement Governed Record</rdfs:label>
+        <skos:relatedMatch rdf:resource="https://www.wikidata.org/wiki/Q1399543"/>
+
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:ClusterType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Law Enforcement Governed Record"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-songhwxr1fp8niqba4fd0yd9"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-hdhjfg00tngir2txgqyka9cv"/>
+      </xsd:sequence>
+    </xsd:restriction>
+  </xsd:complexContent>
+</xsd:complexType>
+
 <!-- Schema for component Incident Report (songhwxr1fp8niqba4fd0yd9) -->
 
 <xsd:complexType name="mc-songhwxr1fp8niqba4fd0yd9" xml:lang="en-US">
@@ -2740,7 +3761,8 @@
       <rdf:Description rdf:about="sdc4:mc-songhwxr1fp8niqba4fd0yd9">
         <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
         <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
-        <rdfs:label>Incident Report</rdfs:label>        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q6014597"/>
+        <rdfs:label>Incident Report</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q6014597"/>
         <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
         <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
 
@@ -2751,8 +3773,16 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Incident Report"/>
-        <!-- Item: XdAdapter wrappers and nested Clusters are in the sdc4:Item substitution group -->
-        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Item"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-c3eoo0vfid9c8riruf7uoyz2"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-avmmc3r38dol0ghko42yeyp4"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-cqbe5vu1q08cgrdeswahys95"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ajfei3kj0catindcyw36miar"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-z7muvte1f61lsren66q6aesj"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-lbg7sju2aixha09l1096f51j"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ab56tt302ui9ewsigl0pw80r"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-h0ufyg4jzc4yvgvbw2x16ldp"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-u9rxp81ezrth1ilsa7i6cww3"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xjf5ojznmexiprt2cwffjq26"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -2766,7 +3796,8 @@
       <rdf:Description rdf:about="sdc4:mc-c3eoo0vfid9c8riruf7uoyz2">
         <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
         <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
-        <rdfs:label>Charge and Disposition</rdfs:label>        <rdfs:isDefinedBy rdf:resource="http://release.niem.gov/niem/niem-core/6.0/#Charge"/>
+        <rdfs:label>Charge and Disposition</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://release.niem.gov/niem/niem-core/6.0/#Charge"/>
         <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
         <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
 
@@ -2777,8 +3808,12 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Charge and Disposition"/>
-        <!-- Item: XdAdapter wrappers and nested Clusters are in the sdc4:Item substitution group -->
-        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Item"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-y52g0zkfkc9yzizkwp7e0tzy"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-mkh55cwkx4z8lh42aonbjrmq"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-tbj6k87237iq4djjdkoxzole"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-krnq0g73h78f8eoswv5iqawb"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-nkkg2090cjcyi6dt0tlwzpf3"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-tspbolq6jstxs0jl697rxdsz"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -2792,7 +3827,8 @@
       <rdf:Description rdf:about="sdc4:mc-avmmc3r38dol0ghko42yeyp4">
         <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
         <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
-        <rdfs:label>Quarantine Enforcement</rdfs:label>        <rdfs:isDefinedBy rdf:resource="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"/>
+        <rdfs:label>Quarantine Enforcement</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q186588"/>
         <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
 
@@ -2803,8 +3839,41 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Quarantine Enforcement"/>
-        <!-- Item: XdAdapter wrappers and nested Clusters are in the sdc4:Item substitution group -->
-        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Item"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-l6hy83bsdsyrt3qqpum5bvnw"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ugy7o83u261932bv7p98jvxp"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ghdu9yo67u12s7grfazso7ps"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-htpnzj9lnqj70hnq7f7uyzkw"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-knruat8wd4yo1b0pyaavlswx"/>
+      </xsd:sequence>
+    </xsd:restriction>
+  </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component Provenance Components (hdhjfg00tngir2txgqyka9cv) -->
+
+<xsd:complexType name="mc-hdhjfg00tngir2txgqyka9cv" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-hdhjfg00tngir2txgqyka9cv">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+        <rdfs:label>Provenance Components</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1172162"/>
+
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:ClusterType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Provenance Components"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ph2txq84cblscof873ona37z"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ds15mxtm1b24zcvcvyjx54sx"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-pvijfx27byf9yfd38zuk84cp"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-k6edsbb19ldzb9usqza3zcb2"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-jphsfdruuz5smyq3sdd9zsoh"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-nvimxgx4gis7m5i1vpcms2yw"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-rugwhqyckw9eslbt8ohm0rhx"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -2818,7 +3887,8 @@
       <rdf:Description rdf:about="sdc4:mc-k5mkvc34kuo9ln5fvzvrhcj3">
         <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
         <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
-        <rdfs:label>Law Enforcement Involved Person</rdfs:label>        <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:label>Law Enforcement Involved Person</rdfs:label>
+        <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
         <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
@@ -2831,8 +3901,14 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Law Enforcement Involved Person"/>
-        <!-- Item: XdAdapter wrappers and nested Clusters are in the sdc4:Item substitution group -->
-        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Item"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-jshd7lphj59re7tegwt64s7q"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-kz8jaq01qdj4jjgv8blcwa9y"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-y0tkp15mpgjawf6buj80mwas"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-kumsksf9rnu0pa151f96vde0"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-jtp2g2ribevbkgsua1zc1h6v"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-gm8gstv2vqvr01cns2d5s0ru"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-mwdjmhevzgvrgunsa17y44p5"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-azbz5q6hh7a9876gecd856of"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -2846,7 +3922,8 @@
       <rdf:Description rdf:about="sdc4:mc-y8yh47jf1ewpq1r6q6gnkjjh">
         <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
         <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
-        <rdfs:label>Law Enforcement Reporting Officer</rdfs:label>        <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:label>Law Enforcement Reporting Officer</rdfs:label>
+        <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <skos:exactMatch rdf:resource="https://www.wikidata.org/wiki/Q6503343"/>
         <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
@@ -2859,8 +3936,70 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Law Enforcement Reporting Officer"/>
-        <!-- Item: XdAdapter wrappers and nested Clusters are in the sdc4:Item substitution group -->
-        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Item"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-kz8jaq01qdj4jjgv8blcwa9y"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-igzw9cb3kjmgpjfmvlst03g2"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-y0tkp15mpgjawf6buj80mwas"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-kumsksf9rnu0pa151f96vde0"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-mwdjmhevzgvrgunsa17y44p5"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-azbz5q6hh7a9876gecd856of"/>
+      </xsd:sequence>
+    </xsd:restriction>
+  </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component Contact and Access (w06vxo6uxtrzjkimmafmue7g) -->
+
+<xsd:complexType name="mc-w06vxo6uxtrzjkimmafmue7g" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-w06vxo6uxtrzjkimmafmue7g">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+        <rdfs:label>Contact and Access</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2996679"/>
+        <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
+
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:ClusterType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Contact and Access"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-v73oogo6f2749py1i4ppbzlw"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-gx906udcv4vww9xzvvfsv981"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-qd1frdaegyy7gu3kr72vxylm"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-llyta1qr8n4smnxsybcvgoq7"/>
+      </xsd:sequence>
+    </xsd:restriction>
+  </xsd:complexContent>
+</xsd:complexType>
+
+<!-- Schema for component Software Agent Details (km4azswrxe9tdrjmqvun5463) -->
+
+<xsd:complexType name="mc-km4azswrxe9tdrjmqvun5463" xml:lang="en-US">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <rdf:Description rdf:about="sdc4:mc-km4azswrxe9tdrjmqvun5463">
+        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+        <rdfs:label>Software Agent Details</rdfs:label>
+        <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2297769"/>
+
+      </rdf:Description>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexContent>
+    <xsd:restriction base="sdc4:ClusterType">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Software Agent Details"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-jjh3oflzy3kwv3b98gn5iua3"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-var7p4ybsrh7hzgw5vqr6qg4"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-c6dbk6njs6y6oxpqz101z5f5"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-rpzob8zf8e3hvgayexcnuw90"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-eal2e9zota9x8chehsfbccmy"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-cbyywf3y18yq3h7w0qlp68bx"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -2874,7 +4013,8 @@
       <rdf:Description rdf:about="sdc4:mc-axzq49patk0yxj2ib8uzs4p1">
         <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
         <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
-        <rdfs:label>Law Enforcement Workflow</rdfs:label>        <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q6503343"/>
+        <rdfs:label>Law Enforcement Workflow</rdfs:label>
+        <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q6503343"/>
         <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
@@ -2887,87 +4027,127 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Law Enforcement Workflow"/>
-        <!-- Item: XdAdapter wrappers and nested Clusters are in the sdc4:Item substitution group -->
-        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdc4:Item"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-nwn3lz4ji15uwvdbscaqq7gj"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-dt8cxev1i7p9viileo3mep3n"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
 </xsd:complexType>
 
 <!-- Substitution Groups -->
-  <xsd:element name="ms-eoqim4xj9gsxtxrqko1hh55o" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-eoqim4xj9gsxtxrqko1hh55o"/>
-  <xsd:element name="ms-m2lj6lu22oez88prwrdgmnc2" substitutionGroup="sdc4:Party" type="sdc4:mc-m2lj6lu22oez88prwrdgmnc2"/>
-  <xsd:element name="ms-k5mkvc34kuo9ln5fvzvrhcj3" substitutionGroup="sdc4:Item" type="sdc4:mc-k5mkvc34kuo9ln5fvzvrhcj3"/>
-  <xsd:element name="ms-rguhpkd7s2d9a51392aon7ir" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rguhpkd7s2d9a51392aon7ir"/>
+  <xsd:element name="ms-kv5qqs3o4jwcwz9javgw1pzh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+  <xsd:element name="ms-xvnv7mrhvfweajl72pmngeya" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-xvnv7mrhvfweajl72pmngeya"/>
+  <xsd:element name="ms-hdhjfg00tngir2txgqyka9cv" substitutionGroup="sdc4:Item" type="sdc4:mc-hdhjfg00tngir2txgqyka9cv"/>
+  <xsd:element name="ms-frdwjm7fxt6f5x4wx78pv7bc" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc"/>
+  <xsd:element name="ms-ixmedhicidzpi7g6g2huqzvv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ixmedhicidzpi7g6g2huqzvv"/>
+  <xsd:element name="ms-vq30hd0dl6v59d3ttyyvg6rp" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-vq30hd0dl6v59d3ttyyvg6rp"/>
+  <xsd:element name="ms-i8g57yrmdthdj1k5tcmj3ecx" substitutionGroup="sdc4:Attestation" type="sdc4:mc-i8g57yrmdthdj1k5tcmj3ecx"/>
   <xsd:element name="ms-c3eoo0vfid9c8riruf7uoyz2" substitutionGroup="sdc4:Item" type="sdc4:mc-c3eoo0vfid9c8riruf7uoyz2"/>
-  <xsd:element name="ms-zs9ciw4nypx4plo856h3m95d" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zs9ciw4nypx4plo856h3m95d"/>
+  <xsd:element name="ms-rnje7nq6m08vh01g8eg23say" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rnje7nq6m08vh01g8eg23say"/>
+  <xsd:element name="ms-upepv8ko1sf0ty04me5hou46" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-upepv8ko1sf0ty04me5hou46"/>
+  <xsd:element name="ms-u18l77xlj2omcbmnpi5j7fff" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-u18l77xlj2omcbmnpi5j7fff"/>
+  <xsd:element name="ms-ohk2uwcomsz8wegfvz0v0yod" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ohk2uwcomsz8wegfvz0v0yod"/>
+  <xsd:element name="ms-eoqim4xj9gsxtxrqko1hh55o" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-eoqim4xj9gsxtxrqko1hh55o"/>
+  <xsd:element name="ms-rsjfjz8m5z7a58h5793duqbs" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rsjfjz8m5z7a58h5793duqbs"/>
+  <xsd:element name="ms-km4azswrxe9tdrjmqvun5463" substitutionGroup="sdc4:Item" type="sdc4:mc-km4azswrxe9tdrjmqvun5463"/>
+  <xsd:element name="ms-d839tf07spk43dmg0dqb939b" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-d839tf07spk43dmg0dqb939b"/>
+  <xsd:element name="ms-tep9wanrrtqfw0k76huv6tvd" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tep9wanrrtqfw0k76huv6tvd"/>
+  <xsd:element name="ms-w06vxo6uxtrzjkimmafmue7g" substitutionGroup="sdc4:Item" type="sdc4:mc-w06vxo6uxtrzjkimmafmue7g"/>
+  <xsd:element name="ms-zr59goe24qkocprl3feul3mt" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zr59goe24qkocprl3feul3mt"/>
+  <xsd:element name="ms-k5mkvc34kuo9ln5fvzvrhcj3" substitutionGroup="sdc4:Item" type="sdc4:mc-k5mkvc34kuo9ln5fvzvrhcj3"/>
+  <xsd:element name="ms-m2lj6lu22oez88prwrdgmnc2" substitutionGroup="sdc4:Party" type="sdc4:mc-m2lj6lu22oez88prwrdgmnc2"/>
+  <xsd:element name="ms-nesxtz8c5o665swc9lhvqkjj" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nesxtz8c5o665swc9lhvqkjj"/>
+  <xsd:element name="ms-a127ihw8xbfbl24lbcvnspv0" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-a127ihw8xbfbl24lbcvnspv0"/>
+  <xsd:element name="ms-gug5dhtqfv7exbgmm2raxpkq" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
+  <xsd:element name="ms-nc7aq6ofnccavkmczsb2dudy" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nc7aq6ofnccavkmczsb2dudy"/>
+  <xsd:element name="ms-edvvjznmaoibzmfna0uuoo37" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-edvvjznmaoibzmfna0uuoo37"/>
+  <xsd:element name="ms-vitwhq5xsptnokmfq11b1jos" substitutionGroup="sdc4:Party" type="sdc4:mc-vitwhq5xsptnokmfq11b1jos"/>
+  <xsd:element name="ms-atdtdfzruh7tya0iv5cz365l" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-atdtdfzruh7tya0iv5cz365l"/>
   <xsd:element name="ms-lohvu07ok3c3xvesa16htf2m" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-lohvu07ok3c3xvesa16htf2m"/>
   <xsd:element name="ms-pqxnguwtjyyfaildgx3hi0bo" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-pqxnguwtjyyfaildgx3hi0bo"/>
-  <xsd:element name="ms-7i4jw2wkw7om94135c1bq03h" substitutionGroup="sdc4:Party" type="sdc4:mc-7i4jw2wkw7om94135c1bq03h"/>
-  <xsd:element name="ms-ihoatduhb7fckjw0ezq5u7g1" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ihoatduhb7fckjw0ezq5u7g1"/>
-  <xsd:element name="ms-hc91pdnj3bb6997l5z4ndchz" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-hc91pdnj3bb6997l5z4ndchz"/>
-  <xsd:element name="ms-bkuhivi6ot6nxll6vam7yobp" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bkuhivi6ot6nxll6vam7yobp"/>
-  <xsd:element name="ms-qrsl6qfgznm2kix8jdlpfwwg" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-qrsl6qfgznm2kix8jdlpfwwg"/>
-  <xsd:element name="ms-b6nahtg2we4rh5qsk2j7qfvz" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-b6nahtg2we4rh5qsk2j7qfvz"/>
-  <xsd:element name="ms-ndvtjiq0cke0q1trw58rtrq2" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"/>
-  <xsd:element name="ms-u18l77xlj2omcbmnpi5j7fff" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-u18l77xlj2omcbmnpi5j7fff"/>
-  <xsd:element name="ms-r34gm210y9jifbyxa0fcxy96" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-r34gm210y9jifbyxa0fcxy96"/>
-  <xsd:element name="ms-nj7s1gk45tfgyooxpz0qaha3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"/>
-  <xsd:element name="ms-rnje7nq6m08vh01g8eg23say" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rnje7nq6m08vh01g8eg23say"/>
-  <xsd:element name="ms-ixmedhicidzpi7g6g2huqzvv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ixmedhicidzpi7g6g2huqzvv"/>
-  <xsd:element name="ms-dsqo7rt3gooouv2sfaqhjl43" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-dsqo7rt3gooouv2sfaqhjl43"/>
-  <xsd:element name="ms-gug5dhtqfv7exbgmm2raxpkq" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
-  <xsd:element name="ms-ohk2uwcomsz8wegfvz0v0yod" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ohk2uwcomsz8wegfvz0v0yod"/>
-  <xsd:element name="ms-u1i23yha2rvz5nbxjz3l8x48" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-u1i23yha2rvz5nbxjz3l8x48"/>
-  <xsd:element name="ms-l0esdclu01pg7qw429oe7kjk" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-l0esdclu01pg7qw429oe7kjk"/>
-  <xsd:element name="ms-hhfnj5hd1yzt252jfq5pdjj1" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"/>
-  <xsd:element name="ms-yahksk4xc5to981ows7bpp6z" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-yahksk4xc5to981ows7bpp6z"/>
-  <xsd:element name="ms-nc7aq6ofnccavkmczsb2dudy" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nc7aq6ofnccavkmczsb2dudy"/>
-  <xsd:element name="ms-songhwxr1fp8niqba4fd0yd9" substitutionGroup="sdc4:Item" type="sdc4:mc-songhwxr1fp8niqba4fd0yd9"/>
-  <xsd:element name="ms-y8yh47jf1ewpq1r6q6gnkjjh" substitutionGroup="sdc4:Item" type="sdc4:mc-y8yh47jf1ewpq1r6q6gnkjjh"/>
-  <xsd:element name="ms-rhu2opcioifbl83m7ph3rbhw" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rhu2opcioifbl83m7ph3rbhw"/>
-  <xsd:element name="ms-gr4c7suzjf87x7svli8oiqi6" substitutionGroup="sdc4:ReferenceRange" type="sdc4:mc-gr4c7suzjf87x7svli8oiqi6-rr"/>
-  <xsd:element name="ms-axzq49patk0yxj2ib8uzs4p1" substitutionGroup="sdc4:Item" type="sdc4:mc-axzq49patk0yxj2ib8uzs4p1"/>
-  <xsd:element name="ms-qse1jwofk5lm2wnsrn3f06l0" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-qse1jwofk5lm2wnsrn3f06l0"/>
-  <xsd:element name="ms-avmmc3r38dol0ghko42yeyp4" substitutionGroup="sdc4:Item" type="sdc4:mc-avmmc3r38dol0ghko42yeyp4"/>
-  <xsd:element name="ms-atdtdfzruh7tya0iv5cz365l" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-atdtdfzruh7tya0iv5cz365l"/>
-  <xsd:element name="ms-nesxtz8c5o665swc9lhvqkjj" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nesxtz8c5o665swc9lhvqkjj"/>
-  <xsd:element name="ms-i8g57yrmdthdj1k5tcmj3ecx" substitutionGroup="sdc4:Attestation" type="sdc4:mc-i8g57yrmdthdj1k5tcmj3ecx"/>
-  <xsd:element name="ms-e83h36jqgi59dhy1dttp22qm" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-e83h36jqgi59dhy1dttp22qm"/>
+  <xsd:element name="ms-rw1cjzeynsl87va6gvhv2k7e" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rw1cjzeynsl87va6gvhv2k7e"/>
+  <xsd:element name="ms-fnodzqkbyskwe7nh58rs336k" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-fnodzqkbyskwe7nh58rs336k"/>
   <xsd:element name="ms-hhbwj5k5rxticrbzwhp1lnjt" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-hhbwj5k5rxticrbzwhp1lnjt"/>
-  <xsd:element name="ms-vq30hd0dl6v59d3ttyyvg6rp" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-vq30hd0dl6v59d3ttyyvg6rp"/>
-  <xsd:element name="ms-kv5qqs3o4jwcwz9javgw1pzh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+  <xsd:element name="ms-nj7s1gk45tfgyooxpz0qaha3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"/>
+  <xsd:element name="ms-ccj1yq2wtwknobszkgzzdbtr" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ccj1yq2wtwknobszkgzzdbtr"/>
+  <xsd:element name="ms-ihoatduhb7fckjw0ezq5u7g1" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ihoatduhb7fckjw0ezq5u7g1"/>
+  <xsd:element name="ms-bd3s8t23d6m3zizmpwavc32y" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bd3s8t23d6m3zizmpwavc32y"/>
   <xsd:element name="ms-yi2189u4pinqitlmm5t6ccrd" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-yi2189u4pinqitlmm5t6ccrd"/>
-  <xsd:element name="ms-upepv8ko1sf0ty04me5hou46" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-upepv8ko1sf0ty04me5hou46"/>
-  <xsd:element name="ms-b5soc6dekjmya7uz83z701fa" substitutionGroup="sdc4:Item" type="sdc4:mc-b5soc6dekjmya7uz83z701fa"/>
-  <xsd:element name="ms-pjqpd15ajj1ax0f1e0lfqu63" substitutionGroup="sdc4:Item" type="sdc4:mc-pjqpd15ajj1ax0f1e0lfqu63"/>
-  <xsd:element name="ms-k479qdjt9p5vk5dch1h8ra09" substitutionGroup="sdc4:Item" type="sdc4:mc-k479qdjt9p5vk5dch1h8ra09"/>
-  <xsd:element name="ms-ti8di97drly1ivwjv62jl0sw" substitutionGroup="sdc4:Item" type="sdc4:mc-ti8di97drly1ivwjv62jl0sw"/>
-  <xsd:element name="ms-ozel2y0xfl82ze7woldfd8qf" substitutionGroup="sdc4:Item" type="sdc4:mc-ozel2y0xfl82ze7woldfd8qf"/>
-  <xsd:element name="ms-vom57pue9a14j072h22cmf4t" substitutionGroup="sdc4:Item" type="sdc4:mc-vom57pue9a14j072h22cmf4t"/>
-  <xsd:element name="ms-e4yj6vnrj5ayng5otauwr6so" substitutionGroup="sdc4:Item" type="sdc4:mc-e4yj6vnrj5ayng5otauwr6so"/>
-  <xsd:element name="ms-twwe87i4qd91q7kmxcfheu0z" substitutionGroup="sdc4:Item" type="sdc4:mc-twwe87i4qd91q7kmxcfheu0z"/>
-  <xsd:element name="ms-t74qjqgzsm7ieijc3uc2nobv" substitutionGroup="sdc4:Item" type="sdc4:mc-t74qjqgzsm7ieijc3uc2nobv"/>
-  <xsd:element name="ms-e094iuh3qjajttzv59dhte6u" substitutionGroup="sdc4:Item" type="sdc4:mc-e094iuh3qjajttzv59dhte6u"/>
-  <xsd:element name="ms-wklyzqie1sijgohzal0rimhi" substitutionGroup="sdc4:Item" type="sdc4:mc-wklyzqie1sijgohzal0rimhi"/>
-  <xsd:element name="ms-uww7ry5lzdh4upf6xcebpj4p" substitutionGroup="sdc4:Item" type="sdc4:mc-uww7ry5lzdh4upf6xcebpj4p"/>
-  <xsd:element name="ms-ng6hvaf1otno7mz5blls4qfs" substitutionGroup="sdc4:Item" type="sdc4:mc-ng6hvaf1otno7mz5blls4qfs"/>
-  <xsd:element name="ms-s0h7z1f3iialia4o1rz2xkni" substitutionGroup="sdc4:Item" type="sdc4:mc-s0h7z1f3iialia4o1rz2xkni"/>
-  <xsd:element name="ms-plzc3imu6i087c118lo1dkq6" substitutionGroup="sdc4:Item" type="sdc4:mc-plzc3imu6i087c118lo1dkq6"/>
-  <xsd:element name="ms-ajdp3q8jw5peqiuodykpw0tk" substitutionGroup="sdc4:Item" type="sdc4:mc-ajdp3q8jw5peqiuodykpw0tk"/>
-  <xsd:element name="ms-i7z6crp4sxdb5exjs7de0dwy" substitutionGroup="sdc4:Item" type="sdc4:mc-i7z6crp4sxdb5exjs7de0dwy"/>
-  <xsd:element name="ms-q4e4b43wrcmp2j27uzxzypph" substitutionGroup="sdc4:Item" type="sdc4:mc-q4e4b43wrcmp2j27uzxzypph"/>
-  <xsd:element name="ms-kpbkkxqhrsrqw5y3w67xkphm" substitutionGroup="sdc4:Item" type="sdc4:mc-kpbkkxqhrsrqw5y3w67xkphm"/>
-  <xsd:element name="ms-r4gdeh4glsk08ryun163eypx" substitutionGroup="sdc4:Item" type="sdc4:mc-r4gdeh4glsk08ryun163eypx"/>
-  <xsd:element name="ms-segenmixvbvzqrdmtomkyh0y" substitutionGroup="sdc4:Item" type="sdc4:mc-segenmixvbvzqrdmtomkyh0y"/>
-  <xsd:element name="ms-khwwfz8cosnogmejiyznx4qr" substitutionGroup="sdc4:Item" type="sdc4:mc-khwwfz8cosnogmejiyznx4qr"/>
-  <xsd:element name="ms-krblpwogobrv713nczj9xeq9" substitutionGroup="sdc4:Item" type="sdc4:mc-krblpwogobrv713nczj9xeq9"/>
-  <xsd:element name="ms-i0s8oqbjp6xqohydi8ai4eci" substitutionGroup="sdc4:Item" type="sdc4:mc-i0s8oqbjp6xqohydi8ai4eci"/>
-  <xsd:element name="ms-wg4aop0it4dmnymhastxwli1" substitutionGroup="sdc4:Item" type="sdc4:mc-wg4aop0it4dmnymhastxwli1"/>
-  <xsd:element name="ms-wuwrzhcqj9omz96comh5q4xl" substitutionGroup="sdc4:Item" type="sdc4:mc-wuwrzhcqj9omz96comh5q4xl"/>
-  <xsd:element name="ms-c3xl0avrvp7qsarvqtcncwhe" substitutionGroup="sdc4:Item" type="sdc4:mc-c3xl0avrvp7qsarvqtcncwhe"/>
-  <xsd:element name="ms-dftklc78nz0zam5of1okubn8" substitutionGroup="sdc4:Item" type="sdc4:mc-dftklc78nz0zam5of1okubn8"/>
-  <xsd:element name="ms-chethzdz7hskd3o2xw62c1er" substitutionGroup="sdc4:Item" type="sdc4:mc-chethzdz7hskd3o2xw62c1er"/>
-  <xsd:element name="ms-s7gr3p4qex5jd3aildkigo0x" substitutionGroup="sdc4:Item" type="sdc4:mc-s7gr3p4qex5jd3aildkigo0x"/>
+  <xsd:element name="ms-hhfnj5hd1yzt252jfq5pdjj1" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"/>
+  <xsd:element name="ms-ndvtjiq0cke0q1trw58rtrq2" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"/>
+  <xsd:element name="ms-bkuhivi6ot6nxll6vam7yobp" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bkuhivi6ot6nxll6vam7yobp"/>
+  <xsd:element name="ms-r34gm210y9jifbyxa0fcxy96" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-r34gm210y9jifbyxa0fcxy96"/>
+  <xsd:element name="ms-avmmc3r38dol0ghko42yeyp4" substitutionGroup="sdc4:Item" type="sdc4:mc-avmmc3r38dol0ghko42yeyp4"/>
+  <xsd:element name="ms-o72s5793973fzho35rnaughs" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-o72s5793973fzho35rnaughs"/>
+  <xsd:element name="ms-u1i23yha2rvz5nbxjz3l8x48" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-u1i23yha2rvz5nbxjz3l8x48"/>
+  <xsd:element name="ms-hc91pdnj3bb6997l5z4ndchz" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-hc91pdnj3bb6997l5z4ndchz"/>
+  <xsd:element name="ms-b6nahtg2we4rh5qsk2j7qfvz" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-b6nahtg2we4rh5qsk2j7qfvz"/>
+  <xsd:element name="ms-e83h36jqgi59dhy1dttp22qm" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-e83h36jqgi59dhy1dttp22qm"/>
+  <xsd:element name="ms-m9xg6e182m1oq77ssrf9iujv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-m9xg6e182m1oq77ssrf9iujv"/>
+  <xsd:element name="ms-rhu2opcioifbl83m7ph3rbhw" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rhu2opcioifbl83m7ph3rbhw"/>
+  <xsd:element name="ms-kcam9lm7091vqtvb253ixjxr" substitutionGroup="sdc4:Item" type="sdc4:mc-kcam9lm7091vqtvb253ixjxr"/>
+  <xsd:element name="ms-yahksk4xc5to981ows7bpp6z" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-yahksk4xc5to981ows7bpp6z"/>
+  <xsd:element name="ms-rguhpkd7s2d9a51392aon7ir" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rguhpkd7s2d9a51392aon7ir"/>
+  <xsd:element name="ms-7i4jw2wkw7om94135c1bq03h" substitutionGroup="sdc4:Party" type="sdc4:mc-7i4jw2wkw7om94135c1bq03h"/>
+  <xsd:element name="ms-qse1jwofk5lm2wnsrn3f06l0" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-qse1jwofk5lm2wnsrn3f06l0"/>
+  <xsd:element name="ms-jtuheuri2wzfhctcjqv4ozmy" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-jtuheuri2wzfhctcjqv4ozmy"/>
+  <xsd:element name="ms-px6j779dnapp4fjlohula4mh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-px6j779dnapp4fjlohula4mh"/>
+  <xsd:element name="ms-axzq49patk0yxj2ib8uzs4p1" substitutionGroup="sdc4:Item" type="sdc4:mc-axzq49patk0yxj2ib8uzs4p1"/>
+  <xsd:element name="ms-y8yh47jf1ewpq1r6q6gnkjjh" substitutionGroup="sdc4:Item" type="sdc4:mc-y8yh47jf1ewpq1r6q6gnkjjh"/>
+  <xsd:element name="ms-l0esdclu01pg7qw429oe7kjk" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-l0esdclu01pg7qw429oe7kjk"/>
+  <xsd:element name="ms-zs9ciw4nypx4plo856h3m95d" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zs9ciw4nypx4plo856h3m95d"/>
+  <xsd:element name="ms-fotc5adg15ek2b9ermx2mcih" substitutionGroup="sdc4:Audit" type="sdc4:mc-fotc5adg15ek2b9ermx2mcih"/>
+  <xsd:element name="ms-pdykwzsug7pfncjsrry73x1s" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-pdykwzsug7pfncjsrry73x1s"/>
+  <xsd:element name="ms-songhwxr1fp8niqba4fd0yd9" substitutionGroup="sdc4:Item" type="sdc4:mc-songhwxr1fp8niqba4fd0yd9"/>
+  <xsd:element name="ms-dsqo7rt3gooouv2sfaqhjl43" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-dsqo7rt3gooouv2sfaqhjl43"/>
+  <xsd:element name="ms-qrsl6qfgznm2kix8jdlpfwwg" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-qrsl6qfgznm2kix8jdlpfwwg"/>
+  <xsd:element name="ms-gr4c7suzjf87x7svli8oiqi6" substitutionGroup="sdc4:ReferenceRange" type="sdc4:mc-gr4c7suzjf87x7svli8oiqi6-rr"/>
+  <xsd:element name="ms-h0ufyg4jzc4yvgvbw2x16ldp" substitutionGroup="sdc4:Item" type="sdc4:mc-h0ufyg4jzc4yvgvbw2x16ldp"/>
+  <xsd:element name="ms-jjh3oflzy3kwv3b98gn5iua3" substitutionGroup="sdc4:Item" type="sdc4:mc-jjh3oflzy3kwv3b98gn5iua3"/>
+  <xsd:element name="ms-eal2e9zota9x8chehsfbccmy" substitutionGroup="sdc4:Item" type="sdc4:mc-eal2e9zota9x8chehsfbccmy"/>
+  <xsd:element name="ms-l6hy83bsdsyrt3qqpum5bvnw" substitutionGroup="sdc4:Item" type="sdc4:mc-l6hy83bsdsyrt3qqpum5bvnw"/>
+  <xsd:element name="ms-knruat8wd4yo1b0pyaavlswx" substitutionGroup="sdc4:Item" type="sdc4:mc-knruat8wd4yo1b0pyaavlswx"/>
+  <xsd:element name="ms-tbj6k87237iq4djjdkoxzole" substitutionGroup="sdc4:Item" type="sdc4:mc-tbj6k87237iq4djjdkoxzole"/>
+  <xsd:element name="ms-gm8gstv2vqvr01cns2d5s0ru" substitutionGroup="sdc4:Item" type="sdc4:mc-gm8gstv2vqvr01cns2d5s0ru"/>
+  <xsd:element name="ms-xjf5ojznmexiprt2cwffjq26" substitutionGroup="sdc4:Item" type="sdc4:mc-xjf5ojznmexiprt2cwffjq26"/>
+  <xsd:element name="ms-y52g0zkfkc9yzizkwp7e0tzy" substitutionGroup="sdc4:Item" type="sdc4:mc-y52g0zkfkc9yzizkwp7e0tzy"/>
+  <xsd:element name="ms-c6dbk6njs6y6oxpqz101z5f5" substitutionGroup="sdc4:Item" type="sdc4:mc-c6dbk6njs6y6oxpqz101z5f5"/>
+  <xsd:element name="ms-rpzob8zf8e3hvgayexcnuw90" substitutionGroup="sdc4:Item" type="sdc4:mc-rpzob8zf8e3hvgayexcnuw90"/>
+  <xsd:element name="ms-cbyywf3y18yq3h7w0qlp68bx" substitutionGroup="sdc4:Item" type="sdc4:mc-cbyywf3y18yq3h7w0qlp68bx"/>
+  <xsd:element name="ms-k6edsbb19ldzb9usqza3zcb2" substitutionGroup="sdc4:Item" type="sdc4:mc-k6edsbb19ldzb9usqza3zcb2"/>
+  <xsd:element name="ms-mwdjmhevzgvrgunsa17y44p5" substitutionGroup="sdc4:Item" type="sdc4:mc-mwdjmhevzgvrgunsa17y44p5"/>
+  <xsd:element name="ms-gx906udcv4vww9xzvvfsv981" substitutionGroup="sdc4:Item" type="sdc4:mc-gx906udcv4vww9xzvvfsv981"/>
+  <xsd:element name="ms-u9rxp81ezrth1ilsa7i6cww3" substitutionGroup="sdc4:Item" type="sdc4:mc-u9rxp81ezrth1ilsa7i6cww3"/>
+  <xsd:element name="ms-nvimxgx4gis7m5i1vpcms2yw" substitutionGroup="sdc4:Item" type="sdc4:mc-nvimxgx4gis7m5i1vpcms2yw"/>
+  <xsd:element name="ms-lbg7sju2aixha09l1096f51j" substitutionGroup="sdc4:Item" type="sdc4:mc-lbg7sju2aixha09l1096f51j"/>
+  <xsd:element name="ms-htpnzj9lnqj70hnq7f7uyzkw" substitutionGroup="sdc4:Item" type="sdc4:mc-htpnzj9lnqj70hnq7f7uyzkw"/>
+  <xsd:element name="ms-igzw9cb3kjmgpjfmvlst03g2" substitutionGroup="sdc4:Item" type="sdc4:mc-igzw9cb3kjmgpjfmvlst03g2"/>
+  <xsd:element name="ms-llyta1qr8n4smnxsybcvgoq7" substitutionGroup="sdc4:Item" type="sdc4:mc-llyta1qr8n4smnxsybcvgoq7"/>
+  <xsd:element name="ms-jphsfdruuz5smyq3sdd9zsoh" substitutionGroup="sdc4:Item" type="sdc4:mc-jphsfdruuz5smyq3sdd9zsoh"/>
+  <xsd:element name="ms-jshd7lphj59re7tegwt64s7q" substitutionGroup="sdc4:Item" type="sdc4:mc-jshd7lphj59re7tegwt64s7q"/>
+  <xsd:element name="ms-ds15mxtm1b24zcvcvyjx54sx" substitutionGroup="sdc4:Item" type="sdc4:mc-ds15mxtm1b24zcvcvyjx54sx"/>
+  <xsd:element name="ms-ghdu9yo67u12s7grfazso7ps" substitutionGroup="sdc4:Item" type="sdc4:mc-ghdu9yo67u12s7grfazso7ps"/>
+  <xsd:element name="ms-pvijfx27byf9yfd38zuk84cp" substitutionGroup="sdc4:Item" type="sdc4:mc-pvijfx27byf9yfd38zuk84cp"/>
+  <xsd:element name="ms-cqbe5vu1q08cgrdeswahys95" substitutionGroup="sdc4:Item" type="sdc4:mc-cqbe5vu1q08cgrdeswahys95"/>
+  <xsd:element name="ms-kz8jaq01qdj4jjgv8blcwa9y" substitutionGroup="sdc4:Item" type="sdc4:mc-kz8jaq01qdj4jjgv8blcwa9y"/>
+  <xsd:element name="ms-kumsksf9rnu0pa151f96vde0" substitutionGroup="sdc4:Item" type="sdc4:mc-kumsksf9rnu0pa151f96vde0"/>
+  <xsd:element name="ms-ugy7o83u261932bv7p98jvxp" substitutionGroup="sdc4:Item" type="sdc4:mc-ugy7o83u261932bv7p98jvxp"/>
+  <xsd:element name="ms-rugwhqyckw9eslbt8ohm0rhx" substitutionGroup="sdc4:Item" type="sdc4:mc-rugwhqyckw9eslbt8ohm0rhx"/>
+  <xsd:element name="ms-azbz5q6hh7a9876gecd856of" substitutionGroup="sdc4:Item" type="sdc4:mc-azbz5q6hh7a9876gecd856of"/>
+  <xsd:element name="ms-mkh55cwkx4z8lh42aonbjrmq" substitutionGroup="sdc4:Item" type="sdc4:mc-mkh55cwkx4z8lh42aonbjrmq"/>
+  <xsd:element name="ms-z7muvte1f61lsren66q6aesj" substitutionGroup="sdc4:Item" type="sdc4:mc-z7muvte1f61lsren66q6aesj"/>
+  <xsd:element name="ms-ab56tt302ui9ewsigl0pw80r" substitutionGroup="sdc4:Item" type="sdc4:mc-ab56tt302ui9ewsigl0pw80r"/>
+  <xsd:element name="ms-ph2txq84cblscof873ona37z" substitutionGroup="sdc4:Item" type="sdc4:mc-ph2txq84cblscof873ona37z"/>
+  <xsd:element name="ms-dt8cxev1i7p9viileo3mep3n" substitutionGroup="sdc4:Item" type="sdc4:mc-dt8cxev1i7p9viileo3mep3n"/>
+  <xsd:element name="ms-krnq0g73h78f8eoswv5iqawb" substitutionGroup="sdc4:Item" type="sdc4:mc-krnq0g73h78f8eoswv5iqawb"/>
+  <xsd:element name="ms-ajfei3kj0catindcyw36miar" substitutionGroup="sdc4:Item" type="sdc4:mc-ajfei3kj0catindcyw36miar"/>
+  <xsd:element name="ms-nkkg2090cjcyi6dt0tlwzpf3" substitutionGroup="sdc4:Item" type="sdc4:mc-nkkg2090cjcyi6dt0tlwzpf3"/>
+  <xsd:element name="ms-v73oogo6f2749py1i4ppbzlw" substitutionGroup="sdc4:Item" type="sdc4:mc-v73oogo6f2749py1i4ppbzlw"/>
+  <xsd:element name="ms-var7p4ybsrh7hzgw5vqr6qg4" substitutionGroup="sdc4:Item" type="sdc4:mc-var7p4ybsrh7hzgw5vqr6qg4"/>
+  <xsd:element name="ms-tspbolq6jstxs0jl697rxdsz" substitutionGroup="sdc4:Item" type="sdc4:mc-tspbolq6jstxs0jl697rxdsz"/>
+  <xsd:element name="ms-y0tkp15mpgjawf6buj80mwas" substitutionGroup="sdc4:Item" type="sdc4:mc-y0tkp15mpgjawf6buj80mwas"/>
+  <xsd:element name="ms-qd1frdaegyy7gu3kr72vxylm" substitutionGroup="sdc4:Item" type="sdc4:mc-qd1frdaegyy7gu3kr72vxylm"/>
+  <xsd:element name="ms-jtp2g2ribevbkgsua1zc1h6v" substitutionGroup="sdc4:Item" type="sdc4:mc-jtp2g2ribevbkgsua1zc1h6v"/>
+  <xsd:element name="ms-nwn3lz4ji15uwvdbscaqq7gj" substitutionGroup="sdc4:Item" type="sdc4:mc-nwn3lz4ji15uwvdbscaqq7gj"/>
 
 </xsd:schema>

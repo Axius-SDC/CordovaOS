@@ -8,13 +8,14 @@ import os
 import random
 
 from shared import (
+    scaled,
     CAST, PERSONS, ALL_CITIES, CITY_TO_PROVINCE, PROVINCE_CODES, CITY_CODES,
     PROVINCE_CITIES, AGE_DISTRIBUTION,
     random_name, random_city_province, random_address, random_dob,
     generate_cid_for_city, generate_phone, generate_email,
     xml_header, xml_preamble, xml_footer, write_xml,
-    xdstring, xdtoken, xdtemporal, cluster_open, cluster_close, party_stub,
-    _esc, cuid_generator,
+    xdstring, xdtoken, xdtemporal, cluster_open, cluster_close, native_partytype,
+    _esc, cuid_generator, make_provenance_values, audit, attestation,
 )
 
 CT_ID = "uika42uwtj3ijdbegzw2kcwq"
@@ -27,32 +28,45 @@ OUTPUT_DIR = os.path.join(
 
 # ─── Component → Wrapper mappings (from XML template) ────────────────────────
 
-# Direct children of root cluster ms-bgjt4mvgvkxcn6hurg37u21b
-W_NATIONAL_ID   = ("ms-nj7s1gk45tfgyooxpz0qaha3", "ms-sf5d0dzjo5yqp545skp6tmw3")
-W_COUNTRY_BIRTH = ("ms-cfg2l8ym4ve833ritrxu765t", "ms-ppatwamypgm2vvl1ixbvbdk8")
-W_GIVEN_NAME    = ("ms-kfyzf8u8gdafcpt5kfh2qg3q", "ms-v0yppmgjerq6v83aufxk4bnt")
-W_MIDDLE_NAME   = ("ms-oit0ueglhjfcyq80z22kl2z3", "ms-wt8pjkqdkwzuyg68q8eks8rk")
-W_SURNAME       = ("ms-v8jgjo2sml12jo7zrb8swoxi", "ms-lquaqukhj8g8jkuxwua9t3f3")
-W_CITY          = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-flg3okcdrds65w1twhfdkqj2")
-W_MARITAL       = ("ms-vjfgimlbb90ds2xg55tfn941", "ms-xb1lgx6byojidqm8ffdrogah")
-W_PROVINCE      = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-yr5nlcn9muub8g69ui0iyrwa")
-W_GENDER        = ("ms-cymq16em5zb20whgtfzki6n5", "ms-zah3durtmxt4ssipr5309it9")
-W_SEX           = ("ms-mw9qdn71urog8egjbp5t3y00", "ms-kprttn2ok3qk7iqm6l1z1uie")
-W_BIRTH_DATE    = ("ms-g3k6bj8su3rvkszg2700dhyh", "ms-jmn2v720qkuydsc5ftpphqrl")
+# v2 governance envelope: Item wrapper (Governed Record) + provenance cluster
+GOVERNED_RECORD = "ms-aan7382wp8e2f58m9a2hvmkp"
+CL_PROV         = "ms-hdhjfg00tngir2txgqyka9cv"
+
+# Direct children of data cluster ms-bgjt4mvgvkxcn6hurg37u21b (adapters re-keyed for v2)
+W_NATIONAL_ID   = ("ms-nj7s1gk45tfgyooxpz0qaha3", "ms-rby04o9m7e0krkfv41pqfk8a")
+W_COUNTRY_BIRTH = ("ms-cfg2l8ym4ve833ritrxu765t", "ms-kkxzipfzimwcue1ac1jfpk0v")
+W_GIVEN_NAME    = ("ms-kfyzf8u8gdafcpt5kfh2qg3q", "ms-cys6z9ur5p38ywv5pvuyyd6q")
+W_MIDDLE_NAME   = ("ms-oit0ueglhjfcyq80z22kl2z3", "ms-c62tq1ml6ytl1avtuokwwon0")
+W_SURNAME       = ("ms-v8jgjo2sml12jo7zrb8swoxi", "ms-oaq15l572j948be34xtfux7v")
+W_CITY          = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-ckwot3b5vdo96w9qd6b00613")
+W_MARITAL       = ("ms-vjfgimlbb90ds2xg55tfn941", "ms-zcn80786lwstffu4u315kfl4")
+W_PROVINCE      = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-q0wmc2otgsm3ltbib1a2fyv7")
+W_GENDER        = ("ms-cymq16em5zb20whgtfzki6n5", "ms-ynodlnbc7mhe8znj3btlg9mi")
+W_SEX           = ("ms-mw9qdn71urog8egjbp5t3y00", "ms-doqfvpf5mxppxdr7lee1rx3n")
+W_BIRTH_DATE    = ("ms-g3k6bj8su3rvkszg2700dhyh", "ms-rqs51exsr4e9riz9ddpvejb7")
 
 # Contact Information sub-cluster ms-sv48g8am8vqs46nodiugripz
-W_EMAIL         = ("ms-x0na649n17if0ukul82cmrx3", "ms-yqxxoehqidrfcbto4s0xdacm")
-W_PHONE         = ("ms-nfrvvp87c5imu5h9ups92kgy", "ms-y0vfbpi76tunsfgq8861cpi9")
-W_CONTACT_PREF  = ("ms-zlz64jydsmhb5zmytcm2ewyg", "ms-jicqhez3mky3tbtwnmuv1pcd")
+W_EMAIL         = ("ms-x0na649n17if0ukul82cmrx3", "ms-w5y4p7b8il3ecw0d64zeuovs")
+W_PHONE         = ("ms-nfrvvp87c5imu5h9ups92kgy", "ms-s3x9qwp30bjm00xy943f88i3")
+W_CONTACT_PREF  = ("ms-zlz64jydsmhb5zmytcm2ewyg", "ms-walkxoz8fm6usr0vkkj82nrq")
 
 # Current Address sub-cluster ms-ytctcqbr30kxsmvx4jk7lae2
-W_ADDR1         = ("ms-l338k7nlvnq2am0owa19yxfc", "ms-viugivc8kxgjrpgxyebpgzbs")
-W_ADDR2         = ("ms-ek5h6dsqpd9kz0l4mcckmxpt", "ms-drwt9abubt16wo0dtklbe7of")
+W_ADDR1         = ("ms-l338k7nlvnq2am0owa19yxfc", "ms-iuoxwjv3dkkaokqdpy1z16v5")
+W_ADDR2         = ("ms-ek5h6dsqpd9kz0l4mcckmxpt", "ms-spu5be9vjz3pde02aly6q57e")
 
 # Family Relationships sub-cluster ms-l9k2fmlc5vn477r3kpi1ufal
-W_REL_TYPE      = ("ms-be9apjt8mvjjv86qzycorcjl", "ms-ewvqx9e8k6bmkvagzo5mahrs")
-W_REL_END       = ("ms-o7vjxwswi0pxo543hq504jjx", "ms-lvyllvk6q9ojxv90phudd3d9")
-W_REL_START     = ("ms-k9ptlhkq3j41p6umlg3tc80x", "ms-dbdmw1sy83yfkqkj6ypqn0ms")
+W_REL_TYPE      = ("ms-be9apjt8mvjjv86qzycorcjl", "ms-snqw8p4e723q5wffz1u6enhy")
+W_REL_END       = ("ms-o7vjxwswi0pxo543hq504jjx", "ms-bye0j9rt8d5c5mqlou7tlcl6")
+W_REL_START     = ("ms-k9ptlhkq3j41p6umlg3tc80x", "ms-nao52v06varsvwejr28bfc1k")
+
+# Provenance Components leaves (component, adapter)
+P_ACT_DESC      = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-a7el4rcgh9swhpjnj72isozq")
+P_ACT_TYPE      = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-n7ua8203kjmkjmh5erzdaypk")
+P_SYS_ID        = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-o5ipvn601kj4jghviwq3mwbw")
+P_LOC_ID        = ("ms-zr59goe24qkocprl3feul3mt", "ms-s7bsus7xl68up999bmux5cy3")
+P_LOC_NAME      = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-nel9i9nhvq0xobn4k1vsw2q1")
+P_TS_END        = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-ks5oig7cbhh0tjciqpyolowh")
+P_TS_START      = ("ms-o72s5793973fzho35rnaughs", "ms-v94swr4i11dofbm7flj29t1u")
 
 # Cluster IDs
 CL_ROOT         = "ms-bgjt4mvgvkxcn6hurg37u21b"
@@ -63,6 +77,8 @@ CL_FAMILY       = "ms-l9k2fmlc5vn477r3kpi1ufal"
 # Party stubs
 PS_RELATED      = "ms-avqpyqft9tm22yyink3ltcty"
 PS_OFFICE       = "ms-piaz5w21hsuq3hpysyetuvvk"
+
+WORKFLOW_STATES = ["Registered", "Verified", "Amended", "Certified"]
 
 MARITAL_STATUSES = ["Single", "Married", "Divorced", "Widowed"]
 RELATIONSHIP_TYPES = ["Parent", "Spouse", "Sibling", "Child", "Grandparent"]
@@ -79,61 +95,88 @@ def build_birth_date(dob, indent=2):
     return f"""{pad}<sdc4:{wrap_id}>
 {pad}  <sdc4:{comp_id}>
 {pad}    <label>Birth Date</label>
+{pad}    <act></act>
+{pad}    <vtb>2020-01-01T00:00:00</vtb>
+{pad}    <vte>9999-12-31T23:59:59</vte>
+{pad}    <tr>2020-01-01T00:00:00</tr>
+{pad}    <modified>2020-01-01T00:00:00</modified>
+{pad}    <latitude>0.0</latitude>
+{pad}    <longitude>0.0</longitude>
 {pad}    <xdtemporal-date>{dob}</xdtemporal-date>
-{pad}    <xdtemporal-year>{year}</xdtemporal-year>
-{pad}    <xdtemporal-year-month>{year_month}</xdtemporal-year-month>
 {pad}  </sdc4:{comp_id}>
 {pad}</sdc4:{wrap_id}>
 """
 
 
 def build_instance(person):
-    """Build a complete Civil Registry XML instance for one person."""
+    """Build a governance-composed Civil Registry XML instance for one person."""
+    prov = make_provenance_values("Cordova Civil Registry System", "RecordRegistration", person["city"])
+    state = random.choice(WORKFLOW_STATES)
+
     xml = xml_header(CT_ID)
-    xml += xml_preamble(DM_LABEL)
+    xml += xml_preamble(DM_LABEL, current_state=state)
 
-    # Root cluster open
-    xml += cluster_open(CL_ROOT, "Civil Registry Record")
+    # Item: Governed Record wrapper
+    xml += cluster_open(GOVERNED_RECORD, "Civil Registry Governed Record", indent=1)
 
-    # Direct components under root cluster
-    xml += xdstring(*W_NATIONAL_ID, "National ID (CID)", person["cid"])
-    xml += xdstring(*W_COUNTRY_BIRTH, "Country of Birth", person["country_of_birth"])
-    xml += xdstring(*W_GIVEN_NAME, "Given Name (Person)", person["given"])
-    xml += xdstring(*W_MIDDLE_NAME, "Middle Name (Person)", person["middle"])
-    xml += xdstring(*W_SURNAME, "Surname (Person)", person["surname"])
-    xml += xdtoken(*W_CITY, "City", person["city"])
-    xml += xdtoken(*W_MARITAL, "Marital Status (Cordova)", person["marital_status"])
-    xml += xdtoken(*W_PROVINCE, "Province", person["province"])
-    xml += xdtoken(*W_GENDER, "Gender Identity", person["gender"])
-    xml += xdtoken(*W_SEX, "Sex", person["sex"])
-    xml += build_birth_date(person["dob"])
+    # Data cluster. NOTE: the Civil Registry Record XSD sequence puts the
+    # sub-clusters (Contact Information, Current Address, Family Relationships)
+    # BEFORE the scalar adapters, so emission order must follow suit.
+    xml += cluster_open(CL_ROOT, "Civil Registry Record", indent=2)
 
-    # Contact Information sub-cluster
-    xml += cluster_open(CL_CONTACT, "Contact Information")
-    xml += xdstring(*W_EMAIL, "Cordova Email Address", person["email"], indent=3)
-    xml += xdstring(*W_PHONE, "Cordova Phone Number", person["phone"], indent=3)
-    xml += xdtoken(*W_CONTACT_PREF, "Preferred Contact Method", person["contact_pref"], indent=3)
-    xml += cluster_close(CL_CONTACT)
+    xml += cluster_open(CL_CONTACT, "Contact Information", indent=3)
+    xml += xdstring(*W_EMAIL, "Cordova Email Address", person["email"], indent=4)
+    xml += xdstring(*W_PHONE, "Cordova Phone Number", person["phone"], indent=4)
+    xml += xdtoken(*W_CONTACT_PREF, "Preferred Contact Method", person["contact_pref"], indent=4)
+    xml += cluster_close(CL_CONTACT, indent=3)
 
-    # Current Address sub-cluster
-    xml += cluster_open(CL_ADDRESS, "Current Address")
-    xml += xdstring(*W_ADDR1, "Address (Line 1)", person["address"], indent=3)
-    xml += xdstring(*W_ADDR2, "Address (Line 2)", person.get("address2", ""), indent=3)
-    xml += cluster_close(CL_ADDRESS)
+    xml += cluster_open(CL_ADDRESS, "Current Address", indent=3)
+    xml += xdstring(*W_ADDR1, "Address (Line 1)", person["address"], indent=4)
+    xml += xdstring(*W_ADDR2, "Address (Line 2)", person.get("address2", ""), indent=4)
+    xml += cluster_close(CL_ADDRESS, indent=3)
 
-    # Family Relationships sub-cluster
-    xml += cluster_open(CL_FAMILY, "Family Relationships")
-    xml += xdtoken(*W_REL_TYPE, "Relationship Type", person["rel_type"], indent=3)
-    xml += xdtemporal(*W_REL_END, "Relationship End Date", person.get("rel_end", "2099-12-31"), "date", indent=3)
-    xml += xdtemporal(*W_REL_START, "Relationship Start Date", person["rel_start"], "date", indent=3)
-    xml += cluster_close(CL_FAMILY)
+    xml += cluster_open(CL_FAMILY, "Family Relationships", indent=3)
+    xml += xdtoken(*W_REL_TYPE, "Relationship Type", person["rel_type"], indent=4)
+    xml += xdtemporal(*W_REL_END, "Relationship End Date", person.get("rel_end", "2099-12-31"), "date", indent=4)
+    xml += xdtemporal(*W_REL_START, "Relationship Start Date", person["rel_start"], "date", indent=4)
+    xml += cluster_close(CL_FAMILY, indent=3)
 
-    # Close root cluster
-    xml += cluster_close(CL_ROOT)
+    xml += xdstring(*W_NATIONAL_ID, "National ID (CID)", person["cid"], indent=3)
+    xml += xdstring(*W_COUNTRY_BIRTH, "Country of Birth", person["country_of_birth"], indent=3)
+    xml += xdstring(*W_GIVEN_NAME, "Given Name (Person)", person["given"], indent=3)
+    xml += xdstring(*W_MIDDLE_NAME, "Middle Name (Person)", person["middle"], indent=3)
+    xml += xdstring(*W_SURNAME, "Surname (Person)", person["surname"], indent=3)
+    xml += xdtoken(*W_CITY, "City", person["city"], indent=3)
+    xml += xdtoken(*W_MARITAL, "Marital Status (Cordova)", person["marital_status"], indent=3)
+    xml += xdtoken(*W_PROVINCE, "Province", person["province"], indent=3)
+    xml += xdtoken(*W_GENDER, "Gender Identity", person["gender"], indent=3)
+    xml += xdtoken(*W_SEX, "Sex", person["sex"], indent=3)
+    xml += build_birth_date(person["dob"], indent=3)
+    xml += cluster_close(CL_ROOT, indent=2)
 
-    # Party stubs (outside root cluster, at root level)
-    xml += party_stub(PS_RELATED, "Related Person")
-    xml += party_stub(PS_OFFICE, "Civil Registry Office")
+    # Provenance Components cluster (sibling of data, inside Governed Record)
+    xml += cluster_open(CL_PROV, "Provenance Components", indent=2)
+    xml += xdstring(*P_ACT_DESC, "activity_description", prov["activity_description"], indent=3)
+    xml += xdstring(*P_ACT_TYPE, "prov_activity_type", prov["prov_activity_type"], indent=3)
+    xml += xdstring(*P_SYS_ID, "system_identifier", prov["system_identifier"], indent=3)
+    xml += xdstring(*P_LOC_ID, "system_location_identifier", prov["system_location_identifier"], indent=3)
+    xml += xdstring(*P_LOC_NAME, "system_location_name", prov["system_location_name"], indent=3)
+    xml += xdtemporal(*P_TS_END, "activity_timestamp_end", prov["activity_timestamp_end"], "datetime", indent=3)
+    xml += xdtemporal(*P_TS_START, "activity_timestamp_start", prov["activity_timestamp_start"], "datetime", indent=3)
+    xml += cluster_close(CL_PROV, indent=2)
+
+    xml += cluster_close(GOVERNED_RECORD, indent=1)
+
+    # Native governance slots, DM order: subject, provider, Audit, attestation.
+    # subject/provider are native PartyType elements (not the party COMPONENTS).
+    xml += native_partytype("subject", "Subject Person",
+                            f"{person['given']} {person['surname']}")
+    xml += native_partytype("provider", "Civil Registry Office",
+                            f"{person['city']} Civil Registry Office")
+    xml += audit("ms-fotc5adg15ek2b9ermx2mcih", prov["activity_timestamp_start"],
+                 system_id_value=prov["system_identifier"])
+    xml += attestation(pending=False, reason="Record verified by the civil registry office",
+                       committer="Civil Registry Office", committed=prov["activity_timestamp_end"])
 
     xml += xml_footer(CT_ID)
     return xml
@@ -214,7 +257,7 @@ def generate():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     cast_persons = make_cast_persons()
-    bg_persons = make_background_persons(24992)
+    bg_persons = make_background_persons(scaled(24992, 242))
     all_persons = cast_persons + bg_persons
 
     # Populate shared PERSONS list for other domain generators

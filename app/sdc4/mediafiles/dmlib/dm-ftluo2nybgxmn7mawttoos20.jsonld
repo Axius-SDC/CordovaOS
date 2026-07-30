@@ -20,86 +20,29 @@
   "metadata": {
     "dc:title": "Healthcare Record",
     "dc:creator": "Timothy Cook",
+    "dc:subject": "Healthcare Record",
     "dc:description": "Maintain basic medical records for all persons in Cordova.",
+    "dc:publisher": "Axius SDC, Inc.",
     "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
     "dc:language": "en-US",
     "dc:format": "text/xml",
-    "dc:date": "2026-03-07T20:03:46.778194+00:00"
+    "dc:date": "2026-07-29T15:26:10.687394+00:00"
   },
   "components": [
     {
       "@type": "ClusterType",
-      "@id": "sdc4:mc-ygtbvvmzcw3ukfsg3axqry97",
-      "label": "Patient Record",
-      "description": "A person's medical record in the Cordova healthcare system.\nBusiness Context: Links to Civil Registry via National ID. All clinical cells carry Restricted:PatientCare policy.\nPurpose: Comprehensive medical record for a Cordova resident",
+      "@id": "sdc4:mc-w0lu0us3nbxaedfum9i8itpc",
+      "label": "Healthcare Governed Record",
+      "description": "Root data cluster (DMType Item) for a governed healthcare record in CordovaOS: an individual's clinical and health information. Wraps the domain's data components with the shared W3C PROV-O Provenance cluster so each record carries its lineage bound alongside its data. Workflow, attestation, parties, and the system audit trail sit in the DMType's native governance slots; access control and retention apply as bound sdcgovernance policy.",
       "cardinality": {
         "minOccurs": 0,
         "maxOccurs": 1
       },
-      "contains": [
-        {
-          "@type": "XdStringType",
-          "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3",
-          "label": "National ID (CID)",
-          "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
-          "cardinality": {
-            "minOccurs": 0,
-            "maxOccurs": 1
-          },
-          "dataType": "xsd:string",
-          "semanticLinks": [
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "http://schema.org/identifier"
-            },
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "https://www.wikidata.org/wiki/Q1140371"
-            },
-            {
-              "predicate": "skos:broadMatch",
-              "object": "https://schema.org/identifier"
-            }
-          ]
-        },
-        {
-          "@type": "XdStringType",
-          "@id": "sdc4:mc-jz2hqntyol8lopw6q6zdud78",
-          "label": "Medical Record Number",
-          "description": "Institution-specific medical record number for linking to clinical records",
-          "cardinality": {
-            "minOccurs": 0,
-            "maxOccurs": 1
-          },
-          "constraints": {
-            "minLength": 1,
-            "maxLength": 50
-          },
-          "dataType": "xsd:string",
-          "semanticLinks": [
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "https://uts.nlm.nih.gov/uts/umls/concept/C1301894"
-            },
-            {
-              "predicate": "rdf:type",
-              "object": "https://schema.org/Text"
-            }
-          ]
-        }
-      ],
+      "contains": [],
       "semanticLinks": [
         {
-          "predicate": "rdfs:isDefinedBy",
-          "object": "https://hl7.org/fhir/"
-        },
-        {
-          "predicate": "rdfs:isDefinedBy",
-          "object": "https://www.wikidata.org/wiki/Q1324077"
-        },
-        {
-          "predicate": "skos:broadMatch",
-          "object": "https://schema.org/ItemList"
+          "predicate": "skos:closeMatch",
+          "object": "https://www.wikidata.org/wiki/Q95459148"
         }
       ]
     }

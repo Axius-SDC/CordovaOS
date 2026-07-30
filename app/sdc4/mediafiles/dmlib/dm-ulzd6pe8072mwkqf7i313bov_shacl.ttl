@@ -1,4 +1,7 @@
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
@@ -165,24 +168,6 @@ sdc4:XdDoubleBaseShape a sh:NodeShape ;
             sh:path sdc4-meta:hasUnit ] ;
     sh:targetClass sdc4:XdDoubleType .
 
-sdc4:XdFileBaseShape a sh:NodeShape ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:message "XdFile must have a label" ;
-            sh:minCount 1 ;
-            sh:path sdc4:label ],
-        [ sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:message "XdFile must have a valid URI" ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdfile-uri ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:message "XdFile media type must be a string" ;
-            sh:minCount 0 ;
-            sh:path sdc4:xdfile-media-type ] ;
-    sh:targetClass sdc4:XdFileType .
-
 sdc4:XdFloatBaseShape a sh:NodeShape ;
     sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
@@ -216,24 +201,6 @@ sdc4:XdIntervalBaseShape a sh:NodeShape ;
             sh:minCount 0 ;
             sh:path sdc4:xdinterval-upper ] ;
     sh:targetClass sdc4:XdIntervalType .
-
-sdc4:XdLinkBaseShape a sh:NodeShape ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:message "XdLink must have a label" ;
-            sh:minCount 1 ;
-            sh:path sdc4:label ],
-        [ sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:message "XdLink must have a valid URI" ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdlink-url ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:message "XdLink relation must be a string" ;
-            sh:minCount 0 ;
-            sh:path sdc4:xdlink-relation ] ;
-    sh:targetClass sdc4:XdLinkType .
 
 sdc4:XdOrdinalBaseShape a sh:NodeShape ;
     sh:property [ sh:datatype xsd:string ;
@@ -271,22 +238,411 @@ sdc4:XdQuantityBaseShape a sh:NodeShape ;
             sh:path sdc4-meta:hasUnit ] ;
     sh:targetClass sdc4:XdQuantityType .
 
-sdc4:dm-ulzd6pe8072mwkqf7i313bov-shape a sh:NodeShape ;
+sdc4:mc-1xwq87veqgo726qs7dfst5tf-shape a sh:NodeShape ;
+    rdfs:label "Birth Facility" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue <https://hl7.org/fhir/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-bpqtzla39dwentygpwea8276-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue foaf:Agent ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-m21mv7pyouct7a4uxgkxzj54-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue prov:Agent ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue schema:Hospital ;
+            sh:path skos:relatedMatch ],
+        [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ule5u2z3rjpa9pooaifwj1n3-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-1xwq87veqgo726qs7dfst5tf .
+
+sdc4:mc-5ot0y92q1gf6zyjh5ytsv4nr-shape a sh:NodeShape ;
+    rdfs:label "Officiant" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-u1i23yha2rvz5nbxjz3l8x48-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue prov:Agent ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-ndvtjiq0cke0q1trw58rtrq2-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-hrf8anjydeb8rl6x3wv26r73-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue foaf:Agent ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-zs9ciw4nypx4plo856h3m95d-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q2661159> ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-5ot0y92q1gf6zyjh5ytsv4nr .
+
+sdc4:mc-6evc5hevcpf831mkyyo1d5qo-shape a sh:NodeShape ;
+    rdfs:label "Vital Record Attestor" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-kaefys4w92tgr7iwuptn9uea-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-yn69whk0qtnwp9sbb9n8jfu3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-rt6c1qzw12vd19ke3gii08gf-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue prov:Agent ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-cbmahibaix50kxd3b2qrai5m-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-l4oiyjy4qc2fozn4qaj49t81-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-tzbg1lgj3vdy4ctfdxr90qix-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q116890704> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-ngm0a3w2xml4h4d5ireqzucn-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue foaf:Agent ;
+            sh:path skos:exactMatch ] ;
+    sh:targetNode sdc4:mc-6evc5hevcpf831mkyyo1d5qo .
+
+sdc4:mc-9c1cvv1flhotrmhjd881qcko-shape a sh:NodeShape ;
+    rdfs:label "Certifying Physician" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q39631> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue foaf:Agent ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://hl7.org/fhir/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-d3zrns9w8vc5zvbycew6ctn9-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-u1i23yha2rvz5nbxjz3l8x48-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ndvtjiq0cke0q1trw58rtrq2-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue prov:Agent ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-zs9ciw4nypx4plo856h3m95d-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-9c1cvv1flhotrmhjd881qcko .
+
+sdc4:mc-cii2ou2zjm297wmub074gwmc-shape a sh:NodeShape ;
+    rdfs:label "Vital Statistics Workflow" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1131372> ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue prov:Activity ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-bzj79tikzsv5s4qu83f7qx3m-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-mfhycxuhhbanyrr3tacaj43b-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ch3s3a199lob4mjt1bb41yug-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-i9fk7u167k5z50jhv081o32u-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-h2duffuwucoqpk65zde9nr1p-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q627335> ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-krjrijisqnzbzio802s1kvmz-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-wn5su07s9sgs1dhuuomiza68-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-lkxku0zz32xvacl9lxa3zxik-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-vbzw08smpn0vfxyna7mrh69c-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-af9izy31oyly2dc66rujb3zi-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-cii2ou2zjm297wmub074gwmc .
+
+sdc4:mc-e9l9kwg7wcnnt4buerfdcz0h-shape a sh:NodeShape ;
+    rdfs:label "Vital Statistics Office" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-bpqtzla39dwentygpwea8276-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1131372> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue prov:Agent ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue foaf:Agent ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-ule5u2z3rjpa9pooaifwj1n3-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-e9l9kwg7wcnnt4buerfdcz0h .
+
+sdc4:mc-gug5dhtqfv7exbgmm2raxpkq-shape a sh:NodeShape ;
+    rdfs:label "Digital Signature Proof" ;
+    rdfs:comment "Cryptographic proof of attestation (digital signature)" ;
+    sh:node sdc4:XdFileBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:hash-result ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:compression-type ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q210824> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:language ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdfile-language ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:size ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:media-type ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:uri ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:formalism ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:alt-txt ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:encoding ],
+        [ sh:hasValue <https://www.w3.org/TR/vc-data-model/#credentials> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:hash-function ],
+        [ sh:datatype xsd:base64Binary ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:media-content ],
+        [ sh:hasValue prov:Entity ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-gug5dhtqfv7exbgmm2raxpkq ;
+    sdc4-meta:sdcType "XdFileType" .
+
+sdc4:mc-hmkt7hjij02be28ym9f4sitc-shape a sh:NodeShape ;
+    rdfs:label "Vital Record Subject" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue foaf:Agent ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue prov:Agent ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-zs9ciw4nypx4plo856h3m95d-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:Person ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-ndvtjiq0cke0q1trw58rtrq2-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q18562479> ;
+            sh:path skos:relatedMatch ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-hmkt7hjij02be28ym9f4sitc .
+
+sdc4:mc-km4azswrxe9tdrjmqvun5463-shape a sh:NodeShape ;
+    rdfs:label "Software Agent Details" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-xvnv7mrhvfweajl72pmngeya-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-px6j779dnapp4fjlohula4mh-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-d839tf07spk43dmg0dqb939b-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-rsjfjz8m5z7a58h5793duqbs-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q2297769> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-tep9wanrrtqfw0k76huv6tvd-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-km4azswrxe9tdrjmqvun5463 .
+
+sdc4:mc-lttamvusgiol900y0f9xl3h8-shape a sh:NodeShape ;
+    rdfs:label "Vital Record Attested View" ;
+    rdfs:comment "Attested view of a vital record document" ;
+    sh:node sdc4:XdFileBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:formalism ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:uri ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:encoding ],
+        [ sh:hasValue prov:Entity ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:hash-function ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:size ],
+        [ sh:datatype xsd:language ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdfile-language ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:hash-result ],
+        [ sh:hasValue schema:DigitalDocument ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:alt-txt ],
+        [ sh:datatype xsd:base64Binary ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:media-content ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:media-type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:compression-type ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q484652> ;
+            sh:path rdfs:seeAlso ] ;
+    sh:targetNode sdc4:mc-lttamvusgiol900y0f9xl3h8 ;
+    sdc4-meta:sdcType "XdFileType" .
+
+sdc4:mc-rqeuaeoe81e9siuma9cu7zz1-shape a sh:NodeShape ;
+    rdfs:label "Vital Statistics Access Control" ;
+    rdfs:comment "Access control policy for vital statistics data using W3C Data Privacy Vocabulary. Enforces role-based access for vital statistics officials, citizens, and authorized representatives. Governs dpv:SpecialCategoryPersonalData including birth certificates, death certificates, and demographic records." ;
+    sh:node sdc4:XdLinkBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q185799> ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://w3id.org/dpv#SpecialCategoryPersonalData> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q18562479> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation-uri ],
+        [ sh:hasValue <https://w3id.org/dpv> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:link ],
+        [ sh:hasValue <https://w3id.org/dpv#AccessControlMethod> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-rqeuaeoe81e9siuma9cu7zz1 ;
+    sdc4-meta:sdcType "XdLinkType" .
+
+sdc4:mc-tjy4olhj5jrjco73clt6fkue-shape a sh:NodeShape ;
+    rdfs:label "Court" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue foaf:Agent ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-ule5u2z3rjpa9pooaifwj1n3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue prov:Agent ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-nrqy1c3rg2d0me4lyrf49cme-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-bpqtzla39dwentygpwea8276-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q41487> ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-tjy4olhj5jrjco73clt6fkue .
+
+sdc4:mc-ulzd6pe8072mwkqf7i313bov-shape a sh:NodeShape ;
     rdfs:label "Vital Statistics Record" ;
-    dc:coverage "Universal" ;
-    dc:language "en-US" ;
-    dc:rights "CC-BY http://creativecommons.org/licenses/by/3.0/" ;
-    rdfs:comment "Maintain the authoritative registry of life events in Cordova." ;
     sh:node sdc4:DMBaseShape ;
     sh:property [ sh:maxCount 1 ;
             sh:message "Data Model must have a root data Cluster" ;
             sh:minCount 1 ;
-            sh:node sdc4:mc-tard9hhq13m95hinbh4h7k5j-shape ;
+            sh:node sdc4:mc-r2g662g70dx34eq12v9n4ng7-shape ;
             sh:path sdc4:dm-data ] ;
-    sh:targetNode sdc4:dm-ulzd6pe8072mwkqf7i313bov ;
-    sdc4:dm-encoding "utf-8" ;
-    sdc4:dm-language "en-US" ;
-    sdc4-meta:generatedAt "2026-03-08T03:30:16.612948+00:00"^^xsd:dateTime .
+    sh:targetNode sdc4:mc-ulzd6pe8072mwkqf7i313bov ;
+    sdc4-meta:generatedAt "2026-07-29T17:51:07.229820+00:00"^^xsd:dateTime .
+
+sdc4:mc-w06vxo6uxtrzjkimmafmue7g-shape a sh:NodeShape ;
+    rdfs:label "Contact and Access" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-a127ihw8xbfbl24lbcvnspv0-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q2996679> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-rw1cjzeynsl87va6gvhv2k7e-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-jtuheuri2wzfhctcjqv4ozmy-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-pdykwzsug7pfncjsrry73x1s-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-w06vxo6uxtrzjkimmafmue7g .
 
 sdc4:DMBaseShape a sh:NodeShape ;
     sh:property [ sh:datatype xsd:string ;
@@ -317,18 +673,45 @@ sdc4:DMBaseShape a sh:NodeShape ;
             sh:path sdc4:source_version_id ] ;
     sh:targetClass sdc4:DMType .
 
+sdc4:mc-a127ihw8xbfbl24lbcvnspv0-shape a sh:NodeShape ;
+    rdfs:label "contact_name" ;
+    rdfs:comment "Contact name for the service." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue dcat:contactPoint ;
+            sh:path skos:exactMatch ] ;
+    sh:targetNode sdc4:mc-a127ihw8xbfbl24lbcvnspv0 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-af9izy31oyly2dc66rujb3zi-shape a sh:NodeShape ;
+    rdfs:label "Birth Facility Participation Function" ;
+    rdfs:comment "Function of the birth facility in the vital birth event (e.g., Delivering Hospital, Birth Center)." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "delivering-hospital" "birth-center" "home-delivery-attendant" "midwifery-center" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-af9izy31oyly2dc66rujb3zi ;
+    sdc4-meta:sdcType "XdTokenType" .
+
 sdc4:mc-ajfsyoyrz38094hswxh13i3x-shape a sh:NodeShape ;
     rdfs:label "Certificate Number" ;
     rdfs:comment "Unique certificate number for this vital record" ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ rdfs:label "schema:identifier" ;
-            sh:hasValue schema:identifier ;
+    sh:property [ sh:hasValue schema:identifier ;
             sh:path skos:broadMatch ],
-        [ rdfs:label "Register of Practitioners registration number" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q108891191> ;
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q108891191> ;
             sh:path rdfs:isDefinedBy ],
         [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
             sh:maxLength 50 ;
+            sh:minCount 1 ;
             sh:minLength 1 ;
             sh:path sdc4:xdstring-value ] ;
     sh:targetNode sdc4:mc-ajfsyoyrz38094hswxh13i3x ;
@@ -338,88 +721,171 @@ sdc4:mc-atdtdfzruh7tya0iv5cz365l-shape a sh:NodeShape ;
     rdfs:label "City" ;
     rdfs:comment "One of the nine cities in the Republic of Cordova." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ rdfs:label "schema:DefinedTermSet" ;
-            sh:hasValue schema:DefinedTermSet ;
+    sh:property [ sh:hasValue schema:DefinedTermSet ;
             sh:path skos:exactMatch ],
-        [ rdfs:label "skos:ConceptScheme" ;
-            sh:hasValue skos:ConceptScheme ;
-            sh:path rdf:type ],
-        [ rdfs:label "City" ;
-            sh:hasValue <http://schema.org/City> ;
+        [ sh:hasValue <http://schema.org/City> ;
             sh:path rdfs:isDefinedBy ],
         [ sh:datatype xsd:token ;
             sh:in ( "Porto Sereno" "Vistamar" "Rioseco" "Campoluz" "Tierraverde" "Montecara" "Novaciudad" "Piedrasol" "Lagunavista" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ] ;
     sh:targetNode sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
     sdc4-meta:sdcType "XdTokenType" .
 
 sdc4:mc-az8kem3v58y9zenys7mthqxe-shape a sh:NodeShape ;
     rdfs:label "Birth Record" ;
-    rdfs:comment """Details specific to birth certificates.
-Business Context: Links newborn and parents to Civil Registry, physician to Healthcare
-Purpose: Document a birth with parents, attending physician, and location
-Parent Cluster: Vital Event""" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ rdfs:label "WHO Civil Registration and Vital Statistics" ;
-            sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
-            sh:path rdfs:isDefinedBy ],
-        [ rdfs:label "birth certificate" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q83900> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
-            sh:order 0 ;
+    sh:property [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
             sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q83900> ;
+            sh:path rdfs:isDefinedBy ],
         [ sh:node sdc4:mc-mw9qdn71urog8egjbp5t3y00-shape ;
-            sh:order 0 ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn-shape ;
-            sh:order 0 ;
             sh:path sdc4:hasComponent ],
-        [ rdfs:label "schema:ItemList" ;
-            sh:hasValue schema:ItemList ;
+        [ sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:ItemList ;
             sh:path skos:broadMatch ] ;
     sh:targetNode sdc4:mc-az8kem3v58y9zenys7mthqxe .
 
+sdc4:mc-bd3s8t23d6m3zizmpwavc32y-shape a sh:NodeShape ;
+    rdfs:label "system_identifier" ;
+    rdfs:comment "Identifier of the system that handled the data. Maps to prov:Entity context in the PROV-O export. This is the AuditType.system-id field." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 50 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q7663715> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-bd3s8t23d6m3zizmpwavc32y ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-bzj79tikzsv5s4qu83f7qx3m-shape a sh:NodeShape ;
+    rdfs:label "Vital Statistics Protocol" ;
+    rdfs:comment "Protocol reference for the Vital Statistics Record data model. Informed by the United Nations Principles and Recommendations for a Vital Statistics System (Revision 3), WHO International Form of Medical Certificate of Cause of Death, and regional vital statistics reporting standards." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 500 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q132364> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q69484> ;
+            sh:path skos:relatedMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q317623> ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-bzj79tikzsv5s4qu83f7qx3m ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-cbmahibaix50kxd3b2qrai5m-shape a sh:NodeShape ;
+    rdfs:label "verifier_organization" ;
+    rdfs:comment "Organization the verifier represents." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <http://schema.org/Organization> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-cbmahibaix50kxd3b2qrai5m ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-ccj1yq2wtwknobszkgzzdbtr-shape a sh:NodeShape ;
+    rdfs:label "prov_activity_type" ;
+    rdfs:comment "Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q125542526> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-ccj1yq2wtwknobszkgzzdbtr ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-ch3s3a199lob4mjt1bb41yug-shape a sh:NodeShape ;
+    rdfs:label "Birth Facility Participation Mode" ;
+    rdfs:comment "Mode of birth facility participation in the birth event (e.g., in person, electronic filing)." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "in-person" "electronic-reporting" "by-mail" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-ch3s3a199lob4mjt1bb41yug ;
+    sdc4-meta:sdcType "XdTokenType" .
+
 sdc4:mc-chtyne5i6qcwbrby29vbuh2k-shape a sh:NodeShape ;
     rdfs:label "Marriage Record" ;
-    rdfs:comment """Details specific to marriage certificates.
-Business Context: Links both parties to Civil Registry identities
-Purpose: Document a marriage with both parties, officiant, and witnesses
-Parent Cluster: Vital Event""" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ rdfs:label "schema:ItemList" ;
-            sh:hasValue schema:ItemList ;
+    sh:property [ sh:hasValue schema:ItemList ;
             sh:path skos:broadMatch ],
-        [ rdfs:label "marriage certificate" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q1299632> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:node sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn-shape ;
-            sh:order 0 ;
-            sh:path sdc4:hasComponent ],
-        [ rdfs:label "WHO Civil Registration and Vital Statistics" ;
-            sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1299632> ;
             sh:path rdfs:isDefinedBy ],
         [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
-            sh:order 0 ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn-shape ;
             sh:path sdc4:hasComponent ] ;
     sh:targetNode sdc4:mc-chtyne5i6qcwbrby29vbuh2k .
+
+sdc4:mc-d3zrns9w8vc5zvbycew6ctn9-shape a sh:NodeShape ;
+    rdfs:label "Certifying Physician License" ;
+    rdfs:comment "Medical license number of the certifying physician" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue schema:identifier ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue dcterms:License ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 50 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-d3zrns9w8vc5zvbycew6ctn9 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-d839tf07spk43dmg0dqb939b-shape a sh:NodeShape ;
+    rdfs:label "software_runtime_environment" ;
+    rdfs:comment "Runtime environment or platform for the software." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q241317> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-d839tf07spk43dmg0dqb939b ;
+    sdc4-meta:sdcType "XdStringType" .
 
 sdc4:mc-dsoyfaplxw8ide1opo5w8fxg-shape a sh:NodeShape ;
     rdfs:label "Place of Death" ;
     rdfs:comment "Type of location where death occurred" ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ rdfs:label "place of death" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q18658526> ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q18658526> ;
             sh:path rdfs:isDefinedBy ],
-        [ rdfs:label "schema:DefinedTermSet" ;
-            sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ],
         [ sh:datatype xsd:token ;
             sh:in ( "Hospital" "Residence" "Other" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
-        [ rdfs:label "skos:ConceptScheme" ;
-            sh:hasValue skos:ConceptScheme ;
-            sh:path rdf:type ] ;
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ] ;
     sh:targetNode sdc4:mc-dsoyfaplxw8ide1opo5w8fxg ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -427,34 +893,80 @@ sdc4:mc-e3sfb43zh1vjlgceb5guh0mj-shape a sh:NodeShape ;
     rdfs:label "Event Date" ;
     rdfs:comment "Date the vital event occurred" ;
     sh:node sdc4:XdTemporalBaseShape ;
-    sh:property [ sh:datatype xsd:date ;
+    sh:property [ sh:datatype xsd:gYearMonth ;
             sh:maxCount 1 ;
-            sh:path sdc4:xdtemporal-date ],
-        [ rdfs:label "valid time" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q7911665> ;
-            sh:path rdfs:isDefinedBy ],
-        [ rdfs:label "schema:Date" ;
-            sh:hasValue schema:Date ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-year-month ],
+        [ sh:hasValue schema:Date ;
             sh:path skos:broadMatch ],
-        [ sh:datatype xsd:gYearMonth ;
+        [ sh:datatype xsd:date ;
             sh:maxCount 1 ;
-            sh:path sdc4:xdtemporal-year-month ] ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q7911665> ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-e3sfb43zh1vjlgceb5guh0mj ;
     sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-edvvjznmaoibzmfna0uuoo37-shape a sh:NodeShape ;
+    rdfs:label "activity_timestamp_end" ;
+    rdfs:comment "When the provenance activity completed. Maps to prov:endedAtTime. ISO 8601 format." ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ sh:datatype xsd:time ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-time ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-datetime ],
+        [ sh:hasValue <http://www.ontology-of-units-of-measure.org/resource/om-2/Activity> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-edvvjznmaoibzmfna0uuoo37 ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-fnodzqkbyskwe7nh58rs336k-shape a sh:NodeShape ;
+    rdfs:label "system_location_name" ;
+    rdfs:comment "Name of the physical or logical location where the system resides. Maps to prov:atLocation." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q11307204> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-fnodzqkbyskwe7nh58rs336k ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc-shape a sh:NodeShape ;
+    rdfs:label "software_vendor" ;
+    rdfs:comment "Vendor or maintainer of the software." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q7554349> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc ;
+    sdc4-meta:sdcType "XdStringType" .
 
 sdc4:mc-ft4kk6m3r1goxkte0d7wflk8-shape a sh:NodeShape ;
     rdfs:label "Decree Date" ;
     rdfs:comment "Date the divorce decree was issued by the court" ;
     sh:node sdc4:XdTemporalBaseShape ;
-    sh:property [ rdfs:label "schema:Date" ;
-            sh:hasValue schema:Date ;
-            sh:path skos:broadMatch ],
-        [ rdfs:label "Document Issue Date" ;
-            sh:hasValue <http://release.niem.gov/niem/niem-core/5.0/DocumentIssueDate> ;
+    sh:property [ sh:hasValue <http://release.niem.gov/niem/niem-core/5.0/DocumentIssueDate> ;
             sh:path rdfs:isDefinedBy ],
         [ sh:datatype xsd:date ;
             sh:maxCount 1 ;
-            sh:path sdc4:xdtemporal-date ] ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ sh:hasValue schema:Date ;
+            sh:path skos:broadMatch ] ;
     sh:targetNode sdc4:mc-ft4kk6m3r1goxkte0d7wflk8 ;
     sdc4-meta:sdcType "XdTemporalType" .
 
@@ -462,20 +974,93 @@ sdc4:mc-ftuxt5nrrffwjb2vymn80yx2-shape a sh:NodeShape ;
     rdfs:label "Manner of Death" ;
     rdfs:comment "Manner in which death occurred" ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ rdfs:label "skos:ConceptScheme" ;
-            sh:hasValue skos:ConceptScheme ;
-            sh:path rdf:type ],
-        [ rdfs:label "manner of death" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q2438541> ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q2438541> ;
             sh:path rdfs:isDefinedBy ],
-        [ rdfs:label "schema:DefinedTermSet" ;
-            sh:hasValue schema:DefinedTermSet ;
+        [ sh:hasValue schema:DefinedTermSet ;
             sh:path skos:exactMatch ],
         [ sh:datatype xsd:token ;
             sh:in ( "Natural" "Accident" "Homicide" "Suicide" "Undetermined" "Pending Investigation" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ] ;
     sh:targetNode sdc4:mc-ftuxt5nrrffwjb2vymn80yx2 ;
     sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-h2duffuwucoqpk65zde9nr1p-shape a sh:NodeShape ;
+    rdfs:label "Officiant Participation Function" ;
+    rdfs:comment "Function of the officiant in the marriage ceremony (e.g., Religious Officiant, Civil Officiant, Judge)." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "religious-officiant" "civil-officiant" "judge" "captain-at-sea" "notary" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-h2duffuwucoqpk65zde9nr1p ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-hdhjfg00tngir2txgqyka9cv-shape a sh:NodeShape ;
+    rdfs:label "Provenance Components" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-bd3s8t23d6m3zizmpwavc32y-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-m9xg6e182m1oq77ssrf9iujv-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-fnodzqkbyskwe7nh58rs336k-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1172162> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-edvvjznmaoibzmfna0uuoo37-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-zr59goe24qkocprl3feul3mt-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ccj1yq2wtwknobszkgzzdbtr-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-o72s5793973fzho35rnaughs-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-hdhjfg00tngir2txgqyka9cv .
+
+sdc4:mc-hrf8anjydeb8rl6x3wv26r73-shape a sh:NodeShape ;
+    rdfs:label "Officiant Title" ;
+    rdfs:comment "Title or capacity of the officiant (e.g., \"Judge\", \"Minister\", \"Civil Registrar\")" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <http://schema.org/jobTitle> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:name ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-hrf8anjydeb8rl6x3wv26r73 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-i9fk7u167k5z50jhv081o32u-shape a sh:NodeShape ;
+    rdfs:label "Officiant Participation Mode" ;
+    rdfs:comment "Mode of officiant participation in the marriage ceremony (e.g., in person, by proxy)." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "in-person" "by-proxy" "video-conference" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-i9fk7u167k5z50jhv081o32u ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-jtuheuri2wzfhctcjqv4ozmy-shape a sh:NodeShape ;
+    rdfs:label "contact_email" ;
+    rdfs:comment "Contact email for the service." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ;
+            sh:pattern ".+@.+\\..+" ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1273217> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-jtuheuri2wzfhctcjqv4ozmy ;
+    sdc4-meta:sdcType "XdStringType" .
 
 sdc4:mc-jz7vc6ikueqig8g0lvb2czzr-shape a sh:NodeShape ;
     rdfs:label "Event Type" ;
@@ -483,247 +1068,725 @@ sdc4:mc-jz7vc6ikueqig8g0lvb2czzr-shape a sh:NodeShape ;
     sh:node sdc4:XdTokenBaseShape ;
     sh:property [ sh:datatype xsd:token ;
             sh:in ( "Birth" "Death" "Marriage" "Divorce" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
-        [ rdfs:label "schema:DefinedTermSet" ;
-            sh:hasValue schema:DefinedTermSet ;
+        [ sh:hasValue schema:DefinedTermSet ;
             sh:path skos:exactMatch ],
-        [ rdfs:label "skos:ConceptScheme" ;
-            sh:hasValue skos:ConceptScheme ;
-            sh:path rdf:type ],
-        [ rdfs:label "form of event" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q108586636> ;
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q108586636> ;
             sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-jz7vc6ikueqig8g0lvb2czzr ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-kaefys4w92tgr7iwuptn9uea-shape a sh:NodeShape ;
+    rdfs:label "verifier_title" ;
+    rdfs:comment "Title/role of the verifier." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <http://schema.org/jobTitle> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-kaefys4w92tgr7iwuptn9uea ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-krjrijisqnzbzio802s1kvmz-shape a sh:NodeShape ;
+    rdfs:label "Certifying Physician Participation Function" ;
+    rdfs:comment "Function of the certifying physician in the death record event (e.g., Attending Physician, Medical Examiner)." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "attending-physician" "medical-examiner" "coroner" "pronouncing-physician" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-krjrijisqnzbzio802s1kvmz ;
     sdc4-meta:sdcType "XdTokenType" .
 
 sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape a sh:NodeShape ;
     rdfs:label "Province" ;
     rdfs:comment "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ rdfs:label "State/Province" ;
-            sh:hasValue schema:State ;
-            sh:path rdfs:isDefinedBy ],
-        [ rdfs:label "schema:DefinedTermSet" ;
-            sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ],
-        [ sh:datatype xsd:token ;
+    sh:property [ sh:datatype xsd:token ;
             sh:in ( "Aldara" "Brevina" "Celara" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
-        [ rdfs:label "skos:ConceptScheme" ;
-            sh:hasValue skos:ConceptScheme ;
-            sh:path rdf:type ],
-        [ rdfs:label "AdministrativeArea" ;
-            sh:hasValue <http://schema.org/AdministrativeArea> ;
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <http://schema.org/AdministrativeArea> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:State ;
             sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh ;
     sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-l4oiyjy4qc2fozn4qaj49t81-shape a sh:NodeShape ;
+    rdfs:label "attestation_type" ;
+    rdfs:comment "Type of attestation." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:hasValue <https://w3id.org/dpv/dpv-owl#Purpose> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "principle_compliance" "lawful_basis" "data_transfer" "consent" "impact_assessment" "retention" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ] ;
+    sh:targetNode sdc4:mc-l4oiyjy4qc2fozn4qaj49t81 ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-lkxku0zz32xvacl9lxa3zxik-shape a sh:NodeShape ;
+    rdfs:label "Court Participation Function" ;
+    rdfs:comment "Function of the court in the divorce proceeding (e.g., Presiding Court, Filing Court)." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "presiding-court" "filing-court" "appeals-court" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-lkxku0zz32xvacl9lxa3zxik ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-m21mv7pyouct7a4uxgkxzj54-shape a sh:NodeShape ;
+    rdfs:label "Birth Facility" ;
+    rdfs:comment "Name of the hospital or facility where birth occurred" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue schema:name ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1322263> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-m21mv7pyouct7a4uxgkxzj54 ;
+    sdc4-meta:sdcType "XdStringType" .
 
 sdc4:mc-m3gsphdej7z9csemrrk8uymy-shape a sh:NodeShape ;
     rdfs:label "Cause of Death" ;
     rdfs:comment "Primary cause of death as determined by certifying physician" ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ rdfs:label "cause of death" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q1931388> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
             sh:maxLength 200 ;
+            sh:minCount 1 ;
             sh:minLength 1 ;
             sh:path sdc4:xdstring-value ],
-        [ rdfs:label "schema:description" ;
-            sh:hasValue schema:description ;
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1931388> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:description ;
             sh:path skos:broadMatch ] ;
     sh:targetNode sdc4:mc-m3gsphdej7z9csemrrk8uymy ;
     sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-m9xg6e182m1oq77ssrf9iujv-shape a sh:NodeShape ;
+    rdfs:label "activity_description" ;
+    rdfs:comment "Detailed description of what this activity does and its purpose." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.w3.org/TR/prov-dm/> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 2000 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-m9xg6e182m1oq77ssrf9iujv ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-mfhycxuhhbanyrr3tacaj43b-shape a sh:NodeShape ;
+    rdfs:label "Certifying Physician Participation Mode" ;
+    rdfs:comment "Mode of certifying physician participation in the death record (e.g., in person, electronic certification)." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "in-person" "electronic-certification" "by-mail" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-mfhycxuhhbanyrr3tacaj43b ;
+    sdc4-meta:sdcType "XdTokenType" .
 
 sdc4:mc-mw9qdn71urog8egjbp5t3y00-shape a sh:NodeShape ;
     rdfs:label "Sex" ;
     rdfs:comment "Biological sex assigned at birth based on physical characteristics. UMLS CUI: C0079399 (Biologic Sex). Aligned with OMB standards for reporting." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ rdfs:label "schema:DefinedTermSet" ;
-            sh:hasValue schema:DefinedTermSet ;
+    sh:property [ sh:hasValue <https://uts.nlm.nih.gov/uts/umls/concept/C5236503> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:DefinedTermSet ;
             sh:path skos:exactMatch ],
         [ sh:datatype xsd:token ;
             sh:in ( "Male" "Female" "Intersex" "Unknown" ) ;
-            sh:path sdc4:xdtoken-value ],
-        [ rdfs:label "Biological sex" ;
-            sh:hasValue <https://uts.nlm.nih.gov/uts/umls/concept/C5236503> ;
-            sh:path rdfs:isDefinedBy ],
-        [ rdfs:label "skos:ConceptScheme" ;
-            sh:hasValue skos:ConceptScheme ;
-            sh:path rdf:type ] ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
     sh:targetNode sdc4:mc-mw9qdn71urog8egjbp5t3y00 ;
     sdc4-meta:sdcType "XdTokenType" .
 
+sdc4:mc-ngm0a3w2xml4h4d5ireqzucn-shape a sh:NodeShape ;
+    rdfs:label "Attestation Status" ;
+    rdfs:comment "Status of compliance attestation or certification." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q485475> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "pending" "attested" "expired" "revoked" "not_applicable" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-ngm0a3w2xml4h4d5ireqzucn ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-nrqy1c3rg2d0me4lyrf49cme-shape a sh:NodeShape ;
+    rdfs:label "Court Name" ;
+    rdfs:comment "Name of the court that issued the decree" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q1780854> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:name ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-nrqy1c3rg2d0me4lyrf49cme ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-o72s5793973fzho35rnaughs-shape a sh:NodeShape ;
+    rdfs:label "activity_timestamp_start" ;
+    rdfs:comment "When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format." ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ sh:hasValue <http://www.ontology-of-units-of-measure.org/resource/om-2/Activity> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:time ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-time ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-datetime ] ;
+    sh:targetNode sdc4:mc-o72s5793973fzho35rnaughs ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
 sdc4:mc-obybok0oaoa79b11b0ync1zf-shape a sh:NodeShape ;
     rdfs:label "Divorce Record" ;
-    rdfs:comment """Details specific to divorce decrees.
-Purpose: Document a divorce with both parties and court details
-Parent Cluster: Vital Event""" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
-            sh:order 0 ;
-            sh:path sdc4:hasComponent ],
-        [ rdfs:label "divorce record" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q131460403> ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q131460403> ;
             sh:path rdfs:isDefinedBy ],
         [ sh:node sdc4:mc-ft4kk6m3r1goxkte0d7wflk8-shape ;
-            sh:order 0 ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-ycujkecjszwwrcd6dhxesk73-shape ;
-            sh:order 0 ;
-            sh:path sdc4:hasComponent ],
-        [ rdfs:label "schema:ItemList" ;
-            sh:hasValue schema:ItemList ;
-            sh:path skos:broadMatch ],
-        [ rdfs:label "WHO Civil Registration and Vital Statistics" ;
-            sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
-            sh:path rdfs:isDefinedBy ],
         [ sh:node sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn-shape ;
-            sh:order 0 ;
-            sh:path sdc4:hasComponent ] ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-ycujkecjszwwrcd6dhxesk73-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-obybok0oaoa79b11b0ync1zf .
+
+sdc4:mc-pdykwzsug7pfncjsrry73x1s-shape a sh:NodeShape ;
+    rdfs:label "contact_phone" ;
+    rdfs:comment "Primary contact phone number." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q214995> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ;
+            sh:pattern "\\+?\\d[\\d\\s\\-\\(\\)]{6,18}" ] ;
+    sh:targetNode sdc4:mc-pdykwzsug7pfncjsrry73x1s ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-px6j779dnapp4fjlohula4mh-shape a sh:NodeShape ;
+    rdfs:label "software_service_endpoint" ;
+    rdfs:comment "API endpoint or service URL if applicable." ;
+    sh:node sdc4:XdLinkBaseShape ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation-uri ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q5376585> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:link ] ;
+    sh:targetNode sdc4:mc-px6j779dnapp4fjlohula4mh ;
+    sdc4-meta:sdcType "XdLinkType" .
+
+sdc4:mc-r2g662g70dx34eq12v9n4ng7-shape a sh:NodeShape ;
+    rdfs:label "Vital Statistics Governed Record" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q18562479> ;
+            sh:path skos:relatedMatch ],
+        [ sh:node sdc4:mc-hdhjfg00tngir2txgqyka9cv-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-tard9hhq13m95hinbh4h7k5j-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1131372> ;
+            sh:path skos:broadMatch ] ;
+    sh:targetNode sdc4:mc-r2g662g70dx34eq12v9n4ng7 .
+
+sdc4:mc-rsjfjz8m5z7a58h5793duqbs-shape a sh:NodeShape ;
+    rdfs:label "software_name" ;
+    rdfs:comment "Name of the software system or service." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q30335969> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-rsjfjz8m5z7a58h5793duqbs ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-rt6c1qzw12vd19ke3gii08gf-shape a sh:NodeShape ;
+    rdfs:label "verifier_name" ;
+    rdfs:comment "Name of the person making the attestation." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <http://schema.org/name> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-rt6c1qzw12vd19ke3gii08gf ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-rw1cjzeynsl87va6gvhv2k7e-shape a sh:NodeShape ;
+    rdfs:label "service_account_id" ;
+    rdfs:comment "Service account or system account identifier for software agents." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <http://schema.org/identifier> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 255 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-rw1cjzeynsl87va6gvhv2k7e ;
+    sdc4-meta:sdcType "XdStringType" .
 
 sdc4:mc-tard9hhq13m95hinbh4h7k5j-shape a sh:NodeShape ;
     rdfs:label "Vital Event" ;
-    rdfs:comment """A single life event recorded in the Cordova vital statistics registry.
-Business Context: Links to Civil Registry for person identification
-Purpose: Common fields shared across all vital event types""" ;
-    sh:message "Assert: not(ti1efft41nnipki8xxa66rx5/xdtemporal-date and b69biqbujb16w4a624hizmyh/xdtemporal-date) or ti1efft41nnipki8xxa66rx5/xdtemporal-date le b69biqbujb16w4a624hizmyh/xdtemporal-date" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-chtyne5i6qcwbrby29vbuh2k-shape ;
-            sh:order 11 ;
-            sh:path sdc4:hasCluster ],
-        [ sh:node sdc4:mc-tdz3pxrf7k6z2df2bfm7ebcp-shape ;
-            sh:order 9 ;
-            sh:path sdc4:hasCluster ],
-        [ sh:node sdc4:mc-jz7vc6ikueqig8g0lvb2czzr-shape ;
-            sh:order 0 ;
+    sh:property [ sh:node sdc4:mc-ajfsyoyrz38094hswxh13i3x-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-ajfsyoyrz38094hswxh13i3x-shape ;
-            sh:order 0 ;
-            sh:path sdc4:hasComponent ],
-        [ rdfs:label "WHO Civil Registration and Vital Statistics" ;
-            sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
-            sh:path rdfs:isDefinedBy ],
-        [ rdfs:label "vital record (exact)" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q18562479> ;
-            sh:path skos:exactMatch ],
-        [ rdfs:label "civil registration (related)" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q97211668> ;
-            sh:path skos:relatedMatch ],
         [ sh:node sdc4:mc-atdtdfzruh7tya0iv5cz365l-shape ;
-            sh:order 0 ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-obybok0oaoa79b11b0ync1zf-shape ;
-            sh:order 10 ;
+        [ sh:node sdc4:mc-tdz3pxrf7k6z2df2bfm7ebcp-shape ;
             sh:path sdc4:hasCluster ],
-        [ sh:node sdc4:mc-az8kem3v58y9zenys7mthqxe-shape ;
-            sh:order 8 ;
-            sh:path sdc4:hasCluster ],
-        [ sh:node sdc4:mc-e3sfb43zh1vjlgceb5guh0mj-shape ;
-            sh:order 0 ;
+        [ sh:node sdc4:mc-yri6g628ipi0jqoa0ijnzxxu-shape ;
             sh:path sdc4:hasComponent ],
-        [ rdfs:label "vital statistics (broad)" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q1131372> ;
+        [ sh:hasValue schema:ItemList ;
             sh:path skos:broadMatch ],
         [ sh:node sdc4:mc-vo9jtmexkaaol3y657fm0xn8-shape ;
-            sh:order 0 ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-yri6g628ipi0jqoa0ijnzxxu-shape ;
-            sh:order 0 ;
-            sh:path sdc4:hasComponent ],
-        [ rdfs:label "schema:ItemList" ;
-            sh:hasValue schema:ItemList ;
-            sh:path skos:broadMatch ],
         [ sh:node sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape ;
-            sh:order 0 ;
-            sh:path sdc4:hasComponent ] ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-obybok0oaoa79b11b0ync1zf-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-az8kem3v58y9zenys7mthqxe-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-chtyne5i6qcwbrby29vbuh2k-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-jz7vc6ikueqig8g0lvb2czzr-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-e3sfb43zh1vjlgceb5guh0mj-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q18562479> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q97211668> ;
+            sh:path skos:relatedMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1131372> ;
+            sh:path skos:broadMatch ] ;
     sh:targetNode sdc4:mc-tard9hhq13m95hinbh4h7k5j .
 
 sdc4:mc-tdz3pxrf7k6z2df2bfm7ebcp-shape a sh:NodeShape ;
     rdfs:label "Death Record" ;
-    rdfs:comment """Details specific to death certificates.
-Business Context: Links to Healthcare (certifying physician), enables public health statistics
-Purpose: Document a death with cause, certifying physician, and circumstances
-Parent Cluster: Vital Event""" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn-shape ;
-            sh:order 0 ;
+    sh:property [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ftuxt5nrrffwjb2vymn80yx2-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q708653> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-dsoyfaplxw8ide1opo5w8fxg-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-m3gsphdej7z9csemrrk8uymy-shape ;
-            sh:order 0 ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
-            sh:order 0 ;
-            sh:path sdc4:hasComponent ],
-        [ rdfs:label "death certificate" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q708653> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:node sdc4:mc-ftuxt5nrrffwjb2vymn80yx2-shape ;
-            sh:order 0 ;
-            sh:path sdc4:hasComponent ],
-        [ rdfs:label "schema:ItemList" ;
-            sh:hasValue schema:ItemList ;
-            sh:path skos:broadMatch ],
-        [ sh:node sdc4:mc-dsoyfaplxw8ide1opo5w8fxg-shape ;
-            sh:order 0 ;
-            sh:path sdc4:hasComponent ],
-        [ rdfs:label "WHO Civil Registration and Vital Statistics" ;
-            sh:hasValue <https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)> ;
-            sh:path rdfs:isDefinedBy ] ;
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ] ;
     sh:targetNode sdc4:mc-tdz3pxrf7k6z2df2bfm7ebcp .
+
+sdc4:mc-tep9wanrrtqfw0k76huv6tvd-shape a sh:NodeShape ;
+    rdfs:label "software_version" ;
+    rdfs:comment "Version of the software." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 50 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q20826013> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-tep9wanrrtqfw0k76huv6tvd ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-tzbg1lgj3vdy4ctfdxr90qix-shape a sh:NodeShape ;
+    rdfs:label "attestation_date" ;
+    rdfs:comment "Date and time when the attestation was made." ;
+    sh:node sdc4:XdTemporalBaseShape ;
+    sh:property [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-datetime ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-date ],
+        [ sh:hasValue <http://schema.org/dateCreated> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-tzbg1lgj3vdy4ctfdxr90qix ;
+    sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-vbzw08smpn0vfxyna7mrh69c-shape a sh:NodeShape ;
+    rdfs:label "Court Participation Mode" ;
+    rdfs:comment "Mode of court participation in the divorce proceeding (e.g., in person, electronic filing)." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:datatype xsd:token ;
+            sh:in ( "in-person" "electronic-filing" "by-mail" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-vbzw08smpn0vfxyna7mrh69c ;
+    sdc4-meta:sdcType "XdTokenType" .
 
 sdc4:mc-vo9jtmexkaaol3y657fm0xn8-shape a sh:NodeShape ;
     rdfs:label "Registration Date" ;
     rdfs:comment "Date the business was officially registered in Cordova" ;
     sh:node sdc4:XdTemporalBaseShape ;
-    sh:property [ sh:datatype xsd:date ;
-            sh:maxCount 1 ;
-            sh:path sdc4:xdtemporal-date ],
-        [ rdfs:label "registration date" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q137375576> ;
+    sh:property [ sh:hasValue schema:Date ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q137375576> ;
             sh:path rdfs:isDefinedBy ],
-        [ rdfs:label "schema:Date" ;
-            sh:hasValue schema:Date ;
-            sh:path skos:broadMatch ] ;
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-date ] ;
     sh:targetNode sdc4:mc-vo9jtmexkaaol3y657fm0xn8 ;
     sdc4-meta:sdcType "XdTemporalType" .
+
+sdc4:mc-wn5su07s9sgs1dhuuomiza68-shape a sh:NodeShape ;
+    rdfs:label "Vital Record Attestation Reason" ;
+    rdfs:comment "Reason for attesting this vital record" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q132364> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q484652> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue schema:Text ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 500 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-wn5su07s9sgs1dhuuomiza68 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-xvnv7mrhvfweajl72pmngeya-shape a sh:NodeShape ;
+    rdfs:label "software_documentation_url" ;
+    rdfs:comment "URL to software documentation or repository." ;
+    sh:node sdc4:XdLinkBaseShape ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation-uri ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:link ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q3133368> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-xvnv7mrhvfweajl72pmngeya ;
+    sdc4-meta:sdcType "XdLinkType" .
 
 sdc4:mc-ycujkecjszwwrcd6dhxesk73-shape a sh:NodeShape ;
     rdfs:label "Marriage Certificate Number" ;
     rdfs:comment "Certificate number of the original marriage being dissolved" ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxLength 50 ;
-            sh:minLength 1 ;
-            sh:path sdc4:xdstring-value ],
-        [ rdfs:label "marriage certificate" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q1299632> ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q1299632> ;
             sh:path rdfs:isDefinedBy ],
-        [ rdfs:label "certificate number" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q820655> ;
-            sh:path skos:broadMatch ] ;
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q820655> ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 50 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
     sh:targetNode sdc4:mc-ycujkecjszwwrcd6dhxesk73 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-yn69whk0qtnwp9sbb9n8jfu3-shape a sh:NodeShape ;
+    rdfs:label "Notary Registration Number" ;
+    rdfs:comment "Official registration number of the attesting notary" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue schema:identifier ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#NotaryPublicIdentificationID> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 50 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-yn69whk0qtnwp9sbb9n8jfu3 ;
     sdc4-meta:sdcType "XdStringType" .
 
 sdc4:mc-yri6g628ipi0jqoa0ijnzxxu-shape a sh:NodeShape ;
     rdfs:label "Record Status" ;
     rdfs:comment "Status of the vital record" ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ rdfs:label "schema:DefinedTermSet" ;
-            sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ],
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q65720124> ;
+            sh:path rdfs:isDefinedBy ],
         [ sh:datatype xsd:token ;
             sh:in ( "Active" "Amended" "Voided" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
-        [ rdfs:label "skos:ConceptScheme" ;
-            sh:hasValue skos:ConceptScheme ;
-            sh:path rdf:type ],
-        [ rdfs:label "document status" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q65720124> ;
-            sh:path rdfs:isDefinedBy ] ;
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ] ;
     sh:targetNode sdc4:mc-yri6g628ipi0jqoa0ijnzxxu ;
     sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-zr59goe24qkocprl3feul3mt-shape a sh:NodeShape ;
+    rdfs:label "system_location_identifier" ;
+    rdfs:comment "Code or identifier for the system location. Used for cross-system location resolution." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 50 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q36214810> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-zr59goe24qkocprl3feul3mt ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:XdFileBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdFile must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:message "XdFile must have a valid URI" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdfile-uri ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdFile media type must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdfile-media-type ] ;
+    sh:targetClass sdc4:XdFileType .
+
+sdc4:mc-u1i23yha2rvz5nbxjz3l8x48-shape a sh:NodeShape ;
+    rdfs:label "PROV Role Type" ;
+    rdfs:comment "Functional roles that agents, entities, or activities can assume within provenance relationships." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:hasValue <https://www.w3.org/TR/prov-o/#qualifiedInvolvement> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "Author" "Publisher" "Contributor" "Custodian" "Reviewer" "Approver" "Transformer" "Aggregator" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ] ;
+    sh:targetNode sdc4:mc-u1i23yha2rvz5nbxjz3l8x48 ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:XdLinkBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdLink must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:message "XdLink must have a valid URI" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdlink-url ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdLink relation must be a string" ;
+            sh:minCount 0 ;
+            sh:path sdc4:xdlink-relation ] ;
+    sh:targetClass sdc4:XdLinkType .
+
+sdc4:mc-bpqtzla39dwentygpwea8276-shape a sh:NodeShape ;
+    rdfs:label "organization_type" ;
+    rdfs:comment "Type of organization." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q17197366> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
+            sh:in ( "corporation" "government" "nonprofit" "academic" "department" "vendor" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-bpqtzla39dwentygpwea8276 ;
+    sdc4-meta:sdcType "XdTokenType" .
+
+sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1-shape a sh:NodeShape ;
+    rdfs:label "agent_id" ;
+    rdfs:comment "Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q37882474> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 255 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape a sh:NodeShape ;
+    rdfs:label "organization_name" ;
+    rdfs:comment "Legal or official name of the organization." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q168678> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 200 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-ndvtjiq0cke0q1trw58rtrq2-shape a sh:NodeShape ;
+    rdfs:label "person_given_name" ;
+    rdfs:comment "Given (first) name of the person agent." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q202444> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-ndvtjiq0cke0q1trw58rtrq2 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-ule5u2z3rjpa9pooaifwj1n3-shape a sh:NodeShape ;
+    rdfs:label "organization_identifier" ;
+    rdfs:comment "Official identifier for the organization (e.g., DUNS, tax ID)." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q11378663> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 255 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-ule5u2z3rjpa9pooaifwj1n3 ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-zs9ciw4nypx4plo856h3m95d-shape a sh:NodeShape ;
+    rdfs:label "person_family_name" ;
+    rdfs:comment "Family (last) name of the person agent." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q4116295> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-zs9ciw4nypx4plo856h3m95d ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn-shape a sh:NodeShape ;
+    rdfs:label "Person Full Name" ;
+    rdfs:comment "A complete name of a person (NIEM nc:PersonFullName)" ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 100 ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1071027> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape a sh:NodeShape ;
+    rdfs:label "National ID (CID)" ;
+    rdfs:comment "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ;
+            sh:pattern "COR-(AL|BR|CE)0[1-3]-[0-9]{6}" ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q1140371> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:identifier ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <http://schema.org/identifier> ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetNode sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ;
+    sdc4-meta:sdcType "XdStringType" .
 
 sdc4:XdTemporalBaseShape a sh:NodeShape ;
     sh:property [ sh:datatype xsd:string ;
@@ -753,43 +1816,21 @@ sdc4:XdTemporalBaseShape a sh:NodeShape ;
             sh:path sdc4:xdtemporal-year-month ] ;
     sh:targetClass sdc4:XdTemporalType .
 
-sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape a sh:NodeShape ;
-    rdfs:label "National ID (CID)" ;
-    rdfs:comment "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions." ;
-    sh:node sdc4:XdStringBaseShape ;
-    sh:property [ rdfs:label "national identification number" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q1140371> ;
+sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape a sh:NodeShape ;
+    rdfs:label "PROV Agent Type" ;
+    rdfs:comment "Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation." ;
+    sh:node sdc4:XdTokenBaseShape ;
+    sh:property [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue prov:Agent ;
             sh:path rdfs:isDefinedBy ],
-        [ rdfs:label "schema:identifier" ;
-            sh:hasValue schema:identifier ;
-            sh:path skos:broadMatch ],
-        [ sh:datatype xsd:string ;
-            sh:maxLength 16 ;
-            sh:minLength 16 ;
-            sh:path sdc4:xdstring-value ;
-            sh:pattern "COR-(AL|BR|CE)0[1-3]-[0-9]{6}" ],
-        [ rdfs:label "identifier" ;
-            sh:hasValue <http://schema.org/identifier> ;
-            sh:path rdfs:isDefinedBy ] ;
-    sh:targetNode sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ;
-    sdc4-meta:sdcType "XdStringType" .
-
-sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn-shape a sh:NodeShape ;
-    rdfs:label "Person Full Name" ;
-    rdfs:comment "A complete name of a person (NIEM nc:PersonFullName)" ;
-    sh:node sdc4:XdStringBaseShape ;
-    sh:property [ rdfs:label "schema:Text" ;
-            sh:hasValue schema:Text ;
-            sh:path rdf:type ],
-        [ rdfs:label "full name" ;
-            sh:hasValue <https://www.wikidata.org/wiki/Q1071027> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:datatype xsd:string ;
-            sh:maxLength 100 ;
-            sh:minLength 1 ;
-            sh:path sdc4:xdstring-value ] ;
-    sh:targetNode sdc4:mc-pmw2cq7fioqlbs2ljdh34rkn ;
-    sdc4-meta:sdcType "XdStringType" .
+        [ sh:datatype xsd:token ;
+            sh:in ( "Person" "Organization" "SoftwareAgent" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetNode sdc4:mc-nesxtz8c5o665swc9lhvqkjj ;
+    sdc4-meta:sdcType "XdTokenType" .
 
 sdc4:ClusterBaseShape a sh:NodeShape ;
     sh:property [ sh:message "Cluster can contain zero or more components" ;
@@ -801,6 +1842,19 @@ sdc4:ClusterBaseShape a sh:NodeShape ;
             sh:minCount 1 ;
             sh:path sdc4:label ] ;
     sh:targetClass sdc4:ClusterType .
+
+sdc4:XdTokenBaseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:message "XdToken must have a label" ;
+            sh:minCount 1 ;
+            sh:path sdc4:label ],
+        [ sh:datatype xsd:token ;
+            sh:maxCount 1 ;
+            sh:message "XdToken must have a token value" ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtoken-value ] ;
+    sh:targetClass sdc4:XdTokenType .
 
 sdc4:XdStringBaseShape a sh:NodeShape ;
     sh:property [ sh:datatype xsd:string ;
@@ -819,17 +1873,4 @@ sdc4:XdStringBaseShape a sh:NodeShape ;
             sh:minCount 0 ;
             sh:path sdc4:xdstring-language ] ;
     sh:targetClass sdc4:XdStringType .
-
-sdc4:XdTokenBaseShape a sh:NodeShape ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:message "XdToken must have a label" ;
-            sh:minCount 1 ;
-            sh:path sdc4:label ],
-        [ sh:datatype xsd:token ;
-            sh:maxCount 1 ;
-            sh:message "XdToken must have a token value" ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdtoken-value ] ;
-    sh:targetClass sdc4:XdTokenType .
 

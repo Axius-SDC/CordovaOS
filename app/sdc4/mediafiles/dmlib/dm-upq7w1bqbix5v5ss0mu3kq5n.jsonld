@@ -20,160 +20,29 @@
   "metadata": {
     "dc:title": "Education Record",
     "dc:creator": "Timothy Cook",
+    "dc:subject": "Education Registry",
     "dc:description": "Track student enrollment and academic credentials at Cordova educational institutions.",
+    "dc:publisher": "Axius SDC, Inc.",
     "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
     "dc:language": "en-US",
     "dc:format": "text/xml",
-    "dc:date": "2026-03-07T20:03:47.726832+00:00"
+    "dc:date": "2026-07-29T15:10:49.626943+00:00"
   },
   "components": [
     {
       "@type": "ClusterType",
-      "@id": "sdc4:mc-ifgq7a670csnbv7vcpuiabp0",
-      "label": "Education Record",
-      "description": "A student's enrollment or completed credential at an educational institution.\nBusiness Context: Links persons to campuses and academic programs\nPurpose: Document academic enrollment, program, and credential attainment",
+      "@id": "sdc4:mc-j4t6xb94355k51xg87n8awdl",
+      "label": "Education Governed Record",
+      "description": "Root data cluster (DMType Item) for a governed education record in CordovaOS: a student's enrollment and academic history. Wraps the domain's data components with the shared W3C PROV-O Provenance cluster so each record carries its lineage bound alongside its data. Workflow, attestation, parties, and the system audit trail sit in the DMType's native governance slots; access control and retention apply as bound sdcgovernance policy.",
       "cardinality": {
         "minOccurs": 0,
         "maxOccurs": 1
       },
-      "contains": [
-        {
-          "@type": "XdStringType",
-          "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3",
-          "label": "National ID (CID)",
-          "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
-          "cardinality": {
-            "minOccurs": 0,
-            "maxOccurs": 1
-          },
-          "dataType": "xsd:string",
-          "semanticLinks": [
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "http://schema.org/identifier"
-            },
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "https://www.wikidata.org/wiki/Q1140371"
-            },
-            {
-              "predicate": "skos:broadMatch",
-              "object": "https://schema.org/identifier"
-            }
-          ]
-        },
-        {
-          "@type": "XdStringType",
-          "@id": "sdc4:mc-khbvruwpu9hnttg8y0mnih6a",
-          "label": "Student ID",
-          "description": "Institution-assigned student identifier",
-          "cardinality": {
-            "minOccurs": 0,
-            "maxOccurs": 1
-          },
-          "constraints": {
-            "minLength": 1,
-            "maxLength": 50
-          },
-          "dataType": "xsd:string",
-          "semanticLinks": [
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "https://www.wikidata.org/wiki/Q906630"
-            },
-            {
-              "predicate": "skos:broadMatch",
-              "object": "https://schema.org/identifier"
-            }
-          ]
-        },
-        {
-          "@type": "XdTokenType",
-          "@id": "sdc4:mc-atdtdfzruh7tya0iv5cz365l",
-          "label": "City",
-          "description": "One of the nine cities in the Republic of Cordova.",
-          "cardinality": {
-            "minOccurs": 0,
-            "maxOccurs": 1
-          },
-          "constraints": {
-            "enumeration": [
-              "Porto Sereno",
-              "Vistamar",
-              "Rioseco",
-              "Campoluz",
-              "Tierraverde",
-              "Montecara",
-              "Novaciudad",
-              "Piedrasol",
-              "Lagunavista"
-            ]
-          },
-          "dataType": "xsd:token",
-          "semanticLinks": [
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "http://schema.org/City"
-            },
-            {
-              "predicate": "skos:exactMatch",
-              "object": "https://schema.org/DefinedTermSet"
-            },
-            {
-              "predicate": "rdf:type",
-              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
-            }
-          ]
-        },
-        {
-          "@type": "XdTokenType",
-          "@id": "sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh",
-          "label": "Province",
-          "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
-          "cardinality": {
-            "minOccurs": 0,
-            "maxOccurs": 1
-          },
-          "constraints": {
-            "enumeration": [
-              "Aldara",
-              "Brevina",
-              "Celara"
-            ]
-          },
-          "dataType": "xsd:token",
-          "semanticLinks": [
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "http://schema.org/AdministrativeArea"
-            },
-            {
-              "predicate": "skos:exactMatch",
-              "object": "https://schema.org/DefinedTermSet"
-            },
-            {
-              "predicate": "rdf:type",
-              "object": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
-            },
-            {
-              "predicate": "rdfs:isDefinedBy",
-              "object": "https://schema.org/State"
-            }
-          ]
-        }
-      ],
+      "contains": [],
       "semanticLinks": [
         {
           "predicate": "rdfs:isDefinedBy",
-          "object": "https://niemopen.org/"
-        },
-        {
-          "predicate": "skos:broadMatch",
-          "object": "https://schema.org/ItemList"
-        },
-        {
-          "predicate": "rdfs:isDefinedBy",
-          "object": "https://www.wikidata.org/wiki/Q131156977"
+          "object": "https://www.wikidata.org/wiki/Q109391654"
         }
       ]
     }

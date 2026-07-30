@@ -44,7 +44,7 @@ services:
   # SirixDB - Temporal JSON/XML Database
   # Provides temporal versioning and time-travel queries
   sirixdb:
-    image: sirixdb/sirix:latest
+    image: axiussdc/sirix:0.11.2
     container_name: sdc4_sirixdb
     environment:
       SIRIX_USER: admin
@@ -109,7 +109,9 @@ services:
       retries: 5
 
   web:
-    build: .
+    build:
+      context: ../..
+      dockerfile: app/sdc4/Dockerfile
     container_name: sdc4_web
     command: >
       sh -c "python manage.py makemigrations &&
@@ -164,7 +166,9 @@ services:
       SDC4_STACK: enterprise
 
   celery:
-    build: .
+    build:
+      context: ../..
+      dockerfile: app/sdc4/Dockerfile
     container_name: sdc4_celery
     command: celery -A sdc4 worker -l info
     volumes:
