@@ -4,8 +4,9 @@
 # the same city/province.
 # Input: Institution BRN, e.g. "BIZ-000847" (Universidad Nacional de Cordova)
 #
-# Join mechanism: BRN links to Business Registry; Education records in
-# the same city show the institutional footprint.
+# Join mechanism: the business number value matches the Business Registry
+# organization_identifier component; Education records in the same city show
+# the institutional footprint.
 
 PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -15,14 +16,13 @@ SELECT ?category ?detail_label ?detail_value
 WHERE {
   {
     # Business Registry details for the institution
-    ?brn_reifier sdc4:forComponent sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ;
-                 sdc4:componentValue "BIZ-000847" ;
+    ?brn_reifier rdf:reifies <<sdc4:mc-ule5u2z3rjpa9pooaifwj1n3 ?vpBrn "BIZ-000847">> ;
                  sdc4:inInstance ?biz_inst ;
                  sdc4:inDataModel sdc4:dm-x250838l7oi6l3yavg9twc1i .
 
     ?comp_reifier sdc4:inInstance ?biz_inst ;
                   rdfs:label ?detail_label ;
-                  sdc4:componentValue ?detail_value .
+                  rdf:reifies <<?mcComp ?vpComp ?detail_value>> .
 
     BIND("Business Registry" AS ?category)
   }
@@ -30,24 +30,25 @@ WHERE {
   {
     # Education records — find students in the same city as the institution
     # First get the institution's city
-    ?brn_reifier2 sdc4:forComponent sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ;
-                  sdc4:componentValue "BIZ-000847" ;
+    ?brn_reifier2 rdf:reifies <<sdc4:mc-ule5u2z3rjpa9pooaifwj1n3 ?vpBrn2 "BIZ-000847">> ;
                   sdc4:inInstance ?biz_inst2 ;
                   sdc4:inDataModel sdc4:dm-x250838l7oi6l3yavg9twc1i .
 
-    ?biz_city_reifier sdc4:forComponent sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
-                      sdc4:componentValue ?inst_city ;
-                      sdc4:inInstance ?biz_inst2 .
+    # Business Registry carries no City component; the institution's city is
+    # encoded in system_location_name (e.g. "Campoluz Data Center").
+    ?biz_loc_reifier sdc4:inInstance ?biz_inst2 ;
+                     rdfs:label "system_location_name" ;
+                     rdf:reifies <<?mcBizLoc ?vpBizLoc ?loc_name>> .
+    BIND(REPLACE(STR(?loc_name), " Data Center", "") AS ?inst_city)
 
     # Find education records in that city
-    ?edu_city_reifier sdc4:forComponent sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
-                      sdc4:componentValue ?inst_city ;
+    ?edu_city_reifier rdf:reifies <<sdc4:mc-atdtdfzruh7tya0iv5cz365l ?vpEduCity ?inst_city>> ;
                       sdc4:inInstance ?edu_inst ;
                       sdc4:inDataModel sdc4:dm-upq7w1bqbix5v5ss0mu3kq5n .
 
     ?edu_comp sdc4:inInstance ?edu_inst ;
               rdfs:label ?detail_label ;
-              sdc4:componentValue ?detail_value .
+              rdf:reifies <<?mcEdu ?vpEdu ?detail_value>> .
 
     FILTER(?detail_label IN ("National ID (CID)", "Student ID", "Field of Study",
                               "Enrollment Status", "Institution Name"))

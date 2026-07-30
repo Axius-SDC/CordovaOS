@@ -15,8 +15,7 @@ PREFIX dc:   <http://purl.org/dc/elements/1.1/>
 SELECT ?domain ?component_label ?value
 WHERE {
   # Find all instances containing this CID across any domain
-  ?cid_reifier sdc4:forComponent sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ;
-               sdc4:componentValue "COR-AL01-271845" ;
+  ?cid_reifier rdf:reifies <<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ?vpCid "COR-AL01-271845">> ;
                sdc4:inInstance ?instance ;
                sdc4:inDataModel ?dm .
 
@@ -26,7 +25,7 @@ WHERE {
   # Get all components from each instance
   ?comp_reifier sdc4:inInstance ?instance ;
                 rdfs:label ?component_label ;
-                sdc4:componentValue ?value .
+                rdf:reifies <<?mcC ?vpC ?value>> .
 }
 ORDER BY ?domain ?component_label
 LIMIT 500
