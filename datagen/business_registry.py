@@ -13,6 +13,7 @@ import os
 import random
 
 from shared import (
+    scaled,
     random_city_province, random_address, random_date,
     generate_brn, generate_phone, generate_email,
     xml_header, xml_preamble, xml_footer, write_xml,
@@ -239,7 +240,7 @@ def generate():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     count = 0
 
-    for biz in make_named_businesses() + make_background_businesses(495):
+    for biz in make_named_businesses() + make_background_businesses(scaled(495, 42)):
         xml = build_instance(biz)
         write_xml(os.path.join(OUTPUT_DIR, f"br-{cuid_generator()}.xml"), xml)
         count += 1

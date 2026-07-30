@@ -12,6 +12,7 @@ import os
 import random
 
 from shared import (
+    scaled,
     CAST, PERSONS, random_date,
     xml_header, xml_preamble, xml_footer, write_xml,
     xdstring, xdtoken, xdtemporal, xdquantity,
@@ -204,7 +205,7 @@ def generate():
             count += 1
 
     # Background business tax filings (~495 background businesses)
-    for i in range(495):
+    for i in range(scaled(495, 42)):
         brn = f"BIZ-{i+2:06d}"  # offset past narrative BRNs
         revenue = random.randint(50000, 3000000)
         tax_amount = int(revenue * 0.12)

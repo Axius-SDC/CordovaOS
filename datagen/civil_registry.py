@@ -8,6 +8,7 @@ import os
 import random
 
 from shared import (
+    scaled,
     CAST, PERSONS, ALL_CITIES, CITY_TO_PROVINCE, PROVINCE_CODES, CITY_CODES,
     PROVINCE_CITIES, AGE_DISTRIBUTION,
     random_name, random_city_province, random_address, random_dob,
@@ -256,7 +257,7 @@ def generate():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     cast_persons = make_cast_persons()
-    bg_persons = make_background_persons(24992)
+    bg_persons = make_background_persons(scaled(24992, 242))
     all_persons = cast_persons + bg_persons
 
     # Populate shared PERSONS list for other domain generators

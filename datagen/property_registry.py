@@ -10,6 +10,7 @@ import os
 import random
 
 from shared import (
+    scaled,
     CAST, PERSONS, random_city_province, random_address, random_date, random_name,
     generate_parcel, PROVINCE_CODES, CITY_CODES, CITY_TO_PROVINCE,
     xml_header, xml_preamble, xml_footer, write_xml,
@@ -233,7 +234,7 @@ def generate():
         ["Agricultural"] * 7 +
         ["Industrial"] * 3
     )
-    for _ in range(7988):
+    for _ in range(scaled(7988, 94)):
         city, prov = random_city_province()
         pc = PROVINCE_CODES[prov]
         cc = CITY_CODES[city]

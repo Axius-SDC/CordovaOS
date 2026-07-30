@@ -11,6 +11,7 @@ import os
 import random
 
 from shared import (
+    scaled,
     random_address, random_date, ALL_CITIES, CITY_TO_PROVINCE,
     xml_header, xml_preamble, xml_footer, write_xml,
     xdstring, xdtoken, xdtemporal, xdquantity,
@@ -282,7 +283,7 @@ def generate():
     ]
 
     import random as _rand
-    for _ in range(192):
+    for _ in range(scaled(192, 38)):
         summary_template, cat = _rand.choice(incident_templates)
         city = _rand.choice(ALL_CITIES)
         prov = CITY_TO_PROVINCE[city]

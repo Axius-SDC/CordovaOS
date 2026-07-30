@@ -3,11 +3,21 @@ Shared utilities for CordovaOS demo data generation.
 
 Provides XML element builders, name pools, geography, and the Contagion cast.
 """
+import os
 import random
 from datetime import datetime, date
 from cuid2 import cuid_wrapper
 
 cuid_generator = cuid_wrapper()
+
+# Demo-scale switch. Default is the full 25,000-resident dataset (~100K instances).
+# Set CORDOVA_DEMO_SCALE=1 to generate a small PoC dataset that loads in minutes.
+DEMO_SCALE = os.environ.get("CORDOVA_DEMO_SCALE") == "1"
+
+
+def scaled(full, demo):
+    """Return the demo count when CORDOVA_DEMO_SCALE=1, else the full count."""
+    return demo if DEMO_SCALE else full
 
 SDC4_NS = "https://semanticdatacharter.com/ns/sdc4/"
 XSI_NS = "http://www.w3.org/2001/XMLSchema-instance"
