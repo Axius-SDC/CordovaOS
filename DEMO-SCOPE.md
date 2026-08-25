@@ -80,6 +80,8 @@ Cells with `type == 'uri'` become explainable. Everything else renders as it doe
 
 `explain_value(request)`, an HTMX GET taking a node URI, running a provenance query against GraphDB, returning a partial.
 
+**★ Validate the URI before it reaches the query.** This endpoint interpolates a user-supplied value into SPARQL, which is an injection surface, and this is a public clone-and-run repo whose entire pitch is governance. Confirm the value parses as an absolute URI, matches an expected namespace prefix, and is escaped on the way in. Reject anything else rather than passing it through. This is not optional hardening; it is the first thing a security-minded reader will look for.
+
 New file `sparql/provenance_for_node.rq`, parameterized on the node, retrieving:
 
 - `prov:wasGeneratedBy` activity, with `startedAtTime` / `endedAtTime` / `atLocation`
@@ -93,7 +95,9 @@ New file `sparql/provenance_for_node.rq`, parameterized on the node, retrieving:
 
 Two registers, stacked. Plain language on top, the underlying triples underneath a disclosure. The C-suite reader reads the top. The architect they bring to the second meeting reads the bottom, and that the bottom exists is what makes the top believable.
 
-**Files:** `views.py` (new view + row shape + cache key), `urls.py`, `templates/demo/_query_results.html` (cell markup, `hx-get` on URI cells), new `templates/demo/_provenance_drawer.html`, new `sparql/provenance_for_node.rq`.
+**★ Define the empty state before building the full one.** Not every URI in a result has a provenance chain: class URIs, vocabulary terms and intermediate nodes will not. Without a deliberate "no lineage here, and here is why" panel, clicking those returns blank and the demo reads as half-built exactly where it is meant to be strongest. **This is the most likely way this ships feeling broken.**
+
+**Files:** `views.py` (new view + row shape + cache key + URI validation), `urls.py`, `templates/demo/_query_results.html` (cell markup, `hx-get` on URI cells), new `templates/demo/_provenance_drawer.html`, new `sparql/provenance_for_node.rq`.
 
 ---
 
@@ -119,7 +123,7 @@ The trace already crosses four institutional boundaries. Today the crossing is i
 
 Mark each crossing in the narrative beats and show that the meaning survived it: same component, same constraints, different institution, no mapping step in between.
 
-**The one unknown to resolve first:** how a value's originating institution is determined at query time. If each domain loads into its own named graph, this is nearly free, `GRAPH ?g` in the provenance query and a lookup. If institution is instead carried on the instance or inferred from the component namespace, it is a slightly different query and no harder. **Verify this in week one**, because Piece 1 needs the same answer and both pieces stall without it.
+**Unknown to resolve first:** how a value's originating institution is determined at query time. If each domain loads into its own named graph, this is nearly free, `GRAPH ?g` in the provenance query and a lookup. If institution is instead carried on the instance or inferred from the component namespace, it is a slightly different query and no harder. **Verify this in week one**, because Piece 1 needs the same answer and both pieces stall without it.
 
 **Files:** `narrative.py`, `templates/demo/narrative.html`, `templates/demo/_beat_results.html`.
 
@@ -135,19 +139,39 @@ Worth stating explicitly, because it is the sentence the whole demo exists to ea
 
 A BI tool can do none of these, and adding a prettier front end to a pile of feeds does not get you closer to any of them.
 
+**★ Claim 2 has to be demonstrated, not asserted.** Nothing in the current build shows it, and `run_query` caches by SPARQL hash, so a second run returns the **cache** rather than a second evaluation. Re-running and getting the same screen proves nothing and could be pointed at as proof of nothing. Either give the demo a way to re-evaluate with the cache bypassed and show the verdicts matching, or cut the claim back to what the drawer actually evidences. **We spent August removing unevidenced claims from the websites; shipping one in our own shop window would be the same failure indoors.**
+
 ---
 
 ## Sequencing
 
-| Order | Work | Why here |
-|---|---|---|
-| 1 | Resolve the institution-attribution question | Pieces 1 and 3 both depend on it. Cheapest thing that can invalidate the plan. |
-| 2 | Piece 1, row shape + `explain_value` + drawer | The core. Everything else stages it. |
-| 3 | Piece 0, question deck | Cheap, and makes Piece 1 reachable by the intended audience. |
-| 4 | Piece 2, auditor's question | Uses Piece 1; adds no new machinery. |
-| 5 | Piece 3, boundary marking | Highest polish, lowest risk, first thing to cut if September tightens. |
+### Week one: two checks before any code
 
-**If the month compresses, ship 1 and 0 and stop.** A familiar surface where every value explains itself is the entire argument. Two and three are amplification.
+Both are cheap, both can invalidate the plan, and neither is answered yet.
+
+1. **How is a value's originating institution determined at query time?** Named graph, a property on the instance, or the component namespace. Pieces 1 and 3 both need the answer.
+2. **★ Does the generated dataset span four years?** Piece 2 is written around an auditor asking about a record from four years ago. `datagen` produces synthetic data and nobody has checked its timeline. If the span is shorter, either the scene changes or `datagen` does. **Load-bearing and unverified.**
+
+### Then, in this order
+
+| Step | Work | Why here |
+|---|---|---|
+| A | **Piece 1**, row shape + URI validation + `explain_value` + drawer + empty state | The core. Everything else stages it. |
+| B | **Piece 0**, question deck | Cheap, and makes Piece 1 reachable by the intended audience. |
+| C | **Piece 2**, auditor's question | Uses Piece 1; adds no new machinery. Gated on check 2 above. |
+| D | **Piece 3**, boundary marking | Highest polish, lowest risk, first to cut if September tightens. |
+
+**If the month compresses, ship steps A and B and stop.** A familiar surface where every value explains itself is the entire argument. C and D are amplification.
+
+## Done means
+
+Defined now rather than in the week it is due, because 9/28 is fixed and the story points at it.
+
+- **Piece 0**: a visitor who has never seen SPARQL can run all seven queries from plain-language cards, and can still reach the raw query behind a disclosure.
+- **Piece 1**: every URI-typed cell in every one of the seven results opens a drawer; the drawer names the institution, the component and version, valid-time against record-time, and the validation verdict; cells with no lineage return a deliberate explanatory panel rather than a blank one; a non-URI value cannot be clicked.
+- **Piece 2**: the auditor's question is reachable in one click from the dashboard, returns an answer in which every value is explainable via Piece 1, and needs no narration to make its point.
+- **Piece 3**: each of the four institutional crossings in the contagion trace is marked in the beat where it happens.
+- **All of it**: `make demo` still works from a clean clone with no extra steps, on the small dataset, on a machine that has never run it.
 
 ## Risks
 
