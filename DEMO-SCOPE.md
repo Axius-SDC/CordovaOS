@@ -129,8 +129,8 @@ Mark each crossing in the narrative beats and show that the meaning survived it:
 
 Worth stating explicitly, because it is the sentence the whole demo exists to earn:
 
-1. **Click any value and get its lineage** — because provenance is bound to the instance, not reconstructed from a pipeline log that may or may not still exist.
-2. **The same question returns the same answer with the same verdict, every time** — deterministically validated rather than probabilistically assembled.
+1. **Click any value and get its lineage**, because provenance is bound to the instance, not reconstructed from a pipeline log that may or may not still exist.
+2. **The same question returns the same answer with the same verdict, every time**, deterministically validated rather than probabilistically assembled.
 3. **The answer crosses institutional boundaries with its meaning intact**, and can show you exactly where it crossed.
 
 A BI tool can do none of these, and adding a prettier front end to a pile of feeds does not get you closer to any of them.
