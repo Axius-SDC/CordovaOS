@@ -68,7 +68,7 @@ services:
   # Keycloak - SSO/RBAC Authentication
   # Provides OAuth2, OIDC, SAML 2.0 support
   keycloak:
-    image: quay.io/keycloak/keycloak:26.0
+    image: quay.io/keycloak/keycloak:26.7.2
     container_name: sdc4_keycloak
     command: start-dev --import-realm
     environment:
