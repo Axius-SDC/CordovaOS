@@ -1,0 +1,35 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}Record{% endblock %} &middot; National Data Platform</title>
+<link rel="stylesheet" href="{% static 'console/console.css' %}">
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+
+<div class="topbar">
+  <div class="crest">
+    <div class="seal">RC</div>
+    <div class="name">Republic of Cordova</div>
+    <div class="sys">National Data Platform</div>
+  </div>
+  <div class="who">{% block role %}Demonstration environment{% endblock %}</div>
+</div>
+
+<div class="shell">
+  <nav class="rail">
+    <h4>Explore</h4>
+    <a href="#" class="on">Record explorer</a>
+    <a href="/demo/explorer/">Query explorer</a>
+    <a href="/demo/">Domain dashboard</a>
+    <h4>Assurance</h4>
+    <a href="#">Model versions</a>
+    <a href="#">Validation log</a>
+  </nav>
+  <main>{% block content %}{% endblock %}</main>
+</div>
+
+</body>
+</html>

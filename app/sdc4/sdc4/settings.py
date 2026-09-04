@@ -17,7 +17,7 @@ def _discover_local_apps():
     """Auto-discover installed DM apps by scanning for directories with apps.py."""
     from django.apps import AppConfig as _AppConfig
     _skip = {
-        'api', 'core', 'demo', 'generic_storage', 'sdc4_shared',
+        'api', 'core', 'demo', 'console', 'generic_storage', 'sdc4_shared',
         'templates', 'staticfiles', 'mediafiles', 'ontologies',
         Path(__file__).resolve().parent.name,  # project config package
     }
@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     'generic_storage',  # File storage backend
     'api',  # REST API endpoints
     'demo',  # C-Suite demo presentation
+    'console',  # Executive console: one record, three projections
 ] + _discover_local_apps()
 
 MIDDLEWARE = [

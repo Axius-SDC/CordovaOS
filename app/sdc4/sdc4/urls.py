@@ -14,11 +14,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('docs/', include('core.urls', namespace='docs')),
     path('demo/', include('demo.urls', namespace='demo')),
+    path('console/', include('console.urls', namespace='console')),
 ]
 
 # Auto-discover URL patterns from installed DM apps
 _SKIP_APPS = {
-    'api', 'core', 'demo', 'generic_storage', 'sdc4_shared',
+    'api', 'core', 'demo', 'console', 'generic_storage', 'sdc4_shared',
     'crispy_forms', 'crispy_bootstrap5', 'rest_framework',
     'django_htmx', 'widget_tweaks', 'allauth', 'whitenoise',
 }
