@@ -12,6 +12,7 @@ import os
 import random
 
 from shared import (
+    NA,
     scaled,
     CAST, PERSONS, random_date,
     xml_header, xml_preamble, xml_footer, write_xml,
@@ -124,7 +125,7 @@ def build_instance(rec):
     xml += cluster_close(CL_PAYMENT, indent=3)
 
     xml += cluster_open(CL_SOURCE, "Source Reference", indent=3)
-    xml += xdstring(*W_SRC_ID, "Source Record ID", rec.get("src_id", "N/A"), indent=4)
+    xml += xdstring(*W_SRC_ID, "Source Record ID", rec.get("src_id", NA), indent=4)
     xml += xdtoken(*W_SRC_DOMAIN, "Source Domain", rec.get("src_domain", "Employment"), indent=4)
     xml += cluster_close(CL_SOURCE, indent=3)
 

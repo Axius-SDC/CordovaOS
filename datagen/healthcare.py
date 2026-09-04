@@ -12,6 +12,7 @@ import os
 import random
 
 from shared import (
+    NA,
     CAST, PERSONS, random_date,
     xml_header, xml_preamble, xml_footer, write_xml,
     xdstring, xdtoken, xdtemporal, xdquantity,
@@ -153,25 +154,25 @@ def build_instance(rec):
     xml += xdtoken(*W_COND_STATUS, "Condition Status", rec.get("cond_status", "Resolved"), indent=4)
     sev = rec.get("severity", SEVERITY_SCALE[0])
     xml += xdordinal(*W_SEVERITY, "Severity (3-Point)", sev[0], sev[1], indent=4)
-    xml += xdtemporal(*W_ONSET, "Onset Date", rec.get("onset", "1900-01-01"), "date", indent=4)
+    xml += xdtemporal(*W_ONSET, "Onset Date", rec.get("onset", NA), "date", indent=4)
     xml += cluster_close(CL_ALLERGY, indent=3)
 
     # Medications
     xml += cluster_open(CL_MEDS, "Medications", indent=3)
-    xml += xdstring(*W_DOSAGE, "Dosage", rec.get("dosage", "N/A"), indent=4)
+    xml += xdstring(*W_DOSAGE, "Dosage", rec.get("dosage", NA), indent=4)
     xml += xdstring(*W_MED_NAME, "Medication Name", rec.get("med_name", "None"), indent=4)
     freq = rec.get("frequency", FREQUENCY_SCALE[0])
     xml += xdordinal(*W_FREQUENCY, "Frequency (5-Point)", freq[0], freq[1], indent=4)
-    xml += xdquantity(*W_MED_DOSE_AMT, "Medication Dosage Amount", rec.get("dose_amt", "0"),
+    xml += xdquantity(*W_MED_DOSE_AMT, "Medication Dosage Amount", rec.get("dose_amt", NA),
                       "Mass/Weight (SI - Metric)", indent=4)
-    xml += xdtemporal(*W_RX_DATE, "Prescription Date", rec.get("rx_date", "1900-01-01"), "date", indent=4)
+    xml += xdtemporal(*W_RX_DATE, "Prescription Date", rec.get("rx_date", NA), "date", indent=4)
     xml += cluster_close(CL_MEDS, indent=3)
 
     # Vaccination History
     xml += cluster_open(CL_VACCINE, "Vaccination History", indent=3)
-    xml += xdstring(*W_LOT_NUM, "Lot Number", rec.get("vax_lot", "N/A"), indent=4)
-    xml += xdstring(*W_VACCINE_NAME, "Vaccine Name", rec.get("vax_name", "N/A"), indent=4)
-    xml += xdtemporal(*W_VACCINE_DATE, "Vaccine Date", rec.get("vax_date", "1900-01-01"), "date", indent=4)
+    xml += xdstring(*W_LOT_NUM, "Lot Number", rec.get("vax_lot", NA), indent=4)
+    xml += xdstring(*W_VACCINE_NAME, "Vaccine Name", rec.get("vax_name", NA), indent=4)
+    xml += xdtemporal(*W_VACCINE_DATE, "Vaccine Date", rec.get("vax_date", NA), "date", indent=4)
     xml += cluster_close(CL_VACCINE, indent=3)
 
     # Visit Record

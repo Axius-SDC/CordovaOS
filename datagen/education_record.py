@@ -12,6 +12,7 @@ import os
 import random
 
 from shared import (
+    NA,
     CAST, PERSONS, PROVINCE_CITIES, CITY_TO_PROVINCE,
     xml_header, xml_preamble, xml_footer, write_xml,
     xdstring, xdtoken, xdtemporal,
@@ -157,7 +158,7 @@ def build_instance(rec):
     xml += xdtoken(*W_CRED_TYPE, "Credential Type", rec["cred_type"], indent=4)
     xml += xdtoken(*W_HONORS, "Honors", rec.get("honors", "None"), indent=4)
     xml += xdtemporal(*W_DATE_AWARD, "Date Awarded",
-                      rec.get("date_awarded", "1900-01-01"), "date", indent=4)
+                      rec.get("date_awarded", NA), "date", indent=4)
     xml += cluster_close(CL_CRED, indent=3)
 
     # Enrollment sub-cluster (Field of Study adapter reused as first child)
@@ -224,7 +225,7 @@ def _make_record(person, tier, field, enr_status, enr_year, expect_year,
                  institution, city, province):
     ordinal, symbol = EDU_LEVEL[tier]
     honors = "None"
-    date_awarded = "1900-01-01"
+    date_awarded = NA
     if enr_status == "Graduated":
         honors = random.choice(HONORS)
         date_awarded = f"{expect_year}-{random.randint(5,6):02d}-{random.randint(1,28):02d}"

@@ -23,6 +23,36 @@ logger = logging.getLogger(__name__)
 cuid_generator = cuid_wrapper()
 
 
+# ISO 21090 null flavors, as carried by SDC4 in the sdc4:ExceptionalValue
+# substitution group. The element tag IS the code; there is no xsi:type.
+_EV_CODES = frozenset((
+    'NI', 'MSK', 'INV', 'DER', 'UNC', 'OTH', 'NINF', 'PINF',
+    'ASKR', 'NASK', 'NAV', 'NA', 'TRC', 'ASKU', 'UNK', 'QS',
+))
+
+
+def _xml_has_exceptional_value(xml_content: str) -> bool:
+    """
+    True when any component in the instance states an absence.
+
+    An authored Exceptional Value is not a defect and not an auto-correction:
+    the record is telling the reader why a value is missing, which is exactly
+    what it is supposed to do. It does change how the instance should be
+    labelled, so the fact survives outside the document.
+    """
+    try:
+        root = etree.fromstring(xml_content.encode('utf-8'))
+    except Exception:
+        return False
+    for elem in root.iter():
+        tag = elem.tag
+        if isinstance(tag, str):
+            local = tag.split('}', 1)[1] if '}' in tag else tag
+            if local in _EV_CODES:
+                return True
+    return False
+
+
 @dataclass
 class ImportResult:
     """Result of importing a single XML file."""
@@ -272,7 +302,8 @@ class BulkImportProcessor:
                 xml_content = f.read()
 
             # Parse and assign new instance_id
-            xml_content, instance_id = self._assign_new_instance_id(xml_content)
+            has_ev = _xml_has_exceptional_value(xml_content)
+            xml_content, instance_id = self._assign_new_instance_id(xml_content, has_ev)
 
             # Update creation_timestamp
             xml_content = self._update_creation_timestamp(xml_content)
@@ -288,7 +319,10 @@ class BulkImportProcessor:
             validator = SDCValidator(str(self.xsd_path))
             validation_result = validator.validate(xml_content)
 
-            validation_status = 'valid'
+            # An authored Exceptional Value is valid data that states an absence.
+            # It is recorded as valid_with_ev, distinct from the invalid case
+            # below and distinct from auto-correction, which is a VaaS concern.
+            validation_status = 'valid_with_ev' if has_ev else 'valid'
             validation_errors = {}
 
             if not validation_result.is_valid:
@@ -377,7 +411,7 @@ class BulkImportProcessor:
                 error_message=str(e)
             )
 
-    def _assign_new_instance_id(self, xml_content: str) -> Tuple[str, str]:
+    def _assign_new_instance_id(self, xml_content: str, has_ev: bool = False) -> Tuple[str, str]:
         """
         Assign a new instance_id to the XML content.
 
@@ -387,8 +421,11 @@ class BulkImportProcessor:
         Returns:
             Tuple of (updated_xml_content, new_instance_id)
         """
-        # Generate new instance_id
-        new_instance_id = f"i-{cuid_generator()}"
+        # Generate new instance_id. An instance carrying an Exceptional Value
+        # takes the i-ev- prefix so a stated absence is visible in the
+        # identifier itself, not only in a status column.
+        prefix = 'i-ev-' if has_ev else 'i-'
+        new_instance_id = f"{prefix}{cuid_generator()}"
 
         try:
             # Parse XML

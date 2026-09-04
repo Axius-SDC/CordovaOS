@@ -11,6 +11,7 @@ import os
 import random
 
 from shared import (
+    NA,
     xml_header, xml_preamble, xml_footer, write_xml,
     xdstring, xdtoken, xdtemporal, xdquantity, xdcount,
     cluster_open, cluster_close, native_partytype,
@@ -178,7 +179,7 @@ def build_instance(pc):
     xml += xdstring(*W_CARGO_DESC, "Cargo Description", pc["cargo_desc"], indent=4)
     xml += xdstring(*W_CARGO_DEST, "Cargo Destination", pc["cargo_dest"], indent=4)
     xml += xdstring(*W_CARGO_ORIG, "Cargo Origin", pc["cargo_orig"], indent=4)
-    xml += xdstring(*W_CUSTOMS_REF, "Customs Reference Number", pc.get("customs_ref", "N/A"), indent=4)
+    xml += xdstring(*W_CUSTOMS_REF, "Customs Reference Number", pc.get("customs_ref", NA), indent=4)
     if hazardous:
         xml += xdtoken(*W_HAZMAT_CLS, "Hazmat Class", HAZMAT_CLASS_VALUE, indent=4)
     xml += xdcount(*W_CONTAINER, "Container Count", str(pc.get("containers", 0)),
