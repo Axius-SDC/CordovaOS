@@ -456,8 +456,36 @@ EV_NAMES = {
 }
 
 
+class _Omit:
+    """
+    Marker for a fact that does not exist for this record.
+
+    Most component references in the generated data models are minOccurs="0",
+    so the correct way to say "this record has no vaccination" is to leave the
+    component out entirely. That is valid, and it asserts nothing false. It is
+    not the same as an Exceptional Value, which is written when a REQUIRED
+    value is missing and therefore makes the instance invalid on purpose.
+    """
+
+    __slots__ = ()
+
+    def __repr__(self):
+        return 'OMIT'
+
+
+OMIT = _Omit()
+
+
 class EV:
-    """A stated absence. Pass one of the singletons below in place of a value."""
+    """
+    A stated absence where the schema REQUIRES a value.
+
+    Writing one produces an instance that fails validation, and that is the
+    point: the value element is mandatory, so the instance is invalid, and the
+    Exceptional Value records why rather than leaving a reader to guess. It
+    does not make the instance valid. Use OMIT for a fact that simply does not
+    apply to the record.
+    """
 
     __slots__ = ('code',)
 
@@ -480,32 +508,33 @@ NAV = EV('NAV')     # applies, exists somewhere, not available here
 NI = EV('NI')       # absent, no reason recorded
 UNK = EV('UNK')     # applies, and is not known
 
-# Legacy stand-ins that predate Exceptional Values in this generator. Anything
-# matching is converted rather than written, so a sentinel cannot reach an
-# instance even if a call site is missed.
-_SENTINELS = {
-    'N/A': 'NA',
-    'n/a': 'NA',
-    'NA': 'NA',
-    '': 'NI',
-    'None given': 'NA',
-    'Unknown': 'UNK',
-    '1900-01-01': 'NA',
-    '1900-01-01T00:00:00': 'NA',
-}
+# Legacy stand-ins. A component whose value is one of these has no fact to
+# record, so it is omitted rather than written. Keeps a missed call site from
+# putting "N/A" back into an instance.
+_SENTINELS = frozenset((
+    'N/A', 'n/a', 'None given', '', '1900-01-01', '1900-01-01T00:00:00',
+))
 
 
 def _resolve(value):
-    """Return (value_to_write, ev_code). Exactly one of the two is meaningful."""
+    """
+    Return (value_to_write, ev_code, omit).
+
+    Three outcomes, deliberately distinct:
+      * a value          -> write the component normally
+      * an EV            -> write the component with an Exceptional Value and no
+                            value element, which is invalid on purpose
+      * OMIT, or None    -> do not write the component at all
+    """
+    if isinstance(value, _Omit) or value is None:
+        return None, None, True
     if isinstance(value, EV):
-        return None, value.code
-    if value is None:
-        return None, 'NI'
-    if isinstance(value, str):
-        code = _SENTINELS.get(value.strip())
-        if code:
-            return None, code
-    return value, None
+        return None, value.code, False
+    if isinstance(value, str) and value.strip() in _SENTINELS:
+        # A legacy stand-in reached an emitter. The fact does not exist, so the
+        # component is left out rather than carrying "N/A" or 1900-01-01.
+        return None, None, True
+    return value, None, False
 
 
 def _ev_xml(ev_code, pad):
@@ -548,7 +577,9 @@ def _envelope(component_id, wrapper_id, label, pad, ev_code, value_xml, extra_xm
 def xdstring(component_id, wrapper_id, label, value, indent=2):
     """Build an XdString component XML fragment."""
     pad = "  " * indent
-    val, ev = _resolve(value)
+    val, ev, omit = _resolve(value)
+    if omit:
+        return ''
     body = '' if ev else f'{pad}    <xdstring-value>{_esc(val)}</xdstring-value>\n'
     return _envelope(component_id, wrapper_id, label, pad, ev, body)
 
@@ -556,7 +587,9 @@ def xdstring(component_id, wrapper_id, label, value, indent=2):
 def xdtoken(component_id, wrapper_id, label, value, indent=2):
     """Build an XdToken component XML fragment."""
     pad = "  " * indent
-    val, ev = _resolve(value)
+    val, ev, omit = _resolve(value)
+    if omit:
+        return ''
     body = '' if ev else f'{pad}    <xdtoken-value>{_esc(val)}</xdtoken-value>\n'
     return _envelope(component_id, wrapper_id, label, pad, ev, body)
 
@@ -564,7 +597,9 @@ def xdtoken(component_id, wrapper_id, label, value, indent=2):
 def xdtemporal(component_id, wrapper_id, label, value, variant="date", indent=2):
     """Build an XdTemporal component XML fragment."""
     pad = "  " * indent
-    val, ev = _resolve(value)
+    val, ev, omit = _resolve(value)
+    if omit:
+        return ''
     body = '' if ev else f'{pad}    <xdtemporal-{variant}>{val}</xdtemporal-{variant}>\n'
     return _envelope(component_id, wrapper_id, label, pad, ev, body)
 
@@ -580,7 +615,9 @@ def xdcount(component_id, wrapper_id, label, value, units_label, units_value=Non
     """
     pad = "  " * indent
     uv = _esc(units_value or units_label)
-    val, ev = _resolve(value)
+    val, ev, omit = _resolve(value)
+    if omit:
+        return ''
     body = '' if ev else f'{pad}    <xdcount-value>{val}</xdcount-value>\n'
     units = (f'{pad}    <xdcount-units>\n'
              f'{pad}      <label>{_esc(units_label)}</label>\n'
@@ -597,7 +634,9 @@ def xdquantity(component_id, wrapper_id, label, value, units_label, units_value=
     """
     pad = "  " * indent
     uv = _esc(units_value or units_label)
-    val, ev = _resolve(value)
+    val, ev, omit = _resolve(value)
+    if omit:
+        return ''
     body = '' if ev else f'{pad}    <xdquantity-value>{val}</xdquantity-value>\n'
     units = (f'{pad}    <xdquantity-units>\n'
              f'{pad}      <label>{_esc(units_label)}</label>\n'
@@ -609,7 +648,9 @@ def xdquantity(component_id, wrapper_id, label, value, units_label, units_value=
 def xdboolean(component_id, wrapper_id, label, value, indent=2):
     """Build an XdBoolean component XML fragment."""
     pad = "  " * indent
-    val, ev = _resolve(value)
+    val, ev, omit = _resolve(value)
+    if omit:
+        return ''
     body = '' if ev else f'{pad}    <xdboolean-value>{"true" if val else "false"}</xdboolean-value>\n'
     return _envelope(component_id, wrapper_id, label, pad, ev, body)
 

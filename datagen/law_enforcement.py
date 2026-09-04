@@ -11,7 +11,7 @@ import os
 import random
 
 from shared import (
-    NA,
+    OMIT,
     scaled,
     random_address, random_date, ALL_CITIES, CITY_TO_PROVINCE,
     xml_header, xml_preamble, xml_footer, write_xml,
@@ -136,7 +136,7 @@ def build_instance(rec):
     # Quarantine Enforcement (optional; only when quarantine data present)
     if "qz_zone" in rec:
         xml += cluster_open(CL_QUARANTINE, "Quarantine Enforcement", indent=3)
-        xml += xdstring(*W_ISSUING, "Issuing Authority", rec.get("qz_authority", NA), indent=4)
+        xml += xdstring(*W_ISSUING, "Issuing Authority", rec.get("qz_authority", OMIT), indent=4)
         xml += xdstring(*W_QZ_ZONE, "Quarantine Zone", rec["qz_zone"], indent=4)
         xml += xdtoken(*W_COMPLIANCE, "Compliance Status",
                        COMPLIANCE_MAP.get(rec.get("qz_compliance", "Compliant"), "Under Review"),

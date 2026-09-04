@@ -10,7 +10,7 @@ import os
 import random
 
 from shared import (
-    NA,
+    OMIT,
     scaled,
     CAST, PERSONS, random_city_province, random_address, random_date, random_name,
     generate_parcel, PROVINCE_CODES, CITY_CODES, CITY_TO_PROVINCE,
@@ -103,7 +103,7 @@ def build_instance(prop):
     xml += xdtoken(*W_LIEN_STATUS, "Lien Status", prop.get("lien_status", "Released"), indent=4)
     xml += xdtoken(*W_LIEN_TYPE, "Lien Type", prop.get("lien_type", "Easement"), indent=4)
     xml += xdquantity(*W_LIEN_AMT, "Lien Amount", prop.get("lien_amt", "0"), COR, indent=4)
-    xml += xdtemporal(*W_LIEN_DATE, "Lien Date", prop.get("lien_date", NA), "date", indent=4)
+    xml += xdtemporal(*W_LIEN_DATE, "Lien Date", prop.get("lien_date", OMIT), "date", indent=4)
     xml += cluster_close(CL_LIENS, indent=3)
 
     xml += cluster_open(CL_VALUE, "Property Value Assessment", indent=3)
@@ -169,7 +169,7 @@ def _lien_fields(value):
         "lien_status": "Released",
         "lien_type": "Easement",
         "lien_amt": "0",
-        "lien_date": NA,
+        "lien_date": OMIT,
     }
 
 
@@ -222,7 +222,7 @@ def generate():
             "assess_status": "Final",
             "owner": name,
             "status": "Active", "lien_status": "Released",
-            "lien_type": "Easement", "lien_amt": "0", "lien_date": NA,
+            "lien_type": "Easement", "lien_amt": "0", "lien_date": OMIT,
         }
         xml = build_instance(prop)
         write_xml(os.path.join(OUTPUT_DIR, f"pr-{cuid_generator()}.xml"), xml)
