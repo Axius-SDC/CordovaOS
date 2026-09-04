@@ -11,11 +11,60 @@ import logging
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
 
-from .instances import field_rows, get_instance, instance_header
+from sdc4_shared.utils.dm_registry import get_dm_registry
+
+from .instances import field_rows, get_instance, instance_header, stated_absences
 
 logger = logging.getLogger(__name__)
 
 PANES = ('graph', 'document', 'table')
+
+
+def index(request):
+    """
+    The front door. Ten domains, and the records worth opening first.
+
+    The refusal cases are surfaced deliberately rather than left to whoever
+    knows an identifier: a console that only ever shows records that passed is
+    the kind of dashboard this one exists to argue against.
+    """
+    domains = []
+    refused = []
+
+    for ct_id, model in sorted(get_dm_registry().items(),
+                               key=lambda kv: getattr(kv[1], 'DM_LABEL', '')):
+        qs = model.objects.all()
+        total = qs.count()
+        if not total:
+            continue
+
+        latest = qs.order_by('-created_at').values_list('instance_id', flat=True).first()
+        invalid = qs.filter(validation_status='invalid').count()
+        domains.append({
+            'label': getattr(model, 'DM_LABEL', model.__name__),
+            'ct_id': ct_id,
+            'count': total,
+            'invalid': invalid,
+            'latest': latest,
+        })
+
+        # An instance that states an absence carries the i-ev- prefix, so the
+        # fact is in the identifier and this needs no extra column to find.
+        for obj in qs.filter(instance_id__startswith='i-ev-')[:4]:
+            refused.append({
+                'ct_id': ct_id,
+                'label': getattr(model, 'DM_LABEL', model.__name__),
+                'instance_id': obj.instance_id,
+                'status': obj.validation_status,
+                'absences': stated_absences(obj),
+            })
+
+    return render(request, 'console/index.html', {
+        'domains': domains,
+        'refused': refused,
+        'total_records': sum(d['count'] for d in domains),
+        'total_invalid': sum(d['invalid'] for d in domains),
+    })
 
 
 def _load(ct_id, instance_id):
