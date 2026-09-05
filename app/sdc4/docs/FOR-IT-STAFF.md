@@ -84,9 +84,9 @@ Measured on this dataset:
 | `National ID (CID)` | 4 |
 | `organization_identifier` | 3 |
 
-The console's cross-domain question at `/console/question/` joins 734 people
-across 2,784 records in about a quarter of a second, with no mapping table,
-because the identifier *is* the join. 165 of those people appear in four
+The console's cross-domain question at `/console/question/` joins 250 people
+across 883 records in about a seventh of a second, with no mapping table,
+because the identifier *is* the join. 75 of those people appear in four
 separately built systems.
 
 ## 5. Governance is read from the published schema
@@ -125,6 +125,26 @@ Things that will bite you, all of which bit us:
   model types, so anything they carry, including a `party-ref`, needs explicit
   handling in the RDF extractor. A reference that exists in the XML and not in
   the graph is invisible to exactly the queries you built the graph for.
+- **★ Keep schema resolution local, or validation stops being deterministic.**
+  Every generated data-model schema carries
+  `<xsd:include schemaLocation="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd"/>`.
+  If that include is fetched over the network and the fetch fails, the reference
+  model's substitution groups are unknown, and instances that are perfectly
+  valid are reported invalid. We hit this here: five records across four domains
+  were stored as invalid and re-validated clean afterwards, because whether a
+  DNS lookup succeeded decided the verdict. That is the failure this project
+  argues against, in its own loader.
+  **`mediafiles/dmlib/catalog.xml` fixes it**: one OASIS catalog with relative
+  entries, mapping the reference model and the data-model library, so the
+  mapping travels with the library and works on an air-gapped host. The
+  validator reads it and warns if it ever falls through to the network.
+- **Clearing loaded data means clearing the triple store too.** `load_all_data
+  --clear` deletes rows; named graphs are separate. Each load mints new instance
+  identifiers, so without explicit clean-up every reload abandons a full
+  generation of graphs that PostgreSQL cannot see and SPARQL can. Six loads here
+  left 7,272 orphaned graphs against 1,446 live instances, and every
+  cross-domain count taken off the graph was inflated roughly six-fold until it
+  was found.
 
 ## 7. What this demonstration does not show
 

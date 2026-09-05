@@ -31,7 +31,7 @@ after it.
 
 ### 1. Start at the front door, `/console/`
 
-Ten domains, 1,459 records, generated from one model. Note the third figure:
+Ten domains, 1,446 records, generated from one model. Note the third figure:
 **seven records refused**. We will come back to those, and the fact that a
 demonstration shows you its failures is itself the point.
 
@@ -73,8 +73,8 @@ false with great confidence.
 
 ### 5. Ask the cross-domain question, `/console/question/`
 
-Four separately built government systems. 734 people, 2,784 records, joined in
-about a quarter of a second. **165 of those people appear in all four.**
+Four separately built government systems. 250 people, 883 records, joined in
+about a seventh of a second. **75 of those people appear in all four.**
 
 The figure to hold onto is the third one: **zero mapping tables consulted.** The
 four systems agree on what identifies a person because they use the same
