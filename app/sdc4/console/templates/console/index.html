@@ -32,7 +32,7 @@
             <td class="num">{% if d.invalid %}{{ d.invalid }}{% else %}&mdash;{% endif %}</td>
             <td>
               {% if d.latest %}
-                <a class="why" href="{% url 'console:instance' d.ct_id d.latest %}">open a record &rsaquo;</a>
+                <a class="why" href="{% url 'console:instance' d.ct_id d.latest %}?pane=table">open a record &rsaquo;</a>
               {% endif %}
             </td>
           </tr>
@@ -51,7 +51,7 @@
       {% if refused %}
         <div class="rel">
           {% for r in refused %}
-            <a href="{% url 'console:instance' r.ct_id r.instance_id %}">
+            <a href="{% url 'console:instance' r.ct_id r.instance_id %}?pane=table">
               <span>
                 {{ r.label }}<br>
                 <span class="meta">{% for a in r.absences %}{{ a }}{% if not forloop.last %}, {% endif %}{% endfor %}</span>

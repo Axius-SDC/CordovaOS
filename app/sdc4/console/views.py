@@ -23,7 +23,7 @@ from .instances import (
 
 logger = logging.getLogger(__name__)
 
-PANES = ('graph', 'document', 'table')
+PANES = ('table', 'document', 'graph')
 
 
 def index(request):
@@ -100,9 +100,11 @@ def _pane_context(model, obj, pane):
 def instance(request, ct_id, instance_id):
     """One record, shown three ways."""
     model, obj = _load(ct_id, instance_id)
-    pane = request.GET.get('pane', 'document')
+    # The table is the default because it is the projection a reader can act
+    # on. Document and Graph are one click away for anyone who wants them.
+    pane = request.GET.get('pane', 'table')
     if pane not in PANES:
-        pane = 'document'
+        pane = 'table'
 
     context = {
         'h': instance_header(model, obj),

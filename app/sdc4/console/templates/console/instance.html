@@ -65,6 +65,7 @@ document.addEventListener('keydown', function (e) {
         still changes. A demo that needs a CDN to switch tabs is not one you
         can run on an air-gapped machine.
       {% endcomment %}
+      <span class="tabs">
       {% for p in panes %}
         <a class="tab {% if p == pane %}on{% endif %}"
            href="?pane={{ p }}"
@@ -75,6 +76,7 @@ document.addEventListener('keydown', function (e) {
           {{ p|title }}
         </a>
       {% endfor %}
+      </span>
     </header>
     <div id="projection">
       {% include "console/_pane_"|add:pane|add:".html" %}
