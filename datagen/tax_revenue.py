@@ -11,6 +11,7 @@ Output: import_data/tax_and_revenue_record/
 import os
 import random
 
+from business_registry import employer_roster
 from shared import (
     OMIT,
     scaled,
@@ -91,6 +92,14 @@ PAY_STATUSES = ["Paid", "Paid", "Paid", "Invoiced", "Overdue"]
 # Tax Filing Status enum: Individual, Joint, Business, Estate
 
 
+def _registered_name(brn):
+    """Name of a registered business, or None when the registry has not run."""
+    for biz in employer_roster():
+        if biz["brn"] == brn:
+            return biz["name"]
+    return None
+
+
 def build_instance(rec):
     """Build a governance-composed Tax and Revenue XML instance for one filing."""
     prov = make_provenance_values("Cordova Tax and Revenue System", "TaxAssessment")
@@ -143,7 +152,15 @@ def build_instance(rec):
     xml += cluster_close(GOVERNED_RECORD, indent=1)
 
     # Native governance slots, DM order: subject, provider, Audit, attestation.
-    xml += native_partytype("subject", "Taxpayer", rec.get("taxpayer_name", "Cordova Taxpayer"))
+    brn = rec.get("taxpayer_brn")
+    xml += native_partytype(
+        "subject", "Taxpayer", rec.get("taxpayer_name", "Cordova Taxpayer"),
+        ref_label="Business Registry Number" if brn else None,
+        ref_link=f"urn:cordova:brn:{brn}" if brn else None,
+        ref_relation="registeredAs" if brn else None,
+        ref_uri=("https://semanticdatacharter.com/ns/sdc4/"
+                 "ms-ule5u2z3rjpa9pooaifwj1n3") if brn else None,
+    )
     xml += native_partytype("provider", "Tax Authority",
                             "Cordova National Revenue Authority")
     xml += audit(AUDIT_COMPONENT, prov["activity_timestamp_start"],
@@ -200,14 +217,19 @@ def generate():
                 "pay_amount": tax_amount, "taxable_income": revenue,
                 "tax_amount": tax_amount,
                 "src_id": brn, "src_domain": "Business Registry",
-                "taxpayer_name": "Pacifico Meridional",
+                "taxpayer_name": _registered_name(brn) or "Pacifico Meridional",
+                "taxpayer_brn": brn,
             }
             write_xml(os.path.join(OUTPUT_DIR, f"tx-{cuid_generator()}.xml"), build_instance(rec))
             count += 1
 
-    # Background business tax filings (~495 background businesses)
-    for i in range(scaled(495, 42)):
-        brn = f"BIZ-{i+2:06d}"  # offset past narrative BRNs
+    # Background business tax filings, one per registered business that has not
+    # already filed above. The identifiers come from the registry rather than
+    # from a counter: a BIZ-000002 that nothing registered looks exactly like a
+    # working join and is not one.
+    filed = {b for b, _ in narrative_brns}
+    for biz in [b for b in employer_roster() if b["brn"] not in filed]:
+        brn = biz["brn"]
         revenue = random.randint(50000, 3000000)
         tax_amount = int(revenue * 0.12)
         rec = {
@@ -220,7 +242,8 @@ def generate():
             "src_id": brn, "src_domain": "Business Registry",
             "pay_method": random.choice(PAY_METHODS),
             "pay_status": random.choice(PAY_STATUSES),
-            "taxpayer_name": f"Cordova Business {brn}",
+            "taxpayer_name": biz["name"],
+            "taxpayer_brn": brn,
         }
         write_xml(os.path.join(OUTPUT_DIR, f"tx-{cuid_generator()}.xml"), build_instance(rec))
         count += 1
