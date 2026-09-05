@@ -162,6 +162,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Third-party CSS and JS are vendored here rather than pulled from a CDN. This
+# stack is meant to clone and run on a machine with no outbound network, and a
+# demo that renders unstyled without one is not a demo.
+STATICFILES_DIRS = [BASE_DIR / 'static']
 STORAGES = {
     'staticfiles': {
         'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
