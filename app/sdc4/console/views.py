@@ -13,6 +13,7 @@ from django.shortcuts import render
 
 from sdc4_shared.utils.dm_registry import get_dm_registry
 
+from .dmlib import governed_by
 from .graph import neighbourhood
 from .instances import (
     field_rows,
@@ -104,11 +105,18 @@ def instance(request, ct_id, instance_id):
     if pane not in PANES:
         pane = 'table'
 
+    rows = field_rows(obj)
+    # Which component the governance pane describes. Defaults to the first
+    # field so the pane is never empty on arrival.
+    selected = request.GET.get('field') or (rows[0]['component'] if rows else '')
+
     context = {
         'h': instance_header(model, obj),
         'pane': pane,
         'panes': PANES,
         'nav': neighbours(model, obj),
+        'selected': selected,
+        'governed': governed_by(getattr(model, 'DM_CT_ID', ''), selected),
     }
     context.update(_pane_context(model, obj, pane))
     return render(request, 'console/instance.html', context)

@@ -85,6 +85,49 @@ document.addEventListener('keydown', function (e) {
 
   <aside>
     <section class="card">
+      <header><span class="t">Governed by</span></header>
+      {% if governed %}
+        <div style="padding:16px">
+          <dl>
+            <dt>Component</dt><dd>{{ governed.label }}</dd>
+            <dt>Identifier</dt><dd>ms-{{ governed.component }}</dd>
+            <dt>Reference model</dt><dd>{{ governed.rm_type }}</dd>
+            {% if governed.units %}<dt>Units</dt><dd>{{ governed.units }}</dd>{% endif %}
+            {% if governed.facets %}
+              <dt>Constraint</dt>
+              <dd>{% for f, v in governed.facets %}{{ f }} {{ v }}{% if not forloop.last %}<br>{% endif %}{% endfor %}</dd>
+            {% endif %}
+            <dt>Value</dt>
+            <dd>{% if governed.value_required %}required{% else %}optional{% endif %}
+                &middot; {{ governed.value_element }}</dd>
+            <dt>If absent</dt>
+            <dd>{% if governed.ev_allowed %}Exceptional Value permitted{% else %}no stated absence{% endif %}</dd>
+          </dl>
+          {% if governed.definition %}
+            <p class="hint" style="border-top:1px dashed var(--rule);padding-top:10px;margin-top:12px">
+              {{ governed.definition }}
+            </p>
+          {% endif %}
+          {% if governed.defined_by %}
+            <p class="hint">Bound to
+              <a href="{{ governed.defined_by }}" target="_blank" rel="noopener">{{ governed.defined_by }}</a>
+            </p>
+          {% endif %}
+        </div>
+        <div class="note">
+          Read from the published data model, not from this record. A resource view in a triple
+          store shows what a node <b>asserts</b>; this shows what the schema <b>permitted</b> it to
+          assert, and it is the same file any counterparty validates against.
+        </div>
+      {% else %}
+        <div class="note">
+          No component selected, or this data model is not in the local library.
+          {% if pane != 'table' %}Open the <b>Table</b> projection and choose a field.{% endif %}
+        </div>
+      {% endif %}
+    </section>
+
+    <section class="card" style="margin-top:14px">
       <header><span class="t">Assurance</span></header>
       <div style="padding:16px">
         <dl>

@@ -5,8 +5,8 @@
     </thead>
     <tbody>
       {% for r in rows %}
-        <tr>
-          <td>{{ r.label }}</td>
+        <tr class="{% if r.component == selected %}on{% endif %}">
+          <td><a class="fieldlink" href="?pane=table&amp;field={{ r.component }}">{{ r.label }}</a></td>
           <td>
             {% if r.ev_code %}
               <span class="badge ev" title="{{ r.ev_code }}">{{ r.ev_name }}</span>
@@ -25,5 +25,6 @@
   <p class="hint">
     The same record, projected from its JSON representation. An absent value carries a stated
     reason rather than a blank cell, so a reader cannot mistake an absence for a normal value.
+    Select a field to see what the model permitted it to hold.
   </p>
 </div>

@@ -138,3 +138,9 @@ a.tab:hover{color:var(--ink)}
 .card{min-width:0;overflow:hidden}
 .card > header{flex-wrap:wrap;row-gap:4px}
 .pane pre{max-width:100%;overflow-x:auto}
+
+/* selected field in the table drives the governance pane */
+a.fieldlink{color:var(--ink);text-decoration:none;border-bottom:1px dotted #b9c6d1}
+a.fieldlink:hover{color:var(--accent);border-bottom-color:var(--accent)}
+tbody tr.on{background:var(--accent-soft)}
+tbody tr.on a.fieldlink{color:var(--ink);border-bottom-color:var(--accent)}
