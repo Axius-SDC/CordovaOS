@@ -128,3 +128,13 @@ th.num,td.num{text-align:right;font-family:var(--mono)}
 /* tabs are anchors so they work without JavaScript */
 a.tab{display:inline-block;text-decoration:none}
 a.tab:hover{color:var(--ink)}
+
+/* A grid track sizes to its widest content unless told otherwise, so one long
+   line in the document projection stretched the card past the viewport and
+   carried the projection switch off the right-hand edge with it. The pre
+   scrolls inside the card instead. */
+.grid{min-width:0}
+.grid > *,.grid > * > *{min-width:0}
+.card{min-width:0;overflow:hidden}
+.card > header{flex-wrap:wrap;row-gap:4px}
+.pane pre{max-width:100%;overflow-x:auto}
