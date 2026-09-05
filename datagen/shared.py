@@ -737,7 +737,8 @@ def native_xdstring(name, label, value, indent=1):
             f'{ip}<xdstring-value>{_esc(value)}</xdstring-value>\n{pad}</{name}>\n')
 
 
-def native_partytype(name, label, party_name=None, indent=1):
+def native_partytype(name, label, party_name=None, indent=1,
+                     ref_label=None, ref_link=None, ref_relation=None, ref_uri=None):
     """A native PartyType element (DM subject/provider, Audit/system-user,
     attestation/committer, etc.).
 
@@ -752,6 +753,18 @@ def native_partytype(name, label, party_name=None, indent=1):
     out = f'{pad}<{name}>\n{ip}<label>{_esc(label)}</label>\n'
     if party_name:
         out += f'{ip}<party-name>{_esc(party_name)}</party-name>\n'
+    if ref_link or ref_relation:
+        # party-ref is an XdLinkType: the XdAnyType envelope, then link,
+        # relation (required) and relation-uri. It is what turns a party from a
+        # name someone typed into a reference another system can follow.
+        out += f'{ip}<party-ref>\n'
+        out += f'{ip}  <label>{_esc(ref_label or "Party reference")}</label>\n'
+        if ref_link:
+            out += f'{ip}  <link>{_esc(ref_link)}</link>\n'
+        out += f'{ip}  <relation>{_esc(ref_relation or "references")}</relation>\n'
+        if ref_uri:
+            out += f'{ip}  <relation-uri>{_esc(ref_uri)}</relation-uri>\n'
+        out += f'{ip}</party-ref>\n'
     out += f'{pad}</{name}>\n'
     return out
 

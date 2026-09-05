@@ -214,6 +214,16 @@ def build_instance(biz):
     return xml
 
 
+# Every business this generator wrote, in order. Employment reads it so that an
+# employer is a registered organisation with a BRN rather than a free-text name.
+REGISTERED = []
+
+
+def employer_roster():
+    """Businesses available as employers, or [] if the registry has not run."""
+    return REGISTERED
+
+
 def make_named_businesses():
     """Return the Contagion-narrative businesses ready for build_instance."""
     return [dict(b) for b in BUSINESSES]
@@ -242,6 +252,7 @@ def generate():
 
     for biz in make_named_businesses() + make_background_businesses(scaled(495, 42)):
         xml = build_instance(biz)
+        REGISTERED.append(dict(biz))
         write_xml(os.path.join(OUTPUT_DIR, f"br-{cuid_generator()}.xml"), xml)
         count += 1
 
