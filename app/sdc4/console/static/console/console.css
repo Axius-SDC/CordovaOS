@@ -144,3 +144,17 @@ a.fieldlink{color:var(--ink);text-decoration:none;border-bottom:1px dotted #b9c6
 a.fieldlink:hover{color:var(--accent);border-bottom-color:var(--accent)}
 tbody tr.on{background:var(--accent-soft)}
 tbody tr.on a.fieldlink{color:var(--ink);border-bottom-color:var(--accent)}
+
+/* the question screen */
+.ask{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ask .label{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.ask .q{font-size:16.5px;font-weight:500;flex:1;min-width:280px}
+.ask .run{font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap}
+.answer{margin-top:14px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.answer .figs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--rule)}
+.fig{padding:18px 20px;border-right:1px solid var(--rule)}
+.fig:last-child{border-right:0}
+.fig .v{font-size:30px;font-weight:600;letter-spacing:-.01em;line-height:1.1}
+.fig .k{font-size:12.5px;color:var(--muted);margin-top:3px}
+.fig .src{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:8px}

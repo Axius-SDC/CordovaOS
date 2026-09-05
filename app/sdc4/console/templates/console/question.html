@@ -1,0 +1,99 @@
+{% extends "console/base.html" %}
+{% block title %}Cross-domain question{% endblock %}
+
+{% block content %}
+<div class="ask">
+  <span class="label">Question</span>
+  <span class="q">Which people does the state already hold records for, and how many parts of the
+    state hold one?</span>
+  {% if not q.unavailable %}<span class="run">answered in {{ q.elapsed }} s</span>{% endif %}
+</div>
+
+{% if q.unavailable %}
+  <section class="card" style="margin-top:14px">
+    <div class="note">{{ q.unavailable }}</div>
+  </section>
+{% else %}
+  <section class="answer">
+    <div class="figs">
+      <div class="fig">
+        <div class="v">{{ q.people }}</div>
+        <div class="k">people the state holds a record for</div>
+        <div class="src">joined on National ID (CID)</div>
+      </div>
+      <div class="fig">
+        <div class="v">{{ q.records }}</div>
+        <div class="k">records carrying that identifier</div>
+        <div class="src">across {{ q.domains }} domains</div>
+      </div>
+      <div class="fig">
+        <div class="v">0</div>
+        <div class="k">mapping tables consulted</div>
+        <div class="src">one published component, four users</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>National ID</th><th class="num">Domains</th><th class="num">Records</th><th></th></tr>
+      </thead>
+      <tbody>
+        {% for p in q.rows %}
+          <tr>
+            <td>{{ p.cid }}</td>
+            <td class="num">{{ p.domains }}</td>
+            <td class="num">{{ p.records }}</td>
+            <td>
+              {% if p.open %}
+                <a class="why" href="{% url 'console:instance' p.open.ct_id p.open.instance_id %}?pane=table">open a record &rsaquo;</a>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <div class="grid" style="margin-top:14px">
+    <section class="card">
+      <header><span class="t">How far each person reaches</span></header>
+      <table>
+        <thead><tr><th>Domains holding a record</th><th class="num">People</th></tr></thead>
+        <tbody>
+          {% for s in q.spread %}
+            <tr><td>{{ s.domains }}</td><td class="num">{{ s.people }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p class="hint">
+        A person in four rows of this table appears in four separately built systems, and nothing
+        had to be reconciled to find them.
+      </p>
+    </section>
+
+    <aside>
+      <section class="card">
+        <header><span class="t">The query, in full</span></header>
+        <div class="pane"><pre>{{ q.query }}</pre></div>
+      </section>
+    </aside>
+  </div>
+
+  <div class="commit">
+    <div class="mark">Today</div>
+    <div>
+      <p><b>This question normally starts an integration project.</b> Four systems, each holding
+      part of the answer, each with its own idea of what identifies a person.</p>
+      <p>Nothing here was integrated. The four domains use the same published component for the
+      national identifier, so the join is the identifier itself. There is no mapping table to
+      maintain and no reconciliation step to schedule, which is why the answer takes
+      {{ q.elapsed }} seconds rather than a quarter.</p>
+      <p><b>What this does not show.</b> The question a minister would rather ask, which businesses
+      employ exposed people and what trade is at risk, cannot be answered here: employment records
+      carry the employer as free text rather than as a business identifier, so the chain breaks
+      between Employment and Business Registry. That is a modelling gap in the demonstration data,
+      and naming it is more useful than staging around it.</p>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}

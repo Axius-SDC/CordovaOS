@@ -15,6 +15,7 @@ from sdc4_shared.utils.dm_registry import get_dm_registry
 
 from .dmlib import governed_by
 from .graph import neighbourhood
+from .question import coverage
 from .instances import (
     field_rows,
     get_instance,
@@ -26,6 +27,11 @@ from .instances import (
 logger = logging.getLogger(__name__)
 
 PANES = ('table', 'document', 'graph')
+
+
+def question(request):
+    """One cross-domain question, and the evidence for the answer."""
+    return render(request, 'console/question.html', {'q': coverage()})
 
 
 def index(request):
