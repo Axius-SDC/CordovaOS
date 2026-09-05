@@ -120,6 +120,30 @@ def stated_absences(instance) -> List[str]:
     )
 
 
+def neighbours(model, instance) -> Dict[str, Any]:
+    """
+    Where this record sits in its domain, and what is either side of it.
+
+    Ordered newest first, with the primary key as a tiebreak, because a bulk
+    load writes hundreds of rows inside the same second and an ordering that is
+    not total will show the same record twice while skipping another.
+    """
+    ids = list(
+        model.objects.order_by('-created_at', 'instance_id')
+        .values_list('instance_id', flat=True)
+    )
+    try:
+        i = ids.index(instance.instance_id)
+    except ValueError:
+        return {'position': None, 'total': len(ids), 'prev': None, 'next': None}
+    return {
+        'position': i + 1,
+        'total': len(ids),
+        'prev': ids[i - 1] if i > 0 else None,
+        'next': ids[i + 1] if i + 1 < len(ids) else None,
+    }
+
+
 def instance_header(model, instance) -> Dict[str, Any]:
     """Identity and assurance facts shown above the projection switch."""
     absences = stated_absences(instance)

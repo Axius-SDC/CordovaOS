@@ -106,3 +106,14 @@ footer code{font-family:var(--mono)}
 th.num,td.num{text-align:right;font-family:var(--mono)}
 .why{font-size:11.5px;color:var(--accent);white-space:nowrap;text-decoration:none}
 .rel a .meta{font-family:var(--mono);font-size:11px;color:var(--muted)}
+
+/* ── record pager ────────────────────────────────────── */
+.pager{margin-top:14px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:9px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px}
+.pager .step{color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap}
+.pager .step:hover{text-decoration:underline}
+.pager .step.off{color:#b6c0ca;cursor:default}
+.pager .where{color:var(--muted);font-size:12.5px}
+.pager .where b{color:var(--ink);font-family:var(--mono)}
+.pager .all{margin-left:10px;color:var(--accent);text-decoration:none}
+.pager .all:hover{text-decoration:underline}

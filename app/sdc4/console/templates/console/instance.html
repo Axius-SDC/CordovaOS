@@ -1,5 +1,15 @@
 {% extends "console/base.html" %}
-{% block title %}{{ h.dm_label }} {{ h.instance_id }}{% endblock %}
+{% block title %}{{ h.dm_label }} {{ h.instance_id }}
+<script>
+document.addEventListener('keydown', function (e) {
+  if (e.target.matches('input, textarea, select')) return;
+  var rel = e.key === 'ArrowLeft' ? 'prev' : e.key === 'ArrowRight' ? 'next' : null;
+  if (!rel) return;
+  var a = document.querySelector('.pager a[rel="' + rel + '"]');
+  if (a) window.location = a.href;
+});
+</script>
+{% endblock %}
 
 {% block content %}
 <div class="subject">
@@ -22,6 +32,28 @@
     </div>
   </div>
 </div>
+
+<nav class="pager" aria-label="Records in this domain">
+  {% if nav.prev %}
+    <a class="step" href="{% url 'console:instance' h.ct_id nav.prev %}?pane={{ pane }}"
+       accesskey="," rel="prev">&lsaquo; Previous</a>
+  {% else %}
+    <span class="step off">&lsaquo; Previous</span>
+  {% endif %}
+
+  <span class="where">
+    {% if nav.position %}Record <b>{{ nav.position }}</b> of {{ nav.total }}{% else %}{{ nav.total }} records{% endif %}
+    in {{ h.dm_label }}
+    <a class="all" href="{% url 'console:index' %}">all domains</a>
+  </span>
+
+  {% if nav.next %}
+    <a class="step" href="{% url 'console:instance' h.ct_id nav.next %}?pane={{ pane }}"
+       accesskey="." rel="next">Next &rsaquo;</a>
+  {% else %}
+    <span class="step off">Next &rsaquo;</span>
+  {% endif %}
+</nav>
 
 <div class="grid">
   <section class="card">

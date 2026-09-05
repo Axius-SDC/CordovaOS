@@ -13,7 +13,13 @@ from django.shortcuts import render
 
 from sdc4_shared.utils.dm_registry import get_dm_registry
 
-from .instances import field_rows, get_instance, instance_header, stated_absences
+from .instances import (
+    field_rows,
+    get_instance,
+    instance_header,
+    neighbours,
+    stated_absences,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -102,6 +108,7 @@ def instance(request, ct_id, instance_id):
         'h': instance_header(model, obj),
         'pane': pane,
         'panes': PANES,
+        'nav': neighbours(model, obj),
     }
     context.update(_pane_context(model, obj, pane))
     return render(request, 'console/instance.html', context)
