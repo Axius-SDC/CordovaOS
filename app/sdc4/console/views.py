@@ -13,6 +13,7 @@ from django.shortcuts import render
 
 from sdc4_shared.utils.dm_registry import get_dm_registry
 
+from .graph import neighbourhood
 from .instances import (
     field_rows,
     get_instance,
@@ -91,10 +92,7 @@ def _pane_context(model, obj, pane):
     if pane == 'table':
         return {'rows': field_rows(obj)}
     # graph
-    return {
-        'graph_uri': obj.fuseki_graph_uri,
-        'rdf_sync_status': obj.rdf_sync_status,
-    }
+    return {'g': neighbourhood(model, obj)}
 
 
 def instance(request, ct_id, instance_id):
