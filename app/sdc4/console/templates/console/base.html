@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% block title %}Record{% endblock %} &middot; National Data Platform</title>
 <link rel="stylesheet" href="{% static 'console/console.css' %}">
-{# Vendored, not from a CDN: this stack is meant to clone and run on a machine
-   with no outbound network. The tabs are plain links regardless, so the console
-   still works if this file is missing. #}
+{% comment %}
+  Vendored, not from a CDN: this stack is meant to clone and run on a machine
+  with no outbound network. The tabs are plain links regardless, so the console
+  still works if this file is missing.
+{% endcomment %}
 <script src="{% static 'vendor/htmx.min.js' %}" defer></script>
 </head>
 <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
