@@ -9,6 +9,15 @@ CordovaOS is a self-contained, clone-and-run proof of concept for [SDC4](https:/
 
 Each record is **governance-composed**: alongside its data, every instance carries its own **Provenance** (who/what/where/when it came from) and a structural **Audit** record, bound to the data at the source rather than bolted on afterward.
 
+## Two guides, depending on why you are here
+
+- **[What to look at, and what to ask](app/sdc4/docs/FOR-DECISION-MAKERS.md)** —
+  a fifteen minute walk-through for the person who signs. No technical
+  background assumed.
+- **[For the people who run it](app/sdc4/docs/FOR-IT-STAFF.md)** — what is
+  generated, how one record becomes three projections, how absence is stated,
+  and the operational notes we learned the hard way.
+
 ## Run it locally
 
 You need Docker (or Podman) with the compose plugin, ~6GB free RAM, and Python 3.12 on the host (for data generation only). Then:
