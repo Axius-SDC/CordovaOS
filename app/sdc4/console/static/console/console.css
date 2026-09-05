@@ -117,3 +117,7 @@ th.num,td.num{text-align:right;font-family:var(--mono)}
 .pager .where b{color:var(--ink);font-family:var(--mono)}
 .pager .all{margin-left:10px;color:var(--accent);text-decoration:none}
 .pager .all:hover{text-decoration:underline}
+
+/* tabs are anchors so they work without JavaScript */
+a.tab{display:inline-block;text-decoration:none}
+a.tab:hover{color:var(--ink)}

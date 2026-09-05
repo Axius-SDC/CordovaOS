@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% block title %}Record{% endblock %} &middot; National Data Platform</title>
 <link rel="stylesheet" href="{% static 'console/console.css' %}">
-<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+{# Vendored, not from a CDN: this stack is meant to clone and run on a machine
+   with no outbound network. The tabs are plain links regardless, so the console
+   still works if this file is missing. #}
+<script src="{% static 'console/htmx.min.js' %}" defer></script>
 </head>
 <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
 
