@@ -43,8 +43,10 @@ def neighbourhood(model, instance, limit: int = 12) -> Dict[str, Any]:
     if instance.rdf_sync_status != 'synced' or not graph_uri:
         return {'unavailable': (
             'This instance was not projected into the triple store '
-            f'(sync status: {instance.rdf_sync_status}). An invalid instance is '
-            'deliberately not projected, so there is nothing to draw.'
+            f'(sync status: {instance.rdf_sync_status}), so there is nothing '
+            'to draw. Validity is not the reason: every instance is projected, '
+            'invalid ones included, carrying sdc4:validationStatus so a query '
+            'can decide what to do with them.'
         )}
 
     instance_uri = f'{SDC4}{instance.instance_id}'

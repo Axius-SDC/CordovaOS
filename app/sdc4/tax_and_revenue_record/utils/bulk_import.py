@@ -356,44 +356,57 @@ class BulkImportProcessor:
                 )
                 instance.save()
 
-            # Upload RDF to triplestore (outside transaction, skip for invalid)
-            if validation_status != 'invalid':
-                try:
-                    triplestore = get_triplestore_client()
-                    if triplestore is None:
-                        instance.rdf_sync_status = 'disabled'
-                        instance.save(update_fields=['rdf_sync_status'])
-                    else:
-                        rdf_extractor = RDFExtractor(
-                            dm_ct_id=self.dm_ct_id,
-                            dm_label=self.dm_label,
-                            field_metadata=self.field_metadata
-                        )
-                        rdf_content = rdf_extractor.extract(
-                            xml_content=xml_content,
-                            instance_id=instance_id,
-                            validation_status=validation_status,
-                            auto_corrected_fields=[],
-                        )
-
-                        if rdf_content:
-                            graph_uri = triplestore.get_graph_uri(instance_id, self.dm_ct_id)
-
-                            if triplestore.upload_graph(rdf_content, graph_uri):
-                                instance.fuseki_graph_uri = graph_uri
-                                instance.rdf_uploaded_at = datetime.utcnow()
-                                instance.rdf_sync_status = 'synced'
-                            else:
-                                instance.rdf_sync_status = 'failed'
-
-                            instance.save(update_fields=['fuseki_graph_uri', 'rdf_uploaded_at', 'rdf_sync_status'])
-
-                except Exception as rdf_error:
-                    logger.warning(f"RDF upload failed for {filename}: {rdf_error}")
-                    instance.rdf_sync_status = 'failed'
+            # Project to the triple store, outside the transaction.
+            #
+            # Every instance is projected, including an invalid one. An
+            # Exceptional Value is a stated absence, and a stated absence is
+            # information: "this person's blood pressure was not asked for" is
+            # an answer, and it is one an auditor may be looking for. Whether
+            # invalid instances belong in a given analysis is the consumer's
+            # decision, and the RDF carries sdc4:validationStatus so they can
+            # make it in a FILTER. Withholding the triples would make that
+            # decision for them by leaving no trace to filter on, which is
+            # indistinguishable from the record never existing.
+            try:
+                triplestore = get_triplestore_client()
+                if triplestore is None:
+                    instance.rdf_sync_status = 'disabled'
                     instance.save(update_fields=['rdf_sync_status'])
-            else:
-                instance.rdf_sync_status = 'disabled'
+                else:
+                    rdf_extractor = RDFExtractor(
+                        dm_ct_id=self.dm_ct_id,
+                        dm_label=self.dm_label,
+                        field_metadata=self.field_metadata
+                    )
+                    rdf_content = rdf_extractor.extract(
+                        xml_content=xml_content,
+                        instance_id=instance_id,
+                        validation_status=validation_status,
+                        auto_corrected_fields=[],
+                    )
+
+                    if rdf_content:
+                        graph_uri = triplestore.get_graph_uri(instance_id, self.dm_ct_id)
+
+                        if triplestore.upload_graph(rdf_content, graph_uri):
+                            instance.fuseki_graph_uri = graph_uri
+                            instance.rdf_uploaded_at = datetime.utcnow()
+                            instance.rdf_sync_status = 'synced'
+                        else:
+                            instance.rdf_sync_status = 'failed'
+
+                        instance.save(update_fields=['fuseki_graph_uri', 'rdf_uploaded_at', 'rdf_sync_status'])
+                    else:
+                        # Extraction produced nothing. Report it rather than
+                        # leaving the row on its default status, which reads
+                        # as "not attempted yet".
+                        logger.warning(f"RDF extraction produced no content for {filename}")
+                        instance.rdf_sync_status = 'failed'
+                        instance.save(update_fields=['rdf_sync_status'])
+
+            except Exception as rdf_error:
+                logger.warning(f"RDF upload failed for {filename}: {rdf_error}")
+                instance.rdf_sync_status = 'failed'
                 instance.save(update_fields=['rdf_sync_status'])
 
             return ImportResult(

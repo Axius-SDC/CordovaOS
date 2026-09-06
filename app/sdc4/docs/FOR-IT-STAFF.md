@@ -110,9 +110,16 @@ permitted it to assert**, which is the question an auditor is actually asking.
 
 Things that will bite you, all of which bit us:
 
-- **An invalid instance is not projected to the triple store.** Correct
-  behaviour, and it means those records exist in PostgreSQL only. Do not build a
-  SPARQL query on stage expecting to reach one.
+- **Every instance is projected to the triple store, invalid ones included.**
+  We got this wrong first: the loader skipped invalid instances, so the seven
+  records carrying an Exceptional Value existed in PostgreSQL only. That is an
+  analysis decision disguised as a pipeline rule. A stated absence is
+  information, and a record that failed validation is a fact someone may be
+  looking for; deciding it does not belong in their query is their call, not the
+  loader's. Each named graph carries `sdc4:validationStatus`, so a consumer who
+  wants only clean data writes one `FILTER` and a consumer auditing the gaps can
+  still find them. Withholding the triples removes the thing they would filter
+  on, which reads exactly like the record never existing.
 - **This stack runs with no outbound network.** The validator falls back to the
   local schema when it cannot resolve `semanticdatacharter.com`, and all CSS and
   JS are vendored under `static/vendor/` rather than pulled from a CDN. If you
