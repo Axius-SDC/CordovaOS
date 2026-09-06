@@ -8,6 +8,38 @@ applications, one reference model, one shared component library. It runs on your
 machine with `make demo`. This document explains the parts that are easy to
 miss, including several we got wrong ourselves and fixed in the open.
 
+## Getting it running
+
+Docker or Podman with the compose plugin, about 6GB of free RAM for the
+containers, and Python 3.12 on the host for data generation only.
+
+```bash
+git clone https://github.com/Axius-SDC/CordovaOS.git
+cd CordovaOS
+make demo
+```
+
+That starts the stack, generates the small dataset and loads it. First run
+takes a few minutes, most of it validation and the write into both stores.
+Then open `http://localhost:18000/console/`.
+
+No account is created and nothing leaves the machine. The first run needs the
+network for two things only: pulling the container images and installing the
+host-side generator requirements. After that the stack is self-contained, and
+that is deliberate rather than incidental: schemas resolve through a local
+OASIS catalog at `app/sdc4/mediafiles/dmlib/catalog.xml` instead of fetching
+`sdc4.xsd` over HTTP, and all CSS and JS are vendored under
+`app/sdc4/static/vendor/` rather than pulled from a CDN. Unplug the network and
+reload if you are evaluating for a disconnected environment.
+
+**A correct run is reproducible, so check the numbers before you trust
+anything else here:** 1,446 records across 10 domains, 1,446 named graphs in
+GraphDB, and 7 records stating an absence. Record count and graph count must
+match. If they do not, see the orphaned-graph note in section 6.
+
+`make demo-full` loads the 25,000-resident dataset instead. Generation is
+seconds; the load takes hours, and it exercises exactly the same machinery.
+
 ---
 
 ## 1. The applications are generated. The model is the source of truth.

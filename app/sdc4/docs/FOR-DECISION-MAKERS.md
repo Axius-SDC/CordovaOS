@@ -8,6 +8,14 @@ government domains, from civil registry to healthcare to the port authority,
 built on one shared foundation. The data is invented. **The processes are not.**
 Everything below is something you can click.
 
+You do not need anything installed to read this, but it is worth seeing on a
+screen. Anyone on your team can have it running in a few minutes on one laptop:
+clone the repository, run `make demo`, open `http://localhost:18000/console/`.
+There is no account to create, no vendor to call, no data to send anywhere, and
+after the first download it does not need the internet at all. That last point
+is not a detail. It means everything in this guide can be checked by your own
+people, on your own hardware, before anyone signs anything.
+
 ---
 
 ## The three questions worth asking about any data platform

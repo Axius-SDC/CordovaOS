@@ -28,7 +28,33 @@ cd CordovaOS
 make demo
 ```
 
-`make demo` starts the stack, generates the small demo dataset, and loads it. When it finishes, open **http://localhost:18000/demo/** for the dashboard, "The Contagion" narrative, and the SPARQL explorer.
+`make demo` starts the stack, generates the small demo dataset, and loads it. There are no accounts to create and nothing to send anywhere. The first run needs the network to pull container images and the two host-side Python packages; after that the stack runs disconnected. When it finishes there are two front doors:
+
+| Open | What it is |
+|---|---|
+| **http://localhost:18000/console/** | The record console. Ten domains, one record shown as table, document and graph, and the governance behind it. Start here. |
+| **http://localhost:18000/demo/** | The dashboard, "The Contagion" narrative, and the SPARQL explorer. |
+
+### Check it worked
+
+The demo is deterministic, so a correct run produces the same numbers every
+time. The console front page should show:
+
+| | Expected |
+|---|---|
+| Records loaded | **1,446** |
+| Named graphs in GraphDB | **1,446** (one per record, no drift) |
+| Domains | **10** |
+| Records stating an absence | **7** |
+
+Those seven are invalid on purpose. Where a required value is missing they
+carry an ISO 21090 null flavor naming the reason (`ASKU`, "asked but not
+known") instead of a zero or a `1900-01-01` that would parse downstream as a
+real value. The console front page shows the count and links straight to
+examples rather than hiding them, they are projected into the graph like every
+other record, and they carry an `i-ev-` identifier prefix so the fact survives
+outside the document. If your run shows 1,446 records and 1,446 named graphs,
+everything below is reproducible on your machine.
 
 ### Choose your dataset
 
@@ -36,7 +62,7 @@ Generation is fast; **loading is the cost** (each instance is validated and writ
 
 | Command | Dataset | Load time |
 |---|---|---|
-| `make demo` (default) | ~250 residents, ~1,500 records | a few minutes |
+| `make demo` (default) | 250 residents, 1,446 records | a few minutes |
 | `make demo-full` | 25,000 residents, ~100,000 records | **hours** (generation is seconds; the load is the slow part) |
 
 `make help` lists all targets. The full 25,000-resident set is the realistic stress test; the small set is the fast proof of concept, and both exercise the identical cross-domain machinery.
@@ -90,6 +116,21 @@ Seven pre-built queries in `sparql/` demonstrate deterministic cross-domain grap
 
 Cross-domain joins work because the shared components (National ID, City, organization identifier) resolve to the **same SDC4 component across schemas**, and each component's value is carried in the RDF as an RDF-star reified triple — so a value stays interpretable across domains with no integration layer.
 
+## If something goes wrong
+
+The failures below are the ones we hit ourselves. Each has a one-line check.
+
+| Symptom | Cause and fix |
+|---|---|
+| `make demo` hangs at "Waiting for the web app" | First run migrates the database and initialises the GraphDB repository, which takes 1-2 minutes. If it exceeds five, check `docker compose -f app/sdc4/docker-compose.yml logs web`. |
+| Ports already in use | The stack binds 18000 (web), 17200 (GraphDB), 18080 (Keycloak), 15432 (PostgreSQL), 16379 (Redis), 19443 (SirixDB). Each is overridable by environment variable (`WEB_PORT`, `GRAPHDB_PORT`, `KEYCLOAK_PORT`, `DB_PORT`, `REDIS_PORT`, `SIRIX_PORT`) rather than by editing the compose file. |
+| Containers die or the load stalls | GraphDB wants headroom. Give Docker ~6GB of RAM; below about 4GB it is the first to fail. |
+| Record count is right, named graph count is higher | Orphaned graphs from a previous load. Each load mints new instance identifiers, so `--clear` must clear both stores. Re-run `make demo`, which passes `--clear`. |
+| Records show as invalid that should be valid | Schema resolution went to the network and failed. Every data model schema includes `sdc4.xsd` by URL; an OASIS catalog at `app/sdc4/mediafiles/dmlib/catalog.xml` resolves it locally instead. A warning in the load output names it if the catalog was missed. |
+| Nothing renders, or styling is missing | The stack vendors all CSS and JS under `app/sdc4/static/vendor/` and pulls nothing from a CDN. If assets are missing, `collectstatic` failed at container start; the web logs name the file. |
+
+**Air-gapped evaluation.** Once the images are pulled and `make demo` has run, the stack needs no outbound network. If you are evaluating for a disconnected deployment, unplug and reload: validation falls back to the local schema and every page still renders.
+
 ## Technology stack
 
 - **Django 5.2** — web framework for all domain applications
@@ -108,10 +149,11 @@ CordovaOS/
 │   ├── docker-compose.yml # local stack (GraphDB, SirixDB, Keycloak, PostgreSQL, Redis)
 │   ├── import_data/       # generated XML instances per domain (gitignored)
 │   ├── ontologies/        # SDC4 ontology + Reference Model (sdc4.xsd, .ttl)
-│   └── mediafiles/dmlib/  # per-domain DM schema library
+│   ├── mediafiles/dmlib/  # per-domain DM schema library
+│   └── docs/              # the two guides linked above, plus triplestore notes
 ├── datagen/               # Python synthetic data generators (host-side)
 ├── models/                # SDC4 data model exports per domain
-├── docs/                  # IT and decision-maker guides, console design notes
+├── docs/design/           # console design notes and the original mockups
 └── sparql/                # 7 cross-domain SPARQL queries
 ```
 
