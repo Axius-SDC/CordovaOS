@@ -111,8 +111,8 @@ CordovaOS/
 │   └── mediafiles/dmlib/  # per-domain DM schema library
 ├── datagen/               # Python synthetic data generators (host-side)
 ├── models/                # SDC4 data model exports per domain
-├── sparql/                # 7 cross-domain SPARQL queries
-└── apps_download/         # generated app archives (reference)
+├── docs/                  # IT and decision-maker guides, console design notes
+└── sparql/                # 7 cross-domain SPARQL queries
 ```
 
 ## License
