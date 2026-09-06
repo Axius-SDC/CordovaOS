@@ -12,6 +12,7 @@ import tempfile
 import logging
 from pathlib import Path
 from datetime import datetime
+from django.utils import timezone
 from typing import Dict, Any, List, Optional, Set, Tuple, Union
 from dataclasses import dataclass, field
 from lxml import etree
@@ -245,7 +246,7 @@ class BulkImportProcessor:
             successful=0,
             failed=0,
             skipped=0,
-            started_at=datetime.utcnow()
+            started_at=timezone.now()
         )
 
         # Build fingerprint set from existing DB instances
@@ -281,7 +282,7 @@ class BulkImportProcessor:
             else:
                 result.failed += 1
 
-        result.completed_at = datetime.utcnow()
+        result.completed_at = timezone.now()
         return result
 
     def _process_single_file(self, xml_file: Path) -> ImportResult:
@@ -390,7 +391,7 @@ class BulkImportProcessor:
 
                         if triplestore.upload_graph(rdf_content, graph_uri):
                             instance.fuseki_graph_uri = graph_uri
-                            instance.rdf_uploaded_at = datetime.utcnow()
+                            instance.rdf_uploaded_at = timezone.now()
                             instance.rdf_sync_status = 'synced'
                         else:
                             instance.rdf_sync_status = 'failed'
@@ -471,7 +472,7 @@ class BulkImportProcessor:
 
     def _update_creation_timestamp(self, xml_content: str) -> str:
         """Update the creation_timestamp to now."""
-        timestamp = datetime.utcnow().isoformat()
+        timestamp = timezone.now().isoformat()
 
         try:
             root = etree.fromstring(xml_content.encode('utf-8'))
