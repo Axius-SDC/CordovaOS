@@ -10,6 +10,7 @@ works but auto-recovery is disabled.
 """
 import logging
 import os
+import xml.etree.ElementTree as ET
 from typing import Tuple, List, Optional
 from dataclasses import dataclass, field
 from xml.etree import ElementTree as ET
@@ -71,6 +72,61 @@ class ValidationResult:
     auto_corrected_fields: List[str] = field(default_factory=list)
 
 
+def _uri_mapper_from_catalog(xsd_path):
+    """
+    Build an xmlschema uri_mapper from an OASIS catalog sitting beside the schema.
+
+    xmlschema has no native catalog support, so the catalog is read here and
+    turned into the mapping it already expresses. Paths inside it are resolved
+    relative to the catalog file, which is the point: one catalog, relative
+    entries, portable to any machine, and it covers the reference model include
+    and any data-model cross-references in the same file.
+
+    Returns None when there is no catalog, so callers can fall back.
+    """
+    catalog = os.path.join(os.path.dirname(os.path.abspath(xsd_path)), 'catalog.xml')
+    if not os.path.exists(catalog):
+        return None
+
+    base = os.path.dirname(catalog)
+    mapping = {}
+    rewrites = []
+    try:
+        root = ET.parse(catalog).getroot()
+    except Exception as exc:
+        logger.warning('Could not read %s: %s', catalog, exc)
+        return None
+
+    for elem in root.iter():
+        tag = elem.tag.split('}')[-1]
+        if tag in ('uri', 'system'):
+            name = elem.get('name') or elem.get('systemId')
+            target = elem.get('uri')
+            if name and target:
+                mapping[name] = os.path.normpath(os.path.join(base, target))
+        elif tag in ('rewriteURI', 'rewriteSystem'):
+            start = elem.get('uriStartString') or elem.get('systemIdStartString')
+            prefix = elem.get('rewritePrefix')
+            if start and prefix is not None:
+                rewrites.append((start, os.path.normpath(os.path.join(base, prefix))))
+
+    if not mapping and not rewrites:
+        return None
+
+    # Longest prefix first, so a specific rewrite beats a general one.
+    rewrites.sort(key=lambda pair: len(pair[0]), reverse=True)
+
+    def resolve(uri):
+        if uri in mapping:
+            return mapping[uri]
+        for start, prefix in rewrites:
+            if uri.startswith(start):
+                return os.path.join(prefix, uri[len(start):])
+        return uri
+
+    return resolve
+
+
 class SDCValidator:
     """
     Wrapper around sdcvalidator.SDC4Validator with convenience methods.
@@ -115,10 +171,21 @@ class SDCValidator:
                 # validation works offline and does not depend on network access
                 # to the namespace URL. Over-the-wire resolution can be slow or
                 # unavailable, and must be local for air-gapped deployments.
-                local_rm = os.path.join(
-                    os.path.dirname(os.path.abspath(xsd_path)), 'sdc4.xsd')
-                uri_mapper = (
-                    {SDC4_SCHEMA_URL: local_rm} if os.path.exists(local_rm) else None)
+                # An OASIS catalog beside the schema is preferred: one file,
+                # relative entries, covering the reference model and any
+                # data-model cross-references. Falls back to a sibling copy of
+                # the reference model, then to network resolution.
+                uri_mapper = _uri_mapper_from_catalog(xsd_path)
+                if uri_mapper is None:
+                    local_rm = os.path.join(
+                        os.path.dirname(os.path.abspath(xsd_path)), 'sdc4.xsd')
+                    uri_mapper = (
+                        {SDC4_SCHEMA_URL: local_rm} if os.path.exists(local_rm) else None)
+                if uri_mapper is None:
+                    logger.warning(
+                        'No local resolution for %s: validation will try the '
+                        'network and its verdicts become non-deterministic.',
+                        SDC4_SCHEMA_URL)
                 schema = build_xsd11_schema(
                     xsd_path, validation='lax', uri_mapper=uri_mapper)
                 self.validator = SDC4Validator(schema)

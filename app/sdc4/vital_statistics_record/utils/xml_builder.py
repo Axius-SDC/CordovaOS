@@ -17,6 +17,7 @@ import json
 import os
 import re
 from datetime import datetime, date, time, timedelta
+from django.utils import timezone
 from cuid2 import cuid_wrapper
 from typing import Dict, Any, Optional, List, Set
 from pathlib import Path
@@ -92,7 +93,7 @@ class XMLBuilder:
 
     # Elements that are required and should have defaults if placeholder remains
     REQUIRED_ELEMENTS_DEFAULTS = {
-        'creation_timestamp': lambda: datetime.utcnow().isoformat(),
+        'creation_timestamp': lambda: timezone.now().isoformat(),
         'instance_id': lambda: f'i-{cuid_generator()}',
         'instance_version': lambda: '1.0',
         'source_instance_id': lambda: '',
@@ -198,7 +199,7 @@ class XMLBuilder:
 
             # Map tag names to values for DM-level metadata
             meta_values = {
-                'creation_timestamp': datetime.utcnow().isoformat(),
+                'creation_timestamp': timezone.now().isoformat(),
                 'instance_id': instance_id,
                 'instance_version': '1.0',
                 'current-state': '',
@@ -750,7 +751,7 @@ class XMLBuilder:
         etree.SubElement(root, "dm-label").text = self.dm_label or self.dm_ct_id
         etree.SubElement(root, "dm-language").text = "en-US"
         etree.SubElement(root, "dm-encoding").text = "utf-8"
-        etree.SubElement(root, "creation_timestamp").text = datetime.utcnow().isoformat()
+        etree.SubElement(root, "creation_timestamp").text = timezone.now().isoformat()
         etree.SubElement(root, "instance_id").text = instance_id
         etree.SubElement(root, "instance_version").text = "1.0"
         etree.SubElement(root, "current-state").text = ""
@@ -1125,7 +1126,7 @@ class XMLBuilder:
             # If audit is being recorded, set time_committed to now
             xml_content = xml_content.replace(
                 f'{self.PLACEHOLDER_PREFIX}audit_time_committed',
-                datetime.utcnow().isoformat()
+                timezone.now().isoformat()
             )
 
         # =======================================================================
@@ -1173,7 +1174,7 @@ class XMLBuilder:
             # If attestation is being recorded, set time to now
             xml_content = xml_content.replace(
                 f'{self.PLACEHOLDER_PREFIX}attestation_time',
-                datetime.utcnow().isoformat()
+                timezone.now().isoformat()
             )
 
         return xml_content

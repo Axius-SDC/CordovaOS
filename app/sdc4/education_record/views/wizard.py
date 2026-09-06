@@ -14,7 +14,7 @@ from django.urls import reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.db import transaction
-from datetime import datetime
+from django.utils import timezone
 import logging
 
 from ..models import EducationRecordInstance
@@ -407,7 +407,7 @@ class WizardCompleteView(View):
 
             if triplestore.upload_graph(rdf_content, None):  # Upload to default graph
                 instance.fuseki_graph_uri = graph_uri
-                instance.rdf_uploaded_at = datetime.utcnow()
+                instance.rdf_uploaded_at = timezone.now()
                 instance.rdf_sync_status = 'synced'
             else:
                 instance.rdf_sync_status = 'failed'

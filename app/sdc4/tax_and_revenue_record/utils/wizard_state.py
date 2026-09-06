@@ -8,7 +8,7 @@ the final XML generation.
 import logging
 from typing import Dict, Any, List, Optional
 from dataclasses import dataclass, field, asdict
-from datetime import datetime
+from django.utils import timezone
 import json
 
 logger = logging.getLogger(__name__)
@@ -24,7 +24,7 @@ class WizardStepData:
 
     def mark_complete(self):
         self.completed = True
-        self.timestamp = datetime.utcnow().isoformat()
+        self.timestamp = timezone.now().isoformat()
 
 
 @dataclass
@@ -107,7 +107,7 @@ class WizardState:
             self.state = WizardStateData.from_dict(session_data)
         else:
             self.state = WizardStateData(
-                started_at=datetime.utcnow().isoformat()
+                started_at=timezone.now().isoformat()
             )
 
     def save(self):
@@ -120,7 +120,7 @@ class WizardState:
         if self.SESSION_KEY in self.request.session:
             del self.request.session[self.SESSION_KEY]
             self.request.session.modified = True
-        self.state = WizardStateData(started_at=datetime.utcnow().isoformat())
+        self.state = WizardStateData(started_at=timezone.now().isoformat())
 
     # =========================================================================
     # Step Navigation

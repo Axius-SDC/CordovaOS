@@ -426,61 +426,182 @@ def xml_footer(ct_id):
     return f'</sdc4:dm-{ct_id}>\n'
 
 
+# ============================================================================
+# Exceptional Values
+# ============================================================================
+# An absent value is stated, never implied. SDC4 carries the ISO 21090 null
+# flavors as concrete elements in the sdc4:ExceptionalValue substitution group,
+# so a missing reading is recorded as the REASON it is missing rather than as a
+# stand-in value. A sentinel like "N/A" or 1900-01-01 parses downstream as a
+# real string or a real date; an ExceptionalValue cannot.
+#
+# ev-name is FIXED per type in sdc4.xsd, so these strings must match exactly.
+EV_NAMES = {
+    'ASKR': 'Asked and Refused',
+    'ASKU': 'Asked but Unknown',
+    'DER': 'Derived',
+    'INV': 'Invalid',
+    'MSK': 'Masked',
+    'NA': 'Not Applicable',
+    'NASK': 'Not Asked',
+    'NAV': 'Not Available',
+    'NI': 'No Information',
+    'NINF': 'Negative Infinity',
+    'OTH': 'Other',
+    'PINF': 'Positive Infinity',
+    'QS': 'Sufficient Quantity',
+    'TRC': 'Trace',
+    'UNC': 'Unencoded',
+    'UNK': 'Unknown',
+}
+
+
+class _Omit:
+    """
+    Marker for a fact that does not exist for this record.
+
+    Most component references in the generated data models are minOccurs="0",
+    so the correct way to say "this record has no vaccination" is to leave the
+    component out entirely. That is valid, and it asserts nothing false. It is
+    not the same as an Exceptional Value, which is written when a REQUIRED
+    value is missing and therefore makes the instance invalid on purpose.
+    """
+
+    __slots__ = ()
+
+    def __repr__(self):
+        return 'OMIT'
+
+
+OMIT = _Omit()
+
+
+class EV:
+    """
+    A stated absence where the schema REQUIRES a value.
+
+    Writing one produces an instance that fails validation, and that is the
+    point: the value element is mandatory, so the instance is invalid, and the
+    Exceptional Value records why rather than leaving a reader to guess. It
+    does not make the instance valid. Use OMIT for a fact that simply does not
+    apply to the record.
+    """
+
+    __slots__ = ('code',)
+
+    def __init__(self, code):
+        if code not in EV_NAMES:
+            raise ValueError(f'unknown Exceptional Value code: {code}')
+        self.code = code
+
+    def __repr__(self):
+        return f'EV({self.code})'
+
+
+ASKR = EV('ASKR')   # asked, and the subject declined to answer
+ASKU = EV('ASKU')   # asked, and the answer is not known
+INV = EV('INV')     # a value was supplied and it is not valid
+MSK = EV('MSK')     # withheld for privacy or policy
+NA = EV('NA')       # the field does not apply to this record
+NASK = EV('NASK')   # never asked
+NAV = EV('NAV')     # applies, exists somewhere, not available here
+NI = EV('NI')       # absent, no reason recorded
+UNK = EV('UNK')     # applies, and is not known
+
+# Legacy stand-ins. A component whose value is one of these has no fact to
+# record, so it is omitted rather than written. Keeps a missed call site from
+# putting "N/A" back into an instance.
+_SENTINELS = frozenset((
+    'N/A', 'n/a', 'None given', '', '1900-01-01', '1900-01-01T00:00:00',
+))
+
+
+def _resolve(value):
+    """
+    Return (value_to_write, ev_code, omit).
+
+    Three outcomes, deliberately distinct:
+      * a value          -> write the component normally
+      * an EV            -> write the component with an Exceptional Value and no
+                            value element, which is invalid on purpose
+      * OMIT, or None    -> do not write the component at all
+    """
+    if isinstance(value, _Omit) or value is None:
+        return None, None, True
+    if isinstance(value, EV):
+        return None, value.code, False
+    if isinstance(value, str) and value.strip() in _SENTINELS:
+        # A legacy stand-in reached an emitter. The fact does not exist, so the
+        # component is left out rather than carrying "N/A" or 1900-01-01.
+        return None, None, True
+    return value, None, False
+
+
+def _ev_xml(ev_code, pad):
+    """The ExceptionalValue element, in its schema position: after act, before vtb."""
+    if not ev_code:
+        return ''
+    return (f'{pad}    <sdc4:{ev_code}>\n'
+            f'{pad}      <ev-name>{EV_NAMES[ev_code]}</ev-name>\n'
+            f'{pad}    </sdc4:{ev_code}>\n')
+
+
+def _envelope(component_id, wrapper_id, label, pad, ev_code, value_xml, extra_xml=''):
+    """
+    The XdAnyType envelope every component shares.
+
+    Element order follows sdc4.xsd: label, act, ExceptionalValue*, vtb, vte, tr,
+    modified, latitude, longitude, then the type-specific value. When a value is
+    absent the value element is omitted entirely and the ExceptionalValue stands
+    in its place, which is the standalone form described in the schema.
+    """
+    return (
+        f'{pad}<sdc4:{wrapper_id}>\n'
+        f'{pad}  <sdc4:{component_id}>\n'
+        f'{pad}    <label>{label}</label>\n'
+        f'{pad}    <act></act>\n'
+        f'{_ev_xml(ev_code, pad)}'
+        f'{pad}    <vtb>2020-01-01T00:00:00</vtb>\n'
+        f'{pad}    <vte>9999-12-31T23:59:59</vte>\n'
+        f'{pad}    <tr>2020-01-01T00:00:00</tr>\n'
+        f'{pad}    <modified>2020-01-01T00:00:00</modified>\n'
+        f'{pad}    <latitude>0.0</latitude>\n'
+        f'{pad}    <longitude>0.0</longitude>\n'
+        f'{value_xml}'
+        f'{extra_xml}'
+        f'{pad}  </sdc4:{component_id}>\n'
+        f'{pad}</sdc4:{wrapper_id}>\n'
+    )
+
+
 def xdstring(component_id, wrapper_id, label, value, indent=2):
     """Build an XdString component XML fragment."""
     pad = "  " * indent
-    return f'''{pad}<sdc4:{wrapper_id}>
-{pad}  <sdc4:{component_id}>
-{pad}    <label>{label}</label>
-{pad}    <act></act>
-{pad}    <vtb>2020-01-01T00:00:00</vtb>
-{pad}    <vte>9999-12-31T23:59:59</vte>
-{pad}    <tr>2020-01-01T00:00:00</tr>
-{pad}    <modified>2020-01-01T00:00:00</modified>
-{pad}    <latitude>0.0</latitude>
-{pad}    <longitude>0.0</longitude>
-{pad}    <xdstring-value>{_esc(value)}</xdstring-value>
-{pad}  </sdc4:{component_id}>
-{pad}</sdc4:{wrapper_id}>
-'''
+    val, ev, omit = _resolve(value)
+    if omit:
+        return ''
+    body = '' if ev else f'{pad}    <xdstring-value>{_esc(val)}</xdstring-value>\n'
+    return _envelope(component_id, wrapper_id, label, pad, ev, body)
 
 
 def xdtoken(component_id, wrapper_id, label, value, indent=2):
     """Build an XdToken component XML fragment."""
     pad = "  " * indent
-    return f'''{pad}<sdc4:{wrapper_id}>
-{pad}  <sdc4:{component_id}>
-{pad}    <label>{label}</label>
-{pad}    <act></act>
-{pad}    <vtb>2020-01-01T00:00:00</vtb>
-{pad}    <vte>9999-12-31T23:59:59</vte>
-{pad}    <tr>2020-01-01T00:00:00</tr>
-{pad}    <modified>2020-01-01T00:00:00</modified>
-{pad}    <latitude>0.0</latitude>
-{pad}    <longitude>0.0</longitude>
-{pad}    <xdtoken-value>{_esc(value)}</xdtoken-value>
-{pad}  </sdc4:{component_id}>
-{pad}</sdc4:{wrapper_id}>
-'''
+    val, ev, omit = _resolve(value)
+    if omit:
+        return ''
+    body = '' if ev else f'{pad}    <xdtoken-value>{_esc(val)}</xdtoken-value>\n'
+    return _envelope(component_id, wrapper_id, label, pad, ev, body)
 
 
 def xdtemporal(component_id, wrapper_id, label, value, variant="date", indent=2):
     """Build an XdTemporal component XML fragment."""
     pad = "  " * indent
-    return f'''{pad}<sdc4:{wrapper_id}>
-{pad}  <sdc4:{component_id}>
-{pad}    <label>{label}</label>
-{pad}    <act></act>
-{pad}    <vtb>2020-01-01T00:00:00</vtb>
-{pad}    <vte>9999-12-31T23:59:59</vte>
-{pad}    <tr>2020-01-01T00:00:00</tr>
-{pad}    <modified>2020-01-01T00:00:00</modified>
-{pad}    <latitude>0.0</latitude>
-{pad}    <longitude>0.0</longitude>
-{pad}    <xdtemporal-{variant}>{value}</xdtemporal-{variant}>
-{pad}  </sdc4:{component_id}>
-{pad}</sdc4:{wrapper_id}>
-'''
+    val, ev, omit = _resolve(value)
+    if omit:
+        return ''
+    body = '' if ev else f'{pad}    <xdtemporal-{variant}>{val}</xdtemporal-{variant}>\n'
+    return _envelope(component_id, wrapper_id, label, pad, ev, body)
 
 
 def xdcount(component_id, wrapper_id, label, value, units_label, units_value=None, indent=2):
@@ -488,75 +609,50 @@ def xdcount(component_id, wrapper_id, label, value, units_label, units_value=Non
 
     units_label: the label inside xdcount-units (e.g. "Persons")
     units_value: the xdstring-value inside xdcount-units (defaults to units_label)
+
+    Units describe the component rather than the reading, so they are written
+    even when the value itself is an Exceptional Value.
     """
     pad = "  " * indent
     uv = _esc(units_value or units_label)
-    return f'''{pad}<sdc4:{wrapper_id}>
-{pad}  <sdc4:{component_id}>
-{pad}    <label>{label}</label>
-{pad}    <act></act>
-{pad}    <vtb>2020-01-01T00:00:00</vtb>
-{pad}    <vte>9999-12-31T23:59:59</vte>
-{pad}    <tr>2020-01-01T00:00:00</tr>
-{pad}    <modified>2020-01-01T00:00:00</modified>
-{pad}    <latitude>0.0</latitude>
-{pad}    <longitude>0.0</longitude>
-{pad}    <xdcount-value>{value}</xdcount-value>
-{pad}    <xdcount-units>
-{pad}      <label>{_esc(units_label)}</label>
-{pad}      <xdstring-value>{uv}</xdstring-value>
-{pad}    </xdcount-units>
-{pad}  </sdc4:{component_id}>
-{pad}</sdc4:{wrapper_id}>
-'''
+    val, ev, omit = _resolve(value)
+    if omit:
+        return ''
+    body = '' if ev else f'{pad}    <xdcount-value>{val}</xdcount-value>\n'
+    units = (f'{pad}    <xdcount-units>\n'
+             f'{pad}      <label>{_esc(units_label)}</label>\n'
+             f'{pad}      <xdstring-value>{uv}</xdstring-value>\n'
+             f'{pad}    </xdcount-units>\n')
+    return _envelope(component_id, wrapper_id, label, pad, ev, body, units)
 
 
 def xdquantity(component_id, wrapper_id, label, value, units_label, units_value=None, indent=2):
     """Build an XdQuantity component XML fragment.
 
-    units_label: the label inside xdquantity-units (e.g. "Cordova Córdoba (COR)")
+    units_label: the label inside xdquantity-units (e.g. "Cordova Cordoba (COR)")
     units_value: the xdstring-value inside xdquantity-units (defaults to units_label)
     """
     pad = "  " * indent
     uv = _esc(units_value or units_label)
-    return f'''{pad}<sdc4:{wrapper_id}>
-{pad}  <sdc4:{component_id}>
-{pad}    <label>{label}</label>
-{pad}    <act></act>
-{pad}    <vtb>2020-01-01T00:00:00</vtb>
-{pad}    <vte>9999-12-31T23:59:59</vte>
-{pad}    <tr>2020-01-01T00:00:00</tr>
-{pad}    <modified>2020-01-01T00:00:00</modified>
-{pad}    <latitude>0.0</latitude>
-{pad}    <longitude>0.0</longitude>
-{pad}    <xdquantity-value>{value}</xdquantity-value>
-{pad}    <xdquantity-units>
-{pad}      <label>{_esc(units_label)}</label>
-{pad}      <xdstring-value>{uv}</xdstring-value>
-{pad}    </xdquantity-units>
-{pad}  </sdc4:{component_id}>
-{pad}</sdc4:{wrapper_id}>
-'''
+    val, ev, omit = _resolve(value)
+    if omit:
+        return ''
+    body = '' if ev else f'{pad}    <xdquantity-value>{val}</xdquantity-value>\n'
+    units = (f'{pad}    <xdquantity-units>\n'
+             f'{pad}      <label>{_esc(units_label)}</label>\n'
+             f'{pad}      <xdstring-value>{uv}</xdstring-value>\n'
+             f'{pad}    </xdquantity-units>\n')
+    return _envelope(component_id, wrapper_id, label, pad, ev, body, units)
 
 
 def xdboolean(component_id, wrapper_id, label, value, indent=2):
     """Build an XdBoolean component XML fragment."""
     pad = "  " * indent
-    val = "true" if value else "false"
-    return f'''{pad}<sdc4:{wrapper_id}>
-{pad}  <sdc4:{component_id}>
-{pad}    <label>{label}</label>
-{pad}    <act></act>
-{pad}    <vtb>2020-01-01T00:00:00</vtb>
-{pad}    <vte>9999-12-31T23:59:59</vte>
-{pad}    <tr>2020-01-01T00:00:00</tr>
-{pad}    <modified>2020-01-01T00:00:00</modified>
-{pad}    <latitude>0.0</latitude>
-{pad}    <longitude>0.0</longitude>
-{pad}    <xdboolean-value>{val}</xdboolean-value>
-{pad}  </sdc4:{component_id}>
-{pad}</sdc4:{wrapper_id}>
-'''
+    val, ev, omit = _resolve(value)
+    if omit:
+        return ''
+    body = '' if ev else f'{pad}    <xdboolean-value>{"true" if val else "false"}</xdboolean-value>\n'
+    return _envelope(component_id, wrapper_id, label, pad, ev, body)
 
 
 def xdtemporal_multi(component_id, wrapper_id, label, date_val, variants=("date", "year", "year-month"), indent=2):
@@ -641,7 +737,8 @@ def native_xdstring(name, label, value, indent=1):
             f'{ip}<xdstring-value>{_esc(value)}</xdstring-value>\n{pad}</{name}>\n')
 
 
-def native_partytype(name, label, party_name=None, indent=1):
+def native_partytype(name, label, party_name=None, indent=1,
+                     ref_label=None, ref_link=None, ref_relation=None, ref_uri=None):
     """A native PartyType element (DM subject/provider, Audit/system-user,
     attestation/committer, etc.).
 
@@ -656,6 +753,18 @@ def native_partytype(name, label, party_name=None, indent=1):
     out = f'{pad}<{name}>\n{ip}<label>{_esc(label)}</label>\n'
     if party_name:
         out += f'{ip}<party-name>{_esc(party_name)}</party-name>\n'
+    if ref_link or ref_relation:
+        # party-ref is an XdLinkType: the XdAnyType envelope, then link,
+        # relation (required) and relation-uri. It is what turns a party from a
+        # name someone typed into a reference another system can follow.
+        out += f'{ip}<party-ref>\n'
+        out += f'{ip}  <label>{_esc(ref_label or "Party reference")}</label>\n'
+        if ref_link:
+            out += f'{ip}  <link>{_esc(ref_link)}</link>\n'
+        out += f'{ip}  <relation>{_esc(ref_relation or "references")}</relation>\n'
+        if ref_uri:
+            out += f'{ip}  <relation-uri>{_esc(ref_uri)}</relation-uri>\n'
+        out += f'{ip}</party-ref>\n'
     out += f'{pad}</{name}>\n'
     return out
 

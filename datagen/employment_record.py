@@ -11,6 +11,7 @@ Output: import_data/employment_record/
 import os
 import random
 
+from business_registry import employer_roster
 from shared import (
     CAST, PERSONS, random_date, random_city_province,
     xml_header, xml_preamble, xml_footer, write_xml,
@@ -104,6 +105,23 @@ def emp_boolean(component_id, wrapper_id, label, value, indent=2):
             f'{pad}</sdc4:{wrapper_id}>\n')
 
 
+def _pick_employer(city):
+    """
+    A registered organisation to employ this person, preferring one in the same
+    city. Returns (name, brn) or (None, None) when the registry has not run.
+
+    Employment and Business Registry use the SAME published component for the
+    organisation identifier, so an employer recorded as a BRN joins the two
+    domains with no mapping table. Recorded as a name it joins nothing.
+    """
+    roster = employer_roster()
+    if not roster:
+        return None, None
+    local = [b for b in roster if b.get("city") == city]
+    biz = random.choice(local or roster)
+    return biz["name"], biz["brn"]
+
+
 def build_instance(rec):
     """Build a governance-composed Employment Record instance for one record."""
     prov = make_provenance_values("Cordova Employment System", "RecordCreation", rec["city"])
@@ -150,7 +168,15 @@ def build_instance(rec):
 
     # Native governance slots, DM order: subject, provider, Audit, attestation.
     xml += native_partytype("subject", "Subject Employee", rec["employee_name"])
-    xml += native_partytype("provider", "Employer Organization", rec["employer_name"])
+    brn = rec.get("employer_brn")
+    xml += native_partytype(
+        "provider", "Employer Organization", rec["employer_name"],
+        ref_label="Business Registry Number" if brn else None,
+        ref_link=f"urn:cordova:brn:{brn}" if brn else None,
+        ref_relation="registeredAs" if brn else None,
+        ref_uri=("https://semanticdatacharter.com/ns/sdc4/"
+                 "ms-ule5u2z3rjpa9pooaifwj1n3") if brn else None,
+    )
     xml += audit(AUDIT_COMPONENT, prov["activity_timestamp_start"],
                  system_id_value=prov["system_identifier"])
     xml += attestation(pending=False, reason="Employment record verified by the employer",
@@ -176,8 +202,10 @@ def generate():
             "pay_freq": "Monthly",
             "benefits": True,
             "employee_name": emp_name,
-            "employer_name": f"{dept}, {city}",
         }
+        rec["employer_name"], rec["employer_brn"] = _pick_employer(city)
+        if not rec["employer_name"]:
+            rec["employer_name"] = f"{dept}, {city}"
         write_xml(os.path.join(OUTPUT_DIR, f"em-{cuid_generator()}.xml"), build_instance(rec))
         count += 1
 
@@ -201,8 +229,10 @@ def generate():
             "pay_freq": random.choice(PAY_FREQS),
             "benefits": random.random() < 0.7,
             "employee_name": f"{p['given']} {p['surname']}",
-            "employer_name": f"{dept}, {p['city']}",
         }
+        rec["employer_name"], rec["employer_brn"] = _pick_employer(p["city"])
+        if not rec["employer_name"]:
+            rec["employer_name"] = f"{dept}, {p['city']}"
         write_xml(os.path.join(OUTPUT_DIR, f"em-{cuid_generator()}.xml"), build_instance(rec))
         count += 1
 

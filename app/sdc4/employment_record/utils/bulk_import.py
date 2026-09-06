@@ -12,6 +12,7 @@ import tempfile
 import logging
 from pathlib import Path
 from datetime import datetime
+from django.utils import timezone
 from typing import Dict, Any, List, Optional, Set, Tuple, Union
 from dataclasses import dataclass, field
 from lxml import etree
@@ -21,6 +22,36 @@ logger = logging.getLogger(__name__)
 
 # Initialize CUID2 generator
 cuid_generator = cuid_wrapper()
+
+
+# ISO 21090 null flavors, as carried by SDC4 in the sdc4:ExceptionalValue
+# substitution group. The element tag IS the code; there is no xsi:type.
+_EV_CODES = frozenset((
+    'NI', 'MSK', 'INV', 'DER', 'UNC', 'OTH', 'NINF', 'PINF',
+    'ASKR', 'NASK', 'NAV', 'NA', 'TRC', 'ASKU', 'UNK', 'QS',
+))
+
+
+def _xml_has_exceptional_value(xml_content: str) -> bool:
+    """
+    True when any component in the instance states an absence.
+
+    An authored Exceptional Value is not a defect and not an auto-correction:
+    the record is telling the reader why a value is missing, which is exactly
+    what it is supposed to do. It does change how the instance should be
+    labelled, so the fact survives outside the document.
+    """
+    try:
+        root = etree.fromstring(xml_content.encode('utf-8'))
+    except Exception:
+        return False
+    for elem in root.iter():
+        tag = elem.tag
+        if isinstance(tag, str):
+            local = tag.split('}', 1)[1] if '}' in tag else tag
+            if local in _EV_CODES:
+                return True
+    return False
 
 
 @dataclass
@@ -215,7 +246,7 @@ class BulkImportProcessor:
             successful=0,
             failed=0,
             skipped=0,
-            started_at=datetime.utcnow()
+            started_at=timezone.now()
         )
 
         # Build fingerprint set from existing DB instances
@@ -251,7 +282,7 @@ class BulkImportProcessor:
             else:
                 result.failed += 1
 
-        result.completed_at = datetime.utcnow()
+        result.completed_at = timezone.now()
         return result
 
     def _process_single_file(self, xml_file: Path) -> ImportResult:
@@ -272,7 +303,8 @@ class BulkImportProcessor:
                 xml_content = f.read()
 
             # Parse and assign new instance_id
-            xml_content, instance_id = self._assign_new_instance_id(xml_content)
+            has_ev = _xml_has_exceptional_value(xml_content)
+            xml_content, instance_id = self._assign_new_instance_id(xml_content, has_ev)
 
             # Update creation_timestamp
             xml_content = self._update_creation_timestamp(xml_content)
@@ -288,7 +320,10 @@ class BulkImportProcessor:
             validator = SDCValidator(str(self.xsd_path))
             validation_result = validator.validate(xml_content)
 
-            validation_status = 'valid'
+            # An authored Exceptional Value is valid data that states an absence.
+            # It is recorded as valid_with_ev, distinct from the invalid case
+            # below and distinct from auto-correction, which is a VaaS concern.
+            validation_status = 'valid_with_ev' if has_ev else 'valid'
             validation_errors = {}
 
             if not validation_result.is_valid:
@@ -322,44 +357,57 @@ class BulkImportProcessor:
                 )
                 instance.save()
 
-            # Upload RDF to triplestore (outside transaction, skip for invalid)
-            if validation_status != 'invalid':
-                try:
-                    triplestore = get_triplestore_client()
-                    if triplestore is None:
-                        instance.rdf_sync_status = 'disabled'
-                        instance.save(update_fields=['rdf_sync_status'])
-                    else:
-                        rdf_extractor = RDFExtractor(
-                            dm_ct_id=self.dm_ct_id,
-                            dm_label=self.dm_label,
-                            field_metadata=self.field_metadata
-                        )
-                        rdf_content = rdf_extractor.extract(
-                            xml_content=xml_content,
-                            instance_id=instance_id,
-                            validation_status=validation_status,
-                            auto_corrected_fields=[],
-                        )
-
-                        if rdf_content:
-                            graph_uri = triplestore.get_graph_uri(instance_id, self.dm_ct_id)
-
-                            if triplestore.upload_graph(rdf_content, graph_uri):
-                                instance.fuseki_graph_uri = graph_uri
-                                instance.rdf_uploaded_at = datetime.utcnow()
-                                instance.rdf_sync_status = 'synced'
-                            else:
-                                instance.rdf_sync_status = 'failed'
-
-                            instance.save(update_fields=['fuseki_graph_uri', 'rdf_uploaded_at', 'rdf_sync_status'])
-
-                except Exception as rdf_error:
-                    logger.warning(f"RDF upload failed for {filename}: {rdf_error}")
-                    instance.rdf_sync_status = 'failed'
+            # Project to the triple store, outside the transaction.
+            #
+            # Every instance is projected, including an invalid one. An
+            # Exceptional Value is a stated absence, and a stated absence is
+            # information: "this person's blood pressure was not asked for" is
+            # an answer, and it is one an auditor may be looking for. Whether
+            # invalid instances belong in a given analysis is the consumer's
+            # decision, and the RDF carries sdc4:validationStatus so they can
+            # make it in a FILTER. Withholding the triples would make that
+            # decision for them by leaving no trace to filter on, which is
+            # indistinguishable from the record never existing.
+            try:
+                triplestore = get_triplestore_client()
+                if triplestore is None:
+                    instance.rdf_sync_status = 'disabled'
                     instance.save(update_fields=['rdf_sync_status'])
-            else:
-                instance.rdf_sync_status = 'disabled'
+                else:
+                    rdf_extractor = RDFExtractor(
+                        dm_ct_id=self.dm_ct_id,
+                        dm_label=self.dm_label,
+                        field_metadata=self.field_metadata
+                    )
+                    rdf_content = rdf_extractor.extract(
+                        xml_content=xml_content,
+                        instance_id=instance_id,
+                        validation_status=validation_status,
+                        auto_corrected_fields=[],
+                    )
+
+                    if rdf_content:
+                        graph_uri = triplestore.get_graph_uri(instance_id, self.dm_ct_id)
+
+                        if triplestore.upload_graph(rdf_content, graph_uri):
+                            instance.fuseki_graph_uri = graph_uri
+                            instance.rdf_uploaded_at = timezone.now()
+                            instance.rdf_sync_status = 'synced'
+                        else:
+                            instance.rdf_sync_status = 'failed'
+
+                        instance.save(update_fields=['fuseki_graph_uri', 'rdf_uploaded_at', 'rdf_sync_status'])
+                    else:
+                        # Extraction produced nothing. Report it rather than
+                        # leaving the row on its default status, which reads
+                        # as "not attempted yet".
+                        logger.warning(f"RDF extraction produced no content for {filename}")
+                        instance.rdf_sync_status = 'failed'
+                        instance.save(update_fields=['rdf_sync_status'])
+
+            except Exception as rdf_error:
+                logger.warning(f"RDF upload failed for {filename}: {rdf_error}")
+                instance.rdf_sync_status = 'failed'
                 instance.save(update_fields=['rdf_sync_status'])
 
             return ImportResult(
@@ -377,7 +425,7 @@ class BulkImportProcessor:
                 error_message=str(e)
             )
 
-    def _assign_new_instance_id(self, xml_content: str) -> Tuple[str, str]:
+    def _assign_new_instance_id(self, xml_content: str, has_ev: bool = False) -> Tuple[str, str]:
         """
         Assign a new instance_id to the XML content.
 
@@ -387,8 +435,11 @@ class BulkImportProcessor:
         Returns:
             Tuple of (updated_xml_content, new_instance_id)
         """
-        # Generate new instance_id
-        new_instance_id = f"i-{cuid_generator()}"
+        # Generate new instance_id. An instance carrying an Exceptional Value
+        # takes the i-ev- prefix so a stated absence is visible in the
+        # identifier itself, not only in a status column.
+        prefix = 'i-ev-' if has_ev else 'i-'
+        new_instance_id = f"{prefix}{cuid_generator()}"
 
         try:
             # Parse XML
@@ -421,7 +472,7 @@ class BulkImportProcessor:
 
     def _update_creation_timestamp(self, xml_content: str) -> str:
         """Update the creation_timestamp to now."""
-        timestamp = datetime.utcnow().isoformat()
+        timestamp = timezone.now().isoformat()
 
         try:
             root = etree.fromstring(xml_content.encode('utf-8'))

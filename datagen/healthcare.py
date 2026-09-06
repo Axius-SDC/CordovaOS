@@ -12,6 +12,8 @@ import os
 import random
 
 from shared import (
+    ASKU,
+    OMIT,
     CAST, PERSONS, random_date,
     xml_header, xml_preamble, xml_footer, write_xml,
     xdstring, xdtoken, xdtemporal, xdquantity,
@@ -130,6 +132,11 @@ def xdordinal(component_id, wrapper_id, label, ordinal, symbol, indent=3):
 """
 
 
+# One in this many bulk records carries a deliberate Exceptional Value. Small
+# enough to stay a demonstration, large enough that the console always has one.
+EV_DEMO_EVERY = 40
+
+
 def build_instance(rec):
     """Build a governance-composed Healthcare Record XML instance for one patient."""
     prov = make_provenance_values("Cordova Healthcare System", "PatientEncounter",
@@ -153,25 +160,25 @@ def build_instance(rec):
     xml += xdtoken(*W_COND_STATUS, "Condition Status", rec.get("cond_status", "Resolved"), indent=4)
     sev = rec.get("severity", SEVERITY_SCALE[0])
     xml += xdordinal(*W_SEVERITY, "Severity (3-Point)", sev[0], sev[1], indent=4)
-    xml += xdtemporal(*W_ONSET, "Onset Date", rec.get("onset", "1900-01-01"), "date", indent=4)
+    xml += xdtemporal(*W_ONSET, "Onset Date", rec.get("onset", OMIT), "date", indent=4)
     xml += cluster_close(CL_ALLERGY, indent=3)
 
     # Medications
     xml += cluster_open(CL_MEDS, "Medications", indent=3)
-    xml += xdstring(*W_DOSAGE, "Dosage", rec.get("dosage", "N/A"), indent=4)
+    xml += xdstring(*W_DOSAGE, "Dosage", rec.get("dosage", OMIT), indent=4)
     xml += xdstring(*W_MED_NAME, "Medication Name", rec.get("med_name", "None"), indent=4)
     freq = rec.get("frequency", FREQUENCY_SCALE[0])
     xml += xdordinal(*W_FREQUENCY, "Frequency (5-Point)", freq[0], freq[1], indent=4)
-    xml += xdquantity(*W_MED_DOSE_AMT, "Medication Dosage Amount", rec.get("dose_amt", "0"),
+    xml += xdquantity(*W_MED_DOSE_AMT, "Medication Dosage Amount", rec.get("dose_amt", OMIT),
                       "Mass/Weight (SI - Metric)", indent=4)
-    xml += xdtemporal(*W_RX_DATE, "Prescription Date", rec.get("rx_date", "1900-01-01"), "date", indent=4)
+    xml += xdtemporal(*W_RX_DATE, "Prescription Date", rec.get("rx_date", OMIT), "date", indent=4)
     xml += cluster_close(CL_MEDS, indent=3)
 
     # Vaccination History
     xml += cluster_open(CL_VACCINE, "Vaccination History", indent=3)
-    xml += xdstring(*W_LOT_NUM, "Lot Number", rec.get("vax_lot", "N/A"), indent=4)
-    xml += xdstring(*W_VACCINE_NAME, "Vaccine Name", rec.get("vax_name", "N/A"), indent=4)
-    xml += xdtemporal(*W_VACCINE_DATE, "Vaccine Date", rec.get("vax_date", "1900-01-01"), "date", indent=4)
+    xml += xdstring(*W_LOT_NUM, "Lot Number", rec.get("vax_lot", OMIT), indent=4)
+    xml += xdstring(*W_VACCINE_NAME, "Vaccine Name", rec.get("vax_name", OMIT), indent=4)
+    xml += xdtemporal(*W_VACCINE_DATE, "Vaccine Date", rec.get("vax_date", OMIT), "date", indent=4)
     xml += cluster_close(CL_VACCINE, indent=3)
 
     # Visit Record
@@ -319,7 +326,7 @@ def generate():
         "Post-surgical follow-up", "Immunization", "Screening",
     ]
 
-    for p in patients:
+    for idx, p in enumerate(patients):
         age = 2026 - int(p["dob"][:4])
         if age < 12:
             diag = random.choice(["Well-child visit", "Otitis media", "Vaccination visit",
@@ -357,6 +364,21 @@ def generate():
             "weight": weight,
             "visit_date": random_date(2024, 2025),
         }
+
+        # A deliberate Exceptional Value, on a fixed cadence so the set is
+        # reproducible. The patient reports a medication but cannot recall the
+        # dose, so the amount is written as ASKU, "Asked but Unknown".
+        #
+        # These instances are INVALID and are meant to be. xdquantity-value is
+        # mandatory, so omitting it fails validation; the Exceptional Value does
+        # not rescue the instance, it records why it failed. Everything else the
+        # generator writes is valid, and a fact that simply does not apply is
+        # left out rather than given a stand-in value.
+        if idx % EV_DEMO_EVERY == 0:
+            rec["med_name"] = random.choice(["Metformin", "Amlodipine", "Levothyroxine"])
+            rec["dosage"] = "patient unable to recall"
+            rec["dose_amt"] = ASKU
+
         write_xml(os.path.join(OUTPUT_DIR, f"hc-{cuid_generator()}.xml"), build_instance(rec))
         count += 1
 

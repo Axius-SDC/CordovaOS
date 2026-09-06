@@ -184,7 +184,75 @@ class RDFExtractor:
                     if triple_terms:
                         turtle_lines.extend(triple_terms)
 
+        # Party references live outside the ms-* tree and are extracted here.
+        turtle_lines.extend(self._extract_parties(tree, instance_id, instance_cuid))
+
         return '\n'.join(turtle_lines)
+
+    def _child_text(self, parent, name: str) -> str:
+        """Text of the first direct child with this local name."""
+        for child in parent:
+            if self._strip_namespace(child.tag) == name and child.text:
+                return child.text.strip()
+        return ''
+
+    def _extract_parties(
+        self,
+        tree: ET.Element,
+        instance_id: str,
+        instance_cuid: str
+    ) -> List[str]:
+        """
+        Emit the party references carried by native PartyType slots.
+
+        Component values live in ms-* elements and are extracted above. A party
+        does not: subject, provider and the rest are native RM types, so a
+        party-ref never reaches the graph through that path. A party recorded
+        only as a name joins nothing, which is the difference between "employed
+        by Costa Motors" and a link to the registered organisation.
+        """
+        lines: List[str] = []
+        seen = 0
+
+        for elem in tree.iter():
+            ref = None
+            for child in elem:
+                if self._strip_namespace(child.tag) == 'party-ref':
+                    ref = child
+                    break
+            if ref is None:
+                continue
+
+            link = self._child_text(ref, 'link')
+            if not link:
+                continue
+
+            seen += 1
+            node = f'sdc4:party-{instance_cuid}-{seen}'
+            slot = self._strip_namespace(elem.tag)
+            label = self._child_text(elem, 'label')
+            party_name = self._child_text(elem, 'party-name')
+            relation = self._child_text(ref, 'relation')
+            relation_uri = self._child_text(ref, 'relation-uri')
+
+            lines.append(f'# Party reference: {slot}')
+            lines.append(f'{node} a sdc4:PartyReference ;')
+            lines.append(f'    sdc4:inInstance sdc4:{instance_id} ;')
+            lines.append(f'    sdc4:inDataModel sdc4:dm-{self.dm_ct_id} ;')
+            lines.append(f'    sdc4:partySlot "{self._escape_turtle(slot)}" ;')
+            if label:
+                lines.append(f'    rdfs:label "{self._escape_turtle(label)}" ;')
+            if party_name:
+                lines.append(f'    sdc4:partyName "{self._escape_turtle(party_name)}" ;')
+            lines.append(f'    sdc4:partyRef "{self._escape_turtle(link)}" ;')
+            if relation:
+                lines.append(f'    sdc4:partyRelation "{self._escape_turtle(relation)}" ;')
+            if relation_uri:
+                lines.append(f'    sdc4:partyRelationUri <{relation_uri}> ;')
+            lines[-1] = lines[-1].rstrip(' ;') + ' .'
+            lines.append('')
+
+        return lines
 
     def _generate_instance_metadata(
         self,

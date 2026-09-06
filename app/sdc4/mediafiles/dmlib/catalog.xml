@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD XML Catalogs V1.1//EN"
+  "http://www.oasis-open.org/committees/entity/release/1.1/catalog.dtd">
+<!--
+  Local resolution for the SDC4 reference model and the data models that include
+  it. Every generated data-model schema carries
+
+    <xsd:include schemaLocation="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd"/>
+
+  and without this file that include is fetched over the network. On a host with
+  no outbound DNS the fetch fails, the reference model's substitution groups are
+  then unknown, and instances that are perfectly valid are reported invalid. The
+  verdict ends up depending on whether a lookup succeeded, which is the opposite
+  of deterministic validation.
+
+  Paths are relative to this file, so the mapping travels with the library.
+-->
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+
+  <!-- SDC4 reference model -->
+  <uri name="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd" uri="../../ontologies/sdc4.xsd"/>
+
+  <!-- Anything else under the SDC4 namespace resolves from the same directory -->
+  <rewriteURI uriStartString="https://semanticdatacharter.com/ns/sdc4/"
+              rewritePrefix="../../ontologies/"/>
+
+  <!-- Published data models resolve to this library -->
+  <rewriteURI uriStartString="https://semanticdatacharter.com/dmlib/" rewritePrefix="./"/>
+
+</catalog>

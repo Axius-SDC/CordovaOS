@@ -5,7 +5,7 @@
 #
 # Typical first run:
 #   make demo      # start the stack, generate the small dataset, load it
-# then open http://localhost:18000/demo/
+# then open http://localhost:18000/console/
 
 COMPOSE := docker compose -f app/sdc4/docker-compose.yml
 WEB_URL  := http://localhost:18000
@@ -22,7 +22,9 @@ help:
 	@echo "  make down        Stop the stack."
 	@echo "  make clean       Stop the stack and remove generated import data."
 	@echo ""
-	@echo "After 'make demo', open $(WEB_URL)/demo/"
+	@echo "After 'make demo':"
+	@echo "  $(WEB_URL)/console/   the record console (start here)"
+	@echo "  $(WEB_URL)/demo/      dashboard, Contagion narrative, SPARQL explorer"
 
 up:
 	$(COMPOSE) up -d
@@ -51,11 +53,18 @@ load: wait-web
 
 demo: up generate load
 	@echo ""
-	@echo "Demo ready. Open $(WEB_URL)/demo/"
+	@echo "Demo ready. Expect 1,446 records across 10 domains, 7 of them"
+	@echo "stating an absence rather than inventing a value."
+	@echo ""
+	@echo "  $(WEB_URL)/console/   the record console (start here)"
+	@echo "  $(WEB_URL)/demo/      dashboard, Contagion narrative, SPARQL explorer"
 
 demo-full: up generate-full load
 	@echo ""
-	@echo "Full dataset ready. Open $(WEB_URL)/demo/"
+	@echo "Full dataset ready."
+	@echo ""
+	@echo "  $(WEB_URL)/console/   the record console (start here)"
+	@echo "  $(WEB_URL)/demo/      dashboard, Contagion narrative, SPARQL explorer"
 
 clean:
 	$(COMPOSE) down
