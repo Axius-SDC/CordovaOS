@@ -32,34 +32,34 @@ CL_PROV         = "ms-hdhjfg00tngir2txgqyka9cv"   # Provenance Components cluste
 SYS_AUDIT       = "ms-fotc5adg15ek2b9ermx2mcih"   # System Audit component
 
 # ─── Data cluster scalars (component, adapter-wrapper) — re-keyed for v2 ──────
-W_CID         = ("ms-nj7s1gk45tfgyooxpz0qaha3", "ms-xioyl07fvgh5icdqrcl709tk")
-W_STUDENT_ID  = ("ms-khbvruwpu9hnttg8y0mnih6a", "ms-ji7tpm8t62el1thbou5t7oc6")
-W_CITY        = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-r5kybrrm4yfh7z02msshfe99")
-W_PROVINCE    = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-b2l3dy2sleghrl40w3umgs8c")
+W_CID         = ("ms-nj7s1gk45tfgyooxpz0qaha3", "ms-g9qc6hwcew8i21afy1fqv559")
+W_STUDENT_ID  = ("ms-khbvruwpu9hnttg8y0mnih6a", "ms-j832gidfevf2us9mx7obuisc")
+W_CITY        = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-o3uwoaycnlb2z20wq65jh5aw")
+W_PROVINCE    = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-uz7az92a73g3s2mq1xr5uza2")
 
 # ─── Credential sub-cluster ──────────────────────────────────────────────────
 CL_CRED       = "ms-nyf0w3u2hs0svcjnqkb6zzlb"
-W_YESNO       = ("ms-ht98owgvxhff3ge85i4h80lp", "ms-w8jk9hv5tdne6wpn27r987gk")
-W_FIELD       = ("ms-ouqi09d8kjqeojlr7vnclysj", "ms-a5ptg4s12yqvfs77w3jih15z")
-W_CRED_TYPE   = ("ms-sxkjp09cbjb6n13j8a0eg37i", "ms-wsty7lif4bqbsoechcc8ad4e")
-W_HONORS      = ("ms-c7qvfjtu0omg4wagiaiy5hej", "ms-zkj6sj2v4vqwqykonvvk6v3r")
-W_DATE_AWARD  = ("ms-xi99tao4v75wdrkq0ot02vfd", "ms-gl700lmf3g9l4earvxn7oz0q")
+W_YESNO       = ("ms-ht98owgvxhff3ge85i4h80lp", "ms-alc5f2c8973cn1g7eqbh2bb3")
+W_FIELD       = ("ms-ouqi09d8kjqeojlr7vnclysj", "ms-xrb84lpfsgg46l2vc66qoeht")
+W_CRED_TYPE   = ("ms-sxkjp09cbjb6n13j8a0eg37i", "ms-l0dd9bwdun4e3a18pz6kz1ts")
+W_HONORS      = ("ms-c7qvfjtu0omg4wagiaiy5hej", "ms-oeluv394u4d9j2t1sbvnykk6")
+W_DATE_AWARD  = ("ms-xi99tao4v75wdrkq0ot02vfd", "ms-n1q4w33j71wzxnkmroqnp7st")
 
 # ─── Enrollment sub-cluster (reuses Field-of-Study adapter W_FIELD) ───────────
 CL_ENROLL     = "ms-r97mt4prbpxp04qmdc8iimb8"
-W_ENR_STATUS  = ("ms-squd8e2s6pk8xoafu9ec0t9k", "ms-chz6l4lcc856wqm44oy8c3lx")
-W_EDU_LEVEL   = ("ms-1ylumrkck2vv635djov01tte4", "ms-o8cuwfpfqa6kx8nvdnzk74d1")
-W_ENR_DATE    = ("ms-z72jnzdib9hi311s338zwdog", "ms-gwvuia53itc1xsm8w33r4tw4")
-W_EXPECT_DATE = ("ms-g6ntdb41otp1mtwsyb52mez3", "ms-d5aito2h8c31bd9ezti2ynyz")
+W_ENR_STATUS  = ("ms-squd8e2s6pk8xoafu9ec0t9k", "ms-dt20bv6exbov05nuu6c5ci9u")
+W_EDU_LEVEL   = ("ms-1ylumrkck2vv635djov01tte4", "ms-fz8l5o1yza643ywgr57x78dj")
+W_ENR_DATE    = ("ms-z72jnzdib9hi311s338zwdog", "ms-y9wuh1wcoazyjoc327e4x3hr")
+W_EXPECT_DATE = ("ms-g6ntdb41otp1mtwsyb52mez3", "ms-bg167iixu5iwprke5c32klur")
 
 # ─── Provenance Components leaves (component, adapter-wrapper) ────────────────
-P_ACT_DESC    = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-u1dfkfg8zf63ondcionqow46")
-P_ACT_TYPE    = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-kdnqrut5deijmrkio64dxxns")
-P_SYS_ID      = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-s3tg6tidg3dlhy2hw4sh08yi")
-P_LOC_ID      = ("ms-zr59goe24qkocprl3feul3mt", "ms-a1mc2y0227aneigwj81g7vpq")
-P_LOC_NAME    = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-dnyj6nl5h0dmm6utk5lp7j1m")
-P_TS_END      = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-z7gbl0l5borca9iob2mnwab9")
-P_TS_START    = ("ms-o72s5793973fzho35rnaughs", "ms-dj93716fknpyq6smydh17tez")
+P_ACT_DESC    = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-z09w80gb42phebbwbng25crv")
+P_ACT_TYPE    = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-k6n0bdzdj1ms6y1fje4v5bvl")
+P_SYS_ID      = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-f8k92mmpk4m7zyeppf7y88wu")
+P_LOC_ID      = ("ms-zr59goe24qkocprl3feul3mt", "ms-bz6vtlqr2debt13kf0puqeza")
+P_LOC_NAME    = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-a6djkxuor920uib2g716bory")
+P_TS_END      = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-hn7skeuvrwk6u5flv7o4lhaf")
+P_TS_START    = ("ms-o72s5793973fzho35rnaughs", "ms-i4l818mexs1cpxqday55jwoh")
 
 # ─── Domain enums (must match the model's own enumeration components) ─────────
 FIELDS = [

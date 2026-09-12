@@ -39,7 +39,7 @@ after it.
 
 ### 1. Start at the front door, `/console/`
 
-Ten domains, 1,446 records, generated from one model. Note the third figure:
+Ten domains, 1,462 records, generated from one model. Note the third figure:
 **seven records refused**. We will come back to those, and the fact that a
 demonstration shows you its failures is itself the point.
 

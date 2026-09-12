@@ -34,38 +34,38 @@ CL_PROV         = "ms-hdhjfg00tngir2txgqyka9cv"
 # the sub-clusters (Liens, Value, Transfer) BEFORE the scalar adapters, so
 # emission order must follow suit (see build_instance).
 CL_ROOT       = "ms-bgc4n3424bzb8gpgnjhxxha9"
-W_PARCEL      = ("ms-hs7197k4s33eg7wbspgudu4u", "ms-x4e8k8g1uojewc6tdpt9t5yv")
-W_ADDR1       = ("ms-l338k7nlvnq2am0owa19yxfc", "ms-ny0rsony9tpielhbefce5l1j")
-W_ADDR2       = ("ms-ek5h6dsqpd9kz0l4mcckmxpt", "ms-fnd5eqtqwl10obbslkttrqnh")
-W_CITY        = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-jc4b7oxzp0aw60nqaczhqwf8")
-W_PROP_STATUS = ("ms-xtljf8q6rfyfewdkgu4e5ouj", "ms-mdmo6qt9lop46jta9ev17t0n")
-W_PROP_TYPE   = ("ms-l79ua955rihnjbrxyhu7z5ac", "ms-jdod00uzf3m9s59b98iaibgs")
-W_PROVINCE    = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-w2v28k4z744jfpno33ab67p2")
-W_REG_DATE    = ("ms-vo9jtmexkaaol3y657fm0xn8", "ms-fh0pqnu8d0nfx2yvyhcwh63b")
+W_PARCEL      = ("ms-hs7197k4s33eg7wbspgudu4u", "ms-z5nuyer6bf6yaipkvlwtti3p")
+W_ADDR1       = ("ms-l338k7nlvnq2am0owa19yxfc", "ms-nggvhtmrc81o8u9naja210xf")
+W_ADDR2       = ("ms-ek5h6dsqpd9kz0l4mcckmxpt", "ms-hnmj93pnwqg14pqydlsl4r44")
+W_CITY        = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-ep97nkb0s9jk1477k2dpv207")
+W_PROP_STATUS = ("ms-xtljf8q6rfyfewdkgu4e5ouj", "ms-u46jvzryocfxscv1azo2dk0b")
+W_PROP_TYPE   = ("ms-l79ua955rihnjbrxyhu7z5ac", "ms-snt3a6i4dsnsb4ak26z2dkj5")
+W_PROVINCE    = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-de1lajcs584txi96icrb4vbi")
+W_REG_DATE    = ("ms-vo9jtmexkaaol3y657fm0xn8", "ms-wby9bpu45exrqb0gz2x5fmre")
 
 CL_LIENS      = "ms-tjkw46wy20kstzgg1y60clxx"
-W_LIEN_STATUS = ("ms-kzalko16uuwdw74yohvr5t50", "ms-nh74asnvqqyz9jmqvnreq3oz")
-W_LIEN_TYPE   = ("ms-cy92p3uebrmjf191wcs07t3o", "ms-onz6gcdg7dh7337mf6zn1l6w")
-W_LIEN_AMT    = ("ms-da261k0tox4747gnkmmek15i", "ms-jvltpxpawjdlybxqkv8e883l")
-W_LIEN_DATE   = ("ms-zicto01f2grmzuqtgdonv83w", "ms-c93mwzszezrgjw1n198haxiq")
+W_LIEN_STATUS = ("ms-kzalko16uuwdw74yohvr5t50", "ms-gxm44ket93fqq9oxq5flalq3")
+W_LIEN_TYPE   = ("ms-cy92p3uebrmjf191wcs07t3o", "ms-bdl16fsiyhxwto8y8ij73m67")
+W_LIEN_AMT    = ("ms-da261k0tox4747gnkmmek15i", "ms-zbo4lm2y55iomlm792w52kj3")
+W_LIEN_DATE   = ("ms-zicto01f2grmzuqtgdonv83w", "ms-u1agu7iydfngvg7mllkaokb7")
 
 CL_VALUE      = "ms-cexrgb7uy29kn6w27tpmujtv"
-W_ASSESS_STAT = ("ms-j3y76yob1s958dry2d551tew", "ms-i2tiyvsynjio8e8uxoino4ye")
-W_ASSESS_VAL  = ("ms-hlg1jmx1v9t4zkq16c1i66bg", "ms-s6axq01x3b13bizha9835168")
-W_LAND_AREA   = ("ms-rbq2sjcb8h284c8dnzjdna5h", "ms-zicuiya98vrzmqki5xmhzd2q")
+W_ASSESS_STAT = ("ms-j3y76yob1s958dry2d551tew", "ms-wom9qpmd0q68u9g5xc70sril")
+W_ASSESS_VAL  = ("ms-hlg1jmx1v9t4zkq16c1i66bg", "ms-zvt8kgp86fpq6zqys2tagbvq")
+W_LAND_AREA   = ("ms-rbq2sjcb8h284c8dnzjdna5h", "ms-ixi9f2u1kjqqoxy2n8b953q6")
 
 CL_TRANSFER   = "ms-vdf0oczbk8uxsm2le09l27ke"
-W_TRANS_AMT   = ("ms-j8gn6xsrzbnzkqlnpk2dkwam", "ms-y7f9vpywfh64xlyn5jqsodc4")
-W_TRANS_DATE  = ("ms-y6isg5qaxfpt1qpg102uwkn4", "ms-j13kh9kjqppr4q1uftft7xp5")
+W_TRANS_AMT   = ("ms-j8gn6xsrzbnzkqlnpk2dkwam", "ms-p5n47ssmdihsxa4o9bso4fj9")
+W_TRANS_DATE  = ("ms-y6isg5qaxfpt1qpg102uwkn4", "ms-skqpioqn7bfhnyif50tw0k2u")
 
 # Provenance Components leaves (component, adapter)
-P_ACT_DESC    = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-wxh3ozwag8zszowx1gyxkjy3")
-P_ACT_TYPE    = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-da450ty7hz39wjwhws7nom94")
-P_SYS_ID      = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-aojrjukmlrjecf0gguod2jp5")
-P_LOC_ID      = ("ms-zr59goe24qkocprl3feul3mt", "ms-rvcd3crgw28j7osmm63cnuk3")
-P_LOC_NAME    = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-e0x6i4occnmtor5lg3uvrcm0")
-P_TS_END      = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-fkt9wapbdb7qqp5dz9ae4dxc")
-P_TS_START    = ("ms-o72s5793973fzho35rnaughs", "ms-wc2gfcyp9kbryangjt8ny2c9")
+P_ACT_DESC    = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-dfi3zwxup4jlhr8vbe0kjwf4")
+P_ACT_TYPE    = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-bm3zhb204amv29yx6pk9akn4")
+P_SYS_ID      = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-w8978j6uj4yy4992t7psbu8d")
+P_LOC_ID      = ("ms-zr59goe24qkocprl3feul3mt", "ms-w42r7xoh4ukku8iev5inyhh2")
+P_LOC_NAME    = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-awq8l1t71v6wprldr2iqcju1")
+P_TS_END      = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-zt690jgk3b34jd59vgj54yda")
+P_TS_START    = ("ms-o72s5793973fzho35rnaughs", "ms-ersexh5knzgq696ay7t7mfoq")
 
 # Domain's System Audit component (substitutionGroup="sdc4:Audit").
 AUDIT_COMPONENT = "ms-fotc5adg15ek2b9ermx2mcih"

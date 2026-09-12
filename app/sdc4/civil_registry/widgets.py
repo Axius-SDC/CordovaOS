@@ -48,7 +48,7 @@ class SDCComponentWidget(MultiWidget):
         Args:
             primary_widget: The main data input widget
             metadata_config: Dict with keys like:
-                - is_quantified: bool (for XdQuantity, XdCount, XdOrdinal, XdRatio)
+                - is_quantified: bool (for XdQuantity, XdCount, XdOrdinal)
                 - units_choices: list of tuples for dropdown options
                 - units_required: bool
                 - ev_allowed: bool

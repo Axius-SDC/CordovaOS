@@ -2,6 +2,7 @@
   "@context": {
     "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
     "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4-meta": "https://semanticdatacharter.com/ontology/sdc4-meta/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -26,29 +27,670 @@
     "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
     "dc:language": "en-US",
     "dc:format": "text/xml",
-    "dc:date": "2026-07-29T17:23:27.052767+00:00"
+    "dc:date": "2026-09-12T13:45:16.383027+00:00"
   },
   "components": [
     {
-      "@type": "ClusterType",
-      "@id": "sdc4:mc-kcam9lm7091vqtvb253ixjxr",
-      "label": "Law Enforcement Governed Record",
-      "description": "Root data cluster (DMType Item) for a governed law-enforcement record in CordovaOS: an incident, its investigation, and its chain of custody. Wraps the domain's data components with the shared W3C PROV-O Provenance cluster so each record carries its lineage bound alongside its data. Workflow, attestation, parties, and the system audit trail sit in the DMType's native governance slots; access control and retention apply as bound sdcgovernance policy.",
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-yi2189u4pinqitlmm5t6ccrd",
+      "label": "Incident Report Number",
+      "description": "A report number for an incident (NIEM j:IncidentReportNumber)",
       "cardinality": {
         "minOccurs": 0,
         "maxOccurs": 1
       },
-      "contains": [],
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
       "semanticLinks": [
         {
-          "predicate": "skos:relatedMatch",
-          "object": "https://www.wikidata.org/wiki/Q1399543"
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q111653916"
         }
       ]
-    }
-  ],
-  "structural_components": {
-    "subject": {
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-rguhpkd7s2d9a51392aon7ir",
+      "label": "Incident Summary",
+      "description": "Brief summary of incident (one paragraph)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/description"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-b6nahtg2we4rh5qsk2j7qfvz",
+      "label": "Location Street Full Text",
+      "description": "A complete street address (NIEM nc:LocationStreetFullText). BFO alignment: address is an information content entity (IAO:0000030) referring to a site (BFO:0000029).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q24574749"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-atdtdfzruh7tya0iv5cz365l",
+      "label": "City",
+      "description": "One of the nine cities in the Republic of Cordova.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Porto Sereno",
+          "Vistamar",
+          "Rioseco",
+          "Campoluz",
+          "Tierraverde",
+          "Montecara",
+          "Novaciudad",
+          "Piedrasol",
+          "Lagunavista"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/City"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-e83h36jqgi59dhy1dttp22qm",
+      "label": "Incident Status",
+      "description": "Current status of the incident",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Open",
+          "Closed",
+          "Pending"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2443992"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh",
+      "label": "Province",
+      "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Aldara",
+          "Brevina",
+          "Celara"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/AdministrativeArea"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/State"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-nc7aq6ofnccavkmczsb2dudy",
+      "label": "Incident Category Code",
+      "description": "Categories of incidents per NIEM j:IncidentCategoryCode",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "accident",
+          "assault",
+          "burglary",
+          "robbery",
+          "theft",
+          "vandalism",
+          "fraud",
+          "drug_offense",
+          "dui",
+          "domestic_violence",
+          "harassment",
+          "missing_person",
+          "suspicious_activity",
+          "traffic",
+          "fire",
+          "medical",
+          "other"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-ohk2uwcomsz8wegfvz0v0yod",
+      "label": "Incident Date",
+      "description": "A date and time an incident occurred (NIEM j:IncidentDate). BFO alignment: incident is a process (BFO:0000015) occurring at a temporal region.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://purl.obolibrary.org/obo/BFO_0000015"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-eoqim4xj9gsxtxrqko1hh55o",
+      "label": "Charge Description",
+      "description": "A description of a charge (NIEM j:ChargeDescriptionText)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/name"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-hc91pdnj3bb6997l5z4ndchz",
+      "label": "Charge Category (Cordova)",
+      "description": "Categories of misdemeanor offenses in Cordova law enforcement records. Cordova has no felony classification — all criminal matters are misdemeanor-level.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Petty Theft",
+          "Public Intoxication",
+          "Trespassing",
+          "Disorderly Conduct",
+          "Traffic Violation",
+          "Minor Vandalism"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1752346"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-rnje7nq6m08vh01g8eg23say",
+      "label": "Disposition (Cordova)",
+      "description": "Outcome of a law enforcement case in Cordova.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Fine",
+          "Community Service",
+          "Case Dismissed",
+          "Pending"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2972905"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-yahksk4xc5to981ows7bpp6z",
+      "label": "Fine or Bail Amount",
+      "description": "Monetary amount of the fine imposed or bail set for the charge in Cordova Córdoba. Null if no financial penalty applies or bail is denied.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "units": {
+          "@type": "Units",
+          "label": "Cordova Córdoba (COR)",
+          "@id": "sdc4:mc-u18l77xlj2omcbmnpi5j7fff"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-u18l77xlj2omcbmnpi5j7fff"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q313614"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q186361"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/MonetaryAmount"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-u18l77xlj2omcbmnpi5j7fff",
+      "label": "Cordova Córdoba (COR)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q8142"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/Currency"
+        }
+      ]
+    },
+    {
+      "@type": "XdIntervalType",
+      "@id": "sdc4:mc-tj85qvj83sce9ny9l2e4oofv",
+      "label": "Non-negative Currency Amount",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string"
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-qse1jwofk5lm2wnsrn3f06l0",
+      "label": "Disposition Date",
+      "description": "Date the disposition was recorded\n\n---",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q117195543"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Date"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-l0esdclu01pg7qw429oe7kjk",
+      "label": "Charge Filing Date",
+      "description": "A date a charge was filed (NIEM j:ChargeFilingDate)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/datePublished"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ixmedhicidzpi7g6g2huqzvv",
+      "label": "Issuing Authority",
+      "description": "The authority that issued the quarantine order (e.g., \"Provincial Health Authority, Aldara\")",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q136462915"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/name"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-r34gm210y9jifbyxa0fcxy96",
+      "label": "Quarantine Zone",
+      "description": "Description of the geographic area under quarantine (e.g., \"Porto Sereno Port District, Berths 1-12\")",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q356936"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/description"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-ihoatduhb7fckjw0ezq5u7g1",
+      "label": "Compliance Status",
+      "description": "Whether the quarantine is being complied with",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Compliant",
+          "Violation Detected",
+          "Under Review"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q752476"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-lohvu07ok3c3xvesa16htf2m",
+      "label": "Quarantine End Date",
+      "description": "Date the quarantine order was lifted. Null if still active.\n\n---",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/endDate"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Date"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-vq30hd0dl6v59d3ttyyvg6rp",
+      "label": "Quarantine Start Date",
+      "description": "Date the quarantine order took effect",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Date"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/startDate"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-m9xg6e182m1oq77ssrf9iujv",
+      "label": "activity_description",
+      "description": "Detailed description of what this activity does and its purpose.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.w3.org/TR/prov-dm/"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ccj1yq2wtwknobszkgzzdbtr",
+      "label": "prov_activity_type",
+      "description": "Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q125542526"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-bd3s8t23d6m3zizmpwavc32y",
+      "label": "system_identifier",
+      "description": "Identifier of the system that handled the data. Maps to prov:Entity context in the PROV-O export. This is the AuditType.system-id field.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q7663715"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-zr59goe24qkocprl3feul3mt",
+      "label": "system_location_identifier",
+      "description": "Code or identifier for the system location. Used for cross-system location resolution.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q36214810"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-fnodzqkbyskwe7nh58rs336k",
+      "label": "system_location_name",
+      "description": "Name of the physical or logical location where the system resides. Maps to prov:atLocation.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q11307204"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-edvvjznmaoibzmfna0uuoo37",
+      "label": "activity_timestamp_end",
+      "description": "When the provenance activity completed. Maps to prov:endedAtTime. ISO 8601 format.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.ontology-of-units-of-measure.org/resource/om-2/Activity"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-o72s5793973fzho35rnaughs",
+      "label": "activity_timestamp_start",
+      "description": "When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.ontology-of-units-of-measure.org/resource/om-2/Activity"
+        }
+      ]
+    },
+    {
       "@type": "PartyType",
       "@id": "sdc4:mc-7i4jw2wkw7om94135c1bq03h",
       "label": "Involved Person",
@@ -60,24 +702,225 @@
       "dataType": "xsd:string",
       "semanticLinks": [
         {
-          "predicate": "skos:exactMatch",
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
           "object": "http://xmlns.com/foaf/0.1/Agent"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "https://schema.org/Person"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "http://www.w3.org/ns/prov#Agent"
         },
         {
-          "predicate": "skos:broadMatch",
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
           "object": "https://www.wikidata.org/wiki/Q196939"
         }
       ]
     },
-    "provider": {
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3",
+      "label": "National ID (CID)",
+      "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "COR-(AL|BR|CE)0[1-3]-[0-9]{6}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/identifier"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1140371"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/identifier"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1",
+      "label": "agent_id",
+      "description": "Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q37882474"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-zs9ciw4nypx4plo856h3m95d",
+      "label": "person_family_name",
+      "description": "Family (last) name of the person agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q4116295"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ndvtjiq0cke0q1trw58rtrq2",
+      "label": "person_given_name",
+      "description": "Given (first) name of the person agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q202444"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-dsqo7rt3gooouv2sfaqhjl43",
+      "label": "Witness Statement",
+      "description": "Summary of witness statement",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q8028402"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-upepv8ko1sf0ty04me5hou46",
+      "label": "Involvement Type",
+      "description": "How the person is involved in the incident",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Subject",
+          "Complainant",
+          "Witness"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://release.niem.gov/niem/niem-core/6.0/#PersonInvolvementCategoryCode"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj",
+      "label": "PROV Agent Type",
+      "description": "Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Person",
+          "Organization",
+          "SoftwareAgent"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-u1i23yha2rvz5nbxjz3l8x48",
+      "label": "PROV Role Type",
+      "description": "Functional roles that agents, entities, or activities can assume within provenance relationships.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Author",
+          "Publisher",
+          "Contributor",
+          "Custodian",
+          "Reviewer",
+          "Approver",
+          "Transformer",
+          "Aggregator"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.w3.org/TR/prov-o/#qualifiedInvolvement"
+        }
+      ]
+    },
+    {
       "@type": "PartyType",
       "@id": "sdc4:mc-m2lj6lu22oez88prwrdgmnc2",
       "label": "Reporting Officer",
@@ -89,22 +932,869 @@
       "dataType": "xsd:string",
       "semanticLinks": [
         {
-          "predicate": "skos:exactMatch",
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
           "object": "http://xmlns.com/foaf/0.1/Agent"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "https://schema.org/Person"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "https://www.wikidata.org/wiki/Q384593"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "http://www.w3.org/ns/prov#Agent"
         }
       ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-pqxnguwtjyyfaildgx3hi0bo",
+      "label": "person_department",
+      "description": "Department or team the person belongs to.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2366457"
+        }
+      ]
+    },
+    {
+      "@type": "AuditType",
+      "@id": "sdc4:mc-fotc5adg15ek2b9ermx2mcih",
+      "label": "System Audit",
+      "description": "A domain-agnostic audit component. Can be copied to other projects for domain-specific semantics if desired.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-rw1cjzeynsl87va6gvhv2k7e",
+      "label": "service_account_id",
+      "description": "Service account or system account identifier for software agents.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/identifier"
+        }
+      ]
+    },
+    {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-vitwhq5xsptnokmfq11b1jos",
+      "label": "System User",
+      "description": "Defines the operator or agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-jtuheuri2wzfhctcjqv4ozmy",
+      "label": "contact_email",
+      "description": "Contact email for the service.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": ".+@.+\\..+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1273217"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-a127ihw8xbfbl24lbcvnspv0",
+      "label": "contact_name",
+      "description": "Contact name for the service.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/dcat#contactPoint"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-pdykwzsug7pfncjsrry73x1s",
+      "label": "contact_phone",
+      "description": "Primary contact phone number.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\+?\\d[\\d\\s\\-\\(\\)]{6,18}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q214995"
+        }
+      ]
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-xvnv7mrhvfweajl72pmngeya",
+      "label": "software_documentation_url",
+      "description": "URL to software documentation or repository.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q3133368"
+        }
+      ]
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-px6j779dnapp4fjlohula4mh",
+      "label": "software_service_endpoint",
+      "description": "API endpoint or service URL if applicable.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q5376585"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-rsjfjz8m5z7a58h5793duqbs",
+      "label": "software_name",
+      "description": "Name of the software system or service.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q30335969"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-d839tf07spk43dmg0dqb939b",
+      "label": "software_runtime_environment",
+      "description": "Runtime environment or platform for the software.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q241317"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc",
+      "label": "software_vendor",
+      "description": "Vendor or maintainer of the software.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q7554349"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-tep9wanrrtqfw0k76huv6tvd",
+      "label": "software_version",
+      "description": "Version of the software.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q20826013"
+        }
+      ]
+    },
+    {
+      "@type": "AttestationType",
+      "@id": "sdc4:mc-i8g57yrmdthdj1k5tcmj3ecx",
+      "label": "Law Enforcement Attestation",
+      "description": "Attestation for law enforcement incident records. The reporting officer attests to the accuracy of the incident report. W3C PROV-DM, GDPR/UN CEB.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q116890704"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.w3.org/TR/vc-data-model/#credentials"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q44782"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/EndorseAction"
+        }
+      ]
+    },
+    {
+      "@type": "XdFileType",
+      "@id": "sdc4:mc-hhbwj5k5rxticrbzwhp1lnjt",
+      "label": "Law Enforcement Attested View",
+      "description": "Attested view of a law enforcement record document",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/DigitalDocument"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q31207"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "http://www.w3.org/ns/prov#Entity"
+        }
+      ]
+    },
+    {
+      "@type": "XdFileType",
+      "@id": "sdc4:mc-gug5dhtqfv7exbgmm2raxpkq",
+      "label": "Digital Signature Proof",
+      "description": "Cryptographic proof of attestation (digital signature)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.w3.org/TR/vc-data-model/#credentials"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q210824"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "http://www.w3.org/ns/prov#Entity"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-qrsl6qfgznm2kix8jdlpfwwg",
+      "label": "Law Enforcement Attestation Reason",
+      "description": "Reason for attesting this law enforcement record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q132364"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q31207"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Text"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-rhu2opcioifbl83m7ph3rbhw",
+      "label": "Law Enforcement Records Protocol",
+      "description": "Protocol reference for the Law Enforcement Record data model. Informed by INTERPOL data exchange standards, the National Information Exchange Model (NIEM) Justice domain, and the Global Justice XML Data Model for criminal justice information sharing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q132364"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q6956407"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q317623"
+        }
+      ]
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-bkuhivi6ot6nxll6vam7yobp",
+      "label": "Law Enforcement Access Control",
+      "description": "Access control policy for law enforcement data using W3C Data Privacy Vocabulary. Enforces role-based access for law enforcement officers, judicial authorities, and defense counsel. Governs dpv:CriminalOffenceData including incident reports, arrest records, and case files.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q185799"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://w3id.org/dpv#AccessControlMethod"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q6014597"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://w3id.org/dpv#CriminalOffenceData"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-kcam9lm7091vqtvb253ixjxr",
+      "label": "Law Enforcement Governed Record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-songhwxr1fp8niqba4fd0yd9"
+        },
+        {
+          "@id": "sdc4:mc-hdhjfg00tngir2txgqyka9cv"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q1399543"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-songhwxr1fp8niqba4fd0yd9",
+      "label": "Incident Report",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-c3eoo0vfid9c8riruf7uoyz2"
+        },
+        {
+          "@id": "sdc4:mc-avmmc3r38dol0ghko42yeyp4"
+        },
+        {
+          "@id": "sdc4:mc-yi2189u4pinqitlmm5t6ccrd"
+        },
+        {
+          "@id": "sdc4:mc-rguhpkd7s2d9a51392aon7ir"
+        },
+        {
+          "@id": "sdc4:mc-b6nahtg2we4rh5qsk2j7qfvz"
+        },
+        {
+          "@id": "sdc4:mc-atdtdfzruh7tya0iv5cz365l"
+        },
+        {
+          "@id": "sdc4:mc-e83h36jqgi59dhy1dttp22qm"
+        },
+        {
+          "@id": "sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"
+        },
+        {
+          "@id": "sdc4:mc-nc7aq6ofnccavkmczsb2dudy"
+        },
+        {
+          "@id": "sdc4:mc-ohk2uwcomsz8wegfvz0v0yod"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q6014597"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://niemopen.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-c3eoo0vfid9c8riruf7uoyz2",
+      "label": "Charge and Disposition",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-eoqim4xj9gsxtxrqko1hh55o"
+        },
+        {
+          "@id": "sdc4:mc-hc91pdnj3bb6997l5z4ndchz"
+        },
+        {
+          "@id": "sdc4:mc-rnje7nq6m08vh01g8eg23say"
+        },
+        {
+          "@id": "sdc4:mc-yahksk4xc5to981ows7bpp6z"
+        },
+        {
+          "@id": "sdc4:mc-qse1jwofk5lm2wnsrn3f06l0"
+        },
+        {
+          "@id": "sdc4:mc-l0esdclu01pg7qw429oe7kjk"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://release.niem.gov/niem/niem-core/6.0/#Charge"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://niemopen.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-avmmc3r38dol0ghko42yeyp4",
+      "label": "Quarantine Enforcement",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-ixmedhicidzpi7g6g2huqzvv"
+        },
+        {
+          "@id": "sdc4:mc-r34gm210y9jifbyxa0fcxy96"
+        },
+        {
+          "@id": "sdc4:mc-ihoatduhb7fckjw0ezq5u7g1"
+        },
+        {
+          "@id": "sdc4:mc-lohvu07ok3c3xvesa16htf2m"
+        },
+        {
+          "@id": "sdc4:mc-vq30hd0dl6v59d3ttyyvg6rp"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q186588"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-hdhjfg00tngir2txgqyka9cv",
+      "label": "Provenance Components",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-m9xg6e182m1oq77ssrf9iujv"
+        },
+        {
+          "@id": "sdc4:mc-ccj1yq2wtwknobszkgzzdbtr"
+        },
+        {
+          "@id": "sdc4:mc-bd3s8t23d6m3zizmpwavc32y"
+        },
+        {
+          "@id": "sdc4:mc-zr59goe24qkocprl3feul3mt"
+        },
+        {
+          "@id": "sdc4:mc-fnodzqkbyskwe7nh58rs336k"
+        },
+        {
+          "@id": "sdc4:mc-edvvjznmaoibzmfna0uuoo37"
+        },
+        {
+          "@id": "sdc4:mc-o72s5793973fzho35rnaughs"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1172162"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-k5mkvc34kuo9ln5fvzvrhcj3",
+      "label": "Law Enforcement Involved Person",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"
+        },
+        {
+          "@id": "sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"
+        },
+        {
+          "@id": "sdc4:mc-zs9ciw4nypx4plo856h3m95d"
+        },
+        {
+          "@id": "sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"
+        },
+        {
+          "@id": "sdc4:mc-dsqo7rt3gooouv2sfaqhjl43"
+        },
+        {
+          "@id": "sdc4:mc-upepv8ko1sf0ty04me5hou46"
+        },
+        {
+          "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj"
+        },
+        {
+          "@id": "sdc4:mc-u1i23yha2rvz5nbxjz3l8x48"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://niemopen.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-y8yh47jf1ewpq1r6q6gnkjjh",
+      "label": "Law Enforcement Reporting Officer",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"
+        },
+        {
+          "@id": "sdc4:mc-pqxnguwtjyyfaildgx3hi0bo"
+        },
+        {
+          "@id": "sdc4:mc-zs9ciw4nypx4plo856h3m95d"
+        },
+        {
+          "@id": "sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"
+        },
+        {
+          "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj"
+        },
+        {
+          "@id": "sdc4:mc-u1i23yha2rvz5nbxjz3l8x48"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://www.wikidata.org/wiki/Q6503343"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://niemopen.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-w06vxo6uxtrzjkimmafmue7g",
+      "label": "Contact and Access",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-jtuheuri2wzfhctcjqv4ozmy"
+        },
+        {
+          "@id": "sdc4:mc-a127ihw8xbfbl24lbcvnspv0"
+        },
+        {
+          "@id": "sdc4:mc-pdykwzsug7pfncjsrry73x1s"
+        },
+        {
+          "@id": "sdc4:mc-rw1cjzeynsl87va6gvhv2k7e"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2996679"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-km4azswrxe9tdrjmqvun5463",
+      "label": "Software Agent Details",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-xvnv7mrhvfweajl72pmngeya"
+        },
+        {
+          "@id": "sdc4:mc-px6j779dnapp4fjlohula4mh"
+        },
+        {
+          "@id": "sdc4:mc-rsjfjz8m5z7a58h5793duqbs"
+        },
+        {
+          "@id": "sdc4:mc-d839tf07spk43dmg0dqb939b"
+        },
+        {
+          "@id": "sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc"
+        },
+        {
+          "@id": "sdc4:mc-tep9wanrrtqfw0k76huv6tvd"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2297769"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-axzq49patk0yxj2ib8uzs4p1",
+      "label": "Law Enforcement Workflow",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-qrsl6qfgznm2kix8jdlpfwwg"
+        },
+        {
+          "@id": "sdc4:mc-rhu2opcioifbl83m7ph3rbhw"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q6503343"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://niemopen.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://www.wikidata.org/wiki/Q627335"
+        }
+      ]
     }
-  }
+  ]
 }

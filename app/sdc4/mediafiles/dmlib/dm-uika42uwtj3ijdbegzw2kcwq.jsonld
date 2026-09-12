@@ -2,6 +2,7 @@
   "@context": {
     "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
     "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4-meta": "https://semanticdatacharter.com/ontology/sdc4-meta/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -26,23 +27,629 @@
     "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
     "dc:language": "en-US",
     "dc:format": "text/xml",
-    "dc:date": "2026-07-29T13:10:43.173521+00:00"
+    "dc:date": "2026-09-12T13:45:20.854039+00:00"
   },
   "components": [
     {
-      "@type": "ClusterType",
-      "@id": "sdc4:mc-aan7382wp8e2f58m9a2hvmkp",
-      "label": "Civil Registry Governed Record",
-      "description": "Root data cluster (DMType Item) for a governed civil-registry record in CordovaOS: a person's civil-status events such as births, marriages, and deaths. Wraps the domain's data components with the shared W3C PROV-O Provenance cluster so each record carries its lineage bound alongside its data. Workflow, attestation, parties, and the system audit trail sit in the DMType's native governance slots; access control and retention apply as bound sdcgovernance policy.",
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3",
+      "label": "National ID (CID)",
+      "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
       "cardinality": {
         "minOccurs": 0,
         "maxOccurs": 1
       },
-      "contains": []
-    }
-  ],
-  "structural_components": {
-    "subject": {
+      "constraints": {
+        "pattern": "COR-(AL|BR|CE)0[1-3]-[0-9]{6}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/identifier"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1140371"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/identifier"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-cfg2l8ym4ve833ritrxu765t",
+      "label": "Country of Birth",
+      "description": "Country where participant was born",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://uts.nlm.nih.gov/uts/umls/concept/C1300001"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-kfyzf8u8gdafcpt5kfh2qg3q",
+      "label": "Given Name (Person)",
+      "description": "name typically used to differentiate people from the same family, clan, or other social group who have a common last name\naka. first name or forename",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q202444"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-oit0ueglhjfcyq80z22kl2z3",
+      "label": "Middle Name (Person)",
+      "description": "Middle or other name(s) given to identify a person",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q245025"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-v8jgjo2sml12jo7zrb8swoxi",
+      "label": "Surname (Person)",
+      "description": "The surname or family name of a person, part of a naming scheme for individuals, used in many cultures worldwide\naka: last name, fam name, family surname, surname, clan name",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q101352"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-atdtdfzruh7tya0iv5cz365l",
+      "label": "City",
+      "description": "One of the nine cities in the Republic of Cordova.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Porto Sereno",
+          "Vistamar",
+          "Rioseco",
+          "Campoluz",
+          "Tierraverde",
+          "Montecara",
+          "Novaciudad",
+          "Piedrasol",
+          "Lagunavista"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/City"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-vjfgimlbb90ds2xg55tfn941",
+      "label": "Marital Status (Cordova)",
+      "description": "Marital status as recorded in the Cordova Civil Registry. Aligned with vital statistics records.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Single",
+          "Married",
+          "Divorced",
+          "Widowed",
+          "Separated"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q11920938"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh",
+      "label": "Province",
+      "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Aldara",
+          "Brevina",
+          "Celara"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/AdministrativeArea"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/State"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-cymq16em5zb20whgtfzki6n5",
+      "label": "Gender Identity",
+      "description": "Self-reported gender identity of the participant",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Male",
+          "Female",
+          "Transgender male",
+          "Transgender female",
+          "Non-binary",
+          "Genderqueer",
+          "Other",
+          "Prefer not to answer",
+          "Unknown"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://uts.nlm.nih.gov/uts/umls/concept/C0017249"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-mw9qdn71urog8egjbp5t3y00",
+      "label": "Sex",
+      "description": "Biological sex assigned at birth based on physical characteristics. UMLS CUI: C0079399 (Biologic Sex). Aligned with OMB standards for reporting.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Male",
+          "Female",
+          "Intersex",
+          "Unknown"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://uts.nlm.nih.gov/uts/umls/concept/C5236503"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-g3k6bj8su3rvkszg2700dhyh",
+      "label": "Birth Date",
+      "description": "Date of birth of the participant. UMLS CUI: C0421451 (Date of birth). LOINC: 21112-8 (Birth date).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2389905"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-x0na649n17if0ukul82cmrx3",
+      "label": "Cordova Email Address",
+      "description": "Email address using one of the Cordova national email providers. Providers: cordomail.co, novamail.co, portocorreo.co",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "[-a-zA-Z0-9._%+]+@(cordomail|novamail|portocorreo)\\.co"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1273217"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/name"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-nfrvvp87c5imu5h9ups92kgy",
+      "label": "Cordova Phone Number",
+      "description": "Cordova national telephone number. Format: +99-PPP-NNN-NNNN where +99 is the country code and PPP is the area code. Area codes: Porto Sereno=100, Vistamar=110, Rioseco=120, Campoluz=200, Tierraverde=210, Montecara=220, Novaciudad=300, Piedrasol=310, Lagunavista=320.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\+99-[123][012]0-[0-9]{3}-[0-9]{4}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q214995"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q214995"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-zlz64jydsmhb5zmytcm2ewyg",
+      "label": "Preferred Contact Method",
+      "description": "Participant's preferred method of contact",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Phone",
+          "Email",
+          "Text/SMS",
+          "Mail",
+          "No preference"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q2336001"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-l338k7nlvnq2am0owa19yxfc",
+      "label": "Address (Line 1)",
+      "description": "Street address line, building/apartment number, or P.O. Box number.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/streetAddress"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ek5h6dsqpd9kz0l4mcckmxpt",
+      "label": "Address (Line 2)",
+      "description": "Street address line, building/apartment number, or P.O. Box number.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/streetAddress"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-be9apjt8mvjjv86qzycorcjl",
+      "label": "Relationship Type",
+      "description": "Familial or legal relationship between two persons in the Cordova Civil Registry.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Spouse",
+          "Parent",
+          "Child",
+          "Sibling",
+          "Grandparent",
+          "Grandchild",
+          "Guardian"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q69901743"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-o7vjxwswi0pxo543hq504jjx",
+      "label": "Relationship End Date",
+      "description": "Date the relationship ended, if applicable (e.g., divorce date, death date). Null for active relationships.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Date"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q121875611"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-k9ptlhkq3j41p6umlg3tc80x",
+      "label": "Relationship Start Date",
+      "description": "Date the relationship was established or recorded (e.g., marriage date, birth date of child, guardianship order date)\n\n---",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q3406134"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Date"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-m9xg6e182m1oq77ssrf9iujv",
+      "label": "activity_description",
+      "description": "Detailed description of what this activity does and its purpose.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.w3.org/TR/prov-dm/"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ccj1yq2wtwknobszkgzzdbtr",
+      "label": "prov_activity_type",
+      "description": "Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q125542526"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-bd3s8t23d6m3zizmpwavc32y",
+      "label": "system_identifier",
+      "description": "Identifier of the system that handled the data. Maps to prov:Entity context in the PROV-O export. This is the AuditType.system-id field.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q7663715"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-zr59goe24qkocprl3feul3mt",
+      "label": "system_location_identifier",
+      "description": "Code or identifier for the system location. Used for cross-system location resolution.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q36214810"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-fnodzqkbyskwe7nh58rs336k",
+      "label": "system_location_name",
+      "description": "Name of the physical or logical location where the system resides. Maps to prov:atLocation.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q11307204"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-edvvjznmaoibzmfna0uuoo37",
+      "label": "activity_timestamp_end",
+      "description": "When the provenance activity completed. Maps to prov:endedAtTime. ISO 8601 format.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.ontology-of-units-of-measure.org/resource/om-2/Activity"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-o72s5793973fzho35rnaughs",
+      "label": "activity_timestamp_start",
+      "description": "When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.ontology-of-units-of-measure.org/resource/om-2/Activity"
+        }
+      ]
+    },
+    {
       "@type": "PartyType",
       "@id": "sdc4:mc-avqpyqft9tm22yyink3ltcty",
       "label": "Related Person",
@@ -54,24 +661,115 @@
       "dataType": "xsd:string",
       "semanticLinks": [
         {
-          "predicate": "skos:exactMatch",
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
           "object": "http://xmlns.com/foaf/0.1/Agent"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "https://schema.org/Person"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "http://www.w3.org/ns/prov#Agent"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "https://www.wikidata.org/wiki/Q22988604"
         }
       ]
     },
-    "provider": {
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1",
+      "label": "agent_id",
+      "description": "Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q37882474"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-zs9ciw4nypx4plo856h3m95d",
+      "label": "person_family_name",
+      "description": "Family (last) name of the person agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q4116295"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ndvtjiq0cke0q1trw58rtrq2",
+      "label": "person_given_name",
+      "description": "Given (first) name of the person agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q202444"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj",
+      "label": "PROV Agent Type",
+      "description": "Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Person",
+          "Organization",
+          "SoftwareAgent"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
       "@type": "PartyType",
       "@id": "sdc4:mc-piaz5w21hsuq3hpysyetuvvk",
       "label": "Civil Registry Office",
@@ -83,30 +781,926 @@
       "dataType": "xsd:string",
       "semanticLinks": [
         {
-          "predicate": "skos:exactMatch",
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
           "object": "http://xmlns.com/foaf/0.1/Agent"
         },
         {
-          "predicate": "skos:broadMatch",
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
           "object": "https://www.wikidata.org/wiki/Q327333"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "http://schema.org/GovernmentOrganization"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "https://schema.org/Organization"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "http://www.w3.org/ns/prov#Agent"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "https://www.wikidata.org/wiki/Q745221"
         }
       ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ule5u2z3rjpa9pooaifwj1n3",
+      "label": "organization_identifier",
+      "description": "Official identifier for the organization (e.g., DUNS, tax ID).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q11378663"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3",
+      "label": "organization_name",
+      "description": "Legal or official name of the organization.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q168678"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-bpqtzla39dwentygpwea8276",
+      "label": "organization_type",
+      "description": "Type of organization.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "corporation",
+          "government",
+          "nonprofit",
+          "academic",
+          "department",
+          "vendor"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q17197366"
+        }
+      ]
+    },
+    {
+      "@type": "AuditType",
+      "@id": "sdc4:mc-fotc5adg15ek2b9ermx2mcih",
+      "label": "System Audit",
+      "description": "A domain-agnostic audit component. Can be copied to other projects for domain-specific semantics if desired.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-rw1cjzeynsl87va6gvhv2k7e",
+      "label": "service_account_id",
+      "description": "Service account or system account identifier for software agents.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/identifier"
+        }
+      ]
+    },
+    {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-vitwhq5xsptnokmfq11b1jos",
+      "label": "System User",
+      "description": "Defines the operator or agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-jtuheuri2wzfhctcjqv4ozmy",
+      "label": "contact_email",
+      "description": "Contact email for the service.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": ".+@.+\\..+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1273217"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-a127ihw8xbfbl24lbcvnspv0",
+      "label": "contact_name",
+      "description": "Contact name for the service.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/dcat#contactPoint"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-pdykwzsug7pfncjsrry73x1s",
+      "label": "contact_phone",
+      "description": "Primary contact phone number.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\+?\\d[\\d\\s\\-\\(\\)]{6,18}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q214995"
+        }
+      ]
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-xvnv7mrhvfweajl72pmngeya",
+      "label": "software_documentation_url",
+      "description": "URL to software documentation or repository.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q3133368"
+        }
+      ]
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-px6j779dnapp4fjlohula4mh",
+      "label": "software_service_endpoint",
+      "description": "API endpoint or service URL if applicable.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q5376585"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-rsjfjz8m5z7a58h5793duqbs",
+      "label": "software_name",
+      "description": "Name of the software system or service.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q30335969"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-d839tf07spk43dmg0dqb939b",
+      "label": "software_runtime_environment",
+      "description": "Runtime environment or platform for the software.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q241317"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc",
+      "label": "software_vendor",
+      "description": "Vendor or maintainer of the software.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q7554349"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-tep9wanrrtqfw0k76huv6tvd",
+      "label": "software_version",
+      "description": "Version of the software.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q20826013"
+        }
+      ]
+    },
+    {
+      "@type": "AttestationType",
+      "@id": "sdc4:mc-pf1mrtzd9ld1939qanem0olk",
+      "label": "Civil Registry Attestation",
+      "description": "Attestation for civil registry records (births, marriages, name changes). The civil registry office attests to record accuracy. W3C PROV-DM, GDPR/UN CEB.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q116890704"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.w3.org/TR/vc-data-model/#credentials"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q12047392"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/EndorseAction"
+        }
+      ]
+    },
+    {
+      "@type": "XdFileType",
+      "@id": "sdc4:mc-ys32wo3tw9p37i7v4gcvxahk",
+      "label": "Civil Registry Attested View",
+      "description": "Attested view of a civil registry document",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q4830453"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/DigitalDocument"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "http://www.w3.org/ns/prov#Entity"
+        }
+      ]
+    },
+    {
+      "@type": "XdFileType",
+      "@id": "sdc4:mc-gug5dhtqfv7exbgmm2raxpkq",
+      "label": "Digital Signature Proof",
+      "description": "Cryptographic proof of attestation (digital signature)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.w3.org/TR/vc-data-model/#credentials"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q210824"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "http://www.w3.org/ns/prov#Entity"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-a6zjaj7dunnwxdtc2skdpepx",
+      "label": "Civil Registry Attestation Reason",
+      "description": "Reason for attesting this civil registry record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q4830453"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q132364"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Text"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-azmp0vkmkmtne1goba54qubu",
+      "label": "Civil Registration Protocol",
+      "description": "Protocol reference for the Civil Registry data model. Informed by the United Nations Guidelines on Civil Registration and Vital Statistics Systems, the Handbook on Civil Registration and Vital Statistics (UN Statistics Division), and regional civil code frameworks.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q132364"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q317623"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q69484"
+        }
+      ]
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-fdwlhbher1gm91zfmf8mno6c",
+      "label": "Civil Registry Access Control",
+      "description": "Access control policy for civil registration data using W3C Data Privacy Vocabulary. Enforces role-based access for registry officials, citizens, and legal representatives. Governs dpv:IdentifyingPersonalData including birth, marriage, and death records.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q185799"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://w3id.org/dpv#AccessControlMethod"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q83708009"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://w3id.org/dpv#IdentifyingPersonalData"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-aan7382wp8e2f58m9a2hvmkp",
+      "label": "Civil Registry Governed Record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-bgjt4mvgvkxcn6hurg37u21b"
+        },
+        {
+          "@id": "sdc4:mc-hdhjfg00tngir2txgqyka9cv"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-bgjt4mvgvkxcn6hurg37u21b",
+      "label": "Civil Registry Record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-sv48g8am8vqs46nodiugripz"
+        },
+        {
+          "@id": "sdc4:mc-ytctcqbr30kxsmvx4jk7lae2"
+        },
+        {
+          "@id": "sdc4:mc-l9k2fmlc5vn477r3kpi1ufal"
+        },
+        {
+          "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"
+        },
+        {
+          "@id": "sdc4:mc-cfg2l8ym4ve833ritrxu765t"
+        },
+        {
+          "@id": "sdc4:mc-kfyzf8u8gdafcpt5kfh2qg3q"
+        },
+        {
+          "@id": "sdc4:mc-oit0ueglhjfcyq80z22kl2z3"
+        },
+        {
+          "@id": "sdc4:mc-v8jgjo2sml12jo7zrb8swoxi"
+        },
+        {
+          "@id": "sdc4:mc-atdtdfzruh7tya0iv5cz365l"
+        },
+        {
+          "@id": "sdc4:mc-vjfgimlbb90ds2xg55tfn941"
+        },
+        {
+          "@id": "sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"
+        },
+        {
+          "@id": "sdc4:mc-cymq16em5zb20whgtfzki6n5"
+        },
+        {
+          "@id": "sdc4:mc-mw9qdn71urog8egjbp5t3y00"
+        },
+        {
+          "@id": "sdc4:mc-g3k6bj8su3rvkszg2700dhyh"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q18562479"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-sv48g8am8vqs46nodiugripz",
+      "label": "Contact Information",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-x0na649n17if0ukul82cmrx3"
+        },
+        {
+          "@id": "sdc4:mc-nfrvvp87c5imu5h9ups92kgy"
+        },
+        {
+          "@id": "sdc4:mc-zlz64jydsmhb5zmytcm2ewyg"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2996679"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-ytctcqbr30kxsmvx4jk7lae2",
+      "label": "Current Address",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-l338k7nlvnq2am0owa19yxfc"
+        },
+        {
+          "@id": "sdc4:mc-ek5h6dsqpd9kz0l4mcckmxpt"
+        },
+        {
+          "@id": "sdc4:mc-atdtdfzruh7tya0iv5cz365l"
+        },
+        {
+          "@id": "sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q75618710"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-l9k2fmlc5vn477r3kpi1ufal",
+      "label": "Family Relationships",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-be9apjt8mvjjv86qzycorcjl"
+        },
+        {
+          "@id": "sdc4:mc-o7vjxwswi0pxo543hq504jjx"
+        },
+        {
+          "@id": "sdc4:mc-k9ptlhkq3j41p6umlg3tc80x"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q69901743"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-hdhjfg00tngir2txgqyka9cv",
+      "label": "Provenance Components",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-m9xg6e182m1oq77ssrf9iujv"
+        },
+        {
+          "@id": "sdc4:mc-ccj1yq2wtwknobszkgzzdbtr"
+        },
+        {
+          "@id": "sdc4:mc-bd3s8t23d6m3zizmpwavc32y"
+        },
+        {
+          "@id": "sdc4:mc-zr59goe24qkocprl3feul3mt"
+        },
+        {
+          "@id": "sdc4:mc-fnodzqkbyskwe7nh58rs336k"
+        },
+        {
+          "@id": "sdc4:mc-edvvjznmaoibzmfna0uuoo37"
+        },
+        {
+          "@id": "sdc4:mc-o72s5793973fzho35rnaughs"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1172162"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-v0m4pdtqjtsbj6e4zubge8ul",
+      "label": "Related Person",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"
+        },
+        {
+          "@id": "sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"
+        },
+        {
+          "@id": "sdc4:mc-zs9ciw4nypx4plo856h3m95d"
+        },
+        {
+          "@id": "sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"
+        },
+        {
+          "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-lev3nug1ml7l43icdjcyleqe",
+      "label": "Civil Registry Office",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"
+        },
+        {
+          "@id": "sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"
+        },
+        {
+          "@id": "sdc4:mc-bpqtzla39dwentygpwea8276"
+        },
+        {
+          "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://www.wikidata.org/wiki/Q97211668"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-w06vxo6uxtrzjkimmafmue7g",
+      "label": "Contact and Access",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-jtuheuri2wzfhctcjqv4ozmy"
+        },
+        {
+          "@id": "sdc4:mc-a127ihw8xbfbl24lbcvnspv0"
+        },
+        {
+          "@id": "sdc4:mc-pdykwzsug7pfncjsrry73x1s"
+        },
+        {
+          "@id": "sdc4:mc-rw1cjzeynsl87va6gvhv2k7e"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2996679"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-km4azswrxe9tdrjmqvun5463",
+      "label": "Software Agent Details",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-xvnv7mrhvfweajl72pmngeya"
+        },
+        {
+          "@id": "sdc4:mc-px6j779dnapp4fjlohula4mh"
+        },
+        {
+          "@id": "sdc4:mc-rsjfjz8m5z7a58h5793duqbs"
+        },
+        {
+          "@id": "sdc4:mc-d839tf07spk43dmg0dqb939b"
+        },
+        {
+          "@id": "sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc"
+        },
+        {
+          "@id": "sdc4:mc-tep9wanrrtqfw0k76huv6tvd"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2297769"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-qy0bhr8p5mbux9k8mbb6zsx0",
+      "label": "Civil Registry Workflow",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-azmp0vkmkmtne1goba54qubu"
+        },
+        {
+          "@id": "sdc4:mc-a6zjaj7dunnwxdtc2skdpepx"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q97211668"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://www.wikidata.org/wiki/Q627335"
+        }
+      ]
     }
-  }
+  ]
 }

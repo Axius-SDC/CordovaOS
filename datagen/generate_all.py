@@ -6,10 +6,16 @@ Civil Registry runs first (populates PERSONS), then all other domains.
 Generates ~100K XML instances for a 25,000-resident nation.
 """
 import os
+import random
 import time
 import glob
 
-import civil_registry
+# Seed before the domain modules are imported: some of them build lookup tables
+# (coordinates, name pools) with `random` at import time, so the seed has to be
+# in place before the first import, not only before each generate() call.
+random.seed("cordovaos")
+
+import civil_registry  # noqa: E402
 import vital_statistics
 import business_registry
 import property_registry
@@ -84,6 +90,13 @@ def main():
         t_phase = time.time()
         for gen_name, gen_module in generators:
             t_gen = time.time()
+            # Every generator draws from the module-level `random`. Seed it per
+            # generator, by name, so the dataset is the same on every machine and
+            # every run: the README promises the same numbers each time, and a
+            # per-generator seed keeps that promise even if the phases are
+            # reordered. Record identifiers (CUIDs) still differ per run; the
+            # counts, values and relationships do not.
+            random.seed(f"cordovaos:{gen_name}")
             gen_module.generate()
             elapsed = time.time() - t_gen
             print(f"    ↳ {elapsed:.1f}s")

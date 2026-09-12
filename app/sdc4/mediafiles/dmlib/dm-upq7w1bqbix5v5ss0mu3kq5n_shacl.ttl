@@ -215,10 +215,6 @@ sdc4:mc-gug5dhtqfv7exbgmm2raxpkq-shape a sh:NodeShape ;
             sh:path skos:broadMatch ],
         [ sh:hasValue <https://www.w3.org/TR/vc-data-model/#credentials> ;
             sh:path rdfs:isDefinedBy ],
-        [ sh:datatype xsd:integer ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:size ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
@@ -228,11 +224,31 @@ sdc4:mc-gug5dhtqfv7exbgmm2raxpkq-shape a sh:NodeShape ;
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path sdc4:formalism ],
+            sh:path sdc4:compression-type ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path sdc4:alt-txt ],
+            sh:path sdc4:formalism ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:size ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:uri ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:hash-result ],
+        [ sh:datatype xsd:language ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdfile-language ],
+        [ sh:datatype xsd:base64Binary ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:media-content ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
@@ -240,67 +256,51 @@ sdc4:mc-gug5dhtqfv7exbgmm2raxpkq-shape a sh:NodeShape ;
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path sdc4:compression-type ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:hash-result ],
-        [ sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:uri ],
-        [ sh:datatype xsd:language ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdfile-language ],
+            sh:path sdc4:alt-txt ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:encoding ],
-        [ sh:datatype xsd:base64Binary ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:media-content ] ;
+            sh:path sdc4:encoding ] ;
     sh:targetNode sdc4:mc-gug5dhtqfv7exbgmm2raxpkq ;
     sdc4-meta:sdcType "XdFileType" .
 
 sdc4:mc-km4azswrxe9tdrjmqvun5463-shape a sh:NodeShape ;
     rdfs:label "Software Agent Details" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-tep9wanrrtqfw0k76huv6tvd-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-rsjfjz8m5z7a58h5793duqbs-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-xvnv7mrhvfweajl72pmngeya-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-px6j779dnapp4fjlohula4mh-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc-shape ;
+    sh:property [ sh:node sdc4:mc-px6j779dnapp4fjlohula4mh-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:hasValue schema:ItemList ;
             sh:path skos:broadMatch ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q2297769> ;
-            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-xvnv7mrhvfweajl72pmngeya-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-rsjfjz8m5z7a58h5793duqbs-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc-shape ;
+            sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-d839tf07spk43dmg0dqb939b-shape ;
-            sh:path sdc4:hasComponent ] ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-tep9wanrrtqfw0k76huv6tvd-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q2297769> ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-km4azswrxe9tdrjmqvun5463 .
 
 sdc4:mc-n58lqwsi6acr50y0ovihjedv-shape a sh:NodeShape ;
     rdfs:label "Education Record Workflow" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:hasValue prov:Activity ;
-            sh:path rdfs:isDefinedBy ],
+    sh:property [ sh:node sdc4:mc-vdwqv3o1qf00yjq9cv7kcpos-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q627335> ;
+            sh:path skos:exactMatch ],
         [ sh:hasValue <https://niemopen.org/> ;
             sh:path rdfs:isDefinedBy ],
         [ sh:node sdc4:mc-v2r1ax7golsycgmxdqezvkev-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:hasValue schema:ItemList ;
-            sh:path skos:broadMatch ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q627335> ;
-            sh:path skos:exactMatch ],
-        [ sh:node sdc4:mc-vdwqv3o1qf00yjq9cv7kcpos-shape ;
-            sh:path sdc4:hasComponent ],
+        [ sh:hasValue prov:Activity ;
+            sh:path rdfs:isDefinedBy ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q2385804> ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue schema:ItemList ;
             sh:path skos:broadMatch ] ;
     sh:targetNode sdc4:mc-n58lqwsi6acr50y0ovihjedv .
 
@@ -308,40 +308,26 @@ sdc4:mc-o87tv977uxnegwckzso3xf4z-shape a sh:NodeShape ;
     rdfs:label "Education Record Attested View" ;
     rdfs:comment "Attested view of an education record document" ;
     sh:node sdc4:XdFileBaseShape ;
-    sh:property [ sh:datatype xsd:base64Binary ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:media-content ],
-        [ sh:datatype xsd:integer ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:size ],
-        [ sh:datatype xsd:language ;
+    sh:property [ sh:datatype xsd:language ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdfile-language ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path sdc4:alt-txt ],
+            sh:path sdc4:compression-type ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path sdc4:hash-result ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:hash-function ],
+            sh:path sdc4:formalism ],
         [ sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:uri ],
-        [ sh:hasValue prov:Entity ;
-            sh:path skos:broadMatch ],
-        [ sh:datatype xsd:string ;
+        [ sh:datatype xsd:integer ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path sdc4:compression-type ],
+            sh:path sdc4:size ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
@@ -352,64 +338,78 @@ sdc4:mc-o87tv977uxnegwckzso3xf4z-shape a sh:NodeShape ;
             sh:path sdc4:encoding ],
         [ sh:hasValue schema:DigitalDocument ;
             sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:alt-txt ],
+        [ sh:datatype xsd:base64Binary ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:media-content ],
+        [ sh:hasValue prov:Entity ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:hash-result ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q12047392> ;
             sh:path rdfs:seeAlso ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path sdc4:formalism ] ;
+            sh:path sdc4:hash-function ] ;
     sh:targetNode sdc4:mc-o87tv977uxnegwckzso3xf4z ;
     sdc4-meta:sdcType "XdFileType" .
 
 sdc4:mc-rr5shkxzw7yi0gtp1k3in8og-shape a sh:NodeShape ;
     rdfs:label "Educational Institution" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape ;
+    sh:property [ sh:node sdc4:mc-xd84m1q7hpxeneud0tb3q3kk-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ule5u2z3rjpa9pooaifwj1n3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue foaf:Agent ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue prov:Agent ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-bpqtzla39dwentygpwea8276-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-xd84m1q7hpxeneud0tb3q3kk-shape ;
-            sh:path sdc4:hasComponent ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q2385804> ;
-            sh:path skos:exactMatch ],
-        [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue foaf:Agent ;
-            sh:path skos:exactMatch ],
-        [ sh:node sdc4:mc-ule5u2z3rjpa9pooaifwj1n3-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue prov:Agent ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue schema:ItemList ;
-            sh:path skos:broadMatch ] ;
+            sh:path skos:exactMatch ] ;
     sh:targetNode sdc4:mc-rr5shkxzw7yi0gtp1k3in8og .
 
 sdc4:mc-rw24p8yjm8dmdnvw7egxi2uv-shape a sh:NodeShape ;
     rdfs:label "Education Record Access Control" ;
     rdfs:comment "Access control policy for education records using W3C Data Privacy Vocabulary. Enforces role-based access for school administrators, students, parents, and credentialing bodies. Governs dpv:AcademicData including transcripts, enrollment status, and certifications." ;
     sh:node sdc4:XdLinkBaseShape ;
-    sh:property [ sh:hasValue <https://w3id.org/dpv> ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation-uri ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q185799> ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://w3id.org/dpv> ;
             sh:path rdfs:seeAlso ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation ],
+        [ sh:hasValue <https://w3id.org/dpv#AccessControlMethod> ;
+            sh:path rdfs:isDefinedBy ],
         [ sh:hasValue <https://w3id.org/dpv#AcademicData> ;
             sh:path rdfs:seeAlso ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q131156977> ;
             sh:path skos:relatedMatch ],
-        [ sh:hasValue <https://w3id.org/dpv#AccessControlMethod> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q185799> ;
-            sh:path skos:broadMatch ],
         [ sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:relation-uri ],
-        [ sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:link ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:relation ] ;
+            sh:path sdc4:link ] ;
     sh:targetNode sdc4:mc-rw24p8yjm8dmdnvw7egxi2uv ;
     sdc4-meta:sdcType "XdLinkType" .
 
@@ -422,46 +422,46 @@ sdc4:mc-upq7w1bqbix5v5ss0mu3kq5n-shape a sh:NodeShape ;
             sh:node sdc4:mc-j4t6xb94355k51xg87n8awdl-shape ;
             sh:path sdc4:dm-data ] ;
     sh:targetNode sdc4:mc-upq7w1bqbix5v5ss0mu3kq5n ;
-    sdc4-meta:generatedAt "2026-07-29T15:11:03.215785+00:00"^^xsd:dateTime .
+    sdc4-meta:generatedAt "2026-09-12T15:25:09.537813+00:00"^^xsd:dateTime .
 
 sdc4:mc-v5sie2pqx747k9j182fv86tf-shape a sh:NodeShape ;
     rdfs:label "Student" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:hasValue foaf:Agent ;
-            sh:path skos:exactMatch ],
-        [ sh:node sdc4:mc-zs9ciw4nypx4plo856h3m95d-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-ndvtjiq0cke0q1trw58rtrq2-shape ;
+    sh:property [ sh:node sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:hasValue schema:ItemList ;
             sh:path skos:broadMatch ],
-        [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
+        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ndvtjiq0cke0q1trw58rtrq2-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q48282> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue foaf:Agent ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-zs9ciw4nypx4plo856h3m95d-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:hasValue prov:Agent ;
             sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q48282> ;
-            sh:path skos:exactMatch ] ;
+        [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
+            sh:path sdc4:hasComponent ] ;
     sh:targetNode sdc4:mc-v5sie2pqx747k9j182fv86tf .
 
 sdc4:mc-w06vxo6uxtrzjkimmafmue7g-shape a sh:NodeShape ;
     rdfs:label "Contact and Access" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-jtuheuri2wzfhctcjqv4ozmy-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-rw1cjzeynsl87va6gvhv2k7e-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q2996679> ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q2996679> ;
             sh:path rdfs:isDefinedBy ],
         [ sh:node sdc4:mc-pdykwzsug7pfncjsrry73x1s-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-a127ihw8xbfbl24lbcvnspv0-shape ;
+        [ sh:node sdc4:mc-jtuheuri2wzfhctcjqv4ozmy-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-rw1cjzeynsl87va6gvhv2k7e-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:hasValue schema:ItemList ;
-            sh:path skos:broadMatch ] ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-a127ihw8xbfbl24lbcvnspv0-shape ;
+            sh:path sdc4:hasComponent ] ;
     sh:targetNode sdc4:mc-w06vxo6uxtrzjkimmafmue7g .
 
 sdc4:DMBaseShape a sh:NodeShape ;
@@ -528,15 +528,15 @@ sdc4:mc-1ylumrkck2vv635djov01tte4-shape a sh:NodeShape ;
     rdfs:label "Education Level" ;
     rdfs:comment "Highest level of education completed" ;
     sh:node sdc4:XdOrdinalBaseShape ;
-    sh:property [ sh:hasValue <https://uts.nlm.nih.gov/uts/umls/concept/C2030935> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ],
-        [ sh:datatype xsd:decimal ;
+    sh:property [ sh:datatype xsd:decimal ;
             sh:in ( "0" "1" "2" "3" "4" "5" "6" "7" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:ordinal ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://uts.nlm.nih.gov/uts/umls/concept/C2030935> ;
+            sh:path rdfs:isDefinedBy ],
         [ sh:datatype xsd:string ;
             sh:in ( "Less than high school" "High school diploma/GED" "Some college" "Associate degree" "Bachelor's degree" "Master's degree" "Doctoral degree" "Unknown" ) ;
             sh:maxCount 1 ;
@@ -564,15 +564,15 @@ sdc4:mc-atdtdfzruh7tya0iv5cz365l-shape a sh:NodeShape ;
     rdfs:label "City" ;
     rdfs:comment "One of the nine cities in the Republic of Cordova." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:datatype xsd:token ;
+    sh:property [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <http://schema.org/City> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:token ;
             sh:in ( "Porto Sereno" "Vistamar" "Rioseco" "Campoluz" "Tierraverde" "Montecara" "Novaciudad" "Piedrasol" "Lagunavista" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdtoken-value ],
-        [ sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <http://schema.org/City> ;
-            sh:path rdfs:isDefinedBy ] ;
+            sh:path sdc4:xdtoken-value ] ;
     sh:targetNode sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -595,15 +595,15 @@ sdc4:mc-bpqtzla39dwentygpwea8276-shape a sh:NodeShape ;
     rdfs:label "organization_type" ;
     rdfs:comment "Type of organization." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:datatype xsd:token ;
+    sh:property [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
             sh:in ( "corporation" "government" "nonprofit" "academic" "department" "vendor" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q17197366> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ] ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-bpqtzla39dwentygpwea8276 ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -611,15 +611,15 @@ sdc4:mc-c7qvfjtu0omg4wagiaiy5hej-shape a sh:NodeShape ;
     rdfs:label "Honors" ;
     rdfs:comment "Academic honors received, if any" ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q11415564> ;
+    sh:property [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q11415564> ;
             sh:path rdfs:isDefinedBy ],
         [ sh:datatype xsd:token ;
             sh:in ( "None" "Cum Laude" "Magna Cum Laude" "Summa Cum Laude" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdtoken-value ],
-        [ sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ] ;
+            sh:path sdc4:xdtoken-value ] ;
     sh:targetNode sdc4:mc-c7qvfjtu0omg4wagiaiy5hej ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -627,14 +627,14 @@ sdc4:mc-ccj1yq2wtwknobszkgzzdbtr-shape a sh:NodeShape ;
     rdfs:label "prov_activity_type" ;
     rdfs:comment "Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q125542526> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 200 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path sdc4:xdstring-value ] ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q125542526> ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-ccj1yq2wtwknobszkgzzdbtr ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -659,14 +659,14 @@ sdc4:mc-edvvjznmaoibzmfna0uuoo37-shape a sh:NodeShape ;
     sh:node sdc4:XdTemporalBaseShape ;
     sh:property [ sh:hasValue <http://www.ontology-of-units-of-measure.org/resource/om-2/Activity> ;
             sh:path rdfs:isDefinedBy ],
-        [ sh:datatype xsd:time ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdtemporal-time ],
         [ sh:datatype xsd:dateTime ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdtemporal-datetime ] ;
+            sh:path sdc4:xdtemporal-datetime ],
+        [ sh:datatype xsd:time ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-time ] ;
     sh:targetNode sdc4:mc-edvvjznmaoibzmfna0uuoo37 ;
     sdc4-meta:sdcType "XdTemporalType" .
 
@@ -706,36 +706,36 @@ sdc4:mc-g6ntdb41otp1mtwsyb52mez3-shape a sh:NodeShape ;
 
 ---""" ;
     sh:node sdc4:XdTemporalBaseShape ;
-    sh:property [ sh:datatype xsd:date ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdtemporal-date ],
-        [ sh:hasValue <http://release.niem.gov/niem/niem-core/6.0/ProgramPlannedEndDate> ;
+    sh:property [ sh:hasValue <http://release.niem.gov/niem/niem-core/6.0/ProgramPlannedEndDate> ;
             sh:path rdfs:isDefinedBy ],
         [ sh:hasValue schema:Date ;
-            sh:path skos:broadMatch ] ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-date ] ;
     sh:targetNode sdc4:mc-g6ntdb41otp1mtwsyb52mez3 ;
     sdc4-meta:sdcType "XdTemporalType" .
 
 sdc4:mc-hdhjfg00tngir2txgqyka9cv-shape a sh:NodeShape ;
     rdfs:label "Provenance Components" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-bd3s8t23d6m3zizmpwavc32y-shape ;
+    sh:property [ sh:node sdc4:mc-fnodzqkbyskwe7nh58rs336k-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-o72s5793973fzho35rnaughs-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-bd3s8t23d6m3zizmpwavc32y-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ccj1yq2wtwknobszkgzzdbtr-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-edvvjznmaoibzmfna0uuoo37-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-zr59goe24qkocprl3feul3mt-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-ccj1yq2wtwknobszkgzzdbtr-shape ;
-            sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-m9xg6e182m1oq77ssrf9iujv-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-o72s5793973fzho35rnaughs-shape ;
-            sh:path sdc4:hasComponent ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q1172162> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:node sdc4:mc-fnodzqkbyskwe7nh58rs336k-shape ;
-            sh:path sdc4:hasComponent ] ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-hdhjfg00tngir2txgqyka9cv .
 
 sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1-shape a sh:NodeShape ;
@@ -757,70 +757,70 @@ sdc4:mc-ht98owgvxhff3ge85i4h80lp-shape a sh:NodeShape ;
     rdfs:label "Yes/No" ;
     rdfs:comment "Standard Yes/No binary response for clinical data collection" ;
     sh:node sdc4:XdBooleanBaseShape ;
-    sh:property [ sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:in ( "No" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:false-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q113518417> ;
+            sh:path skos:relatedMatch ],
         [ sh:datatype xsd:string ;
             sh:in ( "Yes" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:true-value ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q113518417> ;
-            sh:path skos:relatedMatch ] ;
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ] ;
     sh:targetNode sdc4:mc-ht98owgvxhff3ge85i4h80lp ;
     sdc4-meta:sdcType "XdBooleanType" .
 
 sdc4:mc-ifgq7a670csnbv7vcpuiabp0-shape a sh:NodeShape ;
     rdfs:label "Education Record" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:hasValue <https://niemopen.org/> ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q131156977> ;
             sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue schema:ItemList ;
-            sh:path skos:broadMatch ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q131156977> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
+        [ sh:node sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-khbvruwpu9hnttg8y0mnih6a-shape ;
             sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://niemopen.org/> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-nyf0w3u2hs0svcjnqkb6zzlb-shape ;
+            sh:path sdc4:hasCluster ],
         [ sh:node sdc4:mc-r97mt4prbpxp04qmdc8iimb8-shape ;
             sh:path sdc4:hasCluster ],
-        [ sh:node sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape ;
-            sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-atdtdfzruh7tya0iv5cz365l-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-nyf0w3u2hs0svcjnqkb6zzlb-shape ;
-            sh:path sdc4:hasCluster ] ;
+            sh:path sdc4:hasComponent ] ;
     sh:targetNode sdc4:mc-ifgq7a670csnbv7vcpuiabp0 .
 
 sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape a sh:NodeShape ;
     rdfs:label "organization_name" ;
     rdfs:comment "Legal or official name of the organization." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q168678> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 200 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q168678> ;
-            sh:path rdfs:isDefinedBy ] ;
+            sh:path sdc4:xdstring-value ] ;
     sh:targetNode sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3 ;
     sdc4-meta:sdcType "XdStringType" .
 
 sdc4:mc-j4t6xb94355k51xg87n8awdl-shape a sh:NodeShape ;
     rdfs:label "Education Governed Record" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-hdhjfg00tngir2txgqyka9cv-shape ;
-            sh:path sdc4:hasCluster ],
-        [ sh:node sdc4:mc-ifgq7a670csnbv7vcpuiabp0-shape ;
+    sh:property [ sh:node sdc4:mc-ifgq7a670csnbv7vcpuiabp0-shape ;
             sh:path sdc4:hasCluster ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q109391654> ;
-            sh:path rdfs:isDefinedBy ] ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-hdhjfg00tngir2txgqyka9cv-shape ;
+            sh:path sdc4:hasCluster ] ;
     sh:targetNode sdc4:mc-j4t6xb94355k51xg87n8awdl .
 
 sdc4:mc-jtuheuri2wzfhctcjqv4ozmy-shape a sh:NodeShape ;
@@ -860,15 +860,15 @@ sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape a sh:NodeShape ;
     sh:node sdc4:XdTokenBaseShape ;
     sh:property [ sh:hasValue <http://schema.org/AdministrativeArea> ;
             sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue schema:State ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ],
         [ sh:datatype xsd:token ;
             sh:in ( "Aldara" "Brevina" "Celara" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdtoken-value ] ;
+            sh:path sdc4:xdtoken-value ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue schema:State ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -876,14 +876,14 @@ sdc4:mc-m9xg6e182m1oq77ssrf9iujv-shape a sh:NodeShape ;
     rdfs:label "activity_description" ;
     rdfs:comment "Detailed description of what this activity does and its purpose." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://www.w3.org/TR/prov-dm/> ;
-            sh:path rdfs:seeAlso ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 2000 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path sdc4:xdstring-value ] ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.w3.org/TR/prov-dm/> ;
+            sh:path rdfs:seeAlso ] ;
     sh:targetNode sdc4:mc-m9xg6e182m1oq77ssrf9iujv ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -905,38 +905,38 @@ sdc4:mc-ndvtjiq0cke0q1trw58rtrq2-shape a sh:NodeShape ;
 sdc4:mc-nyf0w3u2hs0svcjnqkb6zzlb-shape a sh:NodeShape ;
     rdfs:label "Credential" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-c7qvfjtu0omg4wagiaiy5hej-shape ;
+    sh:property [ sh:node sdc4:mc-ouqi09d8kjqeojlr7vnclysj-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-xi99tao4v75wdrkq0ot02vfd-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-ht98owgvxhff3ge85i4h80lp-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-ouqi09d8kjqeojlr7vnclysj-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-sxkjp09cbjb6n13j8a0eg37i-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue schema:ItemList ;
-            sh:path skos:broadMatch ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q16861606> ;
             sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
+        [ sh:node sdc4:mc-sxkjp09cbjb6n13j8a0eg37i-shape ;
+            sh:path sdc4:hasComponent ],
         [ sh:hasValue <https://niemopen.org/> ;
-            sh:path rdfs:isDefinedBy ] ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-xi99tao4v75wdrkq0ot02vfd-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-c7qvfjtu0omg4wagiaiy5hej-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ht98owgvxhff3ge85i4h80lp-shape ;
+            sh:path sdc4:hasComponent ] ;
     sh:targetNode sdc4:mc-nyf0w3u2hs0svcjnqkb6zzlb .
 
 sdc4:mc-o72s5793973fzho35rnaughs-shape a sh:NodeShape ;
     rdfs:label "activity_timestamp_start" ;
     rdfs:comment "When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format." ;
     sh:node sdc4:XdTemporalBaseShape ;
-    sh:property [ sh:datatype xsd:time ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdtemporal-time ],
+    sh:property [ sh:hasValue <http://www.ontology-of-units-of-measure.org/resource/om-2/Activity> ;
+            sh:path rdfs:isDefinedBy ],
         [ sh:datatype xsd:dateTime ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtemporal-datetime ],
-        [ sh:hasValue <http://www.ontology-of-units-of-measure.org/resource/om-2/Activity> ;
-            sh:path rdfs:isDefinedBy ] ;
+        [ sh:datatype xsd:time ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdtemporal-time ] ;
     sh:targetNode sdc4:mc-o72s5793973fzho35rnaughs ;
     sdc4-meta:sdcType "XdTemporalType" .
 
@@ -962,16 +962,16 @@ sdc4:mc-px6j779dnapp4fjlohula4mh-shape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:relation ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q5376585> ;
-            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:link ],
         [ sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:relation-uri ],
-        [ sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:link ] ;
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q5376585> ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-px6j779dnapp4fjlohula4mh ;
     sdc4-meta:sdcType "XdLinkType" .
 
@@ -980,19 +980,19 @@ sdc4:mc-r97mt4prbpxp04qmdc8iimb8-shape a sh:NodeShape ;
     sh:node sdc4:ClusterBaseShape ;
     sh:property [ sh:node sdc4:mc-g6ntdb41otp1mtwsyb52mez3-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:hasValue schema:ItemList ;
-            sh:path skos:broadMatch ],
         [ sh:hasValue <https://www.cdc.gov/vaccines/hcp/imz-schedules/index.html> ;
             sh:path rdfs:isDefinedBy ],
+        [ sh:node sdc4:mc-1ylumrkck2vv635djov01tte4-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q102252225> ;
             sh:path rdfs:isDefinedBy ],
-        [ sh:node sdc4:mc-z72jnzdib9hi311s338zwdog-shape ;
-            sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-squd8e2s6pk8xoafu9ec0t9k-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-ouqi09d8kjqeojlr7vnclysj-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-1ylumrkck2vv635djov01tte4-shape ;
+        [ sh:node sdc4:mc-z72jnzdib9hi311s338zwdog-shape ;
             sh:path sdc4:hasComponent ] ;
     sh:targetNode sdc4:mc-r97mt4prbpxp04qmdc8iimb8 .
 
@@ -1000,14 +1000,14 @@ sdc4:mc-rsjfjz8m5z7a58h5793duqbs-shape a sh:NodeShape ;
     rdfs:label "software_name" ;
     rdfs:comment "Name of the software system or service." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q30335969> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 200 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q30335969> ;
-            sh:path rdfs:isDefinedBy ] ;
+            sh:path sdc4:xdstring-value ] ;
     sh:targetNode sdc4:mc-rsjfjz8m5z7a58h5793duqbs ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1030,13 +1030,13 @@ sdc4:mc-squd8e2s6pk8xoafu9ec0t9k-shape a sh:NodeShape ;
     rdfs:label "Enrollment Status" ;
     rdfs:comment "Current enrollment status" ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:datatype xsd:token ;
+    sh:property [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
             sh:in ( "Active" "Graduated" "Withdrawn" "Suspended" "On Leave" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
-        [ sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q76649493> ;
             sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-squd8e2s6pk8xoafu9ec0t9k ;
@@ -1046,13 +1046,13 @@ sdc4:mc-sxkjp09cbjb6n13j8a0eg37i-shape a sh:NodeShape ;
     rdfs:label "Credential Type" ;
     rdfs:comment "Type of academic credential awarded" ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:datatype xsd:token ;
+    sh:property [ sh:hasValue <https://www.w3.org/2018/credentials#type> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:token ;
             sh:in ( "Primary Certificate" "Secondary Diploma" "Associate Degree" "Bachelor's Degree" "Master's Degree" "Doctoral Degree" "Professional Certificate" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
-        [ sh:hasValue <https://www.w3.org/2018/credentials#type> ;
-            sh:path rdfs:isDefinedBy ],
         [ sh:hasValue schema:DefinedTermSet ;
             sh:path skos:exactMatch ] ;
     sh:targetNode sdc4:mc-sxkjp09cbjb6n13j8a0eg37i ;
@@ -1062,14 +1062,14 @@ sdc4:mc-tep9wanrrtqfw0k76huv6tvd-shape a sh:NodeShape ;
     rdfs:label "software_version" ;
     rdfs:comment "Version of the software." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q20826013> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 50 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path sdc4:xdstring-value ] ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q20826013> ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-tep9wanrrtqfw0k76huv6tvd ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1092,18 +1092,18 @@ sdc4:mc-v2r1ax7golsycgmxdqezvkev-shape a sh:NodeShape ;
     rdfs:label "Education Record Attestation Reason" ;
     rdfs:comment "Reason for attesting this education record" ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q132364> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue schema:Text ;
+    sh:property [ sh:hasValue schema:Text ;
             sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q12047392> ;
+            sh:path rdfs:seeAlso ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 500 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
             sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q12047392> ;
-            sh:path rdfs:seeAlso ] ;
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q132364> ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-v2r1ax7golsycgmxdqezvkev ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1111,18 +1111,18 @@ sdc4:mc-vdwqv3o1qf00yjq9cv7kcpos-shape a sh:NodeShape ;
     rdfs:label "Education Records Protocol" ;
     rdfs:comment "Protocol reference for the Education Record data model. Informed by the UNESCO International Standard Classification of Education (ISCED 2011), the Bologna Process framework for higher education records, and national student records management standards." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q826700> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 500 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
             sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q317623> ;
-            sh:path skos:broadMatch ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q132364> ;
             sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q826700> ;
-            sh:path rdfs:seeAlso ] ;
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q317623> ;
+            sh:path skos:broadMatch ] ;
     sh:targetNode sdc4:mc-vdwqv3o1qf00yjq9cv7kcpos ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1130,15 +1130,15 @@ sdc4:mc-xd84m1q7hpxeneud0tb3q3kk-shape a sh:NodeShape ;
     rdfs:label "Institution Type" ;
     rdfs:comment "Classification of the educational institution" ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q117023459> ;
+    sh:property [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q117023459> ;
             sh:path rdfs:isDefinedBy ],
         [ sh:datatype xsd:token ;
             sh:in ( "Primary School" "Secondary School" "University" "Technical Institute" "Graduate School" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdtoken-value ],
-        [ sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ] ;
+            sh:path sdc4:xdtoken-value ] ;
     sh:targetNode sdc4:mc-xd84m1q7hpxeneud0tb3q3kk ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -1146,14 +1146,14 @@ sdc4:mc-xi99tao4v75wdrkq0ot02vfd-shape a sh:NodeShape ;
     rdfs:label "Date Awarded" ;
     rdfs:comment "Date the credential was officially awarded" ;
     sh:node sdc4:XdTemporalBaseShape ;
-    sh:property [ sh:hasValue schema:Date ;
+    sh:property [ sh:hasValue dcterms:issued ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:Date ;
             sh:path skos:broadMatch ],
         [ sh:datatype xsd:date ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdtemporal-date ],
-        [ sh:hasValue dcterms:issued ;
-            sh:path rdfs:isDefinedBy ] ;
+            sh:path sdc4:xdtemporal-date ] ;
     sh:targetNode sdc4:mc-xi99tao4v75wdrkq0ot02vfd ;
     sdc4-meta:sdcType "XdTemporalType" .
 
@@ -1161,20 +1161,20 @@ sdc4:mc-xvnv7mrhvfweajl72pmngeya-shape a sh:NodeShape ;
     rdfs:label "software_documentation_url" ;
     rdfs:comment "URL to software documentation or repository." ;
     sh:node sdc4:XdLinkBaseShape ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:relation-uri ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q3133368> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:relation ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q3133368> ;
+            sh:path rdfs:isDefinedBy ],
         [ sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:link ] ;
+            sh:path sdc4:link ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:relation-uri ] ;
     sh:targetNode sdc4:mc-xvnv7mrhvfweajl72pmngeya ;
     sdc4-meta:sdcType "XdLinkType" .
 
@@ -1182,10 +1182,10 @@ sdc4:mc-z72jnzdib9hi311s338zwdog-shape a sh:NodeShape ;
     rdfs:label "Enrollment Date" ;
     rdfs:comment "Date the student enrolled in the program" ;
     sh:node sdc4:XdTemporalBaseShape ;
-    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q137375576> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue schema:Date ;
+    sh:property [ sh:hasValue schema:Date ;
             sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q137375576> ;
+            sh:path rdfs:isDefinedBy ],
         [ sh:datatype xsd:date ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -1197,14 +1197,14 @@ sdc4:mc-zr59goe24qkocprl3feul3mt-shape a sh:NodeShape ;
     rdfs:label "system_location_identifier" ;
     rdfs:comment "Code or identifier for the system location. Used for cross-system location resolution." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q36214810> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 50 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q36214810> ;
-            sh:path rdfs:isDefinedBy ] ;
+            sh:path sdc4:xdstring-value ] ;
     sh:targetNode sdc4:mc-zr59goe24qkocprl3feul3mt ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1212,14 +1212,14 @@ sdc4:mc-zs9ciw4nypx4plo856h3m95d-shape a sh:NodeShape ;
     rdfs:label "person_family_name" ;
     rdfs:comment "Family (last) name of the person agent." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q4116295> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 100 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path sdc4:xdstring-value ] ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q4116295> ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-zs9ciw4nypx4plo856h3m95d ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1261,14 +1261,14 @@ sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape a sh:NodeShape ;
     rdfs:label "National ID (CID)" ;
     rdfs:comment "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <http://schema.org/identifier> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "COR-(AL|BR|CE)0[1-3]-[0-9]{6}" ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q1140371> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <http://schema.org/identifier> ;
             sh:path rdfs:isDefinedBy ],
         [ sh:hasValue schema:identifier ;
             sh:path skos:broadMatch ] ;
@@ -1279,14 +1279,14 @@ sdc4:mc-ouqi09d8kjqeojlr7vnclysj-shape a sh:NodeShape ;
     rdfs:label "Field of Study" ;
     rdfs:comment "Major field of study" ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q1047113> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 200 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q1047113> ;
-            sh:path rdfs:isDefinedBy ] ;
+            sh:path sdc4:xdstring-value ] ;
     sh:targetNode sdc4:mc-ouqi09d8kjqeojlr7vnclysj ;
     sdc4-meta:sdcType "XdStringType" .
 

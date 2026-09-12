@@ -33,40 +33,40 @@ CL_PROV         = "ms-hdhjfg00tngir2txgqyka9cv"   # Provenance Components
 SYSTEM_AUDIT_ID = "ms-fotc5adg15ek2b9ermx2mcih"   # substitutionGroup="sdc4:Audit"
 
 # ─── Incident Report scalar adapters (leaf, adapter) ─────────────────────────
-W_INC_NUM     = ("ms-yi2189u4pinqitlmm5t6ccrd", "ms-cqbe5vu1q08cgrdeswahys95")
-W_SUMMARY     = ("ms-rguhpkd7s2d9a51392aon7ir", "ms-ajfei3kj0catindcyw36miar")
-W_LOCATION    = ("ms-b6nahtg2we4rh5qsk2j7qfvz", "ms-z7muvte1f61lsren66q6aesj")
-W_CITY        = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-lbg7sju2aixha09l1096f51j")
-W_INC_STATUS  = ("ms-e83h36jqgi59dhy1dttp22qm", "ms-ab56tt302ui9ewsigl0pw80r")
-W_PROVINCE    = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-h0ufyg4jzc4yvgvbw2x16ldp")
-W_INC_CAT     = ("ms-nc7aq6ofnccavkmczsb2dudy", "ms-u9rxp81ezrth1ilsa7i6cww3")
-W_INC_DATE    = ("ms-ohk2uwcomsz8wegfvz0v0yod", "ms-xjf5ojznmexiprt2cwffjq26")
+W_INC_NUM     = ("ms-yi2189u4pinqitlmm5t6ccrd", "ms-az983a35e58cukvslxligqjr")
+W_SUMMARY     = ("ms-rguhpkd7s2d9a51392aon7ir", "ms-u3kvtw5ejhoqk63fai5b7xnb")
+W_LOCATION    = ("ms-b6nahtg2we4rh5qsk2j7qfvz", "ms-o27nnspq7e8un86jxvz0ag88")
+W_CITY        = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-jthcb1tovzlllactd1ohpvdc")
+W_INC_STATUS  = ("ms-e83h36jqgi59dhy1dttp22qm", "ms-hm1gwdyk2gvrt79x5l37vlb6")
+W_PROVINCE    = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-wy0j5q9i656h90lir07pgacq")
+W_INC_CAT     = ("ms-nc7aq6ofnccavkmczsb2dudy", "ms-yr8yxumfg98ryudcytcmw6ep")
+W_INC_DATE    = ("ms-ohk2uwcomsz8wegfvz0v0yod", "ms-eh937af6mvmnoc7d4fce756m")
 
 # ─── Charge and Disposition cluster ──────────────────────────────────────────
 CL_CHARGE     = "ms-c3eoo0vfid9c8riruf7uoyz2"
-W_CHARGE_DESC = ("ms-eoqim4xj9gsxtxrqko1hh55o", "ms-y52g0zkfkc9yzizkwp7e0tzy")
-W_CHARGE_CAT  = ("ms-hc91pdnj3bb6997l5z4ndchz", "ms-mkh55cwkx4z8lh42aonbjrmq")
-W_DISPOSITION = ("ms-rnje7nq6m08vh01g8eg23say", "ms-tbj6k87237iq4djjdkoxzole")
-W_FINE_AMT    = ("ms-yahksk4xc5to981ows7bpp6z", "ms-krnq0g73h78f8eoswv5iqawb")
-W_DISP_DATE   = ("ms-qse1jwofk5lm2wnsrn3f06l0", "ms-nkkg2090cjcyi6dt0tlwzpf3")
-W_FILING_DATE = ("ms-l0esdclu01pg7qw429oe7kjk", "ms-tspbolq6jstxs0jl697rxdsz")
+W_CHARGE_DESC = ("ms-eoqim4xj9gsxtxrqko1hh55o", "ms-v3ff1ydvzde3lp80jkszoh8x")
+W_CHARGE_CAT  = ("ms-hc91pdnj3bb6997l5z4ndchz", "ms-y1c1x7fxqnkf8edoolcsmr6v")
+W_DISPOSITION = ("ms-rnje7nq6m08vh01g8eg23say", "ms-bk9riq95cv32w7opvh084kxo")
+W_FINE_AMT    = ("ms-yahksk4xc5to981ows7bpp6z", "ms-lxfwjedo8p9369xcedmzg3ch")
+W_DISP_DATE   = ("ms-qse1jwofk5lm2wnsrn3f06l0", "ms-f6a0jvg7jxvpj56al42uv5a6")
+W_FILING_DATE = ("ms-l0esdclu01pg7qw429oe7kjk", "ms-w9y98yuptbyypnu4vxtg5wl0")
 
 # ─── Quarantine Enforcement cluster ──────────────────────────────────────────
 CL_QUARANTINE = "ms-avmmc3r38dol0ghko42yeyp4"
-W_ISSUING     = ("ms-ixmedhicidzpi7g6g2huqzvv", "ms-l6hy83bsdsyrt3qqpum5bvnw")
-W_QZ_ZONE     = ("ms-r34gm210y9jifbyxa0fcxy96", "ms-ugy7o83u261932bv7p98jvxp")
-W_COMPLIANCE  = ("ms-ihoatduhb7fckjw0ezq5u7g1", "ms-ghdu9yo67u12s7grfazso7ps")
-W_QZ_END      = ("ms-lohvu07ok3c3xvesa16htf2m", "ms-htpnzj9lnqj70hnq7f7uyzkw")
-W_QZ_START    = ("ms-vq30hd0dl6v59d3ttyyvg6rp", "ms-knruat8wd4yo1b0pyaavlswx")
+W_ISSUING     = ("ms-ixmedhicidzpi7g6g2huqzvv", "ms-vd7vjy30xwfuispyxa2e14gz")
+W_QZ_ZONE     = ("ms-r34gm210y9jifbyxa0fcxy96", "ms-kuikghw52vsz51wyan8gtp60")
+W_COMPLIANCE  = ("ms-ihoatduhb7fckjw0ezq5u7g1", "ms-j1lr73r3x2x8a20jfminwc7t")
+W_QZ_END      = ("ms-lohvu07ok3c3xvesa16htf2m", "ms-rjevh6x8rhbl4qwgcghp9d1w")
+W_QZ_START    = ("ms-vq30hd0dl6v59d3ttyyvg6rp", "ms-k76ev49xpsuisdez3l7ptpat")
 
 # ─── Provenance Components leaves (leaf, adapter) ─────────────────────────────
-P_ACT_DESC    = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-ph2txq84cblscof873ona37z")
-P_ACT_TYPE    = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-ds15mxtm1b24zcvcvyjx54sx")
-P_SYS_ID      = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-pvijfx27byf9yfd38zuk84cp")
-P_LOC_ID      = ("ms-zr59goe24qkocprl3feul3mt", "ms-k6edsbb19ldzb9usqza3zcb2")
-P_LOC_NAME    = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-jphsfdruuz5smyq3sdd9zsoh")
-P_TS_END      = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-nvimxgx4gis7m5i1vpcms2yw")
-P_TS_START    = ("ms-o72s5793973fzho35rnaughs", "ms-rugwhqyckw9eslbt8ohm0rhx")
+P_ACT_DESC    = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-esulunekv30i422gyljz9dnm")
+P_ACT_TYPE    = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-hd1oyvkmpzh9h2gp5b3sgpft")
+P_SYS_ID      = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-fft8d7a2ldo4sg8ljbqmrow5")
+P_LOC_ID      = ("ms-zr59goe24qkocprl3feul3mt", "ms-pttfi6lus2rwf6e4awf9il3a")
+P_LOC_NAME    = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-dzp1gmpappibnbh24juqa69r")
+P_TS_END      = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-n8atmcxdbyyeikgr46pl0a39")
+P_TS_START    = ("ms-o72s5793973fzho35rnaughs", "ms-v78xmuy301fp8ysgzhxd0xo1")
 
 # ─── Enum maps (values MUST match the model's enum components exactly) ────────
 # Incident Status: Open / Closed / Pending

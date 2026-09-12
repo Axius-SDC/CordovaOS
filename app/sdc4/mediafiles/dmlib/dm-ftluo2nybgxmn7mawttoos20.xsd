@@ -26,7 +26,7 @@
           <dc:identifier>dm-ftluo2nybgxmn7mawttoos20</dc:identifier>
           <dc:description>Maintain basic medical records for all persons in Cordova.</dc:description>
           <dc:publisher>Axius SDC, Inc.</dc:publisher>
-          <dc:date>2026-07-29 15:26:10.687394+00:00</dc:date>
+          <dc:date>2026-09-12 13:45:17.486914+00:00</dc:date>
           <dc:format>text/xml</dc:format>
           <dc:language>en-US</dc:language>
         </rdf:Description>
@@ -42,9 +42,9 @@
 <xsd:complexType name="mc-ftluo2nybgxmn7mawttoos20">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-ftluo2nybgxmn7mawttoos20">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:DMType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ftluo2nybgxmn7mawttoos20">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#DMType"/>
         <rdfs:label>Healthcare Record</rdfs:label>        <skos:exactMatch rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
         <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q1132455"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q31207"/>
@@ -84,13 +84,11 @@
   <xsd:complexType name="mc-nj7s1gk45tfgyooxpz0qaha3" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-nj7s1gk45tfgyooxpz0qaha3">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>National ID (CID)</rdfs:label>
           <rdfs:comment>Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-national_id_(cid)"/>
           <rdfs:isDefinedBy rdf:resource="http://schema.org/identifier"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1140371"/>
           <skos:broadMatch rdf:resource="https://schema.org/identifier"/>
@@ -170,13 +168,11 @@
   <xsd:complexType name="mc-ntk4zsr15bcca2jmocdkcpcc" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-ntk4zsr15bcca2jmocdkcpcc">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ntk4zsr15bcca2jmocdkcpcc">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Allergy Description</rdfs:label>
           <rdfs:comment>Description of a known allergy (drug, food, environmental)</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-ntk4zsr15bcca2jmocdkcpcc"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-allergy_description"/>
           <rdfs:isDefinedBy rdf:resource="http://schema.org/description"/>
           <skos:broadMatch rdf:resource="https://schema.org/description"/>
         </rdf:Description>
@@ -213,13 +209,11 @@
   <xsd:complexType name="mc-cm0nqqnjcylc8vkfph7db2lh" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-cm0nqqnjcylc8vkfph7db2lh">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-cm0nqqnjcylc8vkfph7db2lh">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Chronic Condition</rdfs:label>
           <rdfs:comment>Name or description of a chronic medical condition (e.g., hypertension, diabetes, asthma)</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-cm0nqqnjcylc8vkfph7db2lh"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-chronic_condition"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q383126"/>
           <skos:broadMatch rdf:resource="https://schema.org/description"/>
         </rdf:Description>
@@ -256,13 +250,11 @@
   <xsd:complexType name="mc-tz13p9d4dpbw3pe9bx51nbou" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-tz13p9d4dpbw3pe9bx51nbou">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tz13p9d4dpbw3pe9bx51nbou">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Condition Status</rdfs:label>
           <rdfs:comment>Current status of the condition</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-tz13p9d4dpbw3pe9bx51nbou"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-condition_status"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q12136"/>
           <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
           <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
@@ -288,8 +280,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Condition is currently being managed</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-tz13p9d4dpbw3pe9bx51nbou/xdtoken-value/Active">
-                        <rdfs:subPropertyOf rdf:resource="mc-tz13p9d4dpbw3pe9bx51nbou"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tz13p9d4dpbw3pe9bx51nbou/xdtoken-value/Active">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-tz13p9d4dpbw3pe9bx51nbou"/>
                         <rdfs:label>Active</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -299,8 +291,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Condition has resolved</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-tz13p9d4dpbw3pe9bx51nbou/xdtoken-value/Resolved">
-                        <rdfs:subPropertyOf rdf:resource="mc-tz13p9d4dpbw3pe9bx51nbou"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tz13p9d4dpbw3pe9bx51nbou/xdtoken-value/Resolved">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-tz13p9d4dpbw3pe9bx51nbou"/>
                         <rdfs:label>Resolved</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -310,8 +302,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Condition is in remission but may recur</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-tz13p9d4dpbw3pe9bx51nbou/xdtoken-value/In%20Remission">
-                        <rdfs:subPropertyOf rdf:resource="mc-tz13p9d4dpbw3pe9bx51nbou"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tz13p9d4dpbw3pe9bx51nbou/xdtoken-value/In%20Remission">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-tz13p9d4dpbw3pe9bx51nbou"/>
                         <rdfs:label>In Remission</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -436,13 +428,11 @@
   <xsd:complexType name="mc-z28bjtjekyybe300ukuyjpi4" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-z28bjtjekyybe300ukuyjpi4">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-z28bjtjekyybe300ukuyjpi4">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Dosage</rdfs:label>
           <rdfs:comment>Prescribed dosage (e.g., &quot;500mg&quot;, &quot;10mg/mL&quot;)</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-z28bjtjekyybe300ukuyjpi4"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-dosage"/>
           <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/quantitykind/AmountOfSubstance"/>
           <skos:broadMatch rdf:resource="https://schema.org/description"/>
         </rdf:Description>
@@ -479,13 +469,11 @@
   <xsd:complexType name="mc-nomiekce61caq5n9a49d0eu6" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-nomiekce61caq5n9a49d0eu6">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-nomiekce61caq5n9a49d0eu6">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Medication Name</rdfs:label>
           <rdfs:comment>Name of the prescribed medication (generic or brand name)</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-nomiekce61caq5n9a49d0eu6"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-medication_name"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q70848614"/>
           <skos:broadMatch rdf:resource="https://schema.org/name"/>
         </rdf:Description>
@@ -615,14 +603,12 @@
 <xsd:complexType name="mc-y7k4p12co0b9v6asll531fhv" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-y7k4p12co0b9v6asll531fhv">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdQuantityType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-y7k4p12co0b9v6asll531fhv">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdQuantityType"/>
           <rdfs:label>Medication Dosage Amount</rdfs:label>
           <rdfs:comment>Prescribed dosage amount of the medication in milligrams. Represents the per-administration dose as ordered by the prescribing physician.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-y7k4p12co0b9v6asll531fhv"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-medication_dosage_amount"/>
-          <sdc4-meta:hasUnit rdf:resource="sdc4:mc-tjxxdsd6idyzqygrncojauxn"/>
+          <sdc4-meta:hasUnit rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-tjxxdsd6idyzqygrncojauxn"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q473420"/>
           <rdfs:isDefinedBy rdf:resource="https://hl7.org/fhir/"/>
           <skos:exactMatch rdf:resource="http://snomed.info/id/398232005"/>
@@ -701,13 +687,11 @@
   <xsd:complexType name="mc-cq6m46w59ouu1cu8tkw1fhib" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-cq6m46w59ouu1cu8tkw1fhib">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-cq6m46w59ouu1cu8tkw1fhib">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTemporalType"/>
           <rdfs:label>Prescription Date</rdfs:label>
           <rdfs:comment>Date the medication was prescribed</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-cq6m46w59ouu1cu8tkw1fhib"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prescription_date"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q193521"/>
           <skos:broadMatch rdf:resource="https://schema.org/DateTime"/>
         </rdf:Description>
@@ -739,13 +723,11 @@
   <xsd:complexType name="mc-td5j1frz2fa8g4uh1hor7w11" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-td5j1frz2fa8g4uh1hor7w11">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-td5j1frz2fa8g4uh1hor7w11">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Lot Number</rdfs:label>
           <rdfs:comment>Vaccine lot number for traceability</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-td5j1frz2fa8g4uh1hor7w11"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-lot_number"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q28698186"/>
           <skos:broadMatch rdf:resource="https://schema.org/identifier"/>
         </rdf:Description>
@@ -782,13 +764,11 @@
   <xsd:complexType name="mc-fi1qu4j2zd0801fcqtix35h5" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-fi1qu4j2zd0801fcqtix35h5">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-fi1qu4j2zd0801fcqtix35h5">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Vaccine Name</rdfs:label>
           <rdfs:comment>Name of the vaccine administered</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-fi1qu4j2zd0801fcqtix35h5"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-vaccine_name"/>
           <skos:broadMatch rdf:resource="https://schema.org/Drug"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q134808"/>
         </rdf:Description>
@@ -826,13 +806,11 @@
   <xsd:complexType name="mc-dyfz05n20jhc1elhozrbjug0" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-dyfz05n20jhc1elhozrbjug0">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-dyfz05n20jhc1elhozrbjug0">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTemporalType"/>
           <rdfs:label>Vaccine Date</rdfs:label>
           <rdfs:comment>Date the vaccine was administered</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-dyfz05n20jhc1elhozrbjug0"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-vaccine_date"/>
           <skos:broadMatch rdf:resource="https://schema.org/Date"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q192995"/>
         </rdf:Description>
@@ -865,13 +843,11 @@
   <xsd:complexType name="mc-nnu04d5qgrmn1bim8bpu0l65" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-nnu04d5qgrmn1bim8bpu0l65">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-nnu04d5qgrmn1bim8bpu0l65">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Diagnosis</rdfs:label>
           <rdfs:comment>Clinical diagnosis resulting from this visit. This cell carries Restricted:PatientCare policy — it cannot be composed into public reports.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-nnu04d5qgrmn1bim8bpu0l65"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-diagnosis"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q14860489"/>
           <skos:relatedMatch rdf:resource="https://schema.org/MedicalCode"/>
         </rdf:Description>
@@ -908,13 +884,11 @@
   <xsd:complexType name="mc-qvmb5f4xmy56y98q8raelpl9" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-qvmb5f4xmy56y98q8raelpl9">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-qvmb5f4xmy56y98q8raelpl9">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Facility</rdfs:label>
           <rdfs:comment>Healthcare facility where the visit occurred</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-qvmb5f4xmy56y98q8raelpl9"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-facility"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q9386252"/>
           <skos:broadMatch rdf:resource="https://schema.org/name"/>
         </rdf:Description>
@@ -951,13 +925,11 @@
   <xsd:complexType name="mc-qzmcum3kwmskrkj7nhkf8fkm" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-qzmcum3kwmskrkj7nhkf8fkm">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-qzmcum3kwmskrkj7nhkf8fkm">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Reason for Visit</rdfs:label>
           <rdfs:comment>Chief complaint or reason for the clinical encounter</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-qzmcum3kwmskrkj7nhkf8fkm"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-reason_for_visit"/>
           <rdfs:isDefinedBy rdf:resource="http://snomed.info/id/409586006"/>
           <skos:broadMatch rdf:resource="https://schema.org/description"/>
         </rdf:Description>
@@ -1037,13 +1009,11 @@
   <xsd:complexType name="mc-lccs354vpxmtyo69ba5cu48v" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-lccs354vpxmtyo69ba5cu48v">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-lccs354vpxmtyo69ba5cu48v">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Outcome</rdfs:label>
           <rdfs:comment>Outcome of the visit</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-lccs354vpxmtyo69ba5cu48v"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-outcome"/>
           <rdfs:isDefinedBy rdf:resource="http://schema.org/result"/>
           <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
           <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
@@ -1069,8 +1039,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Patient treated and released same day</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Treated%20and%20Released">
-                        <rdfs:subPropertyOf rdf:resource="mc-lccs354vpxmtyo69ba5cu48v"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Treated%20and%20Released">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-lccs354vpxmtyo69ba5cu48v"/>
                         <rdfs:label>Treated and Released</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -1080,8 +1050,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Patient admitted for inpatient care</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Admitted">
-                        <rdfs:subPropertyOf rdf:resource="mc-lccs354vpxmtyo69ba5cu48v"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Admitted">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-lccs354vpxmtyo69ba5cu48v"/>
                         <rdfs:label>Admitted</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -1091,8 +1061,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Patient referred to specialist or another facility</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Referred">
-                        <rdfs:subPropertyOf rdf:resource="mc-lccs354vpxmtyo69ba5cu48v"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Referred">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-lccs354vpxmtyo69ba5cu48v"/>
                         <rdfs:label>Referred</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -1102,8 +1072,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Patient to return for follow-up visit</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Follow-up%20Scheduled">
-                        <rdfs:subPropertyOf rdf:resource="mc-lccs354vpxmtyo69ba5cu48v"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/Follow-up%20Scheduled">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-lccs354vpxmtyo69ba5cu48v"/>
                         <rdfs:label>Follow-up Scheduled</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -1113,8 +1083,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Observation only, no treatment needed</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/No%20Treatment%20Required">
-                        <rdfs:subPropertyOf rdf:resource="mc-lccs354vpxmtyo69ba5cu48v"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-lccs354vpxmtyo69ba5cu48v/xdtoken-value/No%20Treatment%20Required">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-lccs354vpxmtyo69ba5cu48v"/>
                         <rdfs:label>No Treatment Required</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -1244,14 +1214,12 @@
 <xsd:complexType name="mc-b5zse0kmvpkj74ggqvgk647l" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-b5zse0kmvpkj74ggqvgk647l">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdQuantityType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-b5zse0kmvpkj74ggqvgk647l">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdQuantityType"/>
           <rdfs:label>Body Temperature</rdfs:label>
           <rdfs:comment>Patient body temperature measured in degrees Celsius during a clinical visit. Normal adult range is 36.1–37.2°C. Triage screening vital sign.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-b5zse0kmvpkj74ggqvgk647l"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-body_temperature"/>
-          <sdc4-meta:hasUnit rdf:resource="sdc4:mc-ihugcgyqyfjp3u9y5qva1fwz"/>
+          <sdc4-meta:hasUnit rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-ihugcgyqyfjp3u9y5qva1fwz"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1066998"/>
           <rdfs:isDefinedBy rdf:resource="https://www.ncbi.nlm.nih.gov/books/NBK331/"/>
           <rdfs:seeAlso rdf:resource="https://loinc.org/8310-5/"/>
@@ -1334,9 +1302,9 @@
 <xsd:complexType name="mc-qoogfcksod6jtymyto974smz" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-qoogfcksod6jtymyto974smz">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdIntervalType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-qoogfcksod6jtymyto974smz">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdIntervalType"/>
         <rdfs:label>Normal Body Temperature</rdfs:label>
       </rdf:Description>
     </xsd:appinfo>
@@ -1402,9 +1370,9 @@
   <xsd:annotation>
     <xsd:documentation>Normal adult body temperature range per WHO clinical guidelines. Values outside this range indicate hypothermia (&lt;36.1°C) or fever (&gt;37.2°C). (ReferenceRange for SimpleReferenceRange)</xsd:documentation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="mc-v44d5xo2wdxttf9kq5zm4o1h-rr">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ReferenceRangeType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-v44d5xo2wdxttf9kq5zm4o1h-rr">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ReferenceRangeType"/>
         <rdfs:label>Normal Body Temperature</rdfs:label>
         
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1066998"/>
@@ -1439,14 +1407,12 @@
 <xsd:complexType name="mc-lu2w1avj9fic5wrmyftt9fhi" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-lu2w1avj9fic5wrmyftt9fhi">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdQuantityType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-lu2w1avj9fic5wrmyftt9fhi">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdQuantityType"/>
           <rdfs:label>Diastolic Blood Pressure</rdfs:label>
           <rdfs:comment>Minimum arterial pressure during cardiac relaxation, measured in mmHg. Normal adult range is 60–80 mmHg. Values ≥90 mmHg indicate hypertension per WHO/AHA guidelines.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-lu2w1avj9fic5wrmyftt9fhi"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-diastolic_blood_pressure"/>
-          <sdc4-meta:hasUnit rdf:resource="sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv"/>
+          <sdc4-meta:hasUnit rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-ylyt91vrvzgmx1yc7d06dfyv"/>
           <rdfs:isDefinedBy rdf:resource="https://professional.heart.org/en/science-news/2017-hypertension-clinical-guidelines"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q82642"/>
           <skos:exactMatch rdf:resource="http://snomed.info/id/271650006"/>
@@ -1525,9 +1491,9 @@
 <xsd:complexType name="mc-qouanq414kzylojpvqt7d78y" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-qouanq414kzylojpvqt7d78y">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdIntervalType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-qouanq414kzylojpvqt7d78y">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdIntervalType"/>
         <rdfs:label>Normal Diastolic Blood Pressure</rdfs:label>
       </rdf:Description>
     </xsd:appinfo>
@@ -1593,9 +1559,9 @@
   <xsd:annotation>
     <xsd:documentation>Normal adult resting diastolic blood pressure per AHA/WHO guidelines. Values 81-89 indicate prehypertension; ≥90 indicates hypertension. (ReferenceRange for SimpleReferenceRange)</xsd:documentation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="mc-uoah076eqs0x6qkh1eadvoob-rr">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ReferenceRangeType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-uoah076eqs0x6qkh1eadvoob-rr">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ReferenceRangeType"/>
         <rdfs:label>Normal Diastolic Blood Pressure</rdfs:label>
         
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q82642"/>
@@ -1630,14 +1596,12 @@
 <xsd:complexType name="mc-vh2scyehy68pw7sbvzdg3cn9" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-vh2scyehy68pw7sbvzdg3cn9">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdQuantityType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-vh2scyehy68pw7sbvzdg3cn9">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdQuantityType"/>
           <rdfs:label>Patient Height</rdfs:label>
           <rdfs:comment>Patient standing height in centimeters measured during a clinical visit. Used for BMI computation and growth tracking.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-vh2scyehy68pw7sbvzdg3cn9"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-patient_height"/>
-          <sdc4-meta:hasUnit rdf:resource="sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf"/>
+          <sdc4-meta:hasUnit rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-y28mhe3jdzi9b8ztn3fxodtf"/>
           <rdfs:seeAlso rdf:resource="https://loinc.org/8302-2/"/>
           <skos:exactMatch rdf:resource="http://snomed.info/id/50373000"/>
           <rdfs:isDefinedBy rdf:resource="https://www.cdc.gov/nchs/fastats/body-measurements.htm"/>
@@ -1721,14 +1685,12 @@
 <xsd:complexType name="mc-s6oo99lbq85kfz0v5nqv9yaf" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-s6oo99lbq85kfz0v5nqv9yaf">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdQuantityType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-s6oo99lbq85kfz0v5nqv9yaf">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdQuantityType"/>
           <rdfs:label>Patient Weight</rdfs:label>
           <rdfs:comment>Patient body weight in kilograms measured during a clinical visit. Used for medication dosing calculations, BMI computation, and tracking health trends.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-s6oo99lbq85kfz0v5nqv9yaf"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-patient_weight"/>
-          <sdc4-meta:hasUnit rdf:resource="sdc4:mc-tjxxdsd6idyzqygrncojauxn"/>
+          <sdc4-meta:hasUnit rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-tjxxdsd6idyzqygrncojauxn"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q18247"/>
           <rdfs:seeAlso rdf:resource="https://loinc.org/29463-7/"/>
           <skos:exactMatch rdf:resource="http://snomed.info/id/27113001"/>
@@ -1773,9 +1735,9 @@
 <xsd:complexType name="mc-plob4z6l86w98xcvt7sz324v" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-plob4z6l86w98xcvt7sz324v">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdIntervalType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-plob4z6l86w98xcvt7sz324v">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdIntervalType"/>
         <rdfs:label>Non-negative Weight</rdfs:label>
       </rdf:Description>
     </xsd:appinfo>
@@ -1824,9 +1786,9 @@
   <xsd:annotation>
     <xsd:documentation>Reference range constraining weight measurements to zero or positive values. Applies to cargo weight and patient body weight. (ReferenceRange for SimpleReferenceRange)</xsd:documentation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="mc-cipk6pha3nz62dd4vwmkg5yo-rr">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ReferenceRangeType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-cipk6pha3nz62dd4vwmkg5yo-rr">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ReferenceRangeType"/>
         <rdfs:label>Non-negative Weight</rdfs:label>
         
         <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/quantitykind/Mass"/>
@@ -1859,14 +1821,12 @@
 <xsd:complexType name="mc-kokquuk73pm2ohlh4ftnu7wb" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-kokquuk73pm2ohlh4ftnu7wb">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdQuantityType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-kokquuk73pm2ohlh4ftnu7wb">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdQuantityType"/>
           <rdfs:label>Systolic Blood Pressure</rdfs:label>
           <rdfs:comment>Peak arterial pressure during cardiac contraction, measured in mmHg. Normal adult range is 90–120 mmHg. Values ≥140 mmHg indicate hypertension per WHO/AHA guidelines.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-kokquuk73pm2ohlh4ftnu7wb"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-systolic_blood_pressure"/>
-          <sdc4-meta:hasUnit rdf:resource="sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv"/>
+          <sdc4-meta:hasUnit rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-ylyt91vrvzgmx1yc7d06dfyv"/>
           <rdfs:isDefinedBy rdf:resource="https://professional.heart.org/en/science-news/2017-hypertension-clinical-guidelines"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q82642"/>
           <skos:exactMatch rdf:resource="http://snomed.info/id/271649006"/>
@@ -1911,9 +1871,9 @@
 <xsd:complexType name="mc-xd97z3tju6zwhlq4cu84v0bw" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-xd97z3tju6zwhlq4cu84v0bw">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdIntervalType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-xd97z3tju6zwhlq4cu84v0bw">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdIntervalType"/>
         <rdfs:label>Normal Systolic Blood Pressure</rdfs:label>
       </rdf:Description>
     </xsd:appinfo>
@@ -1979,9 +1939,9 @@
   <xsd:annotation>
     <xsd:documentation>Normal adult resting systolic blood pressure per AHA/WHO guidelines. Values 121-139 indicate prehypertension; ≥140 indicates hypertension. (ReferenceRange for SimpleReferenceRange)</xsd:documentation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="mc-yjuzkpzh4d55dto22xdfnj1w-rr">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ReferenceRangeType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-yjuzkpzh4d55dto22xdfnj1w-rr">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ReferenceRangeType"/>
         <rdfs:label>Normal Systolic Blood Pressure</rdfs:label>
         
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q82642"/>
@@ -2342,13 +2302,11 @@
   <xsd:complexType name="mc-bc1ivx4vqa5gh3p5l1pjs1q2" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-bc1ivx4vqa5gh3p5l1pjs1q2">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-bc1ivx4vqa5gh3p5l1pjs1q2">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#PartyType"/>
           <rdfs:label>Primary Care Assignment</rdfs:label>
           <rdfs:comment>Patient's assigned primary care provider (clinician) and primary care facility. W3C PROV-DM Agent supporting Person and Organization.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-bc1ivx4vqa5gh3p5l1pjs1q2"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-primary_care_assignment"/>
           <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
           <rdfs:isDefinedBy rdf:resource="https://schema.org/Person"/>
           <skos:exactMatch rdf:resource="https://schema.org/Physician"/>
@@ -2372,13 +2330,11 @@
   <xsd:complexType name="mc-dnxrp0bpfs33b4x5ks8he9ag" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-dnxrp0bpfs33b4x5ks8he9ag">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-dnxrp0bpfs33b4x5ks8he9ag">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Primary Care Provider</rdfs:label>
           <rdfs:comment>Name of the patient's assigned primary care physician</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-dnxrp0bpfs33b4x5ks8he9ag"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-primary_care_provider"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q55379489"/>
           <skos:broadMatch rdf:resource="https://schema.org/name"/>
         </rdf:Description>
@@ -2813,13 +2769,11 @@
   <xsd:complexType name="mc-vyscq0dtz0hsigh2hbsvqajr" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-vyscq0dtz0hsigh2hbsvqajr">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-vyscq0dtz0hsigh2hbsvqajr">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#PartyType"/>
           <rdfs:label>Healthcare Provider</rdfs:label>
           <rdfs:comment>Healthcare provider (facility and/or clinician) delivering care. W3C PROV-DM Agent supporting both Person and Organization types.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-vyscq0dtz0hsigh2hbsvqajr"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-healthcare_provider"/>
           <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
           <skos:broadMatch rdf:resource="https://schema.org/MedicalOrganization"/>
           <rdfs:isDefinedBy rdf:resource="https://schema.org/Organization"/>
@@ -2843,13 +2797,11 @@
   <xsd:complexType name="mc-cuxxvwyqn5vhlqjymovegmn7" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-cuxxvwyqn5vhlqjymovegmn7">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-cuxxvwyqn5vhlqjymovegmn7">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Provider Name</rdfs:label>
           <rdfs:comment>Name of the attending physician or provider</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-cuxxvwyqn5vhlqjymovegmn7"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-provider_name"/>
           <rdfs:isDefinedBy rdf:resource="http://schema.org/name"/>
           <skos:broadMatch rdf:resource="https://schema.org/name"/>
         </rdf:Description>
@@ -3016,13 +2968,11 @@
   <xsd:complexType name="mc-hwbq0pr8aqy2qp16ehbhu2ga" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-hwbq0pr8aqy2qp16ehbhu2ga">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ParticipationType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-hwbq0pr8aqy2qp16ehbhu2ga">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ParticipationType"/>
           <rdfs:label>Prescriber Participation</rdfs:label>
           <rdfs:comment>Participation of prescribing physician in medication orders.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-hwbq0pr8aqy2qp16ehbhu2ga"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prescriber_participation"/>
           <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q31207"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q56512863"/>
           <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Association"/>
@@ -3046,13 +2996,11 @@
   <xsd:complexType name="mc-4tqaalcjeojrh2e068qzlpjy" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-4tqaalcjeojrh2e068qzlpjy">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-4tqaalcjeojrh2e068qzlpjy">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#PartyType"/>
           <rdfs:label>Prescriber</rdfs:label>
           <rdfs:comment>Physician who prescribed medication. W3C PROV-DM Agent (Person).</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-4tqaalcjeojrh2e068qzlpjy"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prescriber"/>
           <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
           <rdfs:isDefinedBy rdf:resource="https://schema.org/Person"/>
           <skos:exactMatch rdf:resource="https://schema.org/Physician"/>
@@ -3076,13 +3024,11 @@
   <xsd:complexType name="mc-f8ptus0eraxmipvhd96ddbdq" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-f8ptus0eraxmipvhd96ddbdq">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-f8ptus0eraxmipvhd96ddbdq">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Prescriber</rdfs:label>
           <rdfs:comment>Name of the prescribing physician</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-f8ptus0eraxmipvhd96ddbdq"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prescriber"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q99393050"/>
           <skos:broadMatch rdf:resource="https://schema.org/name"/>
         </rdf:Description>
@@ -3119,13 +3065,11 @@
   <xsd:complexType name="mc-1fjdouzda29z43u2spfcbpig" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-1fjdouzda29z43u2spfcbpig">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ParticipationType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-1fjdouzda29z43u2spfcbpig">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ParticipationType"/>
           <rdfs:label>Vaccination Facility Participation</rdfs:label>
           <rdfs:comment>Participation of the administering facility in vaccination events.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-1fjdouzda29z43u2spfcbpig"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-vaccination_facility_participation"/>
           <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q31207"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q56512863"/>
           <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Association"/>
@@ -3149,13 +3093,11 @@
   <xsd:complexType name="mc-hzkatya8ymk8xmbuecb7jfae" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-hzkatya8ymk8xmbuecb7jfae">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-hzkatya8ymk8xmbuecb7jfae">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#PartyType"/>
           <rdfs:label>Administering Facility</rdfs:label>
           <rdfs:comment>Healthcare facility that administered a vaccination. W3C PROV-DM Agent (Organization).</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-hzkatya8ymk8xmbuecb7jfae"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-administering_facility"/>
           <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
           <skos:broadMatch rdf:resource="https://schema.org/MedicalOrganization"/>
           <rdfs:isDefinedBy rdf:resource="https://schema.org/Organization"/>
@@ -3179,13 +3121,11 @@
   <xsd:complexType name="mc-u1hjad8m99xlnkyj5clvjnpa" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-u1hjad8m99xlnkyj5clvjnpa">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-u1hjad8m99xlnkyj5clvjnpa">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Administering Facility</rdfs:label>
           <rdfs:comment>Healthcare facility where the vaccine was given</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-u1hjad8m99xlnkyj5clvjnpa"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-administering_facility"/>
           <rdfs:isDefinedBy rdf:resource="http://snomed.info/id/264362003"/>
           <skos:broadMatch rdf:resource="https://schema.org/name"/>
         </rdf:Description>
@@ -3693,13 +3633,11 @@
   <xsd:complexType name="mc-q8x2nc8i8ud3tqo42g850vwz" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-q8x2nc8i8ud3tqo42g850vwz">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:AttestationType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-q8x2nc8i8ud3tqo42g850vwz">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#AttestationType"/>
           <rdfs:label>Healthcare Record Attestation</rdfs:label>
           <rdfs:comment>Attestation for healthcare records. The healthcare provider attests to the accuracy of clinical observations and treatments. W3C PROV-DM, GDPR/UN CEB.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-q8x2nc8i8ud3tqo42g850vwz"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-healthcare_record_attestation"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q116890704"/>
           <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
           <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q31207"/>
@@ -3729,13 +3667,11 @@
 <xsd:complexType name="mc-tzzp7weh4dmg323u6kfalo0g" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-tzzp7weh4dmg323u6kfalo0g">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tzzp7weh4dmg323u6kfalo0g">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdFileType"/>
         <rdfs:label>Healthcare Record Attested View</rdfs:label>
         <rdfs:comment>Attested view of a healthcare record document</rdfs:comment>
-        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-tzzp7weh4dmg323u6kfalo0g"/>
-        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-healthcare_record_attested_view"/>
         <rdfs:isDefinedBy rdf:resource="https://schema.org/DigitalDocument"/>
         <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q656365"/>
         <skos:broadMatch rdf:resource="http://www.w3.org/ns/prov#Entity"/>
@@ -3777,13 +3713,11 @@
 <xsd:complexType name="mc-gug5dhtqfv7exbgmm2raxpkq" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-gug5dhtqfv7exbgmm2raxpkq">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdFileType"/>
         <rdfs:label>Digital Signature Proof</rdfs:label>
         <rdfs:comment>Cryptographic proof of attestation (digital signature)</rdfs:comment>
-        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
-        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-digital_signature_proof"/>
         <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q210824"/>
         <skos:broadMatch rdf:resource="http://www.w3.org/ns/prov#Entity"/>
@@ -3824,13 +3758,11 @@
   <xsd:complexType name="mc-mxjh9oqcnjl6njqqi75odozh" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-mxjh9oqcnjl6njqqi75odozh">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-mxjh9oqcnjl6njqqi75odozh">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Healthcare Record Attestation Reason</rdfs:label>
           <rdfs:comment>Reason for attesting this healthcare record</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-mxjh9oqcnjl6njqqi75odozh"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-healthcare_record_attestation_reason"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
           <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q656365"/>
           <skos:broadMatch rdf:resource="https://schema.org/Text"/>
@@ -3868,13 +3800,11 @@
   <xsd:complexType name="mc-emov6wuhen2tuyjlppqmmjjl" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-emov6wuhen2tuyjlppqmmjjl">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-emov6wuhen2tuyjlppqmmjjl">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Healthcare Records Protocol</rdfs:label>
           <rdfs:comment>Protocol reference for the Healthcare Record data model. Informed by the WHO International Classification of Diseases (ICD-11), HL7 FHIR resource concepts for clinical data exchange, and national health information management standards for patient records.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-emov6wuhen2tuyjlppqmmjjl"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-healthcare_records_protocol"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
           <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q35869"/>
           <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q317623"/>
@@ -3912,13 +3842,11 @@
   <xsd:complexType name="mc-v5p12fdr4figf0k2rulfqrxl" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-v5p12fdr4figf0k2rulfqrxl">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-v5p12fdr4figf0k2rulfqrxl">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Prescriber Participation Function</rdfs:label>
           <rdfs:comment>Function of the prescriber in the medication order (e.g., Attending Physician, Consultant).</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-v5p12fdr4figf0k2rulfqrxl"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prescriber_participation_function"/>
         </rdf:Description>
       </xsd:appinfo>
     </xsd:annotation>
@@ -3940,8 +3868,8 @@
                 <xsd:enumeration value="attending-physician">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/attending-physician">
-                        <rdfs:subPropertyOf rdf:resource="mc-v5p12fdr4figf0k2rulfqrxl"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/attending-physician">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-v5p12fdr4figf0k2rulfqrxl"/>
                         <rdfs:label>attending-physician</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -3950,8 +3878,8 @@
                 <xsd:enumeration value="consulting-physician">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/consulting-physician">
-                        <rdfs:subPropertyOf rdf:resource="mc-v5p12fdr4figf0k2rulfqrxl"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/consulting-physician">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-v5p12fdr4figf0k2rulfqrxl"/>
                         <rdfs:label>consulting-physician</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -3960,8 +3888,8 @@
                 <xsd:enumeration value="primary-care-provider">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/primary-care-provider">
-                        <rdfs:subPropertyOf rdf:resource="mc-v5p12fdr4figf0k2rulfqrxl"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/primary-care-provider">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-v5p12fdr4figf0k2rulfqrxl"/>
                         <rdfs:label>primary-care-provider</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -3970,8 +3898,8 @@
                 <xsd:enumeration value="specialist">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/specialist">
-                        <rdfs:subPropertyOf rdf:resource="mc-v5p12fdr4figf0k2rulfqrxl"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/specialist">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-v5p12fdr4figf0k2rulfqrxl"/>
                         <rdfs:label>specialist</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -3980,8 +3908,8 @@
                 <xsd:enumeration value="resident">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/resident">
-                        <rdfs:subPropertyOf rdf:resource="mc-v5p12fdr4figf0k2rulfqrxl"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-v5p12fdr4figf0k2rulfqrxl/xdtoken-value/resident">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-v5p12fdr4figf0k2rulfqrxl"/>
                         <rdfs:label>resident</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4001,13 +3929,11 @@
   <xsd:complexType name="mc-ba1ezyhgf6aaw03an2uve57o" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-ba1ezyhgf6aaw03an2uve57o">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ba1ezyhgf6aaw03an2uve57o">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Prescriber Participation Mode</rdfs:label>
           <rdfs:comment>Mode of prescriber participation in the medication order (e.g., in person, telehealth).</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-ba1ezyhgf6aaw03an2uve57o"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-prescriber_participation_mode"/>
         </rdf:Description>
       </xsd:appinfo>
     </xsd:annotation>
@@ -4029,8 +3955,8 @@
                 <xsd:enumeration value="in-person">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/in-person">
-                        <rdfs:subPropertyOf rdf:resource="mc-ba1ezyhgf6aaw03an2uve57o"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/in-person">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-ba1ezyhgf6aaw03an2uve57o"/>
                         <rdfs:label>in-person</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4039,8 +3965,8 @@
                 <xsd:enumeration value="telehealth">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/telehealth">
-                        <rdfs:subPropertyOf rdf:resource="mc-ba1ezyhgf6aaw03an2uve57o"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/telehealth">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-ba1ezyhgf6aaw03an2uve57o"/>
                         <rdfs:label>telehealth</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4049,8 +3975,8 @@
                 <xsd:enumeration value="electronic-order">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/electronic-order">
-                        <rdfs:subPropertyOf rdf:resource="mc-ba1ezyhgf6aaw03an2uve57o"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/electronic-order">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-ba1ezyhgf6aaw03an2uve57o"/>
                         <rdfs:label>electronic-order</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4059,8 +3985,8 @@
                 <xsd:enumeration value="verbal-order">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/verbal-order">
-                        <rdfs:subPropertyOf rdf:resource="mc-ba1ezyhgf6aaw03an2uve57o"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/verbal-order">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-ba1ezyhgf6aaw03an2uve57o"/>
                         <rdfs:label>verbal-order</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4069,8 +3995,8 @@
                 <xsd:enumeration value="fax">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/fax">
-                        <rdfs:subPropertyOf rdf:resource="mc-ba1ezyhgf6aaw03an2uve57o"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ba1ezyhgf6aaw03an2uve57o/xdtoken-value/fax">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-ba1ezyhgf6aaw03an2uve57o"/>
                         <rdfs:label>fax</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4090,13 +4016,11 @@
   <xsd:complexType name="mc-trvg8tpie5w2zlf6b0nl3zhb" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-trvg8tpie5w2zlf6b0nl3zhb">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-trvg8tpie5w2zlf6b0nl3zhb">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Vaccination Facility Participation Function</rdfs:label>
           <rdfs:comment>Function of the facility in the vaccination event (e.g., Administering Site, Storage Facility).</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-trvg8tpie5w2zlf6b0nl3zhb"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-vaccination_facility_participation_function"/>
         </rdf:Description>
       </xsd:appinfo>
     </xsd:annotation>
@@ -4118,8 +4042,8 @@
                 <xsd:enumeration value="administering-site">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-trvg8tpie5w2zlf6b0nl3zhb/xdtoken-value/administering-site">
-                        <rdfs:subPropertyOf rdf:resource="mc-trvg8tpie5w2zlf6b0nl3zhb"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-trvg8tpie5w2zlf6b0nl3zhb/xdtoken-value/administering-site">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-trvg8tpie5w2zlf6b0nl3zhb"/>
                         <rdfs:label>administering-site</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4128,8 +4052,8 @@
                 <xsd:enumeration value="storage-facility">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-trvg8tpie5w2zlf6b0nl3zhb/xdtoken-value/storage-facility">
-                        <rdfs:subPropertyOf rdf:resource="mc-trvg8tpie5w2zlf6b0nl3zhb"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-trvg8tpie5w2zlf6b0nl3zhb/xdtoken-value/storage-facility">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-trvg8tpie5w2zlf6b0nl3zhb"/>
                         <rdfs:label>storage-facility</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4138,8 +4062,8 @@
                 <xsd:enumeration value="reporting-site">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-trvg8tpie5w2zlf6b0nl3zhb/xdtoken-value/reporting-site">
-                        <rdfs:subPropertyOf rdf:resource="mc-trvg8tpie5w2zlf6b0nl3zhb"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-trvg8tpie5w2zlf6b0nl3zhb/xdtoken-value/reporting-site">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-trvg8tpie5w2zlf6b0nl3zhb"/>
                         <rdfs:label>reporting-site</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4148,8 +4072,8 @@
                 <xsd:enumeration value="distribution-center">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-trvg8tpie5w2zlf6b0nl3zhb/xdtoken-value/distribution-center">
-                        <rdfs:subPropertyOf rdf:resource="mc-trvg8tpie5w2zlf6b0nl3zhb"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-trvg8tpie5w2zlf6b0nl3zhb/xdtoken-value/distribution-center">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-trvg8tpie5w2zlf6b0nl3zhb"/>
                         <rdfs:label>distribution-center</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4169,13 +4093,11 @@
   <xsd:complexType name="mc-yi46egvfmz66gd0dhypl6t6m" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-yi46egvfmz66gd0dhypl6t6m">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-yi46egvfmz66gd0dhypl6t6m">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Vaccination Facility Participation Mode</rdfs:label>
           <rdfs:comment>Mode of facility participation in the vaccination event (e.g., in person, mobile clinic).</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-yi46egvfmz66gd0dhypl6t6m"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-vaccination_facility_participation_mode"/>
         </rdf:Description>
       </xsd:appinfo>
     </xsd:annotation>
@@ -4197,8 +4119,8 @@
                 <xsd:enumeration value="in-person">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-yi46egvfmz66gd0dhypl6t6m/xdtoken-value/in-person">
-                        <rdfs:subPropertyOf rdf:resource="mc-yi46egvfmz66gd0dhypl6t6m"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-yi46egvfmz66gd0dhypl6t6m/xdtoken-value/in-person">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-yi46egvfmz66gd0dhypl6t6m"/>
                         <rdfs:label>in-person</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4207,8 +4129,8 @@
                 <xsd:enumeration value="mobile-clinic">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-yi46egvfmz66gd0dhypl6t6m/xdtoken-value/mobile-clinic">
-                        <rdfs:subPropertyOf rdf:resource="mc-yi46egvfmz66gd0dhypl6t6m"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-yi46egvfmz66gd0dhypl6t6m/xdtoken-value/mobile-clinic">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-yi46egvfmz66gd0dhypl6t6m"/>
                         <rdfs:label>mobile-clinic</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4217,8 +4139,8 @@
                 <xsd:enumeration value="drive-through">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-yi46egvfmz66gd0dhypl6t6m/xdtoken-value/drive-through">
-                        <rdfs:subPropertyOf rdf:resource="mc-yi46egvfmz66gd0dhypl6t6m"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-yi46egvfmz66gd0dhypl6t6m/xdtoken-value/drive-through">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-yi46egvfmz66gd0dhypl6t6m"/>
                         <rdfs:label>drive-through</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4227,8 +4149,8 @@
                 <xsd:enumeration value="home-visit">
                   <xsd:annotation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-yi46egvfmz66gd0dhypl6t6m/xdtoken-value/home-visit">
-                        <rdfs:subPropertyOf rdf:resource="mc-yi46egvfmz66gd0dhypl6t6m"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-yi46egvfmz66gd0dhypl6t6m/xdtoken-value/home-visit">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-yi46egvfmz66gd0dhypl6t6m"/>
                         <rdfs:label>home-visit</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -4249,13 +4171,11 @@
 <xsd:complexType name="mc-hbk1xmzqefk2lchmd7jooz7a" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-hbk1xmzqefk2lchmd7jooz7a">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdLinkType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-hbk1xmzqefk2lchmd7jooz7a">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdLinkType"/>
         <rdfs:label>Healthcare Record Access Control</rdfs:label>
         <rdfs:comment>Access control policy for healthcare data using W3C Data Privacy Vocabulary. Enforces role-based access for healthcare providers, patients, and authorized representatives. Governs dpv:SpecialCategoryPersonalData including medical records, diagnoses, and treatment plans.</rdfs:comment>
-        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-hbk1xmzqefk2lchmd7jooz7a"/>
-        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-healthcare_record_access_control"/>
         <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q185799"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/dpv#AccessControlMethod"/>
         <rdfs:seeAlso rdf:resource="https://w3id.org/dpv"/>
@@ -4286,7 +4206,7 @@
 
 <!-- XdAdapterType Wrappers for XdAnyType Components in Clusters -->
   <!-- Adapter wrapper for National ID (CID) (nj7s1gk45tfgyooxpz0qaha3) -->
-  <xsd:complexType name="mc-z16xo5uj1mi3dibl3ro3ufrl">
+  <xsd:complexType name="mc-znhjge005ihiusslkmbcc4h4">
     <xsd:annotation>
       <xsd:documentation>Adapter for: National ID (CID)</xsd:documentation>
     </xsd:annotation>
@@ -4299,7 +4219,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Medical Record Number (jz2hqntyol8lopw6q6zdud78) -->
-  <xsd:complexType name="mc-zdd1wtyrryiurmvqseaivjr1">
+  <xsd:complexType name="mc-qewbrtwou236nps3mor7g47w">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Medical Record Number</xsd:documentation>
     </xsd:annotation>
@@ -4312,7 +4232,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Allergy Description (ntk4zsr15bcca2jmocdkcpcc) -->
-  <xsd:complexType name="mc-fiyhm1yos1t6svmprr836bx0">
+  <xsd:complexType name="mc-s4qrt7w5kf0ljbulhkr8bxig">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Allergy Description</xsd:documentation>
     </xsd:annotation>
@@ -4325,7 +4245,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Chronic Condition (cm0nqqnjcylc8vkfph7db2lh) -->
-  <xsd:complexType name="mc-rzf4dwte7xet6gdue6lmj6py">
+  <xsd:complexType name="mc-n5esg9h1syd9bm986i7bamfe">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Chronic Condition</xsd:documentation>
     </xsd:annotation>
@@ -4338,7 +4258,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Condition Status (tz13p9d4dpbw3pe9bx51nbou) -->
-  <xsd:complexType name="mc-kvgfcr3rme6fqpt6nn5h66qn">
+  <xsd:complexType name="mc-eoucquy4xrpbz0ic9ysuuh06">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Condition Status</xsd:documentation>
     </xsd:annotation>
@@ -4351,7 +4271,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Severity (3-Point) (07osold8ovbjsqzvz00f3ked2) -->
-  <xsd:complexType name="mc-bofw0qcwpbypofxuwwcxiq2o">
+  <xsd:complexType name="mc-frovikr6mczb9am8gdp96tve">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Severity (3-Point)</xsd:documentation>
     </xsd:annotation>
@@ -4364,7 +4284,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Onset Date (p14jkmk8xqs97daq3zvyhrsj) -->
-  <xsd:complexType name="mc-fy92af172lvw70id7u1jgskn">
+  <xsd:complexType name="mc-fyaf37dusutkol5daod9ivsr">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Onset Date</xsd:documentation>
     </xsd:annotation>
@@ -4377,7 +4297,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Dosage (z28bjtjekyybe300ukuyjpi4) -->
-  <xsd:complexType name="mc-dk7pfc5jk1cn2b7n4zj6m6so">
+  <xsd:complexType name="mc-q9xusgfko7tq0idtt767mx1s">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Dosage</xsd:documentation>
     </xsd:annotation>
@@ -4390,7 +4310,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Medication Name (nomiekce61caq5n9a49d0eu6) -->
-  <xsd:complexType name="mc-abx0p7u2r7v3ld052qonnyjo">
+  <xsd:complexType name="mc-v4qahtpe58rqd769npphsroe">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Medication Name</xsd:documentation>
     </xsd:annotation>
@@ -4403,7 +4323,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Frequency (5-Point) (iprf7jqg9emvm92wo9gkiqcu) -->
-  <xsd:complexType name="mc-wbv46a4twbyuwpwr7ybz3j2z">
+  <xsd:complexType name="mc-jik6dzw49n9vpp9jl42q8mju">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Frequency (5-Point)</xsd:documentation>
     </xsd:annotation>
@@ -4416,7 +4336,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Medication Dosage Amount (y7k4p12co0b9v6asll531fhv) -->
-  <xsd:complexType name="mc-pfpxhdvami9iviftg37r2la2">
+  <xsd:complexType name="mc-z8l2pvmwpliq0ozkrhiqygaq">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Medication Dosage Amount</xsd:documentation>
     </xsd:annotation>
@@ -4429,7 +4349,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Prescription Date (cq6m46w59ouu1cu8tkw1fhib) -->
-  <xsd:complexType name="mc-x6ld5whgo7cyb51uusixmd3d">
+  <xsd:complexType name="mc-pc3cvfr6qvp2f9mabcmps0k1">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Prescription Date</xsd:documentation>
     </xsd:annotation>
@@ -4442,7 +4362,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Lot Number (td5j1frz2fa8g4uh1hor7w11) -->
-  <xsd:complexType name="mc-el0cz3iurka072fggj4hx49f">
+  <xsd:complexType name="mc-lvs7ao5um53z3jv65o5oq4uz">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Lot Number</xsd:documentation>
     </xsd:annotation>
@@ -4455,7 +4375,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Vaccine Name (fi1qu4j2zd0801fcqtix35h5) -->
-  <xsd:complexType name="mc-j7ar4kki6mv0r7ocr6ow3qhl">
+  <xsd:complexType name="mc-v7gox7q6zxx8ipuxhrapfzqm">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Vaccine Name</xsd:documentation>
     </xsd:annotation>
@@ -4468,7 +4388,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Vaccine Date (dyfz05n20jhc1elhozrbjug0) -->
-  <xsd:complexType name="mc-qydut841yrwpnp46ookn2ggn">
+  <xsd:complexType name="mc-zcc5r1ovfvuluysxeycbjnd1">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Vaccine Date</xsd:documentation>
     </xsd:annotation>
@@ -4481,7 +4401,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Diagnosis (nnu04d5qgrmn1bim8bpu0l65) -->
-  <xsd:complexType name="mc-whrsz97tqb4o168mzr4mflu6">
+  <xsd:complexType name="mc-rm0gvn3ui1w8votbxmiko5aw">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Diagnosis</xsd:documentation>
     </xsd:annotation>
@@ -4494,7 +4414,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Facility (qvmb5f4xmy56y98q8raelpl9) -->
-  <xsd:complexType name="mc-xk9xcbv60fx8le5wx8b3owby">
+  <xsd:complexType name="mc-xan7hxrlwklxviwak9lt6o42">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Facility</xsd:documentation>
     </xsd:annotation>
@@ -4507,7 +4427,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Reason for Visit (qzmcum3kwmskrkj7nhkf8fkm) -->
-  <xsd:complexType name="mc-stzcsbchyfvy4z7r35fxkw6b">
+  <xsd:complexType name="mc-wpme2iasw1par7e03283b4xb">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Reason for Visit</xsd:documentation>
     </xsd:annotation>
@@ -4520,7 +4440,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Clinical Impression (cntj1t9t2xjugnux1enpigmf) -->
-  <xsd:complexType name="mc-o03ksbpzw3yx4v9scegdc7el">
+  <xsd:complexType name="mc-idwt19cqrc6onlgh58zgtpc4">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Clinical Impression</xsd:documentation>
     </xsd:annotation>
@@ -4533,7 +4453,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Outcome (lccs354vpxmtyo69ba5cu48v) -->
-  <xsd:complexType name="mc-mgms7fe9u8u1h96ljom48dc4">
+  <xsd:complexType name="mc-oy7l6tk0oujtuu4wrt34o24l">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Outcome</xsd:documentation>
     </xsd:annotation>
@@ -4546,7 +4466,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Visit Type (l9sjn7wj10y5b27ldkv3j8mt) -->
-  <xsd:complexType name="mc-meit785z0ugz2andc6ff2kgo">
+  <xsd:complexType name="mc-hsmxuztuixmgcw9v5q7jzgjr">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Visit Type</xsd:documentation>
     </xsd:annotation>
@@ -4559,7 +4479,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Body Temperature (b5zse0kmvpkj74ggqvgk647l) -->
-  <xsd:complexType name="mc-dzafdnv507rgc8sxqqa2ltf5">
+  <xsd:complexType name="mc-htn9sz8c4matcox3ve4l9da2">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Body Temperature</xsd:documentation>
     </xsd:annotation>
@@ -4572,7 +4492,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Diastolic Blood Pressure (lu2w1avj9fic5wrmyftt9fhi) -->
-  <xsd:complexType name="mc-w9offwxy24rsztc11j7zx0ug">
+  <xsd:complexType name="mc-qm88d2siwnsr593w5wfl1dys">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Diastolic Blood Pressure</xsd:documentation>
     </xsd:annotation>
@@ -4585,7 +4505,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Patient Height (vh2scyehy68pw7sbvzdg3cn9) -->
-  <xsd:complexType name="mc-zvkl8ctcg237iqwtyyrwenoq">
+  <xsd:complexType name="mc-r6hmxb2ffy1xa4bfzkhl4hzc">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Patient Height</xsd:documentation>
     </xsd:annotation>
@@ -4598,7 +4518,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Patient Weight (s6oo99lbq85kfz0v5nqv9yaf) -->
-  <xsd:complexType name="mc-vgq6d2vts14o1zo4491cf6d4">
+  <xsd:complexType name="mc-qbqkd12dorlvir84ppvvx407">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Patient Weight</xsd:documentation>
     </xsd:annotation>
@@ -4611,7 +4531,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Systolic Blood Pressure (kokquuk73pm2ohlh4ftnu7wb) -->
-  <xsd:complexType name="mc-q867tp1yaobktelz3gpvfa64">
+  <xsd:complexType name="mc-f3em11o3sn0xc1bspxu0kwky">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Systolic Blood Pressure</xsd:documentation>
     </xsd:annotation>
@@ -4624,7 +4544,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Visit Date (iufcfze52lha16v84kccgxyh) -->
-  <xsd:complexType name="mc-pe9rnuja4xuk2wyoyfkfdo9o">
+  <xsd:complexType name="mc-e5ppb31jh3m59mc7j5tykw4n">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Visit Date</xsd:documentation>
     </xsd:annotation>
@@ -4637,7 +4557,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for activity_description (m9xg6e182m1oq77ssrf9iujv) -->
-  <xsd:complexType name="mc-c5016skbmb8jg39cysvwc65a">
+  <xsd:complexType name="mc-zq30a9nd3e81chjuegfute92">
     <xsd:annotation>
       <xsd:documentation>Adapter for: activity_description</xsd:documentation>
     </xsd:annotation>
@@ -4650,7 +4570,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for prov_activity_type (ccj1yq2wtwknobszkgzzdbtr) -->
-  <xsd:complexType name="mc-rpaz1widq2u7qox2n8r6lohf">
+  <xsd:complexType name="mc-f06do6ti2g0iq4dwqvh0vt5h">
     <xsd:annotation>
       <xsd:documentation>Adapter for: prov_activity_type</xsd:documentation>
     </xsd:annotation>
@@ -4663,7 +4583,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for system_identifier (bd3s8t23d6m3zizmpwavc32y) -->
-  <xsd:complexType name="mc-eu0hd4f95yni58yexux8yqek">
+  <xsd:complexType name="mc-e977pl4hz4cqpzeuktkwq7ra">
     <xsd:annotation>
       <xsd:documentation>Adapter for: system_identifier</xsd:documentation>
     </xsd:annotation>
@@ -4676,7 +4596,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for system_location_identifier (zr59goe24qkocprl3feul3mt) -->
-  <xsd:complexType name="mc-dzaswthq3j4qi7yuqvkf9c04">
+  <xsd:complexType name="mc-mmoil9uicuueekqgahr4bgl3">
     <xsd:annotation>
       <xsd:documentation>Adapter for: system_location_identifier</xsd:documentation>
     </xsd:annotation>
@@ -4689,7 +4609,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for system_location_name (fnodzqkbyskwe7nh58rs336k) -->
-  <xsd:complexType name="mc-qhgvqe89m9q7zz5l8clyufra">
+  <xsd:complexType name="mc-zc65p4q9n6t9gmxrkt6rbnjs">
     <xsd:annotation>
       <xsd:documentation>Adapter for: system_location_name</xsd:documentation>
     </xsd:annotation>
@@ -4702,7 +4622,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for activity_timestamp_end (edvvjznmaoibzmfna0uuoo37) -->
-  <xsd:complexType name="mc-yyquv6xw4po00iif4c57j118">
+  <xsd:complexType name="mc-ls1lj0sx2ctjb1fdlm5tiigo">
     <xsd:annotation>
       <xsd:documentation>Adapter for: activity_timestamp_end</xsd:documentation>
     </xsd:annotation>
@@ -4715,7 +4635,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for activity_timestamp_start (o72s5793973fzho35rnaughs) -->
-  <xsd:complexType name="mc-y6rt146tgmkdixx2fs5d8ngf">
+  <xsd:complexType name="mc-zt7o7kc2wjo7yjtn0wjpv2ax">
     <xsd:annotation>
       <xsd:documentation>Adapter for: activity_timestamp_start</xsd:documentation>
     </xsd:annotation>
@@ -4728,7 +4648,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Primary Care Provider (dnxrp0bpfs33b4x5ks8he9ag) -->
-  <xsd:complexType name="mc-foy9k668u4n5kbf15padwrdq">
+  <xsd:complexType name="mc-yd965bwc91i5v8dget9b8tdn">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Primary Care Provider</xsd:documentation>
     </xsd:annotation>
@@ -4741,7 +4661,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for agent_id (hhfnj5hd1yzt252jfq5pdjj1) -->
-  <xsd:complexType name="mc-bobto9tpghwst4yma8yn3hjr">
+  <xsd:complexType name="mc-whr9bj7wvjnmsog8ex8xiy1j">
     <xsd:annotation>
       <xsd:documentation>Adapter for: agent_id</xsd:documentation>
     </xsd:annotation>
@@ -4754,7 +4674,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for organization_identifier (ule5u2z3rjpa9pooaifwj1n3) -->
-  <xsd:complexType name="mc-kdlyo87nc106f28dxh6mzrbu">
+  <xsd:complexType name="mc-x87r6seuuvci2bru3grgq9wh">
     <xsd:annotation>
       <xsd:documentation>Adapter for: organization_identifier</xsd:documentation>
     </xsd:annotation>
@@ -4767,7 +4687,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for organization_name (ifw5zfe4oiijbxjn1ylc2wm3) -->
-  <xsd:complexType name="mc-okjulritk6unhq2vdntlstvg">
+  <xsd:complexType name="mc-zhhhel1tlokthixqf91rfz71">
     <xsd:annotation>
       <xsd:documentation>Adapter for: organization_name</xsd:documentation>
     </xsd:annotation>
@@ -4780,7 +4700,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for person_family_name (zs9ciw4nypx4plo856h3m95d) -->
-  <xsd:complexType name="mc-j2b6uta0dbo9jkdm0nhrohjy">
+  <xsd:complexType name="mc-ufazrt6dnhndc3dk5h9ck6cg">
     <xsd:annotation>
       <xsd:documentation>Adapter for: person_family_name</xsd:documentation>
     </xsd:annotation>
@@ -4793,7 +4713,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for person_given_name (ndvtjiq0cke0q1trw58rtrq2) -->
-  <xsd:complexType name="mc-fn108swkt2kfwngs2t68dls8">
+  <xsd:complexType name="mc-umz7lmf73fq5no0x9azymz19">
     <xsd:annotation>
       <xsd:documentation>Adapter for: person_given_name</xsd:documentation>
     </xsd:annotation>
@@ -4806,7 +4726,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for organization_type (bpqtzla39dwentygpwea8276) -->
-  <xsd:complexType name="mc-xgf4z67o1auwa0d4ot1c62tb">
+  <xsd:complexType name="mc-hgyzoor8ky56cp9t9iw4iskq">
     <xsd:annotation>
       <xsd:documentation>Adapter for: organization_type</xsd:documentation>
     </xsd:annotation>
@@ -4819,7 +4739,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for PROV Agent Type (nesxtz8c5o665swc9lhvqkjj) -->
-  <xsd:complexType name="mc-m5e9dgge8a4n02mgf7ote6g4">
+  <xsd:complexType name="mc-i11qg3un16pq1m6njovcw8zz">
     <xsd:annotation>
       <xsd:documentation>Adapter for: PROV Agent Type</xsd:documentation>
     </xsd:annotation>
@@ -4832,7 +4752,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Provider Name (cuxxvwyqn5vhlqjymovegmn7) -->
-  <xsd:complexType name="mc-nmgtr2p56oo16a0s01zn3ugk">
+  <xsd:complexType name="mc-k36myawd3u9ilc6k9iewpg5r">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Provider Name</xsd:documentation>
     </xsd:annotation>
@@ -4845,7 +4765,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for PROV Role Type (u1i23yha2rvz5nbxjz3l8x48) -->
-  <xsd:complexType name="mc-myzctyx72rvpfr21ay3smp4o">
+  <xsd:complexType name="mc-tzu90698tromvd9gt5cvsgv8">
     <xsd:annotation>
       <xsd:documentation>Adapter for: PROV Role Type</xsd:documentation>
     </xsd:annotation>
@@ -4858,7 +4778,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Prescriber (f8ptus0eraxmipvhd96ddbdq) -->
-  <xsd:complexType name="mc-f8uorjo5pa1ub1s89ey9q5s2">
+  <xsd:complexType name="mc-fp466l5s9v731sls487vadcu">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Prescriber</xsd:documentation>
     </xsd:annotation>
@@ -4871,7 +4791,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Administering Facility (u1hjad8m99xlnkyj5clvjnpa) -->
-  <xsd:complexType name="mc-tay2005fw9sbxix5wya5d6z3">
+  <xsd:complexType name="mc-xfmy3bepuo5w0u29zk6nn27j">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Administering Facility</xsd:documentation>
     </xsd:annotation>
@@ -4884,7 +4804,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for contact_email (jtuheuri2wzfhctcjqv4ozmy) -->
-  <xsd:complexType name="mc-sb9ig4m145alo1shltk5a87h">
+  <xsd:complexType name="mc-nu1udyknttrsnhyz0cygn78i">
     <xsd:annotation>
       <xsd:documentation>Adapter for: contact_email</xsd:documentation>
     </xsd:annotation>
@@ -4897,7 +4817,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for contact_name (a127ihw8xbfbl24lbcvnspv0) -->
-  <xsd:complexType name="mc-p0v32jeaebojioog7wbjwauz">
+  <xsd:complexType name="mc-i4hntompu4o7q5p5rkhgdqd8">
     <xsd:annotation>
       <xsd:documentation>Adapter for: contact_name</xsd:documentation>
     </xsd:annotation>
@@ -4910,7 +4830,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for contact_phone (pdykwzsug7pfncjsrry73x1s) -->
-  <xsd:complexType name="mc-pewggzn1gj3qin3eyeoclr6e">
+  <xsd:complexType name="mc-w9rh6tjde15xkic9uiax22o3">
     <xsd:annotation>
       <xsd:documentation>Adapter for: contact_phone</xsd:documentation>
     </xsd:annotation>
@@ -4923,7 +4843,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for service_account_id (rw1cjzeynsl87va6gvhv2k7e) -->
-  <xsd:complexType name="mc-ojy4hjjt6h43hayu4h7cw0bm">
+  <xsd:complexType name="mc-fy3apj9qtgy3x0nd131hh4jn">
     <xsd:annotation>
       <xsd:documentation>Adapter for: service_account_id</xsd:documentation>
     </xsd:annotation>
@@ -4936,7 +4856,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_documentation_url (xvnv7mrhvfweajl72pmngeya) -->
-  <xsd:complexType name="mc-re7l2jjkg498eaj0xrc6xzuf">
+  <xsd:complexType name="mc-gpj38794d1yc2balu0c0xpc7">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_documentation_url</xsd:documentation>
     </xsd:annotation>
@@ -4949,7 +4869,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_service_endpoint (px6j779dnapp4fjlohula4mh) -->
-  <xsd:complexType name="mc-l4ts3o96hqozajatvyukd1ea">
+  <xsd:complexType name="mc-h3n6ykgqvom4oqixfnst5zy5">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_service_endpoint</xsd:documentation>
     </xsd:annotation>
@@ -4962,7 +4882,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_name (rsjfjz8m5z7a58h5793duqbs) -->
-  <xsd:complexType name="mc-oxfx9wd3k4icsjmv9yya0azp">
+  <xsd:complexType name="mc-cne4c4bm4eq4sirgtr6vathm">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_name</xsd:documentation>
     </xsd:annotation>
@@ -4975,7 +4895,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_runtime_environment (d839tf07spk43dmg0dqb939b) -->
-  <xsd:complexType name="mc-xrnhbl7hejy29z5o4v7difqx">
+  <xsd:complexType name="mc-m8rcsf08org3g17hbqebn3zd">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_runtime_environment</xsd:documentation>
     </xsd:annotation>
@@ -4988,7 +4908,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_vendor (frdwjm7fxt6f5x4wx78pv7bc) -->
-  <xsd:complexType name="mc-cq4g8hcx9wlgmg456yht7ktw">
+  <xsd:complexType name="mc-o7ei6rbavjvex6xpqemqtyu3">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_vendor</xsd:documentation>
     </xsd:annotation>
@@ -5001,7 +4921,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_version (tep9wanrrtqfw0k76huv6tvd) -->
-  <xsd:complexType name="mc-i9rxmpjg8mndnuntdr70u91g">
+  <xsd:complexType name="mc-ux2v4k8ugwkuj13bk4wv3zcg">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_version</xsd:documentation>
     </xsd:annotation>
@@ -5014,7 +4934,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Healthcare Record Attestation Reason (mxjh9oqcnjl6njqqi75odozh) -->
-  <xsd:complexType name="mc-llw9zl5b3lnkkts8zvmdadvg">
+  <xsd:complexType name="mc-fuku8xss3bpk4owqy4okxd09">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Healthcare Record Attestation Reason</xsd:documentation>
     </xsd:annotation>
@@ -5027,7 +4947,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Healthcare Records Protocol (emov6wuhen2tuyjlppqmmjjl) -->
-  <xsd:complexType name="mc-u61amwbdjxp6k8e42fpi7gje">
+  <xsd:complexType name="mc-md4jikyqqa3f15uhpl81rlq6">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Healthcare Records Protocol</xsd:documentation>
     </xsd:annotation>
@@ -5040,7 +4960,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Prescriber Participation Function (v5p12fdr4figf0k2rulfqrxl) -->
-  <xsd:complexType name="mc-xsuwywvz7s8xnv1qtmzcdcvb">
+  <xsd:complexType name="mc-vw4eopa0tgvb26kndn6gcf3g">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Prescriber Participation Function</xsd:documentation>
     </xsd:annotation>
@@ -5053,7 +4973,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Prescriber Participation Mode (ba1ezyhgf6aaw03an2uve57o) -->
-  <xsd:complexType name="mc-q0qm9eyxgli3kg6lunrw0iz1">
+  <xsd:complexType name="mc-gvoxmyn9s50p240fy4p4afk5">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Prescriber Participation Mode</xsd:documentation>
     </xsd:annotation>
@@ -5066,7 +4986,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Vaccination Facility Participation Function (trvg8tpie5w2zlf6b0nl3zhb) -->
-  <xsd:complexType name="mc-fldipeis9z2by7bj9fc9a1t9">
+  <xsd:complexType name="mc-a5ahesf7zdra3k3wjwe611g5">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Vaccination Facility Participation Function</xsd:documentation>
     </xsd:annotation>
@@ -5079,7 +4999,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Vaccination Facility Participation Mode (yi46egvfmz66gd0dhypl6t6m) -->
-  <xsd:complexType name="mc-rz4fe2otqjpdcu60t2kml3g3">
+  <xsd:complexType name="mc-bqpkxhdi4slm9v1dzccts3hs">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Vaccination Facility Participation Mode</xsd:documentation>
     </xsd:annotation>
@@ -5098,9 +5018,9 @@
 <xsd:complexType name="mc-w0lu0us3nbxaedfum9i8itpc" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-w0lu0us3nbxaedfum9i8itpc">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-w0lu0us3nbxaedfum9i8itpc">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Healthcare Governed Record</rdfs:label>
         <skos:closeMatch rdf:resource="https://www.wikidata.org/wiki/Q95459148"/>
 
@@ -5123,9 +5043,9 @@
 <xsd:complexType name="mc-ygtbvvmzcw3ukfsg3axqry97" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-ygtbvvmzcw3ukfsg3axqry97">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ygtbvvmzcw3ukfsg3axqry97">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Patient Record</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://hl7.org/fhir/"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1324077"/>
@@ -5142,8 +5062,8 @@
         <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-vhjvhm6vz2om2jfn6b923gw7"/>
         <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-eq4h86worv571cl5iiy9unkw"/>
         <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-hd9295k8o49j91lvgftul1a0"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-z16xo5uj1mi3dibl3ro3ufrl"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-zdd1wtyrryiurmvqseaivjr1"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-znhjge005ihiusslkmbcc4h4"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-qewbrtwou236nps3mor7g47w"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -5154,9 +5074,9 @@
 <xsd:complexType name="mc-xplqihmynccwa3o4o8s7gqml" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-xplqihmynccwa3o4o8s7gqml">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-xplqihmynccwa3o4o8s7gqml">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Allergies and Conditions</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q42982"/>
         <rdfs:isDefinedBy rdf:resource="https://hl7.org/fhir/"/>
@@ -5169,11 +5089,11 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Allergies and Conditions"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fiyhm1yos1t6svmprr836bx0"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-rzf4dwte7xet6gdue6lmj6py"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-kvgfcr3rme6fqpt6nn5h66qn"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-bofw0qcwpbypofxuwwcxiq2o"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fy92af172lvw70id7u1jgskn"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-s4qrt7w5kf0ljbulhkr8bxig"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-n5esg9h1syd9bm986i7bamfe"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-eoucquy4xrpbz0ic9ysuuh06"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-frovikr6mczb9am8gdp96tve"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fyaf37dusutkol5daod9ivsr"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -5184,9 +5104,9 @@
 <xsd:complexType name="mc-vhjvhm6vz2om2jfn6b923gw7" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-vhjvhm6vz2om2jfn6b923gw7">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-vhjvhm6vz2om2jfn6b923gw7">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Medications</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://hl7.org/fhir/"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q12140"/>
@@ -5199,11 +5119,11 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Medications"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-dk7pfc5jk1cn2b7n4zj6m6so"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-abx0p7u2r7v3ld052qonnyjo"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-wbv46a4twbyuwpwr7ybz3j2z"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-pfpxhdvami9iviftg37r2la2"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-x6ld5whgo7cyb51uusixmd3d"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-q9xusgfko7tq0idtt767mx1s"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-v4qahtpe58rqd769npphsroe"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-jik6dzw49n9vpp9jl42q8mju"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-z8l2pvmwpliq0ozkrhiqygaq"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-pc3cvfr6qvp2f9mabcmps0k1"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -5214,9 +5134,9 @@
 <xsd:complexType name="mc-eq4h86worv571cl5iiy9unkw" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-eq4h86worv571cl5iiy9unkw">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-eq4h86worv571cl5iiy9unkw">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Vaccination History</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.cdc.gov/vaccines/hcp/imz-schedules/index.html"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q93623446"/>
@@ -5229,9 +5149,9 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Vaccination History"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-el0cz3iurka072fggj4hx49f"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-j7ar4kki6mv0r7ocr6ow3qhl"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-qydut841yrwpnp46ookn2ggn"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-lvs7ao5um53z3jv65o5oq4uz"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-v7gox7q6zxx8ipuxhrapfzqm"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-zcc5r1ovfvuluysxeycbjnd1"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -5242,9 +5162,9 @@
 <xsd:complexType name="mc-hd9295k8o49j91lvgftul1a0" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-hd9295k8o49j91lvgftul1a0">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-hd9295k8o49j91lvgftul1a0">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Visit Record</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q29182"/>
         <rdfs:isDefinedBy rdf:resource="https://hl7.org/fhir/"/>
@@ -5257,18 +5177,18 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Visit Record"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-whrsz97tqb4o168mzr4mflu6"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xk9xcbv60fx8le5wx8b3owby"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-stzcsbchyfvy4z7r35fxkw6b"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-o03ksbpzw3yx4v9scegdc7el"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-mgms7fe9u8u1h96ljom48dc4"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-meit785z0ugz2andc6ff2kgo"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-dzafdnv507rgc8sxqqa2ltf5"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-w9offwxy24rsztc11j7zx0ug"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-zvkl8ctcg237iqwtyyrwenoq"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-vgq6d2vts14o1zo4491cf6d4"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-q867tp1yaobktelz3gpvfa64"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-pe9rnuja4xuk2wyoyfkfdo9o"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-rm0gvn3ui1w8votbxmiko5aw"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xan7hxrlwklxviwak9lt6o42"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-wpme2iasw1par7e03283b4xb"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-idwt19cqrc6onlgh58zgtpc4"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-oy7l6tk0oujtuu4wrt34o24l"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-hsmxuztuixmgcw9v5q7jzgjr"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-htn9sz8c4matcox3ve4l9da2"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-qm88d2siwnsr593w5wfl1dys"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-r6hmxb2ffy1xa4bfzkhl4hzc"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-qbqkd12dorlvir84ppvvx407"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-f3em11o3sn0xc1bspxu0kwky"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-e5ppb31jh3m59mc7j5tykw4n"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -5279,9 +5199,9 @@
 <xsd:complexType name="mc-hdhjfg00tngir2txgqyka9cv" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-hdhjfg00tngir2txgqyka9cv">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-hdhjfg00tngir2txgqyka9cv">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Provenance Components</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1172162"/>
 
@@ -5292,13 +5212,13 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Provenance Components"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-c5016skbmb8jg39cysvwc65a"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-rpaz1widq2u7qox2n8r6lohf"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-eu0hd4f95yni58yexux8yqek"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-dzaswthq3j4qi7yuqvkf9c04"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-qhgvqe89m9q7zz5l8clyufra"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-yyquv6xw4po00iif4c57j118"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-y6rt146tgmkdixx2fs5d8ngf"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-zq30a9nd3e81chjuegfute92"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-f06do6ti2g0iq4dwqvh0vt5h"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-e977pl4hz4cqpzeuktkwq7ra"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-mmoil9uicuueekqgahr4bgl3"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-zc65p4q9n6t9gmxrkt6rbnjs"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ls1lj0sx2ctjb1fdlm5tiigo"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-zt7o7kc2wjo7yjtn0wjpv2ax"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -5309,9 +5229,9 @@
 <xsd:complexType name="mc-q8mgqxefnj2v39cn83lsjetb" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-q8mgqxefnj2v39cn83lsjetb">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-q8mgqxefnj2v39cn83lsjetb">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Primary Care Assignment</rdfs:label>
         <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:isDefinedBy rdf:resource="https://hl7.org/fhir/"/>
@@ -5326,14 +5246,14 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Primary Care Assignment"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-foy9k668u4n5kbf15padwrdq"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-bobto9tpghwst4yma8yn3hjr"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-kdlyo87nc106f28dxh6mzrbu"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-okjulritk6unhq2vdntlstvg"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-j2b6uta0dbo9jkdm0nhrohjy"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fn108swkt2kfwngs2t68dls8"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xgf4z67o1auwa0d4ot1c62tb"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-m5e9dgge8a4n02mgf7ote6g4"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-yd965bwc91i5v8dget9b8tdn"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-whr9bj7wvjnmsog8ex8xiy1j"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-x87r6seuuvci2bru3grgq9wh"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-zhhhel1tlokthixqf91rfz71"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ufazrt6dnhndc3dk5h9ck6cg"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-umz7lmf73fq5no0x9azymz19"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-hgyzoor8ky56cp9t9iw4iskq"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-i11qg3un16pq1m6njovcw8zz"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -5344,9 +5264,9 @@
 <xsd:complexType name="mc-5scaiw897xhuqa1k8sso932e" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-5scaiw897xhuqa1k8sso932e">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-5scaiw897xhuqa1k8sso932e">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Healthcare Provider</rdfs:label>
         <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:isDefinedBy rdf:resource="https://hl7.org/fhir/"/>
@@ -5361,14 +5281,14 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Healthcare Provider"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-nmgtr2p56oo16a0s01zn3ugk"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-bobto9tpghwst4yma8yn3hjr"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-kdlyo87nc106f28dxh6mzrbu"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-okjulritk6unhq2vdntlstvg"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-j2b6uta0dbo9jkdm0nhrohjy"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fn108swkt2kfwngs2t68dls8"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-m5e9dgge8a4n02mgf7ote6g4"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-myzctyx72rvpfr21ay3smp4o"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-k36myawd3u9ilc6k9iewpg5r"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-whr9bj7wvjnmsog8ex8xiy1j"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-x87r6seuuvci2bru3grgq9wh"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-zhhhel1tlokthixqf91rfz71"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ufazrt6dnhndc3dk5h9ck6cg"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-umz7lmf73fq5no0x9azymz19"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-i11qg3un16pq1m6njovcw8zz"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-tzu90698tromvd9gt5cvsgv8"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -5379,9 +5299,9 @@
 <xsd:complexType name="mc-7gkespcenmxwbctpbwjs43yk" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-7gkespcenmxwbctpbwjs43yk">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-7gkespcenmxwbctpbwjs43yk">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Prescriber</rdfs:label>
         <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:isDefinedBy rdf:resource="https://hl7.org/fhir/"/>
@@ -5396,12 +5316,12 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Prescriber"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-f8uorjo5pa1ub1s89ey9q5s2"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-bobto9tpghwst4yma8yn3hjr"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-j2b6uta0dbo9jkdm0nhrohjy"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fn108swkt2kfwngs2t68dls8"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-m5e9dgge8a4n02mgf7ote6g4"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-myzctyx72rvpfr21ay3smp4o"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fp466l5s9v731sls487vadcu"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-whr9bj7wvjnmsog8ex8xiy1j"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ufazrt6dnhndc3dk5h9ck6cg"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-umz7lmf73fq5no0x9azymz19"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-i11qg3un16pq1m6njovcw8zz"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-tzu90698tromvd9gt5cvsgv8"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -5412,9 +5332,9 @@
 <xsd:complexType name="mc-0khgfzp8h42kw99wj07udbzw" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-0khgfzp8h42kw99wj07udbzw">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-0khgfzp8h42kw99wj07udbzw">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Administering Facility</rdfs:label>
         <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:isDefinedBy rdf:resource="https://hl7.org/fhir/"/>
@@ -5429,11 +5349,11 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Administering Facility"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-tay2005fw9sbxix5wya5d6z3"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-kdlyo87nc106f28dxh6mzrbu"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-okjulritk6unhq2vdntlstvg"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xgf4z67o1auwa0d4ot1c62tb"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-m5e9dgge8a4n02mgf7ote6g4"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xfmy3bepuo5w0u29zk6nn27j"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-x87r6seuuvci2bru3grgq9wh"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-zhhhel1tlokthixqf91rfz71"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-hgyzoor8ky56cp9t9iw4iskq"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-i11qg3un16pq1m6njovcw8zz"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -5444,9 +5364,9 @@
 <xsd:complexType name="mc-w06vxo6uxtrzjkimmafmue7g" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-w06vxo6uxtrzjkimmafmue7g">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-w06vxo6uxtrzjkimmafmue7g">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Contact and Access</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2996679"/>
         <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
@@ -5458,10 +5378,10 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Contact and Access"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-sb9ig4m145alo1shltk5a87h"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-p0v32jeaebojioog7wbjwauz"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-pewggzn1gj3qin3eyeoclr6e"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ojy4hjjt6h43hayu4h7cw0bm"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-nu1udyknttrsnhyz0cygn78i"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-i4hntompu4o7q5p5rkhgdqd8"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-w9rh6tjde15xkic9uiax22o3"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fy3apj9qtgy3x0nd131hh4jn"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -5472,9 +5392,9 @@
 <xsd:complexType name="mc-km4azswrxe9tdrjmqvun5463" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-km4azswrxe9tdrjmqvun5463">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-km4azswrxe9tdrjmqvun5463">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Software Agent Details</rdfs:label>
         <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2297769"/>
@@ -5486,12 +5406,12 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Software Agent Details"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-re7l2jjkg498eaj0xrc6xzuf"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-l4ts3o96hqozajatvyukd1ea"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-oxfx9wd3k4icsjmv9yya0azp"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xrnhbl7hejy29z5o4v7difqx"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-cq4g8hcx9wlgmg456yht7ktw"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-i9rxmpjg8mndnuntdr70u91g"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-gpj38794d1yc2balu0c0xpc7"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-h3n6ykgqvom4oqixfnst5zy5"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-cne4c4bm4eq4sirgtr6vathm"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-m8rcsf08org3g17hbqebn3zd"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-o7ei6rbavjvex6xpqemqtyu3"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ux2v4k8ugwkuj13bk4wv3zcg"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -5502,9 +5422,9 @@
 <xsd:complexType name="mc-ylue5x7upcvcrat329hmnv9z" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-ylue5x7upcvcrat329hmnv9z">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ylue5x7upcvcrat329hmnv9z">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Healthcare Record Workflow</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://hl7.org/fhir/"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Activity"/>
@@ -5519,175 +5439,175 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Healthcare Record Workflow"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-llw9zl5b3lnkkts8zvmdadvg"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-u61amwbdjxp6k8e42fpi7gje"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xsuwywvz7s8xnv1qtmzcdcvb"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-q0qm9eyxgli3kg6lunrw0iz1"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fldipeis9z2by7bj9fc9a1t9"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-rz4fe2otqjpdcu60t2kml3g3"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fuku8xss3bpk4owqy4okxd09"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-md4jikyqqa3f15uhpl81rlq6"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-vw4eopa0tgvb26kndn6gcf3g"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-gvoxmyn9s50p240fy4p4afk5"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-a5ahesf7zdra3k3wjwe611g5"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-bqpkxhdi4slm9v1dzccts3hs"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
 </xsd:complexType>
 
 <!-- Substitution Groups -->
-  <xsd:element name="ms-b5zse0kmvpkj74ggqvgk647l" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-b5zse0kmvpkj74ggqvgk647l"/>
-  <xsd:element name="ms-frdwjm7fxt6f5x4wx78pv7bc" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc"/>
-  <xsd:element name="ms-tz13p9d4dpbw3pe9bx51nbou" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tz13p9d4dpbw3pe9bx51nbou"/>
-  <xsd:element name="ms-qvmb5f4xmy56y98q8raelpl9" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-qvmb5f4xmy56y98q8raelpl9"/>
-  <xsd:element name="ms-tep9wanrrtqfw0k76huv6tvd" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tep9wanrrtqfw0k76huv6tvd"/>
-  <xsd:element name="ms-vhjvhm6vz2om2jfn6b923gw7" substitutionGroup="sdc4:Item" type="sdc4:mc-vhjvhm6vz2om2jfn6b923gw7"/>
-  <xsd:element name="ms-5scaiw897xhuqa1k8sso932e" substitutionGroup="sdc4:Item" type="sdc4:mc-5scaiw897xhuqa1k8sso932e"/>
-  <xsd:element name="ms-ndvtjiq0cke0q1trw58rtrq2" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"/>
-  <xsd:element name="ms-tzzp7weh4dmg323u6kfalo0g" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tzzp7weh4dmg323u6kfalo0g"/>
-  <xsd:element name="ms-1fjdouzda29z43u2spfcbpig" substitutionGroup="sdc4:Participation" type="sdc4:mc-1fjdouzda29z43u2spfcbpig"/>
-  <xsd:element name="ms-ygtbvvmzcw3ukfsg3axqry97" substitutionGroup="sdc4:Item" type="sdc4:mc-ygtbvvmzcw3ukfsg3axqry97"/>
-  <xsd:element name="ms-cntj1t9t2xjugnux1enpigmf" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-cntj1t9t2xjugnux1enpigmf"/>
-  <xsd:element name="ms-px6j779dnapp4fjlohula4mh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-px6j779dnapp4fjlohula4mh"/>
-  <xsd:element name="ms-pdykwzsug7pfncjsrry73x1s" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-pdykwzsug7pfncjsrry73x1s"/>
-  <xsd:element name="ms-hdhjfg00tngir2txgqyka9cv" substitutionGroup="sdc4:Item" type="sdc4:mc-hdhjfg00tngir2txgqyka9cv"/>
-  <xsd:element name="ms-trvg8tpie5w2zlf6b0nl3zhb" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-trvg8tpie5w2zlf6b0nl3zhb"/>
-  <xsd:element name="ms-y7k4p12co0b9v6asll531fhv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-y7k4p12co0b9v6asll531fhv"/>
-  <xsd:element name="ms-qzmcum3kwmskrkj7nhkf8fkm" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-qzmcum3kwmskrkj7nhkf8fkm"/>
-  <xsd:element name="ms-ifw5zfe4oiijbxjn1ylc2wm3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"/>
-  <xsd:element name="ms-lu2w1avj9fic5wrmyftt9fhi" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-lu2w1avj9fic5wrmyftt9fhi"/>
-  <xsd:element name="ms-f8ptus0eraxmipvhd96ddbdq" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-f8ptus0eraxmipvhd96ddbdq"/>
-  <xsd:element name="ms-emov6wuhen2tuyjlppqmmjjl" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-emov6wuhen2tuyjlppqmmjjl"/>
-  <xsd:element name="ms-dnxrp0bpfs33b4x5ks8he9ag" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-dnxrp0bpfs33b4x5ks8he9ag"/>
-  <xsd:element name="ms-w06vxo6uxtrzjkimmafmue7g" substitutionGroup="sdc4:Item" type="sdc4:mc-w06vxo6uxtrzjkimmafmue7g"/>
-  <xsd:element name="ms-td5j1frz2fa8g4uh1hor7w11" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-td5j1frz2fa8g4uh1hor7w11"/>
-  <xsd:element name="ms-gug5dhtqfv7exbgmm2raxpkq" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
-  <xsd:element name="ms-tjxxdsd6idyzqygrncojauxn" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tjxxdsd6idyzqygrncojauxn"/>
-  <xsd:element name="ms-q8mgqxefnj2v39cn83lsjetb" substitutionGroup="sdc4:Item" type="sdc4:mc-q8mgqxefnj2v39cn83lsjetb"/>
-  <xsd:element name="ms-u1i23yha2rvz5nbxjz3l8x48" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-u1i23yha2rvz5nbxjz3l8x48"/>
-  <xsd:element name="ms-07osold8ovbjsqzvz00f3ked2" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-07osold8ovbjsqzvz00f3ked2"/>
-  <xsd:element name="ms-fi1qu4j2zd0801fcqtix35h5" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-fi1qu4j2zd0801fcqtix35h5"/>
-  <xsd:element name="ms-dyfz05n20jhc1elhozrbjug0" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-dyfz05n20jhc1elhozrbjug0"/>
-  <xsd:element name="ms-m9xg6e182m1oq77ssrf9iujv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-m9xg6e182m1oq77ssrf9iujv"/>
-  <xsd:element name="ms-bc1ivx4vqa5gh3p5l1pjs1q2" substitutionGroup="sdc4:Party" type="sdc4:mc-bc1ivx4vqa5gh3p5l1pjs1q2"/>
-  <xsd:element name="ms-jtuheuri2wzfhctcjqv4ozmy" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-jtuheuri2wzfhctcjqv4ozmy"/>
-  <xsd:element name="ms-hbk1xmzqefk2lchmd7jooz7a" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-hbk1xmzqefk2lchmd7jooz7a"/>
-  <xsd:element name="ms-s6oo99lbq85kfz0v5nqv9yaf" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-s6oo99lbq85kfz0v5nqv9yaf"/>
-  <xsd:element name="ms-zs9ciw4nypx4plo856h3m95d" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zs9ciw4nypx4plo856h3m95d"/>
-  <xsd:element name="ms-w0lu0us3nbxaedfum9i8itpc" substitutionGroup="sdc4:Item" type="sdc4:mc-w0lu0us3nbxaedfum9i8itpc"/>
-  <xsd:element name="ms-mxjh9oqcnjl6njqqi75odozh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-mxjh9oqcnjl6njqqi75odozh"/>
-  <xsd:element name="ms-hwbq0pr8aqy2qp16ehbhu2ga" substitutionGroup="sdc4:Participation" type="sdc4:mc-hwbq0pr8aqy2qp16ehbhu2ga"/>
-  <xsd:element name="ms-rw1cjzeynsl87va6gvhv2k7e" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rw1cjzeynsl87va6gvhv2k7e"/>
-  <xsd:element name="ms-ntk4zsr15bcca2jmocdkcpcc" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ntk4zsr15bcca2jmocdkcpcc"/>
-  <xsd:element name="ms-y28mhe3jdzi9b8ztn3fxodtf" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf"/>
-  <xsd:element name="ms-iprf7jqg9emvm92wo9gkiqcu" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-iprf7jqg9emvm92wo9gkiqcu"/>
-  <xsd:element name="ms-eq4h86worv571cl5iiy9unkw" substitutionGroup="sdc4:Item" type="sdc4:mc-eq4h86worv571cl5iiy9unkw"/>
-  <xsd:element name="ms-xvnv7mrhvfweajl72pmngeya" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-xvnv7mrhvfweajl72pmngeya"/>
-  <xsd:element name="ms-l9sjn7wj10y5b27ldkv3j8mt" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-l9sjn7wj10y5b27ldkv3j8mt"/>
-  <xsd:element name="ms-rsjfjz8m5z7a58h5793duqbs" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rsjfjz8m5z7a58h5793duqbs"/>
-  <xsd:element name="ms-lccs354vpxmtyo69ba5cu48v" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-lccs354vpxmtyo69ba5cu48v"/>
-  <xsd:element name="ms-ule5u2z3rjpa9pooaifwj1n3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"/>
-  <xsd:element name="ms-edvvjznmaoibzmfna0uuoo37" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-edvvjznmaoibzmfna0uuoo37"/>
-  <xsd:element name="ms-cm0nqqnjcylc8vkfph7db2lh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-cm0nqqnjcylc8vkfph7db2lh"/>
-  <xsd:element name="ms-yi46egvfmz66gd0dhypl6t6m" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-yi46egvfmz66gd0dhypl6t6m"/>
-  <xsd:element name="ms-z28bjtjekyybe300ukuyjpi4" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-z28bjtjekyybe300ukuyjpi4"/>
-  <xsd:element name="ms-v5p12fdr4figf0k2rulfqrxl" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-v5p12fdr4figf0k2rulfqrxl"/>
-  <xsd:element name="ms-cq6m46w59ouu1cu8tkw1fhib" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-cq6m46w59ouu1cu8tkw1fhib"/>
-  <xsd:element name="ms-hhfnj5hd1yzt252jfq5pdjj1" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"/>
-  <xsd:element name="ms-hzkatya8ymk8xmbuecb7jfae" substitutionGroup="sdc4:Party" type="sdc4:mc-hzkatya8ymk8xmbuecb7jfae"/>
-  <xsd:element name="ms-o72s5793973fzho35rnaughs" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-o72s5793973fzho35rnaughs"/>
-  <xsd:element name="ms-vyscq0dtz0hsigh2hbsvqajr" substitutionGroup="sdc4:Party" type="sdc4:mc-vyscq0dtz0hsigh2hbsvqajr"/>
-  <xsd:element name="ms-0khgfzp8h42kw99wj07udbzw" substitutionGroup="sdc4:Item" type="sdc4:mc-0khgfzp8h42kw99wj07udbzw"/>
-  <xsd:element name="ms-bpqtzla39dwentygpwea8276" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bpqtzla39dwentygpwea8276"/>
-  <xsd:element name="ms-ylue5x7upcvcrat329hmnv9z" substitutionGroup="sdc4:Item" type="sdc4:mc-ylue5x7upcvcrat329hmnv9z"/>
-  <xsd:element name="ms-vh2scyehy68pw7sbvzdg3cn9" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-vh2scyehy68pw7sbvzdg3cn9"/>
-  <xsd:element name="ms-kokquuk73pm2ohlh4ftnu7wb" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-kokquuk73pm2ohlh4ftnu7wb"/>
   <xsd:element name="ms-u1hjad8m99xlnkyj5clvjnpa" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-u1hjad8m99xlnkyj5clvjnpa"/>
-  <xsd:element name="ms-fotc5adg15ek2b9ermx2mcih" substitutionGroup="sdc4:Audit" type="sdc4:mc-fotc5adg15ek2b9ermx2mcih"/>
-  <xsd:element name="ms-cuxxvwyqn5vhlqjymovegmn7" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-cuxxvwyqn5vhlqjymovegmn7"/>
-  <xsd:element name="ms-uoah076eqs0x6qkh1eadvoob" substitutionGroup="sdc4:ReferenceRange" type="sdc4:mc-uoah076eqs0x6qkh1eadvoob-rr"/>
-  <xsd:element name="ms-hd9295k8o49j91lvgftul1a0" substitutionGroup="sdc4:Item" type="sdc4:mc-hd9295k8o49j91lvgftul1a0"/>
-  <xsd:element name="ms-q8x2nc8i8ud3tqo42g850vwz" substitutionGroup="sdc4:Attestation" type="sdc4:mc-q8x2nc8i8ud3tqo42g850vwz"/>
-  <xsd:element name="ms-iufcfze52lha16v84kccgxyh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-iufcfze52lha16v84kccgxyh"/>
-  <xsd:element name="ms-yjuzkpzh4d55dto22xdfnj1w" substitutionGroup="sdc4:ReferenceRange" type="sdc4:mc-yjuzkpzh4d55dto22xdfnj1w-rr"/>
-  <xsd:element name="ms-km4azswrxe9tdrjmqvun5463" substitutionGroup="sdc4:Item" type="sdc4:mc-km4azswrxe9tdrjmqvun5463"/>
-  <xsd:element name="ms-d839tf07spk43dmg0dqb939b" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-d839tf07spk43dmg0dqb939b"/>
-  <xsd:element name="ms-ylyt91vrvzgmx1yc7d06dfyv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv"/>
-  <xsd:element name="ms-v44d5xo2wdxttf9kq5zm4o1h" substitutionGroup="sdc4:ReferenceRange" type="sdc4:mc-v44d5xo2wdxttf9kq5zm4o1h-rr"/>
-  <xsd:element name="ms-zr59goe24qkocprl3feul3mt" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zr59goe24qkocprl3feul3mt"/>
-  <xsd:element name="ms-nesxtz8c5o665swc9lhvqkjj" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nesxtz8c5o665swc9lhvqkjj"/>
+  <xsd:element name="ms-yi46egvfmz66gd0dhypl6t6m" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-yi46egvfmz66gd0dhypl6t6m"/>
   <xsd:element name="ms-a127ihw8xbfbl24lbcvnspv0" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-a127ihw8xbfbl24lbcvnspv0"/>
-  <xsd:element name="ms-vitwhq5xsptnokmfq11b1jos" substitutionGroup="sdc4:Party" type="sdc4:mc-vitwhq5xsptnokmfq11b1jos"/>
-  <xsd:element name="ms-nnu04d5qgrmn1bim8bpu0l65" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nnu04d5qgrmn1bim8bpu0l65"/>
-  <xsd:element name="ms-jz2hqntyol8lopw6q6zdud78" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-jz2hqntyol8lopw6q6zdud78"/>
-  <xsd:element name="ms-fnodzqkbyskwe7nh58rs336k" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-fnodzqkbyskwe7nh58rs336k"/>
+  <xsd:element name="ms-kokquuk73pm2ohlh4ftnu7wb" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-kokquuk73pm2ohlh4ftnu7wb"/>
+  <xsd:element name="ms-bpqtzla39dwentygpwea8276" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bpqtzla39dwentygpwea8276"/>
+  <xsd:element name="ms-y7k4p12co0b9v6asll531fhv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-y7k4p12co0b9v6asll531fhv"/>
+  <xsd:element name="ms-jtuheuri2wzfhctcjqv4ozmy" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-jtuheuri2wzfhctcjqv4ozmy"/>
+  <xsd:element name="ms-z28bjtjekyybe300ukuyjpi4" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-z28bjtjekyybe300ukuyjpi4"/>
+  <xsd:element name="ms-zr59goe24qkocprl3feul3mt" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zr59goe24qkocprl3feul3mt"/>
   <xsd:element name="ms-p14jkmk8xqs97daq3zvyhrsj" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-p14jkmk8xqs97daq3zvyhrsj"/>
-  <xsd:element name="ms-nj7s1gk45tfgyooxpz0qaha3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"/>
-  <xsd:element name="ms-ccj1yq2wtwknobszkgzzdbtr" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ccj1yq2wtwknobszkgzzdbtr"/>
-  <xsd:element name="ms-bd3s8t23d6m3zizmpwavc32y" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bd3s8t23d6m3zizmpwavc32y"/>
-  <xsd:element name="ms-4tqaalcjeojrh2e068qzlpjy" substitutionGroup="sdc4:Party" type="sdc4:mc-4tqaalcjeojrh2e068qzlpjy"/>
-  <xsd:element name="ms-xplqihmynccwa3o4o8s7gqml" substitutionGroup="sdc4:Item" type="sdc4:mc-xplqihmynccwa3o4o8s7gqml"/>
-  <xsd:element name="ms-ihugcgyqyfjp3u9y5qva1fwz" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ihugcgyqyfjp3u9y5qva1fwz"/>
   <xsd:element name="ms-7gkespcenmxwbctpbwjs43yk" substitutionGroup="sdc4:Item" type="sdc4:mc-7gkespcenmxwbctpbwjs43yk"/>
+  <xsd:element name="ms-l9sjn7wj10y5b27ldkv3j8mt" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-l9sjn7wj10y5b27ldkv3j8mt"/>
+  <xsd:element name="ms-0khgfzp8h42kw99wj07udbzw" substitutionGroup="sdc4:Item" type="sdc4:mc-0khgfzp8h42kw99wj07udbzw"/>
+  <xsd:element name="ms-4tqaalcjeojrh2e068qzlpjy" substitutionGroup="sdc4:Party" type="sdc4:mc-4tqaalcjeojrh2e068qzlpjy"/>
+  <xsd:element name="ms-zs9ciw4nypx4plo856h3m95d" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zs9ciw4nypx4plo856h3m95d"/>
+  <xsd:element name="ms-ccj1yq2wtwknobszkgzzdbtr" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ccj1yq2wtwknobszkgzzdbtr"/>
+  <xsd:element name="ms-s6oo99lbq85kfz0v5nqv9yaf" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-s6oo99lbq85kfz0v5nqv9yaf"/>
+  <xsd:element name="ms-iufcfze52lha16v84kccgxyh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-iufcfze52lha16v84kccgxyh"/>
+  <xsd:element name="ms-xplqihmynccwa3o4o8s7gqml" substitutionGroup="sdc4:Item" type="sdc4:mc-xplqihmynccwa3o4o8s7gqml"/>
+  <xsd:element name="ms-edvvjznmaoibzmfna0uuoo37" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-edvvjznmaoibzmfna0uuoo37"/>
+  <xsd:element name="ms-hwbq0pr8aqy2qp16ehbhu2ga" substitutionGroup="sdc4:Participation" type="sdc4:mc-hwbq0pr8aqy2qp16ehbhu2ga"/>
+  <xsd:element name="ms-dnxrp0bpfs33b4x5ks8he9ag" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-dnxrp0bpfs33b4x5ks8he9ag"/>
+  <xsd:element name="ms-bc1ivx4vqa5gh3p5l1pjs1q2" substitutionGroup="sdc4:Party" type="sdc4:mc-bc1ivx4vqa5gh3p5l1pjs1q2"/>
+  <xsd:element name="ms-5scaiw897xhuqa1k8sso932e" substitutionGroup="sdc4:Item" type="sdc4:mc-5scaiw897xhuqa1k8sso932e"/>
+  <xsd:element name="ms-q8x2nc8i8ud3tqo42g850vwz" substitutionGroup="sdc4:Attestation" type="sdc4:mc-q8x2nc8i8ud3tqo42g850vwz"/>
+  <xsd:element name="ms-hdhjfg00tngir2txgqyka9cv" substitutionGroup="sdc4:Item" type="sdc4:mc-hdhjfg00tngir2txgqyka9cv"/>
+  <xsd:element name="ms-ndvtjiq0cke0q1trw58rtrq2" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"/>
+  <xsd:element name="ms-ule5u2z3rjpa9pooaifwj1n3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"/>
+  <xsd:element name="ms-y28mhe3jdzi9b8ztn3fxodtf" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf"/>
+  <xsd:element name="ms-hbk1xmzqefk2lchmd7jooz7a" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-hbk1xmzqefk2lchmd7jooz7a"/>
+  <xsd:element name="ms-cm0nqqnjcylc8vkfph7db2lh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-cm0nqqnjcylc8vkfph7db2lh"/>
+  <xsd:element name="ms-frdwjm7fxt6f5x4wx78pv7bc" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc"/>
   <xsd:element name="ms-ba1ezyhgf6aaw03an2uve57o" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ba1ezyhgf6aaw03an2uve57o"/>
+  <xsd:element name="ms-w06vxo6uxtrzjkimmafmue7g" substitutionGroup="sdc4:Item" type="sdc4:mc-w06vxo6uxtrzjkimmafmue7g"/>
+  <xsd:element name="ms-fi1qu4j2zd0801fcqtix35h5" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-fi1qu4j2zd0801fcqtix35h5"/>
+  <xsd:element name="ms-qzmcum3kwmskrkj7nhkf8fkm" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-qzmcum3kwmskrkj7nhkf8fkm"/>
+  <xsd:element name="ms-lu2w1avj9fic5wrmyftt9fhi" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-lu2w1avj9fic5wrmyftt9fhi"/>
+  <xsd:element name="ms-q8mgqxefnj2v39cn83lsjetb" substitutionGroup="sdc4:Item" type="sdc4:mc-q8mgqxefnj2v39cn83lsjetb"/>
   <xsd:element name="ms-nomiekce61caq5n9a49d0eu6" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nomiekce61caq5n9a49d0eu6"/>
+  <xsd:element name="ms-vyscq0dtz0hsigh2hbsvqajr" substitutionGroup="sdc4:Party" type="sdc4:mc-vyscq0dtz0hsigh2hbsvqajr"/>
+  <xsd:element name="ms-ntk4zsr15bcca2jmocdkcpcc" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ntk4zsr15bcca2jmocdkcpcc"/>
+  <xsd:element name="ms-uoah076eqs0x6qkh1eadvoob" substitutionGroup="sdc4:ReferenceRange" type="sdc4:mc-uoah076eqs0x6qkh1eadvoob-rr"/>
+  <xsd:element name="ms-ihugcgyqyfjp3u9y5qva1fwz" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ihugcgyqyfjp3u9y5qva1fwz"/>
+  <xsd:element name="ms-fnodzqkbyskwe7nh58rs336k" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-fnodzqkbyskwe7nh58rs336k"/>
+  <xsd:element name="ms-pdykwzsug7pfncjsrry73x1s" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-pdykwzsug7pfncjsrry73x1s"/>
+  <xsd:element name="ms-f8ptus0eraxmipvhd96ddbdq" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-f8ptus0eraxmipvhd96ddbdq"/>
+  <xsd:element name="ms-mxjh9oqcnjl6njqqi75odozh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-mxjh9oqcnjl6njqqi75odozh"/>
+  <xsd:element name="ms-trvg8tpie5w2zlf6b0nl3zhb" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-trvg8tpie5w2zlf6b0nl3zhb"/>
+  <xsd:element name="ms-ygtbvvmzcw3ukfsg3axqry97" substitutionGroup="sdc4:Item" type="sdc4:mc-ygtbvvmzcw3ukfsg3axqry97"/>
+  <xsd:element name="ms-td5j1frz2fa8g4uh1hor7w11" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-td5j1frz2fa8g4uh1hor7w11"/>
+  <xsd:element name="ms-v5p12fdr4figf0k2rulfqrxl" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-v5p12fdr4figf0k2rulfqrxl"/>
+  <xsd:element name="ms-tz13p9d4dpbw3pe9bx51nbou" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tz13p9d4dpbw3pe9bx51nbou"/>
+  <xsd:element name="ms-hzkatya8ymk8xmbuecb7jfae" substitutionGroup="sdc4:Party" type="sdc4:mc-hzkatya8ymk8xmbuecb7jfae"/>
+  <xsd:element name="ms-w0lu0us3nbxaedfum9i8itpc" substitutionGroup="sdc4:Item" type="sdc4:mc-w0lu0us3nbxaedfum9i8itpc"/>
+  <xsd:element name="ms-nj7s1gk45tfgyooxpz0qaha3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"/>
+  <xsd:element name="ms-yjuzkpzh4d55dto22xdfnj1w" substitutionGroup="sdc4:ReferenceRange" type="sdc4:mc-yjuzkpzh4d55dto22xdfnj1w-rr"/>
+  <xsd:element name="ms-cntj1t9t2xjugnux1enpigmf" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-cntj1t9t2xjugnux1enpigmf"/>
+  <xsd:element name="ms-ifw5zfe4oiijbxjn1ylc2wm3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"/>
+  <xsd:element name="ms-bd3s8t23d6m3zizmpwavc32y" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bd3s8t23d6m3zizmpwavc32y"/>
+  <xsd:element name="ms-hhfnj5hd1yzt252jfq5pdjj1" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"/>
+  <xsd:element name="ms-xvnv7mrhvfweajl72pmngeya" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-xvnv7mrhvfweajl72pmngeya"/>
+  <xsd:element name="ms-km4azswrxe9tdrjmqvun5463" substitutionGroup="sdc4:Item" type="sdc4:mc-km4azswrxe9tdrjmqvun5463"/>
+  <xsd:element name="ms-gug5dhtqfv7exbgmm2raxpkq" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
+  <xsd:element name="ms-lccs354vpxmtyo69ba5cu48v" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-lccs354vpxmtyo69ba5cu48v"/>
+  <xsd:element name="ms-o72s5793973fzho35rnaughs" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-o72s5793973fzho35rnaughs"/>
+  <xsd:element name="ms-tzzp7weh4dmg323u6kfalo0g" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tzzp7weh4dmg323u6kfalo0g"/>
+  <xsd:element name="ms-d839tf07spk43dmg0dqb939b" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-d839tf07spk43dmg0dqb939b"/>
+  <xsd:element name="ms-hd9295k8o49j91lvgftul1a0" substitutionGroup="sdc4:Item" type="sdc4:mc-hd9295k8o49j91lvgftul1a0"/>
+  <xsd:element name="ms-iprf7jqg9emvm92wo9gkiqcu" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-iprf7jqg9emvm92wo9gkiqcu"/>
+  <xsd:element name="ms-07osold8ovbjsqzvz00f3ked2" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-07osold8ovbjsqzvz00f3ked2"/>
+  <xsd:element name="ms-cq6m46w59ouu1cu8tkw1fhib" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-cq6m46w59ouu1cu8tkw1fhib"/>
+  <xsd:element name="ms-nnu04d5qgrmn1bim8bpu0l65" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nnu04d5qgrmn1bim8bpu0l65"/>
+  <xsd:element name="ms-u1i23yha2rvz5nbxjz3l8x48" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-u1i23yha2rvz5nbxjz3l8x48"/>
+  <xsd:element name="ms-tjxxdsd6idyzqygrncojauxn" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tjxxdsd6idyzqygrncojauxn"/>
+  <xsd:element name="ms-nesxtz8c5o665swc9lhvqkjj" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nesxtz8c5o665swc9lhvqkjj"/>
+  <xsd:element name="ms-ylyt91vrvzgmx1yc7d06dfyv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv"/>
+  <xsd:element name="ms-vitwhq5xsptnokmfq11b1jos" substitutionGroup="sdc4:Party" type="sdc4:mc-vitwhq5xsptnokmfq11b1jos"/>
+  <xsd:element name="ms-vh2scyehy68pw7sbvzdg3cn9" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-vh2scyehy68pw7sbvzdg3cn9"/>
+  <xsd:element name="ms-ylue5x7upcvcrat329hmnv9z" substitutionGroup="sdc4:Item" type="sdc4:mc-ylue5x7upcvcrat329hmnv9z"/>
+  <xsd:element name="ms-cuxxvwyqn5vhlqjymovegmn7" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-cuxxvwyqn5vhlqjymovegmn7"/>
+  <xsd:element name="ms-rsjfjz8m5z7a58h5793duqbs" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rsjfjz8m5z7a58h5793duqbs"/>
+  <xsd:element name="ms-dyfz05n20jhc1elhozrbjug0" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-dyfz05n20jhc1elhozrbjug0"/>
+  <xsd:element name="ms-emov6wuhen2tuyjlppqmmjjl" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-emov6wuhen2tuyjlppqmmjjl"/>
+  <xsd:element name="ms-1fjdouzda29z43u2spfcbpig" substitutionGroup="sdc4:Participation" type="sdc4:mc-1fjdouzda29z43u2spfcbpig"/>
+  <xsd:element name="ms-fotc5adg15ek2b9ermx2mcih" substitutionGroup="sdc4:Audit" type="sdc4:mc-fotc5adg15ek2b9ermx2mcih"/>
+  <xsd:element name="ms-m9xg6e182m1oq77ssrf9iujv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-m9xg6e182m1oq77ssrf9iujv"/>
+  <xsd:element name="ms-b5zse0kmvpkj74ggqvgk647l" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-b5zse0kmvpkj74ggqvgk647l"/>
+  <xsd:element name="ms-tep9wanrrtqfw0k76huv6tvd" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tep9wanrrtqfw0k76huv6tvd"/>
+  <xsd:element name="ms-qvmb5f4xmy56y98q8raelpl9" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-qvmb5f4xmy56y98q8raelpl9"/>
   <xsd:element name="ms-cipk6pha3nz62dd4vwmkg5yo" substitutionGroup="sdc4:ReferenceRange" type="sdc4:mc-cipk6pha3nz62dd4vwmkg5yo-rr"/>
-  <xsd:element name="ms-re7l2jjkg498eaj0xrc6xzuf" substitutionGroup="sdc4:Item" type="sdc4:mc-re7l2jjkg498eaj0xrc6xzuf"/>
-  <xsd:element name="ms-meit785z0ugz2andc6ff2kgo" substitutionGroup="sdc4:Item" type="sdc4:mc-meit785z0ugz2andc6ff2kgo"/>
-  <xsd:element name="ms-dzafdnv507rgc8sxqqa2ltf5" substitutionGroup="sdc4:Item" type="sdc4:mc-dzafdnv507rgc8sxqqa2ltf5"/>
-  <xsd:element name="ms-fldipeis9z2by7bj9fc9a1t9" substitutionGroup="sdc4:Item" type="sdc4:mc-fldipeis9z2by7bj9fc9a1t9"/>
-  <xsd:element name="ms-cq4g8hcx9wlgmg456yht7ktw" substitutionGroup="sdc4:Item" type="sdc4:mc-cq4g8hcx9wlgmg456yht7ktw"/>
-  <xsd:element name="ms-pe9rnuja4xuk2wyoyfkfdo9o" substitutionGroup="sdc4:Item" type="sdc4:mc-pe9rnuja4xuk2wyoyfkfdo9o"/>
-  <xsd:element name="ms-pfpxhdvami9iviftg37r2la2" substitutionGroup="sdc4:Item" type="sdc4:mc-pfpxhdvami9iviftg37r2la2"/>
-  <xsd:element name="ms-stzcsbchyfvy4z7r35fxkw6b" substitutionGroup="sdc4:Item" type="sdc4:mc-stzcsbchyfvy4z7r35fxkw6b"/>
-  <xsd:element name="ms-okjulritk6unhq2vdntlstvg" substitutionGroup="sdc4:Item" type="sdc4:mc-okjulritk6unhq2vdntlstvg"/>
-  <xsd:element name="ms-kvgfcr3rme6fqpt6nn5h66qn" substitutionGroup="sdc4:Item" type="sdc4:mc-kvgfcr3rme6fqpt6nn5h66qn"/>
-  <xsd:element name="ms-w9offwxy24rsztc11j7zx0ug" substitutionGroup="sdc4:Item" type="sdc4:mc-w9offwxy24rsztc11j7zx0ug"/>
-  <xsd:element name="ms-oxfx9wd3k4icsjmv9yya0azp" substitutionGroup="sdc4:Item" type="sdc4:mc-oxfx9wd3k4icsjmv9yya0azp"/>
-  <xsd:element name="ms-xk9xcbv60fx8le5wx8b3owby" substitutionGroup="sdc4:Item" type="sdc4:mc-xk9xcbv60fx8le5wx8b3owby"/>
-  <xsd:element name="ms-f8uorjo5pa1ub1s89ey9q5s2" substitutionGroup="sdc4:Item" type="sdc4:mc-f8uorjo5pa1ub1s89ey9q5s2"/>
-  <xsd:element name="ms-mgms7fe9u8u1h96ljom48dc4" substitutionGroup="sdc4:Item" type="sdc4:mc-mgms7fe9u8u1h96ljom48dc4"/>
-  <xsd:element name="ms-xrnhbl7hejy29z5o4v7difqx" substitutionGroup="sdc4:Item" type="sdc4:mc-xrnhbl7hejy29z5o4v7difqx"/>
-  <xsd:element name="ms-foy9k668u4n5kbf15padwrdq" substitutionGroup="sdc4:Item" type="sdc4:mc-foy9k668u4n5kbf15padwrdq"/>
-  <xsd:element name="ms-i9rxmpjg8mndnuntdr70u91g" substitutionGroup="sdc4:Item" type="sdc4:mc-i9rxmpjg8mndnuntdr70u91g"/>
-  <xsd:element name="ms-u61amwbdjxp6k8e42fpi7gje" substitutionGroup="sdc4:Item" type="sdc4:mc-u61amwbdjxp6k8e42fpi7gje"/>
-  <xsd:element name="ms-dzaswthq3j4qi7yuqvkf9c04" substitutionGroup="sdc4:Item" type="sdc4:mc-dzaswthq3j4qi7yuqvkf9c04"/>
-  <xsd:element name="ms-el0cz3iurka072fggj4hx49f" substitutionGroup="sdc4:Item" type="sdc4:mc-el0cz3iurka072fggj4hx49f"/>
-  <xsd:element name="ms-m5e9dgge8a4n02mgf7ote6g4" substitutionGroup="sdc4:Item" type="sdc4:mc-m5e9dgge8a4n02mgf7ote6g4"/>
-  <xsd:element name="ms-p0v32jeaebojioog7wbjwauz" substitutionGroup="sdc4:Item" type="sdc4:mc-p0v32jeaebojioog7wbjwauz"/>
-  <xsd:element name="ms-kdlyo87nc106f28dxh6mzrbu" substitutionGroup="sdc4:Item" type="sdc4:mc-kdlyo87nc106f28dxh6mzrbu"/>
-  <xsd:element name="ms-yyquv6xw4po00iif4c57j118" substitutionGroup="sdc4:Item" type="sdc4:mc-yyquv6xw4po00iif4c57j118"/>
-  <xsd:element name="ms-rzf4dwte7xet6gdue6lmj6py" substitutionGroup="sdc4:Item" type="sdc4:mc-rzf4dwte7xet6gdue6lmj6py"/>
-  <xsd:element name="ms-rz4fe2otqjpdcu60t2kml3g3" substitutionGroup="sdc4:Item" type="sdc4:mc-rz4fe2otqjpdcu60t2kml3g3"/>
-  <xsd:element name="ms-whrsz97tqb4o168mzr4mflu6" substitutionGroup="sdc4:Item" type="sdc4:mc-whrsz97tqb4o168mzr4mflu6"/>
-  <xsd:element name="ms-zdd1wtyrryiurmvqseaivjr1" substitutionGroup="sdc4:Item" type="sdc4:mc-zdd1wtyrryiurmvqseaivjr1"/>
-  <xsd:element name="ms-ojy4hjjt6h43hayu4h7cw0bm" substitutionGroup="sdc4:Item" type="sdc4:mc-ojy4hjjt6h43hayu4h7cw0bm"/>
-  <xsd:element name="ms-dk7pfc5jk1cn2b7n4zj6m6so" substitutionGroup="sdc4:Item" type="sdc4:mc-dk7pfc5jk1cn2b7n4zj6m6so"/>
-  <xsd:element name="ms-qhgvqe89m9q7zz5l8clyufra" substitutionGroup="sdc4:Item" type="sdc4:mc-qhgvqe89m9q7zz5l8clyufra"/>
-  <xsd:element name="ms-fy92af172lvw70id7u1jgskn" substitutionGroup="sdc4:Item" type="sdc4:mc-fy92af172lvw70id7u1jgskn"/>
-  <xsd:element name="ms-z16xo5uj1mi3dibl3ro3ufrl" substitutionGroup="sdc4:Item" type="sdc4:mc-z16xo5uj1mi3dibl3ro3ufrl"/>
-  <xsd:element name="ms-xsuwywvz7s8xnv1qtmzcdcvb" substitutionGroup="sdc4:Item" type="sdc4:mc-xsuwywvz7s8xnv1qtmzcdcvb"/>
-  <xsd:element name="ms-x6ld5whgo7cyb51uusixmd3d" substitutionGroup="sdc4:Item" type="sdc4:mc-x6ld5whgo7cyb51uusixmd3d"/>
-  <xsd:element name="ms-rpaz1widq2u7qox2n8r6lohf" substitutionGroup="sdc4:Item" type="sdc4:mc-rpaz1widq2u7qox2n8r6lohf"/>
-  <xsd:element name="ms-eu0hd4f95yni58yexux8yqek" substitutionGroup="sdc4:Item" type="sdc4:mc-eu0hd4f95yni58yexux8yqek"/>
-  <xsd:element name="ms-bobto9tpghwst4yma8yn3hjr" substitutionGroup="sdc4:Item" type="sdc4:mc-bobto9tpghwst4yma8yn3hjr"/>
-  <xsd:element name="ms-fn108swkt2kfwngs2t68dls8" substitutionGroup="sdc4:Item" type="sdc4:mc-fn108swkt2kfwngs2t68dls8"/>
-  <xsd:element name="ms-y6rt146tgmkdixx2fs5d8ngf" substitutionGroup="sdc4:Item" type="sdc4:mc-y6rt146tgmkdixx2fs5d8ngf"/>
-  <xsd:element name="ms-myzctyx72rvpfr21ay3smp4o" substitutionGroup="sdc4:Item" type="sdc4:mc-myzctyx72rvpfr21ay3smp4o"/>
-  <xsd:element name="ms-bofw0qcwpbypofxuwwcxiq2o" substitutionGroup="sdc4:Item" type="sdc4:mc-bofw0qcwpbypofxuwwcxiq2o"/>
-  <xsd:element name="ms-j7ar4kki6mv0r7ocr6ow3qhl" substitutionGroup="sdc4:Item" type="sdc4:mc-j7ar4kki6mv0r7ocr6ow3qhl"/>
-  <xsd:element name="ms-qydut841yrwpnp46ookn2ggn" substitutionGroup="sdc4:Item" type="sdc4:mc-qydut841yrwpnp46ookn2ggn"/>
-  <xsd:element name="ms-c5016skbmb8jg39cysvwc65a" substitutionGroup="sdc4:Item" type="sdc4:mc-c5016skbmb8jg39cysvwc65a"/>
-  <xsd:element name="ms-xgf4z67o1auwa0d4ot1c62tb" substitutionGroup="sdc4:Item" type="sdc4:mc-xgf4z67o1auwa0d4ot1c62tb"/>
-  <xsd:element name="ms-q0qm9eyxgli3kg6lunrw0iz1" substitutionGroup="sdc4:Item" type="sdc4:mc-q0qm9eyxgli3kg6lunrw0iz1"/>
-  <xsd:element name="ms-o03ksbpzw3yx4v9scegdc7el" substitutionGroup="sdc4:Item" type="sdc4:mc-o03ksbpzw3yx4v9scegdc7el"/>
-  <xsd:element name="ms-zvkl8ctcg237iqwtyyrwenoq" substitutionGroup="sdc4:Item" type="sdc4:mc-zvkl8ctcg237iqwtyyrwenoq"/>
-  <xsd:element name="ms-sb9ig4m145alo1shltk5a87h" substitutionGroup="sdc4:Item" type="sdc4:mc-sb9ig4m145alo1shltk5a87h"/>
-  <xsd:element name="ms-l4ts3o96hqozajatvyukd1ea" substitutionGroup="sdc4:Item" type="sdc4:mc-l4ts3o96hqozajatvyukd1ea"/>
-  <xsd:element name="ms-abx0p7u2r7v3ld052qonnyjo" substitutionGroup="sdc4:Item" type="sdc4:mc-abx0p7u2r7v3ld052qonnyjo"/>
-  <xsd:element name="ms-vgq6d2vts14o1zo4491cf6d4" substitutionGroup="sdc4:Item" type="sdc4:mc-vgq6d2vts14o1zo4491cf6d4"/>
-  <xsd:element name="ms-q867tp1yaobktelz3gpvfa64" substitutionGroup="sdc4:Item" type="sdc4:mc-q867tp1yaobktelz3gpvfa64"/>
-  <xsd:element name="ms-tay2005fw9sbxix5wya5d6z3" substitutionGroup="sdc4:Item" type="sdc4:mc-tay2005fw9sbxix5wya5d6z3"/>
-  <xsd:element name="ms-j2b6uta0dbo9jkdm0nhrohjy" substitutionGroup="sdc4:Item" type="sdc4:mc-j2b6uta0dbo9jkdm0nhrohjy"/>
-  <xsd:element name="ms-pewggzn1gj3qin3eyeoclr6e" substitutionGroup="sdc4:Item" type="sdc4:mc-pewggzn1gj3qin3eyeoclr6e"/>
-  <xsd:element name="ms-nmgtr2p56oo16a0s01zn3ugk" substitutionGroup="sdc4:Item" type="sdc4:mc-nmgtr2p56oo16a0s01zn3ugk"/>
-  <xsd:element name="ms-llw9zl5b3lnkkts8zvmdadvg" substitutionGroup="sdc4:Item" type="sdc4:mc-llw9zl5b3lnkkts8zvmdadvg"/>
-  <xsd:element name="ms-fiyhm1yos1t6svmprr836bx0" substitutionGroup="sdc4:Item" type="sdc4:mc-fiyhm1yos1t6svmprr836bx0"/>
-  <xsd:element name="ms-wbv46a4twbyuwpwr7ybz3j2z" substitutionGroup="sdc4:Item" type="sdc4:mc-wbv46a4twbyuwpwr7ybz3j2z"/>
+  <xsd:element name="ms-v44d5xo2wdxttf9kq5zm4o1h" substitutionGroup="sdc4:ReferenceRange" type="sdc4:mc-v44d5xo2wdxttf9kq5zm4o1h-rr"/>
+  <xsd:element name="ms-rw1cjzeynsl87va6gvhv2k7e" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rw1cjzeynsl87va6gvhv2k7e"/>
+  <xsd:element name="ms-px6j779dnapp4fjlohula4mh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-px6j779dnapp4fjlohula4mh"/>
+  <xsd:element name="ms-vhjvhm6vz2om2jfn6b923gw7" substitutionGroup="sdc4:Item" type="sdc4:mc-vhjvhm6vz2om2jfn6b923gw7"/>
+  <xsd:element name="ms-eq4h86worv571cl5iiy9unkw" substitutionGroup="sdc4:Item" type="sdc4:mc-eq4h86worv571cl5iiy9unkw"/>
+  <xsd:element name="ms-jz2hqntyol8lopw6q6zdud78" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-jz2hqntyol8lopw6q6zdud78"/>
+  <xsd:element name="ms-qbqkd12dorlvir84ppvvx407" substitutionGroup="sdc4:Item" type="sdc4:mc-qbqkd12dorlvir84ppvvx407"/>
+  <xsd:element name="ms-e5ppb31jh3m59mc7j5tykw4n" substitutionGroup="sdc4:Item" type="sdc4:mc-e5ppb31jh3m59mc7j5tykw4n"/>
+  <xsd:element name="ms-xfmy3bepuo5w0u29zk6nn27j" substitutionGroup="sdc4:Item" type="sdc4:mc-xfmy3bepuo5w0u29zk6nn27j"/>
+  <xsd:element name="ms-zc65p4q9n6t9gmxrkt6rbnjs" substitutionGroup="sdc4:Item" type="sdc4:mc-zc65p4q9n6t9gmxrkt6rbnjs"/>
+  <xsd:element name="ms-i11qg3un16pq1m6njovcw8zz" substitutionGroup="sdc4:Item" type="sdc4:mc-i11qg3un16pq1m6njovcw8zz"/>
+  <xsd:element name="ms-ls1lj0sx2ctjb1fdlm5tiigo" substitutionGroup="sdc4:Item" type="sdc4:mc-ls1lj0sx2ctjb1fdlm5tiigo"/>
+  <xsd:element name="ms-fp466l5s9v731sls487vadcu" substitutionGroup="sdc4:Item" type="sdc4:mc-fp466l5s9v731sls487vadcu"/>
+  <xsd:element name="ms-w9rh6tjde15xkic9uiax22o3" substitutionGroup="sdc4:Item" type="sdc4:mc-w9rh6tjde15xkic9uiax22o3"/>
+  <xsd:element name="ms-fuku8xss3bpk4owqy4okxd09" substitutionGroup="sdc4:Item" type="sdc4:mc-fuku8xss3bpk4owqy4okxd09"/>
+  <xsd:element name="ms-a5ahesf7zdra3k3wjwe611g5" substitutionGroup="sdc4:Item" type="sdc4:mc-a5ahesf7zdra3k3wjwe611g5"/>
+  <xsd:element name="ms-i4hntompu4o7q5p5rkhgdqd8" substitutionGroup="sdc4:Item" type="sdc4:mc-i4hntompu4o7q5p5rkhgdqd8"/>
+  <xsd:element name="ms-r6hmxb2ffy1xa4bfzkhl4hzc" substitutionGroup="sdc4:Item" type="sdc4:mc-r6hmxb2ffy1xa4bfzkhl4hzc"/>
+  <xsd:element name="ms-yd965bwc91i5v8dget9b8tdn" substitutionGroup="sdc4:Item" type="sdc4:mc-yd965bwc91i5v8dget9b8tdn"/>
+  <xsd:element name="ms-bqpkxhdi4slm9v1dzccts3hs" substitutionGroup="sdc4:Item" type="sdc4:mc-bqpkxhdi4slm9v1dzccts3hs"/>
+  <xsd:element name="ms-f3em11o3sn0xc1bspxu0kwky" substitutionGroup="sdc4:Item" type="sdc4:mc-f3em11o3sn0xc1bspxu0kwky"/>
+  <xsd:element name="ms-lvs7ao5um53z3jv65o5oq4uz" substitutionGroup="sdc4:Item" type="sdc4:mc-lvs7ao5um53z3jv65o5oq4uz"/>
+  <xsd:element name="ms-hgyzoor8ky56cp9t9iw4iskq" substitutionGroup="sdc4:Item" type="sdc4:mc-hgyzoor8ky56cp9t9iw4iskq"/>
+  <xsd:element name="ms-z8l2pvmwpliq0ozkrhiqygaq" substitutionGroup="sdc4:Item" type="sdc4:mc-z8l2pvmwpliq0ozkrhiqygaq"/>
+  <xsd:element name="ms-vw4eopa0tgvb26kndn6gcf3g" substitutionGroup="sdc4:Item" type="sdc4:mc-vw4eopa0tgvb26kndn6gcf3g"/>
+  <xsd:element name="ms-k36myawd3u9ilc6k9iewpg5r" substitutionGroup="sdc4:Item" type="sdc4:mc-k36myawd3u9ilc6k9iewpg5r"/>
+  <xsd:element name="ms-cne4c4bm4eq4sirgtr6vathm" substitutionGroup="sdc4:Item" type="sdc4:mc-cne4c4bm4eq4sirgtr6vathm"/>
+  <xsd:element name="ms-eoucquy4xrpbz0ic9ysuuh06" substitutionGroup="sdc4:Item" type="sdc4:mc-eoucquy4xrpbz0ic9ysuuh06"/>
+  <xsd:element name="ms-zcc5r1ovfvuluysxeycbjnd1" substitutionGroup="sdc4:Item" type="sdc4:mc-zcc5r1ovfvuluysxeycbjnd1"/>
+  <xsd:element name="ms-nu1udyknttrsnhyz0cygn78i" substitutionGroup="sdc4:Item" type="sdc4:mc-nu1udyknttrsnhyz0cygn78i"/>
+  <xsd:element name="ms-md4jikyqqa3f15uhpl81rlq6" substitutionGroup="sdc4:Item" type="sdc4:mc-md4jikyqqa3f15uhpl81rlq6"/>
+  <xsd:element name="ms-q9xusgfko7tq0idtt767mx1s" substitutionGroup="sdc4:Item" type="sdc4:mc-q9xusgfko7tq0idtt767mx1s"/>
+  <xsd:element name="ms-znhjge005ihiusslkmbcc4h4" substitutionGroup="sdc4:Item" type="sdc4:mc-znhjge005ihiusslkmbcc4h4"/>
+  <xsd:element name="ms-umz7lmf73fq5no0x9azymz19" substitutionGroup="sdc4:Item" type="sdc4:mc-umz7lmf73fq5no0x9azymz19"/>
+  <xsd:element name="ms-x87r6seuuvci2bru3grgq9wh" substitutionGroup="sdc4:Item" type="sdc4:mc-x87r6seuuvci2bru3grgq9wh"/>
+  <xsd:element name="ms-idwt19cqrc6onlgh58zgtpc4" substitutionGroup="sdc4:Item" type="sdc4:mc-idwt19cqrc6onlgh58zgtpc4"/>
+  <xsd:element name="ms-mmoil9uicuueekqgahr4bgl3" substitutionGroup="sdc4:Item" type="sdc4:mc-mmoil9uicuueekqgahr4bgl3"/>
+  <xsd:element name="ms-zhhhel1tlokthixqf91rfz71" substitutionGroup="sdc4:Item" type="sdc4:mc-zhhhel1tlokthixqf91rfz71"/>
+  <xsd:element name="ms-fyaf37dusutkol5daod9ivsr" substitutionGroup="sdc4:Item" type="sdc4:mc-fyaf37dusutkol5daod9ivsr"/>
+  <xsd:element name="ms-zq30a9nd3e81chjuegfute92" substitutionGroup="sdc4:Item" type="sdc4:mc-zq30a9nd3e81chjuegfute92"/>
+  <xsd:element name="ms-e977pl4hz4cqpzeuktkwq7ra" substitutionGroup="sdc4:Item" type="sdc4:mc-e977pl4hz4cqpzeuktkwq7ra"/>
+  <xsd:element name="ms-whr9bj7wvjnmsog8ex8xiy1j" substitutionGroup="sdc4:Item" type="sdc4:mc-whr9bj7wvjnmsog8ex8xiy1j"/>
+  <xsd:element name="ms-gpj38794d1yc2balu0c0xpc7" substitutionGroup="sdc4:Item" type="sdc4:mc-gpj38794d1yc2balu0c0xpc7"/>
+  <xsd:element name="ms-n5esg9h1syd9bm986i7bamfe" substitutionGroup="sdc4:Item" type="sdc4:mc-n5esg9h1syd9bm986i7bamfe"/>
+  <xsd:element name="ms-o7ei6rbavjvex6xpqemqtyu3" substitutionGroup="sdc4:Item" type="sdc4:mc-o7ei6rbavjvex6xpqemqtyu3"/>
+  <xsd:element name="ms-gvoxmyn9s50p240fy4p4afk5" substitutionGroup="sdc4:Item" type="sdc4:mc-gvoxmyn9s50p240fy4p4afk5"/>
+  <xsd:element name="ms-htn9sz8c4matcox3ve4l9da2" substitutionGroup="sdc4:Item" type="sdc4:mc-htn9sz8c4matcox3ve4l9da2"/>
+  <xsd:element name="ms-oy7l6tk0oujtuu4wrt34o24l" substitutionGroup="sdc4:Item" type="sdc4:mc-oy7l6tk0oujtuu4wrt34o24l"/>
+  <xsd:element name="ms-hsmxuztuixmgcw9v5q7jzgjr" substitutionGroup="sdc4:Item" type="sdc4:mc-hsmxuztuixmgcw9v5q7jzgjr"/>
+  <xsd:element name="ms-zt7o7kc2wjo7yjtn0wjpv2ax" substitutionGroup="sdc4:Item" type="sdc4:mc-zt7o7kc2wjo7yjtn0wjpv2ax"/>
+  <xsd:element name="ms-v7gox7q6zxx8ipuxhrapfzqm" substitutionGroup="sdc4:Item" type="sdc4:mc-v7gox7q6zxx8ipuxhrapfzqm"/>
+  <xsd:element name="ms-wpme2iasw1par7e03283b4xb" substitutionGroup="sdc4:Item" type="sdc4:mc-wpme2iasw1par7e03283b4xb"/>
+  <xsd:element name="ms-m8rcsf08org3g17hbqebn3zd" substitutionGroup="sdc4:Item" type="sdc4:mc-m8rcsf08org3g17hbqebn3zd"/>
+  <xsd:element name="ms-jik6dzw49n9vpp9jl42q8mju" substitutionGroup="sdc4:Item" type="sdc4:mc-jik6dzw49n9vpp9jl42q8mju"/>
+  <xsd:element name="ms-qm88d2siwnsr593w5wfl1dys" substitutionGroup="sdc4:Item" type="sdc4:mc-qm88d2siwnsr593w5wfl1dys"/>
+  <xsd:element name="ms-v4qahtpe58rqd769npphsroe" substitutionGroup="sdc4:Item" type="sdc4:mc-v4qahtpe58rqd769npphsroe"/>
+  <xsd:element name="ms-ufazrt6dnhndc3dk5h9ck6cg" substitutionGroup="sdc4:Item" type="sdc4:mc-ufazrt6dnhndc3dk5h9ck6cg"/>
+  <xsd:element name="ms-xan7hxrlwklxviwak9lt6o42" substitutionGroup="sdc4:Item" type="sdc4:mc-xan7hxrlwklxviwak9lt6o42"/>
+  <xsd:element name="ms-frovikr6mczb9am8gdp96tve" substitutionGroup="sdc4:Item" type="sdc4:mc-frovikr6mczb9am8gdp96tve"/>
+  <xsd:element name="ms-ux2v4k8ugwkuj13bk4wv3zcg" substitutionGroup="sdc4:Item" type="sdc4:mc-ux2v4k8ugwkuj13bk4wv3zcg"/>
+  <xsd:element name="ms-s4qrt7w5kf0ljbulhkr8bxig" substitutionGroup="sdc4:Item" type="sdc4:mc-s4qrt7w5kf0ljbulhkr8bxig"/>
+  <xsd:element name="ms-f06do6ti2g0iq4dwqvh0vt5h" substitutionGroup="sdc4:Item" type="sdc4:mc-f06do6ti2g0iq4dwqvh0vt5h"/>
+  <xsd:element name="ms-fy3apj9qtgy3x0nd131hh4jn" substitutionGroup="sdc4:Item" type="sdc4:mc-fy3apj9qtgy3x0nd131hh4jn"/>
+  <xsd:element name="ms-h3n6ykgqvom4oqixfnst5zy5" substitutionGroup="sdc4:Item" type="sdc4:mc-h3n6ykgqvom4oqixfnst5zy5"/>
+  <xsd:element name="ms-qewbrtwou236nps3mor7g47w" substitutionGroup="sdc4:Item" type="sdc4:mc-qewbrtwou236nps3mor7g47w"/>
+  <xsd:element name="ms-pc3cvfr6qvp2f9mabcmps0k1" substitutionGroup="sdc4:Item" type="sdc4:mc-pc3cvfr6qvp2f9mabcmps0k1"/>
+  <xsd:element name="ms-rm0gvn3ui1w8votbxmiko5aw" substitutionGroup="sdc4:Item" type="sdc4:mc-rm0gvn3ui1w8votbxmiko5aw"/>
+  <xsd:element name="ms-tzu90698tromvd9gt5cvsgv8" substitutionGroup="sdc4:Item" type="sdc4:mc-tzu90698tromvd9gt5cvsgv8"/>
 
 </xsd:schema>

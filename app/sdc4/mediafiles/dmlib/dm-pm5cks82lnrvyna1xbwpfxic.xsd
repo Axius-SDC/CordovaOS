@@ -26,7 +26,7 @@
           <dc:identifier>dm-pm5cks82lnrvyna1xbwpfxic</dc:identifier>
           <dc:description>Track employment relationships between persons and businesses in Cordova.</dc:description>
           <dc:publisher>Axius SDC, Inc.</dc:publisher>
-          <dc:date>2026-07-29 15:15:41.318373+00:00</dc:date>
+          <dc:date>2026-09-12 13:45:18.516759+00:00</dc:date>
           <dc:format>text/xml</dc:format>
           <dc:language>en-US</dc:language>
         </rdf:Description>
@@ -42,9 +42,9 @@
 <xsd:complexType name="mc-pm5cks82lnrvyna1xbwpfxic">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-pm5cks82lnrvyna1xbwpfxic">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:DMType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-pm5cks82lnrvyna1xbwpfxic">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#DMType"/>
         <rdfs:label>Employment Record</rdfs:label>        <skos:exactMatch rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q656365"/>
         <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q628967"/>
@@ -84,13 +84,11 @@
   <xsd:complexType name="mc-bbu03oqjkniydmzb7pqcjg3m" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-bbu03oqjkniydmzb7pqcjg3m">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-bbu03oqjkniydmzb7pqcjg3m">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Department</rdfs:label>
           <rdfs:comment>Department or division within the employer organization</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-bbu03oqjkniydmzb7pqcjg3m"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-department"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2366457"/>
           <skos:broadMatch rdf:resource="https://schema.org/description"/>
         </rdf:Description>
@@ -170,13 +168,11 @@
   <xsd:complexType name="mc-atdtdfzruh7tya0iv5cz365l" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-atdtdfzruh7tya0iv5cz365l">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>City</rdfs:label>
           <rdfs:comment>One of the nine cities in the Republic of Cordova.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-atdtdfzruh7tya0iv5cz365l"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-city"/>
           <rdfs:isDefinedBy rdf:resource="http://schema.org/City"/>
           <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
           <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
@@ -202,8 +198,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Capital of Aldara. National port city and sole international port. Area code 100.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Porto%20Sereno">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Porto%20Sereno">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Porto Sereno</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -213,8 +209,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Coastal city in Aldara. Area code 110.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Vistamar">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Vistamar">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Vistamar</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -224,8 +220,8 @@
                   <xsd:annotation>
                         <xsd:documentation>River city in Aldara. Area code 120.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Rioseco">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Rioseco">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Rioseco</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -235,8 +231,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Capital of Brevina. Home to Universidad Nacional de Cordova. Area code 200.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Campoluz">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Campoluz">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Campoluz</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -246,8 +242,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Agricultural town in Brevina. Area code 210.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Tierraverde">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Tierraverde">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Tierraverde</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -257,8 +253,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Mountain town in Brevina. Area code 220.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Montecara">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Montecara">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Montecara</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -268,8 +264,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Capital of Celara and national capital. Government center. Area code 300.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Novaciudad">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Novaciudad">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Novaciudad</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -279,8 +275,8 @@
                   <xsd:annotation>
                         <xsd:documentation>City in Celara. Area code 310.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Piedrasol">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Piedrasol">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Piedrasol</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -290,8 +286,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Lakeside city in Celara. Area code 320.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Lagunavista">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Lagunavista">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Lagunavista</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -311,13 +307,11 @@
   <xsd:complexType name="mc-tb3wwfwects1a6ap4ro7z5s8" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-tb3wwfwects1a6ap4ro7z5s8">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Employment Status (Cordova)</rdfs:label>
           <rdfs:comment>Employment classification in Cordova employment records.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-tb3wwfwects1a6ap4ro7z5s8"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-employment_status_(cordova)"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q126734850"/>
           <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
           <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
@@ -343,8 +337,8 @@
                   <xsd:annotation>
                         <xsd:documentation>40+ hours per week, permanent position</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Full-Time">
-                        <rdfs:subPropertyOf rdf:resource="mc-tb3wwfwects1a6ap4ro7z5s8"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Full-Time">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8"/>
                         <rdfs:label>Full-Time</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -354,8 +348,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Less than 40 hours per week</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Part-Time">
-                        <rdfs:subPropertyOf rdf:resource="mc-tb3wwfwects1a6ap4ro7z5s8"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Part-Time">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8"/>
                         <rdfs:label>Part-Time</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -365,8 +359,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Fixed-term or project-based employment</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Contract">
-                        <rdfs:subPropertyOf rdf:resource="mc-tb3wwfwects1a6ap4ro7z5s8"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Contract">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8"/>
                         <rdfs:label>Contract</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -376,8 +370,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Independent business owner or freelancer</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Self-Employed">
-                        <rdfs:subPropertyOf rdf:resource="mc-tb3wwfwects1a6ap4ro7z5s8"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Self-Employed">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8"/>
                         <rdfs:label>Self-Employed</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -387,8 +381,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Not currently employed, seeking work</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Unemployed">
-                        <rdfs:subPropertyOf rdf:resource="mc-tb3wwfwects1a6ap4ro7z5s8"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Unemployed">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8"/>
                         <rdfs:label>Unemployed</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -398,8 +392,8 @@
                   <xsd:annotation>
                         <xsd:documentation>No longer in active employment</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Retired">
-                        <rdfs:subPropertyOf rdf:resource="mc-tb3wwfwects1a6ap4ro7z5s8"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Retired">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8"/>
                         <rdfs:label>Retired</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -409,8 +403,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Full-time student, may have part-time work</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Student">
-                        <rdfs:subPropertyOf rdf:resource="mc-tb3wwfwects1a6ap4ro7z5s8"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8/xdtoken-value/Student">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-tb3wwfwects1a6ap4ro7z5s8"/>
                         <rdfs:label>Student</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -430,13 +424,11 @@
   <xsd:complexType name="mc-kv5qqs3o4jwcwz9javgw1pzh" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Province</rdfs:label>
           <rdfs:comment>One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-province"/>
           <rdfs:isDefinedBy rdf:resource="http://schema.org/AdministrativeArea"/>
           <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
           <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
@@ -463,8 +455,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Western province. Capital: Porto Sereno. Contains the national port and coastal cities Vistamar and Rioseco.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Aldara">
-                        <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Aldara">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh"/>
                         <rdfs:label>Aldara</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -474,8 +466,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Central province. Capital: Campoluz. Agricultural and university region with Tierraverde and Montecara.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Brevina">
-                        <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Brevina">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh"/>
                         <rdfs:label>Brevina</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -485,8 +477,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Eastern province. Capital: Novaciudad. National capital province and government center with Piedrasol and Lagunavista.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Celara">
-                        <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Celara">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh"/>
                         <rdfs:label>Celara</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -507,15 +499,13 @@
   <xsd:complexType name="mc-el43lwc0fnamy0v0ocub38t7" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-el43lwc0fnamy0v0ocub38t7">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-el43lwc0fnamy0v0ocub38t7">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTemporalType"/>
           <rdfs:label>End Date</rdfs:label>
           <rdfs:comment>Date employment ended. Null for current positions.
 
 ---</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-el43lwc0fnamy0v0ocub38t7"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-end_date"/>
           <skos:broadMatch rdf:resource="https://schema.org/Date"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q121875611"/>
         </rdf:Description>
@@ -548,13 +538,11 @@
   <xsd:complexType name="mc-ghsjyyzudma3eq761dwd4j9p" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-ghsjyyzudma3eq761dwd4j9p">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ghsjyyzudma3eq761dwd4j9p">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTemporalType"/>
           <rdfs:label>Start Date</rdfs:label>
           <rdfs:comment>Date employment began</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-ghsjyyzudma3eq761dwd4j9p"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-start_date"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q5347252"/>
           <skos:broadMatch rdf:resource="https://schema.org/Date"/>
         </rdf:Description>
@@ -639,13 +627,11 @@
   <xsd:complexType name="mc-ub0fwihnwu5x1pdv68pjwbeu" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-ub0fwihnwu5x1pdv68pjwbeu">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ub0fwihnwu5x1pdv68pjwbeu">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Pay Frequency</rdfs:label>
           <rdfs:comment>How often the employee is paid</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-ub0fwihnwu5x1pdv68pjwbeu"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-pay_frequency"/>
           <rdfs:isDefinedBy rdf:resource="http://release.niem.gov/niem/niem-core/6.0/niem-core.owl#PayPeriodFrequencyCode"/>
           <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
           <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
@@ -671,8 +657,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Paid once per month</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-ub0fwihnwu5x1pdv68pjwbeu/xdtoken-value/Monthly">
-                        <rdfs:subPropertyOf rdf:resource="mc-ub0fwihnwu5x1pdv68pjwbeu"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ub0fwihnwu5x1pdv68pjwbeu/xdtoken-value/Monthly">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-ub0fwihnwu5x1pdv68pjwbeu"/>
                         <rdfs:label>Monthly</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -682,8 +668,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Paid every two weeks</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-ub0fwihnwu5x1pdv68pjwbeu/xdtoken-value/Bi-Weekly">
-                        <rdfs:subPropertyOf rdf:resource="mc-ub0fwihnwu5x1pdv68pjwbeu"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ub0fwihnwu5x1pdv68pjwbeu/xdtoken-value/Bi-Weekly">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-ub0fwihnwu5x1pdv68pjwbeu"/>
                         <rdfs:label>Bi-Weekly</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -693,8 +679,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Paid every week</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-ub0fwihnwu5x1pdv68pjwbeu/xdtoken-value/Weekly">
-                        <rdfs:subPropertyOf rdf:resource="mc-ub0fwihnwu5x1pdv68pjwbeu"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ub0fwihnwu5x1pdv68pjwbeu/xdtoken-value/Weekly">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-ub0fwihnwu5x1pdv68pjwbeu"/>
                         <rdfs:label>Weekly</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -716,14 +702,12 @@
 <xsd:complexType name="mc-aw74ticc3fnjkz4vk4b03jr6" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-aw74ticc3fnjkz4vk4b03jr6">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdQuantityType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-aw74ticc3fnjkz4vk4b03jr6">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdQuantityType"/>
           <rdfs:label>Salary Amount</rdfs:label>
           <rdfs:comment>Monthly gross salary or wage in Cordova Córdoba. Represents the agreed compensation amount before deductions for taxes, social security, and other withholdings.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-aw74ticc3fnjkz4vk4b03jr6"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-salary_amount"/>
-          <sdc4-meta:hasUnit rdf:resource="sdc4:mc-u18l77xlj2omcbmnpi5j7fff"/>
+          <sdc4-meta:hasUnit rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-u18l77xlj2omcbmnpi5j7fff"/>
           <rdfs:isDefinedBy rdf:resource="https://schema.org/MonetaryAmount"/>
           <skos:broadMatch rdf:resource="http://qudt.org/vocab/quantitykind/Currency"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q178848"/>
@@ -764,9 +748,9 @@
 <xsd:complexType name="mc-u18l77xlj2omcbmnpi5j7fff" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-u18l77xlj2omcbmnpi5j7fff">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-u18l77xlj2omcbmnpi5j7fff">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
         <rdfs:label>Cordova Córdoba (COR)</rdfs:label>        <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q8142"/>
         <rdfs:isDefinedBy rdf:resource="https://schema.org/Currency"/>
 
@@ -800,9 +784,9 @@
 <xsd:complexType name="mc-tj85qvj83sce9ny9l2e4oofv" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-tj85qvj83sce9ny9l2e4oofv">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdIntervalType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tj85qvj83sce9ny9l2e4oofv">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdIntervalType"/>
         <rdfs:label>Non-negative Currency Amount</rdfs:label>
       </rdf:Description>
     </xsd:appinfo>
@@ -851,9 +835,9 @@
   <xsd:annotation>
     <xsd:documentation>Reference range constraining financial amounts to zero or positive values. Applies to salaries, fees, assessments, tax amounts, and payment amounts in Cordova Córdoba. (ReferenceRange for SimpleReferenceRange)</xsd:documentation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="mc-gr4c7suzjf87x7svli8oiqi6-rr">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ReferenceRangeType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-gr4c7suzjf87x7svli8oiqi6-rr">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ReferenceRangeType"/>
         <rdfs:label>Non-negative Currency Amount</rdfs:label>
         
         <rdfs:isDefinedBy rdf:resource="https://schema.org/MonetaryAmount"/>
@@ -1174,13 +1158,11 @@
   <xsd:complexType name="mc-yowhhhxm3qnk40qd3ekaluh0" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-yowhhhxm3qnk40qd3ekaluh0">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-yowhhhxm3qnk40qd3ekaluh0">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#PartyType"/>
           <rdfs:label>Employee</rdfs:label>
           <rdfs:comment>Person employed by an organization. W3C PROV-DM Agent (Person) with Cordova CID.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-yowhhhxm3qnk40qd3ekaluh0"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-employee"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q703534"/>
           <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
           <rdfs:isDefinedBy rdf:resource="https://schema.org/Person"/>
@@ -1203,13 +1185,11 @@
   <xsd:complexType name="mc-nj7s1gk45tfgyooxpz0qaha3" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-nj7s1gk45tfgyooxpz0qaha3">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>National ID (CID)</rdfs:label>
           <rdfs:comment>Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-national_id_(cid)"/>
           <rdfs:isDefinedBy rdf:resource="http://schema.org/identifier"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1140371"/>
           <skos:broadMatch rdf:resource="https://schema.org/identifier"/>
@@ -1450,13 +1430,11 @@
   <xsd:complexType name="mc-8fc8bd0qo44g5s4re0gwrhlr" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-8fc8bd0qo44g5s4re0gwrhlr">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-8fc8bd0qo44g5s4re0gwrhlr">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#PartyType"/>
           <rdfs:label>Employer</rdfs:label>
           <rdfs:comment>Organization employing the person. W3C PROV-DM Agent (Organization) with Cordova BRN.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-8fc8bd0qo44g5s4re0gwrhlr"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-employer"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q3053337"/>
           <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
           <rdfs:isDefinedBy rdf:resource="https://schema.org/Organization"/>
@@ -1479,13 +1457,11 @@
   <xsd:complexType name="mc-l8f0m7op4xhrxqy1jrnvbuly" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-l8f0m7op4xhrxqy1jrnvbuly">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Business Registry Number</rdfs:label>
           <rdfs:comment>Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-business_registry_number"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q12047291"/>
           <rdfs:isDefinedBy rdf:resource="http://schema.org/identifier"/>
           <skos:broadMatch rdf:resource="https://schema.org/identifier"/>
@@ -2187,13 +2163,11 @@
   <xsd:complexType name="mc-dqjp4dd4kgj2e2hg8kiw3qfw" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-dqjp4dd4kgj2e2hg8kiw3qfw">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:AttestationType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-dqjp4dd4kgj2e2hg8kiw3qfw">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#AttestationType"/>
           <rdfs:label>Employment Record Attestation</rdfs:label>
           <rdfs:comment>Attestation for employment records. The employer attests to employment status, role, and dates. W3C PROV-DM, GDPR/UN CEB.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-dqjp4dd4kgj2e2hg8kiw3qfw"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-employment_record_attestation"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q116890704"/>
           <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
           <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q656365"/>
@@ -2223,13 +2197,11 @@
 <xsd:complexType name="mc-y5h8kcuf9egj363eg3ew2ku9" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-y5h8kcuf9egj363eg3ew2ku9">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-y5h8kcuf9egj363eg3ew2ku9">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdFileType"/>
         <rdfs:label>Employment Record Attested View</rdfs:label>
         <rdfs:comment>Attested view of an employment record document</rdfs:comment>
-        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-y5h8kcuf9egj363eg3ew2ku9"/>
-        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-employment_record_attested_view"/>
         <rdfs:isDefinedBy rdf:resource="https://schema.org/DigitalDocument"/>
         <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q8434"/>
         <skos:broadMatch rdf:resource="http://www.w3.org/ns/prov#Entity"/>
@@ -2271,13 +2243,11 @@
 <xsd:complexType name="mc-gug5dhtqfv7exbgmm2raxpkq" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-gug5dhtqfv7exbgmm2raxpkq">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdFileType"/>
         <rdfs:label>Digital Signature Proof</rdfs:label>
         <rdfs:comment>Cryptographic proof of attestation (digital signature)</rdfs:comment>
-        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
-        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-digital_signature_proof"/>
         <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q210824"/>
         <skos:broadMatch rdf:resource="http://www.w3.org/ns/prov#Entity"/>
@@ -2318,13 +2288,11 @@
   <xsd:complexType name="mc-azi5plys004xc1dldfpjpuk8" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-azi5plys004xc1dldfpjpuk8">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-azi5plys004xc1dldfpjpuk8">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Employment Record Attestation Reason</rdfs:label>
           <rdfs:comment>Reason for attesting this employment record</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-azi5plys004xc1dldfpjpuk8"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-employment_record_attestation_reason"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
           <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q8434"/>
           <skos:broadMatch rdf:resource="https://schema.org/Text"/>
@@ -2362,13 +2330,11 @@
   <xsd:complexType name="mc-f37y1r2uqdu9kkrdptbm803d" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-f37y1r2uqdu9kkrdptbm803d">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-f37y1r2uqdu9kkrdptbm803d">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Employment Records Protocol</rdfs:label>
           <rdfs:comment>Protocol reference for the Employment Record data model. Informed by International Labour Organization (ILO) conventions on employment documentation, the International Standard Classification of Occupations (ISCO-08), and national labor records management frameworks.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-f37y1r2uqdu9kkrdptbm803d"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-employment_records_protocol"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
           <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q54128"/>
           <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q317623"/>
@@ -2407,13 +2373,11 @@
 <xsd:complexType name="mc-tw8mn0vv8z8v3w533gfu9j92" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-tw8mn0vv8z8v3w533gfu9j92">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdLinkType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-tw8mn0vv8z8v3w533gfu9j92">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdLinkType"/>
         <rdfs:label>Employment Record Access Control</rdfs:label>
         <rdfs:comment>Access control policy for employment records using W3C Data Privacy Vocabulary. Enforces role-based access for employers, employees, and labor authorities. Governs dpv:ProfessionalData including employment history, salary records, and workplace certifications.</rdfs:comment>
-        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-tw8mn0vv8z8v3w533gfu9j92"/>
-        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-employment_record_access_control"/>
         <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q185799"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/dpv#AccessControlMethod"/>
         <rdfs:seeAlso rdf:resource="https://w3id.org/dpv"/>
@@ -2444,7 +2408,7 @@
 
 <!-- XdAdapterType Wrappers for XdAnyType Components in Clusters -->
   <!-- Adapter wrapper for Department (bbu03oqjkniydmzb7pqcjg3m) -->
-  <xsd:complexType name="mc-wmtotsniozsvdua4d7ise8zx">
+  <xsd:complexType name="mc-px2vmluuoh24jq3hp7mj69bo">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Department</xsd:documentation>
     </xsd:annotation>
@@ -2457,7 +2421,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Job Title (wfws1oj1kgeaijciw7wkzdi7) -->
-  <xsd:complexType name="mc-lx5ruyske40b7vp6n5riiufc">
+  <xsd:complexType name="mc-utk1922daqjuxti7ypj8k5pn">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Job Title</xsd:documentation>
     </xsd:annotation>
@@ -2470,7 +2434,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for City (atdtdfzruh7tya0iv5cz365l) -->
-  <xsd:complexType name="mc-n9pfwprgod2qouisuwhqko8o">
+  <xsd:complexType name="mc-bhzb672n51xibpyeabtkkuv5">
     <xsd:annotation>
       <xsd:documentation>Adapter for: City</xsd:documentation>
     </xsd:annotation>
@@ -2483,7 +2447,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Employment Status (Cordova) (tb3wwfwects1a6ap4ro7z5s8) -->
-  <xsd:complexType name="mc-pt7n7cytal8g6gjrx6kbh5f1">
+  <xsd:complexType name="mc-hk7rajeh5xrrcwi88lkyas90">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Employment Status (Cordova)</xsd:documentation>
     </xsd:annotation>
@@ -2496,7 +2460,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Province (kv5qqs3o4jwcwz9javgw1pzh) -->
-  <xsd:complexType name="mc-cexlqx0wsa67vgdad3za8teg">
+  <xsd:complexType name="mc-hjzoscf50maetr3lgv6b9uw3">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Province</xsd:documentation>
     </xsd:annotation>
@@ -2509,7 +2473,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for End Date (el43lwc0fnamy0v0ocub38t7) -->
-  <xsd:complexType name="mc-kx42d03x6vw5vv01jl0kr8l1">
+  <xsd:complexType name="mc-r9rht7dk35tbkm58o2kyvb6t">
     <xsd:annotation>
       <xsd:documentation>Adapter for: End Date</xsd:documentation>
     </xsd:annotation>
@@ -2522,7 +2486,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Start Date (ghsjyyzudma3eq761dwd4j9p) -->
-  <xsd:complexType name="mc-lc1ah1reo2pg2q5nsoks68fi">
+  <xsd:complexType name="mc-rd1ncuq30m2a0xs61ba8m3ob">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Start Date</xsd:documentation>
     </xsd:annotation>
@@ -2535,7 +2499,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Yes/No (ht98owgvxhff3ge85i4h80lp) -->
-  <xsd:complexType name="mc-r133uwmjw1wuynmwdo4ga475">
+  <xsd:complexType name="mc-do0g6eewndjrua4w3tnfn7pl">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Yes/No</xsd:documentation>
     </xsd:annotation>
@@ -2548,7 +2512,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Pay Frequency (ub0fwihnwu5x1pdv68pjwbeu) -->
-  <xsd:complexType name="mc-ej9uu2aj6kx4e5vtcigfo2ul">
+  <xsd:complexType name="mc-xnbmun97ke14ougkt80bx4dz">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Pay Frequency</xsd:documentation>
     </xsd:annotation>
@@ -2561,7 +2525,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Salary Amount (aw74ticc3fnjkz4vk4b03jr6) -->
-  <xsd:complexType name="mc-zhhzu3xflqkgu7o6xo3cu06p">
+  <xsd:complexType name="mc-hk3sb8h2cqhvmejtehs9pkzr">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Salary Amount</xsd:documentation>
     </xsd:annotation>
@@ -2574,7 +2538,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for activity_description (m9xg6e182m1oq77ssrf9iujv) -->
-  <xsd:complexType name="mc-m91g74q0tdsrlu39x7adfymg">
+  <xsd:complexType name="mc-nfjcw5s2l57qo8pq4m20b0k7">
     <xsd:annotation>
       <xsd:documentation>Adapter for: activity_description</xsd:documentation>
     </xsd:annotation>
@@ -2587,7 +2551,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for prov_activity_type (ccj1yq2wtwknobszkgzzdbtr) -->
-  <xsd:complexType name="mc-blxow8ztfj7qhw5875fig9sv">
+  <xsd:complexType name="mc-mjr5jcn3q4x8bjthxwzg17z3">
     <xsd:annotation>
       <xsd:documentation>Adapter for: prov_activity_type</xsd:documentation>
     </xsd:annotation>
@@ -2600,7 +2564,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for system_identifier (bd3s8t23d6m3zizmpwavc32y) -->
-  <xsd:complexType name="mc-g8g03pnbivtfz57huxzyr98k">
+  <xsd:complexType name="mc-u6dk1sk5t2unoli2umqwc3my">
     <xsd:annotation>
       <xsd:documentation>Adapter for: system_identifier</xsd:documentation>
     </xsd:annotation>
@@ -2613,7 +2577,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for system_location_identifier (zr59goe24qkocprl3feul3mt) -->
-  <xsd:complexType name="mc-nfz5536uproqxs68fuvfpch2">
+  <xsd:complexType name="mc-m1u064xrbhpu8u69ba9q0sej">
     <xsd:annotation>
       <xsd:documentation>Adapter for: system_location_identifier</xsd:documentation>
     </xsd:annotation>
@@ -2626,7 +2590,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for system_location_name (fnodzqkbyskwe7nh58rs336k) -->
-  <xsd:complexType name="mc-ne75pbg9h338xgo9v31fzclr">
+  <xsd:complexType name="mc-s70rhhu242qmswmosxsv2lma">
     <xsd:annotation>
       <xsd:documentation>Adapter for: system_location_name</xsd:documentation>
     </xsd:annotation>
@@ -2639,7 +2603,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for activity_timestamp_end (edvvjznmaoibzmfna0uuoo37) -->
-  <xsd:complexType name="mc-lnblyhkpxft5w1kogloulvtv">
+  <xsd:complexType name="mc-r7mqjinpa4ufiwa7c7v1fu4g">
     <xsd:annotation>
       <xsd:documentation>Adapter for: activity_timestamp_end</xsd:documentation>
     </xsd:annotation>
@@ -2652,7 +2616,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for activity_timestamp_start (o72s5793973fzho35rnaughs) -->
-  <xsd:complexType name="mc-e1dqy0brdaczewgvf4pka7p6">
+  <xsd:complexType name="mc-wmpszktld8bief3bcdyghcz8">
     <xsd:annotation>
       <xsd:documentation>Adapter for: activity_timestamp_start</xsd:documentation>
     </xsd:annotation>
@@ -2665,7 +2629,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for National ID (CID) (nj7s1gk45tfgyooxpz0qaha3) -->
-  <xsd:complexType name="mc-iulkydywjunt7pe3nzwysuj9">
+  <xsd:complexType name="mc-mi4u02qbbgpp58mnqrj99l9l">
     <xsd:annotation>
       <xsd:documentation>Adapter for: National ID (CID)</xsd:documentation>
     </xsd:annotation>
@@ -2678,7 +2642,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for agent_id (hhfnj5hd1yzt252jfq5pdjj1) -->
-  <xsd:complexType name="mc-m2l4ea4jr7fb7buxvlvz2reu">
+  <xsd:complexType name="mc-onwtb7uv9qndrh4xyj7umuaj">
     <xsd:annotation>
       <xsd:documentation>Adapter for: agent_id</xsd:documentation>
     </xsd:annotation>
@@ -2691,7 +2655,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for person_family_name (zs9ciw4nypx4plo856h3m95d) -->
-  <xsd:complexType name="mc-hthz5r13pcxqmxw9l5b2h7sb">
+  <xsd:complexType name="mc-ac784g1n9z5q62tyyp2izb79">
     <xsd:annotation>
       <xsd:documentation>Adapter for: person_family_name</xsd:documentation>
     </xsd:annotation>
@@ -2704,7 +2668,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for person_given_name (ndvtjiq0cke0q1trw58rtrq2) -->
-  <xsd:complexType name="mc-lfttivznjuimura2g20a66e9">
+  <xsd:complexType name="mc-h5hhjtmg1atvf3vyl2lw3oy9">
     <xsd:annotation>
       <xsd:documentation>Adapter for: person_given_name</xsd:documentation>
     </xsd:annotation>
@@ -2717,7 +2681,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for PROV Agent Type (nesxtz8c5o665swc9lhvqkjj) -->
-  <xsd:complexType name="mc-vmu7mg6p97aukerifa5deuut">
+  <xsd:complexType name="mc-bdgl997zmafvbxrj8bw8kp0k">
     <xsd:annotation>
       <xsd:documentation>Adapter for: PROV Agent Type</xsd:documentation>
     </xsd:annotation>
@@ -2730,7 +2694,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Business Registry Number (l8f0m7op4xhrxqy1jrnvbuly) -->
-  <xsd:complexType name="mc-f99c57m0ybdthl7x4o59tdma">
+  <xsd:complexType name="mc-bvicwcgd3io6ajxvhl680inx">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Business Registry Number</xsd:documentation>
     </xsd:annotation>
@@ -2743,7 +2707,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for organization_identifier (ule5u2z3rjpa9pooaifwj1n3) -->
-  <xsd:complexType name="mc-oc52o75uf2my5tah1wf7a83e">
+  <xsd:complexType name="mc-ttiffv8x9p4wff4u25d7c2nf">
     <xsd:annotation>
       <xsd:documentation>Adapter for: organization_identifier</xsd:documentation>
     </xsd:annotation>
@@ -2756,7 +2720,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for organization_name (ifw5zfe4oiijbxjn1ylc2wm3) -->
-  <xsd:complexType name="mc-fcoul2g1fkjbmc04wggvskhx">
+  <xsd:complexType name="mc-r2wpaqvraszsmijccyrrwwss">
     <xsd:annotation>
       <xsd:documentation>Adapter for: organization_name</xsd:documentation>
     </xsd:annotation>
@@ -2769,7 +2733,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for organization_type (bpqtzla39dwentygpwea8276) -->
-  <xsd:complexType name="mc-dquy3nzu0hkjjmdf23aexfrs">
+  <xsd:complexType name="mc-urnvs5a130qf8t78b49kkrz8">
     <xsd:annotation>
       <xsd:documentation>Adapter for: organization_type</xsd:documentation>
     </xsd:annotation>
@@ -2782,7 +2746,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for contact_email (jtuheuri2wzfhctcjqv4ozmy) -->
-  <xsd:complexType name="mc-i2kwejjymu8kq71zt98qgwge">
+  <xsd:complexType name="mc-i7yi93r8ec20ic96roq3mi3t">
     <xsd:annotation>
       <xsd:documentation>Adapter for: contact_email</xsd:documentation>
     </xsd:annotation>
@@ -2795,7 +2759,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for contact_name (a127ihw8xbfbl24lbcvnspv0) -->
-  <xsd:complexType name="mc-yxh8i41ixpswuvy2zq365un7">
+  <xsd:complexType name="mc-ydvic6ufdcxwtc1cimd1xgtx">
     <xsd:annotation>
       <xsd:documentation>Adapter for: contact_name</xsd:documentation>
     </xsd:annotation>
@@ -2808,7 +2772,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for contact_phone (pdykwzsug7pfncjsrry73x1s) -->
-  <xsd:complexType name="mc-ckejmxbvz139oimyhtecm0bt">
+  <xsd:complexType name="mc-w29pn723fchh58s1fsr4oaxu">
     <xsd:annotation>
       <xsd:documentation>Adapter for: contact_phone</xsd:documentation>
     </xsd:annotation>
@@ -2821,7 +2785,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for service_account_id (rw1cjzeynsl87va6gvhv2k7e) -->
-  <xsd:complexType name="mc-r0jz7tdtt1m6rgqvmuycq3j6">
+  <xsd:complexType name="mc-ln4jx8kaahoaqkh1mehqkkjo">
     <xsd:annotation>
       <xsd:documentation>Adapter for: service_account_id</xsd:documentation>
     </xsd:annotation>
@@ -2834,7 +2798,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_documentation_url (xvnv7mrhvfweajl72pmngeya) -->
-  <xsd:complexType name="mc-y6bsmch0krmhjaw0tx6608mf">
+  <xsd:complexType name="mc-fuv537b8mzgrrz2qqd0eeasb">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_documentation_url</xsd:documentation>
     </xsd:annotation>
@@ -2847,7 +2811,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_service_endpoint (px6j779dnapp4fjlohula4mh) -->
-  <xsd:complexType name="mc-ya752ceqqi0gg9qaw257c4ad">
+  <xsd:complexType name="mc-llc9tm7xtgf2uq087n8378wq">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_service_endpoint</xsd:documentation>
     </xsd:annotation>
@@ -2860,7 +2824,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_name (rsjfjz8m5z7a58h5793duqbs) -->
-  <xsd:complexType name="mc-spbyvw529fo3araxr6kff390">
+  <xsd:complexType name="mc-qqkkytwgh2c3o0emzk6eb54p">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_name</xsd:documentation>
     </xsd:annotation>
@@ -2873,7 +2837,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_runtime_environment (d839tf07spk43dmg0dqb939b) -->
-  <xsd:complexType name="mc-ow3e35ct6s654hk5avmln74s">
+  <xsd:complexType name="mc-grkmgzrgavlc63wyoj32gc54">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_runtime_environment</xsd:documentation>
     </xsd:annotation>
@@ -2886,7 +2850,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_vendor (frdwjm7fxt6f5x4wx78pv7bc) -->
-  <xsd:complexType name="mc-rkxf1ecmk3laztlx1lz8r1jp">
+  <xsd:complexType name="mc-wnvbqas81hg3v9e9yo8kkkl1">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_vendor</xsd:documentation>
     </xsd:annotation>
@@ -2899,7 +2863,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_version (tep9wanrrtqfw0k76huv6tvd) -->
-  <xsd:complexType name="mc-x6gvnrsl03xubgu0a1q5rt6x">
+  <xsd:complexType name="mc-yuvz0b5wokde8fm37r8usv9j">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_version</xsd:documentation>
     </xsd:annotation>
@@ -2912,7 +2876,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Employment Record Attestation Reason (azi5plys004xc1dldfpjpuk8) -->
-  <xsd:complexType name="mc-dug2zte0zt4nh7vptml7mdl7">
+  <xsd:complexType name="mc-xdz4irbq9j66hmqbxwgzjiac">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Employment Record Attestation Reason</xsd:documentation>
     </xsd:annotation>
@@ -2925,7 +2889,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Employment Records Protocol (f37y1r2uqdu9kkrdptbm803d) -->
-  <xsd:complexType name="mc-kg1mb2dbvnv15yzxipxeg72e">
+  <xsd:complexType name="mc-cp645sabrctvsukcmn9fimn8">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Employment Records Protocol</xsd:documentation>
     </xsd:annotation>
@@ -2944,9 +2908,9 @@
 <xsd:complexType name="mc-xdu3vqk4vhuko5mghl4y4xxk" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-xdu3vqk4vhuko5mghl4y4xxk">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-xdu3vqk4vhuko5mghl4y4xxk">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Employment Governed Record</rdfs:label>
         <skos:relatedMatch rdf:resource="https://www.wikidata.org/wiki/Q656365"/>
 
@@ -2969,9 +2933,9 @@
 <xsd:complexType name="mc-ablvqv20fp33v8t8c985dlo2" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-ablvqv20fp33v8t8c985dlo2">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ablvqv20fp33v8t8c985dlo2">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Employment Record</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q627374"/>
         <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
@@ -2985,13 +2949,13 @@
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Employment Record"/>
         <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-vzabxfc733qk7lo1knaggxfs"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-wmtotsniozsvdua4d7ise8zx"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-lx5ruyske40b7vp6n5riiufc"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-n9pfwprgod2qouisuwhqko8o"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-pt7n7cytal8g6gjrx6kbh5f1"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-cexlqx0wsa67vgdad3za8teg"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-kx42d03x6vw5vv01jl0kr8l1"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-lc1ah1reo2pg2q5nsoks68fi"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-px2vmluuoh24jq3hp7mj69bo"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-utk1922daqjuxti7ypj8k5pn"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-bhzb672n51xibpyeabtkkuv5"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-hk7rajeh5xrrcwi88lkyas90"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-hjzoscf50maetr3lgv6b9uw3"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-r9rht7dk35tbkm58o2kyvb6t"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-rd1ncuq30m2a0xs61ba8m3ob"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3002,9 +2966,9 @@
 <xsd:complexType name="mc-vzabxfc733qk7lo1knaggxfs" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-vzabxfc733qk7lo1knaggxfs">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-vzabxfc733qk7lo1knaggxfs">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Compensation</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q21127747"/>
         <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
@@ -3017,9 +2981,9 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Compensation"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-r133uwmjw1wuynmwdo4ga475"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ej9uu2aj6kx4e5vtcigfo2ul"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-zhhzu3xflqkgu7o6xo3cu06p"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-do0g6eewndjrua4w3tnfn7pl"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xnbmun97ke14ougkt80bx4dz"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-hk3sb8h2cqhvmejtehs9pkzr"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3030,9 +2994,9 @@
 <xsd:complexType name="mc-hdhjfg00tngir2txgqyka9cv" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-hdhjfg00tngir2txgqyka9cv">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-hdhjfg00tngir2txgqyka9cv">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Provenance Components</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1172162"/>
 
@@ -3043,13 +3007,13 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Provenance Components"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-m91g74q0tdsrlu39x7adfymg"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-blxow8ztfj7qhw5875fig9sv"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-g8g03pnbivtfz57huxzyr98k"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-nfz5536uproqxs68fuvfpch2"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ne75pbg9h338xgo9v31fzclr"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-lnblyhkpxft5w1kogloulvtv"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-e1dqy0brdaczewgvf4pka7p6"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-nfjcw5s2l57qo8pq4m20b0k7"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-mjr5jcn3q4x8bjthxwzg17z3"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-u6dk1sk5t2unoli2umqwc3my"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-m1u064xrbhpu8u69ba9q0sej"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-s70rhhu242qmswmosxsv2lma"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-r7mqjinpa4ufiwa7c7v1fu4g"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-wmpszktld8bief3bcdyghcz8"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3060,9 +3024,9 @@
 <xsd:complexType name="mc-5f2kj3yjve80unc1tzvlq1k5" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-5f2kj3yjve80unc1tzvlq1k5">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-5f2kj3yjve80unc1tzvlq1k5">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Employee</rdfs:label>
         <skos:exactMatch rdf:resource="https://www.wikidata.org/wiki/Q703534"/>
         <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
@@ -3076,11 +3040,11 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Employee"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-iulkydywjunt7pe3nzwysuj9"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-m2l4ea4jr7fb7buxvlvz2reu"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-hthz5r13pcxqmxw9l5b2h7sb"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-lfttivznjuimura2g20a66e9"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-vmu7mg6p97aukerifa5deuut"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-mi4u02qbbgpp58mnqrj99l9l"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-onwtb7uv9qndrh4xyj7umuaj"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ac784g1n9z5q62tyyp2izb79"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-h5hhjtmg1atvf3vyl2lw3oy9"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-bdgl997zmafvbxrj8bw8kp0k"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3091,9 +3055,9 @@
 <xsd:complexType name="mc-schkb5bp75nuow2fm7k7h3tj" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-schkb5bp75nuow2fm7k7h3tj">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-schkb5bp75nuow2fm7k7h3tj">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Employer</rdfs:label>
         <skos:exactMatch rdf:resource="https://www.wikidata.org/wiki/Q3053337"/>
         <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
@@ -3107,11 +3071,11 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Employer"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-f99c57m0ybdthl7x4o59tdma"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-oc52o75uf2my5tah1wf7a83e"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fcoul2g1fkjbmc04wggvskhx"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-dquy3nzu0hkjjmdf23aexfrs"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-vmu7mg6p97aukerifa5deuut"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-bvicwcgd3io6ajxvhl680inx"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ttiffv8x9p4wff4u25d7c2nf"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-r2wpaqvraszsmijccyrrwwss"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-urnvs5a130qf8t78b49kkrz8"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-bdgl997zmafvbxrj8bw8kp0k"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3122,9 +3086,9 @@
 <xsd:complexType name="mc-w06vxo6uxtrzjkimmafmue7g" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-w06vxo6uxtrzjkimmafmue7g">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-w06vxo6uxtrzjkimmafmue7g">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Contact and Access</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2996679"/>
         <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
@@ -3136,10 +3100,10 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Contact and Access"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-i2kwejjymu8kq71zt98qgwge"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-yxh8i41ixpswuvy2zq365un7"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ckejmxbvz139oimyhtecm0bt"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-r0jz7tdtt1m6rgqvmuycq3j6"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-i7yi93r8ec20ic96roq3mi3t"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ydvic6ufdcxwtc1cimd1xgtx"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-w29pn723fchh58s1fsr4oaxu"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ln4jx8kaahoaqkh1mehqkkjo"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3150,9 +3114,9 @@
 <xsd:complexType name="mc-km4azswrxe9tdrjmqvun5463" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-km4azswrxe9tdrjmqvun5463">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-km4azswrxe9tdrjmqvun5463">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Software Agent Details</rdfs:label>
         <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2297769"/>
@@ -3164,12 +3128,12 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Software Agent Details"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-y6bsmch0krmhjaw0tx6608mf"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ya752ceqqi0gg9qaw257c4ad"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-spbyvw529fo3araxr6kff390"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ow3e35ct6s654hk5avmln74s"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-rkxf1ecmk3laztlx1lz8r1jp"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-x6gvnrsl03xubgu0a1q5rt6x"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fuv537b8mzgrrz2qqd0eeasb"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-llc9tm7xtgf2uq087n8378wq"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-qqkkytwgh2c3o0emzk6eb54p"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-grkmgzrgavlc63wyoj32gc54"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-wnvbqas81hg3v9e9yo8kkkl1"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-yuvz0b5wokde8fm37r8usv9j"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3180,9 +3144,9 @@
 <xsd:complexType name="mc-soi4th11basy5ojrulx6oool" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-soi4th11basy5ojrulx6oool">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-soi4th11basy5ojrulx6oool">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Employment Record Workflow</rdfs:label>
         <skos:relatedMatch rdf:resource="https://www.wikidata.org/wiki/Q656365"/>
         <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
@@ -3197,108 +3161,108 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Employment Record Workflow"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-dug2zte0zt4nh7vptml7mdl7"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-kg1mb2dbvnv15yzxipxeg72e"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xdz4irbq9j66hmqbxwgzjiac"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-cp645sabrctvsukcmn9fimn8"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
 </xsd:complexType>
 
 <!-- Substitution Groups -->
-  <xsd:element name="ms-rw1cjzeynsl87va6gvhv2k7e" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rw1cjzeynsl87va6gvhv2k7e"/>
-  <xsd:element name="ms-y5h8kcuf9egj363eg3ew2ku9" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-y5h8kcuf9egj363eg3ew2ku9"/>
-  <xsd:element name="ms-fotc5adg15ek2b9ermx2mcih" substitutionGroup="sdc4:Audit" type="sdc4:mc-fotc5adg15ek2b9ermx2mcih"/>
-  <xsd:element name="ms-bpqtzla39dwentygpwea8276" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bpqtzla39dwentygpwea8276"/>
-  <xsd:element name="ms-kv5qqs3o4jwcwz9javgw1pzh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"/>
-  <xsd:element name="ms-ccj1yq2wtwknobszkgzzdbtr" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ccj1yq2wtwknobszkgzzdbtr"/>
-  <xsd:element name="ms-azi5plys004xc1dldfpjpuk8" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-azi5plys004xc1dldfpjpuk8"/>
-  <xsd:element name="ms-wfws1oj1kgeaijciw7wkzdi7" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-wfws1oj1kgeaijciw7wkzdi7"/>
-  <xsd:element name="ms-8fc8bd0qo44g5s4re0gwrhlr" substitutionGroup="sdc4:Party" type="sdc4:mc-8fc8bd0qo44g5s4re0gwrhlr"/>
-  <xsd:element name="ms-xvnv7mrhvfweajl72pmngeya" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-xvnv7mrhvfweajl72pmngeya"/>
-  <xsd:element name="ms-ablvqv20fp33v8t8c985dlo2" substitutionGroup="sdc4:Item" type="sdc4:mc-ablvqv20fp33v8t8c985dlo2"/>
-  <xsd:element name="ms-schkb5bp75nuow2fm7k7h3tj" substitutionGroup="sdc4:Item" type="sdc4:mc-schkb5bp75nuow2fm7k7h3tj"/>
-  <xsd:element name="ms-tb3wwfwects1a6ap4ro7z5s8" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tb3wwfwects1a6ap4ro7z5s8"/>
-  <xsd:element name="ms-pdykwzsug7pfncjsrry73x1s" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-pdykwzsug7pfncjsrry73x1s"/>
+  <xsd:element name="ms-fnodzqkbyskwe7nh58rs336k" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-fnodzqkbyskwe7nh58rs336k"/>
   <xsd:element name="ms-nesxtz8c5o665swc9lhvqkjj" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nesxtz8c5o665swc9lhvqkjj"/>
-  <xsd:element name="ms-el43lwc0fnamy0v0ocub38t7" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-el43lwc0fnamy0v0ocub38t7"/>
+  <xsd:element name="ms-edvvjznmaoibzmfna0uuoo37" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-edvvjznmaoibzmfna0uuoo37"/>
+  <xsd:element name="ms-pdykwzsug7pfncjsrry73x1s" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-pdykwzsug7pfncjsrry73x1s"/>
+  <xsd:element name="ms-y5h8kcuf9egj363eg3ew2ku9" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-y5h8kcuf9egj363eg3ew2ku9"/>
+  <xsd:element name="ms-vitwhq5xsptnokmfq11b1jos" substitutionGroup="sdc4:Party" type="sdc4:mc-vitwhq5xsptnokmfq11b1jos"/>
+  <xsd:element name="ms-xdu3vqk4vhuko5mghl4y4xxk" substitutionGroup="sdc4:Item" type="sdc4:mc-xdu3vqk4vhuko5mghl4y4xxk"/>
+  <xsd:element name="ms-a127ihw8xbfbl24lbcvnspv0" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-a127ihw8xbfbl24lbcvnspv0"/>
+  <xsd:element name="ms-f37y1r2uqdu9kkrdptbm803d" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-f37y1r2uqdu9kkrdptbm803d"/>
+  <xsd:element name="ms-soi4th11basy5ojrulx6oool" substitutionGroup="sdc4:Item" type="sdc4:mc-soi4th11basy5ojrulx6oool"/>
+  <xsd:element name="ms-kv5qqs3o4jwcwz9javgw1pzh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+  <xsd:element name="ms-bpqtzla39dwentygpwea8276" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bpqtzla39dwentygpwea8276"/>
+  <xsd:element name="ms-ablvqv20fp33v8t8c985dlo2" substitutionGroup="sdc4:Item" type="sdc4:mc-ablvqv20fp33v8t8c985dlo2"/>
+  <xsd:element name="ms-5f2kj3yjve80unc1tzvlq1k5" substitutionGroup="sdc4:Item" type="sdc4:mc-5f2kj3yjve80unc1tzvlq1k5"/>
+  <xsd:element name="ms-ht98owgvxhff3ge85i4h80lp" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ht98owgvxhff3ge85i4h80lp"/>
   <xsd:element name="ms-rsjfjz8m5z7a58h5793duqbs" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rsjfjz8m5z7a58h5793duqbs"/>
+  <xsd:element name="ms-hdhjfg00tngir2txgqyka9cv" substitutionGroup="sdc4:Item" type="sdc4:mc-hdhjfg00tngir2txgqyka9cv"/>
+  <xsd:element name="ms-aw74ticc3fnjkz4vk4b03jr6" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-aw74ticc3fnjkz4vk4b03jr6"/>
+  <xsd:element name="ms-yowhhhxm3qnk40qd3ekaluh0" substitutionGroup="sdc4:Party" type="sdc4:mc-yowhhhxm3qnk40qd3ekaluh0"/>
+  <xsd:element name="ms-tb3wwfwects1a6ap4ro7z5s8" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tb3wwfwects1a6ap4ro7z5s8"/>
+  <xsd:element name="ms-jtuheuri2wzfhctcjqv4ozmy" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-jtuheuri2wzfhctcjqv4ozmy"/>
+  <xsd:element name="ms-nj7s1gk45tfgyooxpz0qaha3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"/>
+  <xsd:element name="ms-l8f0m7op4xhrxqy1jrnvbuly" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly"/>
+  <xsd:element name="ms-ndvtjiq0cke0q1trw58rtrq2" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"/>
+  <xsd:element name="ms-schkb5bp75nuow2fm7k7h3tj" substitutionGroup="sdc4:Item" type="sdc4:mc-schkb5bp75nuow2fm7k7h3tj"/>
   <xsd:element name="ms-ule5u2z3rjpa9pooaifwj1n3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"/>
+  <xsd:element name="ms-ub0fwihnwu5x1pdv68pjwbeu" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ub0fwihnwu5x1pdv68pjwbeu"/>
+  <xsd:element name="ms-zr59goe24qkocprl3feul3mt" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zr59goe24qkocprl3feul3mt"/>
+  <xsd:element name="ms-fotc5adg15ek2b9ermx2mcih" substitutionGroup="sdc4:Audit" type="sdc4:mc-fotc5adg15ek2b9ermx2mcih"/>
+  <xsd:element name="ms-ifw5zfe4oiijbxjn1ylc2wm3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"/>
+  <xsd:element name="ms-m9xg6e182m1oq77ssrf9iujv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-m9xg6e182m1oq77ssrf9iujv"/>
+  <xsd:element name="ms-bd3s8t23d6m3zizmpwavc32y" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bd3s8t23d6m3zizmpwavc32y"/>
+  <xsd:element name="ms-hhfnj5hd1yzt252jfq5pdjj1" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"/>
+  <xsd:element name="ms-8fc8bd0qo44g5s4re0gwrhlr" substitutionGroup="sdc4:Party" type="sdc4:mc-8fc8bd0qo44g5s4re0gwrhlr"/>
+  <xsd:element name="ms-u18l77xlj2omcbmnpi5j7fff" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-u18l77xlj2omcbmnpi5j7fff"/>
+  <xsd:element name="ms-xvnv7mrhvfweajl72pmngeya" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-xvnv7mrhvfweajl72pmngeya"/>
+  <xsd:element name="ms-frdwjm7fxt6f5x4wx78pv7bc" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc"/>
+  <xsd:element name="ms-km4azswrxe9tdrjmqvun5463" substitutionGroup="sdc4:Item" type="sdc4:mc-km4azswrxe9tdrjmqvun5463"/>
+  <xsd:element name="ms-gug5dhtqfv7exbgmm2raxpkq" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
+  <xsd:element name="ms-o72s5793973fzho35rnaughs" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-o72s5793973fzho35rnaughs"/>
+  <xsd:element name="ms-wfws1oj1kgeaijciw7wkzdi7" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-wfws1oj1kgeaijciw7wkzdi7"/>
+  <xsd:element name="ms-atdtdfzruh7tya0iv5cz365l" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-atdtdfzruh7tya0iv5cz365l"/>
+  <xsd:element name="ms-w06vxo6uxtrzjkimmafmue7g" substitutionGroup="sdc4:Item" type="sdc4:mc-w06vxo6uxtrzjkimmafmue7g"/>
+  <xsd:element name="ms-bbu03oqjkniydmzb7pqcjg3m" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bbu03oqjkniydmzb7pqcjg3m"/>
+  <xsd:element name="ms-d839tf07spk43dmg0dqb939b" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-d839tf07spk43dmg0dqb939b"/>
+  <xsd:element name="ms-dqjp4dd4kgj2e2hg8kiw3qfw" substitutionGroup="sdc4:Attestation" type="sdc4:mc-dqjp4dd4kgj2e2hg8kiw3qfw"/>
+  <xsd:element name="ms-gr4c7suzjf87x7svli8oiqi6" substitutionGroup="sdc4:ReferenceRange" type="sdc4:mc-gr4c7suzjf87x7svli8oiqi6-rr"/>
+  <xsd:element name="ms-ghsjyyzudma3eq761dwd4j9p" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ghsjyyzudma3eq761dwd4j9p"/>
+  <xsd:element name="ms-zs9ciw4nypx4plo856h3m95d" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zs9ciw4nypx4plo856h3m95d"/>
   <xsd:element name="ms-tep9wanrrtqfw0k76huv6tvd" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tep9wanrrtqfw0k76huv6tvd"/>
   <xsd:element name="ms-tw8mn0vv8z8v3w533gfu9j92" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tw8mn0vv8z8v3w533gfu9j92"/>
-  <xsd:element name="ms-ht98owgvxhff3ge85i4h80lp" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ht98owgvxhff3ge85i4h80lp"/>
-  <xsd:element name="ms-ifw5zfe4oiijbxjn1ylc2wm3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"/>
-  <xsd:element name="ms-frdwjm7fxt6f5x4wx78pv7bc" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc"/>
-  <xsd:element name="ms-dqjp4dd4kgj2e2hg8kiw3qfw" substitutionGroup="sdc4:Attestation" type="sdc4:mc-dqjp4dd4kgj2e2hg8kiw3qfw"/>
-  <xsd:element name="ms-bd3s8t23d6m3zizmpwavc32y" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bd3s8t23d6m3zizmpwavc32y"/>
-  <xsd:element name="ms-zr59goe24qkocprl3feul3mt" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zr59goe24qkocprl3feul3mt"/>
-  <xsd:element name="ms-o72s5793973fzho35rnaughs" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-o72s5793973fzho35rnaughs"/>
-  <xsd:element name="ms-km4azswrxe9tdrjmqvun5463" substitutionGroup="sdc4:Item" type="sdc4:mc-km4azswrxe9tdrjmqvun5463"/>
-  <xsd:element name="ms-jtuheuri2wzfhctcjqv4ozmy" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-jtuheuri2wzfhctcjqv4ozmy"/>
-  <xsd:element name="ms-d839tf07spk43dmg0dqb939b" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-d839tf07spk43dmg0dqb939b"/>
-  <xsd:element name="ms-soi4th11basy5ojrulx6oool" substitutionGroup="sdc4:Item" type="sdc4:mc-soi4th11basy5ojrulx6oool"/>
-  <xsd:element name="ms-u18l77xlj2omcbmnpi5j7fff" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-u18l77xlj2omcbmnpi5j7fff"/>
-  <xsd:element name="ms-m9xg6e182m1oq77ssrf9iujv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-m9xg6e182m1oq77ssrf9iujv"/>
-  <xsd:element name="ms-gr4c7suzjf87x7svli8oiqi6" substitutionGroup="sdc4:ReferenceRange" type="sdc4:mc-gr4c7suzjf87x7svli8oiqi6-rr"/>
-  <xsd:element name="ms-l8f0m7op4xhrxqy1jrnvbuly" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly"/>
-  <xsd:element name="ms-bbu03oqjkniydmzb7pqcjg3m" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bbu03oqjkniydmzb7pqcjg3m"/>
-  <xsd:element name="ms-yowhhhxm3qnk40qd3ekaluh0" substitutionGroup="sdc4:Party" type="sdc4:mc-yowhhhxm3qnk40qd3ekaluh0"/>
-  <xsd:element name="ms-zs9ciw4nypx4plo856h3m95d" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zs9ciw4nypx4plo856h3m95d"/>
+  <xsd:element name="ms-ccj1yq2wtwknobszkgzzdbtr" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ccj1yq2wtwknobszkgzzdbtr"/>
+  <xsd:element name="ms-rw1cjzeynsl87va6gvhv2k7e" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rw1cjzeynsl87va6gvhv2k7e"/>
   <xsd:element name="ms-px6j779dnapp4fjlohula4mh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-px6j779dnapp4fjlohula4mh"/>
-  <xsd:element name="ms-hhfnj5hd1yzt252jfq5pdjj1" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"/>
-  <xsd:element name="ms-f37y1r2uqdu9kkrdptbm803d" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-f37y1r2uqdu9kkrdptbm803d"/>
-  <xsd:element name="ms-5f2kj3yjve80unc1tzvlq1k5" substitutionGroup="sdc4:Item" type="sdc4:mc-5f2kj3yjve80unc1tzvlq1k5"/>
-  <xsd:element name="ms-atdtdfzruh7tya0iv5cz365l" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-atdtdfzruh7tya0iv5cz365l"/>
-  <xsd:element name="ms-hdhjfg00tngir2txgqyka9cv" substitutionGroup="sdc4:Item" type="sdc4:mc-hdhjfg00tngir2txgqyka9cv"/>
-  <xsd:element name="ms-ub0fwihnwu5x1pdv68pjwbeu" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ub0fwihnwu5x1pdv68pjwbeu"/>
-  <xsd:element name="ms-aw74ticc3fnjkz4vk4b03jr6" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-aw74ticc3fnjkz4vk4b03jr6"/>
+  <xsd:element name="ms-el43lwc0fnamy0v0ocub38t7" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-el43lwc0fnamy0v0ocub38t7"/>
   <xsd:element name="ms-vzabxfc733qk7lo1knaggxfs" substitutionGroup="sdc4:Item" type="sdc4:mc-vzabxfc733qk7lo1knaggxfs"/>
-  <xsd:element name="ms-vitwhq5xsptnokmfq11b1jos" substitutionGroup="sdc4:Party" type="sdc4:mc-vitwhq5xsptnokmfq11b1jos"/>
-  <xsd:element name="ms-ghsjyyzudma3eq761dwd4j9p" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ghsjyyzudma3eq761dwd4j9p"/>
-  <xsd:element name="ms-fnodzqkbyskwe7nh58rs336k" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-fnodzqkbyskwe7nh58rs336k"/>
-  <xsd:element name="ms-gug5dhtqfv7exbgmm2raxpkq" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
-  <xsd:element name="ms-nj7s1gk45tfgyooxpz0qaha3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"/>
-  <xsd:element name="ms-edvvjznmaoibzmfna0uuoo37" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-edvvjznmaoibzmfna0uuoo37"/>
-  <xsd:element name="ms-xdu3vqk4vhuko5mghl4y4xxk" substitutionGroup="sdc4:Item" type="sdc4:mc-xdu3vqk4vhuko5mghl4y4xxk"/>
-  <xsd:element name="ms-w06vxo6uxtrzjkimmafmue7g" substitutionGroup="sdc4:Item" type="sdc4:mc-w06vxo6uxtrzjkimmafmue7g"/>
-  <xsd:element name="ms-ndvtjiq0cke0q1trw58rtrq2" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"/>
-  <xsd:element name="ms-a127ihw8xbfbl24lbcvnspv0" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-a127ihw8xbfbl24lbcvnspv0"/>
-  <xsd:element name="ms-r0jz7tdtt1m6rgqvmuycq3j6" substitutionGroup="sdc4:Item" type="sdc4:mc-r0jz7tdtt1m6rgqvmuycq3j6"/>
-  <xsd:element name="ms-dquy3nzu0hkjjmdf23aexfrs" substitutionGroup="sdc4:Item" type="sdc4:mc-dquy3nzu0hkjjmdf23aexfrs"/>
-  <xsd:element name="ms-cexlqx0wsa67vgdad3za8teg" substitutionGroup="sdc4:Item" type="sdc4:mc-cexlqx0wsa67vgdad3za8teg"/>
-  <xsd:element name="ms-blxow8ztfj7qhw5875fig9sv" substitutionGroup="sdc4:Item" type="sdc4:mc-blxow8ztfj7qhw5875fig9sv"/>
-  <xsd:element name="ms-dug2zte0zt4nh7vptml7mdl7" substitutionGroup="sdc4:Item" type="sdc4:mc-dug2zte0zt4nh7vptml7mdl7"/>
-  <xsd:element name="ms-lx5ruyske40b7vp6n5riiufc" substitutionGroup="sdc4:Item" type="sdc4:mc-lx5ruyske40b7vp6n5riiufc"/>
-  <xsd:element name="ms-y6bsmch0krmhjaw0tx6608mf" substitutionGroup="sdc4:Item" type="sdc4:mc-y6bsmch0krmhjaw0tx6608mf"/>
-  <xsd:element name="ms-ckejmxbvz139oimyhtecm0bt" substitutionGroup="sdc4:Item" type="sdc4:mc-ckejmxbvz139oimyhtecm0bt"/>
-  <xsd:element name="ms-pt7n7cytal8g6gjrx6kbh5f1" substitutionGroup="sdc4:Item" type="sdc4:mc-pt7n7cytal8g6gjrx6kbh5f1"/>
-  <xsd:element name="ms-spbyvw529fo3araxr6kff390" substitutionGroup="sdc4:Item" type="sdc4:mc-spbyvw529fo3araxr6kff390"/>
-  <xsd:element name="ms-vmu7mg6p97aukerifa5deuut" substitutionGroup="sdc4:Item" type="sdc4:mc-vmu7mg6p97aukerifa5deuut"/>
-  <xsd:element name="ms-kx42d03x6vw5vv01jl0kr8l1" substitutionGroup="sdc4:Item" type="sdc4:mc-kx42d03x6vw5vv01jl0kr8l1"/>
-  <xsd:element name="ms-x6gvnrsl03xubgu0a1q5rt6x" substitutionGroup="sdc4:Item" type="sdc4:mc-x6gvnrsl03xubgu0a1q5rt6x"/>
-  <xsd:element name="ms-oc52o75uf2my5tah1wf7a83e" substitutionGroup="sdc4:Item" type="sdc4:mc-oc52o75uf2my5tah1wf7a83e"/>
-  <xsd:element name="ms-r133uwmjw1wuynmwdo4ga475" substitutionGroup="sdc4:Item" type="sdc4:mc-r133uwmjw1wuynmwdo4ga475"/>
-  <xsd:element name="ms-fcoul2g1fkjbmc04wggvskhx" substitutionGroup="sdc4:Item" type="sdc4:mc-fcoul2g1fkjbmc04wggvskhx"/>
-  <xsd:element name="ms-rkxf1ecmk3laztlx1lz8r1jp" substitutionGroup="sdc4:Item" type="sdc4:mc-rkxf1ecmk3laztlx1lz8r1jp"/>
-  <xsd:element name="ms-g8g03pnbivtfz57huxzyr98k" substitutionGroup="sdc4:Item" type="sdc4:mc-g8g03pnbivtfz57huxzyr98k"/>
-  <xsd:element name="ms-nfz5536uproqxs68fuvfpch2" substitutionGroup="sdc4:Item" type="sdc4:mc-nfz5536uproqxs68fuvfpch2"/>
-  <xsd:element name="ms-e1dqy0brdaczewgvf4pka7p6" substitutionGroup="sdc4:Item" type="sdc4:mc-e1dqy0brdaczewgvf4pka7p6"/>
-  <xsd:element name="ms-ow3e35ct6s654hk5avmln74s" substitutionGroup="sdc4:Item" type="sdc4:mc-ow3e35ct6s654hk5avmln74s"/>
-  <xsd:element name="ms-i2kwejjymu8kq71zt98qgwge" substitutionGroup="sdc4:Item" type="sdc4:mc-i2kwejjymu8kq71zt98qgwge"/>
-  <xsd:element name="ms-m91g74q0tdsrlu39x7adfymg" substitutionGroup="sdc4:Item" type="sdc4:mc-m91g74q0tdsrlu39x7adfymg"/>
-  <xsd:element name="ms-f99c57m0ybdthl7x4o59tdma" substitutionGroup="sdc4:Item" type="sdc4:mc-f99c57m0ybdthl7x4o59tdma"/>
-  <xsd:element name="ms-wmtotsniozsvdua4d7ise8zx" substitutionGroup="sdc4:Item" type="sdc4:mc-wmtotsniozsvdua4d7ise8zx"/>
-  <xsd:element name="ms-hthz5r13pcxqmxw9l5b2h7sb" substitutionGroup="sdc4:Item" type="sdc4:mc-hthz5r13pcxqmxw9l5b2h7sb"/>
-  <xsd:element name="ms-ya752ceqqi0gg9qaw257c4ad" substitutionGroup="sdc4:Item" type="sdc4:mc-ya752ceqqi0gg9qaw257c4ad"/>
-  <xsd:element name="ms-m2l4ea4jr7fb7buxvlvz2reu" substitutionGroup="sdc4:Item" type="sdc4:mc-m2l4ea4jr7fb7buxvlvz2reu"/>
-  <xsd:element name="ms-kg1mb2dbvnv15yzxipxeg72e" substitutionGroup="sdc4:Item" type="sdc4:mc-kg1mb2dbvnv15yzxipxeg72e"/>
-  <xsd:element name="ms-n9pfwprgod2qouisuwhqko8o" substitutionGroup="sdc4:Item" type="sdc4:mc-n9pfwprgod2qouisuwhqko8o"/>
-  <xsd:element name="ms-ej9uu2aj6kx4e5vtcigfo2ul" substitutionGroup="sdc4:Item" type="sdc4:mc-ej9uu2aj6kx4e5vtcigfo2ul"/>
-  <xsd:element name="ms-zhhzu3xflqkgu7o6xo3cu06p" substitutionGroup="sdc4:Item" type="sdc4:mc-zhhzu3xflqkgu7o6xo3cu06p"/>
-  <xsd:element name="ms-lc1ah1reo2pg2q5nsoks68fi" substitutionGroup="sdc4:Item" type="sdc4:mc-lc1ah1reo2pg2q5nsoks68fi"/>
-  <xsd:element name="ms-ne75pbg9h338xgo9v31fzclr" substitutionGroup="sdc4:Item" type="sdc4:mc-ne75pbg9h338xgo9v31fzclr"/>
-  <xsd:element name="ms-iulkydywjunt7pe3nzwysuj9" substitutionGroup="sdc4:Item" type="sdc4:mc-iulkydywjunt7pe3nzwysuj9"/>
-  <xsd:element name="ms-lnblyhkpxft5w1kogloulvtv" substitutionGroup="sdc4:Item" type="sdc4:mc-lnblyhkpxft5w1kogloulvtv"/>
-  <xsd:element name="ms-lfttivznjuimura2g20a66e9" substitutionGroup="sdc4:Item" type="sdc4:mc-lfttivznjuimura2g20a66e9"/>
-  <xsd:element name="ms-yxh8i41ixpswuvy2zq365un7" substitutionGroup="sdc4:Item" type="sdc4:mc-yxh8i41ixpswuvy2zq365un7"/>
+  <xsd:element name="ms-azi5plys004xc1dldfpjpuk8" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-azi5plys004xc1dldfpjpuk8"/>
+  <xsd:element name="ms-s70rhhu242qmswmosxsv2lma" substitutionGroup="sdc4:Item" type="sdc4:mc-s70rhhu242qmswmosxsv2lma"/>
+  <xsd:element name="ms-bdgl997zmafvbxrj8bw8kp0k" substitutionGroup="sdc4:Item" type="sdc4:mc-bdgl997zmafvbxrj8bw8kp0k"/>
+  <xsd:element name="ms-r7mqjinpa4ufiwa7c7v1fu4g" substitutionGroup="sdc4:Item" type="sdc4:mc-r7mqjinpa4ufiwa7c7v1fu4g"/>
+  <xsd:element name="ms-w29pn723fchh58s1fsr4oaxu" substitutionGroup="sdc4:Item" type="sdc4:mc-w29pn723fchh58s1fsr4oaxu"/>
+  <xsd:element name="ms-cp645sabrctvsukcmn9fimn8" substitutionGroup="sdc4:Item" type="sdc4:mc-cp645sabrctvsukcmn9fimn8"/>
+  <xsd:element name="ms-ydvic6ufdcxwtc1cimd1xgtx" substitutionGroup="sdc4:Item" type="sdc4:mc-ydvic6ufdcxwtc1cimd1xgtx"/>
+  <xsd:element name="ms-hjzoscf50maetr3lgv6b9uw3" substitutionGroup="sdc4:Item" type="sdc4:mc-hjzoscf50maetr3lgv6b9uw3"/>
+  <xsd:element name="ms-urnvs5a130qf8t78b49kkrz8" substitutionGroup="sdc4:Item" type="sdc4:mc-urnvs5a130qf8t78b49kkrz8"/>
+  <xsd:element name="ms-do0g6eewndjrua4w3tnfn7pl" substitutionGroup="sdc4:Item" type="sdc4:mc-do0g6eewndjrua4w3tnfn7pl"/>
+  <xsd:element name="ms-qqkkytwgh2c3o0emzk6eb54p" substitutionGroup="sdc4:Item" type="sdc4:mc-qqkkytwgh2c3o0emzk6eb54p"/>
+  <xsd:element name="ms-hk3sb8h2cqhvmejtehs9pkzr" substitutionGroup="sdc4:Item" type="sdc4:mc-hk3sb8h2cqhvmejtehs9pkzr"/>
+  <xsd:element name="ms-i7yi93r8ec20ic96roq3mi3t" substitutionGroup="sdc4:Item" type="sdc4:mc-i7yi93r8ec20ic96roq3mi3t"/>
+  <xsd:element name="ms-hk7rajeh5xrrcwi88lkyas90" substitutionGroup="sdc4:Item" type="sdc4:mc-hk7rajeh5xrrcwi88lkyas90"/>
+  <xsd:element name="ms-mi4u02qbbgpp58mnqrj99l9l" substitutionGroup="sdc4:Item" type="sdc4:mc-mi4u02qbbgpp58mnqrj99l9l"/>
+  <xsd:element name="ms-bvicwcgd3io6ajxvhl680inx" substitutionGroup="sdc4:Item" type="sdc4:mc-bvicwcgd3io6ajxvhl680inx"/>
+  <xsd:element name="ms-h5hhjtmg1atvf3vyl2lw3oy9" substitutionGroup="sdc4:Item" type="sdc4:mc-h5hhjtmg1atvf3vyl2lw3oy9"/>
+  <xsd:element name="ms-ttiffv8x9p4wff4u25d7c2nf" substitutionGroup="sdc4:Item" type="sdc4:mc-ttiffv8x9p4wff4u25d7c2nf"/>
+  <xsd:element name="ms-m1u064xrbhpu8u69ba9q0sej" substitutionGroup="sdc4:Item" type="sdc4:mc-m1u064xrbhpu8u69ba9q0sej"/>
+  <xsd:element name="ms-xnbmun97ke14ougkt80bx4dz" substitutionGroup="sdc4:Item" type="sdc4:mc-xnbmun97ke14ougkt80bx4dz"/>
+  <xsd:element name="ms-r2wpaqvraszsmijccyrrwwss" substitutionGroup="sdc4:Item" type="sdc4:mc-r2wpaqvraszsmijccyrrwwss"/>
+  <xsd:element name="ms-u6dk1sk5t2unoli2umqwc3my" substitutionGroup="sdc4:Item" type="sdc4:mc-u6dk1sk5t2unoli2umqwc3my"/>
+  <xsd:element name="ms-nfjcw5s2l57qo8pq4m20b0k7" substitutionGroup="sdc4:Item" type="sdc4:mc-nfjcw5s2l57qo8pq4m20b0k7"/>
+  <xsd:element name="ms-onwtb7uv9qndrh4xyj7umuaj" substitutionGroup="sdc4:Item" type="sdc4:mc-onwtb7uv9qndrh4xyj7umuaj"/>
+  <xsd:element name="ms-fuv537b8mzgrrz2qqd0eeasb" substitutionGroup="sdc4:Item" type="sdc4:mc-fuv537b8mzgrrz2qqd0eeasb"/>
+  <xsd:element name="ms-wnvbqas81hg3v9e9yo8kkkl1" substitutionGroup="sdc4:Item" type="sdc4:mc-wnvbqas81hg3v9e9yo8kkkl1"/>
+  <xsd:element name="ms-wmpszktld8bief3bcdyghcz8" substitutionGroup="sdc4:Item" type="sdc4:mc-wmpszktld8bief3bcdyghcz8"/>
+  <xsd:element name="ms-bhzb672n51xibpyeabtkkuv5" substitutionGroup="sdc4:Item" type="sdc4:mc-bhzb672n51xibpyeabtkkuv5"/>
+  <xsd:element name="ms-utk1922daqjuxti7ypj8k5pn" substitutionGroup="sdc4:Item" type="sdc4:mc-utk1922daqjuxti7ypj8k5pn"/>
+  <xsd:element name="ms-px2vmluuoh24jq3hp7mj69bo" substitutionGroup="sdc4:Item" type="sdc4:mc-px2vmluuoh24jq3hp7mj69bo"/>
+  <xsd:element name="ms-grkmgzrgavlc63wyoj32gc54" substitutionGroup="sdc4:Item" type="sdc4:mc-grkmgzrgavlc63wyoj32gc54"/>
+  <xsd:element name="ms-ac784g1n9z5q62tyyp2izb79" substitutionGroup="sdc4:Item" type="sdc4:mc-ac784g1n9z5q62tyyp2izb79"/>
+  <xsd:element name="ms-rd1ncuq30m2a0xs61ba8m3ob" substitutionGroup="sdc4:Item" type="sdc4:mc-rd1ncuq30m2a0xs61ba8m3ob"/>
+  <xsd:element name="ms-yuvz0b5wokde8fm37r8usv9j" substitutionGroup="sdc4:Item" type="sdc4:mc-yuvz0b5wokde8fm37r8usv9j"/>
+  <xsd:element name="ms-mjr5jcn3q4x8bjthxwzg17z3" substitutionGroup="sdc4:Item" type="sdc4:mc-mjr5jcn3q4x8bjthxwzg17z3"/>
+  <xsd:element name="ms-ln4jx8kaahoaqkh1mehqkkjo" substitutionGroup="sdc4:Item" type="sdc4:mc-ln4jx8kaahoaqkh1mehqkkjo"/>
+  <xsd:element name="ms-llc9tm7xtgf2uq087n8378wq" substitutionGroup="sdc4:Item" type="sdc4:mc-llc9tm7xtgf2uq087n8378wq"/>
+  <xsd:element name="ms-r9rht7dk35tbkm58o2kyvb6t" substitutionGroup="sdc4:Item" type="sdc4:mc-r9rht7dk35tbkm58o2kyvb6t"/>
+  <xsd:element name="ms-xdz4irbq9j66hmqbxwgzjiac" substitutionGroup="sdc4:Item" type="sdc4:mc-xdz4irbq9j66hmqbxwgzjiac"/>
 
 </xsd:schema>
