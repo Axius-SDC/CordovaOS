@@ -5,7 +5,7 @@
 
 **A fictional nation's entire government — 10 domains, zero integration code.**
 
-CordovaOS is a self-contained, clone-and-run proof of concept for [SDC4](https://semanticdatacharter.com) (Semantic Data Charter). It models the Republic of Cordova, a fictional island nation, as 10 fully operational government domain applications that share data through a common semantic foundation — no middleware, no API adapters, no ETL pipelines, no data mapping layer. Every domain is a self-describing SDC4 data model, and cross-domain questions are answered by SPARQL against one shared knowledge graph.
+CordovaOS is a self-contained, clone-and-run proof of concept for [SDC4](https://semanticdatacharter.com) (Semantic Data Charter). This is version 4.3.0, the third CordovaOS built on SDC4: the ten models were republished and the ten applications regenerated from SDCStudio 4.6.0, and both are in the repo exactly as downloaded, under `sdcstudio_downloads/`, so anyone who clones can read the raw models and apps before reading anything we wrote around them. It models the Republic of Cordova, a fictional island nation, as 10 fully operational government domain applications that share data through a common semantic foundation — no middleware, no API adapters, no ETL pipelines, no data mapping layer. Every domain is a self-describing SDC4 data model, and cross-domain questions are answered by SPARQL against one shared knowledge graph.
 
 Each record is **governance-composed**: alongside its data, every instance carries its own **Provenance** (who/what/where/when it came from) and a structural **Audit** record, bound to the data at the source rather than bolted on afterward.
 
@@ -37,13 +37,15 @@ make demo
 
 ### Check it worked
 
-The demo is deterministic, so a correct run produces the same numbers every
-time. The console front page should show:
+The demo is deterministic: the generators are seeded, so every run on every
+machine produces the same records with the same identifiers, the same values
+and the same relationships. Only the record timestamps move. The console front
+page should show:
 
 | | Expected |
 |---|---|
-| Records loaded | **1,446** |
-| Named graphs in GraphDB | **1,446** (one per record, no drift) |
+| Records loaded | **1,462** |
+| Named graphs in GraphDB | **1,462** (one per record, no drift) |
 | Domains | **10** |
 | Records stating an absence | **7** |
 
@@ -53,16 +55,16 @@ known") instead of a zero or a `1900-01-01` that would parse downstream as a
 real value. The console front page shows the count and links straight to
 examples rather than hiding them, they are projected into the graph like every
 other record, and they carry an `i-ev-` identifier prefix so the fact survives
-outside the document. If your run shows 1,446 records and 1,446 named graphs,
+outside the document. If your run shows 1,462 records and 1,462 named graphs,
 everything below is reproducible on your machine.
 
 ### Choose your dataset
 
-Generation is fast; **loading is the cost** (each instance is validated and written to both PostgreSQL and GraphDB). Pick the scale you want:
+Generation takes seconds; **loading is the cost**: each instance is validated against its XSD 1.1 schema, then written to PostgreSQL and projected into GraphDB as its own named graph. Pick the scale you want:
 
 | Command | Dataset | Load time |
 |---|---|---|
-| `make demo` (default) | 250 residents, 1,446 records | a few minutes |
+| `make demo` (default) | 250 residents, 1,462 records | about 30 minutes on a laptop |
 | `make demo-full` | 25,000 residents, ~100,000 records | **hours** (generation is seconds; the load is the slow part) |
 
 `make help` lists all targets. The full 25,000-resident set is the realistic stress test; the small set is the fast proof of concept, and both exercise the identical cross-domain machinery.
@@ -152,7 +154,9 @@ CordovaOS/
 │   ├── mediafiles/dmlib/  # per-domain DM schema library
 │   └── docs/              # the two guides linked above, plus triplestore notes
 ├── datagen/               # Python synthetic data generators (host-side)
-├── models/                # SDC4 data model exports per domain
+├── sdcstudio_downloads/   # exactly what SDCStudio produced, unmodified
+│   ├── models/            # the 10 published data models (XSD, RDF, SHACL, JSON-LD, GQL, HTML)
+│   └── apps/              # the 10 generated applications, as downloaded
 ├── docs/design/           # console design notes and the original mockups
 └── sparql/                # 7 cross-domain SPARQL queries
 ```

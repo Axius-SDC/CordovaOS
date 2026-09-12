@@ -35,54 +35,54 @@ AUDIT_ID        = "ms-fotc5adg15ek2b9ermx2mcih"   # System Audit component
 CL_ROOT = "ms-ygtbvvmzcw3ukfsg3axqry97"           # Patient Record data cluster
 
 # Scalar leaves, direct children of Patient Record (component, wrapper)
-W_CID = ("ms-nj7s1gk45tfgyooxpz0qaha3", "ms-z16xo5uj1mi3dibl3ro3ufrl")
-W_MRN = ("ms-jz2hqntyol8lopw6q6zdud78", "ms-zdd1wtyrryiurmvqseaivjr1")
+W_CID = ("ms-nj7s1gk45tfgyooxpz0qaha3", "ms-znhjge005ihiusslkmbcc4h4")
+W_MRN = ("ms-jz2hqntyol8lopw6q6zdud78", "ms-qewbrtwou236nps3mor7g47w")
 
 # Allergies and Conditions sub-cluster
 CL_ALLERGY     = "ms-xplqihmynccwa3o4o8s7gqml"
-W_ALLERGY_DESC = ("ms-ntk4zsr15bcca2jmocdkcpcc", "ms-fiyhm1yos1t6svmprr836bx0")
-W_CHRONIC      = ("ms-cm0nqqnjcylc8vkfph7db2lh", "ms-rzf4dwte7xet6gdue6lmj6py")
-W_COND_STATUS  = ("ms-tz13p9d4dpbw3pe9bx51nbou", "ms-kvgfcr3rme6fqpt6nn5h66qn")
-W_SEVERITY     = ("ms-07osold8ovbjsqzvz00f3ked2", "ms-bofw0qcwpbypofxuwwcxiq2o")
-W_ONSET        = ("ms-p14jkmk8xqs97daq3zvyhrsj", "ms-fy92af172lvw70id7u1jgskn")
+W_ALLERGY_DESC = ("ms-ntk4zsr15bcca2jmocdkcpcc", "ms-s4qrt7w5kf0ljbulhkr8bxig")
+W_CHRONIC      = ("ms-cm0nqqnjcylc8vkfph7db2lh", "ms-n5esg9h1syd9bm986i7bamfe")
+W_COND_STATUS  = ("ms-tz13p9d4dpbw3pe9bx51nbou", "ms-eoucquy4xrpbz0ic9ysuuh06")
+W_SEVERITY     = ("ms-07osold8ovbjsqzvz00f3ked2", "ms-frovikr6mczb9am8gdp96tve")
+W_ONSET        = ("ms-p14jkmk8xqs97daq3zvyhrsj", "ms-fyaf37dusutkol5daod9ivsr")
 
 # Medications sub-cluster
 CL_MEDS        = "ms-vhjvhm6vz2om2jfn6b923gw7"
-W_DOSAGE       = ("ms-z28bjtjekyybe300ukuyjpi4", "ms-dk7pfc5jk1cn2b7n4zj6m6so")
-W_MED_NAME     = ("ms-nomiekce61caq5n9a49d0eu6", "ms-abx0p7u2r7v3ld052qonnyjo")
-W_FREQUENCY    = ("ms-iprf7jqg9emvm92wo9gkiqcu", "ms-wbv46a4twbyuwpwr7ybz3j2z")
-W_MED_DOSE_AMT = ("ms-y7k4p12co0b9v6asll531fhv", "ms-pfpxhdvami9iviftg37r2la2")
-W_RX_DATE      = ("ms-cq6m46w59ouu1cu8tkw1fhib", "ms-x6ld5whgo7cyb51uusixmd3d")
+W_DOSAGE       = ("ms-z28bjtjekyybe300ukuyjpi4", "ms-q9xusgfko7tq0idtt767mx1s")
+W_MED_NAME     = ("ms-nomiekce61caq5n9a49d0eu6", "ms-v4qahtpe58rqd769npphsroe")
+W_FREQUENCY    = ("ms-iprf7jqg9emvm92wo9gkiqcu", "ms-jik6dzw49n9vpp9jl42q8mju")
+W_MED_DOSE_AMT = ("ms-y7k4p12co0b9v6asll531fhv", "ms-z8l2pvmwpliq0ozkrhiqygaq")
+W_RX_DATE      = ("ms-cq6m46w59ouu1cu8tkw1fhib", "ms-pc3cvfr6qvp2f9mabcmps0k1")
 
 # Vaccination History sub-cluster
 CL_VACCINE     = "ms-eq4h86worv571cl5iiy9unkw"
-W_LOT_NUM      = ("ms-td5j1frz2fa8g4uh1hor7w11", "ms-el0cz3iurka072fggj4hx49f")
-W_VACCINE_NAME = ("ms-fi1qu4j2zd0801fcqtix35h5", "ms-j7ar4kki6mv0r7ocr6ow3qhl")
-W_VACCINE_DATE = ("ms-dyfz05n20jhc1elhozrbjug0", "ms-qydut841yrwpnp46ookn2ggn")
+W_LOT_NUM      = ("ms-td5j1frz2fa8g4uh1hor7w11", "ms-lvs7ao5um53z3jv65o5oq4uz")
+W_VACCINE_NAME = ("ms-fi1qu4j2zd0801fcqtix35h5", "ms-v7gox7q6zxx8ipuxhrapfzqm")
+W_VACCINE_DATE = ("ms-dyfz05n20jhc1elhozrbjug0", "ms-zcc5r1ovfvuluysxeycbjnd1")
 
 # Visit Record sub-cluster
 CL_VISIT     = "ms-hd9295k8o49j91lvgftul1a0"
-W_DIAGNOSIS  = ("ms-nnu04d5qgrmn1bim8bpu0l65", "ms-whrsz97tqb4o168mzr4mflu6")
-W_FACILITY   = ("ms-qvmb5f4xmy56y98q8raelpl9", "ms-xk9xcbv60fx8le5wx8b3owby")
-W_REASON     = ("ms-qzmcum3kwmskrkj7nhkf8fkm", "ms-stzcsbchyfvy4z7r35fxkw6b")
-W_IMPRESSION = ("ms-cntj1t9t2xjugnux1enpigmf", "ms-o03ksbpzw3yx4v9scegdc7el")
-W_OUTCOME    = ("ms-lccs354vpxmtyo69ba5cu48v", "ms-mgms7fe9u8u1h96ljom48dc4")
-W_VISIT_TYPE = ("ms-l9sjn7wj10y5b27ldkv3j8mt", "ms-meit785z0ugz2andc6ff2kgo")
-W_BODY_TEMP  = ("ms-b5zse0kmvpkj74ggqvgk647l", "ms-dzafdnv507rgc8sxqqa2ltf5")
-W_BP_DIAS    = ("ms-lu2w1avj9fic5wrmyftt9fhi", "ms-w9offwxy24rsztc11j7zx0ug")
-W_HEIGHT     = ("ms-vh2scyehy68pw7sbvzdg3cn9", "ms-zvkl8ctcg237iqwtyyrwenoq")
-W_WEIGHT     = ("ms-s6oo99lbq85kfz0v5nqv9yaf", "ms-vgq6d2vts14o1zo4491cf6d4")
-W_BP_SYS     = ("ms-kokquuk73pm2ohlh4ftnu7wb", "ms-q867tp1yaobktelz3gpvfa64")
-W_VISIT_DATE = ("ms-iufcfze52lha16v84kccgxyh", "ms-pe9rnuja4xuk2wyoyfkfdo9o")
+W_DIAGNOSIS  = ("ms-nnu04d5qgrmn1bim8bpu0l65", "ms-rm0gvn3ui1w8votbxmiko5aw")
+W_FACILITY   = ("ms-qvmb5f4xmy56y98q8raelpl9", "ms-xan7hxrlwklxviwak9lt6o42")
+W_REASON     = ("ms-qzmcum3kwmskrkj7nhkf8fkm", "ms-wpme2iasw1par7e03283b4xb")
+W_IMPRESSION = ("ms-cntj1t9t2xjugnux1enpigmf", "ms-idwt19cqrc6onlgh58zgtpc4")
+W_OUTCOME    = ("ms-lccs354vpxmtyo69ba5cu48v", "ms-oy7l6tk0oujtuu4wrt34o24l")
+W_VISIT_TYPE = ("ms-l9sjn7wj10y5b27ldkv3j8mt", "ms-hsmxuztuixmgcw9v5q7jzgjr")
+W_BODY_TEMP  = ("ms-b5zse0kmvpkj74ggqvgk647l", "ms-htn9sz8c4matcox3ve4l9da2")
+W_BP_DIAS    = ("ms-lu2w1avj9fic5wrmyftt9fhi", "ms-qm88d2siwnsr593w5wfl1dys")
+W_HEIGHT     = ("ms-vh2scyehy68pw7sbvzdg3cn9", "ms-r6hmxb2ffy1xa4bfzkhl4hzc")
+W_WEIGHT     = ("ms-s6oo99lbq85kfz0v5nqv9yaf", "ms-qbqkd12dorlvir84ppvvx407")
+W_BP_SYS     = ("ms-kokquuk73pm2ohlh4ftnu7wb", "ms-f3em11o3sn0xc1bspxu0kwky")
+W_VISIT_DATE = ("ms-iufcfze52lha16v84kccgxyh", "ms-e5ppb31jh3m59mc7j5tykw4n")
 
 # Provenance Components leaves (component, wrapper)
-P_ACT_DESC = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-c5016skbmb8jg39cysvwc65a")
-P_ACT_TYPE = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-rpaz1widq2u7qox2n8r6lohf")
-P_SYS_ID   = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-eu0hd4f95yni58yexux8yqek")
-P_LOC_ID   = ("ms-zr59goe24qkocprl3feul3mt", "ms-dzaswthq3j4qi7yuqvkf9c04")
-P_LOC_NAME = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-qhgvqe89m9q7zz5l8clyufra")
-P_TS_END   = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-yyquv6xw4po00iif4c57j118")
-P_TS_START = ("ms-o72s5793973fzho35rnaughs", "ms-y6rt146tgmkdixx2fs5d8ngf")
+P_ACT_DESC = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-zq30a9nd3e81chjuegfute92")
+P_ACT_TYPE = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-f06do6ti2g0iq4dwqvh0vt5h")
+P_SYS_ID   = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-e977pl4hz4cqpzeuktkwq7ra")
+P_LOC_ID   = ("ms-zr59goe24qkocprl3feul3mt", "ms-mmoil9uicuueekqgahr4bgl3")
+P_LOC_NAME = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-zc65p4q9n6t9gmxrkt6rbnjs")
+P_TS_END   = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-ls1lj0sx2ctjb1fdlm5tiigo")
+P_TS_START = ("ms-o72s5793973fzho35rnaughs", "ms-zt7o7kc2wjo7yjtn0wjpv2ax")
 
 # ─── Domain enums (from XSD enumeration facets) ──────────────────────────────
 

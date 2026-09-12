@@ -32,27 +32,27 @@ CL_COMP         = "ms-vzabxfc733qk7lo1knaggxfs"   # Compensation sub-cluster
 CL_PROV         = "ms-hdhjfg00tngir2txgqyka9cv"   # Provenance Components cluster
 
 # ─── Data leaves: (component_id, adapter_wrapper_id) ─────────────────────────
-W_DEPT        = ("ms-bbu03oqjkniydmzb7pqcjg3m", "ms-wmtotsniozsvdua4d7ise8zx")  # xdstring
-W_JOB_TITLE   = ("ms-wfws1oj1kgeaijciw7wkzdi7", "ms-lx5ruyske40b7vp6n5riiufc")  # xdstring
-W_CITY        = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-n9pfwprgod2qouisuwhqko8o")  # xdtoken (City enum)
-W_EMP_STATUS  = ("ms-tb3wwfwects1a6ap4ro7z5s8", "ms-pt7n7cytal8g6gjrx6kbh5f1")  # xdtoken (status enum)
-W_PROVINCE    = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-cexlqx0wsa67vgdad3za8teg")  # xdtoken (Province enum)
-W_END_DATE    = ("ms-el43lwc0fnamy0v0ocub38t7", "ms-kx42d03x6vw5vv01jl0kr8l1")  # xdtemporal-date
-W_START_DATE  = ("ms-ghsjyyzudma3eq761dwd4j9p", "ms-lc1ah1reo2pg2q5nsoks68fi")  # xdtemporal-date
+W_DEPT        = ("ms-bbu03oqjkniydmzb7pqcjg3m", "ms-px2vmluuoh24jq3hp7mj69bo")  # xdstring
+W_JOB_TITLE   = ("ms-wfws1oj1kgeaijciw7wkzdi7", "ms-utk1922daqjuxti7ypj8k5pn")  # xdstring
+W_CITY        = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-bhzb672n51xibpyeabtkkuv5")  # xdtoken (City enum)
+W_EMP_STATUS  = ("ms-tb3wwfwects1a6ap4ro7z5s8", "ms-hk7rajeh5xrrcwi88lkyas90")  # xdtoken (status enum)
+W_PROVINCE    = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-hjzoscf50maetr3lgv6b9uw3")  # xdtoken (Province enum)
+W_END_DATE    = ("ms-el43lwc0fnamy0v0ocub38t7", "ms-r9rht7dk35tbkm58o2kyvb6t")  # xdtemporal-date
+W_START_DATE  = ("ms-ghsjyyzudma3eq761dwd4j9p", "ms-rd1ncuq30m2a0xs61ba8m3ob")  # xdtemporal-date
 
 # Compensation sub-cluster leaves
-W_YESNO       = ("ms-ht98owgvxhff3ge85i4h80lp", "ms-r133uwmjw1wuynmwdo4ga475")  # xdboolean (true/false-value)
-W_PAY_FREQ    = ("ms-ub0fwihnwu5x1pdv68pjwbeu", "ms-ej9uu2aj6kx4e5vtcigfo2ul")  # xdtoken (freq enum)
-W_SALARY      = ("ms-aw74ticc3fnjkz4vk4b03jr6", "ms-zhhzu3xflqkgu7o6xo3cu06p")  # xdquantity
+W_YESNO       = ("ms-ht98owgvxhff3ge85i4h80lp", "ms-do0g6eewndjrua4w3tnfn7pl")  # xdboolean (true/false-value)
+W_PAY_FREQ    = ("ms-ub0fwihnwu5x1pdv68pjwbeu", "ms-xnbmun97ke14ougkt80bx4dz")  # xdtoken (freq enum)
+W_SALARY      = ("ms-aw74ticc3fnjkz4vk4b03jr6", "ms-hk3sb8h2cqhvmejtehs9pkzr")  # xdquantity
 
 # Provenance Components leaves (component, adapter)
-P_ACT_DESC    = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-m91g74q0tdsrlu39x7adfymg")
-P_ACT_TYPE    = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-blxow8ztfj7qhw5875fig9sv")
-P_SYS_ID      = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-g8g03pnbivtfz57huxzyr98k")
-P_LOC_ID      = ("ms-zr59goe24qkocprl3feul3mt", "ms-nfz5536uproqxs68fuvfpch2")
-P_LOC_NAME    = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-ne75pbg9h338xgo9v31fzclr")
-P_TS_END      = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-lnblyhkpxft5w1kogloulvtv")
-P_TS_START    = ("ms-o72s5793973fzho35rnaughs", "ms-e1dqy0brdaczewgvf4pka7p6")
+P_ACT_DESC    = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-nfjcw5s2l57qo8pq4m20b0k7")
+P_ACT_TYPE    = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-mjr5jcn3q4x8bjthxwzg17z3")
+P_SYS_ID      = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-u6dk1sk5t2unoli2umqwc3my")
+P_LOC_ID      = ("ms-zr59goe24qkocprl3feul3mt", "ms-m1u064xrbhpu8u69ba9q0sej")
+P_LOC_NAME    = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-s70rhhu242qmswmosxsv2lma")
+P_TS_END      = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-r7mqjinpa4ufiwa7c7v1fu4g")
+P_TS_START    = ("ms-o72s5793973fzho35rnaughs", "ms-wmpszktld8bief3bcdyghcz8")
 
 # System Audit ms- component (substitutionGroup="sdc4:Audit"); shares Civil's id,
 # and its five fixed labels equal Civil's audit() defaults (confirmed in XSD).

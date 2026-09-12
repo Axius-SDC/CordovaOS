@@ -35,20 +35,20 @@ CL_PROV         = "ms-hdhjfg00tngir2txgqyka9cv"   # "Provenance Components"
 
 # Data-cluster leaves (leaf component, adapter wrapper) — re-keyed adapter ids
 # for v2, sourced from the template dm-*.xml. Order per mc-l69byv9b04... sequence.
-W_ORG_ID    = ("ms-ule5u2z3rjpa9pooaifwj1n3", "ms-xqxyyqzubvs56u8kigibkm0c")  # organization_identifier
-W_ORG_NAME  = ("ms-ifw5zfe4oiijbxjn1ylc2wm3", "ms-cr9qfn8vytz4mmlxbcl87ge8")  # organization_name
-W_ORG_TYPE  = ("ms-bpqtzla39dwentygpwea8276", "ms-qqz9g2f0t01235xpcyc9pmko")  # organization_type (enum)
-W_AGENT     = ("ms-nesxtz8c5o665swc9lhvqkjj", "ms-br3rpp49wxxqze1v0o2wyfi2")  # PROV Agent Type (enum)
+W_ORG_ID    = ("ms-ule5u2z3rjpa9pooaifwj1n3", "ms-fxpcsxj1aw5zl328w2r27br1")  # organization_identifier
+W_ORG_NAME  = ("ms-ifw5zfe4oiijbxjn1ylc2wm3", "ms-sug9j1caffcssahm89uargnl")  # organization_name
+W_ORG_TYPE  = ("ms-bpqtzla39dwentygpwea8276", "ms-l4htkk3zphah84v2y9lc2gqa")  # organization_type (enum)
+W_AGENT     = ("ms-nesxtz8c5o665swc9lhvqkjj", "ms-z8w2a0x2wyp29vzzc1d2hkwt")  # PROV Agent Type (enum)
 
 # Provenance Components leaves (leaf component, adapter wrapper). Order per
 # mc-hdhjfg00... sequence.
-P_ACT_DESC  = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-m97n9nia9v9gh1jnfhmp23nr")  # activity_description
-P_ACT_TYPE  = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-mk6yzh32rwhv0ciprvli9tef")  # prov_activity_type
-P_SYS_ID    = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-kfuk50puofyygd0q7sc4k0xh")  # system_identifier
-P_LOC_ID    = ("ms-zr59goe24qkocprl3feul3mt", "ms-kwlr9oc2a9dxcoajrbf3vw6n")  # system_location_identifier
-P_LOC_NAME  = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-lh0gbxrhw64hmtqelr02cvq5")  # system_location_name
-P_TS_END    = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-awtmipfy5eyns66da5org50r")  # activity_timestamp_end
-P_TS_START  = ("ms-o72s5793973fzho35rnaughs", "ms-t43xb4p92eawh46s02i8bhj0")  # activity_timestamp_start
+P_ACT_DESC  = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-sfnybisrrm7lhmz5qhhyfahz")  # activity_description
+P_ACT_TYPE  = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-ehob6zdhxx0cm1omntty6tz8")  # prov_activity_type
+P_SYS_ID    = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-xsqg0nf8x4ijv7xgnmjqpqw7")  # system_identifier
+P_LOC_ID    = ("ms-zr59goe24qkocprl3feul3mt", "ms-irh9gwpxzuc3s2zzk475q1v8")  # system_location_identifier
+P_LOC_NAME  = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-li5n62a0468qrcv66ddsy5kt")  # system_location_name
+P_TS_END    = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-kmy0pnik29mlwz3mcqubl5el")  # activity_timestamp_end
+P_TS_START  = ("ms-o72s5793973fzho35rnaughs", "ms-x0ytflq1mwml0qdk7dsvc83g")  # activity_timestamp_start
 
 # System Audit component (substitutionGroup="sdc4:Audit"); all five fixed labels
 # match the shared audit() defaults (System Audit / service_account_id /

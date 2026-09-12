@@ -38,41 +38,41 @@ SYSTEM_AUDIT    = "ms-fotc5adg15ek2b9ermx2mcih"
 
 # ─── Provenance Components leaves (component, wrapper) ────────────────────────
 # XSD sequence order of the Provenance Components cluster.
-P_ACT_DESC      = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-dasx4perkgzp4c9l9uivth98")
-P_ACT_TYPE      = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-ivhnosqylq91bk0tjwe5ud4w")
-P_SYS_ID        = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-oneyra7z219t8gekdsmhf5sx")
-P_LOC_ID        = ("ms-zr59goe24qkocprl3feul3mt", "ms-z18ro4pi293x28724jjy1hn3")
-P_LOC_NAME      = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-mokdt6eh429r1xygju89ks8q")
-P_TS_END        = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-goytsnnd3og57suhh9lfphxm")
-P_TS_START      = ("ms-o72s5793973fzho35rnaughs", "ms-hh2ggqxoo5mh1nddnag0tkf8")
+P_ACT_DESC      = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-cf3ytnc8pwxvj6thevbgvbn2")
+P_ACT_TYPE      = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-lqk3guwmfvzhvyrjc2ldc0k6")
+P_SYS_ID        = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-a8re05ralutskv69101lxe0d")
+P_LOC_ID        = ("ms-zr59goe24qkocprl3feul3mt", "ms-na8fy4x3gocuho5143qo2zbx")
+P_LOC_NAME      = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-lpyk6tsoxa0ucwyqy3wos7ys")
+P_TS_END        = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-vyab607cpwcg8bdavxvhe682")
+P_TS_START      = ("ms-o72s5793973fzho35rnaughs", "ms-loiplt11zn97i92qley8bijd")
 
 # ─── Vital Event scalars (component, wrapper) ────────────────────────────────
-W_CERT_NUM      = ("ms-ajfsyoyrz38094hswxh13i3x", "ms-k83op4asfdj45cf1p9jjal6p")
-W_CITY          = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-bfvwsejckb1dzg8d406qs4qk")
-W_EVENT_TYPE    = ("ms-jz7vc6ikueqig8g0lvb2czzr", "ms-f58b8g7vv8qopqk3wl9kqdjy")
-W_PROVINCE      = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-as91flr2x5cft82ggbkgs683")
-W_STATUS        = ("ms-yri6g628ipi0jqoa0ijnzxxu", "ms-p2lxki4xdkdttefc8v7ut2mw")
-W_EVENT_DATE    = ("ms-e3sfb43zh1vjlgceb5guh0mj", "ms-skwgla9yoeu9dwhp4zugu74m")
-W_REG_DATE      = ("ms-vo9jtmexkaaol3y657fm0xn8", "ms-xkwh4shwsjoaxf3ciicazga0")
+W_CERT_NUM      = ("ms-ajfsyoyrz38094hswxh13i3x", "ms-dc1wp6273okwjkevbqkv7oht")
+W_CITY          = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-lhxmj1ucnydjgbtjy4ant042")
+W_EVENT_TYPE    = ("ms-jz7vc6ikueqig8g0lvb2czzr", "ms-kjxlziuh4osjvsuwq7077vei")
+W_PROVINCE      = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-hhxj27tkt50grrz9rj7aufk1")
+W_STATUS        = ("ms-yri6g628ipi0jqoa0ijnzxxu", "ms-wgt4jjn8rksoekqfg3wnmpde")
+W_EVENT_DATE    = ("ms-e3sfb43zh1vjlgceb5guh0mj", "ms-fc0ipvam1cdoqpsq7c8btnik")
+W_REG_DATE      = ("ms-vo9jtmexkaaol3y657fm0xn8", "ms-yzglt29ihfm92c1d8jb1fjav")
 
 # ─── Sub-cluster ids and their leaves ────────────────────────────────────────
 # Birth Record
 CL_BIRTH        = "ms-az8kem3v58y9zenys7mthqxe"
-W_B_CID         = ("ms-nj7s1gk45tfgyooxpz0qaha3", "ms-aoa6q4uhjljlzfxd70094nfr")
-W_B_NAME        = ("ms-pmw2cq7fioqlbs2ljdh34rkn", "ms-opnt8x5td0xqo1k3ho5hhle5")
-W_B_SEX         = ("ms-mw9qdn71urog8egjbp5t3y00", "ms-sligxuomjlg4173o34za8huj")
+W_B_CID         = ("ms-nj7s1gk45tfgyooxpz0qaha3", "ms-s5tw79cmpoqk1tmeqs2itu2n")
+W_B_NAME        = ("ms-pmw2cq7fioqlbs2ljdh34rkn", "ms-ny1r47m7o2uzsz4ylxhbct1m")
+W_B_SEX         = ("ms-mw9qdn71urog8egjbp5t3y00", "ms-j9jz4gjpqnyielq98g22e4ne")
 
 # Death Record (XSD order: Cause, [CID], [Name], Manner, Place — CID/Name are
 # the shared adapters reused from Birth Record)
 CL_DEATH        = "ms-tdz3pxrf7k6z2df2bfm7ebcp"
-W_D_CAUSE       = ("ms-m3gsphdej7z9csemrrk8uymy", "ms-p8l8hnsuoiqhepssfvcghc36")
-W_D_MANNER      = ("ms-ftuxt5nrrffwjb2vymn80yx2", "ms-ujx5pv7v1p6m8f2t1ewa4rh9")
-W_D_PLACE       = ("ms-dsoyfaplxw8ide1opo5w8fxg", "ms-elfbh7mvkcrbnip8z6ufa6kv")
+W_D_CAUSE       = ("ms-m3gsphdej7z9csemrrk8uymy", "ms-xdfxlbr7ywvgq1kr3biglfbm")
+W_D_MANNER      = ("ms-ftuxt5nrrffwjb2vymn80yx2", "ms-icj85l4j3x3yia0wuzpk236r")
+W_D_PLACE       = ("ms-dsoyfaplxw8ide1opo5w8fxg", "ms-up0us7hvo2r605tcmw32sp02")
 
 # Divorce Record (XSD order: Marriage Cert, [CID], [Name], Decree Date)
 CL_DIVORCE      = "ms-obybok0oaoa79b11b0ync1zf"
-W_DV_CERT       = ("ms-ycujkecjszwwrcd6dhxesk73", "ms-t9cr97ufkpvqk0d4obid275k")
-W_DV_DATE       = ("ms-ft4kk6m3r1goxkte0d7wflk8", "ms-on7zvdpycerrdugizgeoj60t")
+W_DV_CERT       = ("ms-ycujkecjszwwrcd6dhxesk73", "ms-de7qj9jrk0smjwmo1pywfbdu")
+W_DV_DATE       = ("ms-ft4kk6m3r1goxkte0d7wflk8", "ms-vt8yvpg2skuc68qdpzyweafb")
 
 # Marriage Record (XSD order: [CID], [Name] — both reuse the Birth adapters)
 CL_MARRIAGE     = "ms-chtyne5i6qcwbrby29vbuh2k"

@@ -33,40 +33,40 @@ GOVERNED_RECORD = "ms-aan7382wp8e2f58m9a2hvmkp"
 CL_PROV         = "ms-hdhjfg00tngir2txgqyka9cv"
 
 # Direct children of data cluster ms-bgjt4mvgvkxcn6hurg37u21b (adapters re-keyed for v2)
-W_NATIONAL_ID   = ("ms-nj7s1gk45tfgyooxpz0qaha3", "ms-rby04o9m7e0krkfv41pqfk8a")
-W_COUNTRY_BIRTH = ("ms-cfg2l8ym4ve833ritrxu765t", "ms-kkxzipfzimwcue1ac1jfpk0v")
-W_GIVEN_NAME    = ("ms-kfyzf8u8gdafcpt5kfh2qg3q", "ms-cys6z9ur5p38ywv5pvuyyd6q")
-W_MIDDLE_NAME   = ("ms-oit0ueglhjfcyq80z22kl2z3", "ms-c62tq1ml6ytl1avtuokwwon0")
-W_SURNAME       = ("ms-v8jgjo2sml12jo7zrb8swoxi", "ms-oaq15l572j948be34xtfux7v")
-W_CITY          = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-ckwot3b5vdo96w9qd6b00613")
-W_MARITAL       = ("ms-vjfgimlbb90ds2xg55tfn941", "ms-zcn80786lwstffu4u315kfl4")
-W_PROVINCE      = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-q0wmc2otgsm3ltbib1a2fyv7")
-W_GENDER        = ("ms-cymq16em5zb20whgtfzki6n5", "ms-ynodlnbc7mhe8znj3btlg9mi")
-W_SEX           = ("ms-mw9qdn71urog8egjbp5t3y00", "ms-doqfvpf5mxppxdr7lee1rx3n")
-W_BIRTH_DATE    = ("ms-g3k6bj8su3rvkszg2700dhyh", "ms-rqs51exsr4e9riz9ddpvejb7")
+W_NATIONAL_ID   = ("ms-nj7s1gk45tfgyooxpz0qaha3", "ms-t0c3s7wh8ovy5vbe9msunb6l")
+W_COUNTRY_BIRTH = ("ms-cfg2l8ym4ve833ritrxu765t", "ms-p3ij8rc662lwqmpqol2872cw")
+W_GIVEN_NAME    = ("ms-kfyzf8u8gdafcpt5kfh2qg3q", "ms-twmii54li19ft93h0yh86t6e")
+W_MIDDLE_NAME   = ("ms-oit0ueglhjfcyq80z22kl2z3", "ms-de26ni6h9whfjaicpbwurrjy")
+W_SURNAME       = ("ms-v8jgjo2sml12jo7zrb8swoxi", "ms-mjwbkhvdvivh960h5pl9wvmc")
+W_CITY          = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-zzjz4kq32ov2t3yz29rous11")
+W_MARITAL       = ("ms-vjfgimlbb90ds2xg55tfn941", "ms-ctnr6gdmgmk2ewc3k2y7jmxz")
+W_PROVINCE      = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-u5kc4izy13fl1w9i42d755g2")
+W_GENDER        = ("ms-cymq16em5zb20whgtfzki6n5", "ms-rg868u2f39sd4dml41qmvb5g")
+W_SEX           = ("ms-mw9qdn71urog8egjbp5t3y00", "ms-l7xqqb7zdnan8xlgwz9slzvc")
+W_BIRTH_DATE    = ("ms-g3k6bj8su3rvkszg2700dhyh", "ms-g5jflwlh7uqnv3wn3fvzgqm0")
 
 # Contact Information sub-cluster ms-sv48g8am8vqs46nodiugripz
-W_EMAIL         = ("ms-x0na649n17if0ukul82cmrx3", "ms-w5y4p7b8il3ecw0d64zeuovs")
-W_PHONE         = ("ms-nfrvvp87c5imu5h9ups92kgy", "ms-s3x9qwp30bjm00xy943f88i3")
-W_CONTACT_PREF  = ("ms-zlz64jydsmhb5zmytcm2ewyg", "ms-walkxoz8fm6usr0vkkj82nrq")
+W_EMAIL         = ("ms-x0na649n17if0ukul82cmrx3", "ms-y6t4dsqb4fshvot6kluwhh93")
+W_PHONE         = ("ms-nfrvvp87c5imu5h9ups92kgy", "ms-fhap17gcstsi1meu1zj6omey")
+W_CONTACT_PREF  = ("ms-zlz64jydsmhb5zmytcm2ewyg", "ms-y57becs6itkmfuki4zto50q5")
 
 # Current Address sub-cluster ms-ytctcqbr30kxsmvx4jk7lae2
-W_ADDR1         = ("ms-l338k7nlvnq2am0owa19yxfc", "ms-iuoxwjv3dkkaokqdpy1z16v5")
-W_ADDR2         = ("ms-ek5h6dsqpd9kz0l4mcckmxpt", "ms-spu5be9vjz3pde02aly6q57e")
+W_ADDR1         = ("ms-l338k7nlvnq2am0owa19yxfc", "ms-zt0gzgevpj2blnlb53ugi2x6")
+W_ADDR2         = ("ms-ek5h6dsqpd9kz0l4mcckmxpt", "ms-e9s2tbz2nt33hs8wbwuom26f")
 
 # Family Relationships sub-cluster ms-l9k2fmlc5vn477r3kpi1ufal
-W_REL_TYPE      = ("ms-be9apjt8mvjjv86qzycorcjl", "ms-snqw8p4e723q5wffz1u6enhy")
-W_REL_END       = ("ms-o7vjxwswi0pxo543hq504jjx", "ms-bye0j9rt8d5c5mqlou7tlcl6")
-W_REL_START     = ("ms-k9ptlhkq3j41p6umlg3tc80x", "ms-nao52v06varsvwejr28bfc1k")
+W_REL_TYPE      = ("ms-be9apjt8mvjjv86qzycorcjl", "ms-iqu2fnaauc8xtqjdb3n8mdpq")
+W_REL_END       = ("ms-o7vjxwswi0pxo543hq504jjx", "ms-h9bw26pl85dvs0gj6hdoc5w1")
+W_REL_START     = ("ms-k9ptlhkq3j41p6umlg3tc80x", "ms-suw2v4owv62650le4ivwfmiq")
 
 # Provenance Components leaves (component, adapter)
-P_ACT_DESC      = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-a7el4rcgh9swhpjnj72isozq")
-P_ACT_TYPE      = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-n7ua8203kjmkjmh5erzdaypk")
-P_SYS_ID        = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-o5ipvn601kj4jghviwq3mwbw")
-P_LOC_ID        = ("ms-zr59goe24qkocprl3feul3mt", "ms-s7bsus7xl68up999bmux5cy3")
-P_LOC_NAME      = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-nel9i9nhvq0xobn4k1vsw2q1")
-P_TS_END        = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-ks5oig7cbhh0tjciqpyolowh")
-P_TS_START      = ("ms-o72s5793973fzho35rnaughs", "ms-v94swr4i11dofbm7flj29t1u")
+P_ACT_DESC      = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-vb92fwm68b89xnh8yq0ak7q9")
+P_ACT_TYPE      = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-z2dj324utvs8u5jzqhok0qtr")
+P_SYS_ID        = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-tv784pcmj8nkgnh0mdvl48tf")
+P_LOC_ID        = ("ms-zr59goe24qkocprl3feul3mt", "ms-us2lslh29a0482cr1cj705uk")
+P_LOC_NAME      = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-b5ijistq1vzxbhiorpoy1u36")
+P_TS_END        = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-u30evp7zgm32lqxdv16pus5p")
+P_TS_START      = ("ms-o72s5793973fzho35rnaughs", "ms-wf2fk3qu5mvvntffk03diqnn")
 
 # Cluster IDs
 CL_ROOT         = "ms-bgjt4mvgvkxcn6hurg37u21b"

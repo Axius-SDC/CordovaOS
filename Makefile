@@ -53,7 +53,7 @@ load: wait-web
 
 demo: up generate load
 	@echo ""
-	@echo "Demo ready. Expect 1,446 records across 10 domains, 7 of them"
+	@echo "Demo ready. Expect 1,462 records across 10 domains, 7 of them"
 	@echo "stating an absence rather than inventing a value."
 	@echo ""
 	@echo "  $(WEB_URL)/console/   the record console (start here)"

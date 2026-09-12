@@ -34,39 +34,39 @@ GOVERNED_RECORD = "ms-pilbutha60g9r6v40hzcn4c8"   # Tax and Revenue Governed Rec
 CL_PROV         = "ms-hdhjfg00tngir2txgqyka9cv"   # Provenance Components
 
 # Provenance Components leaves (component, adapter-wrapper) — re-keyed for v2
-P_ACT_DESC      = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-pwko3409e5dwueag0j9e1pn8")
-P_ACT_TYPE      = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-ddyppb8qoic4ag81eua5xtwd")
-P_SYS_ID        = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-cdmpbotfnkqpu6kfncdc02f2")
-P_LOC_ID        = ("ms-zr59goe24qkocprl3feul3mt", "ms-qgb2r1n8hp1kzbtbo6nyd0u6")
-P_LOC_NAME      = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-pt0l79hw8xsyaliis0eamnsl")
-P_TS_END        = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-nr7m0bnchxeet9zaymmohnna")
-P_TS_START      = ("ms-o72s5793973fzho35rnaughs", "ms-qg22adai0mzgmujh8601kysf")
+P_ACT_DESC      = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-zpanlhlf2ayh2ruggwb46hvk")
+P_ACT_TYPE      = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-zfbfiymhlt54q0ecnl4jyxgi")
+P_SYS_ID        = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-kvy1rfymdua9n6nkqe9o5ufy")
+P_LOC_ID        = ("ms-zr59goe24qkocprl3feul3mt", "ms-rct02svzxy24f42wvqs9hdqu")
+P_LOC_NAME      = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-z68hw94fx318fpov9pzbiwr5")
+P_TS_END        = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-a26zfrggoaq1cnsl2iuewbx5")
+P_TS_START      = ("ms-o72s5793973fzho35rnaughs", "ms-pxwv97dszkeikumedekm5j8l")
 
 # ─── Tax Filing data cluster ─────────────────────────────────────────────────
 CL_ROOT       = "ms-w9v4eo1l0wy5r65tqx5mjyxh"   # Tax Filing
 
 # Scalar adapters (component, adapter-wrapper) — re-keyed for v2
-W_FILING_ID   = ("ms-a2yks4n49m6gcgpa7qc9hyg1", "ms-rfxzid0q4opct822c4l1y375")
-W_FILING_STAT = ("ms-hwmy9yj7cbhe94pjnq0n2oo5", "ms-k2t1lv4uezhp0nq0lsrnbfrf")
-W_TAX_TYPE    = ("ms-zb956wxcjf1fccvqezivgrv7", "ms-wzfhsei4z30g73rrpglo7gqc")
-W_FILING_DATE = ("ms-cuazcmxeeo8osfybrgdpe9g7", "ms-tdpritgu7ap4s07fljekmnfm")
+W_FILING_ID   = ("ms-a2yks4n49m6gcgpa7qc9hyg1", "ms-arc432kh4axpnn2fd2nbnyoh")
+W_FILING_STAT = ("ms-hwmy9yj7cbhe94pjnq0n2oo5", "ms-ib2ntr26fu0315nh9ks3vnwj")
+W_TAX_TYPE    = ("ms-zb956wxcjf1fccvqezivgrv7", "ms-r00f0ualjpejsuv7d7viwd6c")
+W_FILING_DATE = ("ms-cuazcmxeeo8osfybrgdpe9g7", "ms-bchf2ipn3h4e7mc6nqky6qbm")
 
 # Payment sub-cluster
 CL_PAYMENT    = "ms-j4drl0w17dmw49maf3swgi18"
-W_PAY_METHOD  = ("ms-fqgaf7s7gkwi6j4hh88meudp", "ms-np8re5oag1stra6vryzg1nvn")
-W_PAY_STATUS  = ("ms-vt5nh89ol3g5gj0oz35tl6y0", "ms-wg06syaqs1atzgkg0uivfp7p")
-W_PAY_AMOUNT  = ("ms-tzrg36a15rigk48nj20sbw4v", "ms-dghfng6fe4r3umyc6j3vnmm2")
-W_PAY_DATE    = ("ms-xrjzng8dyk9eveyzi03abuhr", "ms-z7hjmdobtw1x0wzwbmjqd1zl")
+W_PAY_METHOD  = ("ms-fqgaf7s7gkwi6j4hh88meudp", "ms-r7km7ym1hx5xaaw1yu4fz4fv")
+W_PAY_STATUS  = ("ms-vt5nh89ol3g5gj0oz35tl6y0", "ms-gooxkhdthesa3ywqdb0ebu6a")
+W_PAY_AMOUNT  = ("ms-tzrg36a15rigk48nj20sbw4v", "ms-e4zlezwgod0ogxy8fjz5fnk0")
+W_PAY_DATE    = ("ms-xrjzng8dyk9eveyzi03abuhr", "ms-ry8vkboem2k56du334tzi5fm")
 
 # Source Reference sub-cluster
 CL_SOURCE     = "ms-kwb0rpk8stxtaitb7k5hahlq"
-W_SRC_ID      = ("ms-hcfz6urx5c2ayvt8npjl0t4l", "ms-ag3w1g9c7j27bphmo7dr2h1a")
-W_SRC_DOMAIN  = ("ms-hh750k4i187bqzot5md216r1", "ms-di8sg0bdkn2bj3edkbo9rylx")
+W_SRC_ID      = ("ms-hcfz6urx5c2ayvt8npjl0t4l", "ms-w8j1fpyyks35twi7f7725ajb")
+W_SRC_DOMAIN  = ("ms-hh750k4i187bqzot5md216r1", "ms-u6ezacv20p24rz4wvpnjib3t")
 
 # Tax Assessment sub-cluster
 CL_ASSESS     = "ms-ekmjsthf4vkzcff9pwodqg5n"
-W_TAXABLE_INC = ("ms-q1sbdhsdk8glmdr8q1x3mlte", "ms-hq2fuvo34o9ellxq6lhsf0ea")
-W_TAX_ASSESS  = ("ms-l5t2s5y0m4ybwom4ryndzaf9", "ms-i7gx4z34ryysoe2pfwnch7zw")
+W_TAXABLE_INC = ("ms-q1sbdhsdk8glmdr8q1x3mlte", "ms-cv833sn0gwkwqkzflpxot05l")
+W_TAX_ASSESS  = ("ms-l5t2s5y0m4ybwom4ryndzaf9", "ms-mutqunza6fj95t6jlzsw3q4i")
 
 # System Audit component (substitutionGroup="sdc4:Audit"); 5 fixed labels match
 # civil defaults (System Audit / service_account_id / System User /

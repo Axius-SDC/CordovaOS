@@ -6,9 +6,18 @@ Provides XML element builders, name pools, geography, and the Contagion cast.
 import os
 import random
 from datetime import datetime, date
-from cuid2 import cuid_wrapper
 
-cuid_generator = cuid_wrapper()
+# Deterministic identifiers. A real CUID2 mixes in the clock, the process id and
+# the hostname, so no two runs ever agree, and the README promises the same
+# dataset every time. These ids keep the CUID2 shape the schemas require (24
+# base-36 characters, leading letter) but are drawn from the module-level
+# `random`, which generate_all.py seeds per generator. Same seed, same ids,
+# same values, same relationships, on any machine; only record timestamps move.
+_ID_ALPHABET = "abcdefghijklmnopqrstuvwxyz0123456789"
+
+
+def cuid_generator():
+    return random.choice(_ID_ALPHABET[:26]) + "".join(random.choices(_ID_ALPHABET, k=23))
 
 # Demo-scale switch. Default is the full 25,000-resident dataset (~100K instances).
 # Set CORDOVA_DEMO_SCALE=1 to generate a small PoC dataset that loads in minutes.
