@@ -33,7 +33,7 @@ OASIS catalog at `app/sdc4/mediafiles/dmlib/catalog.xml` instead of fetching
 reload if you are evaluating for a disconnected environment.
 
 **A correct run is reproducible, so check the numbers before you trust
-anything else here:** 1,446 records across 10 domains, 1,446 named graphs in
+anything else here:** 1,462 records across 10 domains, 1,462 named graphs in
 GraphDB, and 7 records stating an absence. Record count and graph count must
 match. If they do not, see the orphaned-graph note in section 6.
 

@@ -2,6 +2,7 @@
   "@context": {
     "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
     "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4-meta": "https://semanticdatacharter.com/ontology/sdc4-meta/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -26,29 +27,1031 @@
     "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
     "dc:language": "en-US",
     "dc:format": "text/xml",
-    "dc:date": "2026-07-29T15:26:10.687394+00:00"
+    "dc:date": "2026-09-12T13:45:17.486914+00:00"
   },
   "components": [
     {
-      "@type": "ClusterType",
-      "@id": "sdc4:mc-w0lu0us3nbxaedfum9i8itpc",
-      "label": "Healthcare Governed Record",
-      "description": "Root data cluster (DMType Item) for a governed healthcare record in CordovaOS: an individual's clinical and health information. Wraps the domain's data components with the shared W3C PROV-O Provenance cluster so each record carries its lineage bound alongside its data. Workflow, attestation, parties, and the system audit trail sit in the DMType's native governance slots; access control and retention apply as bound sdcgovernance policy.",
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3",
+      "label": "National ID (CID)",
+      "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
       "cardinality": {
         "minOccurs": 0,
         "maxOccurs": 1
       },
-      "contains": [],
+      "constraints": {
+        "pattern": "COR-(AL|BR|CE)0[1-3]-[0-9]{6}"
+      },
+      "dataType": "xsd:string",
       "semanticLinks": [
         {
-          "predicate": "skos:closeMatch",
-          "object": "https://www.wikidata.org/wiki/Q95459148"
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/identifier"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1140371"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/identifier"
         }
       ]
-    }
-  ],
-  "structural_components": {
-    "subject": {
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-jz2hqntyol8lopw6q6zdud78",
+      "label": "Medical Record Number",
+      "description": "Institution-specific medical record number for linking to clinical records",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://uts.nlm.nih.gov/uts/umls/concept/C1301894"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ntk4zsr15bcca2jmocdkcpcc",
+      "label": "Allergy Description",
+      "description": "Description of a known allergy (drug, food, environmental)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/description"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/description"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-cm0nqqnjcylc8vkfph7db2lh",
+      "label": "Chronic Condition",
+      "description": "Name or description of a chronic medical condition (e.g., hypertension, diabetes, asthma)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q383126"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/description"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-tz13p9d4dpbw3pe9bx51nbou",
+      "label": "Condition Status",
+      "description": "Current status of the condition",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Active",
+          "Resolved",
+          "In Remission"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q12136"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdOrdinalType",
+      "@id": "sdc4:mc-07osold8ovbjsqzvz00f3ked2",
+      "label": "Severity (3-Point)",
+      "description": "Three-point severity scale for clinical findings",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:integer",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q10870002"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-p14jkmk8xqs97daq3zvyhrsj",
+      "label": "Onset Date",
+      "description": "Date of symptom or disease onset",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q577"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-z28bjtjekyybe300ukuyjpi4",
+      "label": "Dosage",
+      "description": "Prescribed dosage (e.g., \"500mg\", \"10mg/mL\")",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://qudt.org/vocab/quantitykind/AmountOfSubstance"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/description"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-nomiekce61caq5n9a49d0eu6",
+      "label": "Medication Name",
+      "description": "Name of the prescribed medication (generic or brand name)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q70848614"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/name"
+        }
+      ]
+    },
+    {
+      "@type": "XdOrdinalType",
+      "@id": "sdc4:mc-iprf7jqg9emvm92wo9gkiqcu",
+      "label": "Frequency (5-Point)",
+      "description": "Five-point frequency scale for symptom or behavior occurrence",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:integer",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://uts.nlm.nih.gov/uts/umls/concept/C0436350"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-y7k4p12co0b9v6asll531fhv",
+      "label": "Medication Dosage Amount",
+      "description": "Prescribed dosage amount of the medication in milligrams. Represents the per-administration dose as ordered by the prescribing physician.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "units": {
+          "@type": "Units",
+          "label": "Mass/Weight (SI - Metric)",
+          "@id": "sdc4:mc-tjxxdsd6idyzqygrncojauxn"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-tjxxdsd6idyzqygrncojauxn"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q473420"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://hl7.org/fhir/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://snomed.info/id/398232005"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-tjxxdsd6idyzqygrncojauxn",
+      "label": "Mass/Weight (SI - Metric)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q3197317"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "http://qudt.org/vocab/quantitykind/Mass"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q12457"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q47574"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-cq6m46w59ouu1cu8tkw1fhib",
+      "label": "Prescription Date",
+      "description": "Date the medication was prescribed",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q193521"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/DateTime"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-td5j1frz2fa8g4uh1hor7w11",
+      "label": "Lot Number",
+      "description": "Vaccine lot number for traceability",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q28698186"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/identifier"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-fi1qu4j2zd0801fcqtix35h5",
+      "label": "Vaccine Name",
+      "description": "Name of the vaccine administered",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Drug"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q134808"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-dyfz05n20jhc1elhozrbjug0",
+      "label": "Vaccine Date",
+      "description": "Date the vaccine was administered",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Date"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q192995"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-nnu04d5qgrmn1bim8bpu0l65",
+      "label": "Diagnosis",
+      "description": "Clinical diagnosis resulting from this visit. This cell carries Restricted:PatientCare policy — it cannot be composed into public reports.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q14860489"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://schema.org/MedicalCode"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-qvmb5f4xmy56y98q8raelpl9",
+      "label": "Facility",
+      "description": "Healthcare facility where the visit occurred",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q9386252"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/name"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-qzmcum3kwmskrkj7nhkf8fkm",
+      "label": "Reason for Visit",
+      "description": "Chief complaint or reason for the clinical encounter",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://snomed.info/id/409586006"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/description"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-cntj1t9t2xjugnux1enpigmf",
+      "label": "Clinical Impression",
+      "description": "Overall clinical impression from neurological examination",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q69067902"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-lccs354vpxmtyo69ba5cu48v",
+      "label": "Outcome",
+      "description": "Outcome of the visit",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Treated and Released",
+          "Admitted",
+          "Referred",
+          "Follow-up Scheduled",
+          "No Treatment Required"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/result"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-l9sjn7wj10y5b27ldkv3j8mt",
+      "label": "Visit Type",
+      "description": "Type of clinical visit or encounter",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Screening",
+          "Baseline",
+          "Follow-up",
+          "Unscheduled",
+          "Early termination",
+          "Final"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://uts.nlm.nih.gov/uts/umls/concept/C5708072"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-b5zse0kmvpkj74ggqvgk647l",
+      "label": "Body Temperature",
+      "description": "Patient body temperature measured in degrees Celsius during a clinical visit. Normal adult range is 36.1–37.2°C. Triage screening vital sign.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": 30.0,
+        "maxInclusive": 45.0,
+        "units": {
+          "@type": "Units",
+          "label": "Temperature (SI - Metric)",
+          "@id": "sdc4:mc-ihugcgyqyfjp3u9y5qva1fwz"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-ihugcgyqyfjp3u9y5qva1fwz"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1066998"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.ncbi.nlm.nih.gov/books/NBK331/"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://loinc.org/8310-5/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://snomed.info/id/386725007"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ihugcgyqyfjp3u9y5qva1fwz",
+      "label": "Temperature (SI - Metric)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "http://qudt.org/vocab/quantitykind/Temperature"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q12457"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q11466"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q47574"
+        }
+      ]
+    },
+    {
+      "@type": "XdIntervalType",
+      "@id": "sdc4:mc-qoogfcksod6jtymyto974smz",
+      "label": "Normal Body Temperature",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string"
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-lu2w1avj9fic5wrmyftt9fhi",
+      "label": "Diastolic Blood Pressure",
+      "description": "Minimum arterial pressure during cardiac relaxation, measured in mmHg. Normal adult range is 60–80 mmHg. Values ≥90 mmHg indicate hypertension per WHO/AHA guidelines.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": 20.0,
+        "maxInclusive": 200.0,
+        "units": {
+          "@type": "Units",
+          "label": "Pressure",
+          "@id": "sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-ylyt91vrvzgmx1yc7d06dfyv"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://professional.heart.org/en/science-news/2017-hypertension-clinical-guidelines"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q82642"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://snomed.info/id/271650006"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://loinc.org/8462-4/"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv",
+      "label": "Pressure",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string"
+    },
+    {
+      "@type": "XdIntervalType",
+      "@id": "sdc4:mc-qouanq414kzylojpvqt7d78y",
+      "label": "Normal Diastolic Blood Pressure",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string"
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-vh2scyehy68pw7sbvzdg3cn9",
+      "label": "Patient Height",
+      "description": "Patient standing height in centimeters measured during a clinical visit. Used for BMI computation and growth tracking.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": 20.0,
+        "maxInclusive": 300.0,
+        "units": {
+          "@type": "Units",
+          "label": "Length/Distance (SI - Metric)",
+          "@id": "sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-y28mhe3jdzi9b8ztn3fxodtf"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://loinc.org/8302-2/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://snomed.info/id/50373000"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.cdc.gov/nchs/fastats/body-measurements.htm"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q81938"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf",
+      "label": "Length/Distance (SI - Metric)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1344778"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "http://qudt.org/vocab/quantitykind/Length"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q12457"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q47574"
+        }
+      ]
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-s6oo99lbq85kfz0v5nqv9yaf",
+      "label": "Patient Weight",
+      "description": "Patient body weight in kilograms measured during a clinical visit. Used for medication dosing calculations, BMI computation, and tracking health trends.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": 0.5,
+        "maxInclusive": 500.0,
+        "units": {
+          "@type": "Units",
+          "label": "Mass/Weight (SI - Metric)",
+          "@id": "sdc4:mc-tjxxdsd6idyzqygrncojauxn"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-tjxxdsd6idyzqygrncojauxn"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q18247"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.cdc.gov/nchs/fastats/body-measurements.htm"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://loinc.org/29463-7/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://snomed.info/id/27113001"
+        }
+      ]
+    },
+    {
+      "@type": "XdIntervalType",
+      "@id": "sdc4:mc-plob4z6l86w98xcvt7sz324v",
+      "label": "Non-negative Weight",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string"
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-kokquuk73pm2ohlh4ftnu7wb",
+      "label": "Systolic Blood Pressure",
+      "description": "Peak arterial pressure during cardiac contraction, measured in mmHg. Normal adult range is 90–120 mmHg. Values ≥140 mmHg indicate hypertension per WHO/AHA guidelines.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": 40.0,
+        "maxInclusive": 300.0,
+        "units": {
+          "@type": "Units",
+          "label": "Pressure",
+          "@id": "sdc4:mc-ylyt91vrvzgmx1yc7d06dfyv"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-ylyt91vrvzgmx1yc7d06dfyv"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://professional.heart.org/en/science-news/2017-hypertension-clinical-guidelines"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q82642"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://snomed.info/id/271649006"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://loinc.org/8480-6/"
+        }
+      ]
+    },
+    {
+      "@type": "XdIntervalType",
+      "@id": "sdc4:mc-xd97z3tju6zwhlq4cu84v0bw",
+      "label": "Normal Systolic Blood Pressure",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string"
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-iufcfze52lha16v84kccgxyh",
+      "label": "Visit Date",
+      "description": "Date of clinical visit",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q577"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-m9xg6e182m1oq77ssrf9iujv",
+      "label": "activity_description",
+      "description": "Detailed description of what this activity does and its purpose.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.w3.org/TR/prov-dm/"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ccj1yq2wtwknobszkgzzdbtr",
+      "label": "prov_activity_type",
+      "description": "Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q125542526"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-bd3s8t23d6m3zizmpwavc32y",
+      "label": "system_identifier",
+      "description": "Identifier of the system that handled the data. Maps to prov:Entity context in the PROV-O export. This is the AuditType.system-id field.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q7663715"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-zr59goe24qkocprl3feul3mt",
+      "label": "system_location_identifier",
+      "description": "Code or identifier for the system location. Used for cross-system location resolution.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q36214810"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-fnodzqkbyskwe7nh58rs336k",
+      "label": "system_location_name",
+      "description": "Name of the physical or logical location where the system resides. Maps to prov:atLocation.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q11307204"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-edvvjznmaoibzmfna0uuoo37",
+      "label": "activity_timestamp_end",
+      "description": "When the provenance activity completed. Maps to prov:endedAtTime. ISO 8601 format.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.ontology-of-units-of-measure.org/resource/om-2/Activity"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-o72s5793973fzho35rnaughs",
+      "label": "activity_timestamp_start",
+      "description": "When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.ontology-of-units-of-measure.org/resource/om-2/Activity"
+        }
+      ]
+    },
+    {
       "@type": "PartyType",
       "@id": "sdc4:mc-bc1ivx4vqa5gh3p5l1pjs1q2",
       "label": "Primary Care Assignment",
@@ -60,28 +1063,217 @@
       "dataType": "xsd:string",
       "semanticLinks": [
         {
-          "predicate": "skos:exactMatch",
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
           "object": "http://xmlns.com/foaf/0.1/Agent"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
-          "object": "https://schema.org/Person"
-        },
-        {
-          "predicate": "skos:exactMatch",
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
           "object": "https://schema.org/Physician"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "https://www.wikidata.org/wiki/Q269941"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "http://www.w3.org/ns/prov#Agent"
         }
       ]
     },
-    "provider": {
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-dnxrp0bpfs33b4x5ks8he9ag",
+      "label": "Primary Care Provider",
+      "description": "Name of the patient's assigned primary care physician",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q55379489"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/name"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1",
+      "label": "agent_id",
+      "description": "Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q37882474"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ule5u2z3rjpa9pooaifwj1n3",
+      "label": "organization_identifier",
+      "description": "Official identifier for the organization (e.g., DUNS, tax ID).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q11378663"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3",
+      "label": "organization_name",
+      "description": "Legal or official name of the organization.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q168678"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-zs9ciw4nypx4plo856h3m95d",
+      "label": "person_family_name",
+      "description": "Family (last) name of the person agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q4116295"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ndvtjiq0cke0q1trw58rtrq2",
+      "label": "person_given_name",
+      "description": "Given (first) name of the person agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q202444"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-bpqtzla39dwentygpwea8276",
+      "label": "organization_type",
+      "description": "Type of organization.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "corporation",
+          "government",
+          "nonprofit",
+          "academic",
+          "department",
+          "vendor"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q17197366"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj",
+      "label": "PROV Agent Type",
+      "description": "Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Person",
+          "Organization",
+          "SoftwareAgent"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
       "@type": "PartyType",
       "@id": "sdc4:mc-vyscq0dtz0hsigh2hbsvqajr",
       "label": "Healthcare Provider",
@@ -93,26 +1285,1351 @@
       "dataType": "xsd:string",
       "semanticLinks": [
         {
-          "predicate": "skos:exactMatch",
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
           "object": "http://xmlns.com/foaf/0.1/Agent"
         },
         {
-          "predicate": "skos:broadMatch",
-          "object": "https://schema.org/MedicalOrganization"
-        },
-        {
-          "predicate": "rdfs:isDefinedBy",
-          "object": "https://schema.org/Organization"
-        },
-        {
-          "predicate": "skos:exactMatch",
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
           "object": "https://schema.org/Physician"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/MedicalOrganization"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/Organization"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "http://www.w3.org/ns/prov#Agent"
         }
       ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-cuxxvwyqn5vhlqjymovegmn7",
+      "label": "Provider Name",
+      "description": "Name of the attending physician or provider",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/name"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/name"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-u1i23yha2rvz5nbxjz3l8x48",
+      "label": "PROV Role Type",
+      "description": "Functional roles that agents, entities, or activities can assume within provenance relationships.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Author",
+          "Publisher",
+          "Contributor",
+          "Custodian",
+          "Reviewer",
+          "Approver",
+          "Transformer",
+          "Aggregator"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.w3.org/TR/prov-o/#qualifiedInvolvement"
+        }
+      ]
+    },
+    {
+      "@type": "ParticipationType",
+      "@id": "sdc4:mc-hwbq0pr8aqy2qp16ehbhu2ga",
+      "label": "Prescriber Participation",
+      "description": "Participation of prescribing physician in medication orders.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q31207"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q56512863"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Association"
+        }
+      ]
+    },
+    {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-4tqaalcjeojrh2e068qzlpjy",
+      "label": "Prescriber",
+      "description": "Physician who prescribed medication. W3C PROV-DM Agent (Person).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/Physician"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q99393050"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-f8ptus0eraxmipvhd96ddbdq",
+      "label": "Prescriber",
+      "description": "Name of the prescribing physician",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q99393050"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/name"
+        }
+      ]
+    },
+    {
+      "@type": "ParticipationType",
+      "@id": "sdc4:mc-1fjdouzda29z43u2spfcbpig",
+      "label": "Vaccination Facility Participation",
+      "description": "Participation of the administering facility in vaccination events.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q31207"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q56512863"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Association"
+        }
+      ]
+    },
+    {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-hzkatya8ymk8xmbuecb7jfae",
+      "label": "Administering Facility",
+      "description": "Healthcare facility that administered a vaccination. W3C PROV-DM Agent (Organization).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/MedicalOrganization"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/Organization"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q105765728"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-u1hjad8m99xlnkyj5clvjnpa",
+      "label": "Administering Facility",
+      "description": "Healthcare facility where the vaccine was given",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://snomed.info/id/264362003"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/name"
+        }
+      ]
+    },
+    {
+      "@type": "AuditType",
+      "@id": "sdc4:mc-fotc5adg15ek2b9ermx2mcih",
+      "label": "System Audit",
+      "description": "A domain-agnostic audit component. Can be copied to other projects for domain-specific semantics if desired.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-rw1cjzeynsl87va6gvhv2k7e",
+      "label": "service_account_id",
+      "description": "Service account or system account identifier for software agents.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/identifier"
+        }
+      ]
+    },
+    {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-vitwhq5xsptnokmfq11b1jos",
+      "label": "System User",
+      "description": "Defines the operator or agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-jtuheuri2wzfhctcjqv4ozmy",
+      "label": "contact_email",
+      "description": "Contact email for the service.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": ".+@.+\\..+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1273217"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-a127ihw8xbfbl24lbcvnspv0",
+      "label": "contact_name",
+      "description": "Contact name for the service.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/dcat#contactPoint"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-pdykwzsug7pfncjsrry73x1s",
+      "label": "contact_phone",
+      "description": "Primary contact phone number.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\+?\\d[\\d\\s\\-\\(\\)]{6,18}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q214995"
+        }
+      ]
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-xvnv7mrhvfweajl72pmngeya",
+      "label": "software_documentation_url",
+      "description": "URL to software documentation or repository.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q3133368"
+        }
+      ]
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-px6j779dnapp4fjlohula4mh",
+      "label": "software_service_endpoint",
+      "description": "API endpoint or service URL if applicable.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q5376585"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-rsjfjz8m5z7a58h5793duqbs",
+      "label": "software_name",
+      "description": "Name of the software system or service.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q30335969"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-d839tf07spk43dmg0dqb939b",
+      "label": "software_runtime_environment",
+      "description": "Runtime environment or platform for the software.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q241317"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc",
+      "label": "software_vendor",
+      "description": "Vendor or maintainer of the software.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q7554349"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-tep9wanrrtqfw0k76huv6tvd",
+      "label": "software_version",
+      "description": "Version of the software.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q20826013"
+        }
+      ]
+    },
+    {
+      "@type": "AttestationType",
+      "@id": "sdc4:mc-q8x2nc8i8ud3tqo42g850vwz",
+      "label": "Healthcare Record Attestation",
+      "description": "Attestation for healthcare records. The healthcare provider attests to the accuracy of clinical observations and treatments. W3C PROV-DM, GDPR/UN CEB.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q116890704"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.w3.org/TR/vc-data-model/#credentials"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q31207"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/EndorseAction"
+        }
+      ]
+    },
+    {
+      "@type": "XdFileType",
+      "@id": "sdc4:mc-tzzp7weh4dmg323u6kfalo0g",
+      "label": "Healthcare Record Attested View",
+      "description": "Attested view of a healthcare record document",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/DigitalDocument"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q656365"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "http://www.w3.org/ns/prov#Entity"
+        }
+      ]
+    },
+    {
+      "@type": "XdFileType",
+      "@id": "sdc4:mc-gug5dhtqfv7exbgmm2raxpkq",
+      "label": "Digital Signature Proof",
+      "description": "Cryptographic proof of attestation (digital signature)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.w3.org/TR/vc-data-model/#credentials"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q210824"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "http://www.w3.org/ns/prov#Entity"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-mxjh9oqcnjl6njqqi75odozh",
+      "label": "Healthcare Record Attestation Reason",
+      "description": "Reason for attesting this healthcare record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q132364"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q656365"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Text"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-emov6wuhen2tuyjlppqmmjjl",
+      "label": "Healthcare Records Protocol",
+      "description": "Protocol reference for the Healthcare Record data model. Informed by the WHO International Classification of Diseases (ICD-11), HL7 FHIR resource concepts for clinical data exchange, and national health information management standards for patient records.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q132364"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q35869"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q317623"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-v5p12fdr4figf0k2rulfqrxl",
+      "label": "Prescriber Participation Function",
+      "description": "Function of the prescriber in the medication order (e.g., Attending Physician, Consultant).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "attending-physician",
+          "consulting-physician",
+          "primary-care-provider",
+          "specialist",
+          "resident"
+        ]
+      },
+      "dataType": "xsd:token"
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-ba1ezyhgf6aaw03an2uve57o",
+      "label": "Prescriber Participation Mode",
+      "description": "Mode of prescriber participation in the medication order (e.g., in person, telehealth).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "in-person",
+          "telehealth",
+          "electronic-order",
+          "verbal-order",
+          "fax"
+        ]
+      },
+      "dataType": "xsd:token"
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-trvg8tpie5w2zlf6b0nl3zhb",
+      "label": "Vaccination Facility Participation Function",
+      "description": "Function of the facility in the vaccination event (e.g., Administering Site, Storage Facility).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "administering-site",
+          "storage-facility",
+          "reporting-site",
+          "distribution-center"
+        ]
+      },
+      "dataType": "xsd:token"
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-yi46egvfmz66gd0dhypl6t6m",
+      "label": "Vaccination Facility Participation Mode",
+      "description": "Mode of facility participation in the vaccination event (e.g., in person, mobile clinic).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "in-person",
+          "mobile-clinic",
+          "drive-through",
+          "home-visit"
+        ]
+      },
+      "dataType": "xsd:token"
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-hbk1xmzqefk2lchmd7jooz7a",
+      "label": "Healthcare Record Access Control",
+      "description": "Access control policy for healthcare data using W3C Data Privacy Vocabulary. Enforces role-based access for healthcare providers, patients, and authorized representatives. Governs dpv:SpecialCategoryPersonalData including medical records, diagnoses, and treatment plans.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q185799"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://w3id.org/dpv#AccessControlMethod"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1324077"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://w3id.org/dpv#SpecialCategoryPersonalData"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-w0lu0us3nbxaedfum9i8itpc",
+      "label": "Healthcare Governed Record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-ygtbvvmzcw3ukfsg3axqry97"
+        },
+        {
+          "@id": "sdc4:mc-hdhjfg00tngir2txgqyka9cv"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "https://www.wikidata.org/wiki/Q95459148"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-ygtbvvmzcw3ukfsg3axqry97",
+      "label": "Patient Record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-xplqihmynccwa3o4o8s7gqml"
+        },
+        {
+          "@id": "sdc4:mc-vhjvhm6vz2om2jfn6b923gw7"
+        },
+        {
+          "@id": "sdc4:mc-eq4h86worv571cl5iiy9unkw"
+        },
+        {
+          "@id": "sdc4:mc-hd9295k8o49j91lvgftul1a0"
+        },
+        {
+          "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"
+        },
+        {
+          "@id": "sdc4:mc-jz2hqntyol8lopw6q6zdud78"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://hl7.org/fhir/"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1324077"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-xplqihmynccwa3o4o8s7gqml",
+      "label": "Allergies and Conditions",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-ntk4zsr15bcca2jmocdkcpcc"
+        },
+        {
+          "@id": "sdc4:mc-cm0nqqnjcylc8vkfph7db2lh"
+        },
+        {
+          "@id": "sdc4:mc-tz13p9d4dpbw3pe9bx51nbou"
+        },
+        {
+          "@id": "sdc4:mc-07osold8ovbjsqzvz00f3ked2"
+        },
+        {
+          "@id": "sdc4:mc-p14jkmk8xqs97daq3zvyhrsj"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q42982"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://hl7.org/fhir/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-vhjvhm6vz2om2jfn6b923gw7",
+      "label": "Medications",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-z28bjtjekyybe300ukuyjpi4"
+        },
+        {
+          "@id": "sdc4:mc-nomiekce61caq5n9a49d0eu6"
+        },
+        {
+          "@id": "sdc4:mc-iprf7jqg9emvm92wo9gkiqcu"
+        },
+        {
+          "@id": "sdc4:mc-y7k4p12co0b9v6asll531fhv"
+        },
+        {
+          "@id": "sdc4:mc-cq6m46w59ouu1cu8tkw1fhib"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://hl7.org/fhir/"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q12140"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-eq4h86worv571cl5iiy9unkw",
+      "label": "Vaccination History",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-td5j1frz2fa8g4uh1hor7w11"
+        },
+        {
+          "@id": "sdc4:mc-fi1qu4j2zd0801fcqtix35h5"
+        },
+        {
+          "@id": "sdc4:mc-dyfz05n20jhc1elhozrbjug0"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.cdc.gov/vaccines/hcp/imz-schedules/index.html"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q93623446"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-hd9295k8o49j91lvgftul1a0",
+      "label": "Visit Record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-nnu04d5qgrmn1bim8bpu0l65"
+        },
+        {
+          "@id": "sdc4:mc-qvmb5f4xmy56y98q8raelpl9"
+        },
+        {
+          "@id": "sdc4:mc-qzmcum3kwmskrkj7nhkf8fkm"
+        },
+        {
+          "@id": "sdc4:mc-cntj1t9t2xjugnux1enpigmf"
+        },
+        {
+          "@id": "sdc4:mc-lccs354vpxmtyo69ba5cu48v"
+        },
+        {
+          "@id": "sdc4:mc-l9sjn7wj10y5b27ldkv3j8mt"
+        },
+        {
+          "@id": "sdc4:mc-b5zse0kmvpkj74ggqvgk647l"
+        },
+        {
+          "@id": "sdc4:mc-lu2w1avj9fic5wrmyftt9fhi"
+        },
+        {
+          "@id": "sdc4:mc-vh2scyehy68pw7sbvzdg3cn9"
+        },
+        {
+          "@id": "sdc4:mc-s6oo99lbq85kfz0v5nqv9yaf"
+        },
+        {
+          "@id": "sdc4:mc-kokquuk73pm2ohlh4ftnu7wb"
+        },
+        {
+          "@id": "sdc4:mc-iufcfze52lha16v84kccgxyh"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q29182"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://hl7.org/fhir/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-hdhjfg00tngir2txgqyka9cv",
+      "label": "Provenance Components",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-m9xg6e182m1oq77ssrf9iujv"
+        },
+        {
+          "@id": "sdc4:mc-ccj1yq2wtwknobszkgzzdbtr"
+        },
+        {
+          "@id": "sdc4:mc-bd3s8t23d6m3zizmpwavc32y"
+        },
+        {
+          "@id": "sdc4:mc-zr59goe24qkocprl3feul3mt"
+        },
+        {
+          "@id": "sdc4:mc-fnodzqkbyskwe7nh58rs336k"
+        },
+        {
+          "@id": "sdc4:mc-edvvjznmaoibzmfna0uuoo37"
+        },
+        {
+          "@id": "sdc4:mc-o72s5793973fzho35rnaughs"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1172162"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-q8mgqxefnj2v39cn83lsjetb",
+      "label": "Primary Care Assignment",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-dnxrp0bpfs33b4x5ks8he9ag"
+        },
+        {
+          "@id": "sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"
+        },
+        {
+          "@id": "sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"
+        },
+        {
+          "@id": "sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"
+        },
+        {
+          "@id": "sdc4:mc-zs9ciw4nypx4plo856h3m95d"
+        },
+        {
+          "@id": "sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"
+        },
+        {
+          "@id": "sdc4:mc-bpqtzla39dwentygpwea8276"
+        },
+        {
+          "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://hl7.org/fhir/"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://schema.org/Patient"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-5scaiw897xhuqa1k8sso932e",
+      "label": "Healthcare Provider",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-cuxxvwyqn5vhlqjymovegmn7"
+        },
+        {
+          "@id": "sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"
+        },
+        {
+          "@id": "sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"
+        },
+        {
+          "@id": "sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"
+        },
+        {
+          "@id": "sdc4:mc-zs9ciw4nypx4plo856h3m95d"
+        },
+        {
+          "@id": "sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"
+        },
+        {
+          "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj"
+        },
+        {
+          "@id": "sdc4:mc-u1i23yha2rvz5nbxjz3l8x48"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://hl7.org/fhir/"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://schema.org/HealthcareOrganization"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-7gkespcenmxwbctpbwjs43yk",
+      "label": "Prescriber",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-f8ptus0eraxmipvhd96ddbdq"
+        },
+        {
+          "@id": "sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"
+        },
+        {
+          "@id": "sdc4:mc-zs9ciw4nypx4plo856h3m95d"
+        },
+        {
+          "@id": "sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"
+        },
+        {
+          "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj"
+        },
+        {
+          "@id": "sdc4:mc-u1i23yha2rvz5nbxjz3l8x48"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://www.wikidata.org/wiki/Q99393050"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://hl7.org/fhir/"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-0khgfzp8h42kw99wj07udbzw",
+      "label": "Administering Facility",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-u1hjad8m99xlnkyj5clvjnpa"
+        },
+        {
+          "@id": "sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"
+        },
+        {
+          "@id": "sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"
+        },
+        {
+          "@id": "sdc4:mc-bpqtzla39dwentygpwea8276"
+        },
+        {
+          "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://hl7.org/fhir/"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://schema.org/MedicalClinic"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-w06vxo6uxtrzjkimmafmue7g",
+      "label": "Contact and Access",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-jtuheuri2wzfhctcjqv4ozmy"
+        },
+        {
+          "@id": "sdc4:mc-a127ihw8xbfbl24lbcvnspv0"
+        },
+        {
+          "@id": "sdc4:mc-pdykwzsug7pfncjsrry73x1s"
+        },
+        {
+          "@id": "sdc4:mc-rw1cjzeynsl87va6gvhv2k7e"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2996679"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-km4azswrxe9tdrjmqvun5463",
+      "label": "Software Agent Details",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-xvnv7mrhvfweajl72pmngeya"
+        },
+        {
+          "@id": "sdc4:mc-px6j779dnapp4fjlohula4mh"
+        },
+        {
+          "@id": "sdc4:mc-rsjfjz8m5z7a58h5793duqbs"
+        },
+        {
+          "@id": "sdc4:mc-d839tf07spk43dmg0dqb939b"
+        },
+        {
+          "@id": "sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc"
+        },
+        {
+          "@id": "sdc4:mc-tep9wanrrtqfw0k76huv6tvd"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2297769"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-ylue5x7upcvcrat329hmnv9z",
+      "label": "Healthcare Record Workflow",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-mxjh9oqcnjl6njqqi75odozh"
+        },
+        {
+          "@id": "sdc4:mc-emov6wuhen2tuyjlppqmmjjl"
+        },
+        {
+          "@id": "sdc4:mc-v5p12fdr4figf0k2rulfqrxl"
+        },
+        {
+          "@id": "sdc4:mc-ba1ezyhgf6aaw03an2uve57o"
+        },
+        {
+          "@id": "sdc4:mc-trvg8tpie5w2zlf6b0nl3zhb"
+        },
+        {
+          "@id": "sdc4:mc-yi46egvfmz66gd0dhypl6t6m"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://hl7.org/fhir/"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://schema.org/MedicalRecord"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://www.wikidata.org/wiki/Q627335"
+        }
+      ]
     }
-  }
+  ]
 }

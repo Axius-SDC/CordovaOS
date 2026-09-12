@@ -3,7 +3,7 @@
 services:
   postgres:
     image: postgres:16
-    container_name: sdc4_postgres
+    container_name: ${APP_NAME:-sdc4}_postgres
     environment:
       POSTGRES_DB: sdc4_db
       POSTGRES_USER: admin
@@ -23,7 +23,7 @@ services:
   # Supports OWL 2 RL, RDFS, SHACL validation
   graphdb:
     image: ontotext/graphdb:10.8.0
-    container_name: sdc4_graphdb
+    container_name: ${APP_NAME:-sdc4}_graphdb
     environment:
       GDB_JAVA_OPTS: >-
         -Xms1g -Xmx2g
@@ -45,7 +45,7 @@ services:
   # Provides temporal versioning and time-travel queries
   sirixdb:
     image: axiussdc/sirix:0.11.2
-    container_name: sdc4_sirixdb
+    container_name: ${APP_NAME:-sdc4}_sirixdb
     environment:
       SIRIX_USER: admin
       SIRIX_PASSWORD: ${SIRIX_PASSWORD:-admin123}
@@ -69,7 +69,7 @@ services:
   # Provides OAuth2, OIDC, SAML 2.0 support
   keycloak:
     image: quay.io/keycloak/keycloak:26.7.2
-    container_name: sdc4_keycloak
+    container_name: ${APP_NAME:-sdc4}_keycloak
     command: start-dev --import-realm
     environment:
       KC_DB: postgres
@@ -99,7 +99,7 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: sdc4_redis
+    container_name: ${APP_NAME:-sdc4}_redis
     ports:
       - "${REDIS_PORT:-16379}:6379"
     healthcheck:
@@ -112,7 +112,7 @@ services:
     build:
       context: ../..
       dockerfile: app/sdc4/Dockerfile
-    container_name: sdc4_web
+    container_name: ${APP_NAME:-sdc4}_web
     command: >
       sh -c "python manage.py makemigrations &&
              python manage.py migrate &&
@@ -121,9 +121,9 @@ services:
              python manage.py collectstatic --noinput &&
              python manage.py runserver 0.0.0.0:8000"
     volumes:
+      - ../../sparql:/sparql:ro
       - .:/app
       - ./import_data:/import_data
-      - ../../sparql:/sparql:ro
     ports:
       - "${WEB_PORT:-18000}:8000"
     depends_on:
@@ -169,7 +169,7 @@ services:
     build:
       context: ../..
       dockerfile: app/sdc4/Dockerfile
-    container_name: sdc4_celery
+    container_name: ${APP_NAME:-sdc4}_celery
     command: celery -A sdc4 worker -l info
     volumes:
       - .:/app

@@ -2,6 +2,7 @@
   "@context": {
     "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
     "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4-meta": "https://semanticdatacharter.com/ontology/sdc4-meta/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -26,29 +27,1215 @@
     "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
     "dc:language": "en-US",
     "dc:format": "text/xml",
-    "dc:date": "2026-07-29T17:58:18.385862+00:00"
+    "dc:date": "2026-09-12T15:37:16.079866+00:00"
   },
   "components": [
     {
-      "@type": "ClusterType",
-      "@id": "sdc4:mc-haoricee7rjlcybdp70akw9l",
-      "label": "Maritime Governed Record",
-      "description": "Root data cluster (DMType Item) for a governed maritime-port record in CordovaOS: a vessel call and its cargo manifest. Wraps the domain's data components with the shared W3C PROV-O Provenance cluster so each record carries its lineage bound alongside its data. Workflow, attestation, parties, and the system audit trail sit in the DMType's native governance slots; access control and retention apply as bound sdcgovernance policy.",
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-k7a0poa5c7co38oc65i6jppo",
+      "label": "Flag State",
+      "description": "Country of vessel registration (flag state)",
       "cardinality": {
         "minOccurs": 0,
         "maxOccurs": 1
       },
-      "contains": [],
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
       "semanticLinks": [
         {
-          "predicate": "skos:relatedMatch",
-          "object": "https://www.wikidata.org/wiki/Q44782"
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q3591841"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/name"
         }
       ]
-    }
-  ],
-  "structural_components": {
-    "subject": {
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-pbfvurdvio38rt6puifhippe",
+      "label": "Port Call ID",
+      "description": "Unique identifier for this port call record. Assigned by Porto Sereno Port Authority.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://purl.obolibrary.org/obo/BFO_0000009"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/identifier"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-lnjzw0racjo2oxol5w82tp1y",
+      "label": "Berth Assignment",
+      "description": "Planned berth assignment for a vessel at port.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q57964937"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-gxt0t3cs4u6v5ob55qkc6ha0",
+      "label": "Next Port of Call",
+      "description": "Next port after this arrival",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q119382961"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-s0qun9zalf98t3ffsefh34rj",
+      "label": "Port of Departure",
+      "description": "Last port of departure",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q76455346"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-qlqdwbglcq4v3rg8i8iy7dk0",
+      "label": "Vessel Call Sign",
+      "description": "Vessel radio call sign",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q23581925"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ycy71t767wlyqma97o82r2m9",
+      "label": "Vessel IMO Number",
+      "description": "International Maritime Organization (IMO) number",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\d{7}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1970938"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-cl1hiqht7tm42a8lh8c4c1hz",
+      "label": "Vessel MMSI",
+      "description": "Maritime Mobile Service Identity (MMSI) number",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\d{9}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1795701"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-s5zeapfup3xdj6wbqjjkf1nd",
+      "label": "Vessel Name",
+      "description": "Name of vessel (XdString)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q56351075"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-bmoixtn8r8pu62gbgd1tl8qn",
+      "label": "Voyage Number",
+      "description": "Voyage or trip identifier",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q130365988"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-bfaa3m23ye8q0qphv0x24if6",
+      "label": "Cargo Type",
+      "description": "Primary type of cargo",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "containers",
+          "bulk_dry",
+          "bulk_liquid",
+          "vehicles",
+          "general_cargo",
+          "refrigerated",
+          "livestock",
+          "none"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q319224"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-lyh7y1in5j9ka5cxk2zw2qdj",
+      "label": "Purpose of Call",
+      "description": "Purpose of port call",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "load_cargo",
+          "discharge_cargo",
+          "load_discharge",
+          "refuel",
+          "provisions",
+          "repairs",
+          "crew_change",
+          "emergency",
+          "other"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q20729393"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdCountType",
+      "@id": "sdc4:mc-p5qzw565y1dm5f3s6lg2q3ft",
+      "label": "Crew Count",
+      "description": "Total number of crew members aboard the vessel at time of port call. Required for immigration processing, shore leave management, and emergency muster planning.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": 1.0,
+        "units": {
+          "@type": "Units",
+          "label": "Persons",
+          "@id": "sdc4:mc-qb5xnfq8e7qzlxr2q1sc5qhy"
+        }
+      },
+      "dataType": "xsd:integer",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-qb5xnfq8e7qzlxr2q1sc5qhy"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2513968"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-qb5xnfq8e7qzlxr2q1sc5qhy",
+      "label": "Persons",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Person"
+        }
+      ]
+    },
+    {
+      "@type": "XdIntervalType",
+      "@id": "sdc4:mc-glweqzwevdjr0j56r9gcuphk",
+      "label": "Positive Headcount",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string"
+    },
+    {
+      "@type": "XdCountType",
+      "@id": "sdc4:mc-x720xrlooqij75bk26pvzrtl",
+      "label": "Passenger Count",
+      "description": "Total number of passengers aboard the vessel at time of port call. Required for immigration processing, disembarkation planning, and port facility capacity management. Zero for cargo-only vessels.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": 0.0,
+        "units": {
+          "@type": "Units",
+          "label": "Persons",
+          "@id": "sdc4:mc-qb5xnfq8e7qzlxr2q1sc5qhy"
+        }
+      },
+      "dataType": "xsd:integer",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-qb5xnfq8e7qzlxr2q1sc5qhy"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q319604"
+        }
+      ]
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-xccdfbmuqcy5yzv2n6ef0hrs",
+      "label": "Vessel Draft",
+      "description": "Maximum draft (depth below waterline) of the vessel in meters at time of port entry. Critical for channel and berth depth clearance at Porto Sereno harbor.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": 0.5,
+        "maxInclusive": 30.0,
+        "units": {
+          "@type": "Units",
+          "label": "Length/Distance (SI - Metric)",
+          "@id": "sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-y28mhe3jdzi9b8ztn3fxodtf"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q863247"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf",
+      "label": "Length/Distance (SI - Metric)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1344778"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "http://qudt.org/vocab/quantitykind/Length"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q12457"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q47574"
+        }
+      ]
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-wtph0sqt244h38lyzf9ot1op",
+      "label": "Vessel Gross Tonnage",
+      "description": "Vessel's gross tonnage as registered under the IMO Tonnage Convention (1969). Determines applicable port fees, pilotage requirements, and berth assignment at Porto Sereno.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": 1.0,
+        "units": {
+          "@type": "Units",
+          "label": "Gross Tonnage",
+          "@id": "sdc4:mc-qq516wt8ynu4jny0dn2no51n"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-qq516wt8ynu4jny0dn2no51n"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q217792"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-qq516wt8ynu4jny0dn2no51n",
+      "label": "Gross Tonnage",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q217792"
+        }
+      ]
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-jnxxwzl046rkmkbtm33naueu",
+      "label": "Vessel Length Overall",
+      "description": "Length overall (LOA) of the vessel in meters, measured from the foremost to the aftermost point. Required for berth assignment and pilotage planning at Porto Sereno.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": 1.0,
+        "maxInclusive": 500.0,
+        "units": {
+          "@type": "Units",
+          "label": "Length/Distance (SI - Metric)",
+          "@id": "sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-y28mhe3jdzi9b8ztn3fxodtf"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1424988"
+        }
+      ]
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-lh0ufebnovngzzgfggud6ae6",
+      "label": "Vessel Net Tonnage",
+      "description": "Vessel's net tonnage as registered under the IMO Tonnage Convention (1969). Represents usable cargo capacity. Used for canal transit fees and some port tariff calculations.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": 1.0,
+        "units": {
+          "@type": "Units",
+          "label": "Net Tonnage",
+          "@id": "sdc4:mc-rln82e53qjn6zo832iuyfgng"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-rln82e53qjn6zo832iuyfgng"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q756933"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-rln82e53qjn6zo832iuyfgng",
+      "label": "Net Tonnage",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q756933"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-upvi6l9pyb4f0p4vfunietsw",
+      "label": "Arrival Date/Time",
+      "description": "Date and time the vessel arrived at Porto Sereno",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#ArrivalDateTime"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Date"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/DateTime"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-sqpcl9uk7sze8bdqxxqwuqrn",
+      "label": "Departure Date/Time",
+      "description": "Date and time the vessel departed Porto Sereno. Null if vessel is currently in port.\n\n---",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q52943"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Date"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/DateTime"
+        }
+      ]
+    },
+    {
+      "@type": "XdBooleanType",
+      "@id": "sdc4:mc-wxjyv4dmwb0rws14mn5xy3ju",
+      "label": "Customs Declaration Filed",
+      "description": "Whether customs declaration has been filed",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "No",
+          "False",
+          "N"
+        ]
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q847595"
+        }
+      ]
+    },
+    {
+      "@type": "XdBooleanType",
+      "@id": "sdc4:mc-n7x39orkbwjejdf8r93trlaa",
+      "label": "Hazardous Cargo",
+      "description": "Whether vessel is carrying hazardous materials",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "No",
+          "False",
+          "N"
+        ]
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q13537426"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly",
+      "label": "Business Registry Number",
+      "description": "Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "BIZ-[0-9]{6}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q12047291"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/identifier"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/identifier"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-z7zqo56erimvk8dqvl07ihfr",
+      "label": "Cargo Description",
+      "description": "Description of cargo contents",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://release.niem.gov/niem/niem-core/6.0/niem-core.owl#CargoDescriptionText"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/description"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-an9kafb2l1enwh20ngvo1n7y",
+      "label": "Cargo Destination",
+      "description": "Final destination for this cargo (may be Porto Sereno or transshipment)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q5254083"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/description"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-rt510ljj3vz05fxwcm85i990",
+      "label": "Cargo Origin",
+      "description": "Port or country of origin for this cargo",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/description"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/shippingOrigin"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-dp1dkn09vydj2ss6ho37kyhv",
+      "label": "Customs Reference Number",
+      "description": "Customs filing reference number",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/identifier"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-gqbvto3l0o5e6uorrgjwdig2",
+      "label": "Hazmat Class",
+      "description": "Hazardous material classes on board (if applicable)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "1-explosives,2-gases,3-flammable-liquids,4-flammable-solids,5-oxidizers,6-toxic,7-radioactive,8-corrosives,9-misc"
+        ]
+      },
+      "dataType": "xsd:token"
+    },
+    {
+      "@type": "XdCountType",
+      "@id": "sdc4:mc-y5se2qd3r6xx6pz8t7d8cqvf",
+      "label": "Container Count",
+      "description": "Number of shipping containers in the cargo consignment measured in TEU (Twenty-foot Equivalent Units). Used for berth planning, crane allocation, and port throughput statistics.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": 0.0,
+        "units": {
+          "@type": "Units",
+          "label": "Twenty-foot Equivalent Units (TEU)",
+          "@id": "sdc4:mc-l4a5u5ed3qv9rc4rqv9cebqt"
+        }
+      },
+      "dataType": "xsd:integer",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-l4a5u5ed3qv9rc4rqv9cebqt"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q380340"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1366867"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-l4a5u5ed3qv9rc4rqv9cebqt",
+      "label": "Twenty-foot Equivalent Units (TEU)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1366867"
+        }
+      ]
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-lqqypwp22ohzb0ud3wq81r9s",
+      "label": "Cargo Weight",
+      "description": "Total weight of the cargo consignment in kilograms as declared on the bill of lading. Required for vessel stability calculations and port crane scheduling.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "units": {
+          "@type": "Units",
+          "label": "Mass/Weight (SI - Metric)",
+          "@id": "sdc4:mc-tjxxdsd6idyzqygrncojauxn"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-tjxxdsd6idyzqygrncojauxn"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q319224"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-tjxxdsd6idyzqygrncojauxn",
+      "label": "Mass/Weight (SI - Metric)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q3197317"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "http://qudt.org/vocab/quantitykind/Mass"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q12457"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q47574"
+        }
+      ]
+    },
+    {
+      "@type": "XdIntervalType",
+      "@id": "sdc4:mc-plob4z6l86w98xcvt7sz324v",
+      "label": "Non-negative Weight",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string"
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-wvfcfa6u4ers75egrbi25x9l",
+      "label": "Fee Type",
+      "description": "Type of port fee assessed",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Berth Fee",
+          "Pilotage",
+          "Tug Service",
+          "Cargo Handling",
+          "Customs Processing",
+          "Waste Disposal",
+          "Fresh Water",
+          "Provisions"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1912682"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-vt5nh89ol3g5gj0oz35tl6y0",
+      "label": "Payment Status",
+      "description": "Whether the fee has been paid",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Paid",
+          "Invoiced",
+          "Overdue"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/PaymentStatusType"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-e92ud8io69rm826g9b1jrrgh",
+      "label": "Port Fee Amount",
+      "description": "Fee amount assessed for port services in Cordova Córdoba. Includes berth rental, pilotage, tug assistance, waste disposal, and other harbor charges per the Porto Sereno fee schedule.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "units": {
+          "@type": "Units",
+          "label": "Cordova Córdoba (COR)",
+          "@id": "sdc4:mc-u18l77xlj2omcbmnpi5j7fff"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-u18l77xlj2omcbmnpi5j7fff"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/MonetaryAmount"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1194642"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "http://qudt.org/vocab/quantitykind/Currency"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-u18l77xlj2omcbmnpi5j7fff",
+      "label": "Cordova Córdoba (COR)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q8142"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/Currency"
+        }
+      ]
+    },
+    {
+      "@type": "XdIntervalType",
+      "@id": "sdc4:mc-tj85qvj83sce9ny9l2e4oofv",
+      "label": "Non-negative Currency Amount",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string"
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-zub98dao6k8cbbhsddzoq62w",
+      "label": "Fee Date",
+      "description": "Date the fee was assessed",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://release.niem.gov/niem/niem-core/6.0/AssessmentDate"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Date"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-m9xg6e182m1oq77ssrf9iujv",
+      "label": "activity_description",
+      "description": "Detailed description of what this activity does and its purpose.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.w3.org/TR/prov-dm/"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ccj1yq2wtwknobszkgzzdbtr",
+      "label": "prov_activity_type",
+      "description": "Type of activity from the W3C Activity Streams 2.0 vocabulary. Describes what was done to the data.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q125542526"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-bd3s8t23d6m3zizmpwavc32y",
+      "label": "system_identifier",
+      "description": "Identifier of the system that handled the data. Maps to prov:Entity context in the PROV-O export. This is the AuditType.system-id field.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q7663715"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-zr59goe24qkocprl3feul3mt",
+      "label": "system_location_identifier",
+      "description": "Code or identifier for the system location. Used for cross-system location resolution.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q36214810"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-fnodzqkbyskwe7nh58rs336k",
+      "label": "system_location_name",
+      "description": "Name of the physical or logical location where the system resides. Maps to prov:atLocation.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q11307204"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-edvvjznmaoibzmfna0uuoo37",
+      "label": "activity_timestamp_end",
+      "description": "When the provenance activity completed. Maps to prov:endedAtTime. ISO 8601 format.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.ontology-of-units-of-measure.org/resource/om-2/Activity"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-o72s5793973fzho35rnaughs",
+      "label": "activity_timestamp_start",
+      "description": "When the provenance activity began. Maps to prov:startedAtTime. ISO 8601 format.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.ontology-of-units-of-measure.org/resource/om-2/Activity"
+        }
+      ]
+    },
+    {
       "@type": "PartyType",
       "@id": "sdc4:mc-i2e1qhvmkvbnkt0le7rczw5x",
       "label": "Vessel Owner/Operator",
@@ -60,24 +1247,186 @@
       "dataType": "xsd:string",
       "semanticLinks": [
         {
-          "predicate": "skos:exactMatch",
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
           "object": "http://xmlns.com/foaf/0.1/Agent"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "https://schema.org/Organization"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "http://www.w3.org/ns/prov#Agent"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "https://www.wikidata.org/wiki/Q500251"
         }
       ]
     },
-    "provider": {
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-a127ihw8xbfbl24lbcvnspv0",
+      "label": "contact_name",
+      "description": "Contact name for the service.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/dcat#contactPoint"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-pdykwzsug7pfncjsrry73x1s",
+      "label": "contact_phone",
+      "description": "Primary contact phone number.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\+?\\d[\\d\\s\\-\\(\\)]{6,18}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q214995"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-oqzw4x05dkkucs1yzkisbqgy",
+      "label": "organization_contact_email",
+      "description": "Contact email for the organization.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": ".+@.+\\..+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q125471304"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ule5u2z3rjpa9pooaifwj1n3",
+      "label": "organization_identifier",
+      "description": "Official identifier for the organization (e.g., DUNS, tax ID).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q11378663"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3",
+      "label": "organization_name",
+      "description": "Legal or official name of the organization.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q168678"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-bpqtzla39dwentygpwea8276",
+      "label": "organization_type",
+      "description": "Type of organization.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "corporation",
+          "government",
+          "nonprofit",
+          "academic",
+          "department",
+          "vendor"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q17197366"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj",
+      "label": "PROV Agent Type",
+      "description": "Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Person",
+          "Organization",
+          "SoftwareAgent"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
       "@type": "PartyType",
       "@id": "sdc4:mc-l29wc96z6g1a432bhcxxo7dy",
       "label": "Port Authority",
@@ -89,30 +1438,1315 @@
       "dataType": "xsd:string",
       "semanticLinks": [
         {
-          "predicate": "skos:exactMatch",
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
           "object": "http://xmlns.com/foaf/0.1/Agent"
         },
         {
-          "predicate": "skos:broadMatch",
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
           "object": "https://www.wikidata.org/wiki/Q327333"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "http://schema.org/GovernmentOrganization"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "https://schema.org/Organization"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "https://www.wikidata.org/wiki/Q1348006"
         },
         {
-          "predicate": "rdfs:isDefinedBy",
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
           "object": "http://www.w3.org/ns/prov#Agent"
         }
       ]
+    },
+    {
+      "@type": "ParticipationType",
+      "@id": "sdc4:mc-3vigq1h363z05vpb4aw06sei",
+      "label": "Crew Participation",
+      "description": "Participation of crew members in a port call. The performer is a crew member (W3C PROV-DM Agent) with job title as function.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q56512863"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Association"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q949149"
+        }
+      ]
+    },
+    {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-0g1qkok68nj2uku6dj71a6xu",
+      "label": "Crew Member",
+      "description": "Person serving as crew member aboard a vessel. W3C PROV-DM Agent (Person) with passport, nationality, and operational status.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q45199"
+        }
+      ]
+    },
+    {
+      "@type": "XdBooleanType",
+      "@id": "sdc4:mc-cl7genh6if8u2s7cl7pt0ij2",
+      "label": "Crew Shore Leave Requested",
+      "description": "Whether crew shore leave is requested",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "No",
+          "False",
+          "N"
+        ]
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q1062380"
+        }
+      ]
+    },
+    {
+      "@type": "XdBooleanType",
+      "@id": "sdc4:mc-ptc8dfx1oxeycopfjof6vjab",
+      "label": "Medical Assistance Required",
+      "description": "Whether medical assistance is needed upon arrival",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "No",
+          "False",
+          "N"
+        ]
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q26839421"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3",
+      "label": "National ID (CID)",
+      "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "COR-(AL|BR|CE)0[1-3]-[0-9]{6}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/identifier"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1140371"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/identifier"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1",
+      "label": "agent_id",
+      "description": "Unique identifier for this PROV Agent. Should be a URI or globally unique identifier for cross-referencing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q37882474"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-zs9ciw4nypx4plo856h3m95d",
+      "label": "person_family_name",
+      "description": "Family (last) name of the person agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q4116295"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ndvtjiq0cke0q1trw58rtrq2",
+      "label": "person_given_name",
+      "description": "Given (first) name of the person agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q202444"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-wfws1oj1kgeaijciw7wkzdi7",
+      "label": "Job Title",
+      "description": "Current job title or occupation",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q828803"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-nd1w50yuam0i6f0u1ixoj8fr",
+      "label": "Passport Number",
+      "description": "Passport number (XdString)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "[A-Z0-9]{5,20}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q784177"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-u1i23yha2rvz5nbxjz3l8x48",
+      "label": "PROV Role Type",
+      "description": "Functional roles that agents, entities, or activities can assume within provenance relationships.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Author",
+          "Publisher",
+          "Contributor",
+          "Custodian",
+          "Reviewer",
+          "Approver",
+          "Transformer",
+          "Aggregator"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.w3.org/TR/prov-o/#qualifiedInvolvement"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-olte7w6y3ktfuu6kqk0e6dv9",
+      "label": "Country Code",
+      "description": "ISO 3166-1 alpha-2 country codes",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "US",
+          "CA",
+          "MX",
+          "GB",
+          "FR",
+          "DE",
+          "IT",
+          "ES",
+          "JP",
+          "CN",
+          "IN",
+          "BR",
+          "AU",
+          "RU",
+          "KR",
+          "SA",
+          "AE",
+          "IL",
+          "TR",
+          "EG",
+          "ZA",
+          "NG",
+          "AR",
+          "CL",
+          "CO",
+          "PE",
+          "PH",
+          "TH",
+          "VN",
+          "ID",
+          "MY",
+          "SG",
+          "NZ",
+          "PK",
+          "BD",
+          "AF",
+          "IQ",
+          "IR",
+          "SY",
+          "YE",
+          "JO",
+          "LB"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1140221"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-g3k6bj8su3rvkszg2700dhyh",
+      "label": "Birth Date",
+      "description": "Date of birth of the participant. UMLS CUI: C0421451 (Date of birth). LOINC: 21112-8 (Birth date).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2389905"
+        }
+      ]
+    },
+    {
+      "@type": "AuditType",
+      "@id": "sdc4:mc-fotc5adg15ek2b9ermx2mcih",
+      "label": "System Audit",
+      "description": "A domain-agnostic audit component. Can be copied to other projects for domain-specific semantics if desired.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-rw1cjzeynsl87va6gvhv2k7e",
+      "label": "service_account_id",
+      "description": "Service account or system account identifier for software agents.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/identifier"
+        }
+      ]
+    },
+    {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-vitwhq5xsptnokmfq11b1jos",
+      "label": "System User",
+      "description": "Defines the operator or agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-jtuheuri2wzfhctcjqv4ozmy",
+      "label": "contact_email",
+      "description": "Contact email for the service.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": ".+@.+\\..+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1273217"
+        }
+      ]
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-xvnv7mrhvfweajl72pmngeya",
+      "label": "software_documentation_url",
+      "description": "URL to software documentation or repository.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q3133368"
+        }
+      ]
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-px6j779dnapp4fjlohula4mh",
+      "label": "software_service_endpoint",
+      "description": "API endpoint or service URL if applicable.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q5376585"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-rsjfjz8m5z7a58h5793duqbs",
+      "label": "software_name",
+      "description": "Name of the software system or service.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q30335969"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-d839tf07spk43dmg0dqb939b",
+      "label": "software_runtime_environment",
+      "description": "Runtime environment or platform for the software.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q241317"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc",
+      "label": "software_vendor",
+      "description": "Vendor or maintainer of the software.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q7554349"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-tep9wanrrtqfw0k76huv6tvd",
+      "label": "software_version",
+      "description": "Version of the software.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q20826013"
+        }
+      ]
+    },
+    {
+      "@type": "AttestationType",
+      "@id": "sdc4:mc-kmd0ncqu6c70mt5ri4bxucgg",
+      "label": "Maritime Attestation",
+      "description": "Attestation for maritime port records. The port authority attests to vessel arrival/departure data and crew manifests. W3C PROV-DM, GDPR/UN CEB.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q116890704"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.w3.org/TR/vc-data-model/#credentials"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q949149"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/EndorseAction"
+        }
+      ]
+    },
+    {
+      "@type": "XdFileType",
+      "@id": "sdc4:mc-oghg470klqpuiaglq79ktmpy",
+      "label": "Maritime Attested View",
+      "description": "Attested view of a maritime port authority document",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/DigitalDocument"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q44782"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "http://www.w3.org/ns/prov#Entity"
+        }
+      ]
+    },
+    {
+      "@type": "XdFileType",
+      "@id": "sdc4:mc-gug5dhtqfv7exbgmm2raxpkq",
+      "label": "Digital Signature Proof",
+      "description": "Cryptographic proof of attestation (digital signature)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.w3.org/TR/vc-data-model/#credentials"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q210824"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "http://www.w3.org/ns/prov#Entity"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-uczf4drfrkpue41q9x8ffvja",
+      "label": "Maritime Attestation Reason",
+      "description": "Reason for attesting this maritime document",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q132364"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q44782"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Text"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-c75jy9i3wmcbaewdoeivt2v5",
+      "label": "Maritime Port Protocol",
+      "description": "Protocol reference for the Maritime Port Authority data model. Informed by the IMO Convention on Facilitation of International Maritime Traffic (FAL Convention), the International Ship and Port Facility Security Code (ISPS), and the UN/CEFACT Single Window standards for port operations.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q132364"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q7884"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q317623"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-ni5dvv9ic8uus9dl8fsqtzy8",
+      "label": "Crew Participation Function",
+      "description": "Function of the crew member in the port call (e.g., Bridge Officer, Engineer).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "bridge-officer",
+          "chief-engineer",
+          "deck-officer",
+          "chief-steward",
+          "bosun",
+          "radio-officer"
+        ]
+      },
+      "dataType": "xsd:token"
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-dz2jxiusj9162dwokwuh5n8x",
+      "label": "Crew Participation Mode",
+      "description": "Mode of crew participation in the port call (e.g., on board, shore-based remote).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "on-board",
+          "shore-based-remote",
+          "in-person-at-port"
+        ]
+      },
+      "dataType": "xsd:token"
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-wqs7c6hl5vgq6f4ub25th5tr",
+      "label": "Maritime Port Access Control",
+      "description": "Access control policy for maritime port data using W3C Data Privacy Vocabulary. Enforces role-based access for port authority officials, shipping agents, and customs officers. Governs dpv:CommercialData including vessel manifests, cargo declarations, and port clearance records.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q185799"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://w3id.org/dpv#AccessControlMethod"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://w3id.org/dpv#CommercialData"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q1348006"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-haoricee7rjlcybdp70akw9l",
+      "label": "Maritime Governed Record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-i8cjmvihdces5rqvb2snqwmo"
+        },
+        {
+          "@id": "sdc4:mc-hdhjfg00tngir2txgqyka9cv"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+          "object": "https://www.wikidata.org/wiki/Q44782"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-i8cjmvihdces5rqvb2snqwmo",
+      "label": "Port Call Record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-ibb8e7c8equpeqiv5wxrxxll"
+        },
+        {
+          "@id": "sdc4:mc-emtr91lypy400ttgzz2ti4et"
+        },
+        {
+          "@id": "sdc4:mc-k7a0poa5c7co38oc65i6jppo"
+        },
+        {
+          "@id": "sdc4:mc-pbfvurdvio38rt6puifhippe"
+        },
+        {
+          "@id": "sdc4:mc-lnjzw0racjo2oxol5w82tp1y"
+        },
+        {
+          "@id": "sdc4:mc-gxt0t3cs4u6v5ob55qkc6ha0"
+        },
+        {
+          "@id": "sdc4:mc-s0qun9zalf98t3ffsefh34rj"
+        },
+        {
+          "@id": "sdc4:mc-qlqdwbglcq4v3rg8i8iy7dk0"
+        },
+        {
+          "@id": "sdc4:mc-ycy71t767wlyqma97o82r2m9"
+        },
+        {
+          "@id": "sdc4:mc-cl1hiqht7tm42a8lh8c4c1hz"
+        },
+        {
+          "@id": "sdc4:mc-s5zeapfup3xdj6wbqjjkf1nd"
+        },
+        {
+          "@id": "sdc4:mc-bmoixtn8r8pu62gbgd1tl8qn"
+        },
+        {
+          "@id": "sdc4:mc-bfaa3m23ye8q0qphv0x24if6"
+        },
+        {
+          "@id": "sdc4:mc-lyh7y1in5j9ka5cxk2zw2qdj"
+        },
+        {
+          "@id": "sdc4:mc-p5qzw565y1dm5f3s6lg2q3ft"
+        },
+        {
+          "@id": "sdc4:mc-x720xrlooqij75bk26pvzrtl"
+        },
+        {
+          "@id": "sdc4:mc-xccdfbmuqcy5yzv2n6ef0hrs"
+        },
+        {
+          "@id": "sdc4:mc-wtph0sqt244h38lyzf9ot1op"
+        },
+        {
+          "@id": "sdc4:mc-jnxxwzl046rkmkbtm33naueu"
+        },
+        {
+          "@id": "sdc4:mc-lh0ufebnovngzzgfggud6ae6"
+        },
+        {
+          "@id": "sdc4:mc-upvi6l9pyb4f0p4vfunietsw"
+        },
+        {
+          "@id": "sdc4:mc-sqpcl9uk7sze8bdqxxqwuqrn"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/Report"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-ibb8e7c8equpeqiv5wxrxxll",
+      "label": "Cargo Manifest",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-wxjyv4dmwb0rws14mn5xy3ju"
+        },
+        {
+          "@id": "sdc4:mc-n7x39orkbwjejdf8r93trlaa"
+        },
+        {
+          "@id": "sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly"
+        },
+        {
+          "@id": "sdc4:mc-z7zqo56erimvk8dqvl07ihfr"
+        },
+        {
+          "@id": "sdc4:mc-an9kafb2l1enwh20ngvo1n7y"
+        },
+        {
+          "@id": "sdc4:mc-rt510ljj3vz05fxwcm85i990"
+        },
+        {
+          "@id": "sdc4:mc-dp1dkn09vydj2ss6ho37kyhv"
+        },
+        {
+          "@id": "sdc4:mc-bfaa3m23ye8q0qphv0x24if6"
+        },
+        {
+          "@id": "sdc4:mc-gqbvto3l0o5e6uorrgjwdig2"
+        },
+        {
+          "@id": "sdc4:mc-y5se2qd3r6xx6pz8t7d8cqvf"
+        },
+        {
+          "@id": "sdc4:mc-lqqypwp22ohzb0ud3wq81r9s"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q105851048"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-emtr91lypy400ttgzz2ti4et",
+      "label": "Port Fees",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-wvfcfa6u4ers75egrbi25x9l"
+        },
+        {
+          "@id": "sdc4:mc-vt5nh89ol3g5gj0oz35tl6y0"
+        },
+        {
+          "@id": "sdc4:mc-e92ud8io69rm826g9b1jrrgh"
+        },
+        {
+          "@id": "sdc4:mc-zub98dao6k8cbbhsddzoq62w"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://release.niem.gov/niem/niem-core/5.0/niem-core.owl#Fee"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-hdhjfg00tngir2txgqyka9cv",
+      "label": "Provenance Components",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-m9xg6e182m1oq77ssrf9iujv"
+        },
+        {
+          "@id": "sdc4:mc-ccj1yq2wtwknobszkgzzdbtr"
+        },
+        {
+          "@id": "sdc4:mc-bd3s8t23d6m3zizmpwavc32y"
+        },
+        {
+          "@id": "sdc4:mc-zr59goe24qkocprl3feul3mt"
+        },
+        {
+          "@id": "sdc4:mc-fnodzqkbyskwe7nh58rs336k"
+        },
+        {
+          "@id": "sdc4:mc-edvvjznmaoibzmfna0uuoo37"
+        },
+        {
+          "@id": "sdc4:mc-o72s5793973fzho35rnaughs"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1172162"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-nyjf6osy2dsn9jtmp7zvvmtx",
+      "label": "Vessel Owner/Operator (PROV Agent)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-a127ihw8xbfbl24lbcvnspv0"
+        },
+        {
+          "@id": "sdc4:mc-pdykwzsug7pfncjsrry73x1s"
+        },
+        {
+          "@id": "sdc4:mc-oqzw4x05dkkucs1yzkisbqgy"
+        },
+        {
+          "@id": "sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"
+        },
+        {
+          "@id": "sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"
+        },
+        {
+          "@id": "sdc4:mc-bpqtzla39dwentygpwea8276"
+        },
+        {
+          "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://www.wikidata.org/wiki/Q500251"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-ub2t6n4xolr6nhc3oj50fnla",
+      "label": "Port Authority",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"
+        },
+        {
+          "@id": "sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"
+        },
+        {
+          "@id": "sdc4:mc-bpqtzla39dwentygpwea8276"
+        },
+        {
+          "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://www.wikidata.org/wiki/Q652812"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-zf9y55c89jybgi19734g0ls5",
+      "label": "Crew Member",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-cl7genh6if8u2s7cl7pt0ij2"
+        },
+        {
+          "@id": "sdc4:mc-ptc8dfx1oxeycopfjof6vjab"
+        },
+        {
+          "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"
+        },
+        {
+          "@id": "sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"
+        },
+        {
+          "@id": "sdc4:mc-zs9ciw4nypx4plo856h3m95d"
+        },
+        {
+          "@id": "sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"
+        },
+        {
+          "@id": "sdc4:mc-wfws1oj1kgeaijciw7wkzdi7"
+        },
+        {
+          "@id": "sdc4:mc-nd1w50yuam0i6f0u1ixoj8fr"
+        },
+        {
+          "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj"
+        },
+        {
+          "@id": "sdc4:mc-u1i23yha2rvz5nbxjz3l8x48"
+        },
+        {
+          "@id": "sdc4:mc-olte7w6y3ktfuu6kqk0e6dv9"
+        },
+        {
+          "@id": "sdc4:mc-g3k6bj8su3rvkszg2700dhyh"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://www.wikidata.org/wiki/Q45199"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-w06vxo6uxtrzjkimmafmue7g",
+      "label": "Contact and Access",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-jtuheuri2wzfhctcjqv4ozmy"
+        },
+        {
+          "@id": "sdc4:mc-a127ihw8xbfbl24lbcvnspv0"
+        },
+        {
+          "@id": "sdc4:mc-pdykwzsug7pfncjsrry73x1s"
+        },
+        {
+          "@id": "sdc4:mc-rw1cjzeynsl87va6gvhv2k7e"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2996679"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-km4azswrxe9tdrjmqvun5463",
+      "label": "Software Agent Details",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-xvnv7mrhvfweajl72pmngeya"
+        },
+        {
+          "@id": "sdc4:mc-px6j779dnapp4fjlohula4mh"
+        },
+        {
+          "@id": "sdc4:mc-rsjfjz8m5z7a58h5793duqbs"
+        },
+        {
+          "@id": "sdc4:mc-d839tf07spk43dmg0dqb939b"
+        },
+        {
+          "@id": "sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc"
+        },
+        {
+          "@id": "sdc4:mc-tep9wanrrtqfw0k76huv6tvd"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q2297769"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-bzdgd652adlbc1v287s8yrm1",
+      "label": "Maritime Port Workflow",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-uczf4drfrkpue41q9x8ffvja"
+        },
+        {
+          "@id": "sdc4:mc-c75jy9i3wmcbaewdoeivt2v5"
+        },
+        {
+          "@id": "sdc4:mc-ni5dvv9ic8uus9dl8fsqtzy8"
+        },
+        {
+          "@id": "sdc4:mc-dz2jxiusj9162dwokwuh5n8x"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.imo.org/en/about/conventions/pages/international-convention-on-tonnage-measurement-of-ships.aspx"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q652812"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://www.wikidata.org/wiki/Q627335"
+        }
+      ]
     }
-  }
+  ]
 }

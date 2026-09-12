@@ -26,7 +26,7 @@
           <dc:identifier>dm-upq7w1bqbix5v5ss0mu3kq5n</dc:identifier>
           <dc:description>Track student enrollment and academic credentials at Cordova educational institutions.</dc:description>
           <dc:publisher>Axius SDC, Inc.</dc:publisher>
-          <dc:date>2026-07-29 15:10:49.626943+00:00</dc:date>
+          <dc:date>2026-09-12 13:45:19.572861+00:00</dc:date>
           <dc:format>text/xml</dc:format>
           <dc:language>en-US</dc:language>
         </rdf:Description>
@@ -42,9 +42,9 @@
 <xsd:complexType name="mc-upq7w1bqbix5v5ss0mu3kq5n">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-upq7w1bqbix5v5ss0mu3kq5n">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:DMType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-upq7w1bqbix5v5ss0mu3kq5n">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#DMType"/>
         <rdfs:label>Education Record</rdfs:label>        <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q189533"/>
         <skos:exactMatch rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
         <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q2385804"/>
@@ -85,13 +85,11 @@
   <xsd:complexType name="mc-nj7s1gk45tfgyooxpz0qaha3" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-nj7s1gk45tfgyooxpz0qaha3">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>National ID (CID)</rdfs:label>
           <rdfs:comment>Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-national_id_(cid)"/>
           <rdfs:isDefinedBy rdf:resource="http://schema.org/identifier"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1140371"/>
           <skos:broadMatch rdf:resource="https://schema.org/identifier"/>
@@ -128,13 +126,11 @@
   <xsd:complexType name="mc-khbvruwpu9hnttg8y0mnih6a" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-khbvruwpu9hnttg8y0mnih6a">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-khbvruwpu9hnttg8y0mnih6a">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Student ID</rdfs:label>
           <rdfs:comment>Institution-assigned student identifier</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-khbvruwpu9hnttg8y0mnih6a"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-student_id"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q906630"/>
           <skos:broadMatch rdf:resource="https://schema.org/identifier"/>
         </rdf:Description>
@@ -171,13 +167,11 @@
   <xsd:complexType name="mc-atdtdfzruh7tya0iv5cz365l" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-atdtdfzruh7tya0iv5cz365l">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>City</rdfs:label>
           <rdfs:comment>One of the nine cities in the Republic of Cordova.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-atdtdfzruh7tya0iv5cz365l"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-city"/>
           <rdfs:isDefinedBy rdf:resource="http://schema.org/City"/>
           <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
           <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
@@ -203,8 +197,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Capital of Aldara. National port city and sole international port. Area code 100.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Porto%20Sereno">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Porto%20Sereno">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Porto Sereno</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -214,8 +208,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Coastal city in Aldara. Area code 110.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Vistamar">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Vistamar">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Vistamar</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -225,8 +219,8 @@
                   <xsd:annotation>
                         <xsd:documentation>River city in Aldara. Area code 120.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Rioseco">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Rioseco">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Rioseco</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -236,8 +230,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Capital of Brevina. Home to Universidad Nacional de Cordova. Area code 200.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Campoluz">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Campoluz">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Campoluz</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -247,8 +241,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Agricultural town in Brevina. Area code 210.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Tierraverde">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Tierraverde">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Tierraverde</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -258,8 +252,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Mountain town in Brevina. Area code 220.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Montecara">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Montecara">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Montecara</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -269,8 +263,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Capital of Celara and national capital. Government center. Area code 300.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Novaciudad">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Novaciudad">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Novaciudad</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -280,8 +274,8 @@
                   <xsd:annotation>
                         <xsd:documentation>City in Celara. Area code 310.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Piedrasol">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Piedrasol">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Piedrasol</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -291,8 +285,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Lakeside city in Celara. Area code 320.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Lagunavista">
-                        <rdfs:subPropertyOf rdf:resource="mc-atdtdfzruh7tya0iv5cz365l"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l/xdtoken-value/Lagunavista">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-atdtdfzruh7tya0iv5cz365l"/>
                         <rdfs:label>Lagunavista</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -312,13 +306,11 @@
   <xsd:complexType name="mc-kv5qqs3o4jwcwz9javgw1pzh" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Province</rdfs:label>
           <rdfs:comment>One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-province"/>
           <rdfs:isDefinedBy rdf:resource="http://schema.org/AdministrativeArea"/>
           <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
           <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
@@ -345,8 +337,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Western province. Capital: Porto Sereno. Contains the national port and coastal cities Vistamar and Rioseco.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Aldara">
-                        <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Aldara">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh"/>
                         <rdfs:label>Aldara</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -356,8 +348,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Central province. Capital: Campoluz. Agricultural and university region with Tierraverde and Montecara.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Brevina">
-                        <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Brevina">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh"/>
                         <rdfs:label>Brevina</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -367,8 +359,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Eastern province. Capital: Novaciudad. National capital province and government center with Piedrasol and Lagunavista.</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Celara">
-                        <rdfs:subPropertyOf rdf:resource="mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh/xdtoken-value/Celara">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-kv5qqs3o4jwcwz9javgw1pzh"/>
                         <rdfs:label>Celara</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -484,13 +476,11 @@
   <xsd:complexType name="mc-sxkjp09cbjb6n13j8a0eg37i" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-sxkjp09cbjb6n13j8a0eg37i">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Credential Type</rdfs:label>
           <rdfs:comment>Type of academic credential awarded</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-sxkjp09cbjb6n13j8a0eg37i"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-credential_type"/>
           <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
           <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
           <rdfs:isDefinedBy rdf:resource="https://www.w3.org/2018/credentials#type"/>
@@ -516,8 +506,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Primary school completion certificate</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Primary%20Certificate">
-                        <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Primary%20Certificate">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i"/>
                         <rdfs:label>Primary Certificate</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -527,8 +517,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Secondary school diploma</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Secondary%20Diploma">
-                        <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Secondary%20Diploma">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i"/>
                         <rdfs:label>Secondary Diploma</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -538,8 +528,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Two-year associate degree</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Associate%20Degree">
-                        <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Associate%20Degree">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i"/>
                         <rdfs:label>Associate Degree</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -549,8 +539,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Four-year undergraduate degree</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Bachelor%27s%20Degree">
-                        <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Bachelor%27s%20Degree">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i"/>
                         <rdfs:label>Bachelor's Degree</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -560,8 +550,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Graduate-level master's degree</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Master%27s%20Degree">
-                        <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Master%27s%20Degree">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i"/>
                         <rdfs:label>Master's Degree</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -571,8 +561,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Doctoral or PhD degree</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Doctoral%20Degree">
-                        <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Doctoral%20Degree">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i"/>
                         <rdfs:label>Doctoral Degree</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -582,8 +572,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Professional or vocational certification</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Professional%20Certificate">
-                        <rdfs:subPropertyOf rdf:resource="mc-sxkjp09cbjb6n13j8a0eg37i"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i/xdtoken-value/Professional%20Certificate">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-sxkjp09cbjb6n13j8a0eg37i"/>
                         <rdfs:label>Professional Certificate</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -603,13 +593,11 @@
   <xsd:complexType name="mc-c7qvfjtu0omg4wagiaiy5hej" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-c7qvfjtu0omg4wagiaiy5hej">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-c7qvfjtu0omg4wagiaiy5hej">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Honors</rdfs:label>
           <rdfs:comment>Academic honors received, if any</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-c7qvfjtu0omg4wagiaiy5hej"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-honors"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q11415564"/>
           <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
           <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
@@ -635,8 +623,8 @@
                   <xsd:annotation>
                         <xsd:documentation>No honors designation</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-c7qvfjtu0omg4wagiaiy5hej/xdtoken-value/None">
-                        <rdfs:subPropertyOf rdf:resource="mc-c7qvfjtu0omg4wagiaiy5hej"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-c7qvfjtu0omg4wagiaiy5hej/xdtoken-value/None">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-c7qvfjtu0omg4wagiaiy5hej"/>
                         <rdfs:label>None</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -646,8 +634,8 @@
                   <xsd:annotation>
                         <xsd:documentation>With honors</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-c7qvfjtu0omg4wagiaiy5hej/xdtoken-value/Cum%20Laude">
-                        <rdfs:subPropertyOf rdf:resource="mc-c7qvfjtu0omg4wagiaiy5hej"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-c7qvfjtu0omg4wagiaiy5hej/xdtoken-value/Cum%20Laude">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-c7qvfjtu0omg4wagiaiy5hej"/>
                         <rdfs:label>Cum Laude</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -657,8 +645,8 @@
                   <xsd:annotation>
                         <xsd:documentation>With great honors</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-c7qvfjtu0omg4wagiaiy5hej/xdtoken-value/Magna%20Cum%20Laude">
-                        <rdfs:subPropertyOf rdf:resource="mc-c7qvfjtu0omg4wagiaiy5hej"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-c7qvfjtu0omg4wagiaiy5hej/xdtoken-value/Magna%20Cum%20Laude">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-c7qvfjtu0omg4wagiaiy5hej"/>
                         <rdfs:label>Magna Cum Laude</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -668,8 +656,8 @@
                   <xsd:annotation>
                         <xsd:documentation>With highest honors</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-c7qvfjtu0omg4wagiaiy5hej/xdtoken-value/Summa%20Cum%20Laude">
-                        <rdfs:subPropertyOf rdf:resource="mc-c7qvfjtu0omg4wagiaiy5hej"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-c7qvfjtu0omg4wagiaiy5hej/xdtoken-value/Summa%20Cum%20Laude">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-c7qvfjtu0omg4wagiaiy5hej"/>
                         <rdfs:label>Summa Cum Laude</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -690,13 +678,11 @@
   <xsd:complexType name="mc-xi99tao4v75wdrkq0ot02vfd" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-xi99tao4v75wdrkq0ot02vfd">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-xi99tao4v75wdrkq0ot02vfd">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTemporalType"/>
           <rdfs:label>Date Awarded</rdfs:label>
           <rdfs:comment>Date the credential was officially awarded</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-xi99tao4v75wdrkq0ot02vfd"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-date_awarded"/>
           <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/issued"/>
           <skos:broadMatch rdf:resource="https://schema.org/Date"/>
         </rdf:Description>
@@ -728,13 +714,11 @@
   <xsd:complexType name="mc-squd8e2s6pk8xoafu9ec0t9k" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-squd8e2s6pk8xoafu9ec0t9k">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-squd8e2s6pk8xoafu9ec0t9k">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Enrollment Status</rdfs:label>
           <rdfs:comment>Current enrollment status</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-squd8e2s6pk8xoafu9ec0t9k"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-enrollment_status"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q76649493"/>
           <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
           <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
@@ -760,8 +744,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Currently enrolled and attending</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/Active">
-                        <rdfs:subPropertyOf rdf:resource="mc-squd8e2s6pk8xoafu9ec0t9k"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/Active">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-squd8e2s6pk8xoafu9ec0t9k"/>
                         <rdfs:label>Active</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -771,8 +755,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Successfully completed the program</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/Graduated">
-                        <rdfs:subPropertyOf rdf:resource="mc-squd8e2s6pk8xoafu9ec0t9k"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/Graduated">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-squd8e2s6pk8xoafu9ec0t9k"/>
                         <rdfs:label>Graduated</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -782,8 +766,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Voluntarily withdrew from the program</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/Withdrawn">
-                        <rdfs:subPropertyOf rdf:resource="mc-squd8e2s6pk8xoafu9ec0t9k"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/Withdrawn">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-squd8e2s6pk8xoafu9ec0t9k"/>
                         <rdfs:label>Withdrawn</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -793,8 +777,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Enrollment temporarily suspended</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/Suspended">
-                        <rdfs:subPropertyOf rdf:resource="mc-squd8e2s6pk8xoafu9ec0t9k"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/Suspended">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-squd8e2s6pk8xoafu9ec0t9k"/>
                         <rdfs:label>Suspended</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -804,8 +788,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Approved leave of absence</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/On%20Leave">
-                        <rdfs:subPropertyOf rdf:resource="mc-squd8e2s6pk8xoafu9ec0t9k"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-squd8e2s6pk8xoafu9ec0t9k/xdtoken-value/On%20Leave">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-squd8e2s6pk8xoafu9ec0t9k"/>
                         <rdfs:label>On Leave</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -920,13 +904,11 @@
   <xsd:complexType name="mc-z72jnzdib9hi311s338zwdog" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-z72jnzdib9hi311s338zwdog">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-z72jnzdib9hi311s338zwdog">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTemporalType"/>
           <rdfs:label>Enrollment Date</rdfs:label>
           <rdfs:comment>Date the student enrolled in the program</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-z72jnzdib9hi311s338zwdog"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-enrollment_date"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q137375576"/>
           <skos:broadMatch rdf:resource="https://schema.org/Date"/>
         </rdf:Description>
@@ -959,15 +941,13 @@
   <xsd:complexType name="mc-g6ntdb41otp1mtwsyb52mez3" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-g6ntdb41otp1mtwsyb52mez3">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTemporalType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-g6ntdb41otp1mtwsyb52mez3">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTemporalType"/>
           <rdfs:label>Expected Completion Date</rdfs:label>
           <rdfs:comment>Expected date of program completion
 
 ---</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-g6ntdb41otp1mtwsyb52mez3"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-expected_completion_date"/>
           <rdfs:isDefinedBy rdf:resource="http://release.niem.gov/niem/niem-core/6.0/ProgramPlannedEndDate"/>
           <skos:broadMatch rdf:resource="https://schema.org/Date"/>
         </rdf:Description>
@@ -1288,13 +1268,11 @@
   <xsd:complexType name="mc-i4bkuj6quo2gv9sbghhdocaj" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-i4bkuj6quo2gv9sbghhdocaj">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-i4bkuj6quo2gv9sbghhdocaj">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#PartyType"/>
           <rdfs:label>Student</rdfs:label>
           <rdfs:comment>Person enrolled in an educational program. W3C PROV-DM Agent (Person) with Cordova CID.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-i4bkuj6quo2gv9sbghhdocaj"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-student"/>
           <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
           <rdfs:isDefinedBy rdf:resource="https://schema.org/Person"/>
           <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
@@ -1521,13 +1499,11 @@
   <xsd:complexType name="mc-fpxka4mvhbmka33c0enhzfxl" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-fpxka4mvhbmka33c0enhzfxl">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:PartyType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-fpxka4mvhbmka33c0enhzfxl">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#PartyType"/>
           <rdfs:label>Educational Institution</rdfs:label>
           <rdfs:comment>Educational institution (university, college, school, etc.) granting credentials. W3C PROV-DM Agent (Organization) with Cordova institution classification.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-fpxka4mvhbmka33c0enhzfxl"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-educational_institution"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2385804"/>
           <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
           <rdfs:isDefinedBy rdf:resource="https://schema.org/Organization"/>
@@ -1636,13 +1612,11 @@
   <xsd:complexType name="mc-xd84m1q7hpxeneud0tb3q3kk" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-xd84m1q7hpxeneud0tb3q3kk">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdTokenType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-xd84m1q7hpxeneud0tb3q3kk">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdTokenType"/>
           <rdfs:label>Institution Type</rdfs:label>
           <rdfs:comment>Classification of the educational institution</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-xd84m1q7hpxeneud0tb3q3kk"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-institution_type"/>
           <skos:exactMatch rdf:resource="https://schema.org/DefinedTermSet"/>
           <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q117023459"/>
@@ -1668,8 +1642,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Elementary / primary education (ages 6-12)</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/Primary%20School">
-                        <rdfs:subPropertyOf rdf:resource="mc-xd84m1q7hpxeneud0tb3q3kk"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/Primary%20School">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-xd84m1q7hpxeneud0tb3q3kk"/>
                         <rdfs:label>Primary School</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -1679,8 +1653,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Middle and high school education (ages 12-18)</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/Secondary%20School">
-                        <rdfs:subPropertyOf rdf:resource="mc-xd84m1q7hpxeneud0tb3q3kk"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/Secondary%20School">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-xd84m1q7hpxeneud0tb3q3kk"/>
                         <rdfs:label>Secondary School</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -1690,8 +1664,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Four-year university or college</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/University">
-                        <rdfs:subPropertyOf rdf:resource="mc-xd84m1q7hpxeneud0tb3q3kk"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/University">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-xd84m1q7hpxeneud0tb3q3kk"/>
                         <rdfs:label>University</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -1701,8 +1675,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Vocational or technical training institution</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/Technical%20Institute">
-                        <rdfs:subPropertyOf rdf:resource="mc-xd84m1q7hpxeneud0tb3q3kk"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/Technical%20Institute">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-xd84m1q7hpxeneud0tb3q3kk"/>
                         <rdfs:label>Technical Institute</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -1712,8 +1686,8 @@
                   <xsd:annotation>
                         <xsd:documentation>Post-graduate degree programs</xsd:documentation>
                     <xsd:appinfo>
-                      <rdfs:Class rdf:about="mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/Graduate%20School">
-                        <rdfs:subPropertyOf rdf:resource="mc-xd84m1q7hpxeneud0tb3q3kk"/>
+                      <rdfs:Class rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-xd84m1q7hpxeneud0tb3q3kk/xdtoken-value/Graduate%20School">
+                        <rdfs:subPropertyOf rdf:resource="https://semanticdatacharter.com/ns/sdc4/mc-xd84m1q7hpxeneud0tb3q3kk"/>
                         <rdfs:label>Graduate School</rdfs:label>
                       </rdfs:Class>
                     </xsd:appinfo>
@@ -2312,13 +2286,11 @@
   <xsd:complexType name="mc-qwy0t84c1zzo68vm770xhx51" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-qwy0t84c1zzo68vm770xhx51">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:AttestationType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-qwy0t84c1zzo68vm770xhx51">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#AttestationType"/>
           <rdfs:label>Education Record Attestation</rdfs:label>
           <rdfs:comment>Attestation for educational records. The educational institution attests to enrollment, completion, and credential issuance. W3C PROV-DM, GDPR/UN CEB.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-qwy0t84c1zzo68vm770xhx51"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-education_record_attestation"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q116890704"/>
           <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
           <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q8434"/>
@@ -2348,13 +2320,11 @@
 <xsd:complexType name="mc-o87tv977uxnegwckzso3xf4z" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-o87tv977uxnegwckzso3xf4z">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-o87tv977uxnegwckzso3xf4z">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdFileType"/>
         <rdfs:label>Education Record Attested View</rdfs:label>
         <rdfs:comment>Attested view of an education record document</rdfs:comment>
-        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-o87tv977uxnegwckzso3xf4z"/>
-        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-education_record_attested_view"/>
         <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q12047392"/>
         <rdfs:isDefinedBy rdf:resource="https://schema.org/DigitalDocument"/>
         <skos:broadMatch rdf:resource="http://www.w3.org/ns/prov#Entity"/>
@@ -2396,13 +2366,11 @@
 <xsd:complexType name="mc-gug5dhtqfv7exbgmm2raxpkq" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdFileType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-gug5dhtqfv7exbgmm2raxpkq">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdFileType"/>
         <rdfs:label>Digital Signature Proof</rdfs:label>
         <rdfs:comment>Cryptographic proof of attestation (digital signature)</rdfs:comment>
-        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
-        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-digital_signature_proof"/>
         <rdfs:isDefinedBy rdf:resource="https://www.w3.org/TR/vc-data-model/#credentials"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q210824"/>
         <skos:broadMatch rdf:resource="http://www.w3.org/ns/prov#Entity"/>
@@ -2443,13 +2411,11 @@
   <xsd:complexType name="mc-v2r1ax7golsycgmxdqezvkev" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-v2r1ax7golsycgmxdqezvkev">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-v2r1ax7golsycgmxdqezvkev">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Education Record Attestation Reason</rdfs:label>
           <rdfs:comment>Reason for attesting this education record</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-v2r1ax7golsycgmxdqezvkev"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-education_record_attestation_reason"/>
           <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q12047392"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
           <skos:broadMatch rdf:resource="https://schema.org/Text"/>
@@ -2487,13 +2453,11 @@
   <xsd:complexType name="mc-vdwqv3o1qf00yjq9cv7kcpos" xml:lang="en-US">
     <xsd:annotation>
       <xsd:appinfo>
-        <rdf:Description rdf:about="sdc4:mc-vdwqv3o1qf00yjq9cv7kcpos">
-          <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-          <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdStringType"/>
+        <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-vdwqv3o1qf00yjq9cv7kcpos">
+          <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+          <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdStringType"/>
           <rdfs:label>Education Records Protocol</rdfs:label>
           <rdfs:comment>Protocol reference for the Education Record data model. Informed by the UNESCO International Standard Classification of Education (ISCED 2011), the Bologna Process framework for higher education records, and national student records management standards.</rdfs:comment>
-          <sdc4-meta:ModelComponent rdf:about="sdc4:mc-vdwqv3o1qf00yjq9cv7kcpos"/>
-          <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-education_records_protocol"/>
           <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q132364"/>
           <rdfs:seeAlso rdf:resource="https://www.wikidata.org/wiki/Q826700"/>
           <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q317623"/>
@@ -2532,13 +2496,11 @@
 <xsd:complexType name="mc-rw24p8yjm8dmdnvw7egxi2uv" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-rw24p8yjm8dmdnvw7egxi2uv">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:XdLinkType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-rw24p8yjm8dmdnvw7egxi2uv">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#XdLinkType"/>
         <rdfs:label>Education Record Access Control</rdfs:label>
         <rdfs:comment>Access control policy for education records using W3C Data Privacy Vocabulary. Enforces role-based access for school administrators, students, parents, and credentialing bodies. Governs dpv:AcademicData including transcripts, enrollment status, and certifications.</rdfs:comment>
-        <sdc4-meta:ModelComponent rdf:about="sdc4:mc-rw24p8yjm8dmdnvw7egxi2uv"/>
-        <sdc4-meta:describesConceptualEntity rdf:resource="sdc4:concept-education_record_access_control"/>
         <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q185799"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/dpv#AccessControlMethod"/>
         <rdfs:seeAlso rdf:resource="https://w3id.org/dpv"/>
@@ -2569,7 +2531,7 @@
 
 <!-- XdAdapterType Wrappers for XdAnyType Components in Clusters -->
   <!-- Adapter wrapper for National ID (CID) (nj7s1gk45tfgyooxpz0qaha3) -->
-  <xsd:complexType name="mc-xioyl07fvgh5icdqrcl709tk">
+  <xsd:complexType name="mc-g9qc6hwcew8i21afy1fqv559">
     <xsd:annotation>
       <xsd:documentation>Adapter for: National ID (CID)</xsd:documentation>
     </xsd:annotation>
@@ -2582,7 +2544,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Student ID (khbvruwpu9hnttg8y0mnih6a) -->
-  <xsd:complexType name="mc-ji7tpm8t62el1thbou5t7oc6">
+  <xsd:complexType name="mc-j832gidfevf2us9mx7obuisc">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Student ID</xsd:documentation>
     </xsd:annotation>
@@ -2595,7 +2557,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for City (atdtdfzruh7tya0iv5cz365l) -->
-  <xsd:complexType name="mc-r5kybrrm4yfh7z02msshfe99">
+  <xsd:complexType name="mc-o3uwoaycnlb2z20wq65jh5aw">
     <xsd:annotation>
       <xsd:documentation>Adapter for: City</xsd:documentation>
     </xsd:annotation>
@@ -2608,7 +2570,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Province (kv5qqs3o4jwcwz9javgw1pzh) -->
-  <xsd:complexType name="mc-b2l3dy2sleghrl40w3umgs8c">
+  <xsd:complexType name="mc-uz7az92a73g3s2mq1xr5uza2">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Province</xsd:documentation>
     </xsd:annotation>
@@ -2621,7 +2583,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Yes/No (ht98owgvxhff3ge85i4h80lp) -->
-  <xsd:complexType name="mc-w8jk9hv5tdne6wpn27r987gk">
+  <xsd:complexType name="mc-alc5f2c8973cn1g7eqbh2bb3">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Yes/No</xsd:documentation>
     </xsd:annotation>
@@ -2634,7 +2596,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Field of Study (ouqi09d8kjqeojlr7vnclysj) -->
-  <xsd:complexType name="mc-a5ptg4s12yqvfs77w3jih15z">
+  <xsd:complexType name="mc-xrb84lpfsgg46l2vc66qoeht">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Field of Study</xsd:documentation>
     </xsd:annotation>
@@ -2647,7 +2609,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Credential Type (sxkjp09cbjb6n13j8a0eg37i) -->
-  <xsd:complexType name="mc-wsty7lif4bqbsoechcc8ad4e">
+  <xsd:complexType name="mc-l0dd9bwdun4e3a18pz6kz1ts">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Credential Type</xsd:documentation>
     </xsd:annotation>
@@ -2660,7 +2622,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Honors (c7qvfjtu0omg4wagiaiy5hej) -->
-  <xsd:complexType name="mc-zkj6sj2v4vqwqykonvvk6v3r">
+  <xsd:complexType name="mc-oeluv394u4d9j2t1sbvnykk6">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Honors</xsd:documentation>
     </xsd:annotation>
@@ -2673,7 +2635,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Date Awarded (xi99tao4v75wdrkq0ot02vfd) -->
-  <xsd:complexType name="mc-gl700lmf3g9l4earvxn7oz0q">
+  <xsd:complexType name="mc-n1q4w33j71wzxnkmroqnp7st">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Date Awarded</xsd:documentation>
     </xsd:annotation>
@@ -2686,7 +2648,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Enrollment Status (squd8e2s6pk8xoafu9ec0t9k) -->
-  <xsd:complexType name="mc-chz6l4lcc856wqm44oy8c3lx">
+  <xsd:complexType name="mc-dt20bv6exbov05nuu6c5ci9u">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Enrollment Status</xsd:documentation>
     </xsd:annotation>
@@ -2699,7 +2661,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Education Level (1ylumrkck2vv635djov01tte4) -->
-  <xsd:complexType name="mc-o8cuwfpfqa6kx8nvdnzk74d1">
+  <xsd:complexType name="mc-fz8l5o1yza643ywgr57x78dj">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Education Level</xsd:documentation>
     </xsd:annotation>
@@ -2712,7 +2674,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Enrollment Date (z72jnzdib9hi311s338zwdog) -->
-  <xsd:complexType name="mc-gwvuia53itc1xsm8w33r4tw4">
+  <xsd:complexType name="mc-y9wuh1wcoazyjoc327e4x3hr">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Enrollment Date</xsd:documentation>
     </xsd:annotation>
@@ -2725,7 +2687,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Expected Completion Date (g6ntdb41otp1mtwsyb52mez3) -->
-  <xsd:complexType name="mc-d5aito2h8c31bd9ezti2ynyz">
+  <xsd:complexType name="mc-bg167iixu5iwprke5c32klur">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Expected Completion Date</xsd:documentation>
     </xsd:annotation>
@@ -2738,7 +2700,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for activity_description (m9xg6e182m1oq77ssrf9iujv) -->
-  <xsd:complexType name="mc-u1dfkfg8zf63ondcionqow46">
+  <xsd:complexType name="mc-z09w80gb42phebbwbng25crv">
     <xsd:annotation>
       <xsd:documentation>Adapter for: activity_description</xsd:documentation>
     </xsd:annotation>
@@ -2751,7 +2713,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for prov_activity_type (ccj1yq2wtwknobszkgzzdbtr) -->
-  <xsd:complexType name="mc-kdnqrut5deijmrkio64dxxns">
+  <xsd:complexType name="mc-k6n0bdzdj1ms6y1fje4v5bvl">
     <xsd:annotation>
       <xsd:documentation>Adapter for: prov_activity_type</xsd:documentation>
     </xsd:annotation>
@@ -2764,7 +2726,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for system_identifier (bd3s8t23d6m3zizmpwavc32y) -->
-  <xsd:complexType name="mc-s3tg6tidg3dlhy2hw4sh08yi">
+  <xsd:complexType name="mc-f8k92mmpk4m7zyeppf7y88wu">
     <xsd:annotation>
       <xsd:documentation>Adapter for: system_identifier</xsd:documentation>
     </xsd:annotation>
@@ -2777,7 +2739,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for system_location_identifier (zr59goe24qkocprl3feul3mt) -->
-  <xsd:complexType name="mc-a1mc2y0227aneigwj81g7vpq">
+  <xsd:complexType name="mc-bz6vtlqr2debt13kf0puqeza">
     <xsd:annotation>
       <xsd:documentation>Adapter for: system_location_identifier</xsd:documentation>
     </xsd:annotation>
@@ -2790,7 +2752,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for system_location_name (fnodzqkbyskwe7nh58rs336k) -->
-  <xsd:complexType name="mc-dnyj6nl5h0dmm6utk5lp7j1m">
+  <xsd:complexType name="mc-a6djkxuor920uib2g716bory">
     <xsd:annotation>
       <xsd:documentation>Adapter for: system_location_name</xsd:documentation>
     </xsd:annotation>
@@ -2803,7 +2765,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for activity_timestamp_end (edvvjznmaoibzmfna0uuoo37) -->
-  <xsd:complexType name="mc-z7gbl0l5borca9iob2mnwab9">
+  <xsd:complexType name="mc-hn7skeuvrwk6u5flv7o4lhaf">
     <xsd:annotation>
       <xsd:documentation>Adapter for: activity_timestamp_end</xsd:documentation>
     </xsd:annotation>
@@ -2816,7 +2778,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for activity_timestamp_start (o72s5793973fzho35rnaughs) -->
-  <xsd:complexType name="mc-dj93716fknpyq6smydh17tez">
+  <xsd:complexType name="mc-i4l818mexs1cpxqday55jwoh">
     <xsd:annotation>
       <xsd:documentation>Adapter for: activity_timestamp_start</xsd:documentation>
     </xsd:annotation>
@@ -2829,7 +2791,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for agent_id (hhfnj5hd1yzt252jfq5pdjj1) -->
-  <xsd:complexType name="mc-vsn80cy43amjsakfbc95wm6x">
+  <xsd:complexType name="mc-jy8c0nsyy51ddxu3jvb04b5w">
     <xsd:annotation>
       <xsd:documentation>Adapter for: agent_id</xsd:documentation>
     </xsd:annotation>
@@ -2842,7 +2804,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for person_family_name (zs9ciw4nypx4plo856h3m95d) -->
-  <xsd:complexType name="mc-uejfzgtnyzpsxeei2o5thbk6">
+  <xsd:complexType name="mc-x7rakljp0wr6cqt3o97uf2yd">
     <xsd:annotation>
       <xsd:documentation>Adapter for: person_family_name</xsd:documentation>
     </xsd:annotation>
@@ -2855,7 +2817,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for person_given_name (ndvtjiq0cke0q1trw58rtrq2) -->
-  <xsd:complexType name="mc-uv08kjnc1crbyolzq1rcq7xu">
+  <xsd:complexType name="mc-mz3058xxnmnhg98jpwb9w9o3">
     <xsd:annotation>
       <xsd:documentation>Adapter for: person_given_name</xsd:documentation>
     </xsd:annotation>
@@ -2868,7 +2830,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for PROV Agent Type (nesxtz8c5o665swc9lhvqkjj) -->
-  <xsd:complexType name="mc-g9jlmc853esmr27230pf21a2">
+  <xsd:complexType name="mc-ld0t6385z3at2et6x7hbvs81">
     <xsd:annotation>
       <xsd:documentation>Adapter for: PROV Agent Type</xsd:documentation>
     </xsd:annotation>
@@ -2881,7 +2843,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for organization_identifier (ule5u2z3rjpa9pooaifwj1n3) -->
-  <xsd:complexType name="mc-ml2l2yx51hf7bv17mkam9kxm">
+  <xsd:complexType name="mc-kwzthm5uuqna4nv8pgxi4rdy">
     <xsd:annotation>
       <xsd:documentation>Adapter for: organization_identifier</xsd:documentation>
     </xsd:annotation>
@@ -2894,7 +2856,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for organization_name (ifw5zfe4oiijbxjn1ylc2wm3) -->
-  <xsd:complexType name="mc-znr3y9ktrbhg9kvcljrjvi54">
+  <xsd:complexType name="mc-ai0f0pkt71373o4p4zjknpng">
     <xsd:annotation>
       <xsd:documentation>Adapter for: organization_name</xsd:documentation>
     </xsd:annotation>
@@ -2907,7 +2869,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Institution Type (xd84m1q7hpxeneud0tb3q3kk) -->
-  <xsd:complexType name="mc-fyrd4abvtohm0tp76p324fd2">
+  <xsd:complexType name="mc-v5r3s0yhgwj58slem5scwvrz">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Institution Type</xsd:documentation>
     </xsd:annotation>
@@ -2920,7 +2882,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for organization_type (bpqtzla39dwentygpwea8276) -->
-  <xsd:complexType name="mc-j1w36nb9r84fd8sf6bly6rgc">
+  <xsd:complexType name="mc-r70jhnjrgjnwjv3qz8eexwzj">
     <xsd:annotation>
       <xsd:documentation>Adapter for: organization_type</xsd:documentation>
     </xsd:annotation>
@@ -2933,7 +2895,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for contact_email (jtuheuri2wzfhctcjqv4ozmy) -->
-  <xsd:complexType name="mc-fxrh3qvdvirc5bb6fhhh5qax">
+  <xsd:complexType name="mc-nq04hdwbogk9t0lamvi0niyl">
     <xsd:annotation>
       <xsd:documentation>Adapter for: contact_email</xsd:documentation>
     </xsd:annotation>
@@ -2946,7 +2908,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for contact_name (a127ihw8xbfbl24lbcvnspv0) -->
-  <xsd:complexType name="mc-vv2li3zczzwbswm9nh98qv9t">
+  <xsd:complexType name="mc-rjaaj43l8stjt2acjhwjarjz">
     <xsd:annotation>
       <xsd:documentation>Adapter for: contact_name</xsd:documentation>
     </xsd:annotation>
@@ -2959,7 +2921,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for contact_phone (pdykwzsug7pfncjsrry73x1s) -->
-  <xsd:complexType name="mc-mtgu6cpoo8gj9wuqkjon8gsv">
+  <xsd:complexType name="mc-tq7e6rtm764b7eqdzuevkjis">
     <xsd:annotation>
       <xsd:documentation>Adapter for: contact_phone</xsd:documentation>
     </xsd:annotation>
@@ -2972,7 +2934,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for service_account_id (rw1cjzeynsl87va6gvhv2k7e) -->
-  <xsd:complexType name="mc-r61pzqpmv7ds4podqq038g34">
+  <xsd:complexType name="mc-cfqclrn9i8i3se3yz244t634">
     <xsd:annotation>
       <xsd:documentation>Adapter for: service_account_id</xsd:documentation>
     </xsd:annotation>
@@ -2985,7 +2947,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_documentation_url (xvnv7mrhvfweajl72pmngeya) -->
-  <xsd:complexType name="mc-f64jpd8sml0k7wjk02xngtfk">
+  <xsd:complexType name="mc-taod88hsobsp2vvl655ohh9x">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_documentation_url</xsd:documentation>
     </xsd:annotation>
@@ -2998,7 +2960,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_service_endpoint (px6j779dnapp4fjlohula4mh) -->
-  <xsd:complexType name="mc-s8mye5umvozizqj1rbijj7m5">
+  <xsd:complexType name="mc-t4jrg84c3zwot1ocafz92dmm">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_service_endpoint</xsd:documentation>
     </xsd:annotation>
@@ -3011,7 +2973,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_name (rsjfjz8m5z7a58h5793duqbs) -->
-  <xsd:complexType name="mc-rmfkk2edeo9nddpha6e426z2">
+  <xsd:complexType name="mc-qy7lxphr91qy7ahvtflanays">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_name</xsd:documentation>
     </xsd:annotation>
@@ -3024,7 +2986,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_runtime_environment (d839tf07spk43dmg0dqb939b) -->
-  <xsd:complexType name="mc-da5uxoldvvhp8kglwui6235o">
+  <xsd:complexType name="mc-ch126cxtu62ri121bbi5o45y">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_runtime_environment</xsd:documentation>
     </xsd:annotation>
@@ -3037,7 +2999,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_vendor (frdwjm7fxt6f5x4wx78pv7bc) -->
-  <xsd:complexType name="mc-ktbro7at99eudravz5yzzbtc">
+  <xsd:complexType name="mc-iegnr4qebrxytsuubi5olr8f">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_vendor</xsd:documentation>
     </xsd:annotation>
@@ -3050,7 +3012,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for software_version (tep9wanrrtqfw0k76huv6tvd) -->
-  <xsd:complexType name="mc-fdxbax4neq6jg0saktturq4r">
+  <xsd:complexType name="mc-huh1le6p6rgvo4n9s83o1nwn">
     <xsd:annotation>
       <xsd:documentation>Adapter for: software_version</xsd:documentation>
     </xsd:annotation>
@@ -3063,7 +3025,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Education Record Attestation Reason (v2r1ax7golsycgmxdqezvkev) -->
-  <xsd:complexType name="mc-q1ktejv1cybbgldzqbbr6xrs">
+  <xsd:complexType name="mc-bx7k6p0ay9gofgqn5sb9rx2s">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Education Record Attestation Reason</xsd:documentation>
     </xsd:annotation>
@@ -3076,7 +3038,7 @@
       </xsd:restriction>
     </xsd:complexContent>
   </xsd:complexType>  <!-- Adapter wrapper for Education Records Protocol (vdwqv3o1qf00yjq9cv7kcpos) -->
-  <xsd:complexType name="mc-rcbe8i2gjqqfnh277n9qj0cj">
+  <xsd:complexType name="mc-xtxt5d3s6qzdtmazi4hhx3ow">
     <xsd:annotation>
       <xsd:documentation>Adapter for: Education Records Protocol</xsd:documentation>
     </xsd:annotation>
@@ -3095,9 +3057,9 @@
 <xsd:complexType name="mc-j4t6xb94355k51xg87n8awdl" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-j4t6xb94355k51xg87n8awdl">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-j4t6xb94355k51xg87n8awdl">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Education Governed Record</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q109391654"/>
 
@@ -3120,9 +3082,9 @@
 <xsd:complexType name="mc-ifgq7a670csnbv7vcpuiabp0" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-ifgq7a670csnbv7vcpuiabp0">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-ifgq7a670csnbv7vcpuiabp0">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Education Record</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
         <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
@@ -3137,10 +3099,10 @@
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Education Record"/>
         <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-nyf0w3u2hs0svcjnqkb6zzlb"/>
         <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-r97mt4prbpxp04qmdc8iimb8"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xioyl07fvgh5icdqrcl709tk"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ji7tpm8t62el1thbou5t7oc6"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-r5kybrrm4yfh7z02msshfe99"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-b2l3dy2sleghrl40w3umgs8c"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-g9qc6hwcew8i21afy1fqv559"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-j832gidfevf2us9mx7obuisc"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-o3uwoaycnlb2z20wq65jh5aw"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-uz7az92a73g3s2mq1xr5uza2"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3151,9 +3113,9 @@
 <xsd:complexType name="mc-nyf0w3u2hs0svcjnqkb6zzlb" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-nyf0w3u2hs0svcjnqkb6zzlb">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-nyf0w3u2hs0svcjnqkb6zzlb">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Credential</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q16861606"/>
         <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
@@ -3166,11 +3128,11 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Credential"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-w8jk9hv5tdne6wpn27r987gk"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-a5ptg4s12yqvfs77w3jih15z"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-wsty7lif4bqbsoechcc8ad4e"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-zkj6sj2v4vqwqykonvvk6v3r"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-gl700lmf3g9l4earvxn7oz0q"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-alc5f2c8973cn1g7eqbh2bb3"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xrb84lpfsgg46l2vc66qoeht"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-l0dd9bwdun4e3a18pz6kz1ts"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-oeluv394u4d9j2t1sbvnykk6"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-n1q4w33j71wzxnkmroqnp7st"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3181,9 +3143,9 @@
 <xsd:complexType name="mc-r97mt4prbpxp04qmdc8iimb8" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-r97mt4prbpxp04qmdc8iimb8">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-r97mt4prbpxp04qmdc8iimb8">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Enrollment</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.cdc.gov/vaccines/hcp/imz-schedules/index.html"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q102252225"/>
@@ -3196,11 +3158,11 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Enrollment"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-a5ptg4s12yqvfs77w3jih15z"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-chz6l4lcc856wqm44oy8c3lx"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-o8cuwfpfqa6kx8nvdnzk74d1"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-gwvuia53itc1xsm8w33r4tw4"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-d5aito2h8c31bd9ezti2ynyz"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xrb84lpfsgg46l2vc66qoeht"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-dt20bv6exbov05nuu6c5ci9u"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fz8l5o1yza643ywgr57x78dj"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-y9wuh1wcoazyjoc327e4x3hr"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-bg167iixu5iwprke5c32klur"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3211,9 +3173,9 @@
 <xsd:complexType name="mc-hdhjfg00tngir2txgqyka9cv" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-hdhjfg00tngir2txgqyka9cv">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-hdhjfg00tngir2txgqyka9cv">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Provenance Components</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q1172162"/>
 
@@ -3224,13 +3186,13 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Provenance Components"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-u1dfkfg8zf63ondcionqow46"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-kdnqrut5deijmrkio64dxxns"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-s3tg6tidg3dlhy2hw4sh08yi"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-a1mc2y0227aneigwj81g7vpq"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-dnyj6nl5h0dmm6utk5lp7j1m"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-z7gbl0l5borca9iob2mnwab9"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-dj93716fknpyq6smydh17tez"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-z09w80gb42phebbwbng25crv"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-k6n0bdzdj1ms6y1fje4v5bvl"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-f8k92mmpk4m7zyeppf7y88wu"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-bz6vtlqr2debt13kf0puqeza"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-a6djkxuor920uib2g716bory"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-hn7skeuvrwk6u5flv7o4lhaf"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-i4l818mexs1cpxqday55jwoh"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3241,9 +3203,9 @@
 <xsd:complexType name="mc-v5sie2pqx747k9j182fv86tf" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-v5sie2pqx747k9j182fv86tf">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-v5sie2pqx747k9j182fv86tf">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Student</rdfs:label>
         <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#Agent"/>
@@ -3257,11 +3219,11 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Student"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xioyl07fvgh5icdqrcl709tk"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-vsn80cy43amjsakfbc95wm6x"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-uejfzgtnyzpsxeei2o5thbk6"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-uv08kjnc1crbyolzq1rcq7xu"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-g9jlmc853esmr27230pf21a2"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-g9qc6hwcew8i21afy1fqv559"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-jy8c0nsyy51ddxu3jvb04b5w"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-x7rakljp0wr6cqt3o97uf2yd"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-mz3058xxnmnhg98jpwb9w9o3"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ld0t6385z3at2et6x7hbvs81"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3272,9 +3234,9 @@
 <xsd:complexType name="mc-rr5shkxzw7yi0gtp1k3in8og" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-rr5shkxzw7yi0gtp1k3in8og">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-rr5shkxzw7yi0gtp1k3in8og">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Educational Institution</rdfs:label>
         <skos:exactMatch rdf:resource="https://www.wikidata.org/wiki/Q2385804"/>
         <skos:exactMatch rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
@@ -3288,11 +3250,11 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Educational Institution"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ml2l2yx51hf7bv17mkam9kxm"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-znr3y9ktrbhg9kvcljrjvi54"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fyrd4abvtohm0tp76p324fd2"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-j1w36nb9r84fd8sf6bly6rgc"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-g9jlmc853esmr27230pf21a2"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-kwzthm5uuqna4nv8pgxi4rdy"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ai0f0pkt71373o4p4zjknpng"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-v5r3s0yhgwj58slem5scwvrz"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-r70jhnjrgjnwjv3qz8eexwzj"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ld0t6385z3at2et6x7hbvs81"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3303,9 +3265,9 @@
 <xsd:complexType name="mc-w06vxo6uxtrzjkimmafmue7g" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-w06vxo6uxtrzjkimmafmue7g">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-w06vxo6uxtrzjkimmafmue7g">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Contact and Access</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2996679"/>
         <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
@@ -3317,10 +3279,10 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Contact and Access"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fxrh3qvdvirc5bb6fhhh5qax"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-vv2li3zczzwbswm9nh98qv9t"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-mtgu6cpoo8gj9wuqkjon8gsv"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-r61pzqpmv7ds4podqq038g34"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-nq04hdwbogk9t0lamvi0niyl"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-rjaaj43l8stjt2acjhwjarjz"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-tq7e6rtm764b7eqdzuevkjis"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-cfqclrn9i8i3se3yz244t634"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3331,9 +3293,9 @@
 <xsd:complexType name="mc-km4azswrxe9tdrjmqvun5463" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-km4azswrxe9tdrjmqvun5463">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-km4azswrxe9tdrjmqvun5463">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Software Agent Details</rdfs:label>
         <skos:broadMatch rdf:resource="https://schema.org/ItemList"/>
         <rdfs:isDefinedBy rdf:resource="https://www.wikidata.org/wiki/Q2297769"/>
@@ -3345,12 +3307,12 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Software Agent Details"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-f64jpd8sml0k7wjk02xngtfk"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-s8mye5umvozizqj1rbijj7m5"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-rmfkk2edeo9nddpha6e426z2"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-da5uxoldvvhp8kglwui6235o"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ktbro7at99eudravz5yzzbtc"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-fdxbax4neq6jg0saktturq4r"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-taod88hsobsp2vvl655ohh9x"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-t4jrg84c3zwot1ocafz92dmm"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-qy7lxphr91qy7ahvtflanays"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-ch126cxtu62ri121bbi5o45y"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-iegnr4qebrxytsuubi5olr8f"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-huh1le6p6rgvo4n9s83o1nwn"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
@@ -3361,9 +3323,9 @@
 <xsd:complexType name="mc-n58lqwsi6acr50y0ovihjedv" xml:lang="en-US">
   <xsd:annotation>
     <xsd:appinfo>
-      <rdf:Description rdf:about="sdc4:mc-n58lqwsi6acr50y0ovihjedv">
-        <rdf:type rdf:resource="sdc4-meta:ModelComponent"/>
-        <sdc4-meta:isConstrainedByRmComponent rdf:resource="sdc4:ClusterType"/>
+      <rdf:Description rdf:about="https://semanticdatacharter.com/ns/sdc4/mc-n58lqwsi6acr50y0ovihjedv">
+        <rdf:type rdf:resource="https://semanticdatacharter.com/ontology/sdc4-meta/ModelComponent"/>
+        <sdc4-meta:isConstrainedByRmComponent rdf:resource="https://semanticdatacharter.com/ns/sdc4/sdc4.xsd#ClusterType"/>
         <rdfs:label>Education Record Workflow</rdfs:label>
         <skos:broadMatch rdf:resource="https://www.wikidata.org/wiki/Q2385804"/>
         <rdfs:isDefinedBy rdf:resource="https://niemopen.org/"/>
@@ -3378,111 +3340,111 @@
     <xsd:restriction base="sdc4:ClusterType">
       <xsd:sequence>
         <xsd:element maxOccurs="1" minOccurs="1" name="label" type="xsd:string" fixed="Education Record Workflow"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-q1ktejv1cybbgldzqbbr6xrs"/>
-        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-rcbe8i2gjqqfnh277n9qj0cj"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-bx7k6p0ay9gofgqn5sb9rx2s"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="sdc4:ms-xtxt5d3s6qzdtmazi4hhx3ow"/>
       </xsd:sequence>
     </xsd:restriction>
   </xsd:complexContent>
 </xsd:complexType>
 
 <!-- Substitution Groups -->
-  <xsd:element name="ms-kv5qqs3o4jwcwz9javgw1pzh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"/>
-  <xsd:element name="ms-xvnv7mrhvfweajl72pmngeya" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-xvnv7mrhvfweajl72pmngeya"/>
-  <xsd:element name="ms-qwy0t84c1zzo68vm770xhx51" substitutionGroup="sdc4:Attestation" type="sdc4:mc-qwy0t84c1zzo68vm770xhx51"/>
-  <xsd:element name="ms-g6ntdb41otp1mtwsyb52mez3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-g6ntdb41otp1mtwsyb52mez3"/>
-  <xsd:element name="ms-o87tv977uxnegwckzso3xf4z" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-o87tv977uxnegwckzso3xf4z"/>
-  <xsd:element name="ms-nyf0w3u2hs0svcjnqkb6zzlb" substitutionGroup="sdc4:Item" type="sdc4:mc-nyf0w3u2hs0svcjnqkb6zzlb"/>
-  <xsd:element name="ms-hdhjfg00tngir2txgqyka9cv" substitutionGroup="sdc4:Item" type="sdc4:mc-hdhjfg00tngir2txgqyka9cv"/>
-  <xsd:element name="ms-frdwjm7fxt6f5x4wx78pv7bc" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc"/>
-  <xsd:element name="ms-j4t6xb94355k51xg87n8awdl" substitutionGroup="sdc4:Item" type="sdc4:mc-j4t6xb94355k51xg87n8awdl"/>
-  <xsd:element name="ms-ifw5zfe4oiijbxjn1ylc2wm3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"/>
-  <xsd:element name="ms-fpxka4mvhbmka33c0enhzfxl" substitutionGroup="sdc4:Party" type="sdc4:mc-fpxka4mvhbmka33c0enhzfxl"/>
-  <xsd:element name="ms-rsjfjz8m5z7a58h5793duqbs" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rsjfjz8m5z7a58h5793duqbs"/>
-  <xsd:element name="ms-km4azswrxe9tdrjmqvun5463" substitutionGroup="sdc4:Item" type="sdc4:mc-km4azswrxe9tdrjmqvun5463"/>
-  <xsd:element name="ms-i4bkuj6quo2gv9sbghhdocaj" substitutionGroup="sdc4:Party" type="sdc4:mc-i4bkuj6quo2gv9sbghhdocaj"/>
-  <xsd:element name="ms-d839tf07spk43dmg0dqb939b" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-d839tf07spk43dmg0dqb939b"/>
-  <xsd:element name="ms-tep9wanrrtqfw0k76huv6tvd" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tep9wanrrtqfw0k76huv6tvd"/>
   <xsd:element name="ms-c7qvfjtu0omg4wagiaiy5hej" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-c7qvfjtu0omg4wagiaiy5hej"/>
-  <xsd:element name="ms-w06vxo6uxtrzjkimmafmue7g" substitutionGroup="sdc4:Item" type="sdc4:mc-w06vxo6uxtrzjkimmafmue7g"/>
-  <xsd:element name="ms-zr59goe24qkocprl3feul3mt" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zr59goe24qkocprl3feul3mt"/>
-  <xsd:element name="ms-gug5dhtqfv7exbgmm2raxpkq" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
-  <xsd:element name="ms-nesxtz8c5o665swc9lhvqkjj" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nesxtz8c5o665swc9lhvqkjj"/>
-  <xsd:element name="ms-a127ihw8xbfbl24lbcvnspv0" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-a127ihw8xbfbl24lbcvnspv0"/>
-  <xsd:element name="ms-ule5u2z3rjpa9pooaifwj1n3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"/>
-  <xsd:element name="ms-edvvjznmaoibzmfna0uuoo37" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-edvvjznmaoibzmfna0uuoo37"/>
-  <xsd:element name="ms-vitwhq5xsptnokmfq11b1jos" substitutionGroup="sdc4:Party" type="sdc4:mc-vitwhq5xsptnokmfq11b1jos"/>
-  <xsd:element name="ms-atdtdfzruh7tya0iv5cz365l" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-atdtdfzruh7tya0iv5cz365l"/>
-  <xsd:element name="ms-ifgq7a670csnbv7vcpuiabp0" substitutionGroup="sdc4:Item" type="sdc4:mc-ifgq7a670csnbv7vcpuiabp0"/>
-  <xsd:element name="ms-squd8e2s6pk8xoafu9ec0t9k" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-squd8e2s6pk8xoafu9ec0t9k"/>
+  <xsd:element name="ms-khbvruwpu9hnttg8y0mnih6a" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-khbvruwpu9hnttg8y0mnih6a"/>
+  <xsd:element name="ms-1ylumrkck2vv635djov01tte4" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-1ylumrkck2vv635djov01tte4"/>
   <xsd:element name="ms-fnodzqkbyskwe7nh58rs336k" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-fnodzqkbyskwe7nh58rs336k"/>
+  <xsd:element name="ms-nesxtz8c5o665swc9lhvqkjj" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nesxtz8c5o665swc9lhvqkjj"/>
+  <xsd:element name="ms-edvvjznmaoibzmfna0uuoo37" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-edvvjznmaoibzmfna0uuoo37"/>
+  <xsd:element name="ms-ifgq7a670csnbv7vcpuiabp0" substitutionGroup="sdc4:Item" type="sdc4:mc-ifgq7a670csnbv7vcpuiabp0"/>
+  <xsd:element name="ms-pdykwzsug7pfncjsrry73x1s" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-pdykwzsug7pfncjsrry73x1s"/>
+  <xsd:element name="ms-vitwhq5xsptnokmfq11b1jos" substitutionGroup="sdc4:Party" type="sdc4:mc-vitwhq5xsptnokmfq11b1jos"/>
+  <xsd:element name="ms-a127ihw8xbfbl24lbcvnspv0" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-a127ihw8xbfbl24lbcvnspv0"/>
+  <xsd:element name="ms-qwy0t84c1zzo68vm770xhx51" substitutionGroup="sdc4:Attestation" type="sdc4:mc-qwy0t84c1zzo68vm770xhx51"/>
+  <xsd:element name="ms-kv5qqs3o4jwcwz9javgw1pzh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"/>
+  <xsd:element name="ms-bpqtzla39dwentygpwea8276" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bpqtzla39dwentygpwea8276"/>
+  <xsd:element name="ms-v2r1ax7golsycgmxdqezvkev" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-v2r1ax7golsycgmxdqezvkev"/>
+  <xsd:element name="ms-ht98owgvxhff3ge85i4h80lp" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ht98owgvxhff3ge85i4h80lp"/>
+  <xsd:element name="ms-rsjfjz8m5z7a58h5793duqbs" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rsjfjz8m5z7a58h5793duqbs"/>
+  <xsd:element name="ms-hdhjfg00tngir2txgqyka9cv" substitutionGroup="sdc4:Item" type="sdc4:mc-hdhjfg00tngir2txgqyka9cv"/>
+  <xsd:element name="ms-vdwqv3o1qf00yjq9cv7kcpos" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-vdwqv3o1qf00yjq9cv7kcpos"/>
+  <xsd:element name="ms-jtuheuri2wzfhctcjqv4ozmy" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-jtuheuri2wzfhctcjqv4ozmy"/>
+  <xsd:element name="ms-o87tv977uxnegwckzso3xf4z" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-o87tv977uxnegwckzso3xf4z"/>
   <xsd:element name="ms-nj7s1gk45tfgyooxpz0qaha3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"/>
-  <xsd:element name="ms-sxkjp09cbjb6n13j8a0eg37i" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-sxkjp09cbjb6n13j8a0eg37i"/>
-  <xsd:element name="ms-ccj1yq2wtwknobszkgzzdbtr" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ccj1yq2wtwknobszkgzzdbtr"/>
+  <xsd:element name="ms-rr5shkxzw7yi0gtp1k3in8og" substitutionGroup="sdc4:Item" type="sdc4:mc-rr5shkxzw7yi0gtp1k3in8og"/>
+  <xsd:element name="ms-xi99tao4v75wdrkq0ot02vfd" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-xi99tao4v75wdrkq0ot02vfd"/>
+  <xsd:element name="ms-ndvtjiq0cke0q1trw58rtrq2" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"/>
+  <xsd:element name="ms-r97mt4prbpxp04qmdc8iimb8" substitutionGroup="sdc4:Item" type="sdc4:mc-r97mt4prbpxp04qmdc8iimb8"/>
+  <xsd:element name="ms-i4bkuj6quo2gv9sbghhdocaj" substitutionGroup="sdc4:Party" type="sdc4:mc-i4bkuj6quo2gv9sbghhdocaj"/>
+  <xsd:element name="ms-fpxka4mvhbmka33c0enhzfxl" substitutionGroup="sdc4:Party" type="sdc4:mc-fpxka4mvhbmka33c0enhzfxl"/>
+  <xsd:element name="ms-ule5u2z3rjpa9pooaifwj1n3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"/>
+  <xsd:element name="ms-zr59goe24qkocprl3feul3mt" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zr59goe24qkocprl3feul3mt"/>
+  <xsd:element name="ms-v5sie2pqx747k9j182fv86tf" substitutionGroup="sdc4:Item" type="sdc4:mc-v5sie2pqx747k9j182fv86tf"/>
+  <xsd:element name="ms-fotc5adg15ek2b9ermx2mcih" substitutionGroup="sdc4:Audit" type="sdc4:mc-fotc5adg15ek2b9ermx2mcih"/>
+  <xsd:element name="ms-ifw5zfe4oiijbxjn1ylc2wm3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"/>
+  <xsd:element name="ms-m9xg6e182m1oq77ssrf9iujv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-m9xg6e182m1oq77ssrf9iujv"/>
   <xsd:element name="ms-bd3s8t23d6m3zizmpwavc32y" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bd3s8t23d6m3zizmpwavc32y"/>
   <xsd:element name="ms-hhfnj5hd1yzt252jfq5pdjj1" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1"/>
-  <xsd:element name="ms-ndvtjiq0cke0q1trw58rtrq2" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ndvtjiq0cke0q1trw58rtrq2"/>
-  <xsd:element name="ms-o72s5793973fzho35rnaughs" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-o72s5793973fzho35rnaughs"/>
-  <xsd:element name="ms-xd84m1q7hpxeneud0tb3q3kk" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-xd84m1q7hpxeneud0tb3q3kk"/>
-  <xsd:element name="ms-v2r1ax7golsycgmxdqezvkev" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-v2r1ax7golsycgmxdqezvkev"/>
-  <xsd:element name="ms-xi99tao4v75wdrkq0ot02vfd" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-xi99tao4v75wdrkq0ot02vfd"/>
-  <xsd:element name="ms-r97mt4prbpxp04qmdc8iimb8" substitutionGroup="sdc4:Item" type="sdc4:mc-r97mt4prbpxp04qmdc8iimb8"/>
-  <xsd:element name="ms-m9xg6e182m1oq77ssrf9iujv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-m9xg6e182m1oq77ssrf9iujv"/>
-  <xsd:element name="ms-1ylumrkck2vv635djov01tte4" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-1ylumrkck2vv635djov01tte4"/>
-  <xsd:element name="ms-vdwqv3o1qf00yjq9cv7kcpos" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-vdwqv3o1qf00yjq9cv7kcpos"/>
-  <xsd:element name="ms-bpqtzla39dwentygpwea8276" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-bpqtzla39dwentygpwea8276"/>
-  <xsd:element name="ms-jtuheuri2wzfhctcjqv4ozmy" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-jtuheuri2wzfhctcjqv4ozmy"/>
-  <xsd:element name="ms-px6j779dnapp4fjlohula4mh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-px6j779dnapp4fjlohula4mh"/>
-  <xsd:element name="ms-rw24p8yjm8dmdnvw7egxi2uv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rw24p8yjm8dmdnvw7egxi2uv"/>
-  <xsd:element name="ms-ht98owgvxhff3ge85i4h80lp" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ht98owgvxhff3ge85i4h80lp"/>
-  <xsd:element name="ms-v5sie2pqx747k9j182fv86tf" substitutionGroup="sdc4:Item" type="sdc4:mc-v5sie2pqx747k9j182fv86tf"/>
-  <xsd:element name="ms-zs9ciw4nypx4plo856h3m95d" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zs9ciw4nypx4plo856h3m95d"/>
-  <xsd:element name="ms-ouqi09d8kjqeojlr7vnclysj" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ouqi09d8kjqeojlr7vnclysj"/>
-  <xsd:element name="ms-fotc5adg15ek2b9ermx2mcih" substitutionGroup="sdc4:Audit" type="sdc4:mc-fotc5adg15ek2b9ermx2mcih"/>
-  <xsd:element name="ms-pdykwzsug7pfncjsrry73x1s" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-pdykwzsug7pfncjsrry73x1s"/>
-  <xsd:element name="ms-khbvruwpu9hnttg8y0mnih6a" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-khbvruwpu9hnttg8y0mnih6a"/>
-  <xsd:element name="ms-rr5shkxzw7yi0gtp1k3in8og" substitutionGroup="sdc4:Item" type="sdc4:mc-rr5shkxzw7yi0gtp1k3in8og"/>
-  <xsd:element name="ms-rw1cjzeynsl87va6gvhv2k7e" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rw1cjzeynsl87va6gvhv2k7e"/>
   <xsd:element name="ms-n58lqwsi6acr50y0ovihjedv" substitutionGroup="sdc4:Item" type="sdc4:mc-n58lqwsi6acr50y0ovihjedv"/>
+  <xsd:element name="ms-sxkjp09cbjb6n13j8a0eg37i" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-sxkjp09cbjb6n13j8a0eg37i"/>
+  <xsd:element name="ms-xvnv7mrhvfweajl72pmngeya" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-xvnv7mrhvfweajl72pmngeya"/>
+  <xsd:element name="ms-frdwjm7fxt6f5x4wx78pv7bc" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-frdwjm7fxt6f5x4wx78pv7bc"/>
+  <xsd:element name="ms-squd8e2s6pk8xoafu9ec0t9k" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-squd8e2s6pk8xoafu9ec0t9k"/>
+  <xsd:element name="ms-km4azswrxe9tdrjmqvun5463" substitutionGroup="sdc4:Item" type="sdc4:mc-km4azswrxe9tdrjmqvun5463"/>
+  <xsd:element name="ms-j4t6xb94355k51xg87n8awdl" substitutionGroup="sdc4:Item" type="sdc4:mc-j4t6xb94355k51xg87n8awdl"/>
+  <xsd:element name="ms-gug5dhtqfv7exbgmm2raxpkq" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"/>
+  <xsd:element name="ms-o72s5793973fzho35rnaughs" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-o72s5793973fzho35rnaughs"/>
+  <xsd:element name="ms-atdtdfzruh7tya0iv5cz365l" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-atdtdfzruh7tya0iv5cz365l"/>
+  <xsd:element name="ms-w06vxo6uxtrzjkimmafmue7g" substitutionGroup="sdc4:Item" type="sdc4:mc-w06vxo6uxtrzjkimmafmue7g"/>
+  <xsd:element name="ms-ouqi09d8kjqeojlr7vnclysj" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ouqi09d8kjqeojlr7vnclysj"/>
   <xsd:element name="ms-z72jnzdib9hi311s338zwdog" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-z72jnzdib9hi311s338zwdog"/>
-  <xsd:element name="ms-b2l3dy2sleghrl40w3umgs8c" substitutionGroup="sdc4:Item" type="sdc4:mc-b2l3dy2sleghrl40w3umgs8c"/>
-  <xsd:element name="ms-f64jpd8sml0k7wjk02xngtfk" substitutionGroup="sdc4:Item" type="sdc4:mc-f64jpd8sml0k7wjk02xngtfk"/>
-  <xsd:element name="ms-d5aito2h8c31bd9ezti2ynyz" substitutionGroup="sdc4:Item" type="sdc4:mc-d5aito2h8c31bd9ezti2ynyz"/>
-  <xsd:element name="ms-ktbro7at99eudravz5yzzbtc" substitutionGroup="sdc4:Item" type="sdc4:mc-ktbro7at99eudravz5yzzbtc"/>
-  <xsd:element name="ms-znr3y9ktrbhg9kvcljrjvi54" substitutionGroup="sdc4:Item" type="sdc4:mc-znr3y9ktrbhg9kvcljrjvi54"/>
-  <xsd:element name="ms-rmfkk2edeo9nddpha6e426z2" substitutionGroup="sdc4:Item" type="sdc4:mc-rmfkk2edeo9nddpha6e426z2"/>
-  <xsd:element name="ms-da5uxoldvvhp8kglwui6235o" substitutionGroup="sdc4:Item" type="sdc4:mc-da5uxoldvvhp8kglwui6235o"/>
-  <xsd:element name="ms-fdxbax4neq6jg0saktturq4r" substitutionGroup="sdc4:Item" type="sdc4:mc-fdxbax4neq6jg0saktturq4r"/>
-  <xsd:element name="ms-zkj6sj2v4vqwqykonvvk6v3r" substitutionGroup="sdc4:Item" type="sdc4:mc-zkj6sj2v4vqwqykonvvk6v3r"/>
-  <xsd:element name="ms-a1mc2y0227aneigwj81g7vpq" substitutionGroup="sdc4:Item" type="sdc4:mc-a1mc2y0227aneigwj81g7vpq"/>
-  <xsd:element name="ms-g9jlmc853esmr27230pf21a2" substitutionGroup="sdc4:Item" type="sdc4:mc-g9jlmc853esmr27230pf21a2"/>
-  <xsd:element name="ms-vv2li3zczzwbswm9nh98qv9t" substitutionGroup="sdc4:Item" type="sdc4:mc-vv2li3zczzwbswm9nh98qv9t"/>
-  <xsd:element name="ms-ml2l2yx51hf7bv17mkam9kxm" substitutionGroup="sdc4:Item" type="sdc4:mc-ml2l2yx51hf7bv17mkam9kxm"/>
-  <xsd:element name="ms-z7gbl0l5borca9iob2mnwab9" substitutionGroup="sdc4:Item" type="sdc4:mc-z7gbl0l5borca9iob2mnwab9"/>
-  <xsd:element name="ms-r5kybrrm4yfh7z02msshfe99" substitutionGroup="sdc4:Item" type="sdc4:mc-r5kybrrm4yfh7z02msshfe99"/>
-  <xsd:element name="ms-chz6l4lcc856wqm44oy8c3lx" substitutionGroup="sdc4:Item" type="sdc4:mc-chz6l4lcc856wqm44oy8c3lx"/>
-  <xsd:element name="ms-dnyj6nl5h0dmm6utk5lp7j1m" substitutionGroup="sdc4:Item" type="sdc4:mc-dnyj6nl5h0dmm6utk5lp7j1m"/>
-  <xsd:element name="ms-xioyl07fvgh5icdqrcl709tk" substitutionGroup="sdc4:Item" type="sdc4:mc-xioyl07fvgh5icdqrcl709tk"/>
-  <xsd:element name="ms-wsty7lif4bqbsoechcc8ad4e" substitutionGroup="sdc4:Item" type="sdc4:mc-wsty7lif4bqbsoechcc8ad4e"/>
-  <xsd:element name="ms-kdnqrut5deijmrkio64dxxns" substitutionGroup="sdc4:Item" type="sdc4:mc-kdnqrut5deijmrkio64dxxns"/>
-  <xsd:element name="ms-s3tg6tidg3dlhy2hw4sh08yi" substitutionGroup="sdc4:Item" type="sdc4:mc-s3tg6tidg3dlhy2hw4sh08yi"/>
-  <xsd:element name="ms-vsn80cy43amjsakfbc95wm6x" substitutionGroup="sdc4:Item" type="sdc4:mc-vsn80cy43amjsakfbc95wm6x"/>
-  <xsd:element name="ms-uv08kjnc1crbyolzq1rcq7xu" substitutionGroup="sdc4:Item" type="sdc4:mc-uv08kjnc1crbyolzq1rcq7xu"/>
-  <xsd:element name="ms-dj93716fknpyq6smydh17tez" substitutionGroup="sdc4:Item" type="sdc4:mc-dj93716fknpyq6smydh17tez"/>
-  <xsd:element name="ms-fyrd4abvtohm0tp76p324fd2" substitutionGroup="sdc4:Item" type="sdc4:mc-fyrd4abvtohm0tp76p324fd2"/>
-  <xsd:element name="ms-q1ktejv1cybbgldzqbbr6xrs" substitutionGroup="sdc4:Item" type="sdc4:mc-q1ktejv1cybbgldzqbbr6xrs"/>
-  <xsd:element name="ms-gl700lmf3g9l4earvxn7oz0q" substitutionGroup="sdc4:Item" type="sdc4:mc-gl700lmf3g9l4earvxn7oz0q"/>
-  <xsd:element name="ms-u1dfkfg8zf63ondcionqow46" substitutionGroup="sdc4:Item" type="sdc4:mc-u1dfkfg8zf63ondcionqow46"/>
-  <xsd:element name="ms-o8cuwfpfqa6kx8nvdnzk74d1" substitutionGroup="sdc4:Item" type="sdc4:mc-o8cuwfpfqa6kx8nvdnzk74d1"/>
-  <xsd:element name="ms-rcbe8i2gjqqfnh277n9qj0cj" substitutionGroup="sdc4:Item" type="sdc4:mc-rcbe8i2gjqqfnh277n9qj0cj"/>
-  <xsd:element name="ms-j1w36nb9r84fd8sf6bly6rgc" substitutionGroup="sdc4:Item" type="sdc4:mc-j1w36nb9r84fd8sf6bly6rgc"/>
-  <xsd:element name="ms-fxrh3qvdvirc5bb6fhhh5qax" substitutionGroup="sdc4:Item" type="sdc4:mc-fxrh3qvdvirc5bb6fhhh5qax"/>
-  <xsd:element name="ms-s8mye5umvozizqj1rbijj7m5" substitutionGroup="sdc4:Item" type="sdc4:mc-s8mye5umvozizqj1rbijj7m5"/>
-  <xsd:element name="ms-w8jk9hv5tdne6wpn27r987gk" substitutionGroup="sdc4:Item" type="sdc4:mc-w8jk9hv5tdne6wpn27r987gk"/>
-  <xsd:element name="ms-uejfzgtnyzpsxeei2o5thbk6" substitutionGroup="sdc4:Item" type="sdc4:mc-uejfzgtnyzpsxeei2o5thbk6"/>
-  <xsd:element name="ms-a5ptg4s12yqvfs77w3jih15z" substitutionGroup="sdc4:Item" type="sdc4:mc-a5ptg4s12yqvfs77w3jih15z"/>
-  <xsd:element name="ms-mtgu6cpoo8gj9wuqkjon8gsv" substitutionGroup="sdc4:Item" type="sdc4:mc-mtgu6cpoo8gj9wuqkjon8gsv"/>
-  <xsd:element name="ms-ji7tpm8t62el1thbou5t7oc6" substitutionGroup="sdc4:Item" type="sdc4:mc-ji7tpm8t62el1thbou5t7oc6"/>
-  <xsd:element name="ms-r61pzqpmv7ds4podqq038g34" substitutionGroup="sdc4:Item" type="sdc4:mc-r61pzqpmv7ds4podqq038g34"/>
-  <xsd:element name="ms-gwvuia53itc1xsm8w33r4tw4" substitutionGroup="sdc4:Item" type="sdc4:mc-gwvuia53itc1xsm8w33r4tw4"/>
+  <xsd:element name="ms-nyf0w3u2hs0svcjnqkb6zzlb" substitutionGroup="sdc4:Item" type="sdc4:mc-nyf0w3u2hs0svcjnqkb6zzlb"/>
+  <xsd:element name="ms-d839tf07spk43dmg0dqb939b" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-d839tf07spk43dmg0dqb939b"/>
+  <xsd:element name="ms-xd84m1q7hpxeneud0tb3q3kk" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-xd84m1q7hpxeneud0tb3q3kk"/>
+  <xsd:element name="ms-rw24p8yjm8dmdnvw7egxi2uv" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rw24p8yjm8dmdnvw7egxi2uv"/>
+  <xsd:element name="ms-zs9ciw4nypx4plo856h3m95d" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-zs9ciw4nypx4plo856h3m95d"/>
+  <xsd:element name="ms-tep9wanrrtqfw0k76huv6tvd" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-tep9wanrrtqfw0k76huv6tvd"/>
+  <xsd:element name="ms-ccj1yq2wtwknobszkgzzdbtr" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-ccj1yq2wtwknobszkgzzdbtr"/>
+  <xsd:element name="ms-rw1cjzeynsl87va6gvhv2k7e" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-rw1cjzeynsl87va6gvhv2k7e"/>
+  <xsd:element name="ms-px6j779dnapp4fjlohula4mh" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-px6j779dnapp4fjlohula4mh"/>
+  <xsd:element name="ms-g6ntdb41otp1mtwsyb52mez3" substitutionGroup="sdc4:XdAdapter-value" type="sdc4:mc-g6ntdb41otp1mtwsyb52mez3"/>
+  <xsd:element name="ms-oeluv394u4d9j2t1sbvnykk6" substitutionGroup="sdc4:Item" type="sdc4:mc-oeluv394u4d9j2t1sbvnykk6"/>
+  <xsd:element name="ms-j832gidfevf2us9mx7obuisc" substitutionGroup="sdc4:Item" type="sdc4:mc-j832gidfevf2us9mx7obuisc"/>
+  <xsd:element name="ms-fz8l5o1yza643ywgr57x78dj" substitutionGroup="sdc4:Item" type="sdc4:mc-fz8l5o1yza643ywgr57x78dj"/>
+  <xsd:element name="ms-a6djkxuor920uib2g716bory" substitutionGroup="sdc4:Item" type="sdc4:mc-a6djkxuor920uib2g716bory"/>
+  <xsd:element name="ms-ld0t6385z3at2et6x7hbvs81" substitutionGroup="sdc4:Item" type="sdc4:mc-ld0t6385z3at2et6x7hbvs81"/>
+  <xsd:element name="ms-hn7skeuvrwk6u5flv7o4lhaf" substitutionGroup="sdc4:Item" type="sdc4:mc-hn7skeuvrwk6u5flv7o4lhaf"/>
+  <xsd:element name="ms-tq7e6rtm764b7eqdzuevkjis" substitutionGroup="sdc4:Item" type="sdc4:mc-tq7e6rtm764b7eqdzuevkjis"/>
+  <xsd:element name="ms-rjaaj43l8stjt2acjhwjarjz" substitutionGroup="sdc4:Item" type="sdc4:mc-rjaaj43l8stjt2acjhwjarjz"/>
+  <xsd:element name="ms-uz7az92a73g3s2mq1xr5uza2" substitutionGroup="sdc4:Item" type="sdc4:mc-uz7az92a73g3s2mq1xr5uza2"/>
+  <xsd:element name="ms-r70jhnjrgjnwjv3qz8eexwzj" substitutionGroup="sdc4:Item" type="sdc4:mc-r70jhnjrgjnwjv3qz8eexwzj"/>
+  <xsd:element name="ms-bx7k6p0ay9gofgqn5sb9rx2s" substitutionGroup="sdc4:Item" type="sdc4:mc-bx7k6p0ay9gofgqn5sb9rx2s"/>
+  <xsd:element name="ms-alc5f2c8973cn1g7eqbh2bb3" substitutionGroup="sdc4:Item" type="sdc4:mc-alc5f2c8973cn1g7eqbh2bb3"/>
+  <xsd:element name="ms-qy7lxphr91qy7ahvtflanays" substitutionGroup="sdc4:Item" type="sdc4:mc-qy7lxphr91qy7ahvtflanays"/>
+  <xsd:element name="ms-xtxt5d3s6qzdtmazi4hhx3ow" substitutionGroup="sdc4:Item" type="sdc4:mc-xtxt5d3s6qzdtmazi4hhx3ow"/>
+  <xsd:element name="ms-nq04hdwbogk9t0lamvi0niyl" substitutionGroup="sdc4:Item" type="sdc4:mc-nq04hdwbogk9t0lamvi0niyl"/>
+  <xsd:element name="ms-g9qc6hwcew8i21afy1fqv559" substitutionGroup="sdc4:Item" type="sdc4:mc-g9qc6hwcew8i21afy1fqv559"/>
+  <xsd:element name="ms-n1q4w33j71wzxnkmroqnp7st" substitutionGroup="sdc4:Item" type="sdc4:mc-n1q4w33j71wzxnkmroqnp7st"/>
+  <xsd:element name="ms-mz3058xxnmnhg98jpwb9w9o3" substitutionGroup="sdc4:Item" type="sdc4:mc-mz3058xxnmnhg98jpwb9w9o3"/>
+  <xsd:element name="ms-kwzthm5uuqna4nv8pgxi4rdy" substitutionGroup="sdc4:Item" type="sdc4:mc-kwzthm5uuqna4nv8pgxi4rdy"/>
+  <xsd:element name="ms-bz6vtlqr2debt13kf0puqeza" substitutionGroup="sdc4:Item" type="sdc4:mc-bz6vtlqr2debt13kf0puqeza"/>
+  <xsd:element name="ms-ai0f0pkt71373o4p4zjknpng" substitutionGroup="sdc4:Item" type="sdc4:mc-ai0f0pkt71373o4p4zjknpng"/>
+  <xsd:element name="ms-f8k92mmpk4m7zyeppf7y88wu" substitutionGroup="sdc4:Item" type="sdc4:mc-f8k92mmpk4m7zyeppf7y88wu"/>
+  <xsd:element name="ms-z09w80gb42phebbwbng25crv" substitutionGroup="sdc4:Item" type="sdc4:mc-z09w80gb42phebbwbng25crv"/>
+  <xsd:element name="ms-jy8c0nsyy51ddxu3jvb04b5w" substitutionGroup="sdc4:Item" type="sdc4:mc-jy8c0nsyy51ddxu3jvb04b5w"/>
+  <xsd:element name="ms-l0dd9bwdun4e3a18pz6kz1ts" substitutionGroup="sdc4:Item" type="sdc4:mc-l0dd9bwdun4e3a18pz6kz1ts"/>
+  <xsd:element name="ms-taod88hsobsp2vvl655ohh9x" substitutionGroup="sdc4:Item" type="sdc4:mc-taod88hsobsp2vvl655ohh9x"/>
+  <xsd:element name="ms-iegnr4qebrxytsuubi5olr8f" substitutionGroup="sdc4:Item" type="sdc4:mc-iegnr4qebrxytsuubi5olr8f"/>
+  <xsd:element name="ms-dt20bv6exbov05nuu6c5ci9u" substitutionGroup="sdc4:Item" type="sdc4:mc-dt20bv6exbov05nuu6c5ci9u"/>
+  <xsd:element name="ms-i4l818mexs1cpxqday55jwoh" substitutionGroup="sdc4:Item" type="sdc4:mc-i4l818mexs1cpxqday55jwoh"/>
+  <xsd:element name="ms-o3uwoaycnlb2z20wq65jh5aw" substitutionGroup="sdc4:Item" type="sdc4:mc-o3uwoaycnlb2z20wq65jh5aw"/>
+  <xsd:element name="ms-xrb84lpfsgg46l2vc66qoeht" substitutionGroup="sdc4:Item" type="sdc4:mc-xrb84lpfsgg46l2vc66qoeht"/>
+  <xsd:element name="ms-y9wuh1wcoazyjoc327e4x3hr" substitutionGroup="sdc4:Item" type="sdc4:mc-y9wuh1wcoazyjoc327e4x3hr"/>
+  <xsd:element name="ms-ch126cxtu62ri121bbi5o45y" substitutionGroup="sdc4:Item" type="sdc4:mc-ch126cxtu62ri121bbi5o45y"/>
+  <xsd:element name="ms-v5r3s0yhgwj58slem5scwvrz" substitutionGroup="sdc4:Item" type="sdc4:mc-v5r3s0yhgwj58slem5scwvrz"/>
+  <xsd:element name="ms-x7rakljp0wr6cqt3o97uf2yd" substitutionGroup="sdc4:Item" type="sdc4:mc-x7rakljp0wr6cqt3o97uf2yd"/>
+  <xsd:element name="ms-huh1le6p6rgvo4n9s83o1nwn" substitutionGroup="sdc4:Item" type="sdc4:mc-huh1le6p6rgvo4n9s83o1nwn"/>
+  <xsd:element name="ms-k6n0bdzdj1ms6y1fje4v5bvl" substitutionGroup="sdc4:Item" type="sdc4:mc-k6n0bdzdj1ms6y1fje4v5bvl"/>
+  <xsd:element name="ms-cfqclrn9i8i3se3yz244t634" substitutionGroup="sdc4:Item" type="sdc4:mc-cfqclrn9i8i3se3yz244t634"/>
+  <xsd:element name="ms-t4jrg84c3zwot1ocafz92dmm" substitutionGroup="sdc4:Item" type="sdc4:mc-t4jrg84c3zwot1ocafz92dmm"/>
+  <xsd:element name="ms-bg167iixu5iwprke5c32klur" substitutionGroup="sdc4:Item" type="sdc4:mc-bg167iixu5iwprke5c32klur"/>
 
 </xsd:schema>

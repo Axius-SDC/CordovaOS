@@ -121,17 +121,6 @@ class SDCOrdinalField(SDCComponentField):
         super().__init__(forms.IntegerField(required=False), has_units=True, *args, **kwargs)
 
 
-class SDCRatioField(SDCComponentField):
-    """SDC field for ratio values (XdRatio)"""
-    def __init__(self, *args, **kwargs):
-        super().__init__(
-            forms.DecimalField(required=False, max_digits=20, decimal_places=10),
-            has_units=True,
-            *args,
-            **kwargs
-        )
-
-
 # Temporal Field
 
 class SDCTemporalField(SDCComponentField):
