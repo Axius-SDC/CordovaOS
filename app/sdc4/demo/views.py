@@ -16,6 +16,7 @@ from django.views.decorators.http import require_POST
 from sdc4_shared.utils.dm_registry import get_dm_registry
 from sdc4_shared.utils.graphdb_client import GraphDBClient
 
+from . import entity_graph
 from .narrative import BEATS
 from .sparql_loader import load_query, load_all_queries, QUERY_CATALOG, SPARQL_DIR
 
@@ -105,19 +106,13 @@ def run_query(request):
             '<div class="alert alert-warning">No query provided.</div>'
         )
 
-    # Check cache first
-    cache_key = f"sparql:{hashlib.sha256(sparql.encode()).hexdigest()[:16]}"
+    # Check cache first. The key prefix names the row shape; bump it when the
+    # shape changes or a deploy renders stale rows into a new template.
+    cache_key = f"sparql3:{hashlib.sha256(sparql.encode()).hexdigest()[:16]}"
     cached = cache.get(cache_key)
 
     if cached:
-        variables = cached['variables']
-        rows = cached['rows']
-        context = {
-            'variables': variables,
-            'rows': rows,
-            'row_count': len(rows),
-            'elapsed': '0.000',
-        }
+        context = dict(cached, elapsed='0.000')
     else:
         # Execute against GraphDB
         client = GraphDBClient()
@@ -132,23 +127,38 @@ def run_query(request):
                 '</div>'
             )
 
-        # Parse SPARQL JSON results
-        variables = result.get('head', {}).get('vars', [])
+        # Parse SPARQL JSON results. Variables that carry a record IRI (?inst,
+        # ?inst_2, ...) are not columns: they address the record behind the row,
+        # and they are what the entity graph is drawn from.
+        all_vars = result.get('head', {}).get('vars', [])
         bindings = result.get('results', {}).get('bindings', [])
+        variables = [v for v in all_vars if not entity_graph.RECORD_VAR.fullmatch(v)]
+        record_iris = entity_graph.record_iris_from_bindings(all_vars, bindings)
+        graph = entity_graph.build(record_iris, client) if record_iris else None
+        by_iri = {n['iri']: n for n in graph['nodes'] if n.get('type') == 'record'} if graph else {}
         rows = []
         for binding in bindings:
-            row = [binding.get(v, {}).get('value', '') for v in variables]
-            rows.append(row)
-
-        # Cache the parsed result
-        cache.set(cache_key, {'variables': variables, 'rows': rows})
+            cells = [binding.get(v, {}).get('value', '') for v in variables]
+            links = []
+            for v in all_vars:
+                cell = binding.get(v)
+                if v not in variables and cell and cell.get('type') == 'uri' and cell['value'] in by_iri:
+                    n = by_iri[cell['value']]
+                    links.append({'url': n['console_url'], 'title': n['title'], 'domain': n['domain']})
+            rows.append({'cells': cells, 'links': links})
 
         context = {
             'variables': variables,
             'rows': rows,
             'row_count': len(rows),
-            'elapsed': f'{elapsed:.3f}',
+            'graph': graph,
+            'node_count': sum(1 for n in graph['nodes'] if n.get('type') == 'record') if graph else 0,
+            'edge_count': len(graph['edges']) if graph else 0,
         }
+        cache.set(cache_key, context)
+        context = dict(context, elapsed=f'{elapsed:.3f}')
 
+    context['uid'] = f"{source}-{query_number or cache_key[-8:]}"
+    context['graph_script_id'] = f"graph-data-{context['uid']}"
     template = 'demo/_beat_results.html' if source == 'narrative' else 'demo/_query_results.html'
     return render(request, template, context)

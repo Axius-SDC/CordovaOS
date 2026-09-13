@@ -10,7 +10,7 @@ PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?vessel_name ?port_call_id ?arrival ?cargo_type ?flag
+SELECT ?vessel_name ?port_call_id ?arrival ?cargo_type ?flag ?inst ?inst_2
        ?brn ?org_name ?org_city
 WHERE {
   # Step 1: Find the vessel in Maritime domain
@@ -54,4 +54,6 @@ WHERE {
                         sdc4:inInstance ?biz_inst .
     }
   }
+  BIND(?mar_inst AS ?inst)
+  BIND(?biz_inst AS ?inst_2)
 }

@@ -14,7 +14,7 @@ PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dc:   <http://purl.org/dc/elements/1.1/>
 
-SELECT ?domain ?component_label ?value
+SELECT ?domain ?component_label ?value ?inst
 WHERE {
   # Find instances containing this business number value under ANY component
   ?brn_reifier rdf:reifies <<?mcBrn ?vpBrn "BIZ-001102">> ;
@@ -28,6 +28,7 @@ WHERE {
   ?comp_reifier sdc4:inInstance ?instance ;
                 rdfs:label ?component_label ;
                 rdf:reifies <<?mcC ?vpC ?value>> .
+  BIND(?instance AS ?inst)
 }
 ORDER BY ?domain ?component_label
 LIMIT 500

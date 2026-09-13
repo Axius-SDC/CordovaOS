@@ -7,6 +7,7 @@
     <link href="{% static 'vendor/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'vendor/bootstrap-icons.css' %}">
     <script src="{% static 'vendor/htmx.min.js' %}"></script>
+    <script src="{% static 'demo/entity_graph.js' %}"></script>
     <style>
         body {
             background-color: #f8f9fa;
@@ -19,6 +20,19 @@
             font-weight: 600;
             font-size: 1.25rem;
         }
+        .cordova-graph { width: 100%; height: 520px; background: #F7F9FB; }
+        .cordova-graph-legend { position: absolute; left: .75rem; bottom: .5rem; font-size: .75rem; }
+        .cordova-swatch { display: inline-block; width: .7rem; height: .7rem; border-radius: 50%; margin-right: .25rem; vertical-align: middle; }
+        .cordova-graph-side { width: 300px; flex: 0 0 300px; max-height: 520px; overflow-y: auto; background: #fff; }
+        .cordova-svg { display: block; cursor: grab; user-select: none; }
+        .cordova-svg text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; pointer-events: none; paint-order: stroke; stroke: #F7F9FB; stroke-width: 3px; stroke-linejoin: round; }
+        .cordova-svg .node-label { font-size: 9px; fill: #0A2342; }
+        .cordova-svg .id-label { font-size: 8px; font-weight: 600; fill: #4F6D7A; }
+        .cordova-svg .edge-label { font-size: 7px; fill: #4F6D7A; }
+        .cordova-svg .band-label { font-size: 9px; fill: #6c757d; }
+        .cordova-svg .node { cursor: pointer; }
+        .cordova-svg .node.selected circle, .cordova-svg .node.selected rect { stroke: #F0A500; stroke-width: 3px; }
+        .cordova-svg .edge.lit line { stroke-opacity: 1; stroke-width: 2.5px; }
         {% block extra_css %}{% endblock %}
     </style>
 </head>

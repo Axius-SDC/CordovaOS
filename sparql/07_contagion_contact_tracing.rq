@@ -15,7 +15,7 @@ PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?tier ?detail_label ?detail_value ?domain
+SELECT ?tier ?detail_label ?detail_value ?domain ?inst
 WHERE {
   {
     # TIER 1: Patient Zero — Healthcare Record
@@ -30,6 +30,7 @@ WHERE {
 
     BIND("1 - Patient Zero" AS ?tier)
     BIND("Healthcare" AS ?domain)
+    BIND(?hc_inst AS ?inst)
   }
   UNION
   {
@@ -52,6 +53,7 @@ WHERE {
 
     BIND("2 - Maritime Exposure" AS ?tier)
     BIND("Maritime" AS ?domain)
+    BIND(?mar_inst AS ?inst)
   }
   UNION
   {
@@ -70,6 +72,7 @@ WHERE {
 
     BIND("3 - Quarantine Response" AS ?tier)
     BIND("Law Enforcement" AS ?domain)
+    BIND(?le_inst AS ?inst)
   }
   UNION
   {
@@ -87,6 +90,7 @@ WHERE {
 
     BIND("4 - Education Contacts" AS ?tier)
     BIND("Education" AS ?domain)
+    BIND(?edu_inst AS ?inst)
   }
 }
 ORDER BY ?tier ?domain ?detail_label

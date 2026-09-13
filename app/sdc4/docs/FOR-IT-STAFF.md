@@ -121,6 +121,25 @@ across 883 records in about a seventh of a second, with no mapping table,
 because the identifier *is* the join. 75 of those people appear in four
 separately built systems.
 
+## 4a. The graph is derived, not stored
+
+Every query result in the demo has a Graph tab. There is nothing to draw in the
+triple store itself: a record there is a hub of field reifiers, and no triple
+links one record to another. What links two records is a value they share in an
+identifier component, so the graph is built after the query from the records it
+returned: `demo/entity_graph.py` asks the store which identifier values two or
+more of those records carry (national ID, business registry number, address,
+city, and provider party references), draws each shared value as its own node,
+and edges from it to every record that carries it, labelled by the component.
+A value only one record carries is not a join and is not drawn.
+
+That is section 4 made visible. The join is the component, and the picture says
+which component on every edge. Records link to the console; a node with no edge
+is a record the query returned that shares no identifier with the others, which
+is also true and also worth seeing. The layout is a seeded force layout in
+`static/demo/entity_graph.js`, no graph library, so the same result draws the
+same picture on every machine.
+
 ## 5. Governance is read from the published schema
 
 Select any field in the table projection and the console reports what the model

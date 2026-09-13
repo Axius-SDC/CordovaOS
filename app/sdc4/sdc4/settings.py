@@ -218,6 +218,9 @@ CACHES = {
 # Replaces Apache Fuseki in the lightweight stack
 GRAPHDB_URL = config('GRAPHDB_URL', default='http://localhost:17200')
 GRAPHDB_REPOSITORY = config('GRAPHDB_REPOSITORY', default='sdc4_rdf')
+# Where a browser reaches GraphDB Workbench (the in-container GRAPHDB_URL is not
+# browser-reachable). The demo's entity graph links every node to Workbench here.
+GRAPHDB_WORKBENCH_URL = config('GRAPHDB_WORKBENCH_URL', default='http://localhost:17200')
 GRAPHDB_USER = config('GRAPHDB_USER', default='admin')
 GRAPHDB_PASSWORD = config('GRAPHDB_PASSWORD', default='admin123')
 

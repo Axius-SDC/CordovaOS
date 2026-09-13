@@ -10,7 +10,7 @@ PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?given_name ?surname ?cid_value ?diagnosis ?facility
+SELECT ?given_name ?surname ?cid_value ?diagnosis ?facility ?inst ?inst_2
 WHERE {
   # Find people in Porto Sereno via Civil Registry
   ?city_reifier rdf:reifies <<sdc4:mc-atdtdfzruh7tya0iv5cz365l ?vpCity "Porto Sereno">> ;
@@ -41,6 +41,8 @@ WHERE {
     ?fac_reifier rdf:reifies <<sdc4:mc-qvmb5f4xmy56y98q8raelpl9 ?vpFac ?facility>> ;
                  sdc4:inInstance ?hc_inst .
   }
+  BIND(?hc_inst AS ?inst)
+  BIND(?civil_inst AS ?inst_2)
 }
 ORDER BY ?surname ?given_name
 LIMIT 200
