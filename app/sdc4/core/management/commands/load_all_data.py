@@ -5,6 +5,7 @@ Iterates the DM registry, locates each app's import_data/ directory and
 XSD schema, and runs BulkImportProcessor.process_directory() for each.
 """
 import importlib
+import re
 from pathlib import Path
 
 from django.conf import settings
@@ -12,6 +13,17 @@ from django.core.management.base import BaseCommand
 
 from sdc4_shared.utils.dm_registry import get_dm_registry
 from sdc4_shared.utils.graphdb_client import GraphDBClient
+
+
+def _published_title(xsd_path):
+    """The dc:title the published data model carries, or None."""
+    try:
+        with open(xsd_path, 'r', encoding='utf-8') as fh:
+            head = fh.read(20000)
+    except OSError:
+        return None
+    match = re.search(r'<dc:title>(.*?)</dc:title>', head)
+    return match.group(1).strip() if match else None
 
 
 class Command(BaseCommand):
@@ -165,7 +177,13 @@ class Command(BaseCommand):
                 )
                 continue
 
-            dm_label = getattr(model_class, 'DM_LABEL', app_label)
+            # The name asserted on the data model node in every instance's RDF.
+            # It must be the model's published title, exactly as the model
+            # library states it: the generated constants (DM_LABEL,
+            # DMMetadata.TITLE) are code identifiers such as "CivilRegistry",
+            # and passing one of those gave every model a second dc:title,
+            # which doubled the rows of every query that joined on it.
+            dm_label = _published_title(xsd_path) or getattr(model_class, 'DM_LABEL', app_label)
 
             self.stdout.write(
                 self.style.MIGRATE_HEADING(
