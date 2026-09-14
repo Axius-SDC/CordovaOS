@@ -10,8 +10,11 @@
 # (sub-selects always run before the enclosing group). Left in the main group,
 # the optimizer started from the BRN component and joined every reifier of
 # every candidate record before reaching the vessel constant: 3 s instead of
-# 20 ms. Fields are addressed by component id, not rdfs:label, so each lookup
-# is bounded by one component rather than a scan of every reified triple.
+# 20 ms. The three descriptive fields are matched by rdfs:label on purpose:
+# measured against the loaded store, the label form runs in about 20 ms and
+# the component-id form (mc-upvi6l9pyb4f0p4vfunietsw, mc-bfaa3m23ye8q0qphv0x24if6,
+# mc-k7a0poa5c7co38oc65i6jppo) in about 120 ms, because the optimizer then
+# starts group 2 from the few distinct cargo values instead of the bound record.
 
 PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -30,18 +33,21 @@ WHERE {
     }
   }
 
-  # Port call details from the same maritime instance, each by component id
+  # Port call details from the same maritime instance
   ?pcid_reifier rdf:reifies <<sdc4:mc-pbfvurdvio38rt6puifhippe ?vpPcid ?port_call_id>> ;
                 sdc4:inInstance ?mar_inst .
 
-  ?arr_reifier rdf:reifies <<sdc4:mc-upvi6l9pyb4f0p4vfunietsw ?vpArr ?arrival>> ;
-               sdc4:inInstance ?mar_inst .
+  ?arr_reifier sdc4:inInstance ?mar_inst ;
+               rdfs:label "Arrival Date/Time" ;
+               rdf:reifies <<?mcArr ?vpArr ?arrival>> .
 
-  ?cargo_reifier rdf:reifies <<sdc4:mc-bfaa3m23ye8q0qphv0x24if6 ?vpCargo ?cargo_type>> ;
-                 sdc4:inInstance ?mar_inst .
+  ?cargo_reifier sdc4:inInstance ?mar_inst ;
+                 rdfs:label "Cargo Type" ;
+                 rdf:reifies <<?mcCargo ?vpCargo ?cargo_type>> .
 
-  ?flag_reifier rdf:reifies <<sdc4:mc-k7a0poa5c7co38oc65i6jppo ?vpFlag ?flag>> ;
-                sdc4:inInstance ?mar_inst .
+  ?flag_reifier sdc4:inInstance ?mar_inst ;
+                rdfs:label "Flag State" ;
+                rdf:reifies <<?mcFlag ?vpFlag ?flag>> .
 
   # BRN from the same maritime instance (Maritime Business Registry Number)
   ?mar_brn_reifier rdf:reifies <<sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ?vpMarBrn ?brn>> ;
