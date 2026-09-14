@@ -70,3 +70,19 @@ clean:
 	$(COMPOSE) down
 	@find app/sdc4/import_data -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} + 2>/dev/null || true
 	@echo "Stack stopped and generated import data removed."
+
+# --- release plumbing -------------------------------------------------------
+VERSION := $(shell tr -d '[:space:]' < app/sdc4/VERSION)
+
+version:            ## Print the version (app/sdc4/VERSION is the single source)
+	@echo $(VERSION)
+
+test:               ## Run the unit tests inside the web image (no database or triple store needed)
+	$(COMPOSE) run --rm --no-deps -e DATABASE_URL=sqlite:////tmp/test.sqlite3 web python manage.py test demo console
+
+pull:               ## Pull the published web image for this version instead of building it
+	CORDOVAOS_IMAGE_TAG=$(VERSION) $(COMPOSE) pull web
+
+release-check:      ## What the release workflow checks: VERSION is tagged, tag is on main
+	@git tag -l "v$(VERSION)" | grep -q . && echo "v$(VERSION) is tagged" || echo "v$(VERSION) is not tagged yet: git tag -a v$(VERSION) -m 'CordovaOS $(VERSION)' && git push origin v$(VERSION)"
+

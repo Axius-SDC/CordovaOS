@@ -12,6 +12,11 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# One source of truth for the version: app/sdc4/VERSION. Templates read it through
+# sdc4.context_processors.cordovaos_version; the release workflow refuses a tag
+# that does not match it.
+CORDOVAOS_VERSION = (BASE_DIR / 'VERSION').read_text(encoding='utf-8').strip()
+
 
 def _discover_local_apps():
     """Auto-discover installed DM apps by scanning for directories with apps.py."""
@@ -107,6 +112,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'sdc4.context_processors.cordovaos_version',
             ],
         },
     },

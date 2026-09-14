@@ -1,5 +1,7 @@
 # CordovaOS
 
+[![CI](https://github.com/Axius-SDC/CordovaOS/actions/workflows/ci.yml/badge.svg)](https://github.com/Axius-SDC/CordovaOS/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/Axius-SDC/CordovaOS)](https://github.com/Axius-SDC/CordovaOS/releases)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![SDC4](https://img.shields.io/badge/SDC4-Compliant-teal.svg)](https://semanticdatacharter.com)
 
@@ -160,6 +162,14 @@ CordovaOS/
 ├── docs/design/           # console design notes and the original mockups
 └── sparql/                # 7 cross-domain SPARQL queries
 ```
+
+## Releases
+
+- The version lives in one place, `app/sdc4/VERSION`. The page badges read it; nothing else states it.
+- Every pull request and push runs the unit tests, validates the compose file and builds the web image (`.github/workflows/ci.yml`).
+- A tag `v<version>` on `main` runs the tests, builds the image, pushes it to `ghcr.io/axius-sdc/cordovaos:<version>` and creates the GitHub Release (`.github/workflows/release.yml`). The workflow refuses a tag that does not match `VERSION` or is not on `main`.
+- `make pull` fetches the published image for the checked-out version so the first run skips the local build. `make demo` still builds locally and works offline after the first pull of the base images.
+- To cut a release: bump `app/sdc4/VERSION` on `dev`, merge to `main`, then `git tag -a v<version> -m "CordovaOS <version>"` on the merge commit and push the tag.
 
 ## License
 
