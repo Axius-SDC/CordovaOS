@@ -109,6 +109,7 @@ services:
       retries: 5
 
   web:
+    image: ghcr.io/axius-sdc/cordovaos:${CORDOVAOS_IMAGE_TAG:-local}
     build:
       context: ../..
       dockerfile: app/sdc4/Dockerfile
@@ -167,6 +168,7 @@ services:
       SDC4_STACK: enterprise
 
   celery:
+    image: ghcr.io/axius-sdc/cordovaos:${CORDOVAOS_IMAGE_TAG:-local}
     build:
       context: ../..
       dockerfile: app/sdc4/Dockerfile
