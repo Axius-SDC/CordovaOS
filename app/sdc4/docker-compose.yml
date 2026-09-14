@@ -142,6 +142,7 @@ services:
       DATABASE_URL: postgresql://admin:${DB_PASSWORD:-admin123}@postgres:5432/sdc4_db
       # GraphDB Triplestore
       GRAPHDB_URL: http://graphdb:7200
+      GRAPHDB_WORKBENCH_URL: ${GRAPHDB_WORKBENCH_URL:-http://localhost:${GRAPHDB_PORT:-17200}}
       GRAPHDB_REPOSITORY: sdc4_rdf
       GRAPHDB_USER: ${GRAPHDB_USER:-admin}
       GRAPHDB_PASSWORD: ${GRAPHDB_PASSWORD:-admin123}
@@ -186,6 +187,7 @@ services:
     environment:
       DATABASE_URL: postgresql://admin:${DB_PASSWORD:-admin123}@postgres:5432/sdc4_db
       GRAPHDB_URL: http://graphdb:7200
+      GRAPHDB_WORKBENCH_URL: ${GRAPHDB_WORKBENCH_URL:-http://localhost:${GRAPHDB_PORT:-17200}}
       GRAPHDB_REPOSITORY: sdc4_rdf
       GRAPHDB_USER: ${GRAPHDB_USER:-admin}
       GRAPHDB_PASSWORD: ${GRAPHDB_PASSWORD:-admin123}

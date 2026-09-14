@@ -33,7 +33,7 @@ make demo
 | Open | What it is |
 |---|---|
 | **http://localhost:18000/console/** | The record console. Ten domains, one record shown as table, document and graph, and the governance behind it. Start here. |
-| **http://localhost:18000/demo/** | The dashboard, "The Contagion" narrative, and the SPARQL explorer. |
+| **http://localhost:18000/demo/** | The dashboard, "The Contagion" narrative, and the SPARQL explorer. Every result has a **Graph** tab: the records behind the rows as nodes, and every identifier two of them share drawn as a node between them, labelled by the component it sits in. Click a record to open it in the console. |
 
 ### Check it worked
 

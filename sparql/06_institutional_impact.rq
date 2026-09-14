@@ -12,7 +12,7 @@ PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?category ?detail_label ?detail_value
+SELECT ?category ?detail_label ?detail_value ?inst ?inst_2
 WHERE {
   {
     # Business Registry details for the institution
@@ -25,6 +25,7 @@ WHERE {
                   rdf:reifies <<?mcComp ?vpComp ?detail_value>> .
 
     BIND("Business Registry" AS ?category)
+    BIND(?biz_inst AS ?inst)
   }
   UNION
   {
@@ -54,6 +55,8 @@ WHERE {
                               "Enrollment Status", "Institution Name"))
 
     BIND("Education Record" AS ?category)
+    BIND(?edu_inst AS ?inst)
+    BIND(?biz_inst2 AS ?inst_2)
   }
 }
 ORDER BY ?category ?detail_label
