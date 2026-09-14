@@ -9,7 +9,14 @@ from pathlib import Path
 
 from django.conf import settings
 from django.template.loader import render_to_string
-from django.test import RequestFactory, SimpleTestCase
+from django.test import RequestFactory, SimpleTestCase, override_settings
+
+# Plain static storage: the tests render templates, they do not need a collectstatic
+# manifest, and the CI runner has none.
+PLAIN_STATIC = override_settings(STORAGES={
+    'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
+    'staticfiles': {'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage'},
+})
 
 
 def render(template, ctx):
@@ -17,6 +24,7 @@ def render(template, ctx):
     return render_to_string(template, ctx, request=RequestFactory().get('/'))
 
 
+@PLAIN_STATIC
 class ConsoleTemplateTests(SimpleTestCase):
     def test_instance_title_is_clean_and_script_sits_before_body_end(self):
         html = render('console/instance.html', {
@@ -32,6 +40,7 @@ class ConsoleTemplateTests(SimpleTestCase):
         self.assertGreater(html.index('keydown'), html.index('<main>'))
 
 
+@PLAIN_STATIC
 class VersionTests(SimpleTestCase):
     def test_version_file_is_the_single_source(self):
         on_disk = (Path(settings.BASE_DIR) / 'VERSION').read_text().strip()
