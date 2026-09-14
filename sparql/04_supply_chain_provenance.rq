@@ -5,6 +5,16 @@
 #
 # Join mechanism: Business Registry Number (BRN) shared component links
 # Maritime port call records to Business Registry records.
+#
+# Shape: the vessel lookup sits in a sub-SELECT so GraphDB evaluates it first
+# (sub-selects always run before the enclosing group). Left in the main group,
+# the optimizer started from the BRN component and joined every reifier of
+# every candidate record before reaching the vessel constant: 3 s instead of
+# 20 ms. The three descriptive fields are matched by rdfs:label on purpose:
+# measured against the loaded store, the label form runs in about 20 ms and
+# the component-id form (mc-upvi6l9pyb4f0p4vfunietsw, mc-bfaa3m23ye8q0qphv0x24if6,
+# mc-k7a0poa5c7co38oc65i6jppo) in about 120 ms, because the optimizer then
+# starts group 2 from the few distinct cargo values instead of the bound record.
 
 PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -13,13 +23,17 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?vessel_name ?port_call_id ?arrival ?cargo_type ?flag ?inst ?inst_2
        ?brn ?org_name ?org_city
 WHERE {
-  # Step 1: Find the vessel in Maritime domain
-  ?vessel_reifier rdf:reifies <<sdc4:mc-s5zeapfup3xdj6wbqjjkf1nd ?vpVessel ?vessel_name>> ;
-                  sdc4:inInstance ?mar_inst ;
-                  sdc4:inDataModel sdc4:dm-md2451x882z5j89g66zb50rw .
-  FILTER(?vessel_name = "MV Estrella del Sur")
+  # Step 1: Find the vessel in the Maritime domain. Evaluated first.
+  {
+    SELECT ?mar_inst ?vessel_name WHERE {
+      ?vessel_reifier rdf:reifies <<sdc4:mc-s5zeapfup3xdj6wbqjjkf1nd ?vpVessel ?vessel_name>> ;
+                      sdc4:inInstance ?mar_inst ;
+                      sdc4:inDataModel sdc4:dm-md2451x882z5j89g66zb50rw .
+      FILTER(?vessel_name = "MV Estrella del Sur")
+    }
+  }
 
-  # Get port call details from same maritime instance
+  # Port call details from the same maritime instance
   ?pcid_reifier rdf:reifies <<sdc4:mc-pbfvurdvio38rt6puifhippe ?vpPcid ?port_call_id>> ;
                 sdc4:inInstance ?mar_inst .
 
@@ -35,12 +49,12 @@ WHERE {
                 rdfs:label "Flag State" ;
                 rdf:reifies <<?mcFlag ?vpFlag ?flag>> .
 
-  # Get BRN from the same maritime instance (Maritime Business Registry Number)
+  # BRN from the same maritime instance (Maritime Business Registry Number)
   ?mar_brn_reifier rdf:reifies <<sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ?vpMarBrn ?brn>> ;
                    sdc4:inInstance ?mar_inst .
 
-  # Step 2: Cross-domain join to Business Registry via BRN value
-  # (Business Registry carries the number under organization_identifier)
+  # Step 2: Cross-domain join to the Business Registry via the BRN value.
+  # OPTIONAL is cheap here: it runs once, on one bound BRN.
   OPTIONAL {
     ?biz_brn_reifier rdf:reifies <<sdc4:mc-ule5u2z3rjpa9pooaifwj1n3 ?vpBizBrn ?brn>> ;
                      sdc4:inInstance ?biz_inst ;
