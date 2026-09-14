@@ -11,22 +11,27 @@ PREFIX sdc4: <https://semanticdatacharter.com/ns/sdc4/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dc:   <http://purl.org/dc/elements/1.1/>
-
 SELECT ?domain ?component_label ?value ?inst
 WHERE {
-  # Find all instances containing this CID across any domain
-  ?cid_reifier rdf:reifies <<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ?vpCid "COR-AL01-271845">> ;
-               sdc4:inInstance ?instance ;
-               sdc4:inDataModel ?dm .
-
-  OPTIONAL { ?dm dc:title ?dm_title }
+  {
+    SELECT ?inst ?dm ?component_label ?value WHERE {
+      ?cid_reifier rdf:reifies <<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ?vpCid "COR-AL01-271845">> ;
+                   sdc4:inInstance ?inst ;
+                   sdc4:inDataModel ?dm .
+      ?comp_reifier sdc4:inInstance ?inst ;
+                    rdfs:label ?component_label ;
+                    rdf:reifies <<?mcC ?vpC ?value>> .
+    }
+  }
+  # One human title per data model, picked once. A bare OPTIONAL here doubled
+  # every row when a model carried two title forms, and it is a barrier the
+  # optimizer will not reorder across, which turned the component join below
+  # into full scans (12 seconds on 600K triples). The record join sits in its
+  # own subquery so it stays one indexed group.
+  {
+    SELECT ?dm (SAMPLE(?t) AS ?dm_title) WHERE { ?dm dc:title ?t FILTER(CONTAINS(?t, " ")) } GROUP BY ?dm
+  }
   BIND(COALESCE(?dm_title, REPLACE(STR(?dm), '.*/dm-', '')) AS ?domain)
-
-  # Get all components from each instance
-  ?comp_reifier sdc4:inInstance ?instance ;
-                rdfs:label ?component_label ;
-                rdf:reifies <<?mcC ?vpC ?value>> .
-  BIND(?instance AS ?inst)
 }
 ORDER BY ?domain ?component_label
 LIMIT 500
