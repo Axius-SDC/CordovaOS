@@ -7,7 +7,7 @@
 
 **A fictional nation's entire government — 10 domains, zero integration code.**
 
-CordovaOS is a self-contained, clone-and-run proof of concept for [SDC4](https://semanticdatacharter.com) (Semantic Data Charter). This is version 4.3.0, the third CordovaOS built on SDC4: the ten models were republished and the ten applications regenerated from SDCStudio 4.6.0, and both are in the repo exactly as downloaded, under `sdcstudio_downloads/`, so anyone who clones can read the raw models and apps before reading anything we wrote around them. It models the Republic of Cordova, a fictional island nation, as 10 fully operational government domain applications that share data through a common semantic foundation — no middleware, no API adapters, no ETL pipelines, no data mapping layer. Every domain is a self-describing SDC4 data model, and cross-domain questions are answered by SPARQL against one shared knowledge graph.
+CordovaOS is a self-contained, clone-and-run proof of concept for [SDC4](https://semanticdatacharter.com) (Semantic Data Charter). This is version 4.3.1 ([releases](https://github.com/Axius-SDC/CordovaOS/releases)), the third CordovaOS built on SDC4: the ten models were republished and the ten applications regenerated from SDCStudio 4.6.0, and both are in the repo exactly as downloaded, under `sdcstudio_downloads/`, so anyone who clones can read the raw models and apps before reading anything we wrote around them. It models the Republic of Cordova, a fictional island nation, as 10 fully operational government domain applications that share data through a common semantic foundation — no middleware, no API adapters, no ETL pipelines, no data mapping layer. Every domain is a self-describing SDC4 data model, and cross-domain questions are answered by SPARQL against one shared knowledge graph.
 
 Each record is **governance-composed**: alongside its data, every instance carries its own **Provenance** (who/what/where/when it came from) and a structural **Audit** record, bound to the data at the source rather than bolted on afterward.
 
@@ -27,8 +27,11 @@ You need Docker (or Podman) with the compose plugin, ~6GB free RAM, and Python 3
 ```bash
 git clone https://github.com/Axius-SDC/CordovaOS.git
 cd CordovaOS
+git checkout v4.3.1
 make demo
 ```
+
+`git checkout v4.3.1` pins the release this README describes; skip it to run the current `main`. Every release also publishes the web image as `ghcr.io/axius-sdc/cordovaos:<version>`, and `make pull` fetches it instead of building locally.
 
 `make demo` starts the stack, generates the small demo dataset, and loads it. There are no accounts to create and nothing to send anywhere. The first run needs the network to pull container images and the two host-side Python packages; after that the stack runs disconnected. When it finishes there are two front doors:
 
@@ -165,11 +168,11 @@ CordovaOS/
 
 ## Releases
 
-- The version lives in one place, `app/sdc4/VERSION`. The page badges read it; nothing else states it.
+- The version lives in one place, `app/sdc4/VERSION`. The page badges read it. The only other place it is written is this README's first paragraph and its checkout line, so a release bump touches both.
 - Every pull request and push runs the unit tests, validates the compose file and builds the web image (`.github/workflows/ci.yml`).
 - A tag `v<version>` on `main` runs the tests, builds the image, pushes it to `ghcr.io/axius-sdc/cordovaos:<version>` and creates the GitHub Release (`.github/workflows/release.yml`). The workflow refuses a tag that does not match `VERSION` or is not on `main`.
 - `make pull` fetches the published image for the checked-out version so the first run skips the local build. `make demo` still builds locally and works offline after the first pull of the base images.
-- To cut a release: bump `app/sdc4/VERSION` on `dev`, merge to `main`, then `git tag -a v<version> -m "CordovaOS <version>"` on the merge commit and push the tag.
+- To cut a release: bump `app/sdc4/VERSION` and the two README mentions on `dev`, merge to `main`, then `git tag -a v<version> -m "CordovaOS <version>"` on the merge commit and push the tag.
 
 ## License
 
