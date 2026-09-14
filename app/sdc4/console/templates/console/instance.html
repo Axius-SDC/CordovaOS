@@ -1,15 +1,5 @@
 {% extends "console/base.html" %}
-{% block title %}{{ h.dm_label }} {{ h.instance_id }}
-<script>
-document.addEventListener('keydown', function (e) {
-  if (e.target.matches('input, textarea, select')) return;
-  var rel = e.key === 'ArrowLeft' ? 'prev' : e.key === 'ArrowRight' ? 'next' : null;
-  if (!rel) return;
-  var a = document.querySelector('.pager a[rel="' + rel + '"]');
-  if (a) window.location = a.href;
-});
-</script>
-{% endblock %}
+{% block title %}{{ h.dm_label }} {{ h.instance_id }}{% endblock %}
 
 {% block content %}
 <div class="subject">
@@ -164,4 +154,16 @@ document.addEventListener('keydown', function (e) {
     </section>
   </aside>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('keydown', function (e) {
+  if (e.target.matches('input, textarea, select')) return;
+  var rel = e.key === 'ArrowLeft' ? 'prev' : e.key === 'ArrowRight' ? 'next' : null;
+  if (!rel) return;
+  var a = document.querySelector('.pager a[rel="' + rel + '"]');
+  if (a) window.location = a.href;
+});
+</script>
 {% endblock %}
