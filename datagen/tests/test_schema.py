@@ -43,10 +43,11 @@ def test_paths_resolve_by_label_and_ambiguity_is_refused():
     assert s.leaf("Patient Record/National ID (CID)") == ("ms-nj7s1gk45tfgyooxpz0qaha3", "ms-znhjge005ihiusslkmbcc4h4")
     assert s.enums("Visit Record/Outcome")[:2] == ["Treated and Released", "Admitted"]
     assert s.units("Visit Record/Body Temperature") == "Temperature (SI - Metric)"
-    v = Schema.for_dm("ulzd6pe8072mwkqf7i313bov")   # Vital Statistics: the CID sits in four sub-records
+    v = Schema.for_dm("ulzd6pe8072mwkqf7i313bov")   # Vital Statistics: the CID sits in four sub-records, one adapter per component
+    assert v.leaf("National ID (CID)")[0] == "ms-nj7s1gk45tfgyooxpz0qaha3" == v.leaf("Birth Record/National ID (CID)")[0]
+    assert len({p for p, comp, adapter in v.paths if comp == "nj7s1gk45tfgyooxpz0qaha3"}) == 4
     try:
-        v.leaf("National ID (CID)")
-        raise AssertionError("ambiguous path accepted")
+        v.leaf("No Such Leaf")
+        raise AssertionError("missing path accepted")
     except KeyError as e:
-        assert "ambiguous" in str(e)
-    assert v.leaf("Birth Record/National ID (CID)")[0] == "ms-nj7s1gk45tfgyooxpz0qaha3"
+        assert "no element" in str(e)
