@@ -79,17 +79,27 @@ class Command(BaseCommand):
             # One update drops every graph under the prefix; dropping them one request at a
             # time cost eight of the ten minutes a demo load took. The per-graph loop below
             # stays as the fallback when the store refuses the bulk update.
-            listing = client.query_sparql(
-                'SELECT (COUNT(DISTINCT ?g) AS ?n) WHERE { GRAPH ?g { ?s ?p ?o } '
-                f'FILTER(STRSTARTS(STR(?g), "{prefix}")) }}'
-            )
-            before = int(listing['results']['bindings'][0]['n']['value']) if listing and listing.get('results', {}).get('bindings') else 0
-            if before and client.update_sparql(
-                'DELETE { GRAPH ?g { ?s ?p ?o } } WHERE { GRAPH ?g { ?s ?p ?o } '
-                f'FILTER(STRSTARTS(STR(?g), "{prefix}")) }}'
-            ):
-                return before
+            # Bounded chunks: one update over a hundred thousand graphs outruns the request
+            # timeout, so each update drops at most CHUNK graphs and the loop runs until none is left.
+            CHUNK = 2000
             dropped = 0
+            for _ in range(500):
+                listing = client.query_sparql(
+                    'SELECT (COUNT(DISTINCT ?g) AS ?n) WHERE { GRAPH ?g { ?s ?p ?o } '
+                    f'FILTER(STRSTARTS(STR(?g), "{prefix}")) }}'
+                )
+                left = int(listing['results']['bindings'][0]['n']['value']) if listing and listing.get('results', {}).get('bindings') else 0
+                if not left:
+                    return dropped
+                ok = client.update_sparql(
+                    'DELETE { GRAPH ?g { ?s ?p ?o } } WHERE { '
+                    '{ SELECT DISTINCT ?g WHERE { GRAPH ?g { ?s0 ?p0 ?o0 } '
+                    f'FILTER(STRSTARTS(STR(?g), "{prefix}")) }} LIMIT {CHUNK} }} '
+                    'GRAPH ?g { ?s ?p ?o } }'
+                )
+                if not ok:
+                    break   # the per-graph loop below takes over
+                dropped += min(left, CHUNK)
             for _ in range(200):  # bounded, so a delete that never succeeds cannot spin
                 result = client.query_sparql(
                     'SELECT DISTINCT ?g WHERE { GRAPH ?g { ?s ?p ?o } '
