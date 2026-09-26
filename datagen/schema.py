@@ -25,7 +25,8 @@ DMLIB = os.path.join(os.path.dirname(__file__), "..", "app", "sdc4", "mediafiles
 _TYPE = re.compile(r'<xsd:complexType name="mc-([a-z0-9]+)"[^>]*>(.*?)</xsd:complexType>', re.S)
 _LABEL = re.compile(r"<rdfs:label>([^<]*)</rdfs:label>")
 _BASE = re.compile(r'<xsd:restriction base="sdc4:([A-Za-z]+)"')
-_REF = re.compile(r'ref="sdc4:ms-([a-z0-9]+)"')
+_REF = re.compile(r'<xsd:element([^>]*)ref="sdc4:ms-([a-z0-9]+)"')
+_MIN = re.compile(r'minOccurs="(\d+)"')
 _ELEMENT = re.compile(r'<xsd:element name="ms-([a-z0-9]+)" type="sdc4:mc-([a-z0-9]+)"')
 _ENUM = re.compile(r'<xsd:enumeration value="([^"]*)"')
 _FIXED_LABEL = re.compile(r'name="label" type="xsd:string" fixed="([^"]*)"')
@@ -47,6 +48,7 @@ class Schema:
             if m:
                 self.label[ct] = _unescape(m.group(1))
         self.dm = next(ct for ct, b in self.base.items() if b == "DMType")
+        self.min_occurs: dict[tuple[str, str], int] = {}   # (parent type, child type) -> minOccurs of the child's reference
         # every (path, component, adapter) reachable from the DM
         self.paths: list[tuple[tuple[str, ...], str, str | None]] = []
         self._walk(self.dm, (), set())
@@ -58,7 +60,13 @@ class Schema:
             return cls(f.read())
 
     def _children(self, ct: str) -> list[str]:
-        return [self.element_type.get(r, r) for r in _REF.findall(self.types.get(ct, ""))]
+        out = []
+        for attrs, r in _REF.findall(self.types.get(ct, "")):
+            child = self.element_type.get(r, r)
+            m = _MIN.search(attrs)
+            self.min_occurs[(ct, child)] = int(m.group(1)) if m else 1
+            out.append(child)
+        return out
 
     def _walk(self, ct: str, path: tuple[str, ...], seen: set):
         for child in self._children(ct):
@@ -106,5 +114,33 @@ class Schema:
         m = _UNITS_TYPE.search(self.types[comp])
         return self.label.get(m.group(1), "") if m else ""
 
+    def units_enums(self, path: str) -> list[str]:
+        """The unit codes a quantity's units component enumerates."""
+        comp, _ = self._find(path)
+        m = _UNITS_TYPE.search(self.types[comp])
+        return [_unescape(v) for v in _ENUM.findall(self.types.get(m.group(1), ""))] if m else []
+
     def base_of(self, path: str) -> str:
         return self.base.get(self._find(path)[0], "")
+
+    def required(self, path: str) -> bool:
+        """Whether the element at this path must appear in its parent (minOccurs of the adapter or cluster reference)."""
+        comp, adapter = self._find(path)
+        child = adapter or comp
+        return any(v >= 1 for (parent, c), v in self.min_occurs.items() if c == child)
+
+    def states(self) -> list[str]:
+        """The workflow states the model's current-state enumerates (empty when no workflow is bound)."""
+        m = re.search(r'name="current-state">(.*?)</xsd:element>', self.types[self.dm], re.S)
+        return [_unescape(v) for v in _ENUM.findall(m.group(1))] if m else []
+
+    def temporal_kinds(self, path: str) -> list[str]:
+        """The xdtemporal-* elements the schema allows for this temporal component (a model may restrict them to one)."""
+        comp, _ = self._find(path)
+        return re.findall(r'<xsd:element[^>]*name="(xdtemporal-[a-z-]+)"', self.types[comp])
+
+    def element_enums(self, path: str, element: str) -> list[str]:
+        """The enumeration facets declared on one named child element of the component (true-value, false-value, ordinal, symbol)."""
+        comp, _ = self._find(path)
+        m = re.search(r'<xsd:element[^>]*name="%s"[^>]*>(.*?)</xsd:element>' % re.escape(element), self.types[comp], re.S)
+        return [_unescape(v) for v in _ENUM.findall(m.group(1))] if m else []

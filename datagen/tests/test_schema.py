@@ -1,53 +1,60 @@
-"""The schema reader resolves every element id the 4.3.1 generators carry as a literal, from the published schemas by label."""
-import glob
+"""The schema reader resolves component and adapter ids by label path from the published 4.4.0 models."""
 import os
 import re
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from schema import Schema  # noqa: E402
-
-DATAGEN = os.path.join(os.path.dirname(__file__), "..")
-LITERAL = re.compile(r'^([A-Z_0-9]+)\s*=\s*\(\s*"(ms-[a-z0-9]+)"\s*,\s*"(ms-[a-z0-9]+)"\s*\)', re.M)
-CLUSTER = re.compile(r'^([A-Z_0-9]+)\s*=\s*"(ms-[a-z0-9]+)"', re.M)
-CT = re.compile(r'^CT_ID\s*=\s*"([a-z0-9]+)"', re.M)
+from schema import DMLIB, Schema  # noqa: E402
 
 
-def modules():
-    for path in sorted(glob.glob(os.path.join(DATAGEN, "*.py"))):
-        src = open(path, encoding="utf-8").read()
-        m = CT.search(src)
+def _by_title(prefix):
+    for name in sorted(os.listdir(DMLIB)):
+        m = re.match(r"dm-([a-z0-9]{24})\.xsd$", name)
         if m:
-            yield os.path.basename(path), m.group(1), src
-
-
-def test_every_literal_pair_in_every_generator_is_a_component_and_its_adapter_in_that_schema():
-    total = 0
-    for name, ct_id, src in modules():
-        s = Schema.for_dm(ct_id)
-        pairs = {(comp, adapter) for path, comp, adapter in s.paths if adapter}
-        clusters = {comp for path, comp, adapter in s.paths if s.base.get(comp) == "ClusterType"}
-        for var, comp, adapter in LITERAL.findall(src):
-            assert (comp[3:], adapter[3:]) in pairs, (name, var, comp, adapter)
-            total += 1
-        for var, ms in CLUSTER.findall(src):
-            if var.startswith("CL_") or var in ("GOVERNED_RECORD",):
-                assert ms[3:] in clusters, (name, var, ms)
-                total += 1
-    assert total >= 200, total
+            s = Schema.for_dm(m.group(1))
+            if s.label.get(s.dm, "").startswith(prefix):
+                return s
+    raise AssertionError(prefix)
 
 
 def test_paths_resolve_by_label_and_ambiguity_is_refused():
-    s = Schema.for_dm("ftluo2nybgxmn7mawttoos20")   # Healthcare Record
-    assert s.cluster("Patient Record") == "ms-ygtbvvmzcw3ukfsg3axqry97"
-    assert s.leaf("Patient Record/National ID (CID)") == ("ms-nj7s1gk45tfgyooxpz0qaha3", "ms-znhjge005ihiusslkmbcc4h4")
-    assert s.enums("Visit Record/Outcome")[:2] == ["Treated and Released", "Admitted"]
-    assert s.units("Visit Record/Body Temperature") == "Temperature (SI - Metric)"
-    v = Schema.for_dm("ulzd6pe8072mwkqf7i313bov")   # Vital Statistics: the CID sits in four sub-records, one adapter per component
-    assert v.leaf("National ID (CID)")[0] == "ms-nj7s1gk45tfgyooxpz0qaha3" == v.leaf("Birth Record/National ID (CID)")[0]
-    assert len({p for p, comp, adapter in v.paths if comp == "nj7s1gk45tfgyooxpz0qaha3"}) == 4
+    s = _by_title("Healthcare Record")
+    assert s.cluster("Patient Record").startswith("ms-")
+    comp, adapter = s.leaf("Patient Record/National ID (CID)")
+    assert comp == "ms-nj7s1gk45tfgyooxpz0qaha3" and adapter.startswith("ms-")   # the kept Cordova CID, its adapter minted per model
+    assert s.enums("Encounter/Encounter Status")[:2] == ["planned", "arrived"]
+    assert s.units("Vital Signs Panel/Body Temperature") == "Temperature (SI - Metric)"
+    assert s.temporal_kinds("Condition/Onset Date") == ["xdtemporal-datetime"]
+    assert len(s.states()) >= 3, s.states()   # the bound ProvGov workflow
+    assert s.leaf("Code Display Text") == s.leaf("Allergen (SNOMED CT)/Code Display Text")   # one component, one adapter, every Coded Value cluster
+    b = _by_title("Law Enforcement Record")
     try:
-        v.leaf("No Such Leaf")
+        b.leaf("Disposition Date")   # Cordova's charge disposition date and NIEM's j:Disposition date share the label
+        raise AssertionError("ambiguity accepted")
+    except KeyError as e:
+        assert "ambiguous" in str(e)
+    try:
+        s.leaf("No Such Leaf")
         raise AssertionError("missing path accepted")
     except KeyError as e:
         assert "no element" in str(e)
+
+
+def test_a_component_keeps_one_adapter_across_the_sub_records_that_compose_it():
+    v = _by_title("Vital Statistics Record")
+    hits = {(comp, adapter) for p, comp, adapter in v.paths if comp == "nj7s1gk45tfgyooxpz0qaha3"}
+    assert len(hits) == 1 and len([p for p, comp, a in v.paths if comp == "nj7s1gk45tfgyooxpz0qaha3"]) == 4
+    assert v.leaf("Birth Record/National ID (CID)") == v.leaf("Death Record/National ID (CID)")
+
+
+def test_every_model_has_a_governed_record_and_a_bound_workflow():
+    for name in sorted(os.listdir(DMLIB)):
+        m = re.match(r"dm-([a-z0-9]{24})\.xsd$", name)
+        if not m:
+            continue
+        s = Schema.for_dm(m.group(1))
+        assert s.label[s.dm].endswith("4.4.0"), s.label[s.dm]
+        assert s.states(), s.label[s.dm]
+        data = [p for p, comp, a in s.paths if len(p) == 1 and s.base.get(comp) == "ClusterType"]
+        assert data and data[0][0].endswith("Governed Record"), (s.label[s.dm], data)
+        assert s.required(data[0][0])
