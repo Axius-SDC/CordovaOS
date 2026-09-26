@@ -516,8 +516,12 @@ def write_record(directory: str, prefix: str, xml: str) -> str:
     return path
 
 
+IMPORT_ROOT = os.environ.get("CORDOVA_IMPORT_DIR") or os.path.join(os.path.dirname(__file__), "..", "app", "sdc4", "import_data")
+
+
 def import_dir(app: str) -> str:
-    return os.path.join(os.path.dirname(__file__), "..", "app", "sdc4", "import_data", app)
+    """Where a domain's records are written: app/sdc4/import_data/<app>, or under CORDOVA_IMPORT_DIR."""
+    return os.path.join(IMPORT_ROOT, app)
 
 
 def full_name(person: dict) -> str:

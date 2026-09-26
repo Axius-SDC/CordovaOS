@@ -51,7 +51,8 @@ def main():
     print("CordovaOS Demo Data Generator, 4.4.0 models")
     print("=" * 60)
 
-    base = os.path.join(os.path.dirname(__file__), "..", "app", "sdc4", "import_data")
+    from shared import IMPORT_ROOT as base
+    os.makedirs(base, exist_ok=True)
 
     # Clear existing XML files
     print("\nClearing existing XML files...")
