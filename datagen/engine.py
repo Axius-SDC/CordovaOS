@@ -85,6 +85,7 @@ class Template:
         parser = etree.XMLParser(remove_blank_text=True)
         self.root = etree.fromstring(xml_text.encode(), parser)
         self.paths: dict[str, list[etree._Element]] = {}   # label path -> component elements in the template
+        self.tpaths: dict[tuple, list[etree._Element]] = {}   # the same, keyed by tuple, for labels that carry a slash
         self._complete()
         self._index(self.root, ())
 
@@ -103,6 +104,14 @@ class Template:
         first occurrence in the template (the adapter is the same element in every cluster of a model) or, when
         the template has none, built from the schema with placeholders.
         """
+        # The schema fixes every label; the scaffold cuts a label at an apostrophe (SDCStudio issue #706), so the
+        # template's labels are repaired from the schema before anything is indexed by them.
+        for el in self.root.iter():
+            tag = _tag(el)
+            if tag.startswith("ms-") and tag[3:] in self.schema.label:
+                lab = el.find("label")
+                if lab is not None and lab.text != self.schema.label[tag[3:]]:
+                    lab.text = self.schema.label[tag[3:]]
         first: dict[str, etree._Element] = {}
         for el in self.root.iter():
             tag = _tag(el)
@@ -186,12 +195,13 @@ class Template:
                     p = path + (label_el.text or "",)
                     for n in range(1, len(p) + 1):
                         self.paths.setdefault("/".join(p[-n:]), []).append(child)
+                        self.tpaths.setdefault(p[-n:], []).append(child)
                     self._index(child, p)
                     continue
             self._index(child, path)
 
-    def _component(self, path: str):
-        hits = self.paths.get(path)
+    def _component(self, path):
+        hits = self.tpaths.get(tuple(path)) if isinstance(path, (tuple, list)) else self.paths.get(path)
         if not hits:
             raise KeyError(f"no component at {path!r} in the template of dm-{self.ct_id}")
         distinct = {id(h) for h in hits}
@@ -206,7 +216,7 @@ class Template:
         root = copy.deepcopy(self.root)
         # re-index the copy
         t = Template.__new__(Template)
-        t.ct_id, t.schema, t.root, t.paths = self.ct_id, self.schema, root, {}
+        t.ct_id, t.schema, t.root, t.paths, t.tpaths = self.ct_id, self.schema, root, {}, {}
         t._index(root, ())
         filled: set = set()
         t._filled = filled
