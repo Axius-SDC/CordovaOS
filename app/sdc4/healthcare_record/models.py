@@ -26,7 +26,7 @@ class HealthcareRecordInstance(models.Model):
     XML is the authoritative data format. All data is stored as validated XML,
     with JSON extracted for efficient JSONB queries in PostgreSQL.
 
-    DM CT_ID: ftluo2nybgxmn7mawttoos20
+    DM CT_ID: dcsd8bxr8a6lzcptwwyms44t
     """
 
     # ==========================================================================
@@ -128,7 +128,7 @@ class HealthcareRecordInstance(models.Model):
     # ==========================================================================
 
     # DM metadata - set at generation time, read-only at runtime
-    DM_CT_ID = 'ftluo2nybgxmn7mawttoos20'
+    DM_CT_ID = 'dcsd8bxr8a6lzcptwwyms44t'
     DM_LABEL = 'HealthcareRecord'
 
     class Meta:

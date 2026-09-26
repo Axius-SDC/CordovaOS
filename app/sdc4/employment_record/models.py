@@ -26,7 +26,7 @@ class EmploymentRecordInstance(models.Model):
     XML is the authoritative data format. All data is stored as validated XML,
     with JSON extracted for efficient JSONB queries in PostgreSQL.
 
-    DM CT_ID: pm5cks82lnrvyna1xbwpfxic
+    DM CT_ID: rxv2ck9k9r1bqkggeydam32s
     """
 
     # ==========================================================================
@@ -128,7 +128,7 @@ class EmploymentRecordInstance(models.Model):
     # ==========================================================================
 
     # DM metadata - set at generation time, read-only at runtime
-    DM_CT_ID = 'pm5cks82lnrvyna1xbwpfxic'
+    DM_CT_ID = 'rxv2ck9k9r1bqkggeydam32s'
     DM_LABEL = 'EmploymentRecord'
 
     class Meta:

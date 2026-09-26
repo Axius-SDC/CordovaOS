@@ -42,10 +42,10 @@ CIVIL = f'{SDC4}i-civil000000000000000001'
 HEALTH = f'{SDC4}i-health00000000000000001'
 EMPLOY = f'{SDC4}i-employ00000000000000001'
 BIZ = f'{SDC4}i-biz00000000000000000001'
-DM_CIVIL = f'{SDC4}dm-uika42uwtj3ijdbegzw2kcwq'
-DM_HEALTH = f'{SDC4}dm-ftluo2nybgxmn7mawttoos20'
-DM_EMPLOY = f'{SDC4}dm-pm5cks82lnrvyna1xbwpfxic'
-DM_BIZ = f'{SDC4}dm-x250838l7oi6l3yavg9twc1i'
+DM_CIVIL = f'{SDC4}dm-etkbxubkngv0v81yvqz77xrs'
+DM_HEALTH = f'{SDC4}dm-dcsd8bxr8a6lzcptwwyms44t'
+DM_EMPLOY = f'{SDC4}dm-rxv2ck9k9r1bqkggeydam32s'
+DM_BIZ = f'{SDC4}dm-nb7gtyimcusmritzx0o0x40o'
 
 
 def client():
@@ -57,13 +57,14 @@ def client():
         titles=[{'inst': CIVIL, 'label': 'Given Name (Person)', 'v': 'Carlos'},
                 {'inst': CIVIL, 'label': 'Surname (Person)', 'v': 'Mendoza'},
                 {'inst': HEALTH, 'label': 'Medical Record Number', 'v': 'MRN-000001'},
-                {'inst': EMPLOY, 'label': 'Job Title', 'v': 'Deckhand'},
-                {'inst': BIZ, 'label': 'organization_name', 'v': 'Cordova Shipping'}],
+                {'inst': EMPLOY, 'label': 'Employee Occupation', 'v': 'Deckhand'},
+                {'inst': BIZ, 'label': 'Organization Name', 'v': 'Cordova Shipping'}],
         values=[{'a': CIVIL, 'la': 'National ID (CID)', 'mc': f'{SDC4}mc-nj7s1gk45tfgyooxpz0qaha3', 'v': 'COR-AL01-271845'},
                 {'a': HEALTH, 'la': 'National ID (CID)', 'mc': f'{SDC4}mc-nj7s1gk45tfgyooxpz0qaha3', 'v': 'COR-AL01-271845'},
-                {'a': BIZ, 'la': 'organization_identifier', 'mc': f'{SDC4}mc-ule5u2z3rjpa9pooaifwj1n3', 'v': 'BIZ-000573'},
+                {'a': BIZ, 'la': 'Business Registry Number', 'mc': f'{SDC4}mc-l8f0m7op4xhrxqy1jrnvbuly', 'v': 'BIZ-000573'},
+                {'a': EMPLOY, 'la': 'Business Registry Number', 'mc': f'{SDC4}mc-l8f0m7op4xhrxqy1jrnvbuly', 'v': 'BIZ-000573'},
                 {'a': CIVIL, 'la': 'City', 'mc': f'{SDC4}mc-atdtdfzruh7tya0iv5cz365l', 'v': 'Campoluz'}],
-        parties=[{'a': EMPLOY, 'name': 'Cordova Shipping', 'rel': 'registeredAs', 'id': 'BIZ-000573'}],
+        parties=[],
     )
 
 
@@ -74,7 +75,7 @@ class EntityGraphTests(SimpleTestCase):
         by = {n['iri']: n for n in g['nodes'] if n['type'] == 'record'}
         self.assertEqual(set(by), {CIVIL, HEALTH, EMPLOY, BIZ})
         self.assertEqual(by[CIVIL]['title'], 'Carlos Mendoza')
-        self.assertEqual(by[CIVIL]['console_url'], '/console/instance/uika42uwtj3ijdbegzw2kcwq/i-civil000000000000000001/')
+        self.assertEqual(by[CIVIL]['console_url'], '/console/instance/etkbxubkngv0v81yvqz77xrs/i-civil000000000000000001/')
         self.assertEqual(by[HEALTH]['status'], 'invalid')
         self.assertEqual(by[BIZ]['workbench_url'],
                          'http://wb.example:7200/graphs-visualizations?uri=' + BIZ.replace(':', '%3A').replace('/', '%2F'))
@@ -88,12 +89,11 @@ class EntityGraphTests(SimpleTestCase):
                          ('person', 'COR-AL01-271845', ['National ID (CID)'], 2))
         biz = ids['id:business:BIZ-000573']
         self.assertEqual(biz['degree'], 2)
-        self.assertEqual(biz['name'], 'Cordova Shipping')
         edges = {(e['source'], e['target']): e['label'] for e in g['edges']}
         self.assertEqual(edges[(CIVIL, 'id:person:COR-AL01-271845')], 'National ID (CID)')
         self.assertEqual(edges[(HEALTH, 'id:person:COR-AL01-271845')], 'National ID (CID)')
-        self.assertEqual(edges[(BIZ, 'id:business:BIZ-000573')], 'organization_identifier')
-        self.assertIn('registeredAs', edges[(EMPLOY, 'id:business:BIZ-000573')])
+        self.assertEqual(edges[(BIZ, 'id:business:BIZ-000573')], 'Business Registry Number')
+        self.assertEqual(edges[(EMPLOY, 'id:business:BIZ-000573')], 'Business Registry Number')
         self.assertEqual(len(g['edges']), 4)
 
     def test_a_value_only_one_record_carries_is_not_a_join(self):

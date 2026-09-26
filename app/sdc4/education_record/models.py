@@ -26,7 +26,7 @@ class EducationRecordInstance(models.Model):
     XML is the authoritative data format. All data is stored as validated XML,
     with JSON extracted for efficient JSONB queries in PostgreSQL.
 
-    DM CT_ID: upq7w1bqbix5v5ss0mu3kq5n
+    DM CT_ID: mtwtwhn0csuhbw56sjx01ol8
     """
 
     # ==========================================================================
@@ -128,7 +128,7 @@ class EducationRecordInstance(models.Model):
     # ==========================================================================
 
     # DM metadata - set at generation time, read-only at runtime
-    DM_CT_ID = 'upq7w1bqbix5v5ss0mu3kq5n'
+    DM_CT_ID = 'mtwtwhn0csuhbw56sjx01ol8'
     DM_LABEL = 'EducationRecord'
 
     class Meta:

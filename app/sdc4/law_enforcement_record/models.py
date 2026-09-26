@@ -26,7 +26,7 @@ class LawEnforcementRecordInstance(models.Model):
     XML is the authoritative data format. All data is stored as validated XML,
     with JSON extracted for efficient JSONB queries in PostgreSQL.
 
-    DM CT_ID: yh0opq0bnu6y9y56oukg92uf
+    DM CT_ID: zdhuex1xwf8s5niriw878e0o
     """
 
     # ==========================================================================
@@ -128,7 +128,7 @@ class LawEnforcementRecordInstance(models.Model):
     # ==========================================================================
 
     # DM metadata - set at generation time, read-only at runtime
-    DM_CT_ID = 'yh0opq0bnu6y9y56oukg92uf'
+    DM_CT_ID = 'zdhuex1xwf8s5niriw878e0o'
     DM_LABEL = 'LawEnforcementRecord'
 
     class Meta:

@@ -26,7 +26,7 @@ class PropertyRegistryInstance(models.Model):
     XML is the authoritative data format. All data is stored as validated XML,
     with JSON extracted for efficient JSONB queries in PostgreSQL.
 
-    DM CT_ID: x44vt69qqri2bl7vwxb8ck7n
+    DM CT_ID: goc13fg5a97ghcqv64h782af
     """
 
     # ==========================================================================
@@ -128,7 +128,7 @@ class PropertyRegistryInstance(models.Model):
     # ==========================================================================
 
     # DM metadata - set at generation time, read-only at runtime
-    DM_CT_ID = 'x44vt69qqri2bl7vwxb8ck7n'
+    DM_CT_ID = 'goc13fg5a97ghcqv64h782af'
     DM_LABEL = 'PropertyRegistry'
 
     class Meta:

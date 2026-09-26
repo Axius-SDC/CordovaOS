@@ -26,7 +26,7 @@ class BusinessRegistryInstance(models.Model):
     XML is the authoritative data format. All data is stored as validated XML,
     with JSON extracted for efficient JSONB queries in PostgreSQL.
 
-    DM CT_ID: x250838l7oi6l3yavg9twc1i
+    DM CT_ID: nb7gtyimcusmritzx0o0x40o
     """
 
     # ==========================================================================
@@ -128,7 +128,7 @@ class BusinessRegistryInstance(models.Model):
     # ==========================================================================
 
     # DM metadata - set at generation time, read-only at runtime
-    DM_CT_ID = 'x250838l7oi6l3yavg9twc1i'
+    DM_CT_ID = 'nb7gtyimcusmritzx0o0x40o'
     DM_LABEL = 'BusinessRegistry'
 
     class Meta:

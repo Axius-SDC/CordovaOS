@@ -1,0 +1,2561 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "dcsd8bxr8a6lzcptwwyms44t",
+  "dm_type": "dm-dcsd8bxr8a6lzcptwwyms44t",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Healthcare Record 4.4.0",
+    "dm_encoding": "utf-8",
+    "instance_id": "h8o8uh6wiedvdzdpuaj990qk",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-09-26T15:20:36.320944",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "ffh1o5rta29osqbm0jg7a1l7",
+    "label": "Healthcare Governed Record",
+    "type": "Cluster",
+    "description": "A healthcare record. The governed record: the data cluster, the PROV activity and agent and the audit event from the ProvGov library by identifier, and the digital signature proof. Members: Patient Record; prov-activity (Provgov); prov-agent (Provgov); audit-event (Provgov); Digital Signature Proof.",
+    "items": [
+      {
+        "component_id": "gug5dhtqfv7exbgmm2raxpkq",
+        "label": "Digital Signature Proof",
+        "type": "XdFile",
+        "description": "Cryptographic proof of attestation (digital signature)",
+        "value": "/path/to/sample/file.txt"
+      },
+      {
+        "component_id": "t2tvd3wylxrstdeu5aw6gkw1",
+        "label": "Audit Event",
+        "type": "Cluster",
+        "description": "A logged access or custody event as data: what was done, by whom, on what, with what outcome and for what purpose. The audit-only case of sdc5 issue 002; state-changing operations are workflow transitions.",
+        "items": [
+          {
+            "component_id": "dkc2ccj5te35z9gd4bu1blcq",
+            "label": "Audit Agent Reference",
+            "type": "XdString",
+            "description": "The acting agent (FHIR AuditEvent.agent.who). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "gcjyjrnp0wsfoelcp4m05c67",
+            "label": "Audit Entity Reference",
+            "type": "XdString",
+            "description": "The entity the event concerns (FHIR AuditEvent.entity.what). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "fjhgr5fyqxt2crmg2cb5c513",
+            "label": "Audit Event Identifier",
+            "type": "XdString",
+            "description": "The identifier of the audit event.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "sndpbhm3xbd6qtbyxmvh3i0e",
+            "label": "Data Subject Reference",
+            "type": "XdString",
+            "description": "The data subject or patient the event concerns (FHIR AuditEvent.patient; SDC DM.subject). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "nf1air1zbj8v9w66jozdxmyl",
+            "label": "On Behalf Of Reference",
+            "type": "XdString",
+            "description": "The party on whose behalf the agent acted (FHIR agent.onBehalfOf; prov:actedOnBehalfOf). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "h3kdbvdtyalpvik97saaf0an",
+            "label": "System Identifier",
+            "type": "XdString",
+            "description": "The system that handled the item (FHIR AuditEvent.source.observer; SDC AuditType.system-id).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "ujir739mf1g8ajeczs9nzh9m",
+            "label": "System Location Name",
+            "type": "XdString",
+            "description": "The site or facility that handled the item (FHIR AuditEvent.agent.location; prov:atLocation).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "ce1c8sydkov8bkv4dgdmwe5x",
+            "label": "Audit Event Action",
+            "type": "XdToken",
+            "description": "The operation performed in a logged access event (FHIR AuditEvent.action). Read and Execute change no state and are audit facts, not workflow moves.",
+            "value": "R",
+            "constraints": {
+              "enumerations": [
+                "C",
+                "R",
+                "U",
+                "D",
+                "E"
+              ]
+            }
+          },
+          {
+            "component_id": "rpz1czz06jhpahmfz30rblvp",
+            "label": "Audit Event Outcome",
+            "type": "XdToken",
+            "description": "The result of an audited event (FHIR AuditEvent.outcome).",
+            "value": "8",
+            "constraints": {
+              "enumerations": [
+                "0",
+                "4",
+                "8",
+                "12"
+              ]
+            }
+          },
+          {
+            "component_id": "vbctgmdcwps5b3r3l6sboa6y",
+            "label": "Confidentiality",
+            "type": "XdToken",
+            "description": "The level of protection the information requires (HL7 v3 Confidentiality). At assembly the value populates a component's act tag.",
+            "value": "R",
+            "constraints": {
+              "enumerations": [
+                "U",
+                "L",
+                "M",
+                "N",
+                "R",
+                "V"
+              ]
+            }
+          },
+          {
+            "component_id": "jujsdur1igws8orw6tvvlqco",
+            "label": "Provenance Agent Type",
+            "type": "XdToken",
+            "description": "The functional role of an agent in an activity (FHIR Provenance.agent.type).",
+            "value": "composer",
+            "constraints": {
+              "enumerations": [
+                "enterer",
+                "performer",
+                "author",
+                "editor",
+                "verifier",
+                "legal",
+                "attester",
+                "informant",
+                "custodian",
+                "transmitter",
+                "assembler",
+                "transformer",
+                "composer"
+              ]
+            }
+          },
+          {
+            "component_id": "d1evlz8yvdlwt6ia9fjq4pgj",
+            "label": "Purpose of Use",
+            "type": "XdToken",
+            "description": "Why the information was used (HL7 v3 ActReason purpose of use). Activity context, not an access-control tag.",
+            "value": "COC",
+            "constraints": {
+              "enumerations": [
+                "TREAT",
+                "ETREAT",
+                "COC",
+                "HPAYMT",
+                "HOPERAT",
+                "HRESCH",
+                "CLINTRCH",
+                "PUBHLTH",
+                "PATRQT",
+                "HLEGAL",
+                "HMARKT"
+              ]
+            }
+          },
+          {
+            "component_id": "uwiosm2q9ym3ewr4de910s70",
+            "label": "Audit Recorded At",
+            "type": "XdTemporal",
+            "description": "When the audit event was recorded (FHIR AuditEvent.recorded).",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "yyrztf21qkyi0xk612rzxfzd",
+        "label": "Patient Record",
+        "type": "Cluster",
+        "description": "A patient's record: the national ID, the FHIR Patient (Default person demographics, medical record number, marital status, address, contact point by identifier), allergies and intolerances, conditions (SNOMED CT and ICD-10-CM coded values), medication orders (RxNorm), immunizations (CVX), encounters and the vital signs panel, all from the FHIR library by identifier. Members: National ID (CID); patient (FHIR); allergy-intolerance (FHIR); condition (FHIR); medication-order (FHIR); immunization (FHIR); encounter (FHIR); vital-signs-panel (FHIR).",
+        "items": [
+          {
+            "component_id": "nj7s1gk45tfgyooxpz0qaha3",
+            "label": "National ID (CID)",
+            "type": "XdString",
+            "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
+            "value": "DefaultString"
+          },
+          {
+            "component_id": "yeaa0k87yietfbfonbr4wgqs",
+            "label": "Allergy Intolerance",
+            "type": "Cluster",
+            "description": "An allergy or intolerance: the allergen coded in SNOMED CT, category, type, clinical and verification status, criticality, dates, note and reactions.",
+            "items": [
+              {
+                "component_id": "q8unjlqm15pc443iclif64on",
+                "label": "Allergy Note",
+                "type": "XdString",
+                "description": "A note about the allergy. FHIR AllergyIntolerance.note.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 4000
+                }
+              },
+              {
+                "component_id": "ludhh6euu3lc99wpik2pyjcc",
+                "label": "Allergy Category",
+                "type": "XdToken",
+                "description": "The category of the substance. FHIR AllergyIntolerance.category; AllergyIntoleranceCategory, version 4.0.1.",
+                "value": "food",
+                "constraints": {
+                  "enumerations": [
+                    "food",
+                    "medication",
+                    "environment",
+                    "biologic"
+                  ]
+                }
+              },
+              {
+                "component_id": "gvahkpl47rdq5nv27sokv05f",
+                "label": "Allergy Clinical Status",
+                "type": "XdToken",
+                "description": "The clinical status. FHIR AllergyIntolerance.clinicalStatus; AllergyIntolerance Clinical Status Codes, version 4.0.1.",
+                "value": "inactive",
+                "constraints": {
+                  "enumerations": [
+                    "active",
+                    "inactive",
+                    "resolved"
+                  ]
+                }
+              },
+              {
+                "component_id": "sku0vf9wdpful1lrthu2eyyd",
+                "label": "Allergy Criticality",
+                "type": "XdToken",
+                "description": "The potential clinical harm of a future reaction. FHIR AllergyIntolerance.criticality; AllergyIntoleranceCriticality, version 4.0.1.",
+                "value": "high",
+                "constraints": {
+                  "enumerations": [
+                    "low",
+                    "high",
+                    "unable-to-assess"
+                  ]
+                }
+              },
+              {
+                "component_id": "pnuuxh2172pozj03h5hxyfgb",
+                "label": "Allergy Type",
+                "type": "XdToken",
+                "description": "Allergy or intolerance. FHIR AllergyIntolerance.type; AllergyIntoleranceType, version 4.0.1.",
+                "value": "allergy",
+                "constraints": {
+                  "enumerations": [
+                    "allergy",
+                    "intolerance"
+                  ]
+                }
+              },
+              {
+                "component_id": "p39nkyal7bbx36vs8raozozz",
+                "label": "Allergy Verification Status",
+                "type": "XdToken",
+                "description": "The certainty of the allergy. FHIR AllergyIntolerance.verificationStatus; AllergyIntolerance Verification Status Codes, version 4.0.1.",
+                "value": "confirmed",
+                "constraints": {
+                  "enumerations": [
+                    "unconfirmed",
+                    "confirmed",
+                    "refuted",
+                    "entered-in-error"
+                  ]
+                }
+              },
+              {
+                "component_id": "lvms8v52hnfpiqinfbwwtw37",
+                "label": "Allergy Onset Date",
+                "type": "XdTemporal",
+                "description": "When the allergy was identified. FHIR AllergyIntolerance.onsetDateTime.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "ivpplvmgnxhdyqtax1ipdzwu",
+                "label": "Allergy Recorded Date",
+                "type": "XdTemporal",
+                "description": "When the allergy was first recorded. FHIR AllergyIntolerance.recordedDate.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "mrti6abfhdeferd4xsm9kz1b",
+                "label": "Last Reaction Date",
+                "type": "XdTemporal",
+                "description": "When the last reaction occurred. FHIR AllergyIntolerance.lastOccurrence.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "rjzh4p0afw8eqsmfqvdlgh30",
+                "label": "Allergen (SNOMED CT)",
+                "type": "Cluster",
+                "description": "The substance or product responsible. A coded value: the SNOMED CT code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR AllergyIntolerance.code.",
+                "items": [
+                  {
+                    "component_id": "q75pzzv36or6dxgjrrbvmun5",
+                    "label": "Code System: SNOMED CT",
+                    "type": "XdLink",
+                    "description": "The code system of a coded value, fixed: SNOMED CT (http://snomed.info/sct). FHIR Coding.system.",
+                    "value": "http://example.org/resource"
+                  },
+                  {
+                    "component_id": "y16hwsqc3wjfn8pc16gnbdvv",
+                    "label": "Allergen Code (SNOMED CT)",
+                    "type": "XdString",
+                    "description": "The SNOMED CT code for the substance or product responsible. FHIR AllergyIntolerance.code, coded in http://snomed.info/sct.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 40
+                    }
+                  },
+                  {
+                    "component_id": "eo5tlfr0576ypknys5alvcn0",
+                    "label": "Code Display Text",
+                    "type": "XdString",
+                    "description": "The human-readable display of a coded value, as recorded with the code (FHIR Coding.display).",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 500
+                    }
+                  }
+                ]
+              },
+              {
+                "component_id": "t6s62iijsont6r7h2xss3i81",
+                "label": "Allergy Reaction",
+                "type": "Cluster",
+                "description": "A reaction event: manifestation, substance and exposure route coded in SNOMED CT, description, severity and onset.",
+                "items": [
+                  {
+                    "component_id": "mf5zu92mgdam65gs9djp1t4g",
+                    "label": "Reaction Description",
+                    "type": "XdString",
+                    "description": "A description of the reaction. FHIR AllergyIntolerance.reaction.description.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 4000
+                    }
+                  },
+                  {
+                    "component_id": "kmy0slqyv5ztfu0bevpz9zv1",
+                    "label": "Reaction Severity",
+                    "type": "XdToken",
+                    "description": "The severity of the reaction. FHIR AllergyIntolerance.reaction.severity; AllergyIntoleranceSeverity, version 4.0.1.",
+                    "value": "moderate",
+                    "constraints": {
+                      "enumerations": [
+                        "mild",
+                        "moderate",
+                        "severe"
+                      ]
+                    }
+                  },
+                  {
+                    "component_id": "m11tmjzf44tof6c48hnjxbz3",
+                    "label": "Reaction Onset",
+                    "type": "XdTemporal",
+                    "description": "When the reaction began. FHIR AllergyIntolerance.reaction.onset.",
+                    "value": "2024-01-01T00:00:00"
+                  },
+                  {
+                    "component_id": "dnxnysrxf7fa59c52bi6cowy",
+                    "label": "Exposure Route (SNOMED CT)",
+                    "type": "Cluster",
+                    "description": "How the subject was exposed to the substance. A coded value: the SNOMED CT code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR AllergyIntolerance.reaction.exposureRoute.",
+                    "items": [
+                      {
+                        "component_id": "h0bvntw0ad89wpdpf2jys47k",
+                        "label": "Exposure Route Code (SNOMED CT)",
+                        "type": "XdString",
+                        "description": "The SNOMED CT code for how the subject was exposed to the substance. FHIR AllergyIntolerance.reaction.exposureRoute, coded in http://snomed.info/sct.",
+                        "value": "DefaultString",
+                        "constraints": {
+                          "max_length": 40
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "component_id": "j1bdmep57zuwign9kec5o3x8",
+                    "label": "Reaction Manifestation (SNOMED CT)",
+                    "type": "Cluster",
+                    "description": "The clinical symptoms or signs of the reaction. A coded value: the SNOMED CT code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR AllergyIntolerance.reaction.manifestation.",
+                    "items": [
+                      {
+                        "component_id": "jtblqgn629vsvw007hgm2oik",
+                        "label": "Reaction Manifestation Code (SNOMED CT)",
+                        "type": "XdString",
+                        "description": "The SNOMED CT code for the clinical symptoms or signs of the reaction. FHIR AllergyIntolerance.reaction.manifestation, coded in http://snomed.info/sct.",
+                        "value": "DefaultString",
+                        "constraints": {
+                          "max_length": 40
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "component_id": "vdesx5dijp738m2a134rhosl",
+                    "label": "Reaction Substance (SNOMED CT)",
+                    "type": "Cluster",
+                    "description": "The substance that caused the reaction. A coded value: the SNOMED CT code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR AllergyIntolerance.reaction.substance.",
+                    "items": [
+                      {
+                        "component_id": "jml0ks91rhylvkyjkp4tgi3c",
+                        "label": "Reaction Substance Code (SNOMED CT)",
+                        "type": "XdString",
+                        "description": "The SNOMED CT code for the substance that caused the reaction. FHIR AllergyIntolerance.reaction.substance, coded in http://snomed.info/sct.",
+                        "value": "DefaultString",
+                        "constraints": {
+                          "max_length": 40
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "component_id": "gus7i559nu8qnrmy86tn9ih3",
+            "label": "Condition",
+            "type": "Cluster",
+            "description": "A clinical condition, problem or diagnosis: the diagnosis coded in SNOMED CT and ICD-10-CM, category, clinical and verification status, severity, onset and abatement.",
+            "items": [
+              {
+                "component_id": "omljcynidrw37kgl9cmayi16",
+                "label": "Condition Category",
+                "type": "XdToken",
+                "description": "Whether the condition is a problem-list item or an encounter diagnosis. FHIR Condition.category; Condition Category Codes, version 4.0.1.",
+                "value": "encounter-diagnosis",
+                "constraints": {
+                  "enumerations": [
+                    "problem-list-item",
+                    "encounter-diagnosis"
+                  ]
+                }
+              },
+              {
+                "component_id": "gedv32ehs79son03jwbo6meg",
+                "label": "Condition Clinical Status",
+                "type": "XdToken",
+                "description": "The clinical status of the condition. FHIR Condition.clinicalStatus; Condition Clinical Status Codes, version 4.0.1.",
+                "value": "recurrence",
+                "constraints": {
+                  "enumerations": [
+                    "active",
+                    "recurrence",
+                    "relapse",
+                    "inactive",
+                    "remission",
+                    "resolved"
+                  ]
+                }
+              },
+              {
+                "component_id": "al2zqxi3n5tqxc9zsh6cee0w",
+                "label": "Condition Verification Status",
+                "type": "XdToken",
+                "description": "The verification status of the condition. FHIR Condition.verificationStatus; ConditionVerificationStatus, version 4.0.1.",
+                "value": "provisional",
+                "constraints": {
+                  "enumerations": [
+                    "unconfirmed",
+                    "provisional",
+                    "differential",
+                    "confirmed",
+                    "refuted",
+                    "entered-in-error"
+                  ]
+                }
+              },
+              {
+                "component_id": "rf9lf370z6ynvfu36wlvw35x",
+                "label": "Abatement Date",
+                "type": "XdTemporal",
+                "description": "When the condition resolved or went into remission. FHIR Condition.abatementDateTime.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "cdt3eno621fle59qg7k0ojr4",
+                "label": "Onset Date",
+                "type": "XdTemporal",
+                "description": "When the condition began. FHIR Condition.onsetDateTime.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "k97rf7pd7y72z48d57x2j7to",
+                "label": "Condition Severity (SNOMED CT)",
+                "type": "Cluster",
+                "description": "The subjective severity of the condition. A coded value: the SNOMED CT code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR Condition.severity.",
+                "items": [
+                  {
+                    "component_id": "vbuzhg8ibermpz3xxmyx5gbv",
+                    "label": "Condition Severity Code (SNOMED CT)",
+                    "type": "XdString",
+                    "description": "The SNOMED CT code for the subjective severity of the condition. FHIR Condition.severity, coded in http://snomed.info/sct.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 40
+                    }
+                  }
+                ]
+              },
+              {
+                "component_id": "jk4cboqk4me0yj2i04m8c2ad",
+                "label": "Diagnosis (ICD-10-CM)",
+                "type": "Cluster",
+                "description": "The condition, problem or diagnosis. A coded value: the ICD-10-CM code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR Condition.code.",
+                "items": [
+                  {
+                    "component_id": "jwgx8nvbtsim7ck4uqmpqyl2",
+                    "label": "Code System: ICD-10-CM",
+                    "type": "XdLink",
+                    "description": "The code system of a coded value, fixed: ICD-10-CM (http://hl7.org/fhir/sid/icd-10-cm). FHIR Coding.system.",
+                    "value": "http://example.org/resource"
+                  },
+                  {
+                    "component_id": "efimv7gxg5ompt8m6xb2b6k5",
+                    "label": "Diagnosis Code (ICD-10-CM)",
+                    "type": "XdString",
+                    "description": "The ICD-10-CM code for the condition, problem or diagnosis. FHIR Condition.code, coded in http://hl7.org/fhir/sid/icd-10-cm.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 40
+                    }
+                  }
+                ]
+              },
+              {
+                "component_id": "fv8e2asumlgp9l4o9p3i2jsf",
+                "label": "Diagnosis (SNOMED CT)",
+                "type": "Cluster",
+                "description": "The condition, problem or diagnosis. A coded value: the SNOMED CT code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR Condition.code.",
+                "items": [
+                  {
+                    "component_id": "khpm67tzpl0myig6xgvwczpx",
+                    "label": "Diagnosis Code (SNOMED CT)",
+                    "type": "XdString",
+                    "description": "The SNOMED CT code for the condition, problem or diagnosis. FHIR Condition.code, coded in http://snomed.info/sct.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 40
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "component_id": "rghkif2x2xhe0e82mc85qwvm",
+            "label": "Encounter",
+            "type": "Cluster",
+            "description": "An interaction between a patient and healthcare providers: status, class, priority, reason, period, length and hospitalization.",
+            "items": [
+              {
+                "component_id": "f8vsfzqb1m8ecfosdzhc9out",
+                "label": "Encounter Class",
+                "type": "XdToken",
+                "description": "The setting of the encounter (HL7 v3 ActEncounterCode). FHIR Encounter.class; ActCode, version 11.0.0.",
+                "value": "ACUTE",
+                "constraints": {
+                  "enumerations": [
+                    "AMB",
+                    "EMER",
+                    "FLD",
+                    "HH",
+                    "IMP",
+                    "ACUTE",
+                    "NONAC",
+                    "OBSENC",
+                    "PRENC",
+                    "SS",
+                    "VR"
+                  ]
+                }
+              },
+              {
+                "component_id": "jcsoakfsmdndfvw6p0nh879m",
+                "label": "Encounter Priority",
+                "type": "XdToken",
+                "description": "The urgency of the encounter (HL7 v3 ActPriority). FHIR Encounter.priority; ActPriority, version 5.0.0.",
+                "value": "A",
+                "constraints": {
+                  "enumerations": [
+                    "A",
+                    "CR",
+                    "CS",
+                    "CSP",
+                    "CSR",
+                    "EL",
+                    "EM",
+                    "P",
+                    "PRN",
+                    "R",
+                    "RR",
+                    "S",
+                    "T",
+                    "UD",
+                    "UR"
+                  ]
+                }
+              },
+              {
+                "component_id": "mpkqsp6zn1gbc1zhqai9y40b",
+                "label": "Encounter Status",
+                "type": "XdToken",
+                "description": "The lifecycle state of the encounter. FHIR Encounter.status; EncounterStatus, version 4.0.1.",
+                "value": "entered-in-error",
+                "constraints": {
+                  "enumerations": [
+                    "planned",
+                    "arrived",
+                    "triaged",
+                    "in-progress",
+                    "onleave",
+                    "finished",
+                    "cancelled",
+                    "entered-in-error",
+                    "unknown"
+                  ]
+                }
+              },
+              {
+                "component_id": "gdcfl9ghwkswdbmxww4senbt",
+                "label": "Encounter Length",
+                "type": "XdQuantity",
+                "description": "How long the encounter lasted, in the Default time units. FHIR Encounter.length.",
+                "value": 42.4,
+                "magnitude": {
+                  "value": 42.4,
+                  "min_inclusive": 0.0
+                },
+                "units": {
+                  "label": "Time Units",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "pkren9mdq1ve6mdcn5hdu4xq",
+                "label": "Encounter End",
+                "type": "XdTemporal",
+                "description": "When the encounter ended. FHIR Encounter.period.end.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "anbcg4rhacgmv8lkfofymmv0",
+                "label": "Encounter Start",
+                "type": "XdTemporal",
+                "description": "When the encounter started. FHIR Encounter.period.start.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "u6u23oip0dinxve95ub0kwma",
+                "label": "Encounter Reason (SNOMED CT)",
+                "type": "Cluster",
+                "description": "The reason the encounter takes place. A coded value: the SNOMED CT code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR Encounter.reasonCode.",
+                "items": [
+                  {
+                    "component_id": "cmtzyf0esp2hbf8ze2q0d3bh",
+                    "label": "Encounter Reason Code (SNOMED CT)",
+                    "type": "XdString",
+                    "description": "The SNOMED CT code for the reason the encounter takes place. FHIR Encounter.reasonCode, coded in http://snomed.info/sct.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 40
+                    }
+                  }
+                ]
+              },
+              {
+                "component_id": "fnxiiamw1uk1hvsxmjgsu1xy",
+                "label": "Hospitalization",
+                "type": "Cluster",
+                "description": "The admission and discharge facts of an inpatient encounter.",
+                "items": [
+                  {
+                    "component_id": "awvbv44gmq5co6prxcnhdz09",
+                    "label": "Admit Source",
+                    "type": "XdToken",
+                    "description": "Where the patient was admitted from. FHIR Encounter.hospitalization.admitSource; Admit source, version 4.0.1.",
+                    "value": "gp",
+                    "constraints": {
+                      "enumerations": [
+                        "hosp-trans",
+                        "emd",
+                        "outp",
+                        "born",
+                        "gp",
+                        "mp",
+                        "nursing",
+                        "psych",
+                        "rehab",
+                        "other"
+                      ]
+                    }
+                  },
+                  {
+                    "component_id": "wd1txyosw8ha21sohphne92e",
+                    "label": "Discharge Disposition",
+                    "type": "XdToken",
+                    "description": "Where the patient went on discharge. FHIR Encounter.hospitalization.dischargeDisposition; Discharge disposition, version 4.0.1.",
+                    "value": "other-hcf",
+                    "constraints": {
+                      "enumerations": [
+                        "home",
+                        "alt-home",
+                        "other-hcf",
+                        "hosp",
+                        "long",
+                        "aadvice",
+                        "exp",
+                        "psy",
+                        "rehab",
+                        "snf",
+                        "oth"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "component_id": "qu29fbyziraov263ga9mpzqk",
+            "label": "Immunization",
+            "type": "Cluster",
+            "description": "A vaccine administration: the vaccine coded in CVX, lot and expiry, status, route, site, dose, date, source, subpotency, note, reaction and protocol.",
+            "items": [
+              {
+                "component_id": "lt7xu3wvixu66e818ii8d3qf",
+                "label": "Is Subpotent",
+                "type": "XdBoolean",
+                "description": "Whether the dose is known to be subpotent. FHIR Immunization.isSubpotent.",
+                "value": true,
+                "constraints": {
+                  "true_values": [
+                    "true"
+                  ],
+                  "false_values": [
+                    "false"
+                  ]
+                }
+              },
+              {
+                "component_id": "w3ym3y9yu0hzm4nzcpkalgug",
+                "label": "Primary Source Indicator",
+                "type": "XdBoolean",
+                "description": "Whether the record comes from the person who administered the vaccine. FHIR Immunization.primarySource.",
+                "value": true,
+                "constraints": {
+                  "true_values": [
+                    "true"
+                  ],
+                  "false_values": [
+                    "false"
+                  ]
+                }
+              },
+              {
+                "component_id": "o44rw2x2h5twxv0exry40xld",
+                "label": "Immunization Note",
+                "type": "XdString",
+                "description": "A note about the immunization. FHIR Immunization.note.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 4000
+                }
+              },
+              {
+                "component_id": "jwas9cfzfnv9sm42kaum11ry",
+                "label": "Vaccine Lot Number",
+                "type": "XdString",
+                "description": "The lot number of the vaccine. FHIR Immunization.lotNumber.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 64
+                }
+              },
+              {
+                "component_id": "ftatuy5pcs3k2s1cmil9nb2d",
+                "label": "Immunization Status",
+                "type": "XdToken",
+                "description": "Whether the immunization was completed, not done or entered in error. FHIR Immunization.status; EventStatus, version 4.0.1.",
+                "value": "completed",
+                "constraints": {
+                  "enumerations": [
+                    "completed",
+                    "entered-in-error",
+                    "not-done"
+                  ]
+                }
+              },
+              {
+                "component_id": "p3z2snw4ppeltxv8sf4g2z6g",
+                "label": "Injection Site",
+                "type": "XdToken",
+                "description": "The body site of the injection (HL7 v3 ActSite). FHIR Immunization.site; ActSite, version 5.0.0.",
+                "value": "RT",
+                "constraints": {
+                  "enumerations": [
+                    "_HumanActSite",
+                    "_HumanSubstanceAdministrationSite",
+                    "BE",
+                    "BN",
+                    "BU",
+                    "LA",
+                    "LAC",
+                    "LACF",
+                    "LD",
+                    "LE",
+                    "LEJ",
+                    "LF",
+                    "LG",
+                    "LH",
+                    "LIJ",
+                    "LLAQ",
+                    "LLFA",
+                    "LMFA",
+                    "LN",
+                    "LPC",
+                    "LSC",
+                    "LT",
+                    "LUA",
+                    "LUAQ",
+                    "LUFA",
+                    "LVG",
+                    "LVL",
+                    "OD",
+                    "OS",
+                    "OU",
+                    "PA",
+                    "PERIN",
+                    "RA",
+                    "RAC",
+                    "RACF",
+                    "RD",
+                    "RE",
+                    "REJ",
+                    "RF",
+                    "RG",
+                    "RH",
+                    "RIJ",
+                    "RLAQ",
+                    "RLFA",
+                    "RMFA",
+                    "RN",
+                    "RPC",
+                    "RSC",
+                    "RT",
+                    "RUA",
+                    "RUAQ",
+                    "RUFA",
+                    "RVG",
+                    "RVL",
+                    "_InjuryActSite",
+                    "_AnimalActSite"
+                  ]
+                }
+              },
+              {
+                "component_id": "evzi9namajsr73zvfmu6yk5n",
+                "label": "Dose Quantity Administered",
+                "type": "XdQuantity",
+                "description": "The amount of vaccine administered. FHIR Immunization.doseQuantity.",
+                "value": 15.4,
+                "magnitude": {
+                  "value": 15.4,
+                  "min_inclusive": 0.0
+                },
+                "units": {
+                  "label": "Dose Units",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "z0tvxqq7rue6z6d1kc10numz",
+                "label": "Vaccination Date",
+                "type": "XdTemporal",
+                "description": "When the vaccine was administered. FHIR Immunization.occurrenceDateTime.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "oqr71irdt8saycxt7dmaza7h",
+                "label": "Vaccine Expiration Date",
+                "type": "XdTemporal",
+                "description": "When the vaccine lot expires. FHIR Immunization.expirationDate.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "c2ezzwg0q7fwuarfn7aiouyt",
+                "label": "Administration Route (SNOMED CT)",
+                "type": "Cluster",
+                "description": "The route the vaccine was administered by. A coded value: the SNOMED CT code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR Immunization.route.",
+                "items": [
+                  {
+                    "component_id": "j3gl4by3v02vva0vntjjoay5",
+                    "label": "Administration Route Code (SNOMED CT)",
+                    "type": "XdString",
+                    "description": "The SNOMED CT code for the route the vaccine was administered by. FHIR Immunization.route, coded in http://snomed.info/sct.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 40
+                    }
+                  }
+                ]
+              },
+              {
+                "component_id": "ksv53g8pkbx6u6bklv297cvf",
+                "label": "Immunization Reaction",
+                "type": "Cluster",
+                "description": "A reaction following an immunization: when, and whether it was self-reported.",
+                "items": [
+                  {
+                    "component_id": "myydvf1ehbqoor9vaddpdvt1",
+                    "label": "Immunization Reaction Reported",
+                    "type": "XdBoolean",
+                    "description": "Whether the reaction was self-reported. FHIR Immunization.reaction.reported.",
+                    "value": true,
+                    "constraints": {
+                      "true_values": [
+                        "true"
+                      ],
+                      "false_values": [
+                        "false"
+                      ]
+                    }
+                  },
+                  {
+                    "component_id": "ztndn12tfffpqywgqcx7mk4x",
+                    "label": "Immunization Reaction Date",
+                    "type": "XdTemporal",
+                    "description": "When the reaction occurred. FHIR Immunization.reaction.date.",
+                    "value": "2024-01-01T00:00:00"
+                  }
+                ]
+              },
+              {
+                "component_id": "rjqnxs7c79unjaudwwbc5gye",
+                "label": "Vaccine (CVX)",
+                "type": "Cluster",
+                "description": "The vaccine product administered. A coded value: the CVX code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR Immunization.vaccineCode.",
+                "items": [
+                  {
+                    "component_id": "z32af7v9iahzr79olizcfu5s",
+                    "label": "Code System: CVX",
+                    "type": "XdLink",
+                    "description": "The code system of a coded value, fixed: CVX (http://hl7.org/fhir/sid/cvx). FHIR Coding.system.",
+                    "value": "http://example.org/resource"
+                  },
+                  {
+                    "component_id": "uot3qq1t3l45bhgqle8add8t",
+                    "label": "Vaccine Code (CVX)",
+                    "type": "XdString",
+                    "description": "The CVX code for the vaccine product administered. FHIR Immunization.vaccineCode, coded in http://hl7.org/fhir/sid/cvx.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 40
+                    }
+                  }
+                ]
+              },
+              {
+                "component_id": "n1jgl05vzoekh3069ujw0obp",
+                "label": "Vaccine Protocol",
+                "type": "Cluster",
+                "description": "The protocol the immunization was given under: series, target disease and dose position.",
+                "items": [
+                  {
+                    "component_id": "jvv615y8hoxm8k91jbnc6phw",
+                    "label": "Protocol Series Name",
+                    "type": "XdString",
+                    "description": "The name of the vaccine series. FHIR Immunization.protocolApplied.series.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 255
+                    }
+                  },
+                  {
+                    "component_id": "rhvtlnzhx0us7j4hmhgkdiz6",
+                    "label": "Dose Number in Series",
+                    "type": "XdCount",
+                    "description": "The position of this dose in the series. FHIR Immunization.protocolApplied.doseNumberPositiveInt.",
+                    "value": 35,
+                    "units": {
+                      "label": "Items",
+                      "value": "Default : Items"
+                    }
+                  },
+                  {
+                    "component_id": "qtgpjcj7h89ts1yo528eitzu",
+                    "label": "Doses in Series",
+                    "type": "XdCount",
+                    "description": "The recommended number of doses in the series. FHIR Immunization.protocolApplied.seriesDosesPositiveInt.",
+                    "value": 4,
+                    "units": {
+                      "label": "Items",
+                      "value": "Default : Items"
+                    }
+                  },
+                  {
+                    "component_id": "qdrv0ncyx03ay4n7tte6inme",
+                    "label": "Target Disease (SNOMED CT)",
+                    "type": "Cluster",
+                    "description": "The disease the vaccine protects against. A coded value: the SNOMED CT code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR Immunization.protocolApplied.targetDisease.",
+                    "items": [
+                      {
+                        "component_id": "mt8638gzmop40mv6u6251irh",
+                        "label": "Target Disease Code (SNOMED CT)",
+                        "type": "XdString",
+                        "description": "The SNOMED CT code for the disease the vaccine protects against. FHIR Immunization.protocolApplied.targetDisease, coded in http://snomed.info/sct.",
+                        "value": "DefaultString",
+                        "constraints": {
+                          "max_length": 40
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "component_id": "hpjg3dmqr1yc27r2po4ffxi0",
+            "label": "Medication Order",
+            "type": "Cluster",
+            "description": "An order for a medication: the drug coded in RxNorm, status, intent, dose, frequency, route, date, prescriber and dispense request.",
+            "items": [
+              {
+                "component_id": "w7hbkej93xho09imq7f9hglr",
+                "label": "Prescriber Reference",
+                "type": "XdString",
+                "description": "Who ordered the medication. Holds the IRI of the referenced resource. FHIR MedicationRequest.requester.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 2000
+                }
+              },
+              {
+                "component_id": "ikja2z5kffq6hd5ljio3hzn6",
+                "label": "Dose Frequency",
+                "type": "XdToken",
+                "description": "How often the dose is taken (HL7 v3 timing abbreviations). FHIR MedicationRequest.dosageInstruction.timing; GTSAbbreviation, version 5.0.0.",
+                "value": "QID",
+                "constraints": {
+                  "enumerations": [
+                    "AM",
+                    "BID",
+                    "JB",
+                    "JE",
+                    "JH",
+                    "PM",
+                    "Q4H",
+                    "Q6H",
+                    "QD",
+                    "QID",
+                    "QOD",
+                    "TID"
+                  ]
+                }
+              },
+              {
+                "component_id": "e9i4r60oql8x8dlq7e9ff8nz",
+                "label": "Medication Request Intent",
+                "type": "XdToken",
+                "description": "Whether the request is a proposal, plan or order. FHIR MedicationRequest.intent; Medication request intent, version 4.0.1.",
+                "value": "proposal",
+                "constraints": {
+                  "enumerations": [
+                    "proposal",
+                    "plan",
+                    "order",
+                    "original-order",
+                    "reflex-order",
+                    "filler-order",
+                    "instance-order",
+                    "option"
+                  ]
+                }
+              },
+              {
+                "component_id": "he6sxdsnp6dgjc0somgx2m2v",
+                "label": "Medication Request Status",
+                "type": "XdToken",
+                "description": "The state of the order. FHIR MedicationRequest.status; Medicationrequest status, version 4.0.1.",
+                "value": "active",
+                "constraints": {
+                  "enumerations": [
+                    "active",
+                    "on-hold",
+                    "cancelled",
+                    "completed",
+                    "entered-in-error",
+                    "stopped",
+                    "draft",
+                    "unknown"
+                  ]
+                }
+              },
+              {
+                "component_id": "nwt80dp2we8k4r2goylvfxrj",
+                "label": "Dose Quantity",
+                "type": "XdQuantity",
+                "description": "The amount of medication per dose. FHIR MedicationRequest.dosageInstruction.doseAndRate.doseQuantity.",
+                "value": 1.1,
+                "magnitude": {
+                  "value": 1.1,
+                  "min_inclusive": 0.0
+                },
+                "units": {
+                  "label": "Dose Units",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "pq2ua8kgjfg3ugm1rkompjxd",
+                "label": "Prescription Date",
+                "type": "XdTemporal",
+                "description": "When the order was written. FHIR MedicationRequest.authoredOn.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "ou1erxdrjvg7fd0jekomsyyl",
+                "label": "Dispense Request",
+                "type": "Cluster",
+                "description": "What may be dispensed: substitution, refills and quantity.",
+                "items": [
+                  {
+                    "component_id": "v6bwjabmhxzl4m62cdmylkbi",
+                    "label": "Substitution Allowed",
+                    "type": "XdBoolean",
+                    "description": "Whether substitution is allowed. FHIR MedicationRequest.substitution.allowedBoolean.",
+                    "value": true,
+                    "constraints": {
+                      "true_values": [
+                        "true"
+                      ],
+                      "false_values": [
+                        "false"
+                      ]
+                    }
+                  },
+                  {
+                    "component_id": "g7dmkv2mq6b6j9i6wjzgp9px",
+                    "label": "Dispense Quantity",
+                    "type": "XdCount",
+                    "description": "The number of units to dispense. FHIR MedicationRequest.dispenseRequest.quantity.",
+                    "value": 24,
+                    "units": {
+                      "label": "Items",
+                      "value": "Default : Items"
+                    }
+                  },
+                  {
+                    "component_id": "ond4lfpjkr28o8zhx6ee1mea",
+                    "label": "Number of Refills",
+                    "type": "XdCount",
+                    "description": "The number of refills allowed. FHIR MedicationRequest.dispenseRequest.numberOfRepeatsAllowed.",
+                    "value": 52,
+                    "units": {
+                      "label": "Items",
+                      "value": "Default : Items"
+                    }
+                  }
+                ]
+              },
+              {
+                "component_id": "oyz3k6rovf1ip7d91bdivgux",
+                "label": "Medication Route (SNOMED CT)",
+                "type": "Cluster",
+                "description": "The route of administration. A coded value: the SNOMED CT code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR MedicationRequest.dosageInstruction.route.",
+                "items": [
+                  {
+                    "component_id": "dleacf69t8nyhv6qf3qel6vq",
+                    "label": "Medication Route Code (SNOMED CT)",
+                    "type": "XdString",
+                    "description": "The SNOMED CT code for the route of administration. FHIR MedicationRequest.dosageInstruction.route, coded in http://snomed.info/sct.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 40
+                    }
+                  }
+                ]
+              },
+              {
+                "component_id": "jxjvqsheyabf3148aj60svvq",
+                "label": "Medication (RxNorm)",
+                "type": "Cluster",
+                "description": "The medication ordered. A coded value: the RxNorm code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR MedicationRequest.medicationCodeableConcept.",
+                "items": [
+                  {
+                    "component_id": "hipwsqy6c4of62xr7ul4ksog",
+                    "label": "Code System: RxNorm",
+                    "type": "XdLink",
+                    "description": "The code system of a coded value, fixed: RxNorm (http://www.nlm.nih.gov/research/umls/rxnorm). FHIR Coding.system.",
+                    "value": "http://example.org/resource"
+                  },
+                  {
+                    "component_id": "zht48k1ocjm7ugkes1mpn3e6",
+                    "label": "Medication Code (RxNorm)",
+                    "type": "XdString",
+                    "description": "The RxNorm code for the medication ordered. FHIR MedicationRequest.medicationCodeableConcept, coded in http://www.nlm.nih.gov/research/umls/rxnorm.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 40
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "component_id": "sgbjo7daa5cvoc98ic0m91ud",
+            "label": "Patient",
+            "type": "Cluster",
+            "description": "A patient: the Default person demographics by slot (name, birth date, administrative gender, language, country), the medical record number, marital status, death and multiple-birth facts, address, contact point, and references to the general practitioner and managing organization.",
+            "items": [
+              {
+                "component_id": "fnr5q1tfq42ez9jia9dqueho",
+                "label": "Deceased Indicator",
+                "type": "XdBoolean",
+                "description": "Whether the patient is deceased. FHIR Patient.deceasedBoolean.",
+                "value": true,
+                "constraints": {
+                  "true_values": [
+                    "true"
+                  ],
+                  "false_values": [
+                    "false"
+                  ]
+                }
+              },
+              {
+                "component_id": "atmov6klp3a57hmokoxlx77t",
+                "label": "Language Preferred",
+                "type": "XdBoolean",
+                "description": "Whether the language is the patient's preferred one. FHIR Patient.communication.preferred.",
+                "value": true,
+                "constraints": {
+                  "true_values": [
+                    "true"
+                  ],
+                  "false_values": [
+                    "false"
+                  ]
+                }
+              },
+              {
+                "component_id": "oe6dnqrrspu4fffjs8jcrdur",
+                "label": "Multiple Birth Indicator",
+                "type": "XdBoolean",
+                "description": "Whether the patient is part of a multiple birth. FHIR Patient.multipleBirthBoolean.",
+                "value": true,
+                "constraints": {
+                  "true_values": [
+                    "true"
+                  ],
+                  "false_values": [
+                    "false"
+                  ]
+                }
+              },
+              {
+                "component_id": "ezb3mjzu7ya2vsrfkt00t8mu",
+                "label": "General Practitioner Reference",
+                "type": "XdString",
+                "description": "The patient's nominated primary care provider. Holds the IRI of the referenced resource. FHIR Patient.generalPractitioner.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 2000
+                }
+              },
+              {
+                "component_id": "k1ahxtkgbqehv11vx9aw2fzz",
+                "label": "Managing Organization Reference",
+                "type": "XdString",
+                "description": "The organization that is the custodian of the patient record. Holds the IRI of the referenced resource. FHIR Patient.managingOrganization.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 2000
+                }
+              },
+              {
+                "component_id": "vxylrfo79n8ijkxeae68hhj4",
+                "label": "Medical Record Number",
+                "type": "XdString",
+                "description": "The medical record number identifying the patient in the system of record (HL7 v2 identifier type MR). FHIR Patient.identifier.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 64
+                }
+              },
+              {
+                "component_id": "z11vs0cvonack540omgwhxhz",
+                "label": "Marital Status",
+                "type": "XdToken",
+                "description": "The marital or civil status of a person, using the HL7 v3 MaritalStatus code system.",
+                "value": "S",
+                "constraints": {
+                  "enumerations": [
+                    "A",
+                    "C",
+                    "D",
+                    "I",
+                    "L",
+                    "M",
+                    "P",
+                    "S",
+                    "T",
+                    "U",
+                    "W"
+                  ]
+                }
+              },
+              {
+                "component_id": "u9xinstuoneeuzzarqut6gtz",
+                "label": "Multiple Birth Order",
+                "type": "XdCount",
+                "description": "The patient's order in a multiple birth. FHIR Patient.multipleBirthInteger.",
+                "value": 21,
+                "units": {
+                  "label": "Items",
+                  "value": "Default : Items"
+                }
+              },
+              {
+                "component_id": "vnlhr9c3ykayyegumhb09snf",
+                "label": "Deceased Date",
+                "type": "XdTemporal",
+                "description": "The date and time of death. FHIR Patient.deceasedDateTime.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "d2xwhnb2vqzxw70jcizj9csx",
+                "label": "Contact Point",
+                "type": "Cluster",
+                "description": "Ways to reach a person or organization: phone, fax, email, website, and the method and use of the contact.",
+                "items": [
+                  {
+                    "component_id": "wriny2gz8aqcvffmfpwbompk",
+                    "label": "Website URL",
+                    "type": "XdLink",
+                    "description": "The URL of a web page or online resource, such as an organization's website or a person's profile page.",
+                    "value": "http://example.org/resource"
+                  },
+                  {
+                    "component_id": "q922mqaon3yn5zlwf2bszf28",
+                    "label": "Email Address",
+                    "type": "XdString",
+                    "description": "An email address. The pattern requires a local part, an at sign and a domain with a dot; RFC 5321 limits the whole address to 254 characters.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 254
+                    }
+                  },
+                  {
+                    "component_id": "ll6ltsnvakomixuitxkbkxfz",
+                    "label": "Fax Number",
+                    "type": "XdString",
+                    "description": "A facsimile telephone number, optionally starting with a plus sign and country code, with digits, spaces, hyphens and parentheses allowed.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 20
+                    }
+                  },
+                  {
+                    "component_id": "zpfwg52r88j6jdypj7rg71ke",
+                    "label": "Phone Number",
+                    "type": "XdString",
+                    "description": "A telephone number, optionally starting with a plus sign and country code, with digits, spaces, hyphens and parentheses allowed.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 20
+                    }
+                  },
+                  {
+                    "component_id": "miqo30r5b554nyj7ubryw43x",
+                    "label": "Contact Method",
+                    "type": "XdToken",
+                    "description": "The communication channel of a contact point.",
+                    "value": "email",
+                    "constraints": {
+                      "enumerations": [
+                        "phone",
+                        "fax",
+                        "email",
+                        "pager",
+                        "url",
+                        "sms",
+                        "other"
+                      ]
+                    }
+                  },
+                  {
+                    "component_id": "vmruk4j9y1orvvz8cwafrax5",
+                    "label": "Contact Use",
+                    "type": "XdToken",
+                    "description": "The purpose of a contact point.",
+                    "value": "work",
+                    "constraints": {
+                      "enumerations": [
+                        "home",
+                        "work",
+                        "temp",
+                        "old",
+                        "mobile"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "component_id": "upawqojmcfg3qsf4ffzi47ho",
+                "label": "International Address",
+                "type": "Cluster",
+                "description": "A mailing address in any country: street lines, city, region, postal code, country and use.",
+                "items": [
+                  {
+                    "component_id": "ncxxt7wgs7soxw7kbmapxvg3",
+                    "label": "Address (Line 1)",
+                    "type": "XdString",
+                    "description": "The first line of a street address: street number and name, or a post office box.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 200
+                    }
+                  },
+                  {
+                    "component_id": "sexw93x5276zwsn1qx15htpv",
+                    "label": "Address (Line 2)",
+                    "type": "XdString",
+                    "description": "The second line of a street address: apartment, suite, unit, building or floor, when the first line does not carry it.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 200
+                    }
+                  },
+                  {
+                    "component_id": "toysvef93azt57fgh8rwpd4b",
+                    "label": "City Name",
+                    "type": "XdString",
+                    "description": "The name of the city, town or village in an address.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 100
+                    }
+                  },
+                  {
+                    "component_id": "gf841eedvv6cjiegs934srai",
+                    "label": "Postal Code",
+                    "type": "XdString",
+                    "description": "The postal code of an address in any country, with no format constraint. Use US ZIP Code or Canada Postal Code where the format is known.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 15
+                    }
+                  },
+                  {
+                    "component_id": "jw1b9q6ulyte599sdsqp2mvp",
+                    "label": "Region Name",
+                    "type": "XdString",
+                    "description": "The name of the state, province or other administrative region in an address, written out rather than coded.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 100
+                    }
+                  },
+                  {
+                    "component_id": "b25dj42zxhm19pih328ga8pl",
+                    "label": "Address Use",
+                    "type": "XdToken",
+                    "description": "The purpose of an address.",
+                    "value": "temp",
+                    "constraints": {
+                      "enumerations": [
+                        "home",
+                        "work",
+                        "temp",
+                        "old",
+                        "billing"
+                      ]
+                    }
+                  },
+                  {
+                    "component_id": "f2jicaigehz7xmwcp1gm5gh0",
+                    "label": "Country Code ISO 3166",
+                    "type": "XdToken",
+                    "description": "The ISO 3166-1 alpha-2 code of a country or territory: the complete list of 249 officially assigned codes. Each value is defined by its Wikidata entity.",
+                    "value": "SZ",
+                    "constraints": {
+                      "enumerations": [
+                        "AD",
+                        "AE",
+                        "AF",
+                        "AG",
+                        "AI",
+                        "AL",
+                        "AM",
+                        "AO",
+                        "AQ",
+                        "AR",
+                        "AS",
+                        "AT",
+                        "AU",
+                        "AW",
+                        "AX",
+                        "AZ",
+                        "BA",
+                        "BB",
+                        "BD",
+                        "BE",
+                        "BF",
+                        "BG",
+                        "BH",
+                        "BI",
+                        "BJ",
+                        "BL",
+                        "BM",
+                        "BN",
+                        "BO",
+                        "BQ",
+                        "BR",
+                        "BS",
+                        "BT",
+                        "BV",
+                        "BW",
+                        "BY",
+                        "BZ",
+                        "CA",
+                        "CC",
+                        "CD",
+                        "CF",
+                        "CG",
+                        "CH",
+                        "CI",
+                        "CK",
+                        "CL",
+                        "CM",
+                        "CN",
+                        "CO",
+                        "CR",
+                        "CU",
+                        "CV",
+                        "CW",
+                        "CX",
+                        "CY",
+                        "CZ",
+                        "DE",
+                        "DJ",
+                        "DK",
+                        "DM",
+                        "DO",
+                        "DZ",
+                        "EC",
+                        "EE",
+                        "EG",
+                        "EH",
+                        "ER",
+                        "ES",
+                        "ET",
+                        "FI",
+                        "FJ",
+                        "FK",
+                        "FM",
+                        "FO",
+                        "FR",
+                        "GA",
+                        "GB",
+                        "GD",
+                        "GE",
+                        "GF",
+                        "GG",
+                        "GH",
+                        "GI",
+                        "GL",
+                        "GM",
+                        "GN",
+                        "GP",
+                        "GQ",
+                        "GR",
+                        "GS",
+                        "GT",
+                        "GU",
+                        "GW",
+                        "GY",
+                        "HK",
+                        "HM",
+                        "HN",
+                        "HR",
+                        "HT",
+                        "HU",
+                        "ID",
+                        "IE",
+                        "IL",
+                        "IM",
+                        "IN",
+                        "IO",
+                        "IQ",
+                        "IR",
+                        "IS",
+                        "IT",
+                        "JE",
+                        "JM",
+                        "JO",
+                        "JP",
+                        "KE",
+                        "KG",
+                        "KH",
+                        "KI",
+                        "KM",
+                        "KN",
+                        "KP",
+                        "KR",
+                        "KW",
+                        "KY",
+                        "KZ",
+                        "LA",
+                        "LB",
+                        "LC",
+                        "LI",
+                        "LK",
+                        "LR",
+                        "LS",
+                        "LT",
+                        "LU",
+                        "LV",
+                        "LY",
+                        "MA",
+                        "MC",
+                        "MD",
+                        "ME",
+                        "MF",
+                        "MG",
+                        "MH",
+                        "MK",
+                        "ML",
+                        "MM",
+                        "MN",
+                        "MO",
+                        "MP",
+                        "MQ",
+                        "MR",
+                        "MS",
+                        "MT",
+                        "MU",
+                        "MV",
+                        "MW",
+                        "MX",
+                        "MY",
+                        "MZ",
+                        "NA",
+                        "NC",
+                        "NE",
+                        "NF",
+                        "NG",
+                        "NI",
+                        "NL",
+                        "NO",
+                        "NP",
+                        "NR",
+                        "NU",
+                        "NZ",
+                        "OM",
+                        "PA",
+                        "PE",
+                        "PF",
+                        "PG",
+                        "PH",
+                        "PK",
+                        "PL",
+                        "PM",
+                        "PN",
+                        "PR",
+                        "PS",
+                        "PT",
+                        "PW",
+                        "PY",
+                        "QA",
+                        "RE",
+                        "RO",
+                        "RS",
+                        "RU",
+                        "RW",
+                        "SA",
+                        "SB",
+                        "SC",
+                        "SD",
+                        "SE",
+                        "SG",
+                        "SH",
+                        "SI",
+                        "SJ",
+                        "SK",
+                        "SL",
+                        "SM",
+                        "SN",
+                        "SO",
+                        "SR",
+                        "SS",
+                        "ST",
+                        "SV",
+                        "SX",
+                        "SY",
+                        "SZ",
+                        "TC",
+                        "TD",
+                        "TF",
+                        "TG",
+                        "TH",
+                        "TJ",
+                        "TK",
+                        "TL",
+                        "TM",
+                        "TN",
+                        "TO",
+                        "TR",
+                        "TT",
+                        "TV",
+                        "TW",
+                        "TZ",
+                        "UA",
+                        "UG",
+                        "UM",
+                        "US",
+                        "UY",
+                        "UZ",
+                        "VA",
+                        "VC",
+                        "VE",
+                        "VG",
+                        "VI",
+                        "VN",
+                        "VU",
+                        "WF",
+                        "WS",
+                        "YE",
+                        "YT",
+                        "ZA",
+                        "ZM",
+                        "ZW"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "component_id": "vag4j8x1v4bp92xkmks7q4to",
+                "label": "Person (Demographics)",
+                "type": "Cluster",
+                "description": "The demographic core of a person record: name, date of birth, administrative gender, language and country.",
+                "items": [
+                  {
+                    "component_id": "gxzbm758mhdz51xd4bawlfhh",
+                    "label": "Administrative Gender",
+                    "type": "XdToken",
+                    "description": "The gender a person is recorded as for administrative purposes. Not clinical or biological sex; see Sex (Recorded).",
+                    "value": "female",
+                    "constraints": {
+                      "enumerations": [
+                        "male",
+                        "female",
+                        "other",
+                        "unknown"
+                      ]
+                    }
+                  },
+                  {
+                    "component_id": "no649c8yiebkyujhlbwjuppx",
+                    "label": "Language Code",
+                    "type": "XdToken",
+                    "description": "The ISO 639-1 two-letter code of a language: the complete list of 184 codes, which are also the BCP 47 primary language subtags. Each value is defined by its Wikidata entity.",
+                    "value": "hz",
+                    "constraints": {
+                      "enumerations": [
+                        "aa",
+                        "ab",
+                        "ae",
+                        "af",
+                        "ak",
+                        "am",
+                        "an",
+                        "ar",
+                        "as",
+                        "av",
+                        "ay",
+                        "az",
+                        "ba",
+                        "be",
+                        "bg",
+                        "bi",
+                        "bm",
+                        "bn",
+                        "bo",
+                        "br",
+                        "bs",
+                        "ca",
+                        "ce",
+                        "ch",
+                        "co",
+                        "cr",
+                        "cs",
+                        "cu",
+                        "cv",
+                        "cy",
+                        "da",
+                        "de",
+                        "dv",
+                        "dz",
+                        "ee",
+                        "el",
+                        "en",
+                        "eo",
+                        "es",
+                        "et",
+                        "eu",
+                        "fa",
+                        "ff",
+                        "fi",
+                        "fj",
+                        "fo",
+                        "fr",
+                        "fy",
+                        "ga",
+                        "gd",
+                        "gl",
+                        "gn",
+                        "gu",
+                        "gv",
+                        "ha",
+                        "he",
+                        "hi",
+                        "ho",
+                        "hr",
+                        "ht",
+                        "hu",
+                        "hy",
+                        "hz",
+                        "ia",
+                        "id",
+                        "ie",
+                        "ig",
+                        "ii",
+                        "ik",
+                        "io",
+                        "is",
+                        "it",
+                        "iu",
+                        "ja",
+                        "jv",
+                        "ka",
+                        "kg",
+                        "ki",
+                        "kj",
+                        "kk",
+                        "kl",
+                        "km",
+                        "kn",
+                        "ko",
+                        "kr",
+                        "ks",
+                        "ku",
+                        "kv",
+                        "kw",
+                        "ky",
+                        "la",
+                        "lb",
+                        "lg",
+                        "li",
+                        "ln",
+                        "lo",
+                        "lt",
+                        "lu",
+                        "lv",
+                        "mg",
+                        "mh",
+                        "mi",
+                        "mk",
+                        "ml",
+                        "mn",
+                        "mr",
+                        "ms",
+                        "mt",
+                        "my",
+                        "na",
+                        "nb",
+                        "nd",
+                        "ne",
+                        "ng",
+                        "nl",
+                        "nn",
+                        "no",
+                        "nr",
+                        "nv",
+                        "ny",
+                        "oc",
+                        "oj",
+                        "om",
+                        "or",
+                        "os",
+                        "pa",
+                        "pi",
+                        "pl",
+                        "ps",
+                        "pt",
+                        "qu",
+                        "rm",
+                        "rn",
+                        "ro",
+                        "ru",
+                        "rw",
+                        "sa",
+                        "sc",
+                        "sd",
+                        "se",
+                        "sg",
+                        "sh",
+                        "si",
+                        "sk",
+                        "sl",
+                        "sm",
+                        "sn",
+                        "so",
+                        "sq",
+                        "sr",
+                        "ss",
+                        "st",
+                        "su",
+                        "sv",
+                        "sw",
+                        "ta",
+                        "te",
+                        "tg",
+                        "th",
+                        "ti",
+                        "tk",
+                        "tl",
+                        "tn",
+                        "to",
+                        "tr",
+                        "ts",
+                        "tt",
+                        "tw",
+                        "ty",
+                        "ug",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "ve",
+                        "vi",
+                        "vo",
+                        "wa",
+                        "wo",
+                        "xh",
+                        "yi",
+                        "yo",
+                        "za",
+                        "zh",
+                        "zu"
+                      ]
+                    }
+                  },
+                  {
+                    "component_id": "js564tazefb6udqlh12rj04l",
+                    "label": "Date of Birth",
+                    "type": "XdTemporal",
+                    "description": "The date a person was born.",
+                    "value": "2024-01-01T00:00:00"
+                  },
+                  {
+                    "component_id": "ytw6qjtq5gilrvkfsohsrlkh",
+                    "label": "Full Name (Person)",
+                    "type": "Cluster",
+                    "description": "The parts of a person's name and how the name is used.",
+                    "items": [
+                      {
+                        "component_id": "l9l169co9r23e6fftpvdz4e3",
+                        "label": "Given Name (Person)",
+                        "type": "XdString",
+                        "description": "The name given to a person at birth or naming, distinguishing them from others in the same family. Also called first name or forename.",
+                        "value": "DefaultString",
+                        "constraints": {
+                          "min_length": 1,
+                          "max_length": 100
+                        }
+                      },
+                      {
+                        "component_id": "zcf4f5kjjo497jeb9vtt9rmr",
+                        "label": "Middle Name (Person)",
+                        "type": "XdString",
+                        "description": "An additional given name, placed between the first given name and the surname.",
+                        "value": "DefaultString",
+                        "constraints": {
+                          "min_length": 1,
+                          "max_length": 100
+                        }
+                      },
+                      {
+                        "component_id": "yahxccv0l1z6ykjxayzkdlkq",
+                        "label": "Name Prefix",
+                        "type": "XdString",
+                        "description": "An honorific or title placed before a person's name, such as Mr., Ms., Dr. or Prof.",
+                        "value": "DefaultString",
+                        "constraints": {
+                          "max_length": 20
+                        }
+                      },
+                      {
+                        "component_id": "l509t0zajfl5atns64d5kl97",
+                        "label": "Name Suffix",
+                        "type": "XdString",
+                        "description": "A suffix placed after a person's name, such as Jr., Sr., III, PhD, MD or Esq.",
+                        "value": "DefaultString",
+                        "constraints": {
+                          "max_length": 20
+                        }
+                      },
+                      {
+                        "component_id": "jc1lfk3ovt6l8frhxvx8b669",
+                        "label": "Surname (Person)",
+                        "type": "XdString",
+                        "description": "The family name of a person, shared with other members of the family. Also called last name or family name.",
+                        "value": "DefaultString",
+                        "constraints": {
+                          "min_length": 1,
+                          "max_length": 100
+                        }
+                      },
+                      {
+                        "component_id": "bfqinvm7qrgi9jjw1i637moh",
+                        "label": "Name Use",
+                        "type": "XdToken",
+                        "description": "The purpose or context of a person's name.",
+                        "value": "nickname",
+                        "constraints": {
+                          "enumerations": [
+                            "usual",
+                            "official",
+                            "temp",
+                            "nickname",
+                            "anonymous",
+                            "old",
+                            "maiden"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "component_id": "atvd5lzut4pjzc7dpv1ykb92",
+            "label": "Vital Signs Panel",
+            "type": "Cluster",
+            "description": "The vital signs of one measurement session: height, weight, temperature, heart and respiratory rate, oxygen saturation, BMI and blood pressure.",
+            "items": [
+              {
+                "component_id": "q9vmn1cvdclgr757aer5v1rg",
+                "label": "Observation Status",
+                "type": "XdToken",
+                "description": "The status of the observation result. FHIR Observation.status; ObservationStatus, version 4.0.1.",
+                "value": "preliminary",
+                "constraints": {
+                  "enumerations": [
+                    "registered",
+                    "preliminary",
+                    "final",
+                    "amended",
+                    "corrected",
+                    "cancelled",
+                    "entered-in-error",
+                    "unknown"
+                  ]
+                }
+              },
+              {
+                "component_id": "z1ezf3vzksp7qpgd9l3uxvqo",
+                "label": "Body Height",
+                "type": "XdQuantity",
+                "description": "Body Height (LOINC 8302-2), in the Default units by slot. FHIR Observation.valueQuantity.",
+                "value": 50.5,
+                "magnitude": {
+                  "value": 50.5,
+                  "min_inclusive": 0.0
+                },
+                "units": {
+                  "label": "Length/Distance (SI - Metric)",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "dchiej5tv7tyhfwr6h3ync1i",
+                "label": "Body Mass Index",
+                "type": "XdQuantity",
+                "description": "Body mass index (LOINC 39156-5) in kg/m2. FHIR Observation.valueQuantity.",
+                "value": 4.7,
+                "magnitude": {
+                  "value": 4.7,
+                  "min_inclusive": 0.0
+                },
+                "units": {
+                  "label": "Body Mass Index Units",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "ppqdmkbjmd3gn0p2i74ue3ox",
+                "label": "Body Temperature",
+                "type": "XdQuantity",
+                "description": "Body Temperature (LOINC 8310-5), in the Default units by slot. FHIR Observation.valueQuantity.",
+                "value": 37.3,
+                "magnitude": {
+                  "value": 37.3
+                },
+                "units": {
+                  "label": "Temperature (SI - Metric)",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "doxdajuj6j1mk480zd1k7ssz",
+                "label": "Body Weight",
+                "type": "XdQuantity",
+                "description": "Body Weight (LOINC 29463-7), in the Default units by slot. FHIR Observation.valueQuantity.",
+                "value": 97.1,
+                "magnitude": {
+                  "value": 97.1,
+                  "min_inclusive": 0.0
+                },
+                "units": {
+                  "label": "Mass/Weight (SI - Metric)",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "oy0jwif5pi86xtimzxzhapvu",
+                "label": "Heart Rate",
+                "type": "XdQuantity",
+                "description": "Heart Rate (LOINC 8867-4), in the Default units by slot. FHIR Observation.valueQuantity.",
+                "value": 81.8,
+                "magnitude": {
+                  "value": 81.8,
+                  "min_inclusive": 0.0
+                },
+                "units": {
+                  "label": "Rate",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "htr0gulg01caowd76j6v4ukh",
+                "label": "Oxygen Saturation",
+                "type": "XdQuantity",
+                "description": "Oxygen Saturation (LOINC 2708-6), in the Default units by slot. FHIR Observation.valueQuantity.",
+                "value": 72.4,
+                "magnitude": {
+                  "value": 72.4,
+                  "min_inclusive": 0.0,
+                  "max_inclusive": 100.0
+                },
+                "units": {
+                  "label": "Percentage",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "nzq70mbegncgc6hdfp7vtu46",
+                "label": "Respiratory Rate",
+                "type": "XdQuantity",
+                "description": "Respiratory Rate (LOINC 9279-1), in the Default units by slot. FHIR Observation.valueQuantity.",
+                "value": 8.7,
+                "magnitude": {
+                  "value": 8.7,
+                  "min_inclusive": 0.0
+                },
+                "units": {
+                  "label": "Rate",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "dkyyj01tksb7h7akq2w7moum",
+                "label": "Observation Date Time",
+                "type": "XdTemporal",
+                "description": "The clinically relevant time of the observation. FHIR Observation.effectiveDateTime.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "wyk9e1d74y5xrgv97o9y75ib",
+                "label": "Blood Pressure",
+                "type": "Cluster",
+                "description": "A blood pressure reading: systolic and diastolic, body site, status and time.",
+                "items": [
+                  {
+                    "component_id": "s3qzwxxz9b42lcd2wryok8jd",
+                    "label": "Diastolic Blood Pressure",
+                    "type": "XdQuantity",
+                    "description": "Diastolic Blood Pressure (LOINC 8462-4), in the Default units by slot. FHIR Observation.valueQuantity.",
+                    "value": 8.5,
+                    "magnitude": {
+                      "value": 8.5,
+                      "min_inclusive": 0.0
+                    },
+                    "units": {
+                      "label": "Pressure",
+                      "symbol": "%",
+                      "system": "ISO"
+                    }
+                  },
+                  {
+                    "component_id": "r1ve12xphsb5hu2yjmhksw5h",
+                    "label": "Systolic Blood Pressure",
+                    "type": "XdQuantity",
+                    "description": "Systolic Blood Pressure (LOINC 8480-6), in the Default units by slot. FHIR Observation.valueQuantity.",
+                    "value": 37.2,
+                    "magnitude": {
+                      "value": 37.2,
+                      "min_inclusive": 0.0
+                    },
+                    "units": {
+                      "label": "Pressure",
+                      "symbol": "%",
+                      "system": "ISO"
+                    }
+                  },
+                  {
+                    "component_id": "r5koa840csi3zcewts0uo0r5",
+                    "label": "Body Site (SNOMED CT)",
+                    "type": "Cluster",
+                    "description": "The body site the observation was made on. A coded value: the SNOMED CT code, its display text and the fixed code system, resolved on the code system IRI (FHIR Coding). FHIR Observation.bodySite.",
+                    "items": [
+                      {
+                        "component_id": "vi7yvq0b8nler3g6alaamrzm",
+                        "label": "Body Site Code (SNOMED CT)",
+                        "type": "XdString",
+                        "description": "The SNOMED CT code for the body site the observation was made on. FHIR Observation.bodySite, coded in http://snomed.info/sct.",
+                        "value": "DefaultString",
+                        "constraints": {
+                          "max_length": 40
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component_id": "vmikfu0irht9fmq7q02t3oqs",
+        "label": "PROV Activity",
+        "type": "Cluster",
+        "description": "A PROV activity: what it was, when it ran, its status, and the entities, activities, agent and plan it relates to.",
+        "items": [
+          {
+            "component_id": "hhusuzzig19rs46ngz23k5g7",
+            "label": "Activity Description",
+            "type": "XdString",
+            "description": "A description of what the activity does and why.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 4000
+            }
+          },
+          {
+            "component_id": "wr06h54xqqw2q9id8i9673jy",
+            "label": "Activity Identifier",
+            "type": "XdString",
+            "description": "The identifier of a PROV activity: a URI or another globally unique identifier.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "r6hkunjm2q0hlxiknlc9ljix",
+            "label": "Activity Label",
+            "type": "XdString",
+            "description": "A human-readable label for a PROV activity.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "uzai5uey5p1fnn9ezj9u6vor",
+            "label": "Activity Location",
+            "type": "XdString",
+            "description": "Where the activity took place (prov:atLocation), as text.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "jjzmhdxvbt97pq81iwqubtxk",
+            "label": "Activity Type",
+            "type": "XdString",
+            "description": "The kind of activity, in the vocabulary of the domain (prov:type).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "xlgjqdpwdbn2re3mdh5yy2rk",
+            "label": "Error Message",
+            "type": "XdString",
+            "description": "The error the activity reported, if it failed.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 4000
+            }
+          },
+          {
+            "component_id": "vhezo2cckpe92x4c3j2memeh",
+            "label": "Had Plan Reference",
+            "type": "XdString",
+            "description": "The plan the activity followed (prov:hadPlan). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "t0whhrqtnb54te4mk48i1ooj",
+            "label": "Used Entity Reference",
+            "type": "XdString",
+            "description": "An entity the activity used (prov:used). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "r48alj7hc3797qfjnf2uj71n",
+            "label": "Was Associated With Reference",
+            "type": "XdString",
+            "description": "The agent associated with the activity (prov:wasAssociatedWith). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "ueb5g1ojzlwwt0mnds5zb6wl",
+            "label": "Was Ended By Reference",
+            "type": "XdString",
+            "description": "The entity that ended the activity (prov:wasEndedBy). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "qh84jdzp1kxt85aq4ilo0svk",
+            "label": "Was Informed By Reference",
+            "type": "XdString",
+            "description": "An activity that informed this one (prov:wasInformedBy). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "ginfqbk7q59ld2r4us8sjnv1",
+            "label": "Was Started By Reference",
+            "type": "XdString",
+            "description": "The entity that started the activity (prov:wasStartedBy). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "wl6j4ekcmu4hvt2m12zw4zp8",
+            "label": "Activity Status",
+            "type": "XdToken",
+            "description": "The state of an activity, from the Data Privacy Vocabulary activity status concepts.",
+            "value": "ActivityNotCompleted",
+            "constraints": {
+              "enumerations": [
+                "ActivityProposed",
+                "ActivityPlanned",
+                "ActivityOngoing",
+                "ActivityHalted",
+                "ActivityCompleted",
+                "ActivityNotCompleted"
+              ]
+            }
+          },
+          {
+            "component_id": "a5scyosu6j84vz350mqyrzl2",
+            "label": "Ended At",
+            "type": "XdTemporal",
+            "description": "When the activity ended (prov:endedAtTime).",
+            "value": "2024-01-01T00:00:00"
+          },
+          {
+            "component_id": "sa4nl1kbpdr842fkucvfjkpq",
+            "label": "Started At",
+            "type": "XdTemporal",
+            "description": "When the activity started (prov:startedAtTime).",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "c179ilk2ns15cd5rzzdfd6f6",
+        "label": "PROV Agent",
+        "type": "Cluster",
+        "description": "A PROV agent: a person, organization or software agent, with its identity, contact and delegation.",
+        "items": [
+          {
+            "component_id": "og08xf6bu928uuz6t3y0e23f",
+            "label": "Acted On Behalf Of Reference",
+            "type": "XdString",
+            "description": "The agent on whose behalf this agent acted (prov:actedOnBehalfOf). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "gb78cmuyo72hqs5apymdki7l",
+            "label": "Agent Description",
+            "type": "XdString",
+            "description": "A description of the agent and its responsibilities.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 4000
+            }
+          },
+          {
+            "component_id": "qb90a0sp9vvb6c5cbcf236ys",
+            "label": "Agent Email",
+            "type": "XdString",
+            "description": "The agent's email address (foaf:mbox).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "w2ruemcfy35rw60jl1t9dew2",
+            "label": "Agent Identifier",
+            "type": "XdString",
+            "description": "The identifier of a PROV agent: a URI or another globally unique identifier.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "xxe21o9ojzmy9wxxky1tnmog",
+            "label": "Agent Name",
+            "type": "XdString",
+            "description": "The name of the agent (foaf:name).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "eftvwi5byq6cdtd931qyxzw0",
+            "label": "Agent Organization Name",
+            "type": "XdString",
+            "description": "The organization the agent belongs to or is.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "aa663ivutjf2fs4757t0bbzy",
+            "label": "Software Name",
+            "type": "XdString",
+            "description": "The name of a software agent.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "x0lebwtobgaelj5pev3258sd",
+            "label": "Software Version",
+            "type": "XdString",
+            "description": "The version of a software agent.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 60
+            }
+          },
+          {
+            "component_id": "i16vqj89it3db7d3c5qjko9p",
+            "label": "PROV Agent Type",
+            "type": "XdToken",
+            "description": "The kind of PROV agent: person, organization or software agent.",
+            "value": "SoftwareAgent",
+            "constraints": {
+              "enumerations": [
+                "Person",
+                "Organization",
+                "SoftwareAgent"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

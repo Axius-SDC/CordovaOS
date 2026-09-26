@@ -19,12 +19,14 @@ Queries 1-6 are general-purpose government analytics. Query 7 is the Contagion c
 | 4 | Supply Chain Provenance | Maritime, Business, Tax | Cargo-to-tax audit trail |
 | 5 | Family Economic Unit | Civil Registry, Employment, Property, Tax, Education | Household aggregate view |
 | 6 | Institutional Impact | Education, Employment, Business, Tax | University alumni economic footprint |
-| 7 | Contagion Contact Tracing | Maritime, Civil Registry, Employment, Education | 4-tier exposure network (356 contacts) |
+| 7 | Contagion Contact Tracing | Healthcare, Maritime, Law Enforcement, Education | 4-tier exposure network |
 
 ## Cross-Domain Join Mechanism
 
-SDC4 instances join across domains via two mechanisms:
-
-1. **Shared component ct_id** -- National ID (`mc-nj7s1gk45tfgyooxpz0qaha3`) and Business Registry Number (`mc-l8f0m7op4xhrxqy1jrnvbuly`) are reused by ct_id across domain schemas. Same component definition, same value predicates.
-
-2. **Party identity** -- `sdc4:party-id` on subject/provider parties carries CID (persons) or BRN (businesses), enabling cross-domain identity resolution without probabilistic matching.
+SDC4 instances join across domains by one mechanism: a **shared component**. The
+National ID (`mc-nj7s1gk45tfgyooxpz0qaha3`) is composed by eight of the ten 4.4.0
+models and the Business Registry Number (`mc-l8f0m7op4xhrxqy1jrnvbuly`) by four,
+each by its identifier slot in the component library. Same component definition,
+same value predicates, no mapping table. Every other identifier a query anchors on
+(a diagnosis code, a vessel name, an organization name) is likewise the published
+component's `mc-` id, read from `app/sdc4/mediafiles/dmlib/dm-<ct_id>.xsd`.

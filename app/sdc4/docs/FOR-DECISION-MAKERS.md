@@ -39,7 +39,7 @@ after it.
 
 ### 1. Start at the front door, `/console/`
 
-Ten domains, 1,462 records, generated from one model. Note the third figure:
+Ten domains, 1,460 records, generated from one model. Note the third figure:
 **seven records refused**. We will come back to those, and the fact that a
 demonstration shows you its failures is itself the point.
 
@@ -81,12 +81,16 @@ false with great confidence.
 
 ### 5. Ask the cross-domain question, `/console/question/`
 
-Four separately built government systems. 250 people, 883 records, joined in
-about a seventh of a second. **75 of those people appear in all four.**
+Eight separately built government systems. 250 people, 1,308 records, joined in
+a quarter of a second. **217 of those people appear in four or more of them, and
+one appears in all eight.**
 
 The figure to hold onto is the third one: **zero mapping tables consulted.** The
-four systems agree on what identifies a person because they use the same
-published component, not four local conventions that somebody reconciles later.
+eight systems agree on what identifies a person because they compose the same
+published component, not eight local conventions that somebody reconciles later.
+Scroll down: the second question on the page follows exposed people to their
+employers, and the employers to the business registry and the tax office, on one
+more shared component, the business registry number.
 
 In most estates this question is a project. Here it is a query, and the query is
 printed on the page so nobody has to take our word for it.
@@ -95,13 +99,18 @@ printed on the page so nobody has to take our word for it.
 
 ## What this demonstration deliberately does not do
 
-A page on the console says it in plain terms: the question a minister would
-rather ask, which businesses employ exposed people and what trade is at risk, is
-not answerable from this dataset, and it names the reason.
-
-We could have staged it. We would rather show you a demonstration that tells you
-where its own edges are, because that is the behaviour you should require from
-anyone selling you a data platform.
+The console tells you where its own edges are, because that is the behaviour
+you should require from anyone selling you a data platform. Until this release
+the question a minister would rather ask, which businesses employ exposed people
+and what trade is at risk, was not answerable from the data, and the page said
+so and named the reason: employment records carried the employer as free text.
+The models now carry the employer as the same registered identifier the business
+registry and the tax office use, so the page answers it, and shows the query.
+Where a chain still cannot run, the page will say so rather than stage it: the
+port authority's crew lists carry a name and a birth date, not the national
+identifier, so a crew member is matched to a resident by those and not by the
+identifier component. That is a modelling decision in the maritime standard the
+model follows, and it is recorded rather than papered over.
 
 The data is synthetic throughout. Cordova is not a country.
 

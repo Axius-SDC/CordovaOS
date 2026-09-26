@@ -1,280 +1,129 @@
 """
-Generate Civil Registry XML instances for CordovaOS demo.
+Civil Registry 4.4.0: one record per resident.
 
-Produces 25,000 records: 8 Contagion cast + 24,992 background residents.
-Output: /home/twcook/GitHub/CordovaOS/app/sdc4/import_data/civil_registry/
+The model composes the Default library's person demographics and name, the FHIR
+contact point, Cordova's own address, identifier and administrative codes, and a
+family relationship that names the related person by their CID, so the household
+is a join on the CID component rather than a free-text relationship. 8 Contagion
+cast members + background residents (24,992 full, 242 demo).
 """
-import os
 import random
 
 from shared import (
-    scaled,
-    CAST, PERSONS, ALL_CITIES, CITY_TO_PROVINCE, PROVINCE_CODES, CITY_CODES,
-    PROVINCE_CITIES, AGE_DISTRIBUTION,
-    random_name, random_city_province, random_address, random_dob,
-    generate_cid_for_city, generate_phone, generate_email,
-    xml_header, xml_preamble, xml_footer, write_xml,
-    xdstring, xdtoken, xdtemporal, cluster_open, cluster_close, native_partytype,
-    _esc, cuid_generator, make_provenance_values, audit, attestation,
+    CAST, PERSONS, AGE_DISTRIBUTION, CITY_TO_PROVINCE,
+    scaled, random_name, random_city_province, random_address, random_dob,
+    generate_cid_for_city, generate_phone, generate_email, full_name,
+    record, write_record, import_dir,
 )
 
-CT_ID = "uika42uwtj3ijdbegzw2kcwq"
-DM_LABEL = "Civil Registry"
+TITLE = "Civil Registry"
+SYSTEM = "Cordova Civil Registry System"
+OUTPUT_DIR = import_dir("civil_registry")
 
-OUTPUT_DIR = os.path.join(
-    os.path.dirname(__file__),
-    "..", "app", "sdc4", "import_data", "civil_registry",
-)
-
-# ─── Component → Wrapper mappings (from XML template) ────────────────────────
-
-# v2 governance envelope: Item wrapper (Governed Record) + provenance cluster
-GOVERNED_RECORD = "ms-aan7382wp8e2f58m9a2hvmkp"
-CL_PROV         = "ms-hdhjfg00tngir2txgqyka9cv"
-
-# Direct children of data cluster ms-bgjt4mvgvkxcn6hurg37u21b (adapters re-keyed for v2)
-W_NATIONAL_ID   = ("ms-nj7s1gk45tfgyooxpz0qaha3", "ms-t0c3s7wh8ovy5vbe9msunb6l")
-W_COUNTRY_BIRTH = ("ms-cfg2l8ym4ve833ritrxu765t", "ms-p3ij8rc662lwqmpqol2872cw")
-W_GIVEN_NAME    = ("ms-kfyzf8u8gdafcpt5kfh2qg3q", "ms-twmii54li19ft93h0yh86t6e")
-W_MIDDLE_NAME   = ("ms-oit0ueglhjfcyq80z22kl2z3", "ms-de26ni6h9whfjaicpbwurrjy")
-W_SURNAME       = ("ms-v8jgjo2sml12jo7zrb8swoxi", "ms-mjwbkhvdvivh960h5pl9wvmc")
-W_CITY          = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-zzjz4kq32ov2t3yz29rous11")
-W_MARITAL       = ("ms-vjfgimlbb90ds2xg55tfn941", "ms-ctnr6gdmgmk2ewc3k2y7jmxz")
-W_PROVINCE      = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-u5kc4izy13fl1w9i42d755g2")
-W_GENDER        = ("ms-cymq16em5zb20whgtfzki6n5", "ms-rg868u2f39sd4dml41qmvb5g")
-W_SEX           = ("ms-mw9qdn71urog8egjbp5t3y00", "ms-l7xqqb7zdnan8xlgwz9slzvc")
-W_BIRTH_DATE    = ("ms-g3k6bj8su3rvkszg2700dhyh", "ms-g5jflwlh7uqnv3wn3fvzgqm0")
-
-# Contact Information sub-cluster ms-sv48g8am8vqs46nodiugripz
-W_EMAIL         = ("ms-x0na649n17if0ukul82cmrx3", "ms-y6t4dsqb4fshvot6kluwhh93")
-W_PHONE         = ("ms-nfrvvp87c5imu5h9ups92kgy", "ms-fhap17gcstsi1meu1zj6omey")
-W_CONTACT_PREF  = ("ms-zlz64jydsmhb5zmytcm2ewyg", "ms-y57becs6itkmfuki4zto50q5")
-
-# Current Address sub-cluster ms-ytctcqbr30kxsmvx4jk7lae2
-W_ADDR1         = ("ms-l338k7nlvnq2am0owa19yxfc", "ms-zt0gzgevpj2blnlb53ugi2x6")
-W_ADDR2         = ("ms-ek5h6dsqpd9kz0l4mcckmxpt", "ms-e9s2tbz2nt33hs8wbwuom26f")
-
-# Family Relationships sub-cluster ms-l9k2fmlc5vn477r3kpi1ufal
-W_REL_TYPE      = ("ms-be9apjt8mvjjv86qzycorcjl", "ms-iqu2fnaauc8xtqjdb3n8mdpq")
-W_REL_END       = ("ms-o7vjxwswi0pxo543hq504jjx", "ms-h9bw26pl85dvs0gj6hdoc5w1")
-W_REL_START     = ("ms-k9ptlhkq3j41p6umlg3tc80x", "ms-suw2v4owv62650le4ivwfmiq")
-
-# Provenance Components leaves (component, adapter)
-P_ACT_DESC      = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-vb92fwm68b89xnh8yq0ak7q9")
-P_ACT_TYPE      = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-z2dj324utvs8u5jzqhok0qtr")
-P_SYS_ID        = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-tv784pcmj8nkgnh0mdvl48tf")
-P_LOC_ID        = ("ms-zr59goe24qkocprl3feul3mt", "ms-us2lslh29a0482cr1cj705uk")
-P_LOC_NAME      = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-b5ijistq1vzxbhiorpoy1u36")
-P_TS_END        = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-u30evp7zgm32lqxdv16pus5p")
-P_TS_START      = ("ms-o72s5793973fzho35rnaughs", "ms-wf2fk3qu5mvvntffk03diqnn")
-
-# Cluster IDs
-CL_ROOT         = "ms-bgjt4mvgvkxcn6hurg37u21b"
-CL_CONTACT      = "ms-sv48g8am8vqs46nodiugripz"
-CL_ADDRESS      = "ms-ytctcqbr30kxsmvx4jk7lae2"
-CL_FAMILY       = "ms-l9k2fmlc5vn477r3kpi1ufal"
-
-# Party stubs
-PS_RELATED      = "ms-avqpyqft9tm22yyink3ltcty"
-PS_OFFICE       = "ms-piaz5w21hsuq3hpysyetuvvk"
-
-WORKFLOW_STATES = ["Registered", "Verified", "Amended", "Certified"]
-
-MARITAL_STATUSES = ["Single", "Married", "Divorced", "Widowed"]
-RELATIONSHIP_TYPES = ["Parent", "Spouse", "Sibling", "Child", "Grandparent"]
-CONTACT_PREFS = ["Phone", "Email", "Mail"]
-
-
-def build_birth_date(dob, indent=2):
-    """Build Birth Date XdTemporal with all three variant elements."""
-    comp_id, wrap_id = W_BIRTH_DATE
-    pad = "  " * indent
-    # Parse date parts
-    year = dob[:4]
-    year_month = dob[:7]
-    return f"""{pad}<sdc4:{wrap_id}>
-{pad}  <sdc4:{comp_id}>
-{pad}    <label>Birth Date</label>
-{pad}    <act></act>
-{pad}    <vtb>2020-01-01T00:00:00</vtb>
-{pad}    <vte>9999-12-31T23:59:59</vte>
-{pad}    <tr>2020-01-01T00:00:00</tr>
-{pad}    <modified>2020-01-01T00:00:00</modified>
-{pad}    <latitude>0.0</latitude>
-{pad}    <longitude>0.0</longitude>
-{pad}    <xdtemporal-date>{dob}</xdtemporal-date>
-{pad}  </sdc4:{comp_id}>
-{pad}</sdc4:{wrap_id}>
-"""
+# Marital status is the FHIR v3 code the library enumerates; Cordova's four words map onto it.
+MARITAL = {"Single": "S", "Married": "M", "Divorced": "D", "Widowed": "W"}
+CONTACT_METHOD = {"Phone": "phone", "Email": "email", "Mail": "other"}
+# The activity-lifecycle workflow: a registration is complete, or still being verified.
+STATES = ["ActivityCompleted"] * 8 + ["ActivityOngoing"]
 
 
 def build_instance(person):
-    """Build a governance-composed Civil Registry XML instance for one person."""
-    prov = make_provenance_values("Cordova Civil Registry System", "RecordRegistration", person["city"])
-    state = random.choice(WORKFLOW_STATES)
-
-    xml = xml_header(CT_ID)
-    xml += xml_preamble(DM_LABEL, current_state=state)
-
-    # Item: Governed Record wrapper
-    xml += cluster_open(GOVERNED_RECORD, "Civil Registry Governed Record", indent=1)
-
-    # Data cluster. NOTE: the Civil Registry Record XSD sequence puts the
-    # sub-clusters (Contact Information, Current Address, Family Relationships)
-    # BEFORE the scalar adapters, so emission order must follow suit.
-    xml += cluster_open(CL_ROOT, "Civil Registry Record", indent=2)
-
-    xml += cluster_open(CL_CONTACT, "Contact Information", indent=3)
-    xml += xdstring(*W_EMAIL, "Cordova Email Address", person["email"], indent=4)
-    xml += xdstring(*W_PHONE, "Cordova Phone Number", person["phone"], indent=4)
-    xml += xdtoken(*W_CONTACT_PREF, "Preferred Contact Method", person["contact_pref"], indent=4)
-    xml += cluster_close(CL_CONTACT, indent=3)
-
-    xml += cluster_open(CL_ADDRESS, "Current Address", indent=3)
-    xml += xdstring(*W_ADDR1, "Address (Line 1)", person["address"], indent=4)
-    xml += xdstring(*W_ADDR2, "Address (Line 2)", person.get("address2", ""), indent=4)
-    xml += cluster_close(CL_ADDRESS, indent=3)
-
-    xml += cluster_open(CL_FAMILY, "Family Relationships", indent=3)
-    xml += xdtoken(*W_REL_TYPE, "Relationship Type", person["rel_type"], indent=4)
-    xml += xdtemporal(*W_REL_END, "Relationship End Date", person.get("rel_end", "2099-12-31"), "date", indent=4)
-    xml += xdtemporal(*W_REL_START, "Relationship Start Date", person["rel_start"], "date", indent=4)
-    xml += cluster_close(CL_FAMILY, indent=3)
-
-    xml += xdstring(*W_NATIONAL_ID, "National ID (CID)", person["cid"], indent=3)
-    xml += xdstring(*W_COUNTRY_BIRTH, "Country of Birth", person["country_of_birth"], indent=3)
-    xml += xdstring(*W_GIVEN_NAME, "Given Name (Person)", person["given"], indent=3)
-    xml += xdstring(*W_MIDDLE_NAME, "Middle Name (Person)", person["middle"], indent=3)
-    xml += xdstring(*W_SURNAME, "Surname (Person)", person["surname"], indent=3)
-    xml += xdtoken(*W_CITY, "City", person["city"], indent=3)
-    xml += xdtoken(*W_MARITAL, "Marital Status (Cordova)", person["marital_status"], indent=3)
-    xml += xdtoken(*W_PROVINCE, "Province", person["province"], indent=3)
-    xml += xdtoken(*W_GENDER, "Gender Identity", person["gender"], indent=3)
-    xml += xdtoken(*W_SEX, "Sex", person["sex"], indent=3)
-    xml += build_birth_date(person["dob"], indent=3)
-    xml += cluster_close(CL_ROOT, indent=2)
-
-    # Provenance Components cluster (sibling of data, inside Governed Record)
-    xml += cluster_open(CL_PROV, "Provenance Components", indent=2)
-    xml += xdstring(*P_ACT_DESC, "activity_description", prov["activity_description"], indent=3)
-    xml += xdstring(*P_ACT_TYPE, "prov_activity_type", prov["prov_activity_type"], indent=3)
-    xml += xdstring(*P_SYS_ID, "system_identifier", prov["system_identifier"], indent=3)
-    xml += xdstring(*P_LOC_ID, "system_location_identifier", prov["system_location_identifier"], indent=3)
-    xml += xdstring(*P_LOC_NAME, "system_location_name", prov["system_location_name"], indent=3)
-    xml += xdtemporal(*P_TS_END, "activity_timestamp_end", prov["activity_timestamp_end"], "datetime", indent=3)
-    xml += xdtemporal(*P_TS_START, "activity_timestamp_start", prov["activity_timestamp_start"], "datetime", indent=3)
-    xml += cluster_close(CL_PROV, indent=2)
-
-    xml += cluster_close(GOVERNED_RECORD, indent=1)
-
-    # Native governance slots, DM order: subject, provider, Audit, attestation.
-    # subject/provider are native PartyType elements (not the party COMPONENTS).
-    xml += native_partytype("subject", "Subject Person",
-                            f"{person['given']} {person['surname']}")
-    xml += native_partytype("provider", "Civil Registry Office",
-                            f"{person['city']} Civil Registry Office")
-    xml += audit("ms-fotc5adg15ek2b9ermx2mcih", prov["activity_timestamp_start"],
-                 system_id_value=prov["system_identifier"])
-    xml += attestation(pending=False, reason="Record verified by the civil registry office",
-                       committer="Civil Registry Office", committed=prov["activity_timestamp_end"])
-
-    xml += xml_footer(CT_ID)
-    return xml
+    """One Civil Registry record for one resident."""
+    rel = person.get("relative")   # (relationship code, related person's CID, since) or None
+    values = {
+        "Civil Registry Record/National ID (CID)": person["cid"],
+        "Civil Registry Record/Person Gender Identity Code": person["gender"],
+        "Civil Registry Record/Marital Status": MARITAL[person["marital_status"]],
+        "Full Name (Person)/Given Name (Person)": person["given"],
+        "Full Name (Person)/Middle Name (Person)": person.get("middle") or None,
+        "Full Name (Person)/Surname (Person)": person["surname"],
+        "Full Name (Person)/Name Use": "official",
+        "Person (Demographics)/Administrative Gender": person["sex"].lower(),
+        "Person (Demographics)/Date of Birth": person["dob"],
+        "Person (Demographics)/Language Code": "es",
+        "Address (Cordova)/Address (Line 1)": person["address"],
+        "Address (Cordova)/Address (Line 2)": person.get("address2") or None,
+        "Address (Cordova)/City": person["city"],
+        "Address (Cordova)/Province": person["province"],
+        "Contact Point/Phone Number": person["phone"],
+        "Contact Point/Email Address": person["email"],
+        "Contact Point/Contact Method": CONTACT_METHOD[person["contact_pref"]],
+        "Contact Point/Contact Use": "home",
+    }
+    if rel:
+        code, related_cid, since = rel
+        values.update({
+            "Family Relationship/Relationship to Subject": code,
+            "Family Relationship/National ID (CID)": related_cid,
+            "Family Relationship/Date Range/Date Range Start": since,
+        })
+    return record(TITLE, values, state=random.choice(STATES), system=SYSTEM, activity_type="RecordRegistration",
+                  when=person["registered"], city=person["city"], province=person["province"], cid=person["cid"],
+                  subject=("Subject Person", full_name(person)), provider=("Civil Registry Office", f"{person['city']} Civil Registry Office"),
+                  attestation_reason="Record verified by the civil registry office", committer="Civil Registry Office")
 
 
 def make_cast_persons():
-    """Convert CAST dict entries to person records with relationship data."""
+    """The Contagion cast as residents. Carlos and Elena are siblings; the household join is their CIDs."""
     persons = []
     for key, c in CAST.items():
-        p = dict(c)  # copy
+        p = dict(c)
         p["key"] = key
-        p["country_of_birth"] = c.get("country_of_birth", "Republic of Cordova")
-
-        # Assign family relationships for known cast
-        if key == "carlos":
-            p["rel_type"] = "Sibling"
-            p["rel_start"] = "1994-11-22"  # Elena's birth
-            p["rel_end"] = "2099-12-31"
-        elif key == "elena":
-            p["rel_type"] = "Sibling"
-            p["rel_start"] = "1991-08-14"  # Carlos's birth
-            p["rel_end"] = "2099-12-31"
-        elif key in ("dr_reyes", "dr_ferrer", "governor_avila", "dr_gutierrez", "prof_lucero"):
-            p["rel_type"] = "Spouse"
-            p["rel_start"] = random_dob(min_age=10, max_age=30)
-            p["rel_end"] = "2099-12-31"
-        else:
-            p["rel_type"] = "Parent"
-            p["rel_start"] = p["dob"]
-            p["rel_end"] = "2099-12-31"
-
+        p["registered"] = p["dob"]
         persons.append(p)
+    by_key = {p["key"]: p for p in persons}
+    by_key["carlos"]["relative"] = ("SIB", by_key["elena"]["cid"], by_key["elena"]["dob"])
+    by_key["elena"]["relative"] = ("SIB", by_key["carlos"]["cid"], by_key["elena"]["dob"])
     return persons
 
 
-def make_background_persons(count=24992):
-    """Generate background residents spread across cities."""
+def make_background_persons(count):
+    """Background residents spread across the nine cities; married adults are paired within a city."""
     persons = []
     for i in range(count):
         sex = random.choice(["Male", "Female"])
         given, middle, surname = random_name(sex)
         city, province = random_city_province()
-        cid = generate_cid_for_city(city)
         dob = random_dob(distribution=AGE_DISTRIBUTION)
-        # Children are single; adults get random marital status
         age = 2026 - int(dob[:4])
-        marital = "Single" if age < 18 else random.choice(MARITAL_STATUSES)
-        addr = random_address()
-        addr2 = random.choice(["", "", "", f"Apt {random.randint(1, 50)}",
-                                f"Unit {random.randint(1, 20)}"])
-        phone = generate_phone(city)
-        email = generate_email(given, surname)
-        contact_pref = random.choice(CONTACT_PREFS)
-
-        rel_type = random.choice(RELATIONSHIP_TYPES)
-        rel_start = random_dob(min_age=0, max_age=50)
-
+        marital = "Single" if age < 18 else random.choice(["Single", "Married", "Divorced", "Widowed"])
         persons.append({
-            "key": f"bg_{i:05d}",
-            "cid": cid,
+            "key": f"bg_{i:05d}", "cid": generate_cid_for_city(city),
             "given": given, "middle": middle, "surname": surname,
-            "sex": sex, "gender": sex, "dob": dob,
+            "sex": sex, "gender": sex, "dob": dob, "registered": dob,
             "city": city, "province": province,
-            "address": addr, "address2": addr2,
-            "country_of_birth": "Republic of Cordova",
+            "address": random_address(), "address2": random.choice(["", "", "", f"Apt {random.randint(1, 50)}", f"Unit {random.randint(1, 20)}"]),
             "marital_status": marital,
-            "phone": phone, "email": email,
-            "contact_pref": contact_pref,
-            "rel_type": rel_type,
-            "rel_start": rel_start,
-            "rel_end": "2099-12-31",
+            "phone": generate_phone(city), "email": generate_email(given, surname),
+            "contact_pref": random.choice(["Phone", "Email", "Mail"]),
         })
+    # spouses: married adults of a city, paired in order; an unpaired one keeps the status with no relative on file
+    for city in CITY_TO_PROVINCE:
+        married = [p for p in persons if p["city"] == city and p["marital_status"] == "Married"]
+        for a, b in zip(married[0::2], married[1::2]):
+            since = max(a["dob"], b["dob"])[:4]
+            since = f"{int(since) + random.randint(20, 35)}-{random.randint(1, 12):02d}-{random.randint(1, 28):02d}"
+            since = min(since, "2025-12-31")
+            a["relative"] = ("SPS", b["cid"], since)
+            b["relative"] = ("SPS", a["cid"], since)
     return persons
 
 
 def generate():
-    """Generate all Civil Registry XML files."""
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-
+    """Generate all Civil Registry records and publish the residents to PERSONS for the other domains."""
     cast_persons = make_cast_persons()
     bg_persons = make_background_persons(scaled(24992, 242))
     all_persons = cast_persons + bg_persons
-
-    # Populate shared PERSONS list for other domain generators
     PERSONS.clear()
     PERSONS.extend(all_persons)
-
     count = 0
     for person in all_persons:
-        xml = build_instance(person)
-        filename = f"cr-{cuid_generator()}.xml"
-        filepath = os.path.join(OUTPUT_DIR, filename)
-        write_xml(filepath, xml)
+        write_record(OUTPUT_DIR, "cr", build_instance(person))
         count += 1
-
     print(f"Civil Registry: generated {count} XML files in {OUTPUT_DIR}")
     return all_persons
 
 
 if __name__ == "__main__":
+    random.seed("cordovaos:Civil Registry")
     generate()

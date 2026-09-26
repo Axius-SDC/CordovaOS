@@ -76,7 +76,7 @@ def extract_and_upload_rdf(self, instance_id: int):
 
         success = triplestore.upload_graph(
             rdf_content=rdf_content,
-            graph_uri=None,  # Upload to default graph
+            graph_uri=graph_uri,
             content_type='text/turtle'
         )
 

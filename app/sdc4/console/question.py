@@ -1,16 +1,13 @@
 """
 One cross-domain question, answered from the triple store.
 
-The question the mockup asked, which businesses employ exposed people and what
-trade is at risk, is not answerable from this dataset: employment records carry
-the employer as free text rather than as a business identifier, so the chain
-breaks between Employment and Business Registry. Rather than stage it, this asks
-the question the data does support, which happens to be the better one anyway.
-
-National ID (CID) is one published component. Four domains use it, and because
-they use the same component rather than four local conventions, the join needs
-no mapping table and no integration project. That is the whole argument, and it
-is measurable rather than asserted.
+National ID (CID) is one published component. Eight of the ten 4.4.0 models
+compose it (civil registry, vital statistics, healthcare, education,
+employment, tax, property, law enforcement), and because they compose the same
+component rather than eight local conventions, the join needs no mapping table
+and no integration project. That is the whole argument, and it is measurable
+rather than asserted. The same holds for the Business Registry Number, which
+the business registry, employment, tax and maritime models share.
 """
 import time
 from typing import Any, Dict, List
@@ -74,6 +71,67 @@ SELECT ?cid ?dm (SAMPLE(?i) AS ?inst) WHERE {
   }
 } GROUP BY ?cid ?dm
 """
+
+
+# Which businesses employ people exposed in the contagion city, and what the state holds on
+# those businesses. Exposure: a healthcare encounter at a Porto Sereno facility. The chain is
+# three components: the CID joins the patient to their employment record, the Business Registry
+# Number joins the employment record to the registered business and to its tax filings.
+HC = 'dcsd8bxr8a6lzcptwwyms44t'
+EMP = 'rxv2ck9k9r1bqkggeydam32s'
+BUS = 'nb7gtyimcusmritzx0o0x40o'
+TAX = 'apc16uwrj02wgitw7ji1utng'
+TRADE = PREFIXES + """
+SELECT ?brn ?org (COUNT(DISTINCT ?cid) AS ?exposed) (COUNT(DISTINCT ?tax) AS ?filings) (SAMPLE(?biz) AS ?inst)
+WHERE {
+  GRAPH ?g1 {
+    ?h rdfs:label "National ID (CID)" ; sdc4:inInstance ?hc ; sdc4:inDataModel sdc4:dm-%(hc)s ;
+       rdf:reifies <<?m1 ?p1 ?cid>> .
+    ?f rdfs:label "Managing Organization Reference" ; sdc4:inInstance ?hc ; rdf:reifies <<?m2 ?p2 ?fac>> .
+    FILTER(CONTAINS(STR(?fac), "porto-sereno"))
+  }
+  GRAPH ?g2 {
+    ?e rdfs:label "National ID (CID)" ; sdc4:inInstance ?emp ; sdc4:inDataModel sdc4:dm-%(emp)s ;
+       rdf:reifies <<?m3 ?p3 ?cid>> .
+    ?b rdfs:label "Business Registry Number" ; sdc4:inInstance ?emp ; rdf:reifies <<?m4 ?p4 ?brn>> .
+  }
+  GRAPH ?g3 {
+    ?o rdfs:label "Business Registry Number" ; sdc4:inInstance ?biz ; sdc4:inDataModel sdc4:dm-%(bus)s ;
+       rdf:reifies <<?m5 ?p5 ?brn>> .
+    ?n rdfs:label "Organization Name" ; sdc4:inInstance ?biz ; rdf:reifies <<?m6 ?p6 ?org>> .
+  }
+  OPTIONAL {
+    GRAPH ?g4 {
+      ?t rdfs:label "Business Registry Number" ; sdc4:inInstance ?tax ; sdc4:inDataModel sdc4:dm-%(tax)s ;
+         rdf:reifies <<?m7 ?p7 ?brn>> .
+    }
+  }
+}
+GROUP BY ?brn ?org
+ORDER BY DESC(?exposed) ?org
+LIMIT %(limit)d
+""" % {'hc': HC, 'emp': EMP, 'bus': BUS, 'tax': TAX, 'limit': 12}
+
+
+def trade_at_risk() -> dict:
+    """Which businesses employ exposed people, and what the state already holds on them."""
+    client = GraphDBClient()
+    started = time.monotonic()
+    try:
+        rows = _rows(client, TRADE)
+    except Exception:
+        return {'unavailable': 'The triple store did not answer.'}
+    elapsed = time.monotonic() - started
+    out = []
+    for r in rows:
+        inst = _v(r, 'inst')
+        out.append({
+            'brn': _v(r, 'brn'), 'org': _v(r, 'org'),
+            'exposed': int(_v(r, 'exposed', '0')), 'filings': int(_v(r, 'filings', '0')),
+            'open': {'ct_id': BUS, 'instance_id': inst.rsplit('/', 1)[-1]} if inst else None,
+        })
+    return {'rows': out, 'businesses': len(out), 'exposed': sum(r['exposed'] for r in out),
+            'filings': sum(r['filings'] for r in out), 'elapsed': f'{elapsed:.2f}', 'query': TRADE}
 
 
 def _rows(client, query):

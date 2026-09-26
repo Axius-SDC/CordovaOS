@@ -26,9 +26,9 @@ WHERE {
   # Step 1: Find the vessel in the Maritime domain. Evaluated first.
   {
     SELECT ?mar_inst ?vessel_name WHERE {
-      ?vessel_reifier rdf:reifies <<sdc4:mc-s5zeapfup3xdj6wbqjjkf1nd ?vpVessel ?vessel_name>> ;
+      ?vessel_reifier rdf:reifies <<sdc4:mc-l3wb162tkmbj8pn82k5s05k6 ?vpVessel ?vessel_name>> ;
                       sdc4:inInstance ?mar_inst ;
-                      sdc4:inDataModel sdc4:dm-md2451x882z5j89g66zb50rw .
+                      sdc4:inDataModel sdc4:dm-v42afzhs22bvschuo56rdpzi .
       FILTER(?vessel_name = "MV Estrella del Sur")
     }
   }
@@ -38,15 +38,15 @@ WHERE {
                 sdc4:inInstance ?mar_inst .
 
   ?arr_reifier sdc4:inInstance ?mar_inst ;
-               rdfs:label "Arrival Date/Time" ;
+               rdfs:label "Visit Actual Arrival Date Time" ;
                rdf:reifies <<?mcArr ?vpArr ?arrival>> .
 
   ?cargo_reifier sdc4:inInstance ?mar_inst ;
-                 rdfs:label "Cargo Type" ;
+                 rdfs:label "Vessel Cargo Category" ;
                  rdf:reifies <<?mcCargo ?vpCargo ?cargo_type>> .
 
   ?flag_reifier sdc4:inInstance ?mar_inst ;
-                rdfs:label "Flag State" ;
+                rdfs:label "Vessel National Flag" ;
                 rdf:reifies <<?mcFlag ?vpFlag ?flag>> .
 
   # BRN from the same maritime instance (Maritime Business Registry Number)
@@ -56,16 +56,17 @@ WHERE {
   # Step 2: Cross-domain join to the Business Registry via the BRN value.
   # OPTIONAL is cheap here: it runs once, on one bound BRN.
   OPTIONAL {
-    ?biz_brn_reifier rdf:reifies <<sdc4:mc-ule5u2z3rjpa9pooaifwj1n3 ?vpBizBrn ?brn>> ;
+    ?biz_brn_reifier rdf:reifies <<sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ?vpBizBrn ?brn>> ;
                      sdc4:inInstance ?biz_inst ;
-                     sdc4:inDataModel sdc4:dm-x250838l7oi6l3yavg9twc1i .
+                     sdc4:inDataModel sdc4:dm-nb7gtyimcusmritzx0o0x40o .
 
-    ?org_reifier rdf:reifies <<sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3 ?vpOrg ?org_name>> ;
+    ?org_reifier rdf:reifies <<sdc4:mc-xcn8r67fg7soty17homzok44 ?vpOrg ?org_name>> ;
                  sdc4:inInstance ?biz_inst .
 
     OPTIONAL {
-      ?biz_city_reifier rdf:reifies <<sdc4:mc-atdtdfzruh7tya0iv5cz365l ?vpBizCity ?org_city>> ;
-                        sdc4:inInstance ?biz_inst .
+      ?biz_city_reifier sdc4:inInstance ?biz_inst ;
+                        rdfs:label "Location Name" ;
+                        rdf:reifies <<?mcBizCity ?vpBizCity ?org_city>> .
     }
   }
   BIND(?mar_inst AS ?inst)

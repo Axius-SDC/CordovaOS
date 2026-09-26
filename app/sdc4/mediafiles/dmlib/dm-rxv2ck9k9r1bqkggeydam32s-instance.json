@@ -1,0 +1,891 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "rxv2ck9k9r1bqkggeydam32s",
+  "dm_type": "dm-rxv2ck9k9r1bqkggeydam32s",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Employment Record 4.4.0",
+    "dm_encoding": "utf-8",
+    "instance_id": "bd1psk0qqbieglaxi2vd3whn",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-09-26T15:20:08.485669",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "yh04hv0wanvyer6p7pjx49fx",
+    "label": "Employment Governed Record",
+    "type": "Cluster",
+    "description": "An employment record. The governed record: the data cluster, the PROV activity and agent and the audit event from the ProvGov library by identifier, and the digital signature proof. Members: Employment Record; prov-activity (Provgov); prov-agent (Provgov); audit-event (Provgov); Digital Signature Proof.",
+    "items": [
+      {
+        "component_id": "gug5dhtqfv7exbgmm2raxpkq",
+        "label": "Digital Signature Proof",
+        "type": "XdFile",
+        "description": "Cryptographic proof of attestation (digital signature)",
+        "value": "/path/to/sample/file.txt"
+      },
+      {
+        "component_id": "t2tvd3wylxrstdeu5aw6gkw1",
+        "label": "Audit Event",
+        "type": "Cluster",
+        "description": "A logged access or custody event as data: what was done, by whom, on what, with what outcome and for what purpose. The audit-only case of sdc5 issue 002; state-changing operations are workflow transitions.",
+        "items": [
+          {
+            "component_id": "dkc2ccj5te35z9gd4bu1blcq",
+            "label": "Audit Agent Reference",
+            "type": "XdString",
+            "description": "The acting agent (FHIR AuditEvent.agent.who). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "gcjyjrnp0wsfoelcp4m05c67",
+            "label": "Audit Entity Reference",
+            "type": "XdString",
+            "description": "The entity the event concerns (FHIR AuditEvent.entity.what). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "fjhgr5fyqxt2crmg2cb5c513",
+            "label": "Audit Event Identifier",
+            "type": "XdString",
+            "description": "The identifier of the audit event.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "sndpbhm3xbd6qtbyxmvh3i0e",
+            "label": "Data Subject Reference",
+            "type": "XdString",
+            "description": "The data subject or patient the event concerns (FHIR AuditEvent.patient; SDC DM.subject). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "nf1air1zbj8v9w66jozdxmyl",
+            "label": "On Behalf Of Reference",
+            "type": "XdString",
+            "description": "The party on whose behalf the agent acted (FHIR agent.onBehalfOf; prov:actedOnBehalfOf). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "h3kdbvdtyalpvik97saaf0an",
+            "label": "System Identifier",
+            "type": "XdString",
+            "description": "The system that handled the item (FHIR AuditEvent.source.observer; SDC AuditType.system-id).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "ujir739mf1g8ajeczs9nzh9m",
+            "label": "System Location Name",
+            "type": "XdString",
+            "description": "The site or facility that handled the item (FHIR AuditEvent.agent.location; prov:atLocation).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "ce1c8sydkov8bkv4dgdmwe5x",
+            "label": "Audit Event Action",
+            "type": "XdToken",
+            "description": "The operation performed in a logged access event (FHIR AuditEvent.action). Read and Execute change no state and are audit facts, not workflow moves.",
+            "value": "R",
+            "constraints": {
+              "enumerations": [
+                "C",
+                "R",
+                "U",
+                "D",
+                "E"
+              ]
+            }
+          },
+          {
+            "component_id": "rpz1czz06jhpahmfz30rblvp",
+            "label": "Audit Event Outcome",
+            "type": "XdToken",
+            "description": "The result of an audited event (FHIR AuditEvent.outcome).",
+            "value": "8",
+            "constraints": {
+              "enumerations": [
+                "0",
+                "4",
+                "8",
+                "12"
+              ]
+            }
+          },
+          {
+            "component_id": "vbctgmdcwps5b3r3l6sboa6y",
+            "label": "Confidentiality",
+            "type": "XdToken",
+            "description": "The level of protection the information requires (HL7 v3 Confidentiality). At assembly the value populates a component's act tag.",
+            "value": "M",
+            "constraints": {
+              "enumerations": [
+                "U",
+                "L",
+                "M",
+                "N",
+                "R",
+                "V"
+              ]
+            }
+          },
+          {
+            "component_id": "jujsdur1igws8orw6tvvlqco",
+            "label": "Provenance Agent Type",
+            "type": "XdToken",
+            "description": "The functional role of an agent in an activity (FHIR Provenance.agent.type).",
+            "value": "performer",
+            "constraints": {
+              "enumerations": [
+                "enterer",
+                "performer",
+                "author",
+                "editor",
+                "verifier",
+                "legal",
+                "attester",
+                "informant",
+                "custodian",
+                "transmitter",
+                "assembler",
+                "transformer",
+                "composer"
+              ]
+            }
+          },
+          {
+            "component_id": "d1evlz8yvdlwt6ia9fjq4pgj",
+            "label": "Purpose of Use",
+            "type": "XdToken",
+            "description": "Why the information was used (HL7 v3 ActReason purpose of use). Activity context, not an access-control tag.",
+            "value": "PATRQT",
+            "constraints": {
+              "enumerations": [
+                "TREAT",
+                "ETREAT",
+                "COC",
+                "HPAYMT",
+                "HOPERAT",
+                "HRESCH",
+                "CLINTRCH",
+                "PUBHLTH",
+                "PATRQT",
+                "HLEGAL",
+                "HMARKT"
+              ]
+            }
+          },
+          {
+            "component_id": "uwiosm2q9ym3ewr4de910s70",
+            "label": "Audit Recorded At",
+            "type": "XdTemporal",
+            "description": "When the audit event was recorded (FHIR AuditEvent.recorded).",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "bn5gaw6rtyjb3vr8vi27bvyk",
+        "label": "Employment Record",
+        "type": "Cluster",
+        "description": "An employment: the employee's national ID, the employer's business registry number, the NIEM employment association (position, department, status, dates, references), city, province and compensation. Members: National ID (CID); Business Registry Number; employment-association (NIEM); City; Province; Compensation.",
+        "items": [
+          {
+            "component_id": "l8f0m7op4xhrxqy1jrnvbuly",
+            "label": "Business Registry Number",
+            "type": "XdString",
+            "description": "Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions.",
+            "value": "DefaultString"
+          },
+          {
+            "component_id": "nj7s1gk45tfgyooxpz0qaha3",
+            "label": "National ID (CID)",
+            "type": "XdString",
+            "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
+            "value": "DefaultString"
+          },
+          {
+            "component_id": "atdtdfzruh7tya0iv5cz365l",
+            "label": "City",
+            "type": "XdToken",
+            "description": "One of the nine cities in the Republic of Cordova.",
+            "value": "Piedrasol",
+            "constraints": {
+              "enumerations": [
+                "Porto Sereno",
+                "Vistamar",
+                "Rioseco",
+                "Campoluz",
+                "Tierraverde",
+                "Montecara",
+                "Novaciudad",
+                "Piedrasol",
+                "Lagunavista"
+              ]
+            }
+          },
+          {
+            "component_id": "kv5qqs3o4jwcwz9javgw1pzh",
+            "label": "Province",
+            "type": "XdToken",
+            "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+            "value": "Celara",
+            "constraints": {
+              "enumerations": [
+                "Aldara",
+                "Brevina",
+                "Celara"
+              ]
+            }
+          },
+          {
+            "component_id": "i8cqh4dpndwl5l0zz65a7raw",
+            "label": "Compensation",
+            "type": "Cluster",
+            "description": "Compensation: salary in Córdobas and pay frequency. Members: Salary Amount; Pay Frequency.",
+            "items": [
+              {
+                "component_id": "ub0fwihnwu5x1pdv68pjwbeu",
+                "label": "Pay Frequency",
+                "type": "XdToken",
+                "description": "How often the employee is paid",
+                "value": "Weekly",
+                "constraints": {
+                  "enumerations": [
+                    "Monthly",
+                    "Bi-Weekly",
+                    "Weekly"
+                  ]
+                }
+              },
+              {
+                "component_id": "aw74ticc3fnjkz4vk4b03jr6",
+                "label": "Salary Amount",
+                "type": "XdQuantity",
+                "description": "Monthly gross salary or wage in Cordova Córdoba. Represents the agreed compensation amount before deductions for taxes, social security, and other withholdings.",
+                "value": 38.7,
+                "magnitude": {
+                  "value": 38.7,
+                  "min_inclusive": 0.0
+                },
+                "units": {
+                  "label": "Cordova Córdoba (COR)",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              }
+            ]
+          },
+          {
+            "component_id": "umsm60kz9jn1196s80jmy1n0",
+            "label": "Employment Association",
+            "type": "Cluster",
+            "description": "A data type for an association between an employee and an employer. NIEM 6.0 nc:EmploymentAssociationType. Members: Employee Reference; Employer Reference; Employee Identification; Employment Position; Employment Status; Employee Full Time Indicator; Employee Hours Weekly Quantity; Employee Hours Daily Quantity; Employment Pay Rate Amount; Employee Pay Hourly Indicator; Employee Occupation; Employee Rank; Employee Shift; Employment Length Duration; Employee Supervisor Reference; Employee Supervisor Indicator; Employment Location Reference; Employee Contact Information Reference.",
+            "items": [
+              {
+                "component_id": "m9j6mlcgmbmijzdnbvup1ipc",
+                "label": "Employee Full Time Indicator",
+                "type": "XdBoolean",
+                "description": "True if a person has full-time employment; false otherwise. NIEM 6.0 nc:EmployeeFullTimeIndicator.",
+                "value": true,
+                "constraints": {
+                  "true_values": [
+                    "true"
+                  ],
+                  "false_values": [
+                    "false"
+                  ]
+                }
+              },
+              {
+                "component_id": "sorxqbcl704sxkzfooytxf3b",
+                "label": "Employee Pay Hourly Indicator",
+                "type": "XdBoolean",
+                "description": "True if a person is paid on an hourly basis; false if a person is salaried. NIEM 6.0 nc:EmployeePayHourlyIndicator.",
+                "value": true,
+                "constraints": {
+                  "true_values": [
+                    "true"
+                  ],
+                  "false_values": [
+                    "false"
+                  ]
+                }
+              },
+              {
+                "component_id": "gco9v72etkdffpi0mgnm17kp",
+                "label": "Employee Supervisor Indicator",
+                "type": "XdBoolean",
+                "description": "True if the employee is a supervisor; false otherwise. NIEM 6.0 nc:EmployeeSupervisorIndicator.",
+                "value": true,
+                "constraints": {
+                  "true_values": [
+                    "true"
+                  ],
+                  "false_values": [
+                    "false"
+                  ]
+                }
+              },
+              {
+                "component_id": "urzessbeem2kj4z3ld0x6jb1",
+                "label": "Employee Contact Information Reference",
+                "type": "XdString",
+                "description": "A means of contacting a person at work. NIEM 6.0 nc:EmployeeContactInformation. Holds the IRI of the referenced Contact Information record.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 2000
+                }
+              },
+              {
+                "component_id": "wos7ancvqpdggx6xdtnsjdtu",
+                "label": "Employee Identification",
+                "type": "XdString",
+                "description": "An employment identification number assigned to a person. NIEM 6.0 nc:EmployeeIdentification. The identifier value (nc:IdentificationID).",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 64
+                }
+              },
+              {
+                "component_id": "ns8dekdo3100r8zgj3r5773s",
+                "label": "Employee Occupation",
+                "type": "XdString",
+                "description": "A job of an employee. NIEM 6.0 nc:EmployeeOccupationText.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 4000
+                }
+              },
+              {
+                "component_id": "exwd705vvkcsavizr7yw73r3",
+                "label": "Employee Rank",
+                "type": "XdString",
+                "description": "A rank, status, or promotion level of a person within an employment organization. NIEM 6.0 nc:EmployeeRankText.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 4000
+                }
+              },
+              {
+                "component_id": "gnv4qotitjshdtauz4osyqp2",
+                "label": "Employee Reference",
+                "type": "XdString",
+                "description": "A person who works for a business or a person. NIEM 6.0 nc:Employee. Holds the IRI of the referenced Person record.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 2000
+                }
+              },
+              {
+                "component_id": "sqet5e8oriiu8t33x9ayau0q",
+                "label": "Employee Shift",
+                "type": "XdString",
+                "description": "A set of hours or time frame during which a person usually works. NIEM 6.0 nc:EmployeeShiftText.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 4000
+                }
+              },
+              {
+                "component_id": "inh39quee7dorifcfdk4jzlj",
+                "label": "Employee Supervisor Reference",
+                "type": "XdString",
+                "description": "A person who oversees and manages an employee. NIEM 6.0 nc:EmployeeSupervisor. Holds the IRI of the referenced Person record.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 2000
+                }
+              },
+              {
+                "component_id": "mwgznh9pfu2pbmkfszawmshs",
+                "label": "Employer Reference",
+                "type": "XdString",
+                "description": "An organization or person that employs a person. NIEM 6.0 nc:Employer. Holds the IRI of the referenced Employer record.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 2000
+                }
+              },
+              {
+                "component_id": "w6o1hh3qtc5kldmmhwey90k8",
+                "label": "Employment Location Reference",
+                "type": "XdString",
+                "description": "A location where a person works. NIEM 6.0 nc:EmploymentLocation. Holds the IRI of the referenced Location record.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 2000
+                }
+              },
+              {
+                "component_id": "p40w5sobi97p62lxufv11et7",
+                "label": "Employment Status",
+                "type": "XdString",
+                "description": "A status of employment for a person. NIEM 6.0 nc:EmploymentStatus. The status as text (nc:StatusText).",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 255
+                }
+              },
+              {
+                "component_id": "l3atyf51amrlzxnz81jhor8c",
+                "label": "Employee Hours Daily Quantity",
+                "type": "XdQuantity",
+                "description": "A number of hours spent at workplace or working in a typical work day. NIEM 6.0 nc:EmployeeHoursDailyQuantity.",
+                "value": 3.2,
+                "magnitude": {
+                  "value": 3.2
+                },
+                "units": {
+                  "label": "Unitless",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "xc1d8d22kesm73rqo9l8disu",
+                "label": "Employee Hours Weekly Quantity",
+                "type": "XdQuantity",
+                "description": "A number of hours spent at workplace or working in a typical week. NIEM 6.0 nc:EmployeeHoursWeeklyQuantity.",
+                "value": 9.0,
+                "magnitude": {
+                  "value": 9.0
+                },
+                "units": {
+                  "label": "Unitless",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "rwr7jf4764u5n0m336juazg6",
+                "label": "Employment Pay Rate Amount",
+                "type": "XdQuantity",
+                "description": "A monetary compensation a person receives for employment. NIEM 6.0 nc:EmploymentPayRateAmount. An amount of money in the Default currency units by slot.",
+                "value": 6.0,
+                "magnitude": {
+                  "value": 6.0,
+                  "min_inclusive": 0.0
+                },
+                "units": {
+                  "label": "Currency",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "pahkyfowm2ey1opnqpfue3nn",
+                "label": "Employment Length Duration",
+                "type": "XdTemporal",
+                "description": "A duration over which the given employment has lasted. NIEM 6.0 nc:EmploymentLengthDuration.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "ul9z1upfg5gwdildfw3zjfrq",
+                "label": "Employment Position",
+                "type": "Cluster",
+                "description": "A data type for a job, post, or group of duties and responsibilities to be performed by an employee. NIEM 6.0 nc:EmploymentPositionType. Members: Employment Position Name; Employment Position Department Name; Employment Position Duty; Employment Position Basis Code; Employment Position Essential Indicator; Employment Position Temporary Indicator; Employment Position Identification; Employment Position Location Reference; Employment Position Required Education; Employment Position Required Job Skill.",
+                "items": [
+                  {
+                    "component_id": "nd1wbb7wol3hisrqbb4qmpx0",
+                    "label": "Employment Position Essential Indicator",
+                    "type": "XdBoolean",
+                    "description": "True if the employment position is deemed to perform an essential service; false otherwise. NIEM 6.0 nc:EmploymentPositionEssentialIndicator.",
+                    "value": true,
+                    "constraints": {
+                      "true_values": [
+                        "true"
+                      ],
+                      "false_values": [
+                        "false"
+                      ]
+                    }
+                  },
+                  {
+                    "component_id": "r5draolqjc1faebb1b2muf1q",
+                    "label": "Employment Position Temporary Indicator",
+                    "type": "XdBoolean",
+                    "description": "True if the position is temporary in nature; false if it is permanent. NIEM 6.0 nc:EmploymentPositionTemporaryIndicator.",
+                    "value": true,
+                    "constraints": {
+                      "true_values": [
+                        "true"
+                      ],
+                      "false_values": [
+                        "false"
+                      ]
+                    }
+                  },
+                  {
+                    "component_id": "guq9lttvawsetx2hq59htcrq",
+                    "label": "Employment Position Department Name",
+                    "type": "XdString",
+                    "description": "A name of a department or other business unit associated with a job position. NIEM 6.0 nc:EmploymentPositionDepartmentName.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 255
+                    }
+                  },
+                  {
+                    "component_id": "joguuevnkhxphbzg6ex5q6ek",
+                    "label": "Employment Position Duty",
+                    "type": "XdString",
+                    "description": "A job duty that will be performed for an employment position. NIEM 6.0 nc:EmploymentPositionDutyText.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 4000
+                    }
+                  },
+                  {
+                    "component_id": "movuf8z9eesyiloglnottkj9",
+                    "label": "Employment Position Identification",
+                    "type": "XdString",
+                    "description": "An identification of an employment position. NIEM 6.0 nc:EmploymentPositionIdentification. The identifier value (nc:IdentificationID).",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 64
+                    }
+                  },
+                  {
+                    "component_id": "j9vyb9u2lpnk1pwm2v6w9mvf",
+                    "label": "Employment Position Location Reference",
+                    "type": "XdString",
+                    "description": "A location for an employment position. NIEM 6.0 nc:EmploymentPositionLocation. Holds the IRI of the referenced Location record.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 2000
+                    }
+                  },
+                  {
+                    "component_id": "ewpg4vc080p0wkl864sjug1l",
+                    "label": "Employment Position Name",
+                    "type": "XdString",
+                    "description": "A job name or title of an employment position. NIEM 6.0 nc:EmploymentPositionName.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 255
+                    }
+                  },
+                  {
+                    "component_id": "ife3z8wi5zsgy9y6n9p164ey",
+                    "label": "Employment Position Required Education",
+                    "type": "XdString",
+                    "description": "A kind of educational level or certification required for an employment position. NIEM 6.0 nc:EmploymentPositionRequiredEducationText.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 4000
+                    }
+                  },
+                  {
+                    "component_id": "egi28a30eh1mkd1beytxukel",
+                    "label": "Employment Position Required Job Skill",
+                    "type": "XdString",
+                    "description": "A job skill that is required for this position. NIEM 6.0 nc:EmploymentPositionRequiredJobSkillText.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 4000
+                    }
+                  },
+                  {
+                    "component_id": "h0h1m3tdz405xz6zjaplat2x",
+                    "label": "Employment Position Basis Code",
+                    "type": "XdToken",
+                    "description": "A nature or duration of the position, such as permanent, non-permanent, or contractor. NIEM 6.0 nc:EmploymentPositionBasisCode. Codes of nc:EmploymentPositionBasisCodeSimpleType (3 values).",
+                    "value": "contractor",
+                    "constraints": {
+                      "enumerations": [
+                        "contractor",
+                        "non-permanent",
+                        "permanent"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component_id": "vmikfu0irht9fmq7q02t3oqs",
+        "label": "PROV Activity",
+        "type": "Cluster",
+        "description": "A PROV activity: what it was, when it ran, its status, and the entities, activities, agent and plan it relates to.",
+        "items": [
+          {
+            "component_id": "hhusuzzig19rs46ngz23k5g7",
+            "label": "Activity Description",
+            "type": "XdString",
+            "description": "A description of what the activity does and why.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 4000
+            }
+          },
+          {
+            "component_id": "wr06h54xqqw2q9id8i9673jy",
+            "label": "Activity Identifier",
+            "type": "XdString",
+            "description": "The identifier of a PROV activity: a URI or another globally unique identifier.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "r6hkunjm2q0hlxiknlc9ljix",
+            "label": "Activity Label",
+            "type": "XdString",
+            "description": "A human-readable label for a PROV activity.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "uzai5uey5p1fnn9ezj9u6vor",
+            "label": "Activity Location",
+            "type": "XdString",
+            "description": "Where the activity took place (prov:atLocation), as text.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "jjzmhdxvbt97pq81iwqubtxk",
+            "label": "Activity Type",
+            "type": "XdString",
+            "description": "The kind of activity, in the vocabulary of the domain (prov:type).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "xlgjqdpwdbn2re3mdh5yy2rk",
+            "label": "Error Message",
+            "type": "XdString",
+            "description": "The error the activity reported, if it failed.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 4000
+            }
+          },
+          {
+            "component_id": "vhezo2cckpe92x4c3j2memeh",
+            "label": "Had Plan Reference",
+            "type": "XdString",
+            "description": "The plan the activity followed (prov:hadPlan). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "t0whhrqtnb54te4mk48i1ooj",
+            "label": "Used Entity Reference",
+            "type": "XdString",
+            "description": "An entity the activity used (prov:used). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "r48alj7hc3797qfjnf2uj71n",
+            "label": "Was Associated With Reference",
+            "type": "XdString",
+            "description": "The agent associated with the activity (prov:wasAssociatedWith). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "ueb5g1ojzlwwt0mnds5zb6wl",
+            "label": "Was Ended By Reference",
+            "type": "XdString",
+            "description": "The entity that ended the activity (prov:wasEndedBy). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "qh84jdzp1kxt85aq4ilo0svk",
+            "label": "Was Informed By Reference",
+            "type": "XdString",
+            "description": "An activity that informed this one (prov:wasInformedBy). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "ginfqbk7q59ld2r4us8sjnv1",
+            "label": "Was Started By Reference",
+            "type": "XdString",
+            "description": "The entity that started the activity (prov:wasStartedBy). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "wl6j4ekcmu4hvt2m12zw4zp8",
+            "label": "Activity Status",
+            "type": "XdToken",
+            "description": "The state of an activity, from the Data Privacy Vocabulary activity status concepts.",
+            "value": "ActivityPlanned",
+            "constraints": {
+              "enumerations": [
+                "ActivityProposed",
+                "ActivityPlanned",
+                "ActivityOngoing",
+                "ActivityHalted",
+                "ActivityCompleted",
+                "ActivityNotCompleted"
+              ]
+            }
+          },
+          {
+            "component_id": "a5scyosu6j84vz350mqyrzl2",
+            "label": "Ended At",
+            "type": "XdTemporal",
+            "description": "When the activity ended (prov:endedAtTime).",
+            "value": "2024-01-01T00:00:00"
+          },
+          {
+            "component_id": "sa4nl1kbpdr842fkucvfjkpq",
+            "label": "Started At",
+            "type": "XdTemporal",
+            "description": "When the activity started (prov:startedAtTime).",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "c179ilk2ns15cd5rzzdfd6f6",
+        "label": "PROV Agent",
+        "type": "Cluster",
+        "description": "A PROV agent: a person, organization or software agent, with its identity, contact and delegation.",
+        "items": [
+          {
+            "component_id": "og08xf6bu928uuz6t3y0e23f",
+            "label": "Acted On Behalf Of Reference",
+            "type": "XdString",
+            "description": "The agent on whose behalf this agent acted (prov:actedOnBehalfOf). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "gb78cmuyo72hqs5apymdki7l",
+            "label": "Agent Description",
+            "type": "XdString",
+            "description": "A description of the agent and its responsibilities.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 4000
+            }
+          },
+          {
+            "component_id": "qb90a0sp9vvb6c5cbcf236ys",
+            "label": "Agent Email",
+            "type": "XdString",
+            "description": "The agent's email address (foaf:mbox).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "w2ruemcfy35rw60jl1t9dew2",
+            "label": "Agent Identifier",
+            "type": "XdString",
+            "description": "The identifier of a PROV agent: a URI or another globally unique identifier.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "xxe21o9ojzmy9wxxky1tnmog",
+            "label": "Agent Name",
+            "type": "XdString",
+            "description": "The name of the agent (foaf:name).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "eftvwi5byq6cdtd931qyxzw0",
+            "label": "Agent Organization Name",
+            "type": "XdString",
+            "description": "The organization the agent belongs to or is.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "aa663ivutjf2fs4757t0bbzy",
+            "label": "Software Name",
+            "type": "XdString",
+            "description": "The name of a software agent.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "x0lebwtobgaelj5pev3258sd",
+            "label": "Software Version",
+            "type": "XdString",
+            "description": "The version of a software agent.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 60
+            }
+          },
+          {
+            "component_id": "i16vqj89it3db7d3c5qjko9p",
+            "label": "PROV Agent Type",
+            "type": "XdToken",
+            "description": "The kind of PROV agent: person, organization or software agent.",
+            "value": "Person",
+            "constraints": {
+              "enumerations": [
+                "Person",
+                "Organization",
+                "SoftwareAgent"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,1300 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "etkbxubkngv0v81yvqz77xrs",
+  "dm_type": "dm-etkbxubkngv0v81yvqz77xrs",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Civil Registry 4.4.0",
+    "dm_encoding": "utf-8",
+    "instance_id": "z9d6k9tpfuxrwkx05d1kttqj",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-09-26T15:19:35.258720",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "jkl2gufrtpbp8gpno35b7wiy",
+    "label": "Civil Registry Governed Record",
+    "type": "Cluster",
+    "description": "A civil registry record. The governed record: the data cluster, the PROV activity and agent and the audit event from the ProvGov library by identifier, and the digital signature proof. Members: Civil Registry Record; prov-activity (Provgov); prov-agent (Provgov); audit-event (Provgov); Digital Signature Proof.",
+    "items": [
+      {
+        "component_id": "gug5dhtqfv7exbgmm2raxpkq",
+        "label": "Digital Signature Proof",
+        "type": "XdFile",
+        "description": "Cryptographic proof of attestation (digital signature)",
+        "value": "/path/to/sample/file.txt"
+      },
+      {
+        "component_id": "t2tvd3wylxrstdeu5aw6gkw1",
+        "label": "Audit Event",
+        "type": "Cluster",
+        "description": "A logged access or custody event as data: what was done, by whom, on what, with what outcome and for what purpose. The audit-only case of sdc5 issue 002; state-changing operations are workflow transitions.",
+        "items": [
+          {
+            "component_id": "dkc2ccj5te35z9gd4bu1blcq",
+            "label": "Audit Agent Reference",
+            "type": "XdString",
+            "description": "The acting agent (FHIR AuditEvent.agent.who). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "gcjyjrnp0wsfoelcp4m05c67",
+            "label": "Audit Entity Reference",
+            "type": "XdString",
+            "description": "The entity the event concerns (FHIR AuditEvent.entity.what). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "fjhgr5fyqxt2crmg2cb5c513",
+            "label": "Audit Event Identifier",
+            "type": "XdString",
+            "description": "The identifier of the audit event.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "sndpbhm3xbd6qtbyxmvh3i0e",
+            "label": "Data Subject Reference",
+            "type": "XdString",
+            "description": "The data subject or patient the event concerns (FHIR AuditEvent.patient; SDC DM.subject). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "nf1air1zbj8v9w66jozdxmyl",
+            "label": "On Behalf Of Reference",
+            "type": "XdString",
+            "description": "The party on whose behalf the agent acted (FHIR agent.onBehalfOf; prov:actedOnBehalfOf). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "h3kdbvdtyalpvik97saaf0an",
+            "label": "System Identifier",
+            "type": "XdString",
+            "description": "The system that handled the item (FHIR AuditEvent.source.observer; SDC AuditType.system-id).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "ujir739mf1g8ajeczs9nzh9m",
+            "label": "System Location Name",
+            "type": "XdString",
+            "description": "The site or facility that handled the item (FHIR AuditEvent.agent.location; prov:atLocation).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "ce1c8sydkov8bkv4dgdmwe5x",
+            "label": "Audit Event Action",
+            "type": "XdToken",
+            "description": "The operation performed in a logged access event (FHIR AuditEvent.action). Read and Execute change no state and are audit facts, not workflow moves.",
+            "value": "U",
+            "constraints": {
+              "enumerations": [
+                "C",
+                "R",
+                "U",
+                "D",
+                "E"
+              ]
+            }
+          },
+          {
+            "component_id": "rpz1czz06jhpahmfz30rblvp",
+            "label": "Audit Event Outcome",
+            "type": "XdToken",
+            "description": "The result of an audited event (FHIR AuditEvent.outcome).",
+            "value": "0",
+            "constraints": {
+              "enumerations": [
+                "0",
+                "4",
+                "8",
+                "12"
+              ]
+            }
+          },
+          {
+            "component_id": "vbctgmdcwps5b3r3l6sboa6y",
+            "label": "Confidentiality",
+            "type": "XdToken",
+            "description": "The level of protection the information requires (HL7 v3 Confidentiality). At assembly the value populates a component's act tag.",
+            "value": "V",
+            "constraints": {
+              "enumerations": [
+                "U",
+                "L",
+                "M",
+                "N",
+                "R",
+                "V"
+              ]
+            }
+          },
+          {
+            "component_id": "jujsdur1igws8orw6tvvlqco",
+            "label": "Provenance Agent Type",
+            "type": "XdToken",
+            "description": "The functional role of an agent in an activity (FHIR Provenance.agent.type).",
+            "value": "custodian",
+            "constraints": {
+              "enumerations": [
+                "enterer",
+                "performer",
+                "author",
+                "editor",
+                "verifier",
+                "legal",
+                "attester",
+                "informant",
+                "custodian",
+                "transmitter",
+                "assembler",
+                "transformer",
+                "composer"
+              ]
+            }
+          },
+          {
+            "component_id": "d1evlz8yvdlwt6ia9fjq4pgj",
+            "label": "Purpose of Use",
+            "type": "XdToken",
+            "description": "Why the information was used (HL7 v3 ActReason purpose of use). Activity context, not an access-control tag.",
+            "value": "PATRQT",
+            "constraints": {
+              "enumerations": [
+                "TREAT",
+                "ETREAT",
+                "COC",
+                "HPAYMT",
+                "HOPERAT",
+                "HRESCH",
+                "CLINTRCH",
+                "PUBHLTH",
+                "PATRQT",
+                "HLEGAL",
+                "HMARKT"
+              ]
+            }
+          },
+          {
+            "component_id": "uwiosm2q9ym3ewr4de910s70",
+            "label": "Audit Recorded At",
+            "type": "XdTemporal",
+            "description": "When the audit event was recorded (FHIR AuditEvent.recorded).",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "rl1fs239itr2hdik6iz311t4",
+        "label": "Civil Registry Record",
+        "type": "Cluster",
+        "description": "A resident of the Republic of Cordova as the civil registry holds them: the national ID, the Default person demographics (name, birth date, administrative gender, language, country) by identifier, gender identity (NIEM), the Default contact point, the Cordova address, marital status (HL7 v3, Default) and family relationships. Members: National ID (CID); person-demographics (Default); hs-person-gender-identity-code (NIEM); contact-point (Default); Address (Cordova); marital-status (Default); Family Relationship.",
+        "items": [
+          {
+            "component_id": "nj7s1gk45tfgyooxpz0qaha3",
+            "label": "National ID (CID)",
+            "type": "XdString",
+            "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
+            "value": "DefaultString"
+          },
+          {
+            "component_id": "jehcvvbkw36i1ecd5ooqbwp9",
+            "label": "Person Gender Identity Code",
+            "type": "XdToken",
+            "description": "A gender of a person's identity. The cultural meanings of patterns of behavior, experience, and personality that are labeled masculine or feminine. NIEM 6.0 hs:PersonGenderIdentityCode. Codes of hs:PersonGenderIdentityCodeSimpleType (9 values).",
+            "value": "Male",
+            "constraints": {
+              "enumerations": [
+                "Did not disclose",
+                "Female",
+                "Genderqueer/Gender Non-conforming",
+                "Intersex/Non-binary gender",
+                "Male",
+                "Transgender Female to Male (FTM)",
+                "Transgender General",
+                "Transgender Male to Female (MTF)",
+                "Unknown"
+              ]
+            }
+          },
+          {
+            "component_id": "z11vs0cvonack540omgwhxhz",
+            "label": "Marital Status",
+            "type": "XdToken",
+            "description": "The marital or civil status of a person, using the HL7 v3 MaritalStatus code system.",
+            "value": "A",
+            "constraints": {
+              "enumerations": [
+                "A",
+                "C",
+                "D",
+                "I",
+                "L",
+                "M",
+                "P",
+                "S",
+                "T",
+                "U",
+                "W"
+              ]
+            }
+          },
+          {
+            "component_id": "hsy6giqwj6g3eeh7ahp44j6h",
+            "label": "Address (Cordova)",
+            "type": "Cluster",
+            "description": "A postal address in the Republic of Cordova: the Default address lines and postal code by identifier, the Cordova city and province as the closed national lists. Members: address-line-1 (Default); address-line-2 (Default); City; Province; postal-code (Default).",
+            "items": [
+              {
+                "component_id": "ncxxt7wgs7soxw7kbmapxvg3",
+                "label": "Address (Line 1)",
+                "type": "XdString",
+                "description": "The first line of a street address: street number and name, or a post office box.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 200
+                }
+              },
+              {
+                "component_id": "sexw93x5276zwsn1qx15htpv",
+                "label": "Address (Line 2)",
+                "type": "XdString",
+                "description": "The second line of a street address: apartment, suite, unit, building or floor, when the first line does not carry it.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 200
+                }
+              },
+              {
+                "component_id": "gf841eedvv6cjiegs934srai",
+                "label": "Postal Code",
+                "type": "XdString",
+                "description": "The postal code of an address in any country, with no format constraint. Use US ZIP Code or Canada Postal Code where the format is known.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 15
+                }
+              },
+              {
+                "component_id": "atdtdfzruh7tya0iv5cz365l",
+                "label": "City",
+                "type": "XdToken",
+                "description": "One of the nine cities in the Republic of Cordova.",
+                "value": "Porto Sereno",
+                "constraints": {
+                  "enumerations": [
+                    "Porto Sereno",
+                    "Vistamar",
+                    "Rioseco",
+                    "Campoluz",
+                    "Tierraverde",
+                    "Montecara",
+                    "Novaciudad",
+                    "Piedrasol",
+                    "Lagunavista"
+                  ]
+                }
+              },
+              {
+                "component_id": "kv5qqs3o4jwcwz9javgw1pzh",
+                "label": "Province",
+                "type": "XdToken",
+                "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+                "value": "Aldara",
+                "constraints": {
+                  "enumerations": [
+                    "Aldara",
+                    "Brevina",
+                    "Celara"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "component_id": "d2xwhnb2vqzxw70jcizj9csx",
+            "label": "Contact Point",
+            "type": "Cluster",
+            "description": "Ways to reach a person or organization: phone, fax, email, website, and the method and use of the contact.",
+            "items": [
+              {
+                "component_id": "wriny2gz8aqcvffmfpwbompk",
+                "label": "Website URL",
+                "type": "XdLink",
+                "description": "The URL of a web page or online resource, such as an organization's website or a person's profile page.",
+                "value": "http://example.org/resource"
+              },
+              {
+                "component_id": "q922mqaon3yn5zlwf2bszf28",
+                "label": "Email Address",
+                "type": "XdString",
+                "description": "An email address. The pattern requires a local part, an at sign and a domain with a dot; RFC 5321 limits the whole address to 254 characters.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 254
+                }
+              },
+              {
+                "component_id": "ll6ltsnvakomixuitxkbkxfz",
+                "label": "Fax Number",
+                "type": "XdString",
+                "description": "A facsimile telephone number, optionally starting with a plus sign and country code, with digits, spaces, hyphens and parentheses allowed.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 20
+                }
+              },
+              {
+                "component_id": "zpfwg52r88j6jdypj7rg71ke",
+                "label": "Phone Number",
+                "type": "XdString",
+                "description": "A telephone number, optionally starting with a plus sign and country code, with digits, spaces, hyphens and parentheses allowed.",
+                "value": "DefaultString",
+                "constraints": {
+                  "max_length": 20
+                }
+              },
+              {
+                "component_id": "miqo30r5b554nyj7ubryw43x",
+                "label": "Contact Method",
+                "type": "XdToken",
+                "description": "The communication channel of a contact point.",
+                "value": "pager",
+                "constraints": {
+                  "enumerations": [
+                    "phone",
+                    "fax",
+                    "email",
+                    "pager",
+                    "url",
+                    "sms",
+                    "other"
+                  ]
+                }
+              },
+              {
+                "component_id": "vmruk4j9y1orvvz8cwafrax5",
+                "label": "Contact Use",
+                "type": "XdToken",
+                "description": "The purpose of a contact point.",
+                "value": "old",
+                "constraints": {
+                  "enumerations": [
+                    "home",
+                    "work",
+                    "temp",
+                    "old",
+                    "mobile"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "component_id": "rzvgv4tknabti2p61p3ebhbw",
+            "label": "Family Relationship",
+            "type": "Cluster",
+            "description": "A family relationship recorded by the civil registry: the related person's national ID, the relationship to the subject (HL7 v3 RoleCode, Default) and the period it held. Members: National ID (CID); relationship-to-subject (Default); date-range (Default).",
+            "items": [
+              {
+                "component_id": "i2vrm5bvxw03tcoesvgnft64",
+                "label": "Relationship to Subject",
+                "type": "XdToken",
+                "description": "How a contact person is related to the subject of the record, from the HL7 v3 RoleCode personal relationship codes.",
+                "value": "NOK",
+                "constraints": {
+                  "enumerations": [
+                    "ONESELF",
+                    "SPS",
+                    "DOMPART",
+                    "PRN",
+                    "MTH",
+                    "FTH",
+                    "CHILD",
+                    "SIB",
+                    "GRPRN",
+                    "GRNDCHILD",
+                    "FAMMEMB",
+                    "GUARD",
+                    "CAREGIVER",
+                    "NOK",
+                    "ECON",
+                    "FRND",
+                    "NBOR",
+                    "ROOM"
+                  ]
+                }
+              },
+              {
+                "component_id": "ru9u47yxhe337pslpxm6cflx",
+                "label": "Date Range",
+                "type": "Cluster",
+                "description": "A period bounded by a start date and an end date.",
+                "items": [
+                  {
+                    "component_id": "moo2lije2b05ylq8q4t52lcb",
+                    "label": "Date Range End",
+                    "type": "XdTemporal",
+                    "description": "The last date of a period.",
+                    "value": "2024-01-01T00:00:00"
+                  },
+                  {
+                    "component_id": "bcyjfdwobh9q60umle1amw0w",
+                    "label": "Date Range Start",
+                    "type": "XdTemporal",
+                    "description": "The first date of a period.",
+                    "value": "2024-01-01T00:00:00"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "component_id": "vag4j8x1v4bp92xkmks7q4to",
+            "label": "Person (Demographics)",
+            "type": "Cluster",
+            "description": "The demographic core of a person record: name, date of birth, administrative gender, language and country.",
+            "items": [
+              {
+                "component_id": "gxzbm758mhdz51xd4bawlfhh",
+                "label": "Administrative Gender",
+                "type": "XdToken",
+                "description": "The gender a person is recorded as for administrative purposes. Not clinical or biological sex; see Sex (Recorded).",
+                "value": "female",
+                "constraints": {
+                  "enumerations": [
+                    "male",
+                    "female",
+                    "other",
+                    "unknown"
+                  ]
+                }
+              },
+              {
+                "component_id": "f2jicaigehz7xmwcp1gm5gh0",
+                "label": "Country Code ISO 3166",
+                "type": "XdToken",
+                "description": "The ISO 3166-1 alpha-2 code of a country or territory: the complete list of 249 officially assigned codes. Each value is defined by its Wikidata entity.",
+                "value": "CY",
+                "constraints": {
+                  "enumerations": [
+                    "AD",
+                    "AE",
+                    "AF",
+                    "AG",
+                    "AI",
+                    "AL",
+                    "AM",
+                    "AO",
+                    "AQ",
+                    "AR",
+                    "AS",
+                    "AT",
+                    "AU",
+                    "AW",
+                    "AX",
+                    "AZ",
+                    "BA",
+                    "BB",
+                    "BD",
+                    "BE",
+                    "BF",
+                    "BG",
+                    "BH",
+                    "BI",
+                    "BJ",
+                    "BL",
+                    "BM",
+                    "BN",
+                    "BO",
+                    "BQ",
+                    "BR",
+                    "BS",
+                    "BT",
+                    "BV",
+                    "BW",
+                    "BY",
+                    "BZ",
+                    "CA",
+                    "CC",
+                    "CD",
+                    "CF",
+                    "CG",
+                    "CH",
+                    "CI",
+                    "CK",
+                    "CL",
+                    "CM",
+                    "CN",
+                    "CO",
+                    "CR",
+                    "CU",
+                    "CV",
+                    "CW",
+                    "CX",
+                    "CY",
+                    "CZ",
+                    "DE",
+                    "DJ",
+                    "DK",
+                    "DM",
+                    "DO",
+                    "DZ",
+                    "EC",
+                    "EE",
+                    "EG",
+                    "EH",
+                    "ER",
+                    "ES",
+                    "ET",
+                    "FI",
+                    "FJ",
+                    "FK",
+                    "FM",
+                    "FO",
+                    "FR",
+                    "GA",
+                    "GB",
+                    "GD",
+                    "GE",
+                    "GF",
+                    "GG",
+                    "GH",
+                    "GI",
+                    "GL",
+                    "GM",
+                    "GN",
+                    "GP",
+                    "GQ",
+                    "GR",
+                    "GS",
+                    "GT",
+                    "GU",
+                    "GW",
+                    "GY",
+                    "HK",
+                    "HM",
+                    "HN",
+                    "HR",
+                    "HT",
+                    "HU",
+                    "ID",
+                    "IE",
+                    "IL",
+                    "IM",
+                    "IN",
+                    "IO",
+                    "IQ",
+                    "IR",
+                    "IS",
+                    "IT",
+                    "JE",
+                    "JM",
+                    "JO",
+                    "JP",
+                    "KE",
+                    "KG",
+                    "KH",
+                    "KI",
+                    "KM",
+                    "KN",
+                    "KP",
+                    "KR",
+                    "KW",
+                    "KY",
+                    "KZ",
+                    "LA",
+                    "LB",
+                    "LC",
+                    "LI",
+                    "LK",
+                    "LR",
+                    "LS",
+                    "LT",
+                    "LU",
+                    "LV",
+                    "LY",
+                    "MA",
+                    "MC",
+                    "MD",
+                    "ME",
+                    "MF",
+                    "MG",
+                    "MH",
+                    "MK",
+                    "ML",
+                    "MM",
+                    "MN",
+                    "MO",
+                    "MP",
+                    "MQ",
+                    "MR",
+                    "MS",
+                    "MT",
+                    "MU",
+                    "MV",
+                    "MW",
+                    "MX",
+                    "MY",
+                    "MZ",
+                    "NA",
+                    "NC",
+                    "NE",
+                    "NF",
+                    "NG",
+                    "NI",
+                    "NL",
+                    "NO",
+                    "NP",
+                    "NR",
+                    "NU",
+                    "NZ",
+                    "OM",
+                    "PA",
+                    "PE",
+                    "PF",
+                    "PG",
+                    "PH",
+                    "PK",
+                    "PL",
+                    "PM",
+                    "PN",
+                    "PR",
+                    "PS",
+                    "PT",
+                    "PW",
+                    "PY",
+                    "QA",
+                    "RE",
+                    "RO",
+                    "RS",
+                    "RU",
+                    "RW",
+                    "SA",
+                    "SB",
+                    "SC",
+                    "SD",
+                    "SE",
+                    "SG",
+                    "SH",
+                    "SI",
+                    "SJ",
+                    "SK",
+                    "SL",
+                    "SM",
+                    "SN",
+                    "SO",
+                    "SR",
+                    "SS",
+                    "ST",
+                    "SV",
+                    "SX",
+                    "SY",
+                    "SZ",
+                    "TC",
+                    "TD",
+                    "TF",
+                    "TG",
+                    "TH",
+                    "TJ",
+                    "TK",
+                    "TL",
+                    "TM",
+                    "TN",
+                    "TO",
+                    "TR",
+                    "TT",
+                    "TV",
+                    "TW",
+                    "TZ",
+                    "UA",
+                    "UG",
+                    "UM",
+                    "US",
+                    "UY",
+                    "UZ",
+                    "VA",
+                    "VC",
+                    "VE",
+                    "VG",
+                    "VI",
+                    "VN",
+                    "VU",
+                    "WF",
+                    "WS",
+                    "YE",
+                    "YT",
+                    "ZA",
+                    "ZM",
+                    "ZW"
+                  ]
+                }
+              },
+              {
+                "component_id": "no649c8yiebkyujhlbwjuppx",
+                "label": "Language Code",
+                "type": "XdToken",
+                "description": "The ISO 639-1 two-letter code of a language: the complete list of 184 codes, which are also the BCP 47 primary language subtags. Each value is defined by its Wikidata entity.",
+                "value": "ba",
+                "constraints": {
+                  "enumerations": [
+                    "aa",
+                    "ab",
+                    "ae",
+                    "af",
+                    "ak",
+                    "am",
+                    "an",
+                    "ar",
+                    "as",
+                    "av",
+                    "ay",
+                    "az",
+                    "ba",
+                    "be",
+                    "bg",
+                    "bi",
+                    "bm",
+                    "bn",
+                    "bo",
+                    "br",
+                    "bs",
+                    "ca",
+                    "ce",
+                    "ch",
+                    "co",
+                    "cr",
+                    "cs",
+                    "cu",
+                    "cv",
+                    "cy",
+                    "da",
+                    "de",
+                    "dv",
+                    "dz",
+                    "ee",
+                    "el",
+                    "en",
+                    "eo",
+                    "es",
+                    "et",
+                    "eu",
+                    "fa",
+                    "ff",
+                    "fi",
+                    "fj",
+                    "fo",
+                    "fr",
+                    "fy",
+                    "ga",
+                    "gd",
+                    "gl",
+                    "gn",
+                    "gu",
+                    "gv",
+                    "ha",
+                    "he",
+                    "hi",
+                    "ho",
+                    "hr",
+                    "ht",
+                    "hu",
+                    "hy",
+                    "hz",
+                    "ia",
+                    "id",
+                    "ie",
+                    "ig",
+                    "ii",
+                    "ik",
+                    "io",
+                    "is",
+                    "it",
+                    "iu",
+                    "ja",
+                    "jv",
+                    "ka",
+                    "kg",
+                    "ki",
+                    "kj",
+                    "kk",
+                    "kl",
+                    "km",
+                    "kn",
+                    "ko",
+                    "kr",
+                    "ks",
+                    "ku",
+                    "kv",
+                    "kw",
+                    "ky",
+                    "la",
+                    "lb",
+                    "lg",
+                    "li",
+                    "ln",
+                    "lo",
+                    "lt",
+                    "lu",
+                    "lv",
+                    "mg",
+                    "mh",
+                    "mi",
+                    "mk",
+                    "ml",
+                    "mn",
+                    "mr",
+                    "ms",
+                    "mt",
+                    "my",
+                    "na",
+                    "nb",
+                    "nd",
+                    "ne",
+                    "ng",
+                    "nl",
+                    "nn",
+                    "no",
+                    "nr",
+                    "nv",
+                    "ny",
+                    "oc",
+                    "oj",
+                    "om",
+                    "or",
+                    "os",
+                    "pa",
+                    "pi",
+                    "pl",
+                    "ps",
+                    "pt",
+                    "qu",
+                    "rm",
+                    "rn",
+                    "ro",
+                    "ru",
+                    "rw",
+                    "sa",
+                    "sc",
+                    "sd",
+                    "se",
+                    "sg",
+                    "sh",
+                    "si",
+                    "sk",
+                    "sl",
+                    "sm",
+                    "sn",
+                    "so",
+                    "sq",
+                    "sr",
+                    "ss",
+                    "st",
+                    "su",
+                    "sv",
+                    "sw",
+                    "ta",
+                    "te",
+                    "tg",
+                    "th",
+                    "ti",
+                    "tk",
+                    "tl",
+                    "tn",
+                    "to",
+                    "tr",
+                    "ts",
+                    "tt",
+                    "tw",
+                    "ty",
+                    "ug",
+                    "uk",
+                    "ur",
+                    "uz",
+                    "ve",
+                    "vi",
+                    "vo",
+                    "wa",
+                    "wo",
+                    "xh",
+                    "yi",
+                    "yo",
+                    "za",
+                    "zh",
+                    "zu"
+                  ]
+                }
+              },
+              {
+                "component_id": "js564tazefb6udqlh12rj04l",
+                "label": "Date of Birth",
+                "type": "XdTemporal",
+                "description": "The date a person was born.",
+                "value": "2024-01-01T00:00:00"
+              },
+              {
+                "component_id": "ytw6qjtq5gilrvkfsohsrlkh",
+                "label": "Full Name (Person)",
+                "type": "Cluster",
+                "description": "The parts of a person's name and how the name is used.",
+                "items": [
+                  {
+                    "component_id": "l9l169co9r23e6fftpvdz4e3",
+                    "label": "Given Name (Person)",
+                    "type": "XdString",
+                    "description": "The name given to a person at birth or naming, distinguishing them from others in the same family. Also called first name or forename.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "min_length": 1,
+                      "max_length": 100
+                    }
+                  },
+                  {
+                    "component_id": "zcf4f5kjjo497jeb9vtt9rmr",
+                    "label": "Middle Name (Person)",
+                    "type": "XdString",
+                    "description": "An additional given name, placed between the first given name and the surname.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "min_length": 1,
+                      "max_length": 100
+                    }
+                  },
+                  {
+                    "component_id": "yahxccv0l1z6ykjxayzkdlkq",
+                    "label": "Name Prefix",
+                    "type": "XdString",
+                    "description": "An honorific or title placed before a person's name, such as Mr., Ms., Dr. or Prof.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 20
+                    }
+                  },
+                  {
+                    "component_id": "l509t0zajfl5atns64d5kl97",
+                    "label": "Name Suffix",
+                    "type": "XdString",
+                    "description": "A suffix placed after a person's name, such as Jr., Sr., III, PhD, MD or Esq.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "max_length": 20
+                    }
+                  },
+                  {
+                    "component_id": "jc1lfk3ovt6l8frhxvx8b669",
+                    "label": "Surname (Person)",
+                    "type": "XdString",
+                    "description": "The family name of a person, shared with other members of the family. Also called last name or family name.",
+                    "value": "DefaultString",
+                    "constraints": {
+                      "min_length": 1,
+                      "max_length": 100
+                    }
+                  },
+                  {
+                    "component_id": "bfqinvm7qrgi9jjw1i637moh",
+                    "label": "Name Use",
+                    "type": "XdToken",
+                    "description": "The purpose or context of a person's name.",
+                    "value": "official",
+                    "constraints": {
+                      "enumerations": [
+                        "usual",
+                        "official",
+                        "temp",
+                        "nickname",
+                        "anonymous",
+                        "old",
+                        "maiden"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component_id": "vmikfu0irht9fmq7q02t3oqs",
+        "label": "PROV Activity",
+        "type": "Cluster",
+        "description": "A PROV activity: what it was, when it ran, its status, and the entities, activities, agent and plan it relates to.",
+        "items": [
+          {
+            "component_id": "hhusuzzig19rs46ngz23k5g7",
+            "label": "Activity Description",
+            "type": "XdString",
+            "description": "A description of what the activity does and why.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 4000
+            }
+          },
+          {
+            "component_id": "wr06h54xqqw2q9id8i9673jy",
+            "label": "Activity Identifier",
+            "type": "XdString",
+            "description": "The identifier of a PROV activity: a URI or another globally unique identifier.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "r6hkunjm2q0hlxiknlc9ljix",
+            "label": "Activity Label",
+            "type": "XdString",
+            "description": "A human-readable label for a PROV activity.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "uzai5uey5p1fnn9ezj9u6vor",
+            "label": "Activity Location",
+            "type": "XdString",
+            "description": "Where the activity took place (prov:atLocation), as text.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "jjzmhdxvbt97pq81iwqubtxk",
+            "label": "Activity Type",
+            "type": "XdString",
+            "description": "The kind of activity, in the vocabulary of the domain (prov:type).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "xlgjqdpwdbn2re3mdh5yy2rk",
+            "label": "Error Message",
+            "type": "XdString",
+            "description": "The error the activity reported, if it failed.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 4000
+            }
+          },
+          {
+            "component_id": "vhezo2cckpe92x4c3j2memeh",
+            "label": "Had Plan Reference",
+            "type": "XdString",
+            "description": "The plan the activity followed (prov:hadPlan). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "t0whhrqtnb54te4mk48i1ooj",
+            "label": "Used Entity Reference",
+            "type": "XdString",
+            "description": "An entity the activity used (prov:used). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "r48alj7hc3797qfjnf2uj71n",
+            "label": "Was Associated With Reference",
+            "type": "XdString",
+            "description": "The agent associated with the activity (prov:wasAssociatedWith). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "ueb5g1ojzlwwt0mnds5zb6wl",
+            "label": "Was Ended By Reference",
+            "type": "XdString",
+            "description": "The entity that ended the activity (prov:wasEndedBy). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "qh84jdzp1kxt85aq4ilo0svk",
+            "label": "Was Informed By Reference",
+            "type": "XdString",
+            "description": "An activity that informed this one (prov:wasInformedBy). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "ginfqbk7q59ld2r4us8sjnv1",
+            "label": "Was Started By Reference",
+            "type": "XdString",
+            "description": "The entity that started the activity (prov:wasStartedBy). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "wl6j4ekcmu4hvt2m12zw4zp8",
+            "label": "Activity Status",
+            "type": "XdToken",
+            "description": "The state of an activity, from the Data Privacy Vocabulary activity status concepts.",
+            "value": "ActivityOngoing",
+            "constraints": {
+              "enumerations": [
+                "ActivityProposed",
+                "ActivityPlanned",
+                "ActivityOngoing",
+                "ActivityHalted",
+                "ActivityCompleted",
+                "ActivityNotCompleted"
+              ]
+            }
+          },
+          {
+            "component_id": "a5scyosu6j84vz350mqyrzl2",
+            "label": "Ended At",
+            "type": "XdTemporal",
+            "description": "When the activity ended (prov:endedAtTime).",
+            "value": "2024-01-01T00:00:00"
+          },
+          {
+            "component_id": "sa4nl1kbpdr842fkucvfjkpq",
+            "label": "Started At",
+            "type": "XdTemporal",
+            "description": "When the activity started (prov:startedAtTime).",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "c179ilk2ns15cd5rzzdfd6f6",
+        "label": "PROV Agent",
+        "type": "Cluster",
+        "description": "A PROV agent: a person, organization or software agent, with its identity, contact and delegation.",
+        "items": [
+          {
+            "component_id": "og08xf6bu928uuz6t3y0e23f",
+            "label": "Acted On Behalf Of Reference",
+            "type": "XdString",
+            "description": "The agent on whose behalf this agent acted (prov:actedOnBehalfOf). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "gb78cmuyo72hqs5apymdki7l",
+            "label": "Agent Description",
+            "type": "XdString",
+            "description": "A description of the agent and its responsibilities.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 4000
+            }
+          },
+          {
+            "component_id": "qb90a0sp9vvb6c5cbcf236ys",
+            "label": "Agent Email",
+            "type": "XdString",
+            "description": "The agent's email address (foaf:mbox).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "w2ruemcfy35rw60jl1t9dew2",
+            "label": "Agent Identifier",
+            "type": "XdString",
+            "description": "The identifier of a PROV agent: a URI or another globally unique identifier.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "xxe21o9ojzmy9wxxky1tnmog",
+            "label": "Agent Name",
+            "type": "XdString",
+            "description": "The name of the agent (foaf:name).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "eftvwi5byq6cdtd931qyxzw0",
+            "label": "Agent Organization Name",
+            "type": "XdString",
+            "description": "The organization the agent belongs to or is.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "aa663ivutjf2fs4757t0bbzy",
+            "label": "Software Name",
+            "type": "XdString",
+            "description": "The name of a software agent.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "x0lebwtobgaelj5pev3258sd",
+            "label": "Software Version",
+            "type": "XdString",
+            "description": "The version of a software agent.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 60
+            }
+          },
+          {
+            "component_id": "i16vqj89it3db7d3c5qjko9p",
+            "label": "PROV Agent Type",
+            "type": "XdToken",
+            "description": "The kind of PROV agent: person, organization or software agent.",
+            "value": "Person",
+            "constraints": {
+              "enumerations": [
+                "Person",
+                "Organization",
+                "SoftwareAgent"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

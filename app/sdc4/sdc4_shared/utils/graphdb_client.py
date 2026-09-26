@@ -114,6 +114,63 @@ class GraphDBClient:
             logger.error(f"Unexpected error uploading graph: {e}")
             return False
 
+    def upload_graphs(self, graphs) -> bool:
+        """
+        Upload many named graphs in one request.
+
+        ``graphs`` is a sequence of (graph_uri, turtle) pairs as upload_graph takes them
+        one at a time. The Turtle prefixes are hoisted once and every graph's triples go
+        inside its own GRAPH block of a TriG document, so a batch of records costs one
+        round trip instead of one per record. Returns True when the store accepted the
+        whole document; the caller falls back to single uploads otherwise.
+        """
+        prefixes: dict = {}
+        blocks = []
+        for graph_uri, turtle in graphs:
+            body = []
+            for line in turtle.splitlines():
+                stripped = line.strip()
+                if stripped.startswith('@prefix') or stripped.upper().startswith('PREFIX '):
+                    prefixes.setdefault(stripped, None)
+                elif stripped:
+                    body.append(line)
+            blocks.append(f'GRAPH <{graph_uri}> {{\n' + '\n'.join(body) + '\n}\n')
+        document = '\n'.join(prefixes) + '\n\n' + '\n'.join(blocks)
+        try:
+            response = requests.post(
+                self.statements_endpoint,
+                data=document.encode('utf-8'),
+                headers={'Content-Type': 'application/trig'},
+                auth=self.auth,
+                timeout=120,
+            )
+            if response.status_code in [200, 201, 204]:
+                logger.info(f"Uploaded {len(blocks)} named graphs in one request")
+                return True
+            logger.error(f"Batch upload of {len(blocks)} graphs refused: Status {response.status_code}, Response: {response.text[:300]}")
+            return False
+        except requests.RequestException as e:
+            logger.error(f"GraphDB connection error on batch upload: {e}")
+            return False
+
+    def update_sparql(self, sparql_update: str) -> bool:
+        """Run one SPARQL UPDATE against the repository; True when the store accepted it."""
+        try:
+            response = requests.post(
+                self.statements_endpoint,
+                data=sparql_update.encode('utf-8'),
+                headers={'Content-Type': 'application/sparql-update'},
+                auth=self.auth,
+                timeout=300,
+            )
+            if response.status_code in [200, 204]:
+                return True
+            logger.error(f"SPARQL update refused: Status {response.status_code}, Response: {response.text[:300]}")
+            return False
+        except requests.RequestException as e:
+            logger.error(f"GraphDB connection error on update: {e}")
+            return False
+
     def delete_graph(self, graph_uri: str) -> bool:
         """
         Delete a named graph from GraphDB.
