@@ -15,7 +15,7 @@ from sdc4_shared.utils.dm_registry import get_dm_registry
 
 from .dmlib import governed_by
 from .graph import neighbourhood
-from .question import coverage
+from .question import coverage, trade_at_risk
 from .instances import (
     field_rows,
     get_instance,
@@ -30,8 +30,8 @@ PANES = ('table', 'document', 'graph')
 
 
 def question(request):
-    """One cross-domain question, and the evidence for the answer."""
-    return render(request, 'console/question.html', {'q': coverage()})
+    """Two cross-domain questions, and the evidence for the answers."""
+    return render(request, 'console/question.html', {'q': coverage(), 't': trade_at_risk()})
 
 
 def index(request):

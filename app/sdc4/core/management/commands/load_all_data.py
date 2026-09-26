@@ -6,11 +6,13 @@ XSD schema, and runs BulkImportProcessor.process_directory() for each.
 """
 import importlib
 import re
+import time
 from pathlib import Path
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
+from core.loading import BatchLoader
 from sdc4_shared.utils.dm_registry import get_dm_registry
 from sdc4_shared.utils.graphdb_client import GraphDBClient
 
@@ -40,6 +42,12 @@ class Command(BaseCommand):
             action='store_true',
             help='Delete all existing records before importing',
         )
+        parser.add_argument(
+            '--batch',
+            type=int,
+            default=200,
+            help='Records per database write and per triple-store request (default 200); 0 takes the one-file-at-a-time path',
+        )
 
     def _clear_graphs(self, dm_ct_id):
         """
@@ -68,6 +76,19 @@ class Command(BaseCommand):
             # store scans the whole repository, and on the largest domain that
             # query simply fails, which is how vital statistics ended up holding
             # two generations while every other domain was clean.
+            # One update drops every graph under the prefix; dropping them one request at a
+            # time cost eight of the ten minutes a demo load took. The per-graph loop below
+            # stays as the fallback when the store refuses the bulk update.
+            listing = client.query_sparql(
+                'SELECT (COUNT(DISTINCT ?g) AS ?n) WHERE { GRAPH ?g { ?s ?p ?o } '
+                f'FILTER(STRSTARTS(STR(?g), "{prefix}")) }}'
+            )
+            before = int(listing['results']['bindings'][0]['n']['value']) if listing and listing.get('results', {}).get('bindings') else 0
+            if before and client.update_sparql(
+                'DELETE { GRAPH ?g { ?s ?p ?o } } WHERE { GRAPH ?g { ?s ?p ?o } '
+                f'FILTER(STRSTARTS(STR(?g), "{prefix}")) }}'
+            ):
+                return before
             dropped = 0
             for _ in range(200):  # bounded, so a delete that never succeeds cannot spin
                 result = client.query_sparql(
@@ -110,6 +131,33 @@ class Command(BaseCommand):
             ))
             return 0
 
+    def _clear_orphan_graphs(self, registry) -> int:
+        """
+        Drop named graphs of data models this build no longer registers.
+
+        A superseded model's graphs otherwise outlive it: the 4.3.1 models' graphs
+        stayed behind a 4.4.0 load and gave one person eleven domains.
+        """
+        try:
+            client = GraphDBClient()
+            if not client.health_check():
+                return 0
+            keep = ' || '.join(f'STRSTARTS(STR(?g), "urn:sdc4:dm-{ct}:")' for ct in registry)
+            count = client.query_sparql(
+                'SELECT (COUNT(DISTINCT ?g) AS ?n) WHERE { GRAPH ?g { ?s ?p ?o } '
+                f'FILTER(STRSTARTS(STR(?g), "urn:sdc4:dm-") && !({keep})) }}'
+            )
+            n = int(count['results']['bindings'][0]['n']['value']) if count and count.get('results', {}).get('bindings') else 0
+            if n and client.update_sparql(
+                'DELETE { GRAPH ?g { ?s ?p ?o } } WHERE { GRAPH ?g { ?s ?p ?o } '
+                f'FILTER(STRSTARTS(STR(?g), "urn:sdc4:dm-") && !({keep})) }}'
+            ):
+                return n
+            return 0
+        except Exception as e:
+            self.stdout.write(self.style.WARNING(f'  Orphaned graphs not cleared: {e}'))
+            return 0
+
     def handle(self, *args, **options):
         registry = get_dm_registry()
         filter_app = options.get('app')
@@ -118,6 +166,10 @@ class Command(BaseCommand):
         total_imported = 0
         total_failed = 0
         total_skipped = 0
+        total_invalid = 0
+        total_with_ev = 0
+        batch = options.get('batch', 200)
+        started = time.monotonic()
 
         for dm_ct_id, model_class in registry.items():
             app_label = model_class._meta.app_label
@@ -191,28 +243,48 @@ class Command(BaseCommand):
                 )
             )
 
-            processor = BulkImportProcessor(
-                model_class=model_class,
-                xsd_path=xsd_path,
-                dm_ct_id=dm_ct_id,
-                dm_label=dm_label,
-                field_metadata=field_metadata,
-            )
-            result = processor.process_directory(import_dir)
-
-            self.stdout.write(
-                f'  Imported: {result.successful}  '
-                f'Failed: {result.failed}  '
-                f'Skipped: {result.skipped}'
-            )
+            if batch > 0:
+                loader = BatchLoader(app_label, model_class, xsd_path, dm_ct_id, dm_label, field_metadata, batch_size=batch)
+                result = loader.load_directory(import_dir)
+                self.stdout.write(
+                    f'  Imported: {result.successful}  Failed: {result.failed}  Skipped: {result.skipped}  '
+                    f'Invalid: {result.invalid}  Stating an absence: {result.with_ev}  Named graphs: {result.graphs}  '
+                    f'({result.seconds:.0f}s)'
+                )
+                for line in result.failures[:5]:
+                    self.stdout.write(self.style.ERROR(f'    {line}'))
+                total_invalid += result.invalid
+                total_with_ev += result.with_ev
+            else:
+                processor = BulkImportProcessor(
+                    model_class=model_class,
+                    xsd_path=xsd_path,
+                    dm_ct_id=dm_ct_id,
+                    dm_label=dm_label,
+                    field_metadata=field_metadata,
+                )
+                result = processor.process_directory(import_dir)
+                self.stdout.write(
+                    f'  Imported: {result.successful}  '
+                    f'Failed: {result.failed}  '
+                    f'Skipped: {result.skipped}'
+                )
             total_imported += result.successful
             total_failed += result.failed
             total_skipped += result.skipped
 
+        if clear and not filter_app:
+            orphans = self._clear_orphan_graphs(registry)
+            if orphans:
+                self.stdout.write(f'  Dropped {orphans} named graphs of models no longer registered')
+
+        elapsed = time.monotonic() - started
         self.stdout.write(
             self.style.SUCCESS(
                 f'\nDone. Imported: {total_imported}  '
                 f'Failed: {total_failed}  '
                 f'Skipped (duplicates): {total_skipped}'
+                + (f'  Invalid: {total_invalid}  Stating an absence: {total_with_ev}' if batch > 0 else '')
+                + f'  ({elapsed:.0f}s, {elapsed / 60:.1f} min)'
             )
         )
