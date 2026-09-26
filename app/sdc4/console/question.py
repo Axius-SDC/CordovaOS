@@ -1,16 +1,13 @@
 """
 One cross-domain question, answered from the triple store.
 
-The question the mockup asked, which businesses employ exposed people and what
-trade is at risk, is not answerable from this dataset: employment records carry
-the employer as free text rather than as a business identifier, so the chain
-breaks between Employment and Business Registry. Rather than stage it, this asks
-the question the data does support, which happens to be the better one anyway.
-
-National ID (CID) is one published component. Four domains use it, and because
-they use the same component rather than four local conventions, the join needs
-no mapping table and no integration project. That is the whole argument, and it
-is measurable rather than asserted.
+National ID (CID) is one published component. Eight of the ten 4.4.0 models
+compose it (civil registry, vital statistics, healthcare, education,
+employment, tax, property, law enforcement), and because they compose the same
+component rather than eight local conventions, the join needs no mapping table
+and no integration project. That is the whole argument, and it is measurable
+rather than asserted. The same holds for the Business Registry Number, which
+the business registry, employment, tax and maritime models share.
 """
 import time
 from typing import Any, Dict, List

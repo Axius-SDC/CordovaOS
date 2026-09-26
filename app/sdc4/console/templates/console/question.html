@@ -29,7 +29,7 @@
       <div class="fig">
         <div class="v">0</div>
         <div class="k">mapping tables consulted</div>
-        <div class="src">one published component, four users</div>
+        <div class="src">one published component, {{ q.domains }} domains composing it</div>
       </div>
     </div>
 
@@ -66,7 +66,7 @@
         </tbody>
       </table>
       <p class="hint">
-        A person in four rows of this table appears in four separately built systems, and nothing
+        A person in eight rows of this table appears in eight separately built systems, and nothing
         had to be reconciled to find them.
       </p>
     </section>
@@ -82,9 +82,9 @@
   <div class="commit">
     <div class="mark">Today</div>
     <div>
-      <p><b>This question normally starts an integration project.</b> Four systems, each holding
+      <p><b>This question normally starts an integration project.</b> Eight systems, each holding
       part of the answer, each with its own idea of what identifies a person.</p>
-      <p>Nothing here was integrated. The four domains use the same published component for the
+      <p>Nothing here was integrated. The eight domains compose the same published component for the
       national identifier, so the join is the identifier itself. There is no mapping table to
       maintain and no reconciliation step to schedule, which is why the answer takes
       {{ q.elapsed }} seconds rather than a quarter.</p>

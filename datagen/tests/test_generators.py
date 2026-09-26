@@ -61,3 +61,14 @@ def test_the_dataset_is_the_same_on_every_run(dataset, tmp_path):
     def corpus(root):
         return sorted(strip.sub("", open(p, encoding="utf-8").read()) for p in glob.glob(os.path.join(root, "*", "*.xml")))
     assert corpus(out) == corpus(again)
+
+
+def test_every_domain_settles_against_the_workflow_its_model_binds(dataset):
+    """One record per domain: the first legal transition is PERMIT, a state the machine does not offer next is DENY."""
+    out, _ = dataset
+    env = dict(os.environ, CORDOVA_IMPORT_DIR=str(out))
+    run = subprocess.run([sys.executable, os.path.join(DATAGEN, "..", "scripts", "settle_demo.py")], env=env, capture_output=True, text=True, timeout=600)
+    assert run.returncode == 0, run.stdout[-1500:] + run.stderr[-1500:]
+    lines = run.stdout.splitlines()
+    assert sum(l.rstrip().endswith("PERMIT") for l in lines) == 10, run.stdout
+    assert sum("DENY   Invalid transition" in l for l in lines) == 10, run.stdout
