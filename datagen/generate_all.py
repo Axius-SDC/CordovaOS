@@ -3,7 +3,10 @@
 Master runner: generate all CordovaOS demo XML data.
 
 Civil Registry runs first (populates PERSONS), then all other domains.
-Generates ~100K XML instances for a 25,000-resident nation.
+Generates ~100K XML instances for a 25,000-resident nation, or the small
+demo set with CORDOVA_DEMO_SCALE=1. Every generator fills its published
+model's own instance template by label path (engine.py), so the output is
+shaped by the schema and validated on load.
 """
 import os
 import random
@@ -45,7 +48,7 @@ def clear_xml(directory):
 def main():
     t_start = time.time()
     print("=" * 60)
-    print("CordovaOS Demo Data Generator — 25,000 Population")
+    print("CordovaOS Demo Data Generator, 4.4.0 models")
     print("=" * 60)
 
     base = os.path.join(os.path.dirname(__file__), "..", "app", "sdc4", "import_data")

@@ -15,31 +15,32 @@ WHERE {
   # Find people in Porto Sereno via Civil Registry
   ?city_reifier rdf:reifies <<sdc4:mc-atdtdfzruh7tya0iv5cz365l ?vpCity "Porto Sereno">> ;
                 sdc4:inInstance ?civil_inst ;
-                sdc4:inDataModel sdc4:dm-uika42uwtj3ijdbegzw2kcwq .
+                sdc4:inDataModel sdc4:dm-etkbxubkngv0v81yvqz77xrs .
 
   # Get their CID from the same civil registry instance
   ?cid_reifier rdf:reifies <<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ?vpCid ?cid_value>> ;
                sdc4:inInstance ?civil_inst .
 
   # Get their name
-  ?given_reifier rdf:reifies <<sdc4:mc-kfyzf8u8gdafcpt5kfh2qg3q ?vpGiven ?given_name>> ;
+  ?given_reifier rdf:reifies <<sdc4:mc-l9l169co9r23e6fftpvdz4e3 ?vpGiven ?given_name>> ;
                  sdc4:inInstance ?civil_inst .
-  ?surname_reifier rdf:reifies <<sdc4:mc-v8jgjo2sml12jo7zrb8swoxi ?vpSurname ?surname>> ;
+  ?surname_reifier rdf:reifies <<sdc4:mc-jc1lfk3ovt6l8frhxvx8b669 ?vpSurname ?surname>> ;
                    sdc4:inInstance ?civil_inst .
 
   # Cross-domain join: find healthcare records with the same CID
   ?hc_cid_reifier rdf:reifies <<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ?vpHcCid ?cid_value>> ;
                   sdc4:inInstance ?hc_inst ;
-                  sdc4:inDataModel sdc4:dm-ftluo2nybgxmn7mawttoos20 .
+                  sdc4:inDataModel sdc4:dm-dcsd8bxr8a6lzcptwwyms44t .
 
   # Get diagnosis from healthcare instance
-  ?diag_reifier rdf:reifies <<sdc4:mc-nnu04d5qgrmn1bim8bpu0l65 ?vpDiag ?diagnosis>> ;
+  ?diag_reifier rdf:reifies <<sdc4:mc-efimv7gxg5ompt8m6xb2b6k5 ?vpDiag ?diagnosis>> ;
                 sdc4:inInstance ?hc_inst .
 
   # Get facility
   OPTIONAL {
-    ?fac_reifier rdf:reifies <<sdc4:mc-qvmb5f4xmy56y98q8raelpl9 ?vpFac ?facility>> ;
-                 sdc4:inInstance ?hc_inst .
+    ?fac_reifier sdc4:inInstance ?hc_inst ;
+                 rdfs:label "Managing Organization Reference" ;
+                 rdf:reifies <<?mcFac ?vpFac ?facility>> .
   }
   BIND(?hc_inst AS ?inst)
   BIND(?civil_inst AS ?inst_2)

@@ -58,3 +58,21 @@ def test_every_model_has_a_governed_record_and_a_bound_workflow():
         data = [p for p, comp, a in s.paths if len(p) == 1 and s.base.get(comp) == "ClusterType"]
         assert data and data[0][0].endswith("Governed Record"), (s.label[s.dm], data)
         assert s.required(data[0][0])
+
+
+def test_no_generator_carries_an_element_id():
+    """Element ids are resolved from the published schema by label path; a literal one is the 4.3.0 trap coming back."""
+    import glob
+    literal = re.compile(r'["\']ms-[a-z0-9]{24}["\']')
+    for path in sorted(glob.glob(os.path.join(os.path.dirname(__file__), "..", "*.py"))):
+        if os.path.basename(path) in ("engine.py", "schema.py"):
+            continue
+        src = open(path, encoding="utf-8").read()
+        assert not literal.search(src), os.path.basename(path)
+
+
+def test_a_cluster_composed_in_several_places_is_walked_under_each():
+    s = _by_title("Law Enforcement Record")
+    under = sorted({"/".join(p[:-1]) for p, c, a in s.paths if p[-1] == "Location Name"})
+    assert len(under) >= 3, under   # the incident's location, the arrest's, the enforcement official's organization's
+    assert s.base_of("Arrest/Location (NIEM)/Location Name") == "XdStringType"

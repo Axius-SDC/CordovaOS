@@ -51,7 +51,7 @@ class Schema:
         self.min_occurs: dict[tuple[str, str], int] = {}   # (parent type, child type) -> minOccurs of the child's reference
         # every (path, component, adapter) reachable from the DM
         self.paths: list[tuple[tuple[str, ...], str, str | None]] = []
-        self._walk(self.dm, (), set())
+        self._walk(self.dm, (), frozenset())
 
     @classmethod
     @lru_cache(maxsize=None)
@@ -68,20 +68,20 @@ class Schema:
             out.append(child)
         return out
 
-    def _walk(self, ct: str, path: tuple[str, ...], seen: set):
+    def _walk(self, ct: str, path: tuple[str, ...], ancestors: frozenset):
+        """Every path from here down. A cluster composed in several places is walked under each (the NIEM location
+        sits under an incident, an arrest and an organization); only a cluster inside itself is not followed."""
         for child in self._children(ct):
             base = self.base.get(child, "")
             if base == "XdAdapterType":
                 for inner in self._children(child):
                     self.paths.append((path + (self.label.get(inner, ""),), inner, child))
-                    if self.base.get(inner) == "ClusterType" and inner not in seen:
-                        seen.add(inner)
-                        self._walk(inner, path + (self.label.get(inner, ""),), seen)
+                    if self.base.get(inner) == "ClusterType" and inner not in ancestors:
+                        self._walk(inner, path + (self.label.get(inner, ""),), ancestors | {inner})
             else:
                 self.paths.append((path + (self.label.get(child, ""),), child, None))
-                if base == "ClusterType" and child not in seen:
-                    seen.add(child)
-                    self._walk(child, path + (self.label.get(child, ""),), seen)
+                if base == "ClusterType" and child not in ancestors:
+                    self._walk(child, path + (self.label.get(child, ""),), ancestors | {child})
 
     def _find(self, path: str) -> tuple[str, str | None]:
         want = tuple(path.split("/"))

@@ -1,77 +1,31 @@
 """
-Generate Tax and Revenue Record XML instances for CordovaOS demo.
+Tax and Revenue Record 4.4.0: one record per filing.
 
-Governance-composed model: a Governed Record Item carrying (in XSD sequence)
-the Provenance Components cluster FIRST, then the Tax Filing data cluster,
-followed by native subject/provider/Audit/attestation slots.
-
-Tax filings for cast members and businesses.
-Output: import_data/tax_and_revenue_record/
+The model composes Cordova's own filing, assessment, payment and source
+reference clusters with the CID (individual filers) and the Business Registry
+Number (business filers), so a filing joins the taxpayer's civil or business
+record on the identifier itself. Every amount is a quantity in the Cordova
+Córdoba (COR). Cast income filings, business filings for every registered
+business, and income filings for 85% of working-age residents.
 """
-import os
 import random
 
 from business_registry import employer_roster
 from shared import (
-    OMIT,
-    scaled,
-    CAST, PERSONS, random_date,
-    xml_header, xml_preamble, xml_footer, write_xml,
-    xdstring, xdtoken, xdtemporal, xdquantity,
-    cluster_open, cluster_close, native_partytype,
-    make_provenance_values, audit, attestation,
-    cuid_generator,
+    COR, CAST, PERSONS, Quantity,
+    random_date, full_name, record, write_record, import_dir,
 )
 
-CT_ID = "vaw4g2kusit5z0kox5mog54g"
-DM_LABEL = "Tax and Revenue Record"
-OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "app", "sdc4", "import_data", "tax_and_revenue_record")
+TITLE = "Tax and Revenue Record"
+SYSTEM = "Cordova Tax and Revenue System"
+OUTPUT_DIR = import_dir("tax_and_revenue_record")
+AUTHORITY = "Cordova National Revenue Authority"
 
-CURRENCY = "Cordova Córdoba (COR)"
-
-# ─── Governance envelope (Item wrapper + Provenance cluster) ─────────────────
-GOVERNED_RECORD = "ms-pilbutha60g9r6v40hzcn4c8"   # Tax and Revenue Governed Record (Item)
-CL_PROV         = "ms-hdhjfg00tngir2txgqyka9cv"   # Provenance Components
-
-# Provenance Components leaves (component, adapter-wrapper) — re-keyed for v2
-P_ACT_DESC      = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-zpanlhlf2ayh2ruggwb46hvk")
-P_ACT_TYPE      = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-zfbfiymhlt54q0ecnl4jyxgi")
-P_SYS_ID        = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-kvy1rfymdua9n6nkqe9o5ufy")
-P_LOC_ID        = ("ms-zr59goe24qkocprl3feul3mt", "ms-rct02svzxy24f42wvqs9hdqu")
-P_LOC_NAME      = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-z68hw94fx318fpov9pzbiwr5")
-P_TS_END        = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-a26zfrggoaq1cnsl2iuewbx5")
-P_TS_START      = ("ms-o72s5793973fzho35rnaughs", "ms-pxwv97dszkeikumedekm5j8l")
-
-# ─── Tax Filing data cluster ─────────────────────────────────────────────────
-CL_ROOT       = "ms-w9v4eo1l0wy5r65tqx5mjyxh"   # Tax Filing
-
-# Scalar adapters (component, adapter-wrapper) — re-keyed for v2
-W_FILING_ID   = ("ms-a2yks4n49m6gcgpa7qc9hyg1", "ms-arc432kh4axpnn2fd2nbnyoh")
-W_FILING_STAT = ("ms-hwmy9yj7cbhe94pjnq0n2oo5", "ms-ib2ntr26fu0315nh9ks3vnwj")
-W_TAX_TYPE    = ("ms-zb956wxcjf1fccvqezivgrv7", "ms-r00f0ualjpejsuv7d7viwd6c")
-W_FILING_DATE = ("ms-cuazcmxeeo8osfybrgdpe9g7", "ms-bchf2ipn3h4e7mc6nqky6qbm")
-
-# Payment sub-cluster
-CL_PAYMENT    = "ms-j4drl0w17dmw49maf3swgi18"
-W_PAY_METHOD  = ("ms-fqgaf7s7gkwi6j4hh88meudp", "ms-r7km7ym1hx5xaaw1yu4fz4fv")
-W_PAY_STATUS  = ("ms-vt5nh89ol3g5gj0oz35tl6y0", "ms-gooxkhdthesa3ywqdb0ebu6a")
-W_PAY_AMOUNT  = ("ms-tzrg36a15rigk48nj20sbw4v", "ms-e4zlezwgod0ogxy8fjz5fnk0")
-W_PAY_DATE    = ("ms-xrjzng8dyk9eveyzi03abuhr", "ms-ry8vkboem2k56du334tzi5fm")
-
-# Source Reference sub-cluster
-CL_SOURCE     = "ms-kwb0rpk8stxtaitb7k5hahlq"
-W_SRC_ID      = ("ms-hcfz6urx5c2ayvt8npjl0t4l", "ms-w8j1fpyyks35twi7f7725ajb")
-W_SRC_DOMAIN  = ("ms-hh750k4i187bqzot5md216r1", "ms-u6ezacv20p24rz4wvpnjib3t")
-
-# Tax Assessment sub-cluster
-CL_ASSESS     = "ms-ekmjsthf4vkzcff9pwodqg5n"
-W_TAXABLE_INC = ("ms-q1sbdhsdk8glmdr8q1x3mlte", "ms-cv833sn0gwkwqkzflpxot05l")
-W_TAX_ASSESS  = ("ms-l5t2s5y0m4ybwom4ryndzaf9", "ms-mutqunza6fj95t6jlzsw3q4i")
-
-# System Audit component (substitutionGroup="sdc4:Audit"); 5 fixed labels match
-# civil defaults (System Audit / service_account_id / System User /
-# Contact and Access / Software Agent Details), so audit() needs only these.
-AUDIT_COMPONENT = "ms-fotc5adg15ek2b9ermx2mcih"
+# The model's payment method codes; Cordova's bank transfers and payroll deductions have no code of their own.
+PAY_METHODS = {"Bank Transfer": "Other", "Check": "Check", "Cash": "Cash", "Payroll Deduction": "Other"}
+PAY_STATUSES = ["Paid", "Paid", "Paid", "Invoiced", "Overdue"]
+# The payment workflow: the state follows the payment. (4.3.1's Filed/Assessed/Closed were labels with no workflow behind them.)
+STATE_OF = {"Paid": "PaymentComplete", "Invoiced": "PaymentDue", "Overdue": "PaymentPastDue"}
 
 _filing_counter = 0
 
@@ -82,18 +36,7 @@ def next_filing():
     return f"TF-2025-{_filing_counter:06d}"
 
 
-# Enum-conformant value pools (grep'd from the DM XSD).
-# Tax Type enum: Income Tax, Business Tax, Property Tax, Port Fee, Fine Collection, Import Duty
-TAX_TYPES = ["Income Tax", "Business Tax", "Property Tax", "Port Fee", "Import Duty"]
-# Payment Method enum: Bank Transfer, Check, Cash, Payroll Deduction
-PAY_METHODS = ["Bank Transfer", "Check", "Cash", "Payroll Deduction"]
-# Payment Status enum: Paid, Invoiced, Overdue
-PAY_STATUSES = ["Paid", "Paid", "Paid", "Invoiced", "Overdue"]
-# Tax Filing Status enum: Individual, Joint, Business, Estate
-
-
 def _registered_name(brn):
-    """Name of a registered business, or None when the registry has not run."""
     for biz in employer_roster():
         if biz["brn"] == brn:
             return biz["name"]
@@ -101,181 +44,104 @@ def _registered_name(brn):
 
 
 def build_instance(rec):
-    """Build a governance-composed Tax and Revenue XML instance for one filing."""
-    prov = make_provenance_values("Cordova Tax and Revenue System", "TaxAssessment")
-    state = rec.get("state", "Filed")
+    """One Tax and Revenue record for one filing."""
+    pay_status = rec.get("pay_status", "Paid")
+    values = {
+        "Tax Filing/Filing ID": rec["filing_id"],
+        "Tax Filing/National ID (CID)": rec.get("cid"),
+        "Tax Filing/Business Registry Number": rec.get("brn"),
+        "Tax Filing/Tax Type": rec["tax_type"],
+        "Tax Filing/Tax Filing Status": rec["filing_status"],
+        "Tax Filing/Filing Date": rec["filing_date"],
+        "Tax Assessment/Taxable Income": Quantity(str(rec["taxable_income"]), COR),
+        "Tax Assessment/Tax Assessment Amount": Quantity(str(rec["tax_amount"]), COR),
+        "Payment/Payment Amount": Quantity(str(rec["pay_amount"]), COR),
+        "Payment/Payment Status": pay_status,
+        "Payment/Payment Method Code": PAY_METHODS[rec.get("pay_method", "Bank Transfer")],
+        "Payment/Payment Date": rec["pay_date"] if pay_status == "Paid" else None,
+        "Source Reference/Source Domain": rec["src_domain"],
+        "Source Reference/Source Record ID": rec.get("brn") or rec.get("cid"),
+    }
+    return record(TITLE, values, state=STATE_OF[pay_status], system=SYSTEM, activity_type="TaxAssessment",
+                  when=rec["filing_date"], city=rec["city"], province=rec["province"], cid=rec.get("cid"),
+                  subject=("Taxpayer", rec["taxpayer_name"]), provider=("Revenue Authority", AUTHORITY),
+                  attestation_reason=f"Filing assessed by the {AUTHORITY}", committer=AUTHORITY)
 
-    xml = xml_header(CT_ID)
-    xml += xml_preamble(DM_LABEL, current_state=state)
 
-    # Item: Governed Record wrapper
-    xml += cluster_open(GOVERNED_RECORD, "Tax and Revenue Governed Record", indent=1)
-
-    # Provenance Components cluster FIRST (per XSD sequence in the Governed Record).
-    xml += cluster_open(CL_PROV, "Provenance Components", indent=2)
-    xml += xdstring(*P_ACT_DESC, "activity_description", prov["activity_description"], indent=3)
-    xml += xdstring(*P_ACT_TYPE, "prov_activity_type", prov["prov_activity_type"], indent=3)
-    xml += xdstring(*P_SYS_ID, "system_identifier", prov["system_identifier"], indent=3)
-    xml += xdstring(*P_LOC_ID, "system_location_identifier", prov["system_location_identifier"], indent=3)
-    xml += xdstring(*P_LOC_NAME, "system_location_name", prov["system_location_name"], indent=3)
-    xml += xdtemporal(*P_TS_END, "activity_timestamp_end", prov["activity_timestamp_end"], "datetime", indent=3)
-    xml += xdtemporal(*P_TS_START, "activity_timestamp_start", prov["activity_timestamp_start"], "datetime", indent=3)
-    xml += cluster_close(CL_PROV, indent=2)
-
-    # Tax Filing data cluster. XSD sequence: sub-clusters (Payment, Source
-    # Reference, Tax Assessment) BEFORE the scalar adapters.
-    xml += cluster_open(CL_ROOT, "Tax Filing", indent=2)
-
-    xml += cluster_open(CL_PAYMENT, "Payment", indent=3)
-    xml += xdtoken(*W_PAY_METHOD, "Payment Method", rec.get("pay_method", "Bank Transfer"), indent=4)
-    xml += xdtoken(*W_PAY_STATUS, "Payment Status", rec.get("pay_status", "Paid"), indent=4)
-    xml += xdquantity(*W_PAY_AMOUNT, "Payment Amount", str(rec["pay_amount"]), CURRENCY, indent=4)
-    xml += xdtemporal(*W_PAY_DATE, "Payment Date", rec["filing_date"], "date", indent=4)
-    xml += cluster_close(CL_PAYMENT, indent=3)
-
-    xml += cluster_open(CL_SOURCE, "Source Reference", indent=3)
-    xml += xdstring(*W_SRC_ID, "Source Record ID", rec.get("src_id", OMIT), indent=4)
-    xml += xdtoken(*W_SRC_DOMAIN, "Source Domain", rec.get("src_domain", "Employment"), indent=4)
-    xml += cluster_close(CL_SOURCE, indent=3)
-
-    xml += cluster_open(CL_ASSESS, "Tax Assessment", indent=3)
-    xml += xdquantity(*W_TAXABLE_INC, "Taxable Income", str(rec["taxable_income"]), CURRENCY, indent=4)
-    xml += xdquantity(*W_TAX_ASSESS, "Tax Assessment Amount", str(rec["tax_amount"]), CURRENCY, indent=4)
-    xml += cluster_close(CL_ASSESS, indent=3)
-
-    xml += xdstring(*W_FILING_ID, "Filing ID", rec["filing_id"], indent=3)
-    xml += xdtoken(*W_FILING_STAT, "Tax Filing Status", rec.get("filing_status", "Individual"), indent=3)
-    xml += xdtoken(*W_TAX_TYPE, "Tax Type", rec["tax_type"], indent=3)
-    xml += xdtemporal(*W_FILING_DATE, "Filing Date", rec["filing_date"], "date", indent=3)
-    xml += cluster_close(CL_ROOT, indent=2)
-
-    xml += cluster_close(GOVERNED_RECORD, indent=1)
-
-    # Native governance slots, DM order: subject, provider, Audit, attestation.
-    brn = rec.get("taxpayer_brn")
-    xml += native_partytype(
-        "subject", "Taxpayer", rec.get("taxpayer_name", "Cordova Taxpayer"),
-        ref_label="Business Registry Number" if brn else None,
-        ref_link=f"urn:cordova:brn:{brn}" if brn else None,
-        ref_relation="registeredAs" if brn else None,
-        ref_uri=("https://semanticdatacharter.com/ns/sdc4/"
-                 "ms-ule5u2z3rjpa9pooaifwj1n3") if brn else None,
-    )
-    xml += native_partytype("provider", "Tax Authority",
-                            "Cordova National Revenue Authority")
-    xml += audit(AUDIT_COMPONENT, prov["activity_timestamp_start"],
-                 system_id_value=prov["system_identifier"])
-    xml += attestation(pending=False,
-                       reason="Filing assessed by the Cordova National Revenue Authority",
-                       committer="Cordova National Revenue Authority",
-                       committed=prov["activity_timestamp_end"])
-
-    xml += xml_footer(CT_ID)
-    return xml
+def _pay_date(filing_date):
+    y, m, d = filing_date.split("-")
+    m = int(m) + 1
+    return f"{int(y) + (m > 12)}-{(m - 1) % 12 + 1:02d}-{d}"
 
 
 def generate():
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
     count = 0
 
     # Income tax for cast members
-    cast_incomes = {
-        "carlos": 28000, "elena": 65000, "dr_reyes": 95000,
-        "governor_avila": 120000, "sgt_santos": 42000,
-        "dr_ferrer": 88000, "dr_gutierrez": 72000, "prof_lucero": 74000,
-    }
+    cast_incomes = {"carlos": 28000, "elena": 65000, "dr_reyes": 95000, "governor_avila": 120000,
+                    "sgt_santos": 42000, "dr_ferrer": 88000, "dr_gutierrez": 72000, "prof_lucero": 74000}
     for key, income in cast_incomes.items():
+        c = CAST[key]
         tax_amount = int(income * 0.15)
-        c = CAST.get(key, {})
-        taxpayer = f"{c.get('given','')} {c.get('surname','')}".strip() or "Cordova Taxpayer"
-        rec = {
-            "filing_id": next_filing(), "tax_type": "Income Tax",
-            "filing_status": "Individual",
-            "filing_date": "2025-04-15", "state": "Assessed",
-            "pay_amount": tax_amount, "taxable_income": income,
-            "tax_amount": tax_amount, "src_domain": "Employment",
-            "taxpayer_name": taxpayer,
-        }
-        write_xml(os.path.join(OUTPUT_DIR, f"tx-{cuid_generator()}.xml"), build_instance(rec))
+        rec = {"filing_id": next_filing(), "tax_type": "Income Tax", "filing_status": "Individual",
+               "filing_date": "2025-04-15", "pay_date": "2025-05-15", "pay_status": "Paid", "pay_method": "Payroll Deduction",
+               "pay_amount": tax_amount, "taxable_income": income, "tax_amount": tax_amount, "src_domain": "Employment",
+               "taxpayer_name": full_name(c), "cid": c["cid"], "city": c["city"], "province": c["province"]}
+        write_record(OUTPUT_DIR, "tx", build_instance(rec))
         count += 1
 
-    # Business tax filings for narrative businesses (only non-exempt)
-    narrative_brns = [
-        ("BIZ-001102", 2500000),  # Pacifico Meridional
-        ("BIZ-000847", 0),  # UNC exempt
-        ("BIZ-000523", 0),  # Hospital exempt
-        ("BIZ-000101", 0),  # CNP exempt (government)
-        ("BIZ-000205", 0),  # Health Office exempt (government)
-    ]
+    # Business tax for the narrative businesses (only the non-exempt one files)
+    narrative_brns = [("BIZ-001102", 2500000), ("BIZ-000847", 0), ("BIZ-000523", 0), ("BIZ-000101", 0), ("BIZ-000205", 0)]
+    roster = {b["brn"]: b for b in employer_roster()}
     for brn, revenue in narrative_brns:
         if revenue > 0:
+            biz = roster.get(brn, {})
             tax_amount = int(revenue * 0.12)
-            rec = {
-                "filing_id": next_filing(), "tax_type": "Business Tax",
-                "filing_status": "Business",
-                "filing_date": "2025-03-31", "state": "Assessed",
-                "pay_amount": tax_amount, "taxable_income": revenue,
-                "tax_amount": tax_amount,
-                "src_id": brn, "src_domain": "Business Registry",
-                "taxpayer_name": _registered_name(brn) or "Pacifico Meridional",
-                "taxpayer_brn": brn,
-            }
-            write_xml(os.path.join(OUTPUT_DIR, f"tx-{cuid_generator()}.xml"), build_instance(rec))
+            rec = {"filing_id": next_filing(), "tax_type": "Business Tax", "filing_status": "Business",
+                   "filing_date": "2025-03-31", "pay_date": "2025-04-30", "pay_status": "Paid", "pay_method": "Bank Transfer",
+                   "pay_amount": tax_amount, "taxable_income": revenue, "tax_amount": tax_amount, "src_domain": "Business Registry",
+                   "taxpayer_name": _registered_name(brn) or "Pacifico Meridional Shipping S.A.", "brn": brn,
+                   "city": biz.get("city", "Porto Sereno"), "province": biz.get("province", "Aldara")}
+            write_record(OUTPUT_DIR, "tx", build_instance(rec))
             count += 1
 
-    # Background business tax filings, one per registered business that has not
-    # already filed above. The identifiers come from the registry rather than
-    # from a counter: a BIZ-000002 that nothing registered looks exactly like a
-    # working join and is not one.
+    # One business filing per registered business that has not filed above; the BRN comes from the registry.
     filed = {b for b, _ in narrative_brns}
     for biz in [b for b in employer_roster() if b["brn"] not in filed]:
-        brn = biz["brn"]
         revenue = random.randint(50000, 3000000)
         tax_amount = int(revenue * 0.12)
-        rec = {
-            "filing_id": next_filing(), "tax_type": "Business Tax",
-            "filing_status": "Business",
-            "filing_date": random_date(2024, 2025),
-            "state": random.choice(["Filed", "Assessed", "Closed"]),
-            "pay_amount": tax_amount, "taxable_income": revenue,
-            "tax_amount": tax_amount,
-            "src_id": brn, "src_domain": "Business Registry",
-            "pay_method": random.choice(PAY_METHODS),
-            "pay_status": random.choice(PAY_STATUSES),
-            "taxpayer_name": biz["name"],
-            "taxpayer_brn": brn,
-        }
-        write_xml(os.path.join(OUTPUT_DIR, f"tx-{cuid_generator()}.xml"), build_instance(rec))
+        filing_date = random_date(2024, 2025)
+        rec = {"filing_id": next_filing(), "tax_type": "Business Tax", "filing_status": "Business",
+               "filing_date": filing_date, "pay_date": _pay_date(filing_date),
+               "pay_method": random.choice(list(PAY_METHODS)), "pay_status": random.choice(PAY_STATUSES),
+               "pay_amount": tax_amount, "taxable_income": revenue, "tax_amount": tax_amount, "src_domain": "Business Registry",
+               "taxpayer_name": biz["name"], "brn": biz["brn"], "city": biz["city"], "province": biz["province"]}
+        write_record(OUTPUT_DIR, "tx", build_instance(rec))
         count += 1
 
-    # Individual income tax for all employed working-age persons
+    # Individual income tax for 85% of working-age residents
     if not PERSONS:
         from civil_registry import generate as gen_cr
         gen_cr()
-
-    working_age = [p for p in PERSONS if p.get("key", "").startswith("bg_")
-                   and 18 <= (2026 - int(p["dob"][:4])) <= 67]
-    # ~85% have income tax filings (same as employment rate)
-    filers = random.sample(working_age, k=int(len(working_age) * 0.85))
-    for p in filers:
+    working_age = [p for p in PERSONS if p.get("key", "").startswith("bg_") and 18 <= (2026 - int(p["dob"][:4])) <= 67]
+    for p in random.sample(working_age, k=int(len(working_age) * 0.85)):
         income = random.randint(15000, 80000)
         tax_amount = int(income * 0.15)
-        rec = {
-            "filing_id": next_filing(), "tax_type": "Income Tax",
-            "filing_status": random.choice(["Individual", "Individual", "Joint"]),
-            "filing_date": random_date(2024, 2025),
-            "state": random.choice(["Filed", "Assessed", "Closed"]),
-            "pay_amount": tax_amount, "taxable_income": income,
-            "tax_amount": tax_amount, "src_domain": "Employment",
-            "pay_method": random.choice(PAY_METHODS),
-            "pay_status": random.choice(PAY_STATUSES),
-            "taxpayer_name": f"{p.get('given','')} {p.get('surname','')}".strip() or "Cordova Taxpayer",
-        }
-        write_xml(os.path.join(OUTPUT_DIR, f"tx-{cuid_generator()}.xml"), build_instance(rec))
+        filing_date = random_date(2024, 2025)
+        rec = {"filing_id": next_filing(), "tax_type": "Income Tax", "filing_status": random.choice(["Individual", "Individual", "Joint"]),
+               "filing_date": filing_date, "pay_date": _pay_date(filing_date),
+               "pay_method": random.choice(list(PAY_METHODS)), "pay_status": random.choice(PAY_STATUSES),
+               "pay_amount": tax_amount, "taxable_income": income, "tax_amount": tax_amount, "src_domain": "Employment",
+               "taxpayer_name": full_name(p), "cid": p["cid"], "city": p["city"], "province": p["province"]}
+        write_record(OUTPUT_DIR, "tx", build_instance(rec))
         count += 1
 
     print(f"Tax and Revenue: generated {count} XML files in {OUTPUT_DIR}")
 
 
 if __name__ == "__main__":
-    generate()
+    from civil_registry import generate as gen_cr
+    from business_registry import generate as gen_br
+    random.seed("cordovaos:Civil Registry"); gen_cr()
+    random.seed("cordovaos:Business Registry"); gen_br()
+    random.seed("cordovaos:Tax & Revenue"); generate()

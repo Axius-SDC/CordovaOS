@@ -1,256 +1,119 @@
 """
-Generate Maritime Port Authority XML instances for CordovaOS demo.
+Maritime Port Authority 4.4.0: one record per port call.
 
-Governance-composed model: MV Estrella del Sur port call + background port
-calls, each wrapped in the Maritime Governed Record (data + provenance) with
-native subject/provider parties, System Audit and attestation slots.
-
-Output: import_data/maritime_port_authority/
+The model composes the NIEM library's port visit, vessel, voyage, cargo and
+person-on-vessel, with Cordova's port call identifier, port fees in the kept COR
+units, and the operator's Business Registry Number as the join to the Business
+Registry. The MV Estrella del Sur (the Contagion) carries Carlos Mendoza as a
+person on the vessel, named by his CID, so the trace from the vessel to the
+patient is a join on the CID component. 1 + 5 named + 44 weekly background
+port calls = 50 at both scales.
 """
-import os
 import random
+from datetime import date, timedelta
 
 from shared import (
-    OMIT,
-    xml_header, xml_preamble, xml_footer, write_xml,
-    xdstring, xdtoken, xdtemporal, xdquantity, xdcount,
-    cluster_open, cluster_close, native_partytype,
-    make_provenance_values, audit, attestation, generate_brn,
-    cuid_generator, _esc,
+    CAST, COR, Quantity, generate_brn, full_name,
+    record, write_record, import_dir,
 )
 
-CT_ID = "md2451x882z5j89g66zb50rw"
-DM_LABEL = "Maritime Port Authority"
-OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "app", "sdc4", "import_data", "maritime_port_authority")
+TITLE = "Maritime Port Authority"
+SYSTEM = "Cordova Maritime Authority"
+OUTPUT_DIR = import_dir("maritime_port_authority")
+PORT = "Porto Sereno"
+PROVINCE = "Aldara"
 
-# ─── Governance envelope (re-keyed adapter wrappers for v2) ──────────────────
-# Item wrapper (Governed Record) + data cluster + provenance cluster.
-GOVERNED_RECORD = "ms-haoricee7rjlcybdp70akw9l"   # Maritime Governed Record
-CL_ROOT         = "ms-i8cjmvihdces5rqvb2snqwmo"   # Port Call Record (data cluster)
-CL_PROV         = "ms-hdhjfg00tngir2txgqyka9cv"   # Provenance Components
+# The reservation workflow bound to the model: a cleared port call is a confirmed reservation of the berth.
+# "Cleared" (4.3.1) -> ReservationConfirmed; an unpaid fee still being invoiced does not change the berth's state.
+STATE_CLEARED = "ReservationConfirmed"
 
-# ─── Port Call Record scalar adapters (component, wrapper) ───────────────────
-W_FLAG        = ("ms-k7a0poa5c7co38oc65i6jppo", "ms-ztwtg91svokr8cajsnk5g98v")
-W_PORT_CALL   = ("ms-pbfvurdvio38rt6puifhippe", "ms-jpjo36vju4crnkko8hbjq1yx")
-W_BERTH       = ("ms-lnjzw0racjo2oxol5w82tp1y", "ms-rtho8wfemtezef5koxbzp6no")
-W_NEXT_PORT   = ("ms-gxt0t3cs4u6v5ob55qkc6ha0", "ms-w2diw0nlw9u14valhdwu3jif")
-W_DEPART_PORT = ("ms-s0qun9zalf98t3ffsefh34rj", "ms-mlniw2s7nk28vpfhgszm4h49")
-W_CALL_SIGN   = ("ms-qlqdwbglcq4v3rg8i8iy7dk0", "ms-evlm0y6600jgipwpescuc7ng")
-W_IMO         = ("ms-ycy71t767wlyqma97o82r2m9", "ms-jzgihrg1l59f4t95klb3rqoi")
-W_MMSI        = ("ms-cl1hiqht7tm42a8lh8c4c1hz", "ms-xnkkkhr3ssrwjxcd1qc4lyr7")
-W_VESSEL_NAME = ("ms-s5zeapfup3xdj6wbqjjkf1nd", "ms-nkia7ygc96dupfwuwkd9enl6")
-W_VOYAGE_NUM  = ("ms-bmoixtn8r8pu62gbgd1tl8qn", "ms-r7deff81ci4n9f7ueb8g2ff1")
-W_CARGO_TYPE  = ("ms-bfaa3m23ye8q0qphv0x24if6", "ms-v2tuyhcj9v93nk9b3faq4d9g")
-W_PURPOSE     = ("ms-lyh7y1in5j9ka5cxk2zw2qdj", "ms-if3yr12h693cek65aafedmhi")
-W_CREW_CT     = ("ms-p5qzw565y1dm5f3s6lg2q3ft", "ms-uxxa17sdswg01p7lz7x50gmz")
-W_PAX_CT      = ("ms-x720xrlooqij75bk26pvzrtl", "ms-plovkuq4zcfxmybbrcunqexu")
-W_DRAFT       = ("ms-xccdfbmuqcy5yzv2n6ef0hrs", "ms-xuytaggztt85czi3uwsb787s")
-W_GROSS_TON   = ("ms-wtph0sqt244h38lyzf9ot1op", "ms-fehb325iwaw7d9b43qnjwhq0")
-W_LOA         = ("ms-jnxxwzl046rkmkbtm33naueu", "ms-homi7k7k8wq9ie5tng20hdh9")
-W_NET_TON     = ("ms-lh0ufebnovngzzgfggud6ae6", "ms-p9yfudfb7rqtpgb19n9jk2s6")
-W_ARRIVAL     = ("ms-upvi6l9pyb4f0p4vfunietsw", "ms-gjv3f029m0u5ivnlp2dhg49m")
-W_DEPARTURE   = ("ms-sqpcl9uk7sze8bdqxxqwuqrn", "ms-uyhvwvkngd1m6kosjetvlny1")
-
-# ─── Cargo Manifest sub-cluster ─────────────────────────────────────────────
-CL_CARGO        = "ms-ibb8e7c8equpeqiv5wxrxxll"
-W_CUSTOMS_FILED = ("ms-wxjyv4dmwb0rws14mn5xy3ju", "ms-e5e3ztn3b167hho9i5s15frl")
-W_HAZARDOUS     = ("ms-n7x39orkbwjejdf8r93trlaa", "ms-my08lcu7d1co71ztpmsdlnqy")
-W_BRN           = ("ms-l8f0m7op4xhrxqy1jrnvbuly", "ms-js5pmejpqyekbn1jc8b849w5")
-W_CARGO_DESC    = ("ms-z7zqo56erimvk8dqvl07ihfr", "ms-blqlsob84z7sb7x3y5w6dmsc")
-W_CARGO_DEST    = ("ms-an9kafb2l1enwh20ngvo1n7y", "ms-hrtwecl4h9u71lhw0lwk4yek")
-W_CARGO_ORIG    = ("ms-rt510ljj3vz05fxwcm85i990", "ms-oi5elz9425c338kyrwb53wp5")
-W_CUSTOMS_REF   = ("ms-dp1dkn09vydj2ss6ho37kyhv", "ms-vpk36wuobo50a0bmb1s1ql2l")
-W_HAZMAT_CLS    = ("ms-gqbvto3l0o5e6uorrgjwdig2", "ms-opy7sx32ge8mr81gq4lqto65")
-W_CONTAINER     = ("ms-y5se2qd3r6xx6pz8t7d8cqvf", "ms-xgv86hc56x4q6nr3d5g8u9vw")
-W_CARGO_WT      = ("ms-lqqypwp22ohzb0ud3wq81r9s", "ms-arzpelql36ty196wmzsr3c9l")
-
-# ─── Port Fees sub-cluster ──────────────────────────────────────────────────
-CL_FEES       = "ms-emtr91lypy400ttgzz2ti4et"
-W_FEE_TYPE    = ("ms-wvfcfa6u4ers75egrbi25x9l", "ms-xdn11dj0f47bc1x4kwrbn8tk")
-W_FEE_PAY_ST  = ("ms-vt5nh89ol3g5gj0oz35tl6y0", "ms-ueyde052g7ewaozev120y7ei")
-W_FEE_AMT     = ("ms-e92ud8io69rm826g9b1jrrgh", "ms-qvldapu4xe66kan949ejx6vr")
-W_FEE_DATE    = ("ms-zub98dao6k8cbbhsddzoq62w", "ms-xp1ju8p7a3t7151ou6ucbj8q")
-
-# ─── Provenance Components leaves (component, wrapper) ───────────────────────
-P_ACT_DESC = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-vi40qfqd4epbcsh94m52f453")
-P_ACT_TYPE = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-xq0tys5wbcsfb6mc2txph9tu")
-P_SYS_ID   = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-q1s6cutfnod4bkmr0bn41ldp")
-P_LOC_ID   = ("ms-zr59goe24qkocprl3feul3mt", "ms-y5uijrkfon2geat09o1t81mo")
-P_LOC_NAME = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-aa93arr8peexmrioyq9qte4z")
-P_TS_END   = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-xr7xygqcotpd5dj2irtz8n37")
-P_TS_START = ("ms-o72s5793973fzho35rnaughs", "ms-i3f102m4wjwntjyxqnufnf8l")
-
-# System Audit ms- component (substitutionGroup="sdc4:Audit"); labels match
-# the shared audit() civil-registry defaults exactly (confirmed against XSD).
-AUDIT_COMPONENT = "ms-fotc5adg15ek2b9ermx2mcih"
-
-# ─── Domain enum mappings (values must match XSD enumerations) ───────────────
-# Cargo Type (xdtoken): containers, bulk_dry, bulk_liquid, vehicles,
-#   general_cargo, refrigerated, livestock, none
-CARGO_TYPE_MAP = {
-    "Container": "containers", "Containers": "containers",
-    "Bulk Carrier": "bulk_dry", "Bulk": "bulk_dry",
-    "Tanker": "bulk_liquid",
-    "General Cargo": "general_cargo",
-    "Ro-Ro": "vehicles", "RoRo": "vehicles",
-    "Reefer": "refrigerated", "Refrigerated": "refrigerated",
-    "Livestock": "livestock",
-}
-# Purpose of Call (xdtoken): load_cargo, discharge_cargo, load_discharge,
-#   refuel, provisions, repairs, crew_change, emergency, other
-PURPOSE_MAP = {
-    "Cargo Discharge": "discharge_cargo",
-    "Cargo Loading": "load_cargo",
-    "Fuel Discharge": "refuel", "Fuel Bunkering": "refuel",
-    "Crew Change": "crew_change",
-}
-# Fee Type (xdtoken): exact enumeration values
-FEE_TYPES = ["Berth Fee", "Pilotage", "Tug Service", "Cargo Handling",
-             "Customs Processing", "Waste Disposal", "Fresh Water", "Provisions"]
-FEE_TYPE_MAP = {"Docking": "Berth Fee"}
-# Payment Status (xdtoken): Paid, Invoiced, Overdue
+# ISO 3166 alpha-2 flags. Cordova is fictional and has no code: a Cordova-flagged vessel carries the flag as text only.
+FLAG_CODES = {"Panama": "PA", "Liberia": "LR", "Marshall Islands": "MH", "Bahamas": "BS", "Malta": "MT",
+              "Singapore": "SG", "Hong Kong": "HK", "Greece": "GR", "Cyprus": "CY"}
+FEE_TYPES = ["Berth Fee", "Pilotage", "Tug Service", "Cargo Handling", "Customs Processing", "Waste Disposal", "Fresh Water", "Provisions"]
 PAYMENT_STATUSES = ["Paid", "Invoiced", "Overdue"]
-# Hazmat Class (xdtoken): the model carries a single combined enumeration value.
-HAZMAT_CLASS_VALUE = ("1-explosives,2-gases,3-flammable-liquids,4-flammable-solids,"
-                      "5-oxidizers,6-toxic,7-radioactive,8-corrosives,9-misc")
-
-
-def _cargo_type(v):
-    return CARGO_TYPE_MAP.get(v, "general_cargo")
-
-
-def _purpose(v):
-    return PURPOSE_MAP.get(v, "other")
-
-
-def _fee_type(v):
-    return FEE_TYPE_MAP.get(v, v if v in FEE_TYPES else "Berth Fee")
-
-
-def xdboolean_yn(component_id, wrapper_id, label, value, indent=2):
-    """XdBoolean leaf: full XdAny optional sequence + the required true/false
-    choice (enumerated Yes/No, per the model)."""
-    pad = "  " * indent
-    tag = "true-value" if value else "false-value"
-    val = "Yes" if value else "No"
-    return f'''{pad}<sdc4:{wrapper_id}>
-{pad}  <sdc4:{component_id}>
-{pad}    <label>{_esc(label)}</label>
-{pad}    <act></act>
-{pad}    <vtb>2020-01-01T00:00:00</vtb>
-{pad}    <vte>9999-12-31T23:59:59</vte>
-{pad}    <tr>2020-01-01T00:00:00</tr>
-{pad}    <modified>2020-01-01T00:00:00</modified>
-{pad}    <latitude>0.0</latitude>
-{pad}    <longitude>0.0</longitude>
-{pad}    <{tag}>{val}</{tag}>
-{pad}  </sdc4:{component_id}>
-{pad}</sdc4:{wrapper_id}>
-'''
+# UN numbers for the hazardous cargo a tanker or a flagged background call declares: (UN code, chemical, class).
+HAZMAT = [("UN1203", "Gasoline", "3"), ("UN1202", "Diesel fuel", "3"), ("UN1075", "Petroleum gases, liquefied", "2.1"), ("UN1830", "Sulfuric acid", "8")]
 
 
 def build_instance(pc):
-    """Build a governance-composed Maritime Port Authority XML instance."""
-    # Keep system_name short: it seeds system_identifier (urn:...), which the
-    # model caps at 50 chars.
-    prov = make_provenance_values(
-        "Cordova Maritime Authority", "PortCallRegistration",
-        city="Porto Sereno")
-
-    customs_filed = pc.get("customs_filed", True)
-    hazardous = pc.get("hazardous", False)
+    """One Maritime Port Authority record for one port call."""
     brn = pc.get("brn") or generate_brn()
-
-    xml = xml_header(CT_ID)
-    xml += xml_preamble(DM_LABEL, current_state="Cleared")
-
-    # Item: Maritime Governed Record wrapper
-    xml += cluster_open(GOVERNED_RECORD, "Maritime Governed Record", indent=1)
-
-    # Data cluster (Port Call Record). Per the XSD sequence the two sub-clusters
-    # (Cargo Manifest, Port Fees) precede the scalar adapters, so emit them first.
-    xml += cluster_open(CL_ROOT, "Port Call Record", indent=2)
-
-    # Cargo Manifest sub-cluster
-    xml += cluster_open(CL_CARGO, "Cargo Manifest", indent=3)
-    xml += xdboolean_yn(*W_CUSTOMS_FILED, "Customs Declaration Filed", customs_filed, indent=4)
-    xml += xdboolean_yn(*W_HAZARDOUS, "Hazardous Cargo", hazardous, indent=4)
-    xml += xdstring(*W_BRN, "Business Registry Number", brn, indent=4)
-    xml += xdstring(*W_CARGO_DESC, "Cargo Description", pc["cargo_desc"], indent=4)
-    xml += xdstring(*W_CARGO_DEST, "Cargo Destination", pc["cargo_dest"], indent=4)
-    xml += xdstring(*W_CARGO_ORIG, "Cargo Origin", pc["cargo_orig"], indent=4)
-    xml += xdstring(*W_CUSTOMS_REF, "Customs Reference Number", pc.get("customs_ref", OMIT), indent=4)
-    if hazardous:
-        xml += xdtoken(*W_HAZMAT_CLS, "Hazmat Class", HAZMAT_CLASS_VALUE, indent=4)
-    xml += xdcount(*W_CONTAINER, "Container Count", str(pc.get("containers", 0)),
-                   "Twenty-foot Equivalent Units (TEU)", indent=4)
-    xml += xdquantity(*W_CARGO_WT, "Cargo Weight", str(pc.get("cargo_wt", 0)),
-                      "Mass/Weight (SI - Metric)", indent=4)
-    xml += cluster_close(CL_CARGO, indent=3)
-
-    # Port Fees sub-cluster
-    xml += cluster_open(CL_FEES, "Port Fees", indent=3)
-    xml += xdtoken(*W_FEE_TYPE, "Fee Type", _fee_type(pc.get("fee_type", "Berth Fee")), indent=4)
-    xml += xdtoken(*W_FEE_PAY_ST, "Payment Status", pc.get("payment_status", "Paid"), indent=4)
-    xml += xdquantity(*W_FEE_AMT, "Port Fee Amount", str(pc.get("fee_amt", 5000)),
-                      "Cordova Córdoba (COR)", indent=4)
-    xml += xdtemporal(*W_FEE_DATE, "Fee Date", pc["arrival"][:10], "date", indent=4)
-    xml += cluster_close(CL_FEES, indent=3)
-
-    # Scalar adapters (XSD sequence order)
-    xml += xdstring(*W_FLAG, "Flag State", pc["flag"], indent=3)
-    xml += xdstring(*W_PORT_CALL, "Port Call ID", pc["port_call_id"], indent=3)
-    xml += xdstring(*W_BERTH, "Berth Assignment", pc["berth"], indent=3)
-    xml += xdstring(*W_NEXT_PORT, "Next Port of Call", pc["next_port"], indent=3)
-    xml += xdstring(*W_DEPART_PORT, "Port of Departure", pc["depart_port"], indent=3)
-    xml += xdstring(*W_CALL_SIGN, "Vessel Call Sign", pc["call_sign"], indent=3)
-    xml += xdstring(*W_IMO, "Vessel IMO Number", pc["imo"], indent=3)
-    xml += xdstring(*W_MMSI, "Vessel MMSI", pc["mmsi"], indent=3)
-    xml += xdstring(*W_VESSEL_NAME, "Vessel Name", pc["vessel_name"], indent=3)
-    xml += xdstring(*W_VOYAGE_NUM, "Voyage Number", pc["voyage"], indent=3)
-    xml += xdtoken(*W_CARGO_TYPE, "Cargo Type", _cargo_type(pc["cargo_type"]), indent=3)
-    xml += xdtoken(*W_PURPOSE, "Purpose of Call", _purpose(pc["purpose"]), indent=3)
-    xml += xdcount(*W_CREW_CT, "Crew Count", str(pc["crew"]), "Persons", indent=3)
-    xml += xdcount(*W_PAX_CT, "Passenger Count", str(pc["pax"]), "Persons", indent=3)
-    xml += xdquantity(*W_DRAFT, "Vessel Draft", str(pc["draft"]), "Length/Distance (SI - Metric)", indent=3)
-    xml += xdquantity(*W_GROSS_TON, "Vessel Gross Tonnage", str(pc["gross_ton"]), "Gross Tonnage", indent=3)
-    xml += xdquantity(*W_LOA, "Vessel Length Overall", str(pc["loa"]), "Length/Distance (SI - Metric)", indent=3)
-    xml += xdquantity(*W_NET_TON, "Vessel Net Tonnage", str(pc["net_ton"]), "Net Tonnage", indent=3)
-    xml += xdtemporal(*W_ARRIVAL, "Arrival Date/Time", pc["arrival"], "datetime", indent=3)
-    xml += xdtemporal(*W_DEPARTURE, "Departure Date/Time", pc["departure"], "datetime", indent=3)
-    xml += cluster_close(CL_ROOT, indent=2)
-
-    # Provenance Components cluster (sibling of data, inside Governed Record)
-    xml += cluster_open(CL_PROV, "Provenance Components", indent=2)
-    xml += xdstring(*P_ACT_DESC, "activity_description", prov["activity_description"], indent=3)
-    xml += xdstring(*P_ACT_TYPE, "prov_activity_type", prov["prov_activity_type"], indent=3)
-    xml += xdstring(*P_SYS_ID, "system_identifier", prov["system_identifier"], indent=3)
-    xml += xdstring(*P_LOC_ID, "system_location_identifier", prov["system_location_identifier"], indent=3)
-    xml += xdstring(*P_LOC_NAME, "system_location_name", prov["system_location_name"], indent=3)
-    xml += xdtemporal(*P_TS_END, "activity_timestamp_end", prov["activity_timestamp_end"], "datetime", indent=3)
-    xml += xdtemporal(*P_TS_START, "activity_timestamp_start", prov["activity_timestamp_start"], "datetime", indent=3)
-    xml += cluster_close(CL_PROV, indent=2)
-
-    xml += cluster_close(GOVERNED_RECORD, indent=1)
-
-    # Native governance slots, DM order: subject, provider(s), Audit, attestation.
-    xml += native_partytype("subject", "Subject Vessel", pc["vessel_name"])
-    xml += native_partytype("provider", "Vessel Owner/Operator",
-                            pc.get("operator", f"{pc['vessel_name']} Shipping Co."))
-    xml += native_partytype("provider", "Port Authority",
-                            "Porto Sereno Port Authority")
-    xml += audit(AUDIT_COMPONENT, prov["activity_timestamp_start"],
-                 system_id_value=prov["system_identifier"])
-    xml += attestation(pending=False,
-                       reason="Port call cleared by the port authority",
-                       committer="Porto Sereno Port Authority",
-                       committed=prov["activity_timestamp_end"])
-
-    xml += xml_footer(CT_ID)
-    return xml
+    flag_code = FLAG_CODES.get(pc["flag"])
+    values = {
+        "Port Call Record/Port Call ID": pc["port_call_id"],
+        "Port Call Record/Crew Count": Quantity(str(pc["crew"]), "persons"),
+        "Port Call Record/Passenger Count": Quantity(str(pc["pax"]), "persons"),
+        "Vessel/Vessel Name": pc["vessel_name"],
+        "Vessel/Vessel IMO Number": pc["imo"],
+        "Vessel/Vessel MMSI": pc["mmsi"],
+        "Vessel/Vessel Call Sign": pc["call_sign"],
+        "Vessel/Vessel National Flag": pc["flag"],
+        "Vessel/Vessel National Flag ISO3166 Alpha2 (iso_3166)/Vessel National Flag ISO3166 Alpha2 Code (iso_3166)": flag_code,
+        "Vessel/Vessel National Flag ISO3166 Alpha2 (iso_3166)/Code Display Text": pc["flag"] if flag_code else None,
+        "Vessel/Vessel Cargo Category": pc["cargo_type"],
+        "Vessel/Vessel Gross Tonnage Value": Quantity(str(pc["gross_ton"]), "1"),
+        "Vessel/Vessel Net Tonnage Volume": Quantity(str(pc["net_ton"]), "1"),
+        "Vessel/Vessel Overall Length": Quantity(str(pc["loa"]), "m"),
+        "Vessel/Vessel Draft": Quantity(str(pc["draft"]), "m"),
+        "Vessel/Vessel Operator Reference": f"urn:cordova:brn:{brn}",
+        "Vessel/Vessel Cargo On Board Indicator": True,
+        "Port Visit/Port/Port Name": f"Port of {PORT}",
+        "Port Visit/Port/City Name": PORT,
+        "Port Visit/Port/Region Name": PROVINCE,
+        "Port Visit/Visit Anchorage": pc["berth"],
+        "Port Visit/Visit Receiving Facility Name": f"{PORT} Commercial Terminal",
+        "Port Visit/Visit Actual Arrival Date Time": pc["arrival"],
+        "Port Visit/Visit Actual Departure Date Time": pc["departure"],
+        "Voyage/Voyage Identification": pc["voyage"],
+        "Voyage/Voyage Category": pc["purpose"],
+        "Voyage/Voyage Summary": f"From {pc['depart_port']} to {PORT}, onward to {pc['next_port']}",
+        "Voyage/Voyage Destination Location Reference": "urn:cordova:port:" + pc["next_port"].split(",")[0].lower().replace(" ", "-"),
+        "Voyage/Voyage End Date Time": pc["arrival"],
+        "Cargo Manifest/Business Registry Number": brn,
+        "Cargo Manifest/Container Count": Quantity(str(pc.get("containers", 0)), "TEU"),
+        "Cargo Manifest/Cargo/Item Description": pc["cargo_desc"],
+        "Cargo Manifest/Cargo/Cargo Category": pc["cargo_type"],
+        "Cargo Manifest/Cargo/Cargo Gross Weight": Quantity(str(pc.get("cargo_wt", 0)), "t"),
+        "Cargo Manifest/Cargo/Cargo Identification": pc.get("customs_ref") or None,
+        "Cargo Manifest/Cargo/Cargo Origin Location Reference": "urn:cordova:port:" + pc["cargo_orig"].split(",")[0].lower().replace(" ", "-"),
+        "Cargo Manifest/Cargo/Cargo Destination Location Reference": f"urn:cordova:port:{PORT.lower().replace(' ', '-')}",
+        "Cargo Manifest/Cargo/Cargo Hazardous Material Indicator": bool(pc.get("hazardous")),
+        "Port Fees/Fee Type": pc.get("fee_type", "Berth Fee"),
+        "Port Fees/Payment Status": pc.get("payment_status", "Paid"),
+        "Port Fees/Port Fee Amount": Quantity(str(pc.get("fee_amt", 5000)), COR),
+        "Port Fees/Fee Date": pc["arrival"][:10],
+    }
+    if pc.get("hazardous"):
+        un, chemical, hz_class = pc.get("hazmat") or HAZMAT[0]
+        values.update({
+            "Cargo Manifest/Cargo/Hazmat Declaration/Hazmat Declaration UN Hazmat (hazmat)/Hazmat Declaration UN Hazmat Code (hazmat)": un,
+            "Cargo Manifest/Cargo/Hazmat Declaration/Hazmat Declaration UN Hazmat (hazmat)/Code Display Text": chemical,
+            "Cargo Manifest/Cargo/Hazmat Declaration/Hazmat Declaration Chemical Common Name": chemical,
+            "Cargo Manifest/Cargo/Hazmat Declaration/Hazmat Declaration Hazmat Class": hz_class,
+        })
+    for person in pc.get("persons", []):   # crew or passengers named on the manifest, by CID
+        values.update({
+            "Person on Vessel/Person (Demographics)/Full Name (Person)/Given Name (Person)": person["given"],
+            "Person on Vessel/Person (Demographics)/Full Name (Person)/Surname (Person)": person["surname"],
+            "Person on Vessel/Person (Demographics)/Administrative Gender": person["sex"].lower(),
+            "Person on Vessel/Person (Demographics)/Date of Birth": person["dob"],
+            "Person on Vessel/Crew Role Code": person["role"],
+            "Person on Vessel/Crew Role": person["role"],
+            "Person on Vessel/Person Embarkation Date": person["embarked"],
+            "Person on Vessel/Person Debarkation Date": person["debarked"],
+            "Person on Vessel/Person Embarkation Location Reference": "urn:cordova:port:" + person["embarked_at"].lower().replace(" ", "-"),
+            "Person on Vessel/Person Debarkation Location Reference": f"urn:cordova:port:{PORT.lower().replace(' ', '-')}",
+            "Person on Vessel/Person Cabin Number": person.get("cabin"),
+        })
+    operator = pc.get("operator", f"{pc['vessel_name']} Shipping Co.")
+    return record(TITLE, values, state=STATE_CLEARED, system=SYSTEM, activity_type="PortCallRegistration", when=pc["arrival"],
+                  city=PORT, province=PROVINCE, cid=(pc.get("persons") or [{}])[0].get("cid"),
+                  subject=("Vessel Owner/Operator", operator), provider=("Port Authority", f"{PORT} Port Authority"),
+                  attestation_reason="Port call cleared by the port authority", committer=f"{PORT} Port Authority")
 
 
-# The Contagion: MV Estrella del Sur
+# The Contagion: MV Estrella del Sur, with Carlos Mendoza (CID COR-AL01-271845) on the crew manifest.
 ESTRELLA = {
     "flag": "Republic of Cordova", "port_call_id": "PC-2026-0142",
     "berth": "Berth 7, Porto Sereno Commercial Terminal",
@@ -269,6 +132,7 @@ ESTRELLA = {
     "containers": 45, "cargo_wt": 2340,
     "fee_type": "Berth Fee", "fee_amt": 12500,
     "operator": "Estrella Maritime Lines S.A.",
+    "persons": [{**CAST["carlos"], "role": "Able Seaman", "embarked": "2026-01-04", "debarked": "2026-01-13", "embarked_at": "Buenaventura", "cabin": "C-12"}],
 }
 
 BG_VESSELS = [
@@ -279,7 +143,6 @@ BG_VESSELS = [
     ("MV Porto Express", "Marshall Islands", "9856789", "538856789", "V7PE", "Container", "Cargo Discharge", 20, "2025-12-20"),
 ]
 
-# Generate additional background vessels for weekly port calls across 2025-2026
 _VESSEL_PREFIXES = ["MV", "MT", "MV", "MV", "SS"]
 _VESSEL_NAMES = [
     "Bahia Dorada", "Caribe Sol", "Luna del Sur", "Onda Tropical",
@@ -294,10 +157,7 @@ _VESSEL_NAMES = [
     "Jade Current", "Ivory Mist", "Bronze Anchor", "Copper Ridge",
     "Falcon Crest", "Eagle Point", "Hawk Bay", "Osprey",
 ]
-_FLAGS = [
-    "Panama", "Liberia", "Marshall Islands", "Republic of Cordova",
-    "Bahamas", "Malta", "Singapore", "Hong Kong", "Greece", "Cyprus",
-]
+_FLAGS = ["Panama", "Liberia", "Marshall Islands", "Republic of Cordova", "Bahamas", "Malta", "Singapore", "Hong Kong", "Greece", "Cyprus"]
 _CARGO_TYPES = ["Container", "Bulk Carrier", "Tanker", "General Cargo", "Ro-Ro", "Reefer"]
 _PURPOSES = ["Cargo Discharge", "Cargo Loading", "Fuel Bunkering", "Crew Change", "Cargo Discharge"]
 _DEPARTURE_PORTS = [
@@ -310,104 +170,76 @@ _NEXT_PORTS = [
     "Callao, Peru", "Kingston, Jamaica", "Santos, Brazil", "Havana, Cuba",
     "Miami, USA", "Houston, USA", "Colon, Panama",
 ]
+_MMSI_PREFIX = {"Panama": "352", "Liberia": "636", "Marshall Islands": "538", "Republic of Cordova": "370", "Bahamas": "311",
+                "Malta": "249", "Singapore": "563", "Hong Kong": "477", "Greece": "240", "Cyprus": "212"}
 
 
 def generate():
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
     count = 0
 
-    # MV Estrella del Sur
-    xml = build_instance(ESTRELLA)
-    write_xml(os.path.join(OUTPUT_DIR, f"mp-{cuid_generator()}.xml"), xml)
+    write_record(OUTPUT_DIR, "mp", build_instance(ESTRELLA))
     count += 1
 
-    # Named background port calls (5 original vessels)
+    # Named background port calls (5 vessels)
     for name, flag, imo, mmsi, csign, ctype, purpose, crew, arr_date in BG_VESSELS:
+        hazardous = ctype == "Tanker"
         pc = {
-            "flag": flag, "port_call_id": f"PC-2026-{random.randint(100,999):03d}",
-            "berth": f"Berth {random.randint(1,12)}, Porto Sereno Commercial Terminal",
-            "next_port": random.choice(_NEXT_PORTS),
-            "depart_port": random.choice(_DEPARTURE_PORTS),
+            "flag": flag, "port_call_id": f"PC-2026-{random.randint(100, 999):03d}",
+            "berth": f"Berth {random.randint(1, 12)}, Porto Sereno Commercial Terminal",
+            "next_port": random.choice(_NEXT_PORTS), "depart_port": random.choice(_DEPARTURE_PORTS),
             "call_sign": csign, "imo": imo, "mmsi": mmsi,
-            "vessel_name": name, "voyage": f"VOY-2026-{random.randint(1,99):02d}",
+            "vessel_name": name, "voyage": f"VOY-2026-{random.randint(1, 99):02d}",
             "cargo_type": ctype, "purpose": purpose,
             "crew": crew, "pax": 0,
-            "draft": f"{random.uniform(5, 10):.1f}",
-            "gross_ton": str(random.randint(8000, 30000)),
-            "loa": f"{random.uniform(100, 200):.1f}",
-            "net_ton": str(random.randint(4000, 18000)),
-            "arrival": f"{arr_date}T{random.randint(4,20):02d}:00:00",
-            "departure": f"{arr_date[:8]}{int(arr_date[8:10])+2:02d}T{random.randint(6,22):02d}:00:00",
-            "cargo_desc": f"{ctype} shipment",
-            "cargo_dest": "Porto Sereno, Republic of Cordova",
-            "cargo_orig": "International",
-            "customs_filed": True,
-            "hazardous": ctype == "Tanker",
-            "containers": random.randint(10, 100),
-            "cargo_wt": random.randint(500, 5000),
-            "fee_type": random.choice(FEE_TYPES),
-            "payment_status": random.choice(PAYMENT_STATUSES),
-            "fee_amt": random.randint(5000, 25000),
+            "draft": f"{random.uniform(5, 10):.1f}", "gross_ton": str(random.randint(8000, 30000)),
+            "loa": f"{random.uniform(100, 200):.1f}", "net_ton": str(random.randint(4000, 18000)),
+            "arrival": f"{arr_date}T{random.randint(4, 20):02d}:00:00",
+            "departure": f"{arr_date[:8]}{int(arr_date[8:10]) + 2:02d}T{random.randint(6, 22):02d}:00:00",
+            "cargo_desc": f"{ctype} shipment", "cargo_dest": "Porto Sereno, Republic of Cordova", "cargo_orig": "International",
+            "customs_filed": True, "hazardous": hazardous, "hazmat": random.choice(HAZMAT[:2]) if hazardous else None,
+            "containers": random.randint(10, 100), "cargo_wt": random.randint(500, 5000),
+            "fee_type": random.choice(FEE_TYPES), "payment_status": random.choice(PAYMENT_STATUSES), "fee_amt": random.randint(5000, 25000),
         }
-        xml = build_instance(pc)
-        write_xml(os.path.join(OUTPUT_DIR, f"mp-{cuid_generator()}.xml"), xml)
+        write_record(OUTPUT_DIR, "mp", build_instance(pc))
         count += 1
 
-    # Generated background port calls (44 more, total ~50 with Estrella)
-    # Spread across 2025-2026 calendar (roughly weekly)
-    from datetime import date, timedelta
+    # Generated background port calls (44, roughly weekly across 2025-2026)
     start_date = date(2025, 1, 6)
-    mmsi_pfx = {"Panama": "352", "Liberia": "636", "Marshall Islands": "538",
-                "Republic of Cordova": "370", "Bahamas": "311", "Malta": "249",
-                "Singapore": "563", "Hong Kong": "477", "Greece": "240", "Cyprus": "212"}
     for i in range(44):
-        # Roughly weekly arrivals
         arr = start_date + timedelta(weeks=i)
-        arr_str = arr.strftime("%Y-%m-%d")
         dep = arr + timedelta(days=random.randint(1, 4))
-        dep_str = dep.strftime("%Y-%m-%d")
         vname = f"{random.choice(_VESSEL_PREFIXES)} {_VESSEL_NAMES[i % len(_VESSEL_NAMES)]}"
         flag = random.choice(_FLAGS)
         imo_num = str(9800000 + random.randint(1000, 99999))
-        mmsi_num = mmsi_pfx.get(flag, "370") + f"{random.randint(0, 999999):06d}"
-        csign = f"{''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZ', k=4))}"
+        mmsi_num = _MMSI_PREFIX.get(flag, "370") + f"{random.randint(0, 999999):06d}"
+        csign = "".join(random.choices("ABCDEFGHIJKLMNOPQRSTUVWXYZ", k=4))
         ctype = random.choice(_CARGO_TYPES)
-
+        hazardous = random.random() < 0.12
         pc = {
-            "flag": flag,
-            "port_call_id": f"PC-{arr.year}-{100 + i + 10:04d}",
-            "berth": f"Berth {random.randint(1,12)}, Porto Sereno Commercial Terminal",
-            "next_port": random.choice(_NEXT_PORTS),
-            "depart_port": random.choice(_DEPARTURE_PORTS),
+            "flag": flag, "port_call_id": f"PC-{arr.year}-{100 + i + 10:04d}",
+            "berth": f"Berth {random.randint(1, 12)}, Porto Sereno Commercial Terminal",
+            "next_port": random.choice(_NEXT_PORTS), "depart_port": random.choice(_DEPARTURE_PORTS),
             "call_sign": csign, "imo": imo_num, "mmsi": mmsi_num,
-            "vessel_name": vname,
-            "voyage": f"VOY-{arr.year}-{random.randint(1,999):03d}",
-            "cargo_type": ctype,
-            "purpose": random.choice(_PURPOSES),
+            "vessel_name": vname, "voyage": f"VOY-{arr.year}-{random.randint(1, 999):03d}",
+            "cargo_type": ctype, "purpose": random.choice(_PURPOSES),
             "crew": random.randint(10, 28), "pax": 0,
-            "draft": f"{random.uniform(4.5, 11):.1f}",
-            "gross_ton": str(random.randint(5000, 45000)),
-            "loa": f"{random.uniform(90, 250):.1f}",
-            "net_ton": str(random.randint(3000, 25000)),
-            "arrival": f"{arr_str}T{random.randint(4,20):02d}:{random.choice(['00','30'])}:00",
-            "departure": f"{dep_str}T{random.randint(6,22):02d}:{random.choice(['00','30'])}:00",
-            "cargo_desc": f"{ctype} shipment - miscellaneous goods",
-            "cargo_dest": "Porto Sereno, Republic of Cordova",
+            "draft": f"{random.uniform(4.5, 11):.1f}", "gross_ton": str(random.randint(5000, 45000)),
+            "loa": f"{random.uniform(90, 250):.1f}", "net_ton": str(random.randint(3000, 25000)),
+            "arrival": f"{arr.isoformat()}T{random.randint(4, 20):02d}:{random.choice(['00', '30'])}:00",
+            "departure": f"{dep.isoformat()}T{random.randint(6, 22):02d}:{random.choice(['00', '30'])}:00",
+            "cargo_desc": f"{ctype} shipment - miscellaneous goods", "cargo_dest": "Porto Sereno, Republic of Cordova",
             "cargo_orig": random.choice(_DEPARTURE_PORTS),
-            "customs_filed": random.random() > 0.1,
-            "hazardous": random.random() < 0.12,
+            "customs_filed": random.random() > 0.1, "hazardous": hazardous, "hazmat": random.choice(HAZMAT) if hazardous else None,
             "containers": random.randint(0, 150) if ctype == "Container" else random.randint(0, 10),
             "cargo_wt": random.randint(200, 8000),
-            "fee_type": random.choice(FEE_TYPES),
-            "payment_status": random.choice(PAYMENT_STATUSES),
-            "fee_amt": random.randint(3000, 30000),
+            "fee_type": random.choice(FEE_TYPES), "payment_status": random.choice(PAYMENT_STATUSES), "fee_amt": random.randint(3000, 30000),
         }
-        xml = build_instance(pc)
-        write_xml(os.path.join(OUTPUT_DIR, f"mp-{cuid_generator()}.xml"), xml)
+        write_record(OUTPUT_DIR, "mp", build_instance(pc))
         count += 1
 
     print(f"Maritime Port Authority: generated {count} XML files in {OUTPUT_DIR}")
 
 
 if __name__ == "__main__":
+    random.seed("cordovaos:Maritime")
     generate()

@@ -1,11 +1,19 @@
 """
-Shared utilities for CordovaOS demo data generation.
+Shared utilities for CordovaOS demo data generation (4.4.0).
 
-Provides XML element builders, name pools, geography, and the Contagion cast.
+Name pools, geography, identifiers, the Contagion cast, and ``record()``: the one
+call a generator makes per record. A generator names the values it has by label
+path in the published model; the engine (engine.py) fills the model's own instance
+template and the schema decides everything else. No generator carries an element
+id, an element order or a governance envelope.
 """
 import os
 import random
-from datetime import datetime, date
+import re
+from datetime import datetime
+
+from engine import EV, Quantity, Template
+from schema import DMLIB, Schema
 
 # Deterministic identifiers. A real CUID2 mixes in the clock, the process id and
 # the hostname, so no two runs ever agree, and the README promises the same
@@ -30,6 +38,24 @@ def scaled(full, demo):
 
 SDC4_NS = "https://semanticdatacharter.com/ns/sdc4/"
 XSI_NS = "http://www.w3.org/2001/XMLSchema-instance"
+
+# ─── Stated absences ─────────────────────────────────────────────────────────
+# An absent value is stated, never implied. Where the schema REQUIRES a value and
+# the record has none, the generator writes an ISO 21090 null flavor in its place.
+# The instance is then invalid on purpose: the value element is mandatory, and
+# the Exceptional Value records why it is missing rather than leaving a reader to
+# guess. A fact that simply does not apply is left out (the key is not given, or
+# its value is None), which is valid and asserts nothing.
+ASKR = EV("ASKR")   # asked, and the subject declined to answer
+ASKU = EV("ASKU")   # asked, and the answer is not known
+MSK = EV("MSK")     # withheld for privacy or policy
+NA = EV("NA")       # the field does not apply to this record
+NASK = EV("NASK")   # never asked
+NAV = EV("NAV")     # applies, exists somewhere, not available here
+NI = EV("NI")       # absent, no reason recorded
+UNK = EV("UNK")     # applies, and is not known
+
+COR = "COR"   # the Cordova Córdoba; every amount in the models is a quantity in the kept COR units
 
 # ─── Geography ───────────────────────────────────────────────────────────────
 
@@ -373,509 +399,129 @@ def now_iso():
     return datetime.utcnow().isoformat()
 
 
-def make_provenance_values(system_name, activity_type="RecordCreation", city=None):
-    """Synthetic W3C PROV-O values for a record's Provenance Components cluster.
 
-    Returns the seven leaf values the new governance-composed models carry:
-    activity_description, prov_activity_type, system_identifier,
-    system_location_identifier, system_location_name, and the activity
-    timestamp start/end. `system_name` is the domain's handling system
-    (e.g. "Cordova Civil Registry System").
+
+# ─── Models ──────────────────────────────────────────────────────────────────
+# A generator names its model by title. The ct_id comes from the published schema
+# the app carries, so a republished model needs no generator change.
+
+_MODELS: dict[str, str] = {}
+
+
+def model_ct(title: str) -> str:
+    """The ct_id of the published model whose title starts with ``title``."""
+    if not _MODELS:
+        for name in sorted(os.listdir(DMLIB)):
+            m = re.match(r"dm-([a-z0-9]{24})\.xsd$", name)
+            if m:
+                s = Schema.for_dm(m.group(1))
+                _MODELS[s.label.get(s.dm, "")] = m.group(1)
+    hits = [ct for t, ct in _MODELS.items() if t.startswith(title)]
+    assert len(hits) == 1, (title, hits)
+    return hits[0]
+
+
+def template(title: str) -> Template:
+    return Template.for_dm(model_ct(title))
+
+
+# ─── Governance ──────────────────────────────────────────────────────────────
+# Every 4.4.0 model composes the same governance envelope from the ProvGov library
+# (PROV Activity, PROV Agent, Audit Event) beside the domain's data cluster, and
+# binds the Cordova System Audit in the DM's audit slot. record() fills them all
+# from a handful of facts about the record and the system that handled it.
+
+SOFTWARE_VERSION = open(os.path.join(os.path.dirname(__file__), "..", "app", "sdc4", "VERSION"), encoding="utf-8").read().strip()
+
+_activity_counter = 0
+_audit_counter = 0
+
+
+def _slug(name: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+
+
+def governance(system: str, activity_type: str, when: str, city: str, cid: str | None = None, agent_org: str = "Government of the Republic of Cordova") -> dict:
+    """Values for the PROV Activity, PROV Agent and Audit Event clusters of one record.
+
+    ``system`` is the domain's handling system ("Cordova Civil Registry System"); ``when`` the
+    day the record was made (YYYY-MM-DD) or a full timestamp; ``city`` where the system ran.
     """
-    if city is None:
-        city = random_city_province()[0]
-    slug = system_name.lower().replace(" ", "-")
-    start = random_date(2020, 2025)
-    return {
-        "activity_description": f"{activity_type} performed in the {system_name}",
-        "prov_activity_type": activity_type,
-        "system_identifier": f"urn:cordova:system:{slug}",
-        "system_location_identifier": f"LOC-{city[:3].upper()}-{generate_brn()[-4:]}",
-        "system_location_name": f"{city} Data Center",
-        "activity_timestamp_start": f"{start}T08:00:00",
-        "activity_timestamp_end": f"{start}T08:00:05",
+    global _activity_counter, _audit_counter
+    _activity_counter += 1
+    _audit_counter += 1
+    start = when if "T" in when else f"{when}T08:00:00"
+    end = when if "T" in when else f"{when}T08:00:05"
+    agent = f"urn:cordova:system:{_slug(system)}"
+    values = {
+        "PROV Activity/Activity Identifier": f"urn:cordova:activity:{_slug(system)}:{_activity_counter:07d}",
+        "PROV Activity/Activity Label": activity_type,
+        "PROV Activity/Activity Type": activity_type,
+        "PROV Activity/Activity Description": f"{activity_type} performed in the {system}",
+        "PROV Activity/Activity Status": "ActivityCompleted",
+        "PROV Activity/Activity Location": city,
+        "PROV Activity/Started At": start,
+        "PROV Activity/Ended At": end,
+        "PROV Activity/Was Associated With Reference": agent,
+        "PROV Agent/Agent Identifier": agent,
+        "PROV Agent/Agent Name": system,
+        "PROV Agent/PROV Agent Type": "SoftwareAgent",
+        "PROV Agent/Software Name": "CordovaOS",
+        "PROV Agent/Software Version": SOFTWARE_VERSION,
+        "PROV Agent/Agent Organization Name": agent_org,
+        "Audit Event/Audit Event Identifier": f"urn:cordova:audit:{_slug(system)}:{_audit_counter:07d}",
+        "Audit Event/Audit Event Action": "C",
+        "Audit Event/Audit Event Outcome": "0",
+        "Audit Event/Audit Recorded At": end,
+        "Audit Event/Audit Agent Reference": agent,
+        "Audit Event/Purpose of Use": "HOPERAT",
+        "Audit Event/Confidentiality": "N",
+        "Audit Event/Provenance Agent Type": "enterer",
+        "Audit Event/System Identifier": agent,
+        "Audit Event/System Location Name": f"{city} Data Center",
     }
+    if cid:
+        values["Audit Event/Data Subject Reference"] = f"urn:cordova:cid:{cid}"
+    return values
 
 
-# ─── XML Builders ────────────────────────────────────────────────────────────
+def record(title: str, values: dict, *, state: str, system: str, activity_type: str, when: str, city: str, province: str,
+           subject: tuple[str, str], provider: tuple[str, str], attestation_reason: str, committer: str, cid: str | None = None,
+           instance_id: str | None = None) -> str:
+    """One validated-shape instance of the model titled ``title``, as XML text.
 
-def xml_header(ct_id):
-    """Return the XML declaration and root opening tag."""
-    return f'''<?xml version="1.0" encoding="UTF-8"?>
-<sdc4:dm-{ct_id}
-  xmlns:xsi="{XSI_NS}"
-  xmlns:sdc4="{SDC4_NS}"
-  xsi:schemaLocation="{SDC4_NS} https://semanticdatacharter.com/dmlib/dm-{ct_id}.xsd">
-'''
-
-
-def xml_preamble(dm_label, instance_id=None, current_state=None):
-    """Return dm-label through current-state elements.
-
-    current_state populates the DM's native workflow current-state slot
-    (a plain string, e.g. "Registered"); empty/self-closing if not given.
+    ``values`` maps label paths in the model to values (a string, a Quantity, a bool, an
+    EV, or None to leave the fact out). Everything else is the governance every record
+    carries: the PROV activity and agent, the audit event, the Cordova System Audit
+    (system, city, province), the subject and provider parties, and the attestation.
     """
-    iid = instance_id or cuid_generator()
-    ts = now_iso()
-    cs = f'<current-state>{_esc(current_state)}</current-state>' if current_state else '<current-state/>'
-    return f'''  <dm-label>{dm_label}</dm-label>
-  <dm-language>en-US</dm-language>
-  <dm-encoding>utf-8</dm-encoding>
-  <creation_timestamp>{ts}</creation_timestamp>
-  <instance_id>{iid}</instance_id>
-  <instance_version>1</instance_version>
-  <source_instance_id/>
-  <source_version_id/>
-  {cs}
-'''
-
-
-def xml_footer(ct_id):
-    """Return root closing tag."""
-    return f'</sdc4:dm-{ct_id}>\n'
-
-
-# ============================================================================
-# Exceptional Values
-# ============================================================================
-# An absent value is stated, never implied. SDC4 carries the ISO 21090 null
-# flavors as concrete elements in the sdc4:ExceptionalValue substitution group,
-# so a missing reading is recorded as the REASON it is missing rather than as a
-# stand-in value. A sentinel like "N/A" or 1900-01-01 parses downstream as a
-# real string or a real date; an ExceptionalValue cannot.
-#
-# ev-name is FIXED per type in sdc4.xsd, so these strings must match exactly.
-EV_NAMES = {
-    'ASKR': 'Asked and Refused',
-    'ASKU': 'Asked but Unknown',
-    'DER': 'Derived',
-    'INV': 'Invalid',
-    'MSK': 'Masked',
-    'NA': 'Not Applicable',
-    'NASK': 'Not Asked',
-    'NAV': 'Not Available',
-    'NI': 'No Information',
-    'NINF': 'Negative Infinity',
-    'OTH': 'Other',
-    'PINF': 'Positive Infinity',
-    'QS': 'Sufficient Quantity',
-    'TRC': 'Trace',
-    'UNC': 'Unencoded',
-    'UNK': 'Unknown',
-}
-
-
-class _Omit:
-    """
-    Marker for a fact that does not exist for this record.
-
-    Most component references in the generated data models are minOccurs="0",
-    so the correct way to say "this record has no vaccination" is to leave the
-    component out entirely. That is valid, and it asserts nothing false. It is
-    not the same as an Exceptional Value, which is written when a REQUIRED
-    value is missing and therefore makes the instance invalid on purpose.
-    """
-
-    __slots__ = ()
-
-    def __repr__(self):
-        return 'OMIT'
-
-
-OMIT = _Omit()
-
-
-class EV:
-    """
-    A stated absence where the schema REQUIRES a value.
-
-    Writing one produces an instance that fails validation, and that is the
-    point: the value element is mandatory, so the instance is invalid, and the
-    Exceptional Value records why rather than leaving a reader to guess. It
-    does not make the instance valid. Use OMIT for a fact that simply does not
-    apply to the record.
-    """
-
-    __slots__ = ('code',)
-
-    def __init__(self, code):
-        if code not in EV_NAMES:
-            raise ValueError(f'unknown Exceptional Value code: {code}')
-        self.code = code
-
-    def __repr__(self):
-        return f'EV({self.code})'
-
-
-ASKR = EV('ASKR')   # asked, and the subject declined to answer
-ASKU = EV('ASKU')   # asked, and the answer is not known
-INV = EV('INV')     # a value was supplied and it is not valid
-MSK = EV('MSK')     # withheld for privacy or policy
-NA = EV('NA')       # the field does not apply to this record
-NASK = EV('NASK')   # never asked
-NAV = EV('NAV')     # applies, exists somewhere, not available here
-NI = EV('NI')       # absent, no reason recorded
-UNK = EV('UNK')     # applies, and is not known
-
-# Legacy stand-ins. A component whose value is one of these has no fact to
-# record, so it is omitted rather than written. Keeps a missed call site from
-# putting "N/A" back into an instance.
-_SENTINELS = frozenset((
-    'N/A', 'n/a', 'None given', '', '1900-01-01', '1900-01-01T00:00:00',
-))
-
-
-def _resolve(value):
-    """
-    Return (value_to_write, ev_code, omit).
-
-    Three outcomes, deliberately distinct:
-      * a value          -> write the component normally
-      * an EV            -> write the component with an Exceptional Value and no
-                            value element, which is invalid on purpose
-      * OMIT, or None    -> do not write the component at all
-    """
-    if isinstance(value, _Omit) or value is None:
-        return None, None, True
-    if isinstance(value, EV):
-        return None, value.code, False
-    if isinstance(value, str) and value.strip() in _SENTINELS:
-        # A legacy stand-in reached an emitter. The fact does not exist, so the
-        # component is left out rather than carrying "N/A" or 1900-01-01.
-        return None, None, True
-    return value, None, False
-
-
-def _ev_xml(ev_code, pad):
-    """The ExceptionalValue element, in its schema position: after act, before vtb."""
-    if not ev_code:
-        return ''
-    return (f'{pad}    <sdc4:{ev_code}>\n'
-            f'{pad}      <ev-name>{EV_NAMES[ev_code]}</ev-name>\n'
-            f'{pad}    </sdc4:{ev_code}>\n')
-
-
-def _envelope(component_id, wrapper_id, label, pad, ev_code, value_xml, extra_xml=''):
-    """
-    The XdAnyType envelope every component shares.
-
-    Element order follows sdc4.xsd: label, act, ExceptionalValue*, vtb, vte, tr,
-    modified, latitude, longitude, then the type-specific value. When a value is
-    absent the value element is omitted entirely and the ExceptionalValue stands
-    in its place, which is the standalone form described in the schema.
-    """
-    return (
-        f'{pad}<sdc4:{wrapper_id}>\n'
-        f'{pad}  <sdc4:{component_id}>\n'
-        f'{pad}    <label>{label}</label>\n'
-        f'{pad}    <act></act>\n'
-        f'{_ev_xml(ev_code, pad)}'
-        f'{pad}    <vtb>2020-01-01T00:00:00</vtb>\n'
-        f'{pad}    <vte>9999-12-31T23:59:59</vte>\n'
-        f'{pad}    <tr>2020-01-01T00:00:00</tr>\n'
-        f'{pad}    <modified>2020-01-01T00:00:00</modified>\n'
-        f'{pad}    <latitude>0.0</latitude>\n'
-        f'{pad}    <longitude>0.0</longitude>\n'
-        f'{value_xml}'
-        f'{extra_xml}'
-        f'{pad}  </sdc4:{component_id}>\n'
-        f'{pad}</sdc4:{wrapper_id}>\n'
-    )
-
-
-def xdstring(component_id, wrapper_id, label, value, indent=2):
-    """Build an XdString component XML fragment."""
-    pad = "  " * indent
-    val, ev, omit = _resolve(value)
-    if omit:
-        return ''
-    body = '' if ev else f'{pad}    <xdstring-value>{_esc(val)}</xdstring-value>\n'
-    return _envelope(component_id, wrapper_id, label, pad, ev, body)
-
-
-def xdtoken(component_id, wrapper_id, label, value, indent=2):
-    """Build an XdToken component XML fragment."""
-    pad = "  " * indent
-    val, ev, omit = _resolve(value)
-    if omit:
-        return ''
-    body = '' if ev else f'{pad}    <xdtoken-value>{_esc(val)}</xdtoken-value>\n'
-    return _envelope(component_id, wrapper_id, label, pad, ev, body)
-
-
-def xdtemporal(component_id, wrapper_id, label, value, variant="date", indent=2):
-    """Build an XdTemporal component XML fragment."""
-    pad = "  " * indent
-    val, ev, omit = _resolve(value)
-    if omit:
-        return ''
-    body = '' if ev else f'{pad}    <xdtemporal-{variant}>{val}</xdtemporal-{variant}>\n'
-    return _envelope(component_id, wrapper_id, label, pad, ev, body)
-
-
-def xdcount(component_id, wrapper_id, label, value, units_label, units_value=None, indent=2):
-    """Build an XdCount component XML fragment.
-
-    units_label: the label inside xdcount-units (e.g. "Persons")
-    units_value: the xdstring-value inside xdcount-units (defaults to units_label)
-
-    Units describe the component rather than the reading, so they are written
-    even when the value itself is an Exceptional Value.
-    """
-    pad = "  " * indent
-    uv = _esc(units_value or units_label)
-    val, ev, omit = _resolve(value)
-    if omit:
-        return ''
-    body = '' if ev else f'{pad}    <xdcount-value>{val}</xdcount-value>\n'
-    units = (f'{pad}    <xdcount-units>\n'
-             f'{pad}      <label>{_esc(units_label)}</label>\n'
-             f'{pad}      <xdstring-value>{uv}</xdstring-value>\n'
-             f'{pad}    </xdcount-units>\n')
-    return _envelope(component_id, wrapper_id, label, pad, ev, body, units)
-
-
-def xdquantity(component_id, wrapper_id, label, value, units_label, units_value=None, indent=2):
-    """Build an XdQuantity component XML fragment.
-
-    units_label: the label inside xdquantity-units (e.g. "Cordova Cordoba (COR)")
-    units_value: the xdstring-value inside xdquantity-units (defaults to units_label)
-    """
-    pad = "  " * indent
-    uv = _esc(units_value or units_label)
-    val, ev, omit = _resolve(value)
-    if omit:
-        return ''
-    body = '' if ev else f'{pad}    <xdquantity-value>{val}</xdquantity-value>\n'
-    units = (f'{pad}    <xdquantity-units>\n'
-             f'{pad}      <label>{_esc(units_label)}</label>\n'
-             f'{pad}      <xdstring-value>{uv}</xdstring-value>\n'
-             f'{pad}    </xdquantity-units>\n')
-    return _envelope(component_id, wrapper_id, label, pad, ev, body, units)
-
-
-def xdboolean(component_id, wrapper_id, label, value, indent=2):
-    """Build an XdBoolean component XML fragment."""
-    pad = "  " * indent
-    val, ev, omit = _resolve(value)
-    if omit:
-        return ''
-    body = '' if ev else f'{pad}    <xdboolean-value>{"true" if val else "false"}</xdboolean-value>\n'
-    return _envelope(component_id, wrapper_id, label, pad, ev, body)
-
-
-def xdtemporal_multi(component_id, wrapper_id, label, date_val, variants=("date", "year", "year-month"), indent=2):
-    """Build an XdTemporal with multiple variant elements derived from a date string."""
-    pad = "  " * indent
-    parts = [f"{pad}<sdc4:{wrapper_id}>", f"{pad}  <sdc4:{component_id}>", f"{pad}    <label>{label}</label>"]
-    for v in variants:
-        if v == "date":
-            parts.append(f"{pad}    <xdtemporal-date>{date_val}</xdtemporal-date>")
-        elif v == "year":
-            parts.append(f"{pad}    <xdtemporal-year>{date_val[:4]}</xdtemporal-year>")
-        elif v == "year-month":
-            parts.append(f"{pad}    <xdtemporal-year-month>{date_val[:7]}</xdtemporal-year-month>")
-        elif v == "datetime":
-            parts.append(f"{pad}    <xdtemporal-datetime>{date_val}</xdtemporal-datetime>")
-    parts.append(f"{pad}  </sdc4:{component_id}>")
-    parts.append(f"{pad}</sdc4:{wrapper_id}>")
-    return "\n".join(parts) + "\n"
-
-
-def xdboolean_stub(component_id, wrapper_id, label, indent=2):
-    """Build an XdBoolean stub (true-value/false-value not yet implemented)."""
-    pad = "  " * indent
-    return f'''{pad}<sdc4:{wrapper_id}>
-{pad}  <sdc4:{component_id}>
-{pad}    <label>{label}</label>
-{pad}    <!-- Element true-value not yet implemented -->
-{pad}    <!-- Element false-value not yet implemented -->
-{pad}  </sdc4:{component_id}>
-{pad}</sdc4:{wrapper_id}>
-'''
-
-
-def xdordinal_stub(component_id, wrapper_id, label, indent=2):
-    """Build an XdOrdinal stub (ordinal/symbol not yet implemented)."""
-    pad = "  " * indent
-    return f'''{pad}<sdc4:{wrapper_id}>
-{pad}  <sdc4:{component_id}>
-{pad}    <label>{label}</label>
-{pad}    <!-- Element ordinal not yet implemented -->
-{pad}    <!-- Element symbol not yet implemented -->
-{pad}  </sdc4:{component_id}>
-{pad}</sdc4:{wrapper_id}>
-'''
-
-
-def cluster_open(cluster_id, label, indent=1):
-    """Open a cluster element."""
-    pad = "  " * indent
-    return f'{pad}<sdc4:{cluster_id}>\n{pad}  <label>{label}</label>\n'
-
-
-def cluster_close(cluster_id, indent=1):
-    """Close a cluster element."""
-    pad = "  " * indent
-    return f'{pad}</sdc4:{cluster_id}>\n'
-
-
-def party_stub(cluster_id, label, indent=1):
-    """Return a party-details stub cluster."""
-    pad = "  " * indent
-    return f'''{pad}<sdc4:{cluster_id}>
-{pad}  <label>{label}</label>
-{pad}    <!-- Element party-details not yet implemented -->
-{pad}</sdc4:{cluster_id}>
-'''
-
-
-def _xdany_seq(ip):
-    """The XdAny optional element sequence (act..longitude) with valid values."""
-    return (f'{ip}<act></act>\n{ip}<vtb>2020-01-01T00:00:00</vtb>\n{ip}<vte>9999-12-31T23:59:59</vte>\n'
-            f'{ip}<tr>2020-01-01T00:00:00</tr>\n{ip}<modified>2020-01-01T00:00:00</modified>\n'
-            f'{ip}<latitude>0.0</latitude>\n{ip}<longitude>0.0</longitude>\n')
-
-
-def native_xdstring(name, label, value, indent=1):
-    """A native (non-component) XdStringType element, e.g. Audit/system-id."""
-    pad = "  " * indent
-    ip = pad + "  "
-    return (f'{pad}<{name}>\n{ip}<label>{label}</label>\n'
-            f'{_xdany_seq(ip)}'
-            f'{ip}<xdstring-value>{_esc(value)}</xdstring-value>\n{pad}</{name}>\n')
-
-
-def native_partytype(name, label, party_name=None, indent=1,
-                     ref_label=None, ref_link=None, ref_relation=None, ref_uri=None):
-    """A native PartyType element (DM subject/provider, Audit/system-user,
-    attestation/committer, etc.).
-
-    PartyType content model (from the RM): label?, party-name?, party-ref?,
-    party-details? — all optional. We emit label and, when supplied, the
-    human-readable party-name. party-ref (XdLinkType) and party-details
-    (ClusterType) are omitted; they add nothing for synthetic parties and
-    keeping the content minimal keeps every domain's parties valid.
-    """
-    pad = "  " * indent
-    ip = pad + "  "
-    out = f'{pad}<{name}>\n{ip}<label>{_esc(label)}</label>\n'
-    if party_name:
-        out += f'{ip}<party-name>{_esc(party_name)}</party-name>\n'
-    if ref_link or ref_relation:
-        # party-ref is an XdLinkType: the XdAnyType envelope, then link,
-        # relation (required) and relation-uri. It is what turns a party from a
-        # name someone typed into a reference another system can follow.
-        out += f'{ip}<party-ref>\n'
-        out += f'{ip}  <label>{_esc(ref_label or "Party reference")}</label>\n'
-        if ref_link:
-            out += f'{ip}  <link>{_esc(ref_link)}</link>\n'
-        out += f'{ip}  <relation>{_esc(ref_relation or "references")}</relation>\n'
-        if ref_uri:
-            out += f'{ip}  <relation-uri>{_esc(ref_uri)}</relation-uri>\n'
-        out += f'{ip}</party-ref>\n'
-    out += f'{pad}</{name}>\n'
-    return out
-
-
-# Backwards-compatible alias: earlier callers passed the party's name as the
-# second positional arg. Treat it as the party-name and reuse it as the label.
-def native_party(name, party_name, indent=1):
-    """A native PartyType element identified by its party-name."""
-    return native_partytype(name, party_name, party_name, indent)
-
-
-def audit(component_id, timestamp, system_id_value,
-          audit_label="System Audit",
-          system_id_label="service_account_id",
-          system_user_label="System User",
-          party_details_label="Contact and Access",
-          location_label="Software Agent Details",
-          indent=1):
-    """Emit a domain's MODELED System Audit component into the DM's Audit slot.
-
-    The DM's Audit slot is `ref="sdc4:Audit"` with maxOccurs="unbounded".
-    Tim's rule: unbounded slots are filled by the domain's own modeled ms-
-    component (which is declared `substitutionGroup="sdc4:Audit"`), NOT by the
-    generic `<sdc4:Audit>` head. That way the graph shows the real component
-    with its fixed label and typed sub-components.
-
-    `component_id` is the domain's System Audit ms- element id (e.g.
-    "ms-fotc5adg15ek2b9ermx2mcih" for Civil Registry). Its type restricts
-    AuditType and, unlike the base AuditType, makes EVERY sub-element required:
-
-      label       fixed to `audit_label`               ("System Audit")
-      system-id   XdString subtype, label fixed to `system_id_label`
-                  ("service_account_id"); value in `system_id_value`
-                  (1..255 chars)
-      system-user Party subtype, label fixed to `system_user_label`
-                  ("System User") and REQUIRES a party-details cluster whose
-                  label is fixed to `party_details_label` ("Contact and Access")
-      location    Cluster subtype, label fixed to `location_label`
-                  ("Software Agent Details")
-      timestamp   xsd:dateTime
-
-    Every *label* above is FIXED by the domain's XSD. The default strings are
-    Civil Registry's; a fan-out domain with different fixed labels passes its
-    own. The two sub-clusters (party-details, location) have only optional
-    children, so we emit just their fixed label; the system-id XdString still
-    follows the full XdAny leaf sequence (label, act, vtb, vte, tr, modified,
-    latitude, longitude, xdstring-value).
-    """
-    pad = "  " * indent
-    ip = pad + "  "
-    out = f'{pad}<sdc4:{component_id}>\n'
-    out += f'{ip}<label>{_esc(audit_label)}</label>\n'
-    # system-id: modeled XdString subtype (full XdAny leaf sequence + value)
-    out += native_xdstring("system-id", system_id_label, system_id_value, indent + 1)
-    # system-user: modeled Party subtype (fixed label + required party-details)
-    out += f'{ip}<system-user>\n'
-    out += f'{ip}  <label>{_esc(system_user_label)}</label>\n'
-    out += f'{ip}  <party-details>\n'
-    out += f'{ip}    <label>{_esc(party_details_label)}</label>\n'
-    out += f'{ip}  </party-details>\n'
-    out += f'{ip}</system-user>\n'
-    # location: modeled Cluster subtype (fixed label; children all optional)
-    out += f'{ip}<location>\n'
-    out += f'{ip}  <label>{_esc(location_label)}</label>\n'
-    out += f'{ip}</location>\n'
-    out += f'{ip}<timestamp>{timestamp}</timestamp>\n'
-    out += f'{pad}</sdc4:{component_id}>\n'
-    return out
-
-
-def attestation(pending, reason=None, committer=None, committed=None, indent=1):
-    """Emit a native <attestation> (AttestationType): who attested the record.
-
-    Order per AttestationType: label?, view?, proof?, reason?, committer?,
-    committed?, pending (req boolean). We emit reason, committer, committed,
-    pending in that sequence.
-    """
-    pad = "  " * indent
-    out = f'{pad}<attestation>\n'
-    if reason:
-        out += native_xdstring("reason", "Attestation Reason", reason, indent + 1)
-    if committer:
-        out += native_partytype("committer", "Committer", committer, indent + 1)
-    if committed:
-        out += f'{pad}  <committed>{committed}</committed>\n'
-    out += f'{pad}  <pending>{str(bool(pending)).lower()}</pending>\n'
-    out += f'{pad}</attestation>\n'
-    return out
-
-
-def write_xml(filepath, content):
-    """Write XML content to file."""
-    with open(filepath, 'w', encoding='utf-8') as f:
-        f.write(content)
-
-
-def _esc(text):
-    """Escape XML special characters."""
-    if text is None:
-        return ""
-    s = str(text)
-    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+    t = template(title)
+    vals = {k: v for k, v in values.items() if v is not None}
+    vals.update(governance(system, activity_type, when, city, cid))
+    end = when if "T" in when else f"{when}T08:00:05"
+    return t.instance(vals, instance_id=instance_id or cuid_generator(), current_state=state, timestamp=now_iso(),
+                      subject=subject, provider=provider,
+                      audit={"system_id": f"urn:cordova:system:{_slug(system)}", "user": system, "timestamp": end,
+                             "values": {"Cordova System Audit/City": city, "Cordova System Audit/Province": province}},
+                      attestation={"reason": attestation_reason, "committer": committer, "committed": end, "pending": False})
+
+
+def write_record(directory: str, prefix: str, xml: str) -> str:
+    """Write one instance as ``<prefix>-<cuid>.xml`` with the XML declaration, and return the path."""
+    os.makedirs(directory, exist_ok=True)
+    path = os.path.join(directory, f"{prefix}-{cuid_generator()}.xml")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+        f.write(xml)
+    return path
+
+
+def import_dir(app: str) -> str:
+    return os.path.join(os.path.dirname(__file__), "..", "app", "sdc4", "import_data", app)
+
+
+def full_name(person: dict) -> str:
+    return f"{person['given']} {person['surname']}"
 
 
 # ─── Contagion Cast ──────────────────────────────────────────────────────────

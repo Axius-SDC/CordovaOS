@@ -1,66 +1,30 @@
 """
-Generate Employment Record XML instances for CordovaOS demo.
+Employment Record 4.4.0: one record per job.
 
-Governance-composed model: Governed Record (data cluster + Provenance
-Components) wrapped by native subject / provider / Audit / attestation slots,
-mirroring the proven Civil Registry generator.
-
-Cast member employment + background workers.
-Output: import_data/employment_record/
+The model composes the NIEM library's employment association (the position, the
+employee's occupation and status, hours and pay basis) and Cordova's compensation
+cluster in COR, with the employee's CID and the employer's Business Registry
+Number as the joins to the Civil and Business registries. Eight cast jobs plus
+85% of the working-age background population.
 """
-import os
 import random
 
 from business_registry import employer_roster
 from shared import (
-    CAST, PERSONS, random_date, random_city_province,
-    xml_header, xml_preamble, xml_footer, write_xml,
-    xdstring, xdtoken, xdtemporal, xdquantity,
-    cluster_open, cluster_close, native_partytype,
-    make_provenance_values, audit, attestation,
-    cuid_generator, _esc, _xdany_seq,
+    CAST, PERSONS, COR, Quantity, random_date, full_name,
+    record, write_record, import_dir,
 )
 
-CT_ID = "pm5cks82lnrvyna1xbwpfxic"
-DM_LABEL = "Employment Record"
-OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "app", "sdc4", "import_data", "employment_record")
+TITLE = "Employment Record"
+SYSTEM = "Cordova Employment System"
+OUTPUT_DIR = import_dir("employment_record")
 
-# ─── Governance envelope wrappers (re-keyed for v2, from template dm-*.xml) ───
-GOVERNED_RECORD = "ms-xdu3vqk4vhuko5mghl4y4xxk"   # Item: Employment Governed Record
-CL_ROOT         = "ms-ablvqv20fp33v8t8c985dlo2"   # Data cluster: Employment Record
-CL_COMP         = "ms-vzabxfc733qk7lo1knaggxfs"   # Compensation sub-cluster
-CL_PROV         = "ms-hdhjfg00tngir2txgqyka9cv"   # Provenance Components cluster
-
-# ─── Data leaves: (component_id, adapter_wrapper_id) ─────────────────────────
-W_DEPT        = ("ms-bbu03oqjkniydmzb7pqcjg3m", "ms-px2vmluuoh24jq3hp7mj69bo")  # xdstring
-W_JOB_TITLE   = ("ms-wfws1oj1kgeaijciw7wkzdi7", "ms-utk1922daqjuxti7ypj8k5pn")  # xdstring
-W_CITY        = ("ms-atdtdfzruh7tya0iv5cz365l", "ms-bhzb672n51xibpyeabtkkuv5")  # xdtoken (City enum)
-W_EMP_STATUS  = ("ms-tb3wwfwects1a6ap4ro7z5s8", "ms-hk7rajeh5xrrcwi88lkyas90")  # xdtoken (status enum)
-W_PROVINCE    = ("ms-kv5qqs3o4jwcwz9javgw1pzh", "ms-hjzoscf50maetr3lgv6b9uw3")  # xdtoken (Province enum)
-W_END_DATE    = ("ms-el43lwc0fnamy0v0ocub38t7", "ms-r9rht7dk35tbkm58o2kyvb6t")  # xdtemporal-date
-W_START_DATE  = ("ms-ghsjyyzudma3eq761dwd4j9p", "ms-rd1ncuq30m2a0xs61ba8m3ob")  # xdtemporal-date
-
-# Compensation sub-cluster leaves
-W_YESNO       = ("ms-ht98owgvxhff3ge85i4h80lp", "ms-do0g6eewndjrua4w3tnfn7pl")  # xdboolean (true/false-value)
-W_PAY_FREQ    = ("ms-ub0fwihnwu5x1pdv68pjwbeu", "ms-xnbmun97ke14ougkt80bx4dz")  # xdtoken (freq enum)
-W_SALARY      = ("ms-aw74ticc3fnjkz4vk4b03jr6", "ms-hk3sb8h2cqhvmejtehs9pkzr")  # xdquantity
-
-# Provenance Components leaves (component, adapter)
-P_ACT_DESC    = ("ms-m9xg6e182m1oq77ssrf9iujv", "ms-nfjcw5s2l57qo8pq4m20b0k7")
-P_ACT_TYPE    = ("ms-ccj1yq2wtwknobszkgzzdbtr", "ms-mjr5jcn3q4x8bjthxwzg17z3")
-P_SYS_ID      = ("ms-bd3s8t23d6m3zizmpwavc32y", "ms-u6dk1sk5t2unoli2umqwc3my")
-P_LOC_ID      = ("ms-zr59goe24qkocprl3feul3mt", "ms-m1u064xrbhpu8u69ba9q0sej")
-P_LOC_NAME    = ("ms-fnodzqkbyskwe7nh58rs336k", "ms-s70rhhu242qmswmosxsv2lma")
-P_TS_END      = ("ms-edvvjznmaoibzmfna0uuoo37", "ms-r7mqjinpa4ufiwa7c7v1fu4g")
-P_TS_START    = ("ms-o72s5793973fzho35rnaughs", "ms-wmpszktld8bief3bcdyghcz8")
-
-# System Audit ms- component (substitutionGroup="sdc4:Audit"); shares Civil's id,
-# and its five fixed labels equal Civil's audit() defaults (confirmed in XSD).
-AUDIT_COMPONENT = "ms-fotc5adg15ek2b9ermx2mcih"
-
-# Enum values fixed by the model's components.
+# Cordova's employment statuses, and the NIEM position basis each implies.
 EMP_STATUSES = ["Full-Time", "Part-Time", "Contract", "Self-Employed"]
+BASIS_OF = {"Full-Time": "permanent", "Part-Time": "permanent", "Contract": "contractor", "Self-Employed": "non-permanent"}
 PAY_FREQS = ["Monthly", "Monthly", "Bi-Weekly", "Weekly"]
+# The activity-lifecycle workflow: an employment that is current is ongoing; one that has ended is completed.
+STATE_OF = {"current": "ActivityOngoing", "ended": "ActivityCompleted"}
 
 CAST_JOBS = [
     ("carlos", "Deck Operations", "Able Seaman", "Porto Sereno", "Aldara", "2018-03-15", 28000),
@@ -72,6 +36,10 @@ CAST_JOBS = [
     ("dr_gutierrez", "Biology Department", "Professor", "Campoluz", "Brevina", "2012-09-01", 72000),
     ("prof_lucero", "Chemistry Department", "Professor", "Campoluz", "Brevina", "2008-09-01", 74000),
 ]
+# The cast work where the narrative says they do: Carlos for the shipping line, Elena and the professors at the
+# university, the physicians at the hospital, the sergeant for the national police, the health officer for the office.
+CAST_EMPLOYERS = {"carlos": "BIZ-001102", "elena": "BIZ-000847", "dr_reyes": "BIZ-000523", "sgt_santos": "BIZ-000101",
+                  "dr_ferrer": "BIZ-000205", "dr_gutierrez": "BIZ-000847", "prof_lucero": "BIZ-000847"}
 
 BG_DEPARTMENTS = [
     "Operations", "Administration", "Sales", "Maintenance", "Security",
@@ -89,124 +57,81 @@ BG_TITLES = [
 ]
 
 
-def emp_boolean(component_id, wrapper_id, label, value, indent=2):
-    """XdBoolean whose restricted content is a choice of true-value ("Yes") /
-    false-value ("No"); the base xdboolean-value is not permitted here."""
-    pad = "  " * indent
-    ip = pad + "    "
-    choice = ('<true-value>Yes</true-value>' if value
-              else '<false-value>No</false-value>')
-    return (f'{pad}<sdc4:{wrapper_id}>\n'
-            f'{pad}  <sdc4:{component_id}>\n'
-            f'{pad}    <label>{_esc(label)}</label>\n'
-            f'{_xdany_seq(ip)}'
-            f'{pad}    {choice}\n'
-            f'{pad}  </sdc4:{component_id}>\n'
-            f'{pad}</sdc4:{wrapper_id}>\n')
-
-
-def _pick_employer(city):
+def _pick_employer(city, brn=None):
     """
-    A registered organisation to employ this person, preferring one in the same
-    city. Returns (name, brn) or (None, None) when the registry has not run.
+    A registered organisation to employ this person: the one with ``brn`` when given,
+    else one in the same city. Returns (name, brn) or (None, None) when the registry
+    has not run.
 
     Employment and Business Registry use the SAME published component for the
-    organisation identifier, so an employer recorded as a BRN joins the two
-    domains with no mapping table. Recorded as a name it joins nothing.
+    registry number, so an employer recorded as a BRN joins the two domains with
+    no mapping table. Recorded as a name it joins nothing.
     """
     roster = employer_roster()
     if not roster:
         return None, None
+    if brn:
+        for biz in roster:
+            if biz["brn"] == brn:
+                return biz["name"], brn
     local = [b for b in roster if b.get("city") == city]
     biz = random.choice(local or roster)
     return biz["name"], biz["brn"]
 
 
 def build_instance(rec):
-    """Build a governance-composed Employment Record instance for one record."""
-    prov = make_provenance_values("Cordova Employment System", "RecordCreation", rec["city"])
-    state = rec.get("status", "Full-Time")
-
-    xml = xml_header(CT_ID)
-    xml += xml_preamble(DM_LABEL, current_state=state)
-
-    # Item: Governed Record wrapper
-    xml += cluster_open(GOVERNED_RECORD, "Employment Governed Record", indent=1)
-
-    # Data cluster. XSD sequence puts the Compensation sub-cluster BEFORE the
-    # scalar adapters, so emission order follows the schema (not the template).
-    xml += cluster_open(CL_ROOT, "Employment Record", indent=2)
-
-    xml += cluster_open(CL_COMP, "Compensation", indent=3)
-    xml += emp_boolean(*W_YESNO, "Yes/No", rec.get("benefits", True), indent=4)
-    xml += xdtoken(*W_PAY_FREQ, "Pay Frequency", rec.get("pay_freq", "Monthly"), indent=4)
-    xml += xdquantity(*W_SALARY, "Salary Amount", str(rec["salary"]),
-                      "Cordova Córdoba (COR)", indent=4)
-    xml += cluster_close(CL_COMP, indent=3)
-
-    xml += xdstring(*W_DEPT, "Department", rec["dept"], indent=3)
-    xml += xdstring(*W_JOB_TITLE, "Job Title", rec["title"], indent=3)
-    xml += xdtoken(*W_CITY, "City", rec["city"], indent=3)
-    xml += xdtoken(*W_EMP_STATUS, "Employment Status (Cordova)", rec.get("status", "Full-Time"), indent=3)
-    xml += xdtoken(*W_PROVINCE, "Province", rec["province"], indent=3)
-    xml += xdtemporal(*W_END_DATE, "End Date", rec.get("end_date", "2099-12-31"), "date", indent=3)
-    xml += xdtemporal(*W_START_DATE, "Start Date", rec["start_date"], "date", indent=3)
-    xml += cluster_close(CL_ROOT, indent=2)
-
-    # Provenance Components cluster (sibling of data, inside Governed Record)
-    xml += cluster_open(CL_PROV, "Provenance Components", indent=2)
-    xml += xdstring(*P_ACT_DESC, "activity_description", prov["activity_description"], indent=3)
-    xml += xdstring(*P_ACT_TYPE, "prov_activity_type", prov["prov_activity_type"], indent=3)
-    xml += xdstring(*P_SYS_ID, "system_identifier", prov["system_identifier"], indent=3)
-    xml += xdstring(*P_LOC_ID, "system_location_identifier", prov["system_location_identifier"], indent=3)
-    xml += xdstring(*P_LOC_NAME, "system_location_name", prov["system_location_name"], indent=3)
-    xml += xdtemporal(*P_TS_END, "activity_timestamp_end", prov["activity_timestamp_end"], "datetime", indent=3)
-    xml += xdtemporal(*P_TS_START, "activity_timestamp_start", prov["activity_timestamp_start"], "datetime", indent=3)
-    xml += cluster_close(CL_PROV, indent=2)
-
-    xml += cluster_close(GOVERNED_RECORD, indent=1)
-
-    # Native governance slots, DM order: subject, provider, Audit, attestation.
-    xml += native_partytype("subject", "Subject Employee", rec["employee_name"])
-    brn = rec.get("employer_brn")
-    xml += native_partytype(
-        "provider", "Employer Organization", rec["employer_name"],
-        ref_label="Business Registry Number" if brn else None,
-        ref_link=f"urn:cordova:brn:{brn}" if brn else None,
-        ref_relation="registeredAs" if brn else None,
-        ref_uri=("https://semanticdatacharter.com/ns/sdc4/"
-                 "ms-ule5u2z3rjpa9pooaifwj1n3") if brn else None,
-    )
-    xml += audit(AUDIT_COMPONENT, prov["activity_timestamp_start"],
-                 system_id_value=prov["system_identifier"])
-    xml += attestation(pending=False, reason="Employment record verified by the employer",
-                       committer="Employer Organization", committed=prov["activity_timestamp_end"])
-
-    xml += xml_footer(CT_ID)
-    return xml
+    """One Employment Record for one job."""
+    p = rec["person"]
+    status = rec["status"]
+    full_time = status == "Full-Time"
+    hourly = status in ("Part-Time", "Contract")
+    weekly_hours = 40 if full_time else random.choice([16, 20, 24, 30])
+    values = {
+        "Employment Record/National ID (CID)": p["cid"],
+        "Employment Record/Business Registry Number": rec.get("employer_brn"),
+        "Employment Record/City": rec["city"],
+        "Employment Record/Province": rec["province"],
+        "Employment Association/Employee Identification": p["cid"],
+        "Employment Association/Employee Reference": f"urn:cordova:cid:{p['cid']}",
+        "Employment Association/Employer Reference": f"urn:cordova:brn:{rec['employer_brn']}" if rec.get("employer_brn") else None,
+        "Employment Association/Employee Occupation": rec["title"],
+        "Employment Association/Employee Rank": rec["title"],
+        "Employment Association/Employment Status": status,
+        "Employment Association/Employee Full Time Indicator": full_time,
+        "Employment Association/Employee Pay Hourly Indicator": hourly,
+        "Employment Association/Employee Supervisor Indicator": rec["title"] in ("Manager", "Supervisor", "Director", "Foreman", "Provincial Governor", "Sergeant"),
+        "Employment Association/Employee Hours Weekly Quantity": Quantity(str(weekly_hours), "h/wk"),
+        "Employment Association/Employee Hours Daily Quantity": Quantity(str(8 if full_time else weekly_hours // 5), "h/d"),
+        "Employment Association/Employment Pay Rate Amount": Quantity(str(rec["salary"]), COR),
+        "Employment Association/Employment Location Reference": f"urn:cordova:city:{rec['city'].lower().replace(' ', '-')}",
+        "Employment Position/Employment Position Department Name": rec["dept"],
+        "Employment Position/Employment Position Name": rec["title"],
+        "Employment Position/Employment Position Basis Code": BASIS_OF[status],
+        "Employment Position/Employment Position Temporary Indicator": status == "Contract",
+        "Compensation/Salary Amount": Quantity(str(rec["salary"]), COR),
+        "Compensation/Pay Frequency": rec["pay_freq"],
+    }
+    provider = ("Employer Organization", rec["employer_name"])
+    return record(TITLE, values, state=STATE_OF[rec.get("tenure", "current")], system=SYSTEM, activity_type="RecordCreation",
+                  when=rec["start_date"], city=rec["city"], province=rec["province"], cid=p["cid"],
+                  subject=("Subject Employee", full_name(p)), provider=provider,
+                  attestation_reason="Employment reported by the employer organization", committer=rec["employer_name"])
 
 
 def generate():
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
     count = 0
 
     # Cast employment
     for key, dept, title, city, prov, start, salary in CAST_JOBS:
-        c = CAST.get(key, {})
-        emp_name = f"{c.get('given', '')} {c.get('surname', '')}".strip() or key
+        c = CAST[key]
         rec = {
-            "dept": dept, "title": title,
-            "city": city, "province": prov,
-            "start_date": start, "salary": salary,
-            "status": "Full-Time",
-            "pay_freq": "Monthly",
-            "benefits": True,
-            "employee_name": emp_name,
+            "person": c, "dept": dept, "title": title, "city": city, "province": prov,
+            "start_date": start, "salary": salary, "status": "Full-Time", "pay_freq": "Monthly",
         }
-        rec["employer_name"], rec["employer_brn"] = _pick_employer(city)
+        rec["employer_name"], rec["employer_brn"] = _pick_employer(city, CAST_EMPLOYERS.get(key))
         if not rec["employer_name"]:
             rec["employer_name"] = f"{dept}, {city}"
-        write_xml(os.path.join(OUTPUT_DIR, f"em-{cuid_generator()}.xml"), build_instance(rec))
+        write_record(OUTPUT_DIR, "em", build_instance(rec))
         count += 1
 
     # Background employment: all working-age (18-67) bg persons, ~85% employed
@@ -220,24 +145,24 @@ def generate():
     for p in employed:
         dept = random.choice(BG_DEPARTMENTS)
         rec = {
-            "dept": dept,
-            "title": random.choice(BG_TITLES),
+            "person": p, "dept": dept, "title": random.choice(BG_TITLES),
             "city": p["city"], "province": p["province"],
-            "start_date": random_date(2005, 2024),
-            "salary": random.randint(15000, 80000),
-            "status": random.choice(EMP_STATUSES),
-            "pay_freq": random.choice(PAY_FREQS),
-            "benefits": random.random() < 0.7,
-            "employee_name": f"{p['given']} {p['surname']}",
+            "start_date": random_date(2005, 2024), "salary": random.randint(15000, 80000),
+            "status": random.choice(EMP_STATUSES), "pay_freq": random.choice(PAY_FREQS),
         }
         rec["employer_name"], rec["employer_brn"] = _pick_employer(p["city"])
         if not rec["employer_name"]:
             rec["employer_name"] = f"{dept}, {p['city']}"
-        write_xml(os.path.join(OUTPUT_DIR, f"em-{cuid_generator()}.xml"), build_instance(rec))
+        write_record(OUTPUT_DIR, "em", build_instance(rec))
         count += 1
 
     print(f"Employment Record: generated {count} XML files in {OUTPUT_DIR}")
 
 
 if __name__ == "__main__":
-    generate()
+    random.seed("cordovaos")
+    from civil_registry import generate as gen_cr
+    from business_registry import generate as gen_br
+    random.seed("cordovaos:Civil Registry"); gen_cr()
+    random.seed("cordovaos:Business Registry"); gen_br()
+    random.seed("cordovaos:Employment Record"); generate()

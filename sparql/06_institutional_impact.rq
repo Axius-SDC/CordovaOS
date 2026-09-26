@@ -15,9 +15,9 @@ PREFIX dc:   <http://purl.org/dc/elements/1.1/>
 SELECT ?category ?detail_label ?detail_value ?inst ?inst_2
 WHERE {
   {
-    ?brn_reifier rdf:reifies <<sdc4:mc-ule5u2z3rjpa9pooaifwj1n3 ?vpBrn "BIZ-000847">> ;
+    ?brn_reifier rdf:reifies <<sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ?vpBrn "BIZ-000847">> ;
                  sdc4:inInstance ?biz_inst ;
-                 sdc4:inDataModel sdc4:dm-x250838l7oi6l3yavg9twc1i .
+                 sdc4:inDataModel sdc4:dm-nb7gtyimcusmritzx0o0x40o .
     ?comp_reifier sdc4:inInstance ?biz_inst ;
                   rdfs:label ?detail_label ;
                   rdf:reifies <<?mcComp ?vpComp ?detail_value>> .
@@ -29,23 +29,23 @@ WHERE {
     # The city the business is registered from, computed once in a subquery so
     # the BIND is not a barrier in front of the education join.
     {
-      SELECT ?biz_inst2 (REPLACE(STR(?loc_name), " Data Center", "") AS ?inst_city) WHERE {
-        ?brn_reifier2 rdf:reifies <<sdc4:mc-ule5u2z3rjpa9pooaifwj1n3 ?vpBrn2 "BIZ-000847">> ;
+      SELECT ?biz_inst2 (STR(?loc_name) AS ?inst_city) WHERE {
+        ?brn_reifier2 rdf:reifies <<sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ?vpBrn2 "BIZ-000847">> ;
                       sdc4:inInstance ?biz_inst2 ;
-                      sdc4:inDataModel sdc4:dm-x250838l7oi6l3yavg9twc1i .
+                      sdc4:inDataModel sdc4:dm-nb7gtyimcusmritzx0o0x40o .
         ?biz_loc_reifier sdc4:inInstance ?biz_inst2 ;
-                         rdfs:label "system_location_name" ;
+                         rdfs:label "Location Name" ;
                          rdf:reifies <<?mcBizLoc ?vpBizLoc ?loc_name>> .
       }
     }
     ?edu_city_reifier rdf:reifies <<sdc4:mc-atdtdfzruh7tya0iv5cz365l ?vpEduCity ?inst_city>> ;
                       sdc4:inInstance ?edu_inst ;
-                      sdc4:inDataModel sdc4:dm-upq7w1bqbix5v5ss0mu3kq5n .
+                      sdc4:inDataModel sdc4:dm-mtwtwhn0csuhbw56sjx01ol8 .
     ?edu_comp sdc4:inInstance ?edu_inst ;
               rdfs:label ?detail_label ;
               rdf:reifies <<?mcEdu ?vpEdu ?detail_value>> .
-    FILTER(?detail_label IN ("National ID (CID)", "Student ID", "Field of Study",
-                              "Enrollment Status", "Institution Name"))
+    FILTER(?detail_label IN ("National ID (CID)", "Student ID", "Education Qualification Text",
+                              "Enrollment Status", "Education Qualification Description"))
     BIND("Education Record" AS ?category)
     BIND(?edu_inst AS ?inst)
     BIND(?biz_inst2 AS ?inst_2)

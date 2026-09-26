@@ -30,20 +30,20 @@ RECORD_VAR = re.compile(r'inst(_\d+)?')
 
 #: Identifier components whose equal values mean "the same thing", by key.
 #: Values are component ct_ids (the mc- part). Two records join when they hold
-#: the same value in components of the same key. The person key is one reused
-#: component; the business key is three components carrying the same registry
-#: number under different labels, which is the reuse the models did not make.
+#: the same value in components of the same key. Since 4.4.0 the person key and
+#: the business key are each one reused component: the CID in eight models and
+#: the Business Registry Number in four; a tax filing also names its source
+#: record by the same number.
 JOIN_KEYS: Dict[str, Dict[str, str]] = {
     'person': {
         'nj7s1gk45tfgyooxpz0qaha3': 'National ID (CID)',
     },
     'business': {
-        'ule5u2z3rjpa9pooaifwj1n3': 'organization_identifier',
         'l8f0m7op4xhrxqy1jrnvbuly': 'Business Registry Number',
         'hcfz6urx5c2ayvt8npjl0t4l': 'Source Record ID',
     },
     'place': {
-        'l338k7nlvnq2am0owa19yxfc': 'Address (Line 1)',
+        'ncxxt7wgs7soxw7kbmapxvg3': 'Address (Line 1)',
         'atdtdfzruh7tya0iv5cz365l': 'City',
     },
 }
@@ -55,16 +55,16 @@ PARTY_REF_PREFIX = 'urn:cordova:brn:'
 #: Which components name a record on screen, per data model. First present wins,
 #: several are joined with a space (given name + surname).
 TITLE_LABELS: Dict[str, List[List[str]]] = {
-    'uika42uwtj3ijdbegzw2kcwq': [['Given Name (Person)', 'Surname (Person)'], ['National ID (CID)']],
-    'ulzd6pe8072mwkqf7i313bov': [['Person Full Name'], ['Certificate Number']],
-    'ftluo2nybgxmn7mawttoos20': [['Medical Record Number'], ['National ID (CID)']],
-    'upq7w1bqbix5v5ss0mu3kq5n': [['Student ID'], ['National ID (CID)']],
-    'pm5cks82lnrvyna1xbwpfxic': [['Job Title', 'Department'], ['Job Title']],
-    'vaw4g2kusit5z0kox5mog54g': [['Filing ID']],
-    'x250838l7oi6l3yavg9twc1i': [['organization_name'], ['organization_identifier']],
-    'x44vt69qqri2bl7vwxb8ck7n': [['Parcel Number'], ['Address (Line 1)']],
-    'md2451x882z5j89g66zb50rw': [['Vessel Name', 'Port Call ID'], ['Vessel Name']],
-    'yh0opq0bnu6y9y56oukg92uf': [['Incident Report Number']],
+    'etkbxubkngv0v81yvqz77xrs': [['Given Name (Person)', 'Surname (Person)'], ['National ID (CID)']],   # Civil Registry
+    'sokc3go551qsp4s72lo6ys9c': [['Certificate Number']],                                               # Vital Statistics
+    'dcsd8bxr8a6lzcptwwyms44t': [['Medical Record Number'], ['National ID (CID)']],                      # Healthcare
+    'mtwtwhn0csuhbw56sjx01ol8': [['Student ID'], ['National ID (CID)']],                                 # Education
+    'rxv2ck9k9r1bqkggeydam32s': [['Employee Occupation'], ['National ID (CID)']],                        # Employment
+    'apc16uwrj02wgitw7ji1utng': [['Filing ID']],                                                         # Tax and Revenue
+    'nb7gtyimcusmritzx0o0x40o': [['Organization Name'], ['Business Registry Number']],                   # Business Registry
+    'goc13fg5a97ghcqv64h782af': [['Parcel Number'], ['Address (Line 1)']],                               # Property Registry
+    'v42afzhs22bvschuo56rdpzi': [['Vessel Name', 'Port Call ID'], ['Vessel Name']],                      # Maritime
+    'zdhuex1xwf8s5niriw878e0o': [['Activity Identification']],                                          # Law Enforcement
 }
 
 MAX_RECORDS = 150
