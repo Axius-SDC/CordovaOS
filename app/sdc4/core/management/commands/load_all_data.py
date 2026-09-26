@@ -76,20 +76,25 @@ class Command(BaseCommand):
             # store scans the whole repository, and on the largest domain that
             # query simply fails, which is how vital statistics ended up holding
             # two generations while every other domain was clean.
-            # One update drops every graph under the prefix; dropping them one request at a
-            # time cost eight of the ten minutes a demo load took. The per-graph loop below
-            # stays as the fallback when the store refuses the bulk update.
-            listing = client.query_sparql(
-                'SELECT (COUNT(DISTINCT ?g) AS ?n) WHERE { GRAPH ?g { ?s ?p ?o } '
-                f'FILTER(STRSTARTS(STR(?g), "{prefix}")) }}'
-            )
-            before = int(listing['results']['bindings'][0]['n']['value']) if listing and listing.get('results', {}).get('bindings') else 0
-            if before and client.update_sparql(
-                'DELETE { GRAPH ?g { ?s ?p ?o } } WHERE { GRAPH ?g { ?s ?p ?o } '
-                f'FILTER(STRSTARTS(STR(?g), "{prefix}")) }}'
-            ):
-                return before
+            # A model's graphs are dropped by name, up to CHUNK per request: one SPARQL update
+            # carrying one DROP per graph. Dropping a graph by its context is cheap for the
+            # store, where a DELETE over a pattern across a hundred thousand graphs was not,
+            # and one request per graph was the path that took hours. The loop runs until
+            # the listing is empty; the per-graph fallback below remains for a store that
+            # refuses the batch.
+            CHUNK = 1000
             dropped = 0
+            for _ in range(500):
+                listing = client.query_sparql(
+                    'SELECT DISTINCT ?g WHERE { GRAPH ?g { ?s ?p ?o } '
+                    f'FILTER(STRSTARTS(STR(?g), "{prefix}")) }} LIMIT {CHUNK}'
+                )
+                graphs = [b['g']['value'] for b in (listing or {}).get('results', {}).get('bindings', [])]
+                if not graphs:
+                    return dropped
+                if not client.update_sparql('; '.join(f'DROP SILENT GRAPH <{g}>' for g in graphs)):
+                    break   # the per-graph loop below takes over
+                dropped += len(graphs)
             for _ in range(200):  # bounded, so a delete that never succeeds cannot spin
                 result = client.query_sparql(
                     'SELECT DISTINCT ?g WHERE { GRAPH ?g { ?s ?p ?o } '
@@ -143,17 +148,19 @@ class Command(BaseCommand):
             if not client.health_check():
                 return 0
             keep = ' || '.join(f'STRSTARTS(STR(?g), "urn:sdc4:dm-{ct}:")' for ct in registry)
-            count = client.query_sparql(
-                'SELECT (COUNT(DISTINCT ?g) AS ?n) WHERE { GRAPH ?g { ?s ?p ?o } '
-                f'FILTER(STRSTARTS(STR(?g), "urn:sdc4:dm-") && !({keep})) }}'
-            )
-            n = int(count['results']['bindings'][0]['n']['value']) if count and count.get('results', {}).get('bindings') else 0
-            if n and client.update_sparql(
-                'DELETE { GRAPH ?g { ?s ?p ?o } } WHERE { GRAPH ?g { ?s ?p ?o } '
-                f'FILTER(STRSTARTS(STR(?g), "urn:sdc4:dm-") && !({keep})) }}'
-            ):
-                return n
-            return 0
+            dropped = 0
+            for _ in range(500):
+                listing = client.query_sparql(
+                    'SELECT DISTINCT ?g WHERE { GRAPH ?g { ?s ?p ?o } '
+                    f'FILTER(STRSTARTS(STR(?g), "urn:sdc4:dm-") && !({keep})) }} LIMIT 1000'
+                )
+                graphs = [b['g']['value'] for b in (listing or {}).get('results', {}).get('bindings', [])]
+                if not graphs:
+                    return dropped
+                if not client.update_sparql('; '.join(f'DROP SILENT GRAPH <{g}>' for g in graphs)):
+                    return dropped
+                dropped += len(graphs)
+            return dropped
         except Exception as e:
             self.stdout.write(self.style.WARNING(f'  Orphaned graphs not cleared: {e}'))
             return 0
