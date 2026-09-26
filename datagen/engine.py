@@ -68,6 +68,10 @@ class EV:
     code: str
 
 
+def _unescape_xml(s: str) -> str:
+    return s.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">").replace("&quot;", '"').replace("&apos;", "'")
+
+
 def _tag(el) -> str:
     if not isinstance(el.tag, str):
         return ""   # a comment from the scaffold
@@ -92,29 +96,85 @@ class Template:
 
     # ---------------------------------------------------------------- completion
     def _complete(self):
-        """Give every cluster every adapter the schema declares under it.
+        """Give every cluster every member the schema declares under it.
 
         The scaffold (SDCStudio issue #705) writes a component composed in several clusters only under the first
-        one, so the second and later occurrences are cloned from that first one: the adapter is the same element
-        in every cluster of a model, and its subtree carries the same placeholders.
+        one, and writes an Audit's location cluster with its label alone, so missing members are cloned from their
+        first occurrence in the template (the adapter is the same element in every cluster of a model) or, when
+        the template has none, built from the schema with placeholders.
         """
         first: dict[str, etree._Element] = {}
         for el in self.root.iter():
             tag = _tag(el)
-            if tag.startswith("ms-") and self.schema.base.get(tag[3:]) == "XdAdapterType":
+            if tag.startswith("ms-") and self.schema.base.get(tag[3:]) in ("XdAdapterType", "ClusterType"):
                 first.setdefault(tag[3:], el)
         grew = True
         while grew:   # a clone may itself be a cluster missing members
             grew = False
-            for cl in [e for e in self.root.iter() if _tag(e).startswith("ms-") and self.schema.base.get(_tag(e)[3:]) == "ClusterType"]:
+            for cl in list(self.root.iter()):
+                ct = self._cluster_type(cl)
+                if ct is None:
+                    continue
                 present = {_tag(c)[3:] for c in cl if isinstance(c.tag, str)}
-                for adapter in self.schema._children(_tag(cl)[3:]):
-                    if adapter in present or self.schema.base.get(adapter) != "XdAdapterType":
+                for child in self.schema._children(ct):
+                    if child in present or self.schema.base.get(child) not in ("XdAdapterType", "ClusterType"):
                         continue
-                    src = first.get(adapter)
-                    assert src is not None, f"dm-{self.ct_id}: adapter {adapter} under {self.schema.label.get(_tag(cl)[3:])!r} appears nowhere in the template"
-                    cl.append(copy.deepcopy(src))
+                    src = first.get(child)
+                    cl.append(copy.deepcopy(src) if src is not None else self._synthesize(child))
                     grew = True
+
+    def _cluster_type(self, el) -> str | None:
+        """The cluster type an element carries: an ms- cluster, or an Audit's location / a Party's details by the parent's type."""
+        tag = _tag(el)
+        if tag.startswith("ms-"):
+            return tag[3:] if self.schema.base.get(tag[3:]) == "ClusterType" else None
+        if tag in ("location", "party-details"):
+            parent = el.getparent()
+            ptag = _tag(parent) if parent is not None else ""
+            body = self.schema.types.get(ptag[3:], "") if ptag.startswith("ms-") else ""
+            m = re.search(r'name="%s" type="sdc4:mc-([a-z0-9]+)"' % tag, body)
+            return m.group(1) if m else None
+        return None
+
+    _VALUE_OF = {"XdStringType": ("xdstring-value",), "XdTokenType": ("xdtoken-value",), "XdBooleanType": ("true-value",),
+                 "XdOrdinalType": ("ordinal", "symbol"), "XdFileType": ("uri",),
+                 "XdQuantityType": ("xdquantity-value", "xdquantity-units"), "XdCountType": ("xdcount-value", "xdcount-units"),
+                 "XdFloatType": ("xdfloat-value", "xdfloat-units"), "XdDoubleType": ("xddouble-value", "xddouble-units")}
+
+    def _synthesize(self, ct: str):
+        """An element for this adapter or cluster, from the schema alone: label, placeholders, members."""
+        el = etree.Element(f"{{{SDC4}}}ms-{ct}")
+        base = self.schema.base.get(ct, "")
+        if base == "XdAdapterType":
+            for inner in self.schema._children(ct):
+                el.append(self._synthesize(inner))
+            return el
+        etree.SubElement(el, "label").text = self.schema.label.get(ct, "")
+        if base == "ClusterType":
+            for child in self.schema._children(ct):
+                el.append(self._synthesize(child))
+            return el
+        if base == "XdTemporalType":
+            kinds = re.findall(r'name="(xdtemporal-[a-z-]+)"', self.schema.types[ct])
+            etree.SubElement(el, kinds[0] if kinds else "xdtemporal-date").text = "_PH_"
+            return el
+        if base == "XdLinkType":
+            for name in ("link", "relation", "relation-uri"):
+                m = re.search(r'name="%s"[^>]*fixed="([^"]*)"' % name, self.schema.types[ct])
+                if m:
+                    etree.SubElement(el, name).text = _unescape_xml(m.group(1))
+            return el
+        names = self._VALUE_OF.get(base)
+        assert names, f"cannot build a {base} ({self.schema.label.get(ct)}) from the schema"
+        for name in names:
+            if name.endswith("-units"):
+                m = re.search(r'name="%s" type="sdc4:mc-([a-z0-9]+)"' % name, self.schema.types[ct])
+                units = etree.SubElement(el, name)
+                etree.SubElement(units, "label").text = self.schema.label.get(m.group(1), "") if m else ""
+                etree.SubElement(units, "xdstring-value").text = "_PH_"
+            else:
+                etree.SubElement(el, name).text = "_PH_"
+        return el
 
     # ---------------------------------------------------------------- indexing
     def _index(self, el, path: tuple[str, ...]):
@@ -149,6 +209,7 @@ class Template:
         t.ct_id, t.schema, t.root, t.paths = self.ct_id, self.schema, root, {}
         t._index(root, ())
         filled: set = set()
+        t._filled = filled
         for path, value in values.items():
             comp = t._component(path)
             t._fill(comp, path, value)
@@ -311,11 +372,12 @@ class Template:
     def _parties(self, root, subject, provider):
         for name, party in (("subject", subject), ("provider", provider)):
             el = root.find(name)
-            if el is None:
-                continue
             if party is None:
-                root.remove(el)
+                if el is not None:
+                    root.remove(el)
                 continue
+            if el is None:
+                el = etree.SubElement(root, name)   # the scaffold leaves optional parties out; _reorder places it
             label, party_name = party
             for c in list(el):
                 el.remove(c)
@@ -338,7 +400,13 @@ class Template:
             if ts is not None:
                 ts.text = audit.get("timestamp", timestamp)
             for path, value in audit.get("values", {}).items():   # members of the audit's location cluster, by path
-                self._fill(self._component(path), path, value)
+                comp = self._component(path)
+                self._fill(comp, path, value)
+                self._filled.add(comp)
+                for anc in comp.iterancestors():
+                    self._filled.add(anc)
+
+    ATTESTATION_ORDER = ("label", "view", "proof", "reason", "committer", "committed", "pending")
 
     def _attestation(self, root, attestation, timestamp):
         el = root.find("attestation")
@@ -348,17 +416,26 @@ class Template:
             root.remove(el)
             return
         reason = el.find("reason")
-        if reason is not None:
-            self._set(reason, "xdstring-value", attestation.get("reason", "Recorded"))
+        if reason is None:
+            reason = etree.SubElement(el, "reason")
+            etree.SubElement(reason, "label").text = "Attestation Reason"
+            etree.SubElement(reason, "xdstring-value")
+        self._set(reason, "xdstring-value", attestation.get("reason", "Recorded"))
         committer = el.find("committer")
-        if committer is not None:
-            self._party_name(committer, attestation.get("committer", "Registrar"))
+        if committer is None:
+            committer = etree.SubElement(el, "committer")
+            etree.SubElement(committer, "label").text = "Committer"
+            etree.SubElement(committer, "party-name")
+        self._party_name(committer, attestation.get("committer", "Registrar"))
         committed = el.find("committed")
-        if committed is not None:
-            committed.text = attestation.get("committed", timestamp)
+        if committed is None:
+            committed = etree.SubElement(el, "committed")
+        committed.text = attestation.get("committed", timestamp)
         pending = el.find("pending")
-        if pending is not None:
-            pending.text = str(bool(attestation.get("pending", False))).lower()
+        if pending is None:
+            pending = etree.SubElement(el, "pending")
+        pending.text = str(bool(attestation.get("pending", False))).lower()
+        el[:] = sorted(list(el), key=lambda c: self.ATTESTATION_ORDER.index(_tag(c)) if _tag(c) in self.ATTESTATION_ORDER else 99)
 
     # ---------------------------------------------------------------- pruning
     def _prune(self, root, filled: set):

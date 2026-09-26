@@ -115,3 +115,23 @@ def test_omitted_optional_members_are_dropped_and_the_instance_stays_valid():
                      audit={"system_id": "urn:cordova:system:healthcare", "user": "Cordova Healthcare System"}, attestation={"reason": "Recorded", "committer": "Registrar", "pending": False})
     assert "Allergy Intolerance" not in xml and "Vital Signs Panel" in xml
     assert not list(_schema(HEALTHCARE).iter_errors(xml))
+
+
+def test_governance_slots_are_built_and_the_audit_location_is_filled():
+    civil = next(v["ct_id"] for k, v in MODELS.items() if k.startswith("Civil"))
+    t = Template.for_dm(civil)
+    xml = t.instance({"Civil Registry Record/National ID (CID)": "COR-AL01-271845", "Address (Cordova)/City": "Porto Sereno"},
+                     instance_id="i-test000000000000000004", current_state=t.schema.states()[0], timestamp="2026-01-14T09:00:00",
+                     subject=("Subject Person", "Carlos Mendoza"), provider=("Civil Registry Office", "Porto Sereno Civil Registry Office"),
+                     audit={"system_id": "urn:cordova:system:civil-registry", "user": "Cordova Civil Registry System", "timestamp": "2026-01-14T09:00:05",
+                            "values": {"Cordova System Audit/City": "Porto Sereno", "Cordova System Audit/Province": "Aldara",
+                                       "Cordova System Audit/Geolocation/Latitude": Quantity("10.4806", "deg"), "Cordova System Audit/Geolocation/Longitude": Quantity("-66.9036", "deg")}},
+                     attestation={"reason": "Record verified by the civil registry office", "committer": "Civil Registry Office", "committed": "2026-01-14T09:00:05", "pending": False})
+    assert "<subject>" in xml and "<party-name>Carlos Mendoza</party-name>" in xml and "<provider>" in xml
+    assert "<reason>" in xml and "Record verified by the civil registry office" in xml and "<committer>" in xml and "<committed>2026-01-14T09:00:05</committed>" in xml
+    assert xml.index("<subject>") < xml.index("<provider>") < xml.index("<protocol>") < xml.index("<attestation>")
+    audit = xml[xml.index("<label>Cordova System Audit</label>"):]
+    assert "<xdstring-value>urn:cordova:system:civil-registry</xdstring-value>" in audit and "<timestamp>2026-01-14T09:00:05</timestamp>" in audit
+    assert audit.count("<label>City</label>") == 1 and "<xdtoken-value>Aldara</xdtoken-value>" in audit and "<label>Latitude</label>" in audit
+    assert "<label>Altitude</label>" not in audit and "<label>Geodetic Datum</label>" not in audit   # not given, dropped
+    assert not list(_schema(civil).iter_errors(xml))
