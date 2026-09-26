@@ -405,7 +405,7 @@ class WizardCompleteView(View):
                 DMMetadata.CT_ID
             )
 
-            if triplestore.upload_graph(rdf_content, None):  # Upload to default graph
+            if triplestore.upload_graph(rdf_content, graph_uri):
                 instance.fuseki_graph_uri = graph_uri
                 instance.rdf_uploaded_at = timezone.now()
                 instance.rdf_sync_status = 'synced'

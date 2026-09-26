@@ -1,0 +1,4490 @@
+{
+  "@context": {
+    "@vocab": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4": "https://semanticdatacharter.com/ns/sdc4/",
+    "sdc4-meta": "https://semanticdatacharter.com/ontology/sdc4-meta/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "label": "rdfs:label",
+    "description": "rdfs:comment",
+    "type": "@type",
+    "id": "@id"
+  },
+  "@type": "DataModel",
+  "@id": "sdc4:dm-etkbxubkngv0v81yvqz77xrs",
+  "identifier": "etkbxubkngv0v81yvqz77xrs",
+  "label": "Civil Registry 4.4.0",
+  "description": "Maintain the authoritative identity record for every person in Cordova.",
+  "metadata": {
+    "dc:title": "Civil Registry 4.4.0",
+    "dc:creator": "Timothy Cook",
+    "dc:subject": "Civil Registry",
+    "dc:description": "Maintain the authoritative identity record for every person in Cordova.",
+    "dc:publisher": "Axius SDC, Inc.",
+    "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
+    "dc:language": "en-US",
+    "dc:format": "text/xml",
+    "dc:date": "2026-09-26T15:05:26.603817+00:00"
+  },
+  "components": [
+    {
+      "@type": "XdFileType",
+      "@id": "sdc4:mc-gug5dhtqfv7exbgmm2raxpkq",
+      "label": "Digital Signature Proof",
+      "description": "Cryptographic proof of attestation (digital signature)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.w3.org/TR/vc-data-model/#credentials"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q210824"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "http://www.w3.org/ns/prov#Entity"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-dkc2ccj5te35z9gd4bu1blcq",
+      "label": "Audit Agent Reference",
+      "description": "The acting agent (FHIR AuditEvent.agent.who). Holds the IRI of the referenced thing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\S+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/audit-agent-reference"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.agent.who"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-bads7w1q6wmhn18u6dxwt28t"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-gcjyjrnp0wsfoelcp4m05c67",
+      "label": "Audit Entity Reference",
+      "description": "The entity the event concerns (FHIR AuditEvent.entity.what). Holds the IRI of the referenced thing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\S+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/audit-entity-reference"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.entity.what"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-sjp1x177mlpq3howdltptm3c"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-fjhgr5fyqxt2crmg2cb5c513",
+      "label": "Audit Event Identifier",
+      "description": "The identifier of the audit event.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/audit-event-identifier"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://purl.org/dc/terms/identifier"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-sndpbhm3xbd6qtbyxmvh3i0e",
+      "label": "Data Subject Reference",
+      "description": "The data subject or patient the event concerns (FHIR AuditEvent.patient; SDC DM.subject). Holds the IRI of the referenced thing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\S+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/data-subject-reference"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.patient"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-x2rc9cg84d2famryqzdic0as"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-nf1air1zbj8v9w66jozdxmyl",
+      "label": "On Behalf Of Reference",
+      "description": "The party on whose behalf the agent acted (FHIR agent.onBehalfOf; prov:actedOnBehalfOf). Holds the IRI of the referenced thing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\S+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/on-behalf-of-reference"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.onBehalfOf"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-j9gvyx6u9pb7v1dd0m6joxd6"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-h3kdbvdtyalpvik97saaf0an",
+      "label": "System Identifier",
+      "description": "The system that handled the item (FHIR AuditEvent.source.observer; SDC AuditType.system-id).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/system-identifier"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.source.observer"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-des67jo3ki9w0zgaz2i2t2cq"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ujir739mf1g8ajeczs9nzh9m",
+      "label": "System Location Name",
+      "description": "The site or facility that handled the item (FHIR AuditEvent.agent.location; prov:atLocation).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/system-location-name"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.agent.location"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-l6fwy1a2l5i43t308pknygp7"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-ce1c8sydkov8bkv4dgdmwe5x",
+      "label": "Audit Event Action",
+      "description": "The operation performed in a logged access event (FHIR AuditEvent.action). Read and Execute change no state and are audit facts, not workflow moves.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "C",
+          "R",
+          "U",
+          "D",
+          "E"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/audit-event-action"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/audit-event-action"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-o8lawuczf9vry55e98cjg12r"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-rpz1czz06jhpahmfz30rblvp",
+      "label": "Audit Event Outcome",
+      "description": "The result of an audited event (FHIR AuditEvent.outcome).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "0",
+          "4",
+          "8",
+          "12"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/audit-event-outcome"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/audit-event-outcome"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-lgmleqp52a6kl268drrtfjk5"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-vbctgmdcwps5b3r3l6sboa6y",
+      "label": "Confidentiality",
+      "description": "The level of protection the information requires (HL7 v3 Confidentiality). At assembly the value populates a component's act tag.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "U",
+          "L",
+          "M",
+          "N",
+          "R",
+          "V"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://terminology.hl7.org/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/confidentiality"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://terminology.hl7.org/CodeSystem/v3-Confidentiality"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-hp8q52t8tgmis92c4ljrfy7e"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-jujsdur1igws8orw6tvvlqco",
+      "label": "Provenance Agent Type",
+      "description": "The functional role of an agent in an activity (FHIR Provenance.agent.type).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "enterer",
+          "performer",
+          "author",
+          "editor",
+          "verifier",
+          "legal",
+          "attester",
+          "informant",
+          "custodian",
+          "transmitter",
+          "assembler",
+          "transformer",
+          "composer"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/provenance-agent-type"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://terminology.hl7.org/CodeSystem/provenance-participant-type"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-syt8l7pmb64eym2chcn43ai7"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-d1evlz8yvdlwt6ia9fjq4pgj",
+      "label": "Purpose of Use",
+      "description": "Why the information was used (HL7 v3 ActReason purpose of use). Activity context, not an access-control tag.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "TREAT",
+          "ETREAT",
+          "COC",
+          "HPAYMT",
+          "HOPERAT",
+          "HRESCH",
+          "CLINTRCH",
+          "PUBHLTH",
+          "PATRQT",
+          "HLEGAL",
+          "HMARKT"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://terminology.hl7.org/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/purpose-of-use"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-y87ikto4p56zlkx4o2d63ain"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-uwiosm2q9ym3ewr4de910s70",
+      "label": "Audit Recorded At",
+      "description": "When the audit event was recorded (FHIR AuditEvent.recorded).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/audit-recorded-at"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.recorded"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3",
+      "label": "National ID (CID)",
+      "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "COR-(AL|BR|CE)0[1-3]-[0-9]{6}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/identifier"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q1140371"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/identifier"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-jehcvvbkw36i1ecd5ooqbwp9",
+      "label": "Person Gender Identity Code",
+      "description": "A gender of a person's identity. The cultural meanings of patterns of behavior, experience, and personality that are labeled masculine or feminine. NIEM 6.0 hs:PersonGenderIdentityCode. Codes of hs:PersonGenderIdentityCodeSimpleType (9 values).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Did not disclose",
+          "Female",
+          "Genderqueer/Gender Non-conforming",
+          "Intersex/Non-binary gender",
+          "Male",
+          "Transgender Female to Male (FTM)",
+          "Transgender General",
+          "Transgender Male to Female (MTF)",
+          "Unknown"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/niem/hs-person-gender-identity-code"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/domains/hs.xsd"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://docs.oasis-open.org/niemopen/ns/model/domains/humanServices/6.0/PersonGenderIdentityCode"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://docs.oasis-open.org/niemopen/ns/model/domains/humanServices/6.0/PersonGenderIdentityCodeSimpleType"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-z11vs0cvonack540omgwhxhz",
+      "label": "Marital Status",
+      "description": "The marital or civil status of a person, using the HL7 v3 MaritalStatus code system.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "A",
+          "C",
+          "D",
+          "I",
+          "L",
+          "M",
+          "P",
+          "S",
+          "T",
+          "U",
+          "W"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://terminology.hl7.org/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/marital-status"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "http://purl.obolibrary.org/obo/NCIT_C25188"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ncxxt7wgs7soxw7kbmapxvg3",
+      "label": "Address (Line 1)",
+      "description": "The first line of a street address: street number and name, or a post office box.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/address-line-1"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/streetAddress"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-l338k7nlvnq2am0owa19yxfc"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-sexw93x5276zwsn1qx15htpv",
+      "label": "Address (Line 2)",
+      "description": "The second line of a street address: apartment, suite, unit, building or floor, when the first line does not carry it.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/address-line-2"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/streetAddress"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-ek5h6dsqpd9kz0l4mcckmxpt"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-gf841eedvv6cjiegs934srai",
+      "label": "Postal Code",
+      "description": "The postal code of an address in any country, with no format constraint. Use US ZIP Code or Canada Postal Code where the format is known.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 15
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/postal-code"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/postalCode"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-kgbwgi00bhxyyt176bsmulf0"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-atdtdfzruh7tya0iv5cz365l",
+      "label": "City",
+      "description": "One of the nine cities in the Republic of Cordova.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Porto Sereno",
+          "Vistamar",
+          "Rioseco",
+          "Campoluz",
+          "Tierraverde",
+          "Montecara",
+          "Novaciudad",
+          "Piedrasol",
+          "Lagunavista"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/City"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh",
+      "label": "Province",
+      "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Aldara",
+          "Brevina",
+          "Celara"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/AdministrativeArea"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/State"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-wriny2gz8aqcvffmfpwbompk",
+      "label": "Website URL",
+      "description": "The URL of a web page or online resource, such as an organization's website or a person's profile page.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/website-url"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/url"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-t4fl1c1qbhmgyem3fczjdq16"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-q922mqaon3yn5zlwf2bszf28",
+      "label": "Email Address",
+      "description": "An email address. The pattern requires a local part, an at sign and a domain with a dot; RFC 5321 limits the whole address to 254 characters.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": ".+@.+\\..+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/email-address"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.rfc-editor.org/rfc/rfc5321"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/email"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-uvl0tla5aocdzsdrby589b6l"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ll6ltsnvakomixuitxkbkxfz",
+      "label": "Fax Number",
+      "description": "A facsimile telephone number, optionally starting with a plus sign and country code, with digits, spaces, hyphens and parentheses allowed.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\+?\\d[\\d\\s\\-\\(\\)]{6,18}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.itu.int/rec/T-REC-E.164"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/fax-number"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/faxNumber"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-hzpld81b2ddnp5qywombgpls"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-zpfwg52r88j6jdypj7rg71ke",
+      "label": "Phone Number",
+      "description": "A telephone number, optionally starting with a plus sign and country code, with digits, spaces, hyphens and parentheses allowed.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\+?\\d[\\d\\s\\-\\(\\)]{6,18}"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.itu.int/rec/T-REC-E.164"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/phone-number"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/telephone"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-ma9dwgbrvprfyypwldni2qfx"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-miqo30r5b554nyj7ubryw43x",
+      "label": "Contact Method",
+      "description": "The communication channel of a contact point.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "phone",
+          "fax",
+          "email",
+          "pager",
+          "url",
+          "sms",
+          "other"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/contact-method"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/contact-point-system"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-tf5wlywn6meurn6o1sz8yuaq"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-vmruk4j9y1orvvz8cwafrax5",
+      "label": "Contact Use",
+      "description": "The purpose of a contact point.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "home",
+          "work",
+          "temp",
+          "old",
+          "mobile"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/contact-use"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/contact-point-use"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-klgho4tqvbu5iyt6zzx1ioi9"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-i2vrm5bvxw03tcoesvgnft64",
+      "label": "Relationship to Subject",
+      "description": "How a contact person is related to the subject of the record, from the HL7 v3 RoleCode personal relationship codes.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "ONESELF",
+          "SPS",
+          "DOMPART",
+          "PRN",
+          "MTH",
+          "FTH",
+          "CHILD",
+          "SIB",
+          "GRPRN",
+          "GRNDCHILD",
+          "FAMMEMB",
+          "GUARD",
+          "CAREGIVER",
+          "NOK",
+          "ECON",
+          "FRND",
+          "NBOR",
+          "ROOM"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://terminology.hl7.org/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/relationship-to-subject"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-moo2lije2b05ylq8q4t52lcb",
+      "label": "Date Range End",
+      "description": "The last date of a period.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/date-range-end"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/endDate"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-m6qw6eek8jbyjxxlmy9rmiju"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-bcyjfdwobh9q60umle1amw0w",
+      "label": "Date Range Start",
+      "description": "The first date of a period.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/date-range-start"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/startDate"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-kazur5ajt4axnp93b4ha5t7x"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-gxzbm758mhdz51xd4bawlfhh",
+      "label": "Administrative Gender",
+      "description": "The gender a person is recorded as for administrative purposes. Not clinical or biological sex; see Sex (Recorded).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "male",
+          "female",
+          "other",
+          "unknown"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/administrative-gender"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/administrative-gender"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-tnyh2ude3db9smwfin0vai5h"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-f2jicaigehz7xmwcp1gm5gh0",
+      "label": "Country Code ISO 3166",
+      "description": "The ISO 3166-1 alpha-2 code of a country or territory: the complete list of 249 officially assigned codes. Each value is defined by its Wikidata entity.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "AD",
+          "AE",
+          "AF",
+          "AG",
+          "AI",
+          "AL",
+          "AM",
+          "AO",
+          "AQ",
+          "AR",
+          "AS",
+          "AT",
+          "AU",
+          "AW",
+          "AX",
+          "AZ",
+          "BA",
+          "BB",
+          "BD",
+          "BE",
+          "BF",
+          "BG",
+          "BH",
+          "BI",
+          "BJ",
+          "BL",
+          "BM",
+          "BN",
+          "BO",
+          "BQ",
+          "BR",
+          "BS",
+          "BT",
+          "BV",
+          "BW",
+          "BY",
+          "BZ",
+          "CA",
+          "CC",
+          "CD",
+          "CF",
+          "CG",
+          "CH",
+          "CI",
+          "CK",
+          "CL",
+          "CM",
+          "CN",
+          "CO",
+          "CR",
+          "CU",
+          "CV",
+          "CW",
+          "CX",
+          "CY",
+          "CZ",
+          "DE",
+          "DJ",
+          "DK",
+          "DM",
+          "DO",
+          "DZ",
+          "EC",
+          "EE",
+          "EG",
+          "EH",
+          "ER",
+          "ES",
+          "ET",
+          "FI",
+          "FJ",
+          "FK",
+          "FM",
+          "FO",
+          "FR",
+          "GA",
+          "GB",
+          "GD",
+          "GE",
+          "GF",
+          "GG",
+          "GH",
+          "GI",
+          "GL",
+          "GM",
+          "GN",
+          "GP",
+          "GQ",
+          "GR",
+          "GS",
+          "GT",
+          "GU",
+          "GW",
+          "GY",
+          "HK",
+          "HM",
+          "HN",
+          "HR",
+          "HT",
+          "HU",
+          "ID",
+          "IE",
+          "IL",
+          "IM",
+          "IN",
+          "IO",
+          "IQ",
+          "IR",
+          "IS",
+          "IT",
+          "JE",
+          "JM",
+          "JO",
+          "JP",
+          "KE",
+          "KG",
+          "KH",
+          "KI",
+          "KM",
+          "KN",
+          "KP",
+          "KR",
+          "KW",
+          "KY",
+          "KZ",
+          "LA",
+          "LB",
+          "LC",
+          "LI",
+          "LK",
+          "LR",
+          "LS",
+          "LT",
+          "LU",
+          "LV",
+          "LY",
+          "MA",
+          "MC",
+          "MD",
+          "ME",
+          "MF",
+          "MG",
+          "MH",
+          "MK",
+          "ML",
+          "MM",
+          "MN",
+          "MO",
+          "MP",
+          "MQ",
+          "MR",
+          "MS",
+          "MT",
+          "MU",
+          "MV",
+          "MW",
+          "MX",
+          "MY",
+          "MZ",
+          "NA",
+          "NC",
+          "NE",
+          "NF",
+          "NG",
+          "NI",
+          "NL",
+          "NO",
+          "NP",
+          "NR",
+          "NU",
+          "NZ",
+          "OM",
+          "PA",
+          "PE",
+          "PF",
+          "PG",
+          "PH",
+          "PK",
+          "PL",
+          "PM",
+          "PN",
+          "PR",
+          "PS",
+          "PT",
+          "PW",
+          "PY",
+          "QA",
+          "RE",
+          "RO",
+          "RS",
+          "RU",
+          "RW",
+          "SA",
+          "SB",
+          "SC",
+          "SD",
+          "SE",
+          "SG",
+          "SH",
+          "SI",
+          "SJ",
+          "SK",
+          "SL",
+          "SM",
+          "SN",
+          "SO",
+          "SR",
+          "SS",
+          "ST",
+          "SV",
+          "SX",
+          "SY",
+          "SZ",
+          "TC",
+          "TD",
+          "TF",
+          "TG",
+          "TH",
+          "TJ",
+          "TK",
+          "TL",
+          "TM",
+          "TN",
+          "TO",
+          "TR",
+          "TT",
+          "TV",
+          "TW",
+          "TZ",
+          "UA",
+          "UG",
+          "UM",
+          "US",
+          "UY",
+          "UZ",
+          "VA",
+          "VC",
+          "VE",
+          "VG",
+          "VI",
+          "VN",
+          "VU",
+          "WF",
+          "WS",
+          "YE",
+          "YT",
+          "ZA",
+          "ZM",
+          "ZW"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.iso.org/iso-3166-country-codes.html"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/country-code-iso-3166"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://purl.obolibrary.org/obo/NCIT_C20108"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/addressCountry"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-qm8gmwfrxqbisqbm0fgd4nyz"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-no649c8yiebkyujhlbwjuppx",
+      "label": "Language Code",
+      "description": "The ISO 639-1 two-letter code of a language: the complete list of 184 codes, which are also the BCP 47 primary language subtags. Each value is defined by its Wikidata entity.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "aa",
+          "ab",
+          "ae",
+          "af",
+          "ak",
+          "am",
+          "an",
+          "ar",
+          "as",
+          "av",
+          "ay",
+          "az",
+          "ba",
+          "be",
+          "bg",
+          "bi",
+          "bm",
+          "bn",
+          "bo",
+          "br",
+          "bs",
+          "ca",
+          "ce",
+          "ch",
+          "co",
+          "cr",
+          "cs",
+          "cu",
+          "cv",
+          "cy",
+          "da",
+          "de",
+          "dv",
+          "dz",
+          "ee",
+          "el",
+          "en",
+          "eo",
+          "es",
+          "et",
+          "eu",
+          "fa",
+          "ff",
+          "fi",
+          "fj",
+          "fo",
+          "fr",
+          "fy",
+          "ga",
+          "gd",
+          "gl",
+          "gn",
+          "gu",
+          "gv",
+          "ha",
+          "he",
+          "hi",
+          "ho",
+          "hr",
+          "ht",
+          "hu",
+          "hy",
+          "hz",
+          "ia",
+          "id",
+          "ie",
+          "ig",
+          "ii",
+          "ik",
+          "io",
+          "is",
+          "it",
+          "iu",
+          "ja",
+          "jv",
+          "ka",
+          "kg",
+          "ki",
+          "kj",
+          "kk",
+          "kl",
+          "km",
+          "kn",
+          "ko",
+          "kr",
+          "ks",
+          "ku",
+          "kv",
+          "kw",
+          "ky",
+          "la",
+          "lb",
+          "lg",
+          "li",
+          "ln",
+          "lo",
+          "lt",
+          "lu",
+          "lv",
+          "mg",
+          "mh",
+          "mi",
+          "mk",
+          "ml",
+          "mn",
+          "mr",
+          "ms",
+          "mt",
+          "my",
+          "na",
+          "nb",
+          "nd",
+          "ne",
+          "ng",
+          "nl",
+          "nn",
+          "no",
+          "nr",
+          "nv",
+          "ny",
+          "oc",
+          "oj",
+          "om",
+          "or",
+          "os",
+          "pa",
+          "pi",
+          "pl",
+          "ps",
+          "pt",
+          "qu",
+          "rm",
+          "rn",
+          "ro",
+          "ru",
+          "rw",
+          "sa",
+          "sc",
+          "sd",
+          "se",
+          "sg",
+          "sh",
+          "si",
+          "sk",
+          "sl",
+          "sm",
+          "sn",
+          "so",
+          "sq",
+          "sr",
+          "ss",
+          "st",
+          "su",
+          "sv",
+          "sw",
+          "ta",
+          "te",
+          "tg",
+          "th",
+          "ti",
+          "tk",
+          "tl",
+          "tn",
+          "to",
+          "tr",
+          "ts",
+          "tt",
+          "tw",
+          "ty",
+          "ug",
+          "uk",
+          "ur",
+          "uz",
+          "ve",
+          "vi",
+          "vo",
+          "wa",
+          "wo",
+          "xh",
+          "yi",
+          "yo",
+          "za",
+          "zh",
+          "zu"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.iso.org/iso-639-language-code"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/language-code"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://purl.obolibrary.org/obo/NCIT_C16779"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/inLanguage"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-w7t802u535su9576z02uw71o"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-js564tazefb6udqlh12rj04l",
+      "label": "Date of Birth",
+      "description": "The date a person was born.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/date-of-birth"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://purl.obolibrary.org/obo/NCIT_C68615"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/birthDate"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-l9l169co9r23e6fftpvdz4e3",
+      "label": "Given Name (Person)",
+      "description": "The name given to a person at birth or naming, distinguishing them from others in the same family. Also called first name or forename.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/given-name-person"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "http://www.wikidata.org/entity/Q202444"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/givenName"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-kfyzf8u8gdafcpt5kfh2qg3q"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-zcf4f5kjjo497jeb9vtt9rmr",
+      "label": "Middle Name (Person)",
+      "description": "An additional given name, placed between the first given name and the surname.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/middle-name-person"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "http://www.wikidata.org/entity/Q245025"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/additionalName"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-oit0ueglhjfcyq80z22kl2z3"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-yahxccv0l1z6ykjxayzkdlkq",
+      "label": "Name Prefix",
+      "description": "An honorific or title placed before a person's name, such as Mr., Ms., Dr. or Prof.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 20
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/name-prefix"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/honorificPrefix"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-u9x2b6frfi0rbydeoncijfp1"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-l509t0zajfl5atns64d5kl97",
+      "label": "Name Suffix",
+      "description": "A suffix placed after a person's name, such as Jr., Sr., III, PhD, MD or Esq.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 20
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/name-suffix"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/honorificSuffix"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-zldtbpvyouzi7t1dorc07rb3"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-jc1lfk3ovt6l8frhxvx8b669",
+      "label": "Surname (Person)",
+      "description": "The family name of a person, shared with other members of the family. Also called last name or family name.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/surname-person"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "http://www.wikidata.org/entity/Q101352"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/familyName"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-v8jgjo2sml12jo7zrb8swoxi"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-bfqinvm7qrgi9jjw1i637moh",
+      "label": "Name Use",
+      "description": "The purpose or context of a person's name.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "usual",
+          "official",
+          "temp",
+          "nickname",
+          "anonymous",
+          "old",
+          "maiden"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/name-use"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/name-use"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-zlg3riiu515tsg0mdkx5brkc"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-hhusuzzig19rs46ngz23k5g7",
+      "label": "Activity Description",
+      "description": "A description of what the activity does and why.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 4000
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-description"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://purl.org/dc/terms/description"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-m9xg6e182m1oq77ssrf9iujv"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-wr06h54xqqw2q9id8i9673jy",
+      "label": "Activity Identifier",
+      "description": "The identifier of a PROV activity: a URI or another globally unique identifier.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-identifier"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://purl.org/dc/terms/identifier"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-fpnn1dew0kcevc8ptohndc5t"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-r6hkunjm2q0hlxiknlc9ljix",
+      "label": "Activity Label",
+      "description": "A human-readable label for a PROV activity.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-label"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/2000/01/rdf-schema#label"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-n4kaez29vbknku2jy8n56gfm"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-uzai5uey5p1fnn9ezj9u6vor",
+      "label": "Activity Location",
+      "description": "Where the activity took place (prov:atLocation), as text.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-location"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#atLocation"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-ciuklf1kl8bphpudye4i47am"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-jjzmhdxvbt97pq81iwqubtxk",
+      "label": "Activity Type",
+      "description": "The kind of activity, in the vocabulary of the domain (prov:type).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-type"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#type"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-ceusvbe55b266gcdzf5qnurc"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-xlgjqdpwdbn2re3mdh5yy2rk",
+      "label": "Error Message",
+      "description": "The error the activity reported, if it failed.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 4000
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/error-message"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/error"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-eakhqr9l9nbblppgxc5fq25n"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-vhezo2cckpe92x4c3j2memeh",
+      "label": "Had Plan Reference",
+      "description": "The plan the activity followed (prov:hadPlan). Holds the IRI of the referenced thing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\S+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/had-plan-reference"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#hadPlan"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-xvdfh1nzfar33yxmgl3jgvqo"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-t0whhrqtnb54te4mk48i1ooj",
+      "label": "Used Entity Reference",
+      "description": "An entity the activity used (prov:used). Holds the IRI of the referenced thing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\S+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/used-entity-reference"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#used"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-ixv0fa8xlde52mdeymr4zaka"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-r48alj7hc3797qfjnf2uj71n",
+      "label": "Was Associated With Reference",
+      "description": "The agent associated with the activity (prov:wasAssociatedWith). Holds the IRI of the referenced thing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\S+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/was-associated-with-reference"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#wasAssociatedWith"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-gs0e1hp2rpjl6qfg9v8d047f"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ueb5g1ojzlwwt0mnds5zb6wl",
+      "label": "Was Ended By Reference",
+      "description": "The entity that ended the activity (prov:wasEndedBy). Holds the IRI of the referenced thing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\S+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/was-ended-by-reference"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#wasEndedBy"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-jr1e3n5kg31nqz1ynh28kitp"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-qh84jdzp1kxt85aq4ilo0svk",
+      "label": "Was Informed By Reference",
+      "description": "An activity that informed this one (prov:wasInformedBy). Holds the IRI of the referenced thing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\S+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/was-informed-by-reference"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#wasInformedBy"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-rz60y6aujd274j4i7jpyxvpr"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ginfqbk7q59ld2r4us8sjnv1",
+      "label": "Was Started By Reference",
+      "description": "The entity that started the activity (prov:wasStartedBy). Holds the IRI of the referenced thing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\S+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/was-started-by-reference"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#wasStartedBy"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-kmodjk1e5xu9z94zgiaxx1hu"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-wl6j4ekcmu4hvt2m12zw4zp8",
+      "label": "Activity Status",
+      "description": "The state of an activity, from the Data Privacy Vocabulary activity status concepts.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "ActivityProposed",
+          "ActivityPlanned",
+          "ActivityOngoing",
+          "ActivityHalted",
+          "ActivityCompleted",
+          "ActivityNotCompleted"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-status"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "https://w3id.org/dpv#ActivityStatus"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-yehcpzf43j0b5zp9ck59t9eg"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-a5scyosu6j84vz350mqyrzl2",
+      "label": "Ended At",
+      "description": "When the activity ended (prov:endedAtTime).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/ended-at-time"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#endedAtTime"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        }
+      ]
+    },
+    {
+      "@type": "XdTemporalType",
+      "@id": "sdc4:mc-sa4nl1kbpdr842fkucvfjkpq",
+      "label": "Started At",
+      "description": "When the activity started (prov:startedAtTime).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:dateTime",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/started-at-time"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#startedAtTime"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-og08xf6bu928uuz6t3y0e23f",
+      "label": "Acted On Behalf Of Reference",
+      "description": "The agent on whose behalf this agent acted (prov:actedOnBehalfOf). Holds the IRI of the referenced thing.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "pattern": "\\S+"
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/acted-on-behalf-of-reference"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-dce4w62jxjngjnmc5y26fq66"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-gb78cmuyo72hqs5apymdki7l",
+      "label": "Agent Description",
+      "description": "A description of the agent and its responsibilities.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 4000
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/agent-description"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://purl.org/dc/terms/description"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-w79xppnskig5vq31er8gh7nk"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-qb90a0sp9vvb6c5cbcf236ys",
+      "label": "Agent Email",
+      "description": "The agent's email address (foaf:mbox).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/agent-email"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/mbox"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-yp6pm5xyovxhkjimrrb8h9xy"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-w2ruemcfy35rw60jl1t9dew2",
+      "label": "Agent Identifier",
+      "description": "The identifier of a PROV agent: a URI or another globally unique identifier.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/agent-identifier"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://purl.org/dc/terms/identifier"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-hhfnj5hd1yzt252jfq5pdjj1"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-xxe21o9ojzmy9wxxky1tnmog",
+      "label": "Agent Name",
+      "description": "The name of the agent (foaf:name).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/agent-name"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/name"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-yya0pdgjd2w0wlz5r3h516om"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-eftvwi5byq6cdtd931qyxzw0",
+      "label": "Agent Organization Name",
+      "description": "The organization the agent belongs to or is.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/agent-organization-name"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/legalName"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-ifw5zfe4oiijbxjn1ylc2wm3"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-aa663ivutjf2fs4757t0bbzy",
+      "label": "Software Name",
+      "description": "The name of a software agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/software-name"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/SoftwareApplication"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-rsjfjz8m5z7a58h5793duqbs"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-x0lebwtobgaelj5pev3258sd",
+      "label": "Software Version",
+      "description": "The version of a software agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 60
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/software-version"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/softwareVersion"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-tep9wanrrtqfw0k76huv6tvd"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-i16vqj89it3db7d3c5qjko9p",
+      "label": "PROV Agent Type",
+      "description": "The kind of PROV agent: person, organization or software agent.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Person",
+          "Organization",
+          "SoftwareAgent"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/prov-agent-type"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-nesxtz8c5o665swc9lhvqkjj"
+        }
+      ]
+    },
+    {
+      "@type": "AuditType",
+      "@id": "sdc4:mc-xcyx87fkkzxam65vglkbd384",
+      "label": "Cordova System Audit",
+      "description": "The audit of a Cordova government record: the system that handled it, the system user, and where (Default geolocation, Cordova city and province). Replaces the June ProvGov System Audit in every Cordova model.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string"
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-owvuvkek3csshxqlvjlp03gk",
+      "label": "Cordova System Identifier",
+      "description": "The identifier of the Cordova government system that created, committed or handled the record (PROV agent identifier; the audit's system id).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "maxLength": 120
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://github.com/Axius-SDC/CordovaOS"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/cordova/cordova-system-identifier"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#SoftwareAgent"
+        }
+      ]
+    },
+    {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-e3woxx4x57tjhzyu5ck4bvr7",
+      "label": "Cordova System User",
+      "description": "The user or service account of the Cordova government system that handled the record (PROV agent).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string"
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-i3qpmie9hle8ma5kt6ogxqnp",
+      "label": "Geodetic Datum",
+      "description": "The coordinate reference system of a latitude and longitude pair, by EPSG code. WGS 84 (EPSG:4326) is what GPS and most web maps use.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "EPSG:4326",
+          "EPSG:4269",
+          "EPSG:4258"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://epsg.org/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/geodetic-datum"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "http://www.wikidata.org/entity/Q182643"
+        }
+      ]
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-scdlxu6vex8iwbfc8sijmjff",
+      "label": "Altitude",
+      "description": "Height above the reference ellipsoid or sea level, in SI length units.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "units": {
+          "@type": "Units",
+          "label": "Length/Distance (SI - Metric)",
+          "@id": "sdc4:mc-g7gz7adgd2fh6egkt84jnx7m"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-g7gz7adgd2fh6egkt84jnx7m"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/altitude"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://qudt.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://qudt.org/vocab/quantitykind/Altitude"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/elevation"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-g7gz7adgd2fh6egkt84jnx7m",
+      "label": "Length/Distance (SI - Metric)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/units-length-si"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://qudt.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://qudt.org/vocab/quantitykind/Length"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-y28mhe3jdzi9b8ztn3fxodtf"
+        }
+      ]
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-c5e0wv21cmlouukx6ga2o5uz",
+      "label": "Latitude",
+      "description": "Geographic latitude in decimal degrees, -90 to +90.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": -90.0,
+        "maxInclusive": 90.0,
+        "units": {
+          "@type": "Units",
+          "label": "Degrees (Angle)",
+          "@id": "sdc4:mc-su36p04drmw1szee9cw51mgw"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-su36p04drmw1szee9cw51mgw"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/latitude"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://qudt.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://purl.obolibrary.org/obo/NCIT_C68642"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://qudt.org/vocab/quantitykind/Angle"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/latitude"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-sws9fskrdla5e99x7cn4trwo"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-su36p04drmw1szee9cw51mgw",
+      "label": "Degrees (Angle)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/units-angle-degrees"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://qudt.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://qudt.org/vocab/quantitykind/Angle"
+        }
+      ]
+    },
+    {
+      "@type": "XdQuantityType",
+      "@id": "sdc4:mc-qh625ukiiju3ak4x45tehcnr",
+      "label": "Longitude",
+      "description": "Geographic longitude in decimal degrees, -180 to +180.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minInclusive": -180.0,
+        "maxInclusive": 180.0,
+        "units": {
+          "@type": "Units",
+          "label": "Degrees (Angle)",
+          "@id": "sdc4:mc-su36p04drmw1szee9cw51mgw"
+        }
+      },
+      "dataType": "xsd:decimal",
+      "semanticLinks": [
+        {
+          "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-su36p04drmw1szee9cw51mgw"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/longitude"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://qudt.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://purl.obolibrary.org/obo/NCIT_C68643"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://qudt.org/vocab/quantitykind/Angle"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/longitude"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-ecyu6tt7kkjq4rzhthe74ed6"
+        }
+      ]
+    },
+    {
+      "@type": "AttestationType",
+      "@id": "sdc4:mc-pf1mrtzd9ld1939qanem0olk",
+      "label": "Civil Registry Attestation",
+      "description": "Attestation for civil registry records (births, marriages, name changes). The civil registry office attests to record accuracy. W3C PROV-DM, GDPR/UN CEB.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q116890704"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.w3.org/TR/vc-data-model/#credentials"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q12047392"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/EndorseAction"
+        }
+      ]
+    },
+    {
+      "@type": "XdFileType",
+      "@id": "sdc4:mc-ys32wo3tw9p37i7v4gcvxahk",
+      "label": "Civil Registry Attested View",
+      "description": "Attested view of a civil registry document",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q4830453"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/DigitalDocument"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "http://www.w3.org/ns/prov#Entity"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-a6zjaj7dunnwxdtc2skdpepx",
+      "label": "Civil Registry Attestation Reason",
+      "description": "Reason for attesting this civil registry record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q4830453"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q132364"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/Text"
+        }
+      ]
+    },
+    {
+      "@type": "PartyType",
+      "@id": "sdc4:mc-piaz5w21hsuq3hpysyetuvvk",
+      "label": "Civil Registry Office",
+      "description": "Government office responsible for civil registry records (births, marriages, deaths, name changes). W3C PROV-DM Agent (Organization).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q327333"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://schema.org/GovernmentOrganization"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://schema.org/Organization"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q745221"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ule5u2z3rjpa9pooaifwj1n3",
+      "label": "organization_identifier",
+      "description": "Official identifier for the organization (e.g., DUNS, tax ID).",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q11378663"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3",
+      "label": "organization_name",
+      "description": "Legal or official name of the organization.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q168678"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-bpqtzla39dwentygpwea8276",
+      "label": "organization_type",
+      "description": "Type of organization.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "corporation",
+          "government",
+          "nonprofit",
+          "academic",
+          "department",
+          "vendor"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q17197366"
+        }
+      ]
+    },
+    {
+      "@type": "XdTokenType",
+      "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj",
+      "label": "PROV Agent Type",
+      "description": "Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "Person",
+          "Organization",
+          "SoftwareAgent"
+        ]
+      },
+      "dataType": "xsd:token",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/DefinedTermSet"
+        }
+      ]
+    },
+    {
+      "@type": "XdStringType",
+      "@id": "sdc4:mc-azmp0vkmkmtne1goba54qubu",
+      "label": "Civil Registration Protocol",
+      "description": "Protocol reference for the Civil Registry data model. Informed by the United Nations Guidelines on Civil Registration and Vital Statistics Systems, the Handbook on Civil Registration and Vital Statistics (UN Statistics Division), and regional civil code frameworks.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "constraints": {
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "dataType": "xsd:string",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q132364"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q317623"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://www.wikidata.org/wiki/Q69484"
+        }
+      ]
+    },
+    {
+      "@type": "XdOrdinalType",
+      "@id": "sdc4:mc-j0guci7y3gerygjc4hkgbgcr",
+      "label": "Activity: activityhalted activitynotcompleted states",
+      "description": "States of the activityhalted activitynotcompleted path of the Activity workflow, in order: ActivityHalted, ActivityNotCompleted. A transition is legal between adjacent states. An activity's lifecycle in the Data Privacy Vocabulary: proposed, planned, ongoing, halted, completed, not completed.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:integer",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-lifecycle-activityhalted-activitynotcompleted-states"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "https://w3id.org/dpv#ActivityStatus"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "http://www.w3.org/2005/07/scxml"
+        }
+      ]
+    },
+    {
+      "@type": "XdOrdinalType",
+      "@id": "sdc4:mc-onj0p50oeldicgsyn89zdur8",
+      "label": "Activity: activityhalted activityongoing states",
+      "description": "States of the activityhalted activityongoing path of the Activity workflow, in order: ActivityHalted, ActivityOngoing. A transition is legal between adjacent states. An activity's lifecycle in the Data Privacy Vocabulary: proposed, planned, ongoing, halted, completed, not completed.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:integer",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-lifecycle-activityhalted-activityongoing-states"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "https://w3id.org/dpv#ActivityStatus"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "http://www.w3.org/2005/07/scxml"
+        }
+      ]
+    },
+    {
+      "@type": "XdOrdinalType",
+      "@id": "sdc4:mc-s6prj82cusa8y0r4jow2ipez",
+      "label": "Activity: activityongoing activityhalted states",
+      "description": "States of the activityongoing activityhalted path of the Activity workflow, in order: ActivityOngoing, ActivityHalted. A transition is legal between adjacent states. An activity's lifecycle in the Data Privacy Vocabulary: proposed, planned, ongoing, halted, completed, not completed.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:integer",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-lifecycle-activityongoing-activityhalted-states"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "https://w3id.org/dpv#ActivityStatus"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "http://www.w3.org/2005/07/scxml"
+        }
+      ]
+    },
+    {
+      "@type": "XdOrdinalType",
+      "@id": "sdc4:mc-hp420l0x5p6z0tk7nbcpsg0k",
+      "label": "Activity: Main path states",
+      "description": "States of the Main path path of the Activity workflow, in order: ActivityProposed, ActivityPlanned, ActivityOngoing, ActivityCompleted. A transition is legal between adjacent states. An activity's lifecycle in the Data Privacy Vocabulary: proposed, planned, ongoing, halted, completed, not completed.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:integer",
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-lifecycle-main-states"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "https://w3id.org/dpv#ActivityStatus"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "http://www.w3.org/2005/07/scxml"
+        }
+      ]
+    },
+    {
+      "@type": "XdLinkType",
+      "@id": "sdc4:mc-fdwlhbher1gm91zfmf8mno6c",
+      "label": "Civil Registry Access Control",
+      "description": "Access control policy for civil registration data using W3C Data Privacy Vocabulary. Enforces role-based access for registry officials, citizens, and legal representatives. Governs dpv:IdentifyingPersonalData including birth, marriage, and death records.",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "dataType": "xsd:anyURI",
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://www.wikidata.org/wiki/Q185799"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://w3id.org/dpv#AccessControlMethod"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.wikidata.org/wiki/Q83708009"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "object": "https://w3id.org/dpv#IdentifyingPersonalData"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-jkl2gufrtpbp8gpno35b7wiy",
+      "label": "Civil Registry Governed Record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-t2tvd3wylxrstdeu5aw6gkw1"
+        },
+        {
+          "@id": "sdc4:mc-rl1fs239itr2hdik6iz311t4"
+        },
+        {
+          "@id": "sdc4:mc-vmikfu0irht9fmq7q02t3oqs"
+        },
+        {
+          "@id": "sdc4:mc-c179ilk2ns15cd5rzzdfd6f6"
+        },
+        {
+          "@id": "sdc4:mc-gug5dhtqfv7exbgmm2raxpkq"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://github.com/Axius-SDC/CordovaOS"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/cordova/civil-registry-governed-record"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#Entity"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-aan7382wp8e2f58m9a2hvmkp"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-t2tvd3wylxrstdeu5aw6gkw1",
+      "label": "Audit Event",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-dkc2ccj5te35z9gd4bu1blcq"
+        },
+        {
+          "@id": "sdc4:mc-gcjyjrnp0wsfoelcp4m05c67"
+        },
+        {
+          "@id": "sdc4:mc-fjhgr5fyqxt2crmg2cb5c513"
+        },
+        {
+          "@id": "sdc4:mc-sndpbhm3xbd6qtbyxmvh3i0e"
+        },
+        {
+          "@id": "sdc4:mc-nf1air1zbj8v9w66jozdxmyl"
+        },
+        {
+          "@id": "sdc4:mc-h3kdbvdtyalpvik97saaf0an"
+        },
+        {
+          "@id": "sdc4:mc-ujir739mf1g8ajeczs9nzh9m"
+        },
+        {
+          "@id": "sdc4:mc-ce1c8sydkov8bkv4dgdmwe5x"
+        },
+        {
+          "@id": "sdc4:mc-rpz1czz06jhpahmfz30rblvp"
+        },
+        {
+          "@id": "sdc4:mc-vbctgmdcwps5b3r3l6sboa6y"
+        },
+        {
+          "@id": "sdc4:mc-jujsdur1igws8orw6tvvlqco"
+        },
+        {
+          "@id": "sdc4:mc-d1evlz8yvdlwt6ia9fjq4pgj"
+        },
+        {
+          "@id": "sdc4:mc-uwiosm2q9ym3ewr4de910s70"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "http://hl7.org/fhir/R4/"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/audit-event"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://hl7.org/fhir/StructureDefinition/AuditEvent"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-rl1fs239itr2hdik6iz311t4",
+      "label": "Civil Registry Record",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-hsy6giqwj6g3eeh7ahp44j6h"
+        },
+        {
+          "@id": "sdc4:mc-d2xwhnb2vqzxw70jcizj9csx"
+        },
+        {
+          "@id": "sdc4:mc-rzvgv4tknabti2p61p3ebhbw"
+        },
+        {
+          "@id": "sdc4:mc-vag4j8x1v4bp92xkmks7q4to"
+        },
+        {
+          "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"
+        },
+        {
+          "@id": "sdc4:mc-jehcvvbkw36i1ecd5ooqbwp9"
+        },
+        {
+          "@id": "sdc4:mc-z11vs0cvonack540omgwhxhz"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://github.com/Axius-SDC/CordovaOS"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/cordova/civil-registry-record"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-bgjt4mvgvkxcn6hurg37u21b"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-hsy6giqwj6g3eeh7ahp44j6h",
+      "label": "Address (Cordova)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-ncxxt7wgs7soxw7kbmapxvg3"
+        },
+        {
+          "@id": "sdc4:mc-sexw93x5276zwsn1qx15htpv"
+        },
+        {
+          "@id": "sdc4:mc-gf841eedvv6cjiegs934srai"
+        },
+        {
+          "@id": "sdc4:mc-atdtdfzruh7tya0iv5cz365l"
+        },
+        {
+          "@id": "sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://github.com/Axius-SDC/CordovaOS"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/cordova/cordova-address"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/PostalAddress"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-ytctcqbr30kxsmvx4jk7lae2"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-d2xwhnb2vqzxw70jcizj9csx",
+      "label": "Contact Point",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-wriny2gz8aqcvffmfpwbompk"
+        },
+        {
+          "@id": "sdc4:mc-q922mqaon3yn5zlwf2bszf28"
+        },
+        {
+          "@id": "sdc4:mc-ll6ltsnvakomixuitxkbkxfz"
+        },
+        {
+          "@id": "sdc4:mc-zpfwg52r88j6jdypj7rg71ke"
+        },
+        {
+          "@id": "sdc4:mc-miqo30r5b554nyj7ubryw43x"
+        },
+        {
+          "@id": "sdc4:mc-vmruk4j9y1orvvz8cwafrax5"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/contact-point"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/ContactPoint"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-pet65c3gbwhp7j2fyiglwv5q"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-rzvgv4tknabti2p61p3ebhbw",
+      "label": "Family Relationship",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-ru9u47yxhe337pslpxm6cflx"
+        },
+        {
+          "@id": "sdc4:mc-nj7s1gk45tfgyooxpz0qaha3"
+        },
+        {
+          "@id": "sdc4:mc-i2vrm5bvxw03tcoesvgnft64"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://github.com/Axius-SDC/CordovaOS"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/cordova/family-relationship"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/relatedTo"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-l9k2fmlc5vn477r3kpi1ufal"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-ru9u47yxhe337pslpxm6cflx",
+      "label": "Date Range",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-moo2lije2b05ylq8q4t52lcb"
+        },
+        {
+          "@id": "sdc4:mc-bcyjfdwobh9q60umle1amw0w"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/date-range"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "http://www.wikidata.org/entity/Q186081"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-vpbi3zvbq0kt3r68nqydukrw"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-vag4j8x1v4bp92xkmks7q4to",
+      "label": "Person (Demographics)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-ytw6qjtq5gilrvkfsohsrlkh"
+        },
+        {
+          "@id": "sdc4:mc-gxzbm758mhdz51xd4bawlfhh"
+        },
+        {
+          "@id": "sdc4:mc-f2jicaigehz7xmwcp1gm5gh0"
+        },
+        {
+          "@id": "sdc4:mc-no649c8yiebkyujhlbwjuppx"
+        },
+        {
+          "@id": "sdc4:mc-js564tazefb6udqlh12rj04l"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/person-demographics"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/Person"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-ytw6qjtq5gilrvkfsohsrlkh",
+      "label": "Full Name (Person)",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-l9l169co9r23e6fftpvdz4e3"
+        },
+        {
+          "@id": "sdc4:mc-zcf4f5kjjo497jeb9vtt9rmr"
+        },
+        {
+          "@id": "sdc4:mc-yahxccv0l1z6ykjxayzkdlkq"
+        },
+        {
+          "@id": "sdc4:mc-l509t0zajfl5atns64d5kl97"
+        },
+        {
+          "@id": "sdc4:mc-jc1lfk3ovt6l8frhxvx8b669"
+        },
+        {
+          "@id": "sdc4:mc-bfqinvm7qrgi9jjw1i637moh"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/full-name-person"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "http://www.wikidata.org/entity/Q1071027"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/Person"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-gwpvlduwrtpog4kpidaenshn"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-vmikfu0irht9fmq7q02t3oqs",
+      "label": "PROV Activity",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-hhusuzzig19rs46ngz23k5g7"
+        },
+        {
+          "@id": "sdc4:mc-wr06h54xqqw2q9id8i9673jy"
+        },
+        {
+          "@id": "sdc4:mc-r6hkunjm2q0hlxiknlc9ljix"
+        },
+        {
+          "@id": "sdc4:mc-uzai5uey5p1fnn9ezj9u6vor"
+        },
+        {
+          "@id": "sdc4:mc-jjzmhdxvbt97pq81iwqubtxk"
+        },
+        {
+          "@id": "sdc4:mc-xlgjqdpwdbn2re3mdh5yy2rk"
+        },
+        {
+          "@id": "sdc4:mc-vhezo2cckpe92x4c3j2memeh"
+        },
+        {
+          "@id": "sdc4:mc-t0whhrqtnb54te4mk48i1ooj"
+        },
+        {
+          "@id": "sdc4:mc-r48alj7hc3797qfjnf2uj71n"
+        },
+        {
+          "@id": "sdc4:mc-ueb5g1ojzlwwt0mnds5zb6wl"
+        },
+        {
+          "@id": "sdc4:mc-qh84jdzp1kxt85aq4ilo0svk"
+        },
+        {
+          "@id": "sdc4:mc-ginfqbk7q59ld2r4us8sjnv1"
+        },
+        {
+          "@id": "sdc4:mc-wl6j4ekcmu4hvt2m12zw4zp8"
+        },
+        {
+          "@id": "sdc4:mc-a5scyosu6j84vz350mqyrzl2"
+        },
+        {
+          "@id": "sdc4:mc-sa4nl1kbpdr842fkucvfjkpq"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/prov-activity"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#Activity"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-c179ilk2ns15cd5rzzdfd6f6",
+      "label": "PROV Agent",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-og08xf6bu928uuz6t3y0e23f"
+        },
+        {
+          "@id": "sdc4:mc-gb78cmuyo72hqs5apymdki7l"
+        },
+        {
+          "@id": "sdc4:mc-qb90a0sp9vvb6c5cbcf236ys"
+        },
+        {
+          "@id": "sdc4:mc-w2ruemcfy35rw60jl1t9dew2"
+        },
+        {
+          "@id": "sdc4:mc-xxe21o9ojzmy9wxxky1tnmog"
+        },
+        {
+          "@id": "sdc4:mc-eftvwi5byq6cdtd931qyxzw0"
+        },
+        {
+          "@id": "sdc4:mc-aa663ivutjf2fs4757t0bbzy"
+        },
+        {
+          "@id": "sdc4:mc-x0lebwtobgaelj5pev3258sd"
+        },
+        {
+          "@id": "sdc4:mc-i16vqj89it3db7d3c5qjko9p"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/prov-agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://www.w3.org/TR/prov-o/"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-lcx80q71lnj2ezglfa83e1fx",
+      "label": "Cordova System Location",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-jwfl94g8mj8aevupivyfsnwj"
+        },
+        {
+          "@id": "sdc4:mc-atdtdfzruh7tya0iv5cz365l"
+        },
+        {
+          "@id": "sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://github.com/Axius-SDC/CordovaOS"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/cordova/cordova-system-location"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://www.w3.org/ns/prov#atLocation"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-jwfl94g8mj8aevupivyfsnwj",
+      "label": "Geolocation",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-i3qpmie9hle8ma5kt6ogxqnp"
+        },
+        {
+          "@id": "sdc4:mc-scdlxu6vex8iwbfc8sijmjff"
+        },
+        {
+          "@id": "sdc4:mc-c5e0wv21cmlouukx6ga2o5uz"
+        },
+        {
+          "@id": "sdc4:mc-qh625ukiiju3ak4x45tehcnr"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/default/geolocation"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://schema.org/"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://schema.org/GeoCoordinates"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-lev3nug1ml7l43icdjcyleqe",
+      "label": "Civil Registry Office",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-ule5u2z3rjpa9pooaifwj1n3"
+        },
+        {
+          "@id": "sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3"
+        },
+        {
+          "@id": "sdc4:mc-bpqtzla39dwentygpwea8276"
+        },
+        {
+          "@id": "sdc4:mc-nesxtz8c5o665swc9lhvqkjj"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "https://www.wikidata.org/wiki/Q97211668"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "object": "http://xmlns.com/foaf/0.1/Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "http://www.w3.org/ns/prov#Agent"
+        },
+        {
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+          "object": "https://www.who.int/data/data-collection-tools/civil-registration-and-vital-statistics-(crvs)"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "object": "https://schema.org/ItemList"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-sko9b5qmp3ffo7bmp2qfn3uh",
+      "label": "Activity Workflow",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-i2636k7cbmdng6pdt9jk0a0r"
+        },
+        {
+          "@id": "sdc4:mc-aaq8jixpz8uh5vcahpmz6t99"
+        },
+        {
+          "@id": "sdc4:mc-kk5bznc4pq1hk1eoyr2xo1il"
+        },
+        {
+          "@id": "sdc4:mc-oo32glasgdj6b8x4luu73875"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "http://www.w3.org/2005/01/wf/flow#State"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "https://w3id.org/dpv#ActivityStatus"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-lifecycle"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-i2636k7cbmdng6pdt9jk0a0r",
+      "label": "Activity: activityhalted activitynotcompleted",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-j0guci7y3gerygjc4hkgbgcr"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-lifecycle-activityhalted-activitynotcompleted"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "https://w3id.org/dpv#ActivityStatus"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-aaq8jixpz8uh5vcahpmz6t99",
+      "label": "Activity: activityhalted activityongoing",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-onj0p50oeldicgsyn89zdur8"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-lifecycle-activityhalted-activityongoing"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "https://w3id.org/dpv#ActivityStatus"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-kk5bznc4pq1hk1eoyr2xo1il",
+      "label": "Activity: activityongoing activityhalted",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-s6prj82cusa8y0r4jow2ipez"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-lifecycle-activityongoing-activityhalted"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "https://w3id.org/dpv#ActivityStatus"
+        }
+      ]
+    },
+    {
+      "@type": "ClusterType",
+      "@id": "sdc4:mc-oo32glasgdj6b8x4luu73875",
+      "label": "Activity: Main path",
+      "cardinality": {
+        "minOccurs": 0,
+        "maxOccurs": 1
+      },
+      "contains": [
+        {
+          "@id": "sdc4:mc-hp420l0x5p6z0tk7nbcpsg0k"
+        }
+      ],
+      "semanticLinks": [
+        {
+          "predicate": "http://purl.org/dc/terms/publisher",
+          "object": "https://axius-sdc.com"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/source",
+          "object": "https://w3id.org/dpv"
+        },
+        {
+          "predicate": "http://purl.org/dc/terms/identifier",
+          "object": "https://axius-sdc.com/library/provgov/activity-lifecycle-main"
+        },
+        {
+          "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "object": "https://w3id.org/dpv#ActivityStatus"
+        }
+      ]
+    }
+  ]
+}

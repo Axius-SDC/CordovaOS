@@ -1,0 +1,678 @@
+{
+  "@context": "https://semanticdatacharter.com/ns/sdc4/",
+  "dm_id": "apc16uwrj02wgitw7ji1utng",
+  "dm_type": "dm-apc16uwrj02wgitw7ji1utng",
+  "metadata": {
+    "dm_language": "en-US",
+    "dm_label": "Tax and Revenue Record 4.4.0",
+    "dm_encoding": "utf-8",
+    "instance_id": "ik2rp7wm2mzezqt1n46yogtd",
+    "instance_version": "1.0",
+    "creation_timestamp": "2026-09-26T15:23:30.590476",
+    "current_state": ""
+  },
+  "data": {
+    "component_id": "jof1fampy2xa4t9oco81hmaj",
+    "label": "Tax and Revenue Governed Record",
+    "type": "Cluster",
+    "description": "A tax and revenue record. The governed record: the data cluster, the PROV activity and agent and the audit event from the ProvGov library by identifier, and the digital signature proof. Members: Tax Filing; prov-activity (Provgov); prov-agent (Provgov); audit-event (Provgov); Digital Signature Proof.",
+    "items": [
+      {
+        "component_id": "gug5dhtqfv7exbgmm2raxpkq",
+        "label": "Digital Signature Proof",
+        "type": "XdFile",
+        "description": "Cryptographic proof of attestation (digital signature)",
+        "value": "/path/to/sample/file.txt"
+      },
+      {
+        "component_id": "t2tvd3wylxrstdeu5aw6gkw1",
+        "label": "Audit Event",
+        "type": "Cluster",
+        "description": "A logged access or custody event as data: what was done, by whom, on what, with what outcome and for what purpose. The audit-only case of sdc5 issue 002; state-changing operations are workflow transitions.",
+        "items": [
+          {
+            "component_id": "dkc2ccj5te35z9gd4bu1blcq",
+            "label": "Audit Agent Reference",
+            "type": "XdString",
+            "description": "The acting agent (FHIR AuditEvent.agent.who). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "gcjyjrnp0wsfoelcp4m05c67",
+            "label": "Audit Entity Reference",
+            "type": "XdString",
+            "description": "The entity the event concerns (FHIR AuditEvent.entity.what). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "fjhgr5fyqxt2crmg2cb5c513",
+            "label": "Audit Event Identifier",
+            "type": "XdString",
+            "description": "The identifier of the audit event.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "sndpbhm3xbd6qtbyxmvh3i0e",
+            "label": "Data Subject Reference",
+            "type": "XdString",
+            "description": "The data subject or patient the event concerns (FHIR AuditEvent.patient; SDC DM.subject). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "nf1air1zbj8v9w66jozdxmyl",
+            "label": "On Behalf Of Reference",
+            "type": "XdString",
+            "description": "The party on whose behalf the agent acted (FHIR agent.onBehalfOf; prov:actedOnBehalfOf). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "h3kdbvdtyalpvik97saaf0an",
+            "label": "System Identifier",
+            "type": "XdString",
+            "description": "The system that handled the item (FHIR AuditEvent.source.observer; SDC AuditType.system-id).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "ujir739mf1g8ajeczs9nzh9m",
+            "label": "System Location Name",
+            "type": "XdString",
+            "description": "The site or facility that handled the item (FHIR AuditEvent.agent.location; prov:atLocation).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "ce1c8sydkov8bkv4dgdmwe5x",
+            "label": "Audit Event Action",
+            "type": "XdToken",
+            "description": "The operation performed in a logged access event (FHIR AuditEvent.action). Read and Execute change no state and are audit facts, not workflow moves.",
+            "value": "E",
+            "constraints": {
+              "enumerations": [
+                "C",
+                "R",
+                "U",
+                "D",
+                "E"
+              ]
+            }
+          },
+          {
+            "component_id": "rpz1czz06jhpahmfz30rblvp",
+            "label": "Audit Event Outcome",
+            "type": "XdToken",
+            "description": "The result of an audited event (FHIR AuditEvent.outcome).",
+            "value": "8",
+            "constraints": {
+              "enumerations": [
+                "0",
+                "4",
+                "8",
+                "12"
+              ]
+            }
+          },
+          {
+            "component_id": "vbctgmdcwps5b3r3l6sboa6y",
+            "label": "Confidentiality",
+            "type": "XdToken",
+            "description": "The level of protection the information requires (HL7 v3 Confidentiality). At assembly the value populates a component's act tag.",
+            "value": "M",
+            "constraints": {
+              "enumerations": [
+                "U",
+                "L",
+                "M",
+                "N",
+                "R",
+                "V"
+              ]
+            }
+          },
+          {
+            "component_id": "jujsdur1igws8orw6tvvlqco",
+            "label": "Provenance Agent Type",
+            "type": "XdToken",
+            "description": "The functional role of an agent in an activity (FHIR Provenance.agent.type).",
+            "value": "verifier",
+            "constraints": {
+              "enumerations": [
+                "enterer",
+                "performer",
+                "author",
+                "editor",
+                "verifier",
+                "legal",
+                "attester",
+                "informant",
+                "custodian",
+                "transmitter",
+                "assembler",
+                "transformer",
+                "composer"
+              ]
+            }
+          },
+          {
+            "component_id": "d1evlz8yvdlwt6ia9fjq4pgj",
+            "label": "Purpose of Use",
+            "type": "XdToken",
+            "description": "Why the information was used (HL7 v3 ActReason purpose of use). Activity context, not an access-control tag.",
+            "value": "PATRQT",
+            "constraints": {
+              "enumerations": [
+                "TREAT",
+                "ETREAT",
+                "COC",
+                "HPAYMT",
+                "HOPERAT",
+                "HRESCH",
+                "CLINTRCH",
+                "PUBHLTH",
+                "PATRQT",
+                "HLEGAL",
+                "HMARKT"
+              ]
+            }
+          },
+          {
+            "component_id": "uwiosm2q9ym3ewr4de910s70",
+            "label": "Audit Recorded At",
+            "type": "XdTemporal",
+            "description": "When the audit event was recorded (FHIR AuditEvent.recorded).",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "vmikfu0irht9fmq7q02t3oqs",
+        "label": "PROV Activity",
+        "type": "Cluster",
+        "description": "A PROV activity: what it was, when it ran, its status, and the entities, activities, agent and plan it relates to.",
+        "items": [
+          {
+            "component_id": "hhusuzzig19rs46ngz23k5g7",
+            "label": "Activity Description",
+            "type": "XdString",
+            "description": "A description of what the activity does and why.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 4000
+            }
+          },
+          {
+            "component_id": "wr06h54xqqw2q9id8i9673jy",
+            "label": "Activity Identifier",
+            "type": "XdString",
+            "description": "The identifier of a PROV activity: a URI or another globally unique identifier.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "r6hkunjm2q0hlxiknlc9ljix",
+            "label": "Activity Label",
+            "type": "XdString",
+            "description": "A human-readable label for a PROV activity.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "uzai5uey5p1fnn9ezj9u6vor",
+            "label": "Activity Location",
+            "type": "XdString",
+            "description": "Where the activity took place (prov:atLocation), as text.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "jjzmhdxvbt97pq81iwqubtxk",
+            "label": "Activity Type",
+            "type": "XdString",
+            "description": "The kind of activity, in the vocabulary of the domain (prov:type).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "xlgjqdpwdbn2re3mdh5yy2rk",
+            "label": "Error Message",
+            "type": "XdString",
+            "description": "The error the activity reported, if it failed.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 4000
+            }
+          },
+          {
+            "component_id": "vhezo2cckpe92x4c3j2memeh",
+            "label": "Had Plan Reference",
+            "type": "XdString",
+            "description": "The plan the activity followed (prov:hadPlan). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "t0whhrqtnb54te4mk48i1ooj",
+            "label": "Used Entity Reference",
+            "type": "XdString",
+            "description": "An entity the activity used (prov:used). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "r48alj7hc3797qfjnf2uj71n",
+            "label": "Was Associated With Reference",
+            "type": "XdString",
+            "description": "The agent associated with the activity (prov:wasAssociatedWith). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "ueb5g1ojzlwwt0mnds5zb6wl",
+            "label": "Was Ended By Reference",
+            "type": "XdString",
+            "description": "The entity that ended the activity (prov:wasEndedBy). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "qh84jdzp1kxt85aq4ilo0svk",
+            "label": "Was Informed By Reference",
+            "type": "XdString",
+            "description": "An activity that informed this one (prov:wasInformedBy). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "ginfqbk7q59ld2r4us8sjnv1",
+            "label": "Was Started By Reference",
+            "type": "XdString",
+            "description": "The entity that started the activity (prov:wasStartedBy). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "wl6j4ekcmu4hvt2m12zw4zp8",
+            "label": "Activity Status",
+            "type": "XdToken",
+            "description": "The state of an activity, from the Data Privacy Vocabulary activity status concepts.",
+            "value": "ActivityPlanned",
+            "constraints": {
+              "enumerations": [
+                "ActivityProposed",
+                "ActivityPlanned",
+                "ActivityOngoing",
+                "ActivityHalted",
+                "ActivityCompleted",
+                "ActivityNotCompleted"
+              ]
+            }
+          },
+          {
+            "component_id": "a5scyosu6j84vz350mqyrzl2",
+            "label": "Ended At",
+            "type": "XdTemporal",
+            "description": "When the activity ended (prov:endedAtTime).",
+            "value": "2024-01-01T00:00:00"
+          },
+          {
+            "component_id": "sa4nl1kbpdr842fkucvfjkpq",
+            "label": "Started At",
+            "type": "XdTemporal",
+            "description": "When the activity started (prov:startedAtTime).",
+            "value": "2024-01-01T00:00:00"
+          }
+        ]
+      },
+      {
+        "component_id": "c179ilk2ns15cd5rzzdfd6f6",
+        "label": "PROV Agent",
+        "type": "Cluster",
+        "description": "A PROV agent: a person, organization or software agent, with its identity, contact and delegation.",
+        "items": [
+          {
+            "component_id": "og08xf6bu928uuz6t3y0e23f",
+            "label": "Acted On Behalf Of Reference",
+            "type": "XdString",
+            "description": "The agent on whose behalf this agent acted (prov:actedOnBehalfOf). Holds the IRI of the referenced thing.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 2000
+            }
+          },
+          {
+            "component_id": "gb78cmuyo72hqs5apymdki7l",
+            "label": "Agent Description",
+            "type": "XdString",
+            "description": "A description of the agent and its responsibilities.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 4000
+            }
+          },
+          {
+            "component_id": "qb90a0sp9vvb6c5cbcf236ys",
+            "label": "Agent Email",
+            "type": "XdString",
+            "description": "The agent's email address (foaf:mbox).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "w2ruemcfy35rw60jl1t9dew2",
+            "label": "Agent Identifier",
+            "type": "XdString",
+            "description": "The identifier of a PROV agent: a URI or another globally unique identifier.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "xxe21o9ojzmy9wxxky1tnmog",
+            "label": "Agent Name",
+            "type": "XdString",
+            "description": "The name of the agent (foaf:name).",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "eftvwi5byq6cdtd931qyxzw0",
+            "label": "Agent Organization Name",
+            "type": "XdString",
+            "description": "The organization the agent belongs to or is.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "aa663ivutjf2fs4757t0bbzy",
+            "label": "Software Name",
+            "type": "XdString",
+            "description": "The name of a software agent.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 255
+            }
+          },
+          {
+            "component_id": "x0lebwtobgaelj5pev3258sd",
+            "label": "Software Version",
+            "type": "XdString",
+            "description": "The version of a software agent.",
+            "value": "DefaultString",
+            "constraints": {
+              "max_length": 60
+            }
+          },
+          {
+            "component_id": "i16vqj89it3db7d3c5qjko9p",
+            "label": "PROV Agent Type",
+            "type": "XdToken",
+            "description": "The kind of PROV agent: person, organization or software agent.",
+            "value": "Person",
+            "constraints": {
+              "enumerations": [
+                "Person",
+                "Organization",
+                "SoftwareAgent"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "component_id": "sss8kmjhrg8lya39aypnlatt",
+        "label": "Tax Filing",
+        "type": "Cluster",
+        "description": "A tax filing: filing ID, the taxpayer's national ID or business registry number, tax type, filing status and date, assessment, payment and source reference. Members: Filing ID; National ID (CID); Business Registry Number; Tax Type; Tax Filing Status; Filing Date; Tax Assessment; Payment; Source Reference.",
+        "items": [
+          {
+            "component_id": "l8f0m7op4xhrxqy1jrnvbuly",
+            "label": "Business Registry Number",
+            "type": "XdString",
+            "description": "Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions.",
+            "value": "DefaultString"
+          },
+          {
+            "component_id": "a2yks4n49m6gcgpa7qc9hyg1",
+            "label": "Filing ID",
+            "type": "XdString",
+            "description": "Unique identifier for this tax filing",
+            "value": "DefaultString",
+            "constraints": {
+              "min_length": 1,
+              "max_length": 50
+            }
+          },
+          {
+            "component_id": "nj7s1gk45tfgyooxpz0qaha3",
+            "label": "National ID (CID)",
+            "type": "XdString",
+            "description": "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions.",
+            "value": "DefaultString"
+          },
+          {
+            "component_id": "hwmy9yj7cbhe94pjnq0n2oo5",
+            "label": "Tax Filing Status",
+            "type": "XdToken",
+            "description": "Filing status for annual Cordova tax returns.",
+            "value": "Business",
+            "constraints": {
+              "enumerations": [
+                "Individual",
+                "Joint",
+                "Business",
+                "Estate"
+              ]
+            }
+          },
+          {
+            "component_id": "zb956wxcjf1fccvqezivgrv7",
+            "label": "Tax Type",
+            "type": "XdToken",
+            "description": "Category of tax being filed",
+            "value": "Import Duty",
+            "constraints": {
+              "enumerations": [
+                "Income Tax",
+                "Business Tax",
+                "Property Tax",
+                "Port Fee",
+                "Fine Collection",
+                "Import Duty"
+              ]
+            }
+          },
+          {
+            "component_id": "cuazcmxeeo8osfybrgdpe9g7",
+            "label": "Filing Date",
+            "type": "XdTemporal",
+            "description": "Date the filing was submitted",
+            "value": "2024-01-01T00:00:00"
+          },
+          {
+            "component_id": "i868q4rh7n05a3xdb9j0bzpq",
+            "label": "Payment",
+            "type": "Cluster",
+            "description": "A payment: the NIEM payment method code, payment status, amount in Córdobas and date. Members: payment-method-code (NIEM); Payment Status; Payment Amount; Payment Date.",
+            "items": [
+              {
+                "component_id": "vt5nh89ol3g5gj0oz35tl6y0",
+                "label": "Payment Status",
+                "type": "XdToken",
+                "description": "Whether the fee has been paid",
+                "value": "Invoiced",
+                "constraints": {
+                  "enumerations": [
+                    "Paid",
+                    "Invoiced",
+                    "Overdue"
+                  ]
+                }
+              },
+              {
+                "component_id": "e0too3ad86lglwj4shn63ca7",
+                "label": "Payment Method Code",
+                "type": "XdToken",
+                "description": "A specific method of payment. NIEM 6.0 nc:PaymentMethodCode. Codes of nc:PaymentMethodCodeSimpleType (6 values).",
+                "value": "Interest",
+                "constraints": {
+                  "enumerations": [
+                    "Cash",
+                    "Check",
+                    "Dividends",
+                    "Gross Proceeds/Redemptions",
+                    "Interest",
+                    "Other"
+                  ]
+                }
+              },
+              {
+                "component_id": "tzrg36a15rigk48nj20sbw4v",
+                "label": "Payment Amount",
+                "type": "XdQuantity",
+                "description": "Tax payment amount received in Cordova Córdoba. Records the actual amount remitted by the taxpayer for a specific tax filing period.",
+                "value": 24.0,
+                "magnitude": {
+                  "value": 24.0,
+                  "min_inclusive": 0.0
+                },
+                "units": {
+                  "label": "Cordova Córdoba (COR)",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "xrjzng8dyk9eveyzi03abuhr",
+                "label": "Payment Date",
+                "type": "XdTemporal",
+                "description": "Date payment was received",
+                "value": "2024-01-01T00:00:00"
+              }
+            ]
+          },
+          {
+            "component_id": "b30z9hm08dgp8w4iyl5ddg5i",
+            "label": "Source Reference",
+            "type": "Cluster",
+            "description": "The record in another domain a filing derives from: its identifier and domain. Members: Source Record ID; Source Domain.",
+            "items": [
+              {
+                "component_id": "hcfz6urx5c2ayvt8npjl0t4l",
+                "label": "Source Record ID",
+                "type": "XdString",
+                "description": "Identifier of the originating record in the source domain (e.g., Port Call ID, Parcel Number, Incident Report Number)",
+                "value": "DefaultString",
+                "constraints": {
+                  "min_length": 1,
+                  "max_length": 50
+                }
+              },
+              {
+                "component_id": "hh750k4i187bqzot5md216r1",
+                "label": "Source Domain",
+                "type": "XdToken",
+                "description": "The domain that generated this tax obligation",
+                "value": "Law Enforcement",
+                "constraints": {
+                  "enumerations": [
+                    "Employment",
+                    "Business Registry",
+                    "Property Registry",
+                    "Maritime",
+                    "Law Enforcement"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "component_id": "m3kfm0arh4mrpdrxelnh0zcw",
+            "label": "Tax Assessment",
+            "type": "Cluster",
+            "description": "A tax assessment: taxable income and assessed tax, in Córdobas. Members: Taxable Income; Tax Assessment Amount.",
+            "items": [
+              {
+                "component_id": "q1sbdhsdk8glmdr8q1x3mlte",
+                "label": "Taxable Income",
+                "type": "XdQuantity",
+                "description": "Gross income minus allowable deductions for the filing period in Cordova Córdoba. Serves as the base amount for tax rate application.",
+                "value": 81.9,
+                "magnitude": {
+                  "value": 81.9,
+                  "min_inclusive": 0.0
+                },
+                "units": {
+                  "label": "Cordova Córdoba (COR)",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              },
+              {
+                "component_id": "l5t2s5y0m4ybwom4ryndzaf9",
+                "label": "Tax Assessment Amount",
+                "type": "XdQuantity",
+                "description": "Total tax liability assessed for the filing period in Cordova Córdoba. Calculated by the Tax Authority based on taxable income, applicable rates, and deductions.",
+                "value": 7.7,
+                "magnitude": {
+                  "value": 7.7,
+                  "min_inclusive": 0.0
+                },
+                "units": {
+                  "label": "Cordova Córdoba (COR)",
+                  "symbol": "%",
+                  "system": "ISO"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -26,7 +26,7 @@ class VitalStatisticsRecordInstance(models.Model):
     XML is the authoritative data format. All data is stored as validated XML,
     with JSON extracted for efficient JSONB queries in PostgreSQL.
 
-    DM CT_ID: ulzd6pe8072mwkqf7i313bov
+    DM CT_ID: sokc3go551qsp4s72lo6ys9c
     """
 
     # ==========================================================================
@@ -128,7 +128,7 @@ class VitalStatisticsRecordInstance(models.Model):
     # ==========================================================================
 
     # DM metadata - set at generation time, read-only at runtime
-    DM_CT_ID = 'ulzd6pe8072mwkqf7i313bov'
+    DM_CT_ID = 'sokc3go551qsp4s72lo6ys9c'
     DM_LABEL = 'VitalStatisticsRecord'
 
     class Meta:

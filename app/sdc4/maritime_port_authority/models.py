@@ -26,7 +26,7 @@ class MaritimePortAuthorityInstance(models.Model):
     XML is the authoritative data format. All data is stored as validated XML,
     with JSON extracted for efficient JSONB queries in PostgreSQL.
 
-    DM CT_ID: md2451x882z5j89g66zb50rw
+    DM CT_ID: v42afzhs22bvschuo56rdpzi
     """
 
     # ==========================================================================
@@ -128,7 +128,7 @@ class MaritimePortAuthorityInstance(models.Model):
     # ==========================================================================
 
     # DM metadata - set at generation time, read-only at runtime
-    DM_CT_ID = 'md2451x882z5j89g66zb50rw'
+    DM_CT_ID = 'v42afzhs22bvschuo56rdpzi'
     DM_LABEL = 'MaritimePortAuthority'
 
     class Meta:

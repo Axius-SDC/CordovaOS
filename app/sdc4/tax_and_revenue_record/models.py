@@ -26,7 +26,7 @@ class TaxAndRevenueRecordInstance(models.Model):
     XML is the authoritative data format. All data is stored as validated XML,
     with JSON extracted for efficient JSONB queries in PostgreSQL.
 
-    DM CT_ID: vaw4g2kusit5z0kox5mog54g
+    DM CT_ID: apc16uwrj02wgitw7ji1utng
     """
 
     # ==========================================================================
@@ -128,7 +128,7 @@ class TaxAndRevenueRecordInstance(models.Model):
     # ==========================================================================
 
     # DM metadata - set at generation time, read-only at runtime
-    DM_CT_ID = 'vaw4g2kusit5z0kox5mog54g'
+    DM_CT_ID = 'apc16uwrj02wgitw7ji1utng'
     DM_LABEL = 'TaxAndRevenueRecord'
 
     class Meta:
