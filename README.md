@@ -7,9 +7,9 @@
 
 **A fictional nation's entire government — 10 domains, zero integration code.**
 
-CordovaOS is a self-contained, clone-and-run proof of concept for [SDC4](https://semanticdatacharter.com) (Semantic Data Charter). This is version 4.3.1 ([releases](https://github.com/Axius-SDC/CordovaOS/releases)), the third CordovaOS built on SDC4: the ten models were republished and the ten applications regenerated from SDCStudio 4.6.0, and both are in the repo exactly as downloaded, under `sdcstudio_downloads/`, so anyone who clones can read the raw models and apps before reading anything we wrote around them. It models the Republic of Cordova, a fictional island nation, as 10 fully operational government domain applications that share data through a common semantic foundation — no middleware, no API adapters, no ETL pipelines, no data mapping layer. Every domain is a self-describing SDC4 data model, and cross-domain questions are answered by SPARQL against one shared knowledge graph.
+CordovaOS is a self-contained, clone-and-run proof of concept for [SDC4](https://semanticdatacharter.com) (Semantic Data Charter). This is version 4.4.0 ([releases](https://github.com/Axius-SDC/CordovaOS/releases)), the fourth CordovaOS built on SDC4 and the first whose ten models are composed from the published component libraries rather than modeled locally: the patient, condition, medication and encounter come from the FHIR library, the incident, arrest, vessel, voyage and organization from the NIEM library, the person, name and address from the Default library, the provenance, audit and workflow from the ProvGov library, each named by its identifier slot, with Cordova adding only what only Cordova defines (its identifiers, its geography, its administrative statuses). The ten models and the ten applications generated from them by SDCStudio are in the repo exactly as downloaded, under `sdcstudio_downloads/`, so anyone who clones can read the raw models and apps before reading anything we wrote around them. It models the Republic of Cordova, a fictional island nation, as 10 fully operational government domain applications that share data through a common semantic foundation — no middleware, no API adapters, no ETL pipelines, no data mapping layer. Every domain is a self-describing SDC4 data model, and cross-domain questions are answered by SPARQL against one shared knowledge graph.
 
-Each record is **governance-composed**: alongside its data, every instance carries its own **Provenance** (who/what/where/when it came from) and a structural **Audit** record, bound to the data at the source rather than bolted on afterward.
+Each record is **governance-composed**: alongside its data, every instance carries its own **Provenance** (the PROV-O activity and agent that made it), an **Audit Event**, and a structural **Audit** record naming the system, city and province that handled it, bound to the data at the source rather than bolted on afterward. Every model binds a **workflow**, so every record carries a current state that the [Verifiable Settlement Layer](https://semanticdatacharter.com) can settle against the state machine in the model, and `scripts/settle_demo.py` does exactly that for one record per domain.
 
 ## Two guides, depending on why you are here
 
@@ -27,11 +27,11 @@ You need Docker (or Podman) with the compose plugin, ~6GB free RAM, and Python 3
 ```bash
 git clone https://github.com/Axius-SDC/CordovaOS.git
 cd CordovaOS
-git checkout v4.3.1
+git checkout v4.4.0
 make demo
 ```
 
-`git checkout v4.3.1` pins the release this README describes; skip it to run the current `main`. Every release also publishes the web image as `ghcr.io/axius-sdc/cordovaos:<version>`, and `make pull` fetches it instead of building locally.
+`git checkout v4.4.0` pins the release this README describes; skip it to run the current `main`. Every release also publishes the web image as `ghcr.io/axius-sdc/cordovaos:<version>`, and `make pull` fetches it instead of building locally.
 
 `make demo` starts the stack, generates the small demo dataset, and loads it. There are no accounts to create and nothing to send anywhere. The first run needs the network to pull container images and the two host-side Python packages; after that the stack runs disconnected. When it finishes there are two front doors:
 
@@ -49,10 +49,10 @@ page should show:
 
 | | Expected |
 |---|---|
-| Records loaded | **1,462** |
-| Named graphs in GraphDB | **1,462** (one per record, no drift) |
+| Records loaded | **1,460** |
+| Named graphs in GraphDB | **1,460** (one per record, no drift) |
 | Domains | **10** |
-| Records stating an absence | **7** |
+| Records stating an absence | **7** (125 in the full set) |
 
 Those seven are invalid on purpose. Where a required value is missing they
 carry an ISO 21090 null flavor naming the reason (`ASKU`, "asked but not
@@ -60,7 +60,7 @@ known") instead of a zero or a `1900-01-01` that would parse downstream as a
 real value. The console front page shows the count and links straight to
 examples rather than hiding them, they are projected into the graph like every
 other record, and they carry an `i-ev-` identifier prefix so the fact survives
-outside the document. If your run shows 1,462 records and 1,462 named graphs,
+outside the document. If your run shows 1,460 records and 1,460 named graphs,
 everything below is reproducible on your machine.
 
 ### Choose your dataset
@@ -69,8 +69,8 @@ Generation takes seconds; **loading is the cost**: each instance is validated ag
 
 | Command | Dataset | Load time |
 |---|---|---|
-| `make demo` (default) | 250 residents, 1,462 records | about 30 minutes on a laptop |
-| `make demo-full` | 25,000 residents, ~100,000 records | **hours** (generation is seconds; the load is the slow part) |
+| `make demo` (default) | 250 residents, 1,460 records | about 2 minutes on a laptop (25 minutes on the one-record-at-a-time path, `load_all_data --batch 0`) |
+| `make demo-full` | 25,000 residents, 101,275 records | about 85 minutes on a laptop (generation takes three minutes; every record is validated and projected on the way in) |
 
 `make help` lists all targets. The full 25,000-resident set is the realistic stress test; the small set is the fast proof of concept, and both exercise the identical cross-domain machinery.
 

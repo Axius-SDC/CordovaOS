@@ -15,9 +15,9 @@ WEB_URL  := http://localhost:18000
 help:
 	@echo "CordovaOS quickstart:"
 	@echo "  make demo        Start the stack + generate + load the SMALL demo dataset"
-	@echo "                   (~1,500 records, a few minutes). The default."
+	@echo "                   (1,460 records, about two minutes to load). The default."
 	@echo "  make demo-full   Same, but the FULL 25,000-resident dataset"
-	@echo "                   (~100K records; generation is seconds, loading takes HOURS)."
+	@echo "                   (101,275 records; generation takes three minutes, loading about 85 minutes)."
 	@echo "  make up          Start the stack only."
 	@echo "  make down        Stop the stack."
 	@echo "  make clean       Stop the stack and remove generated import data."
@@ -53,7 +53,7 @@ load: wait-web
 
 demo: up generate load
 	@echo ""
-	@echo "Demo ready. Expect 1,462 records across 10 domains, 7 of them"
+	@echo "Demo ready. Expect 1,460 records across 10 domains, 7 of them"
 	@echo "stating an absence rather than inventing a value."
 	@echo ""
 	@echo "  $(WEB_URL)/console/   the record console (start here)"

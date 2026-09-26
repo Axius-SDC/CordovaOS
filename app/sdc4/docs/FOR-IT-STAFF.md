@@ -33,12 +33,12 @@ OASIS catalog at `app/sdc4/mediafiles/dmlib/catalog.xml` instead of fetching
 reload if you are evaluating for a disconnected environment.
 
 **A correct run is reproducible, so check the numbers before you trust
-anything else here:** 1,462 records across 10 domains, 1,462 named graphs in
+anything else here:** 1,460 records across 10 domains, 1,460 named graphs in
 GraphDB, and 7 records stating an absence. Record count and graph count must
 match. If they do not, see the orphaned-graph note in section 6.
 
-`make demo-full` loads the 25,000-resident dataset instead. Generation is
-seconds; the load takes hours, and it exercises exactly the same machinery.
+`make demo-full` loads the 25,000-resident dataset instead: 101,275 records,
+generated in three minutes, loaded through exactly the same machinery.
 
 ---
 
@@ -53,6 +53,18 @@ edits across ten codebases.
 The practical test of this claim is in the repository: `app/sdc4/*/` are
 generated, `app/sdc4/mediafiles/dmlib/` holds the published model per domain,
 and every generated app reads its own schema from there.
+
+The demonstration data is generated the same way. No generator carries an
+element identifier, an element order or an XML envelope: each one names the
+facts it has by their label path in the published model, and `datagen/engine.py`
+fills the model's own instance template (`dm-<ct_id>.xml`, shipped by SDCStudio
+beside the schema), drops what was not given, refuses a value of a shape the
+schema does not allow, and refuses a workflow state the bound workflow does not
+have. When a model is republished the generators do not change; the ids they
+never carried are read from the new schema. A test (`datagen/tests/`) generates
+the whole demo set into a temporary directory and validates every record
+against its schema, so the numbers on the console are the numbers the schema
+agreed to before the loader saw them.
 
 ## 2. One record, three projections, no ETL between them
 
@@ -109,17 +121,30 @@ mapping table later reconciles.
 
 Measured on this dataset:
 
-| Component | Domains using it |
-|---|---|
-| Provenance set (`system_identifier`, `activity_*`, ...) | 10 |
-| `City`, `Province` | 6 |
-| `National ID (CID)` | 4 |
-| `organization_identifier` | 3 |
+| Component | Library | Models composing it |
+|---|---|---|
+| PROV Activity, PROV Agent, Audit Event (41 components) | ProvGov | 10 |
+| `National ID (CID)` | Cordova | 8 |
+| `City`, `Province` | Cordova | 6 in the data, 10 in the audit |
+| Address (Line 1 and 2), Postal Code | Default | 6 |
+| Full Name (Person): given, middle, surname | Default | 5 |
+| Contact Point: phone, email, method | FHIR | 5 |
+| Location, Address, Locale (NIEM) | NIEM | 4 |
+| `Business Registry Number` | Cordova | 4 |
+| Code Display Text (beside every coded value) | FHIR | 4 |
+| Date of Birth | Default | 4 |
+
+Counted from the published schemas in `app/sdc4/mediafiles/dmlib/`, not from
+the generators: `datagen/schema.py` reads every model and the count is the
+number of models whose schema references the component's `ct_id`.
 
 The console's cross-domain question at `/console/question/` joins 250 people
-across 883 records in about a seventh of a second, with no mapping table,
-because the identifier *is* the join. 75 of those people appear in four
-separately built systems.
+across 1,308 records in eight domains in a quarter of a second, with no mapping
+table, because the identifier *is* the join. 217 of those people appear in four
+or more separately built systems, and one appears in all eight. The second
+question on the same page runs the chain the 4.3.1 page could not: exposed
+people to their employers to the business registry and the tax office, on the
+Business Registry Number component.
 
 ## 4a. The graph is derived, not stored
 
@@ -211,7 +236,12 @@ Things that will bite you, all of which bit us:
   Education. It does not reach Tax, so the "trade at risk" style question is not
   answerable here and the console says so on the page rather than staging it.
 - Load times are dominated by validation and dual-writing, not by generation.
-  The small dataset takes a few minutes; the 25,000-resident set takes hours.
+  Generating the 25,000-resident set takes three minutes; loading it is the
+  cost, and `load_all_data` takes a batch path by default (the XSD 1.1 schema
+  built once per model, rows written in batches, a batch of named graphs sent
+  to the triple store in one TriG request). `--batch 0` takes the
+  one-record-at-a-time path the generated apps ship, which does the same work
+  per record and rebuilds the schema for each. Measured times are in the README.
 
 ## Running it
 
