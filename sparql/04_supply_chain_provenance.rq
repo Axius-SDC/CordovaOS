@@ -39,15 +39,15 @@ WHERE {
 
   ?arr_reifier sdc4:inInstance ?mar_inst ;
                rdfs:label "Visit Actual Arrival Date Time" ;
-               rdf:reifies <<?mcArr ?vpArr ?arrival>> .
+               rdf:reifies <<sdc4:mc-pvf4bvtxrozkf1goofqr03js ?vpArr ?arrival>> .
 
   ?cargo_reifier sdc4:inInstance ?mar_inst ;
                  rdfs:label "Vessel Cargo Category" ;
-                 rdf:reifies <<?mcCargo ?vpCargo ?cargo_type>> .
+                 rdf:reifies <<sdc4:mc-kb4brkah533ikq7rkymw67yy ?vpCargo ?cargo_type>> .
 
   ?flag_reifier sdc4:inInstance ?mar_inst ;
                 rdfs:label "Vessel National Flag" ;
-                rdf:reifies <<?mcFlag ?vpFlag ?flag>> .
+                rdf:reifies <<sdc4:mc-mljbs0qjlqa4vxwdouplatqc ?vpFlag ?flag>> .
 
   # BRN from the same maritime instance (Maritime Business Registry Number)
   ?mar_brn_reifier rdf:reifies <<sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ?vpMarBrn ?brn>> ;
@@ -66,7 +66,7 @@ WHERE {
     OPTIONAL {
       ?biz_city_reifier sdc4:inInstance ?biz_inst ;
                         rdfs:label "Location Name" ;
-                        rdf:reifies <<?mcBizCity ?vpBizCity ?org_city>> .
+                        rdf:reifies <<sdc4:mc-ouramzsx8f7nis27vjj265l9 ?vpBizCity ?org_city>> .
     }
   }
   BIND(?mar_inst AS ?inst)

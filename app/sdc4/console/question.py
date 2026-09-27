@@ -8,6 +8,11 @@ component rather than eight local conventions, the join needs no mapping table
 and no integration project. That is the whole argument, and it is measurable
 rather than asserted. The same holds for the Business Registry Number, which
 the business registry, employment, tax and maritime models share.
+
+Every query names the component it reads: a triple term with the component
+unbound (rdf:reifies <<?mc ?p ?v>>) makes the store scan every reifier, and a
+label alone does not bind it. The reifier's own IRI carries the component as
+well (.../dm/v_<component ct_id>_<instance id>).
 """
 import time
 from typing import Any, Dict, List
@@ -27,7 +32,7 @@ WHERE {
     ?f rdfs:label "National ID (CID)" ;
        sdc4:inInstance  ?i ;
        sdc4:inDataModel ?dm ;
-       rdf:reifies <<?mc ?vp ?cid>> .
+       rdf:reifies <<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ?vp ?cid>> .
   }
 }
 GROUP BY ?cid
@@ -42,7 +47,7 @@ SELECT ?domains (COUNT(*) AS ?people) WHERE {
       GRAPH ?g {
         ?f rdfs:label "National ID (CID)" ;
            sdc4:inInstance ?i ; sdc4:inDataModel ?dm ;
-           rdf:reifies <<?mc ?vp ?cid>> .
+           rdf:reifies <<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ?vp ?cid>> .
       }
     } GROUP BY ?cid }
 } GROUP BY ?domains ORDER BY ?domains
@@ -55,7 +60,7 @@ WHERE {
   GRAPH ?g {
     ?f rdfs:label "National ID (CID)" ;
        sdc4:inInstance ?i ; sdc4:inDataModel ?dm ;
-       rdf:reifies <<?mc ?vp ?cid>> .
+       rdf:reifies <<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ?vp ?cid>> .
   }
 }
 """
@@ -66,7 +71,7 @@ SELECT ?cid ?dm (SAMPLE(?i) AS ?inst) WHERE {
   GRAPH ?g {
     ?f rdfs:label "National ID (CID)" ;
        sdc4:inInstance ?i ; sdc4:inDataModel ?dm ;
-       rdf:reifies <<?mc ?vp ?cid>> .
+       rdf:reifies <<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ?vp ?cid>> .
     FILTER(?cid IN (%s))
   }
 } GROUP BY ?cid ?dm
@@ -86,24 +91,24 @@ SELECT ?brn ?org (COUNT(DISTINCT ?cid) AS ?exposed) (COUNT(DISTINCT ?tax) AS ?fi
 WHERE {
   GRAPH ?g1 {
     ?h rdfs:label "National ID (CID)" ; sdc4:inInstance ?hc ; sdc4:inDataModel sdc4:dm-%(hc)s ;
-       rdf:reifies <<?m1 ?p1 ?cid>> .
-    ?f rdfs:label "Managing Organization Reference" ; sdc4:inInstance ?hc ; rdf:reifies <<?m2 ?p2 ?fac>> .
+       rdf:reifies <<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ?p1 ?cid>> .
+    ?f rdfs:label "Managing Organization Reference" ; sdc4:inInstance ?hc ; rdf:reifies <<sdc4:mc-k1ahxtkgbqehv11vx9aw2fzz ?p2 ?fac>> .
     FILTER(CONTAINS(STR(?fac), "porto-sereno"))
   }
   GRAPH ?g2 {
     ?e rdfs:label "National ID (CID)" ; sdc4:inInstance ?emp ; sdc4:inDataModel sdc4:dm-%(emp)s ;
-       rdf:reifies <<?m3 ?p3 ?cid>> .
-    ?b rdfs:label "Business Registry Number" ; sdc4:inInstance ?emp ; rdf:reifies <<?m4 ?p4 ?brn>> .
+       rdf:reifies <<sdc4:mc-nj7s1gk45tfgyooxpz0qaha3 ?p3 ?cid>> .
+    ?b rdfs:label "Business Registry Number" ; sdc4:inInstance ?emp ; rdf:reifies <<sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ?p4 ?brn>> .
   }
   GRAPH ?g3 {
     ?o rdfs:label "Business Registry Number" ; sdc4:inInstance ?biz ; sdc4:inDataModel sdc4:dm-%(bus)s ;
-       rdf:reifies <<?m5 ?p5 ?brn>> .
-    ?n rdfs:label "Organization Name" ; sdc4:inInstance ?biz ; rdf:reifies <<?m6 ?p6 ?org>> .
+       rdf:reifies <<sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ?p5 ?brn>> .
+    ?n rdfs:label "Organization Name" ; sdc4:inInstance ?biz ; rdf:reifies <<sdc4:mc-xcn8r67fg7soty17homzok44 ?p6 ?org>> .
   }
   OPTIONAL {
     GRAPH ?g4 {
       ?t rdfs:label "Business Registry Number" ; sdc4:inInstance ?tax ; sdc4:inDataModel sdc4:dm-%(tax)s ;
-         rdf:reifies <<?m7 ?p7 ?brn>> .
+         rdf:reifies <<sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ?p7 ?brn>> .
     }
   }
 }

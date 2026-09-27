@@ -31,9 +31,9 @@ class FakeClient:
             raise RuntimeError('down')
         if 'sdc4:partyRef' in q:
             return _res(self.parties)
-        if 'VALUES ?mc ' in q:
+        if 'VALUES ?ra ' in q:
             return _res(self.values)
-        if 'VALUES ?label' in q:
+        if 'VALUES ?r ' in q:
             return _res(self.titles)
         return _res(self.nodes)
 
@@ -103,11 +103,11 @@ class EntityGraphTests(SimpleTestCase):
 
     def test_the_join_components_are_the_only_ones_asked_for(self):
         c = client(); eg.build([CIVIL, HEALTH], c)
-        value_query = next(q for q in c.queries if 'VALUES ?mc ' in q)
+        value_query = next(q for q in c.queries if 'VALUES ?ra ' in q)
         for comps in eg.JOIN_KEYS.values():
             for ct in comps:
-                self.assertIn(f'sdc4:mc-{ct}', value_query)
-        self.assertNotIn('mc-kv5qqs3o4jwcwz9javgw1pzh', value_query)  # Province has three values: not a join
+                self.assertIn(f'/dm/v_{ct}_civil000000000000000001>', value_query)   # the reifier of the component in the record
+        self.assertNotIn('v_kv5qqs3o4jwcwz9javgw1pzh_', value_query)  # Province has three values: not a join
 
     def test_a_record_the_store_cannot_describe_still_counts(self):
         ghost = f'{SDC4}i-ghost0000000000000000001'
