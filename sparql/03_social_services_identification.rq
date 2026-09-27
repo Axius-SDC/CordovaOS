@@ -40,7 +40,7 @@ WHERE {
   OPTIONAL {
     ?fac_reifier sdc4:inInstance ?hc_inst ;
                  rdfs:label "Managing Organization Reference" ;
-                 rdf:reifies <<?mcFac ?vpFac ?facility>> .
+                 rdf:reifies <<sdc4:mc-k1ahxtkgbqehv11vx9aw2fzz ?vpFac ?facility>> .
   }
   BIND(?hc_inst AS ?inst)
   BIND(?civil_inst AS ?inst_2)

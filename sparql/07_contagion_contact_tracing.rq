@@ -41,7 +41,7 @@ WHERE {
     ?mar_city sdc4:inInstance ?mar_inst ;
               sdc4:inDataModel sdc4:dm-v42afzhs22bvschuo56rdpzi ;
               rdfs:label "Visit Anchorage" ;
-              rdf:reifies <<?mcMarCity ?vpMarCity ?berth>> .
+              rdf:reifies <<sdc4:mc-rqh1k3syvt106xza6v3mnt6r ?vpMarCity ?berth>> .
     FILTER(CONTAINS(STR(?berth), "Porto Sereno"))
 
     ?mar_comp sdc4:inInstance ?mar_inst ;

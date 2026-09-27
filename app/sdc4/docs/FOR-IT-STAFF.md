@@ -221,6 +221,25 @@ Things that will bite you, all of which bit us:
   entries, mapping the reference model and the data-model library, so the
   mapping travels with the library and works on an air-gapped host. The
   validator reads it and warns if it ever falls through to the network.
+- **★ Bind the component in every store query.** A field reifier reifies
+  `<<sdc4:mc-<ct_id> ?p ?value>>`, and a triple term with the component left
+  unbound (`rdf:reifies <<?mc ?p ?v>>`) makes GraphDB scan every reifier in
+  the repository; a label on the same reifier does not bind it. Measured on a
+  33-million-triple store: the same query took 22 seconds unbound and a tenth
+  of a second with the component named. Name it as a constant, put a `VALUES`
+  list before the pattern, or address the reifier by its own IRI, which is
+  `https://semanticdatacharter.com/ns/dm/v_<component ct_id>_<instance id>`;
+  when the component is not known in advance, read it from that IRI. The
+  console question, the entity graph and the seven saved queries do this;
+  `sdc4_shared/utils/dm_components.py` reads which components each model
+  composes from the library schemas.
+- **SirixDB authenticates against a Keycloak realm.** The import file is
+  `mediafiles/keycloak/import/sirixdb-realm.json`, tracked in the repository
+  since 4.4.1; a clone without it fails at SirixDB with "Realm does not exist".
+- **The compose project is named.** Every generated stack lives in a directory
+  called `sdc4`, and Compose names a project after its directory unless told
+  otherwise, so two stacks on one machine reconcile each other's containers
+  away. `docker-compose.yml` carries `name: cordova`.
 - **Clearing loaded data means clearing the triple store too.** `load_all_data
   --clear` deletes rows; named graphs are separate. Each load mints new instance
   identifiers, so without explicit clean-up every reload abandons a full
