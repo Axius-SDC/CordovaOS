@@ -192,7 +192,9 @@ sdc4:mc-azi5plys004xc1dldfpjpuk8-shape a sh:NodeShape ;
     rdfs:label "Employment Record Attestation Reason" ;
     rdfs:comment "Reason for attesting this employment record" ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q132364> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 500 ;
             sh:minCount 1 ;
@@ -200,8 +202,6 @@ sdc4:mc-azi5plys004xc1dldfpjpuk8-shape a sh:NodeShape ;
             sh:path sdc4:xdstring-value ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q8434> ;
             sh:path skos:broadMatch ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q132364> ;
-            sh:path rdfs:isDefinedBy ],
         [ sh:hasValue schema:Text ;
             sh:path skos:broadMatch ] ;
     sh:targetNode sdc4:mc-azi5plys004xc1dldfpjpuk8 ;
@@ -211,98 +211,89 @@ sdc4:mc-f37y1r2uqdu9kkrdptbm803d-shape a sh:NodeShape ;
     rdfs:label "Employment Records Protocol" ;
     rdfs:comment "Protocol reference for the Employment Record data model. Informed by International Labour Organization (ILO) conventions on employment documentation, the International Standard Classification of Occupations (ISCO-08), and national labor records management frameworks." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q54128> ;
-            sh:path rdfs:seeAlso ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q317623> ;
-            sh:path skos:broadMatch ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q132364> ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q132364> ;
             sh:path rdfs:isDefinedBy ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 500 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path sdc4:xdstring-value ] ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q317623> ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q54128> ;
+            sh:path rdfs:seeAlso ] ;
     sh:targetNode sdc4:mc-f37y1r2uqdu9kkrdptbm803d ;
     sdc4-meta:sdcType "XdStringType" .
 
 sdc4:mc-lcx80q71lnj2ezglfa83e1fx-shape a sh:NodeShape ;
     rdfs:label "Cordova System Location" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-atdtdfzruh7tya0iv5cz365l-shape ;
+    sh:property [ sh:hasValue <https://github.com/Axius-SDC/CordovaOS> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue prov:atLocation ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-atdtdfzruh7tya0iv5cz365l-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:hasValue <https://axius-sdc.com/library/cordova/cordova-system-location> ;
             sh:path dcterms:identifier ],
-        [ sh:node sdc4:mc-jwfl94g8mj8aevupivyfsnwj-shape ;
-            sh:path sdc4:hasCluster ],
-        [ sh:node sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue prov:atLocation ;
-            sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:hasValue <https://github.com/Axius-SDC/CordovaOS> ;
-            sh:path dcterms:source ] ;
+        [ sh:node sdc4:mc-jwfl94g8mj8aevupivyfsnwj-shape ;
+            sh:path sdc4:hasCluster ] ;
     sh:targetNode sdc4:mc-lcx80q71lnj2ezglfa83e1fx .
 
 sdc4:mc-owvuvkek3csshxqlvjlp03gk-shape a sh:NodeShape ;
     rdfs:label "Cordova System Identifier" ;
     rdfs:comment "The identifier of the Cordova government system that created, committed or handled the record (PROV agent identifier; the audit's system id)." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://github.com/Axius-SDC/CordovaOS> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com> ;
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:hasValue <https://axius-sdc.com/library/cordova/cordova-system-identifier> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue prov:SoftwareAgent ;
-            sh:path skos:exactMatch ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 120 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdstring-value ] ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://github.com/Axius-SDC/CordovaOS> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com/library/cordova/cordova-system-identifier> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue prov:SoftwareAgent ;
+            sh:path skos:exactMatch ] ;
     sh:targetNode sdc4:mc-owvuvkek3csshxqlvjlp03gk ;
     sdc4-meta:sdcType "XdStringType" .
-
-sdc4:mc-rxv2ck9k9r1bqkggeydam32s-shape a sh:NodeShape ;
-    rdfs:label "Employment Record 4.4.0" ;
-    sh:node sdc4:DMBaseShape ;
-    sh:property [ sh:maxCount 1 ;
-            sh:message "Data Model must have a root data Cluster" ;
-            sh:minCount 1 ;
-            sh:node sdc4:mc-yh04hv0wanvyer6p7pjx49fx-shape ;
-            sh:path sdc4:dm-data ] ;
-    sh:targetNode sdc4:mc-rxv2ck9k9r1bqkggeydam32s ;
-    sdc4-meta:generatedAt "2026-09-26T15:20:07.787312+00:00"^^xsd:dateTime .
 
 sdc4:mc-schkb5bp75nuow2fm7k7h3tj-shape a sh:NodeShape ;
     rdfs:label "Employer" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:hasValue schema:ItemList ;
-            sh:path skos:broadMatch ],
-        [ sh:node sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape ;
-            sh:path sdc4:hasComponent ],
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q3053337> ;
+            sh:path skos:exactMatch ],
         [ sh:node sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q3053337> ;
+        [ sh:node sdc4:mc-bpqtzla39dwentygpwea8276-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue foaf:Agent ;
             sh:path skos:exactMatch ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:broadMatch ],
         [ sh:hasValue prov:Agent ;
             sh:path rdfs:isDefinedBy ],
         [ sh:node sdc4:mc-ule5u2z3rjpa9pooaifwj1n3-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-bpqtzla39dwentygpwea8276-shape ;
+        [ sh:node sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue foaf:Agent ;
-            sh:path skos:exactMatch ] ;
+            sh:path sdc4:hasComponent ] ;
     sh:targetNode sdc4:mc-schkb5bp75nuow2fm7k7h3tj .
 
 sdc4:mc-sko9b5qmp3ffo7bmp2qfn3uh-shape a sh:NodeShape ;
     rdfs:label "Activity Workflow" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-i2636k7cbmdng6pdt9jk0a0r-shape ;
+    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle> ;
+            sh:path dcterms:identifier ],
+        [ sh:node sdc4:mc-i2636k7cbmdng6pdt9jk0a0r-shape ;
             sh:path sdc4:hasCluster ],
         [ sh:node sdc4:mc-oo32glasgdj6b8x4luu73875-shape ;
             sh:path sdc4:hasCluster ],
@@ -310,14 +301,12 @@ sdc4:mc-sko9b5qmp3ffo7bmp2qfn3uh-shape a sh:NodeShape ;
             sh:path dcterms:publisher ],
         [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
             sh:path skos:closeMatch ],
-        [ sh:hasValue <https://w3id.org/dpv> ;
-            sh:path dcterms:source ],
         [ sh:hasValue <http://www.w3.org/2005/01/wf/flow#State> ;
             sh:path skos:closeMatch ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle> ;
-            sh:path dcterms:identifier ],
         [ sh:node sdc4:mc-kk5bznc4pq1hk1eoyr2xo1il-shape ;
             sh:path sdc4:hasCluster ],
+        [ sh:hasValue <https://w3id.org/dpv> ;
+            sh:path dcterms:source ],
         [ sh:node sdc4:mc-aaq8jixpz8uh5vcahpmz6t99-shape ;
             sh:path sdc4:hasCluster ] ;
     sh:targetNode sdc4:mc-sko9b5qmp3ffo7bmp2qfn3uh .
@@ -327,19 +316,11 @@ sdc4:mc-tj85qvj83sce9ny9l2e4oofv-shape a sh:NodeShape ;
     sh:property [ sh:datatype xsd:boolean ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:lower_included ],
-        [ sh:datatype xsd:boolean ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:upper_included ],
-        [ sh:datatype sdc4:InvlUnits ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:interval-units ],
-        [ sh:datatype xsd:boolean ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:path sdc4:lower_bounded ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:upper_bounded ],
         [ sh:datatype xsd:decimal ;
             sh:in ( "0" ) ;
             sh:maxCount 1 ;
@@ -348,7 +329,15 @@ sdc4:mc-tj85qvj83sce9ny9l2e4oofv-shape a sh:NodeShape ;
         [ sh:datatype xsd:boolean ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:upper_bounded ] ;
+            sh:path sdc4:lower_included ],
+        [ sh:datatype sdc4:InvlUnits ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:interval-units ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:upper_included ] ;
     sh:targetNode sdc4:mc-tj85qvj83sce9ny9l2e4oofv ;
     sdc4-meta:sdcType "XdIntervalType" .
 
@@ -356,77 +345,64 @@ sdc4:mc-tw8mn0vv8z8v3w533gfu9j92-shape a sh:NodeShape ;
     rdfs:label "Employment Record Access Control" ;
     rdfs:comment "Access control policy for employment records using W3C Data Privacy Vocabulary. Enforces role-based access for employers, employees, and labor authorities. Governs dpv:ProfessionalData including employment history, salary records, and workplace certifications." ;
     sh:node sdc4:XdLinkBaseShape ;
-    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q185799> ;
-            sh:path skos:broadMatch ],
-        [ sh:hasValue <https://w3id.org/dpv#ProfessionalData> ;
-            sh:path rdfs:seeAlso ],
-        [ sh:hasValue <https://w3id.org/dpv#AccessControlMethod> ;
-            sh:path rdfs:isDefinedBy ],
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:link ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:relation ],
-        [ sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:link ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q185799> ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://w3id.org/dpv> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q627374> ;
+            sh:path skos:relatedMatch ],
         [ sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:relation-uri ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q627374> ;
-            sh:path skos:relatedMatch ],
-        [ sh:hasValue <https://w3id.org/dpv> ;
-            sh:path rdfs:seeAlso ] ;
+        [ sh:hasValue <https://w3id.org/dpv#ProfessionalData> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue <https://w3id.org/dpv#AccessControlMethod> ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-tw8mn0vv8z8v3w533gfu9j92 ;
     sdc4-meta:sdcType "XdLinkType" .
+
+sdc4:mc-v1v3f0pe0y9hhcplq271zh5i-shape a sh:NodeShape ;
+    rdfs:label "Employment Record 4.4.2" ;
+    sh:node sdc4:DMBaseShape ;
+    sh:property [ sh:maxCount 1 ;
+            sh:message "Data Model must have a root data Cluster" ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-iduhbx4r8bqw6n327tjivuxq-shape ;
+            sh:path sdc4:dm-data ] ;
+    sh:targetNode sdc4:mc-v1v3f0pe0y9hhcplq271zh5i ;
+    sdc4-meta:generatedAt "2026-09-28T16:12:56.244028+00:00"^^xsd:dateTime .
 
 sdc4:mc-y5h8kcuf9egj363eg3ew2ku9-shape a sh:NodeShape ;
     rdfs:label "Employment Record Attested View" ;
     rdfs:comment "Attested view of an employment record document" ;
     sh:node sdc4:XdFileBaseShape ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:uri ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:compression-type ],
-        [ sh:datatype xsd:language ;
+    sh:property [ sh:datatype xsd:language ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdfile-language ],
-        [ sh:datatype xsd:integer ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:size ],
-        [ sh:datatype xsd:base64Binary ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:media-content ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q8434> ;
-            sh:path skos:broadMatch ],
-        [ sh:hasValue prov:Entity ;
-            sh:path skos:broadMatch ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:media-type ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:alt-txt ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
             sh:path sdc4:hash-result ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:hash-function ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q8434> ;
+            sh:path skos:broadMatch ],
         [ sh:hasValue schema:DigitalDocument ;
             sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue prov:Entity ;
+            sh:path skos:broadMatch ],
+        [ sh:datatype xsd:base64Binary ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:media-content ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -434,7 +410,31 @@ sdc4:mc-y5h8kcuf9egj363eg3ew2ku9-shape a sh:NodeShape ;
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path sdc4:formalism ] ;
+            sh:path sdc4:alt-txt ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:uri ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:size ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:media-type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:hash-function ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:formalism ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:compression-type ] ;
     sh:targetNode sdc4:mc-y5h8kcuf9egj363eg3ew2ku9 ;
     sdc4-meta:sdcType "XdFileType" .
 
@@ -489,18 +489,18 @@ sdc4:mc-a5scyosu6j84vz350mqyrzl2-shape a sh:NodeShape ;
     rdfs:label "Ended At" ;
     rdfs:comment "When the activity ended (prov:endedAtTime)." ;
     sh:node sdc4:XdTemporalBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/ended-at-time> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue prov:endedAtTime ;
+    sh:property [ sh:hasValue prov:endedAtTime ;
             sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/ended-at-time> ;
+            sh:path dcterms:identifier ],
         [ sh:datatype xsd:dateTime ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtemporal-datetime ],
         [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ] ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-a5scyosu6j84vz350mqyrzl2 ;
     sdc4-meta:sdcType "XdTemporalType" .
 
@@ -508,55 +508,55 @@ sdc4:mc-aa663ivutjf2fs4757t0bbzy-shape a sh:NodeShape ;
     rdfs:label "Software Name" ;
     rdfs:comment "The name of a software agent." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue schema:SoftwareApplication ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/software-name> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue schema: ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue sdc4:mc-rsjfjz8m5z7a58h5793duqbs ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdstring-value ] ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue sdc4:mc-rsjfjz8m5z7a58h5793duqbs ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/software-name> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue schema:SoftwareApplication ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue schema: ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-aa663ivutjf2fs4757t0bbzy ;
     sdc4-meta:sdcType "XdStringType" .
 
 sdc4:mc-aaq8jixpz8uh5vcahpmz6t99-shape a sh:NodeShape ;
     rdfs:label "Activity: activityhalted activityongoing" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-activityhalted-activityongoing> ;
-            sh:path dcterms:identifier ],
+    sh:property [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
+            sh:path skos:closeMatch ],
         [ sh:hasValue <https://w3id.org/dpv> ;
             sh:path dcterms:source ],
-        [ sh:node sdc4:mc-onj0p50oeldicgsyn89zdur8-shape ;
-            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-activityhalted-activityongoing> ;
+            sh:path dcterms:identifier ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
-            sh:path skos:closeMatch ] ;
+        [ sh:node sdc4:mc-onj0p50oeldicgsyn89zdur8-shape ;
+            sh:path sdc4:hasComponent ] ;
     sh:targetNode sdc4:mc-aaq8jixpz8uh5vcahpmz6t99 .
 
 sdc4:mc-aw74ticc3fnjkz4vk4b03jr6-shape a sh:NodeShape ;
     rdfs:label "Salary Amount" ;
     rdfs:comment "Monthly gross salary or wage in Cordova Córdoba. Represents the agreed compensation amount before deductions for taxes, social security, and other withholdings." ;
     sh:node sdc4:XdQuantityBaseShape ;
-    sh:property [ sh:hasValue <http://qudt.org/vocab/quantitykind/Currency> ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q178848> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <http://qudt.org/vocab/quantitykind/Currency> ;
             sh:path skos:broadMatch ],
+        [ sh:hasValue schema:MonetaryAmount ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue sdc4:mc-u18l77xlj2omcbmnpi5j7fff ;
+            sh:path sdc4-meta:hasUnit ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:node sdc4:mc-u18l77xlj2omcbmnpi5j7fff-shape ;
             sh:path sdc4-meta:hasUnit ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q178848> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue sdc4:mc-u18l77xlj2omcbmnpi5j7fff ;
-            sh:path sdc4-meta:hasUnit ],
-        [ sh:hasValue schema:MonetaryAmount ;
-            sh:path rdfs:isDefinedBy ],
         [ sh:datatype xsd:decimal ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -564,41 +564,14 @@ sdc4:mc-aw74ticc3fnjkz4vk4b03jr6-shape a sh:NodeShape ;
     sh:targetNode sdc4:mc-aw74ticc3fnjkz4vk4b03jr6 ;
     sdc4-meta:sdcType "XdQuantityType" .
 
-sdc4:mc-bn5gaw6rtyjb3vr8vi27bvyk-shape a sh:NodeShape ;
-    rdfs:label "Employment Record" ;
-    sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-atdtdfzruh7tya0iv5cz365l-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://github.com/Axius-SDC/CordovaOS> ;
-            sh:path dcterms:source ],
-        [ sh:node sdc4:mc-i8cqh4dpndwl5l0zz65a7raw-shape ;
-            sh:path sdc4:hasCluster ],
-        [ sh:node sdc4:mc-umsm60kz9jn1196s80jmy1n0-shape ;
-            sh:path sdc4:hasCluster ],
-        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue schema:EmployeeRole ;
-            sh:path skos:exactMatch ],
-        [ sh:node sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:node sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue sdc4:mc-ablvqv20fp33v8t8c985dlo2 ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <https://axius-sdc.com/library/cordova/employment-record> ;
-            sh:path dcterms:identifier ] ;
-    sh:targetNode sdc4:mc-bn5gaw6rtyjb3vr8vi27bvyk .
-
 sdc4:mc-bpqtzla39dwentygpwea8276-shape a sh:NodeShape ;
     rdfs:label "organization_type" ;
     rdfs:comment "Type of organization." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q17197366> ;
+    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q17197366> ;
             sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
         [ sh:datatype xsd:token ;
             sh:in ( "corporation" "government" "nonprofit" "academic" "department" "vendor" ) ;
             sh:maxCount 1 ;
@@ -607,67 +580,118 @@ sdc4:mc-bpqtzla39dwentygpwea8276-shape a sh:NodeShape ;
     sh:targetNode sdc4:mc-bpqtzla39dwentygpwea8276 ;
     sdc4-meta:sdcType "XdTokenType" .
 
+sdc4:mc-bqp3evewda43y5vpp63doh6h-shape a sh:NodeShape ;
+    rdfs:label "Employment Association" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:node sdc4:mc-gco9v72etkdffpi0mgnm17kp-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-sqet5e8oriiu8t33x9ayau0q-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-wos7ancvqpdggx6xdtnsjdtu-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-rwr7jf4764u5n0m336juazg6-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-ul9z1upfg5gwdildfw3zjfrq-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://axius-sdc.com/library/niem/employment-association> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue sdc4:mc-umsm60kz9jn1196s80jmy1n0 ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:node sdc4:mc-ns8dekdo3100r8zgj3r5773s-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-p40w5sobi97p62lxufv11et7-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-m9j6mlcgmbmijzdnbvup1ipc-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentAssociationType> ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-gnv4qotitjshdtauz4osyqp2-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-pahkyfowm2ey1opnqpfue3nn-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-mwgznh9pfu2pbmkfszawmshs-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-h8gfo9ef1dqo3quzrqhrb550-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-inh39quee7dorifcfdk4jzlj-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-exwd705vvkcsavizr7yw73r3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-urzessbeem2kj4z3ld0x6jb1-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-sorxqbcl704sxkzfooytxf3b-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:node sdc4:mc-g75mrb5jkxkch3bwbhp29ooz-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-w6o1hh3qtc5kldmmhwey90k8-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-bqp3evewda43y5vpp63doh6h .
+
 sdc4:mc-c179ilk2ns15cd5rzzdfd6f6-shape a sh:NodeShape ;
     rdfs:label "PROV Agent" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/prov-agent> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:node sdc4:mc-qb90a0sp9vvb6c5cbcf236ys-shape ;
+    sh:property [ sh:node sdc4:mc-eftvwi5byq6cdtd931qyxzw0-shape ;
             sh:path sdc4:hasComponent ],
+        [ sh:hasValue prov:Agent ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-i16vqj89it3db7d3c5qjko9p-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/prov-agent> ;
+            sh:path dcterms:identifier ],
+        [ sh:node sdc4:mc-og08xf6bu928uuz6t3y0e23f-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
+            sh:path dcterms:source ],
         [ sh:node sdc4:mc-x0lebwtobgaelj5pev3258sd-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-aa663ivutjf2fs4757t0bbzy-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:hasValue prov:Agent ;
-            sh:path skos:exactMatch ],
-        [ sh:node sdc4:mc-xxe21o9ojzmy9wxxky1tnmog-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-eftvwi5byq6cdtd931qyxzw0-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-gb78cmuyo72hqs5apymdki7l-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-i16vqj89it3db7d3c5qjko9p-shape ;
-            sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-w2ruemcfy35rw60jl1t9dew2-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-og08xf6bu928uuz6t3y0e23f-shape ;
+        [ sh:node sdc4:mc-qb90a0sp9vvb6c5cbcf236ys-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ] ;
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:node sdc4:mc-xxe21o9ojzmy9wxxky1tnmog-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-gb78cmuyo72hqs5apymdki7l-shape ;
+            sh:path sdc4:hasComponent ] ;
     sh:targetNode sdc4:mc-c179ilk2ns15cd5rzzdfd6f6 .
 
 sdc4:mc-c5e0wv21cmlouukx6ga2o5uz-shape a sh:NodeShape ;
     rdfs:label "Latitude" ;
     rdfs:comment "Geographic latitude in decimal degrees, -90 to +90." ;
     sh:node sdc4:XdQuantityBaseShape ;
-    sh:property [ sh:hasValue sdc4:mc-su36p04drmw1szee9cw51mgw ;
+    sh:property [ sh:hasValue <http://purl.obolibrary.org/obo/NCIT_C68642> ;
+            sh:path skos:exactMatch ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-su36p04drmw1szee9cw51mgw-shape ;
             sh:path sdc4-meta:hasUnit ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://axius-sdc.com/library/default/latitude> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <http://qudt.org/> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue schema:latitude ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue sdc4:mc-sws9fskrdla5e99x7cn4trwo ;
+            sh:path prov:wasRevisionOf ],
         [ sh:datatype xsd:decimal ;
             sh:maxCount 1 ;
             sh:maxInclusive 90.00000 ;
             sh:minCount 1 ;
             sh:minInclusive -90.00000 ;
             sh:path sdc4:xdquantity-value ],
-        [ sh:hasValue <http://purl.obolibrary.org/obo/NCIT_C68642> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <http://qudt.org/> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue schema:latitude ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com/library/default/latitude> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue sdc4:mc-sws9fskrdla5e99x7cn4trwo ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:node sdc4:mc-su36p04drmw1szee9cw51mgw-shape ;
-            sh:path sdc4-meta:hasUnit ],
         [ sh:hasValue <http://qudt.org/vocab/quantitykind/Angle> ;
-            sh:path skos:exactMatch ] ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue sdc4:mc-su36p04drmw1szee9cw51mgw ;
+            sh:path sdc4-meta:hasUnit ] ;
     sh:targetNode sdc4:mc-c5e0wv21cmlouukx6ga2o5uz ;
     sdc4-meta:sdcType "XdQuantityType" .
 
@@ -675,21 +699,21 @@ sdc4:mc-ce1c8sydkov8bkv4dgdmwe5x-shape a sh:NodeShape ;
     rdfs:label "Audit Event Action" ;
     rdfs:comment "The operation performed in a logged access event (FHIR AuditEvent.action). Read and Execute change no state and are audit facts, not workflow moves." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/audit-event-action> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue sdc4:mc-o8lawuczf9vry55e98cjg12r ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <http://hl7.org/fhir/audit-event-action> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:datatype xsd:token ;
+    sh:property [ sh:datatype xsd:token ;
             sh:in ( "C" "R" "U" "D" "E" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <http://hl7.org/fhir/audit-event-action> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue sdc4:mc-o8lawuczf9vry55e98cjg12r ;
+            sh:path prov:wasRevisionOf ],
         [ sh:hasValue <http://hl7.org/fhir/R4/> ;
-            sh:path dcterms:source ] ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/audit-event-action> ;
+            sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-ce1c8sydkov8bkv4dgdmwe5x ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -697,21 +721,21 @@ sdc4:mc-d1evlz8yvdlwt6ia9fjq4pgj-shape a sh:NodeShape ;
     rdfs:label "Purpose of Use" ;
     rdfs:comment "Why the information was used (HL7 v3 ActReason purpose of use). Activity context, not an access-control tag." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:datatype xsd:token ;
+    sh:property [ sh:hasValue <http://terminology.hl7.org/CodeSystem/v3-ActReason> ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:token ;
             sh:in ( "TREAT" "ETREAT" "COC" "HPAYMT" "HOPERAT" "HRESCH" "CLINTRCH" "PUBHLTH" "PATRQT" "HLEGAL" "HMARKT" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
-        [ sh:hasValue <http://terminology.hl7.org/CodeSystem/v3-ActReason> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
+        [ sh:hasValue <http://terminology.hl7.org/> ;
+            sh:path dcterms:source ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/purpose-of-use> ;
             sh:path dcterms:identifier ],
         [ sh:hasValue sdc4:mc-y87ikto4p56zlkx4o2d63ain ;
             sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <http://terminology.hl7.org/> ;
-            sh:path dcterms:source ] ;
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-d1evlz8yvdlwt6ia9fjq4pgj ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -719,21 +743,21 @@ sdc4:mc-dkc2ccj5te35z9gd4bu1blcq-shape a sh:NodeShape ;
     rdfs:label "Audit Agent Reference" ;
     rdfs:comment "The acting agent (FHIR AuditEvent.agent.who). Holds the IRI of the referenced thing." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/audit-agent-reference> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <http://hl7.org/fhir/R4/> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.agent.who> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue sdc4:mc-bads7w1q6wmhn18u6dxwt28t ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
-            sh:pattern "\\S+" ] ;
+            sh:pattern "\\S+" ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue sdc4:mc-bads7w1q6wmhn18u6dxwt28t ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue <http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.agent.who> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/audit-agent-reference> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <http://hl7.org/fhir/R4/> ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-dkc2ccj5te35z9gd4bu1blcq ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -743,17 +767,17 @@ sdc4:mc-eftvwi5byq6cdtd931qyxzw0-shape a sh:NodeShape ;
     sh:node sdc4:XdStringBaseShape ;
     sh:property [ sh:hasValue sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3 ;
             sh:path prov:wasRevisionOf ],
-        [ sh:hasValue schema: ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
+        [ sh:hasValue schema:legalName ;
+            sh:path skos:exactMatch ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
-        [ sh:hasValue schema:legalName ;
-            sh:path skos:exactMatch ],
+        [ sh:hasValue schema: ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/agent-organization-name> ;
             sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-eftvwi5byq6cdtd931qyxzw0 ;
@@ -763,19 +787,19 @@ sdc4:mc-egi28a30eh1mkd1beytxukel-shape a sh:NodeShape ;
     rdfs:label "Employment Position Required Job Skill" ;
     rdfs:comment "A job skill that is required for this position. NIEM 6.0 nc:EmploymentPositionRequiredJobSkillText." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:maxLength 4000 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdstring-value ],
         [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-required-job-skill> ;
             sh:path dcterms:identifier ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionRequiredJobSkillText> ;
             sh:path skos:exactMatch ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ] ;
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 4000 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ] ;
     sh:targetNode sdc4:mc-egi28a30eh1mkd1beytxukel ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -783,19 +807,19 @@ sdc4:mc-ewpg4vc080p0wkl864sjug1l-shape a sh:NodeShape ;
     rdfs:label "Employment Position Name" ;
     rdfs:comment "A job name or title of an employment position. NIEM 6.0 nc:EmploymentPositionName." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionName> ;
             sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-name> ;
-            sh:path dcterms:identifier ] ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-ewpg4vc080p0wkl864sjug1l ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -803,19 +827,19 @@ sdc4:mc-exwd705vvkcsavizr7yw73r3-shape a sh:NodeShape ;
     rdfs:label "Employee Rank" ;
     rdfs:comment "A rank, status, or promotion level of a person within an employment organization. NIEM 6.0 nc:EmployeeRankText." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 4000 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeRankText> ;
             sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com/library/niem/employee-rank> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+            sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-exwd705vvkcsavizr7yw73r3 ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -827,35 +851,64 @@ sdc4:mc-fjhgr5fyqxt2crmg2cb5c513-shape a sh:NodeShape ;
             sh:path dcterms:publisher ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/audit-event-identifier> ;
             sh:path dcterms:identifier ],
+        [ sh:hasValue <http://hl7.org/fhir/R4/> ;
+            sh:path dcterms:source ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
         [ sh:hasValue dcterms:identifier ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <http://hl7.org/fhir/R4/> ;
-            sh:path dcterms:source ] ;
+            sh:path skos:exactMatch ] ;
     sh:targetNode sdc4:mc-fjhgr5fyqxt2crmg2cb5c513 ;
     sdc4-meta:sdcType "XdStringType" .
 
-sdc4:mc-g7gz7adgd2fh6egkt84jnx7m-shape a sh:NodeShape ;
-    rdfs:label "Length/Distance (SI - Metric)" ;
-    sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <http://qudt.org/vocab/quantitykind/Length> ;
+sdc4:mc-g75mrb5jkxkch3bwbhp29ooz-shape a sh:NodeShape ;
+    rdfs:label "Employee Hours Daily Quantity" ;
+    rdfs:comment "A number of hours spent at workplace or working in a typical work day. NIEM 6.0 nc:EmployeeHoursDailyQuantity." ;
+    sh:node sdc4:XdQuantityBaseShape ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdquantity-value ],
+        [ sh:hasValue sdc4:mc-pcnnug0ctyr0nhjjj5cn49mi ;
+            sh:path sdc4-meta:hasUnit ],
+        [ sh:hasValue sdc4:mc-l3atyf51amrlzxnz81jhor8c ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeHoursDailyQuantity> ;
             sh:path skos:exactMatch ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-pcnnug0ctyr0nhjjj5cn49mi-shape ;
+            sh:path sdc4-meta:hasUnit ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:hasValue <https://axius-sdc.com/library/default/units-length-si> ;
-            sh:path dcterms:identifier ],
-        [ sh:datatype xsd:string ;
+        [ sh:hasValue <https://axius-sdc.com/library/niem/employee-hours-daily-quantity> ;
+            sh:path dcterms:identifier ] ;
+    sh:targetNode sdc4:mc-g75mrb5jkxkch3bwbhp29ooz ;
+    sdc4-meta:sdcType "XdQuantityType" .
+
+sdc4:mc-g7gz7adgd2fh6egkt84jnx7m-shape a sh:NodeShape ;
+    rdfs:label "Length/Distance (SI - Metric)" ;
+    rdfs:comment "SI units of length: millimetre, centimetre, metre, kilometre." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:in ( "mm" "cm" "m" "km" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <http://qudt.org/> ;
-            sh:path dcterms:source ],
         [ sh:hasValue sdc4:mc-y28mhe3jdzi9b8ztn3fxodtf ;
-            sh:path prov:wasRevisionOf ] ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <http://qudt.org/vocab/quantitykind/Length> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com/library/default/units-length-si> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <http://qudt.org/> ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-g7gz7adgd2fh6egkt84jnx7m ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -867,10 +920,10 @@ sdc4:mc-gb78cmuyo72hqs5apymdki7l-shape a sh:NodeShape ;
             sh:path prov:wasRevisionOf ],
         [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
             sh:path dcterms:source ],
-        [ sh:hasValue dcterms:description ;
-            sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/agent-description> ;
             sh:path dcterms:identifier ],
+        [ sh:hasValue dcterms:description ;
+            sh:path skos:exactMatch ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 4000 ;
@@ -885,19 +938,19 @@ sdc4:mc-gcjyjrnp0wsfoelcp4m05c67-shape a sh:NodeShape ;
     rdfs:label "Audit Entity Reference" ;
     rdfs:comment "The entity the event concerns (FHIR AuditEvent.entity.what). Holds the IRI of the referenced thing." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <http://hl7.org/fhir/R4/> ;
-            sh:path dcterms:source ],
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue sdc4:mc-sjp1x177mlpq3howdltptm3c ;
+            sh:path prov:wasRevisionOf ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
-        [ sh:hasValue sdc4:mc-sjp1x177mlpq3howdltptm3c ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/audit-entity-reference> ;
             sh:path dcterms:identifier ],
+        [ sh:hasValue <http://hl7.org/fhir/R4/> ;
+            sh:path dcterms:source ],
         [ sh:hasValue <http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.entity.what> ;
             sh:path skos:exactMatch ] ;
     sh:targetNode sdc4:mc-gcjyjrnp0wsfoelcp4m05c67 ;
@@ -907,12 +960,10 @@ sdc4:mc-gco9v72etkdffpi0mgnm17kp-shape a sh:NodeShape ;
     rdfs:label "Employee Supervisor Indicator" ;
     rdfs:comment "True if the employee is a supervisor; false otherwise. NIEM 6.0 nc:EmployeeSupervisorIndicator." ;
     sh:node sdc4:XdBooleanBaseShape ;
-    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
+    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeSupervisorIndicator> ;
+            sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:hasValue <https://axius-sdc.com/library/niem/employee-supervisor-indicator> ;
-            sh:path dcterms:identifier ],
         [ sh:datatype xsd:string ;
             sh:in ( "false" ) ;
             sh:maxCount 1 ;
@@ -923,8 +974,10 @@ sdc4:mc-gco9v72etkdffpi0mgnm17kp-shape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:true-value ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeSupervisorIndicator> ;
-            sh:path skos:exactMatch ] ;
+        [ sh:hasValue <https://axius-sdc.com/library/niem/employee-supervisor-indicator> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-gco9v72etkdffpi0mgnm17kp ;
     sdc4-meta:sdcType "XdBooleanType" .
 
@@ -932,21 +985,21 @@ sdc4:mc-ginfqbk7q59ld2r4us8sjnv1-shape a sh:NodeShape ;
     rdfs:label "Was Started By Reference" ;
     rdfs:comment "The entity that started the activity (prov:wasStartedBy). Holds the IRI of the referenced thing." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue sdc4:mc-kmodjk1e5xu9z94zgiaxx1hu ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/was-started-by-reference> ;
+    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/was-started-by-reference> ;
             sh:path dcterms:identifier ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:hasValue prov:wasStartedBy ;
             sh:path skos:exactMatch ],
+        [ sh:hasValue sdc4:mc-kmodjk1e5xu9z94zgiaxx1hu ;
+            sh:path prov:wasRevisionOf ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
         [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-ginfqbk7q59ld2r4us8sjnv1 ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -959,14 +1012,14 @@ sdc4:mc-gnv4qotitjshdtauz4osyqp2-shape a sh:NodeShape ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
         [ sh:hasValue <https://axius-sdc.com/library/niem/employee-reference> ;
             sh:path dcterms:identifier ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/Employee> ;
+            sh:path skos:exactMatch ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
             sh:path dcterms:source ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/Employee> ;
-            sh:path skos:exactMatch ] ;
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-gnv4qotitjshdtauz4osyqp2 ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -974,48 +1027,22 @@ sdc4:mc-gug5dhtqfv7exbgmm2raxpkq-shape a sh:NodeShape ;
     rdfs:label "Digital Signature Proof" ;
     rdfs:comment "Cryptographic proof of attestation (digital signature)" ;
     sh:node sdc4:XdFileBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:hash-function ],
-        [ sh:hasValue prov:Entity ;
-            sh:path skos:broadMatch ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:encoding ],
-        [ sh:datatype xsd:language ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdfile-language ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:hash-result ],
-        [ sh:datatype xsd:integer ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:size ],
-        [ sh:hasValue <https://www.w3.org/TR/vc-data-model/#credentials> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q210824> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:alt-txt ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 0 ;
-            sh:path sdc4:media-type ],
+            sh:path sdc4:uri ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
             sh:path sdc4:compression-type ],
-        [ sh:datatype xsd:anyURI ;
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:media-type ],
+        [ sh:datatype xsd:language ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:uri ],
+            sh:path sdc4:xdfile-language ],
         [ sh:datatype xsd:base64Binary ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -1023,7 +1050,33 @@ sdc4:mc-gug5dhtqfv7exbgmm2raxpkq-shape a sh:NodeShape ;
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path sdc4:formalism ] ;
+            sh:path sdc4:alt-txt ],
+        [ sh:hasValue prov:Entity ;
+            sh:path skos:broadMatch ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q210824> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.w3.org/TR/vc-data-model/#credentials> ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:hash-function ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:hash-result ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:formalism ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path sdc4:size ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:encoding ] ;
     sh:targetNode sdc4:mc-gug5dhtqfv7exbgmm2raxpkq ;
     sdc4-meta:sdcType "XdFileType" .
 
@@ -1031,19 +1084,19 @@ sdc4:mc-guq9lttvawsetx2hq59htcrq-shape a sh:NodeShape ;
     rdfs:label "Employment Position Department Name" ;
     rdfs:comment "A name of a department or other business unit associated with a job position. NIEM 6.0 nc:EmploymentPositionDepartmentName." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-department-name> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-department-name> ;
-            sh:path dcterms:identifier ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionDepartmentName> ;
-            sh:path skos:exactMatch ] ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-guq9lttvawsetx2hq59htcrq ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1053,6 +1106,8 @@ sdc4:mc-h0h1m3tdz405xz6zjaplat2x-shape a sh:NodeShape ;
     sh:node sdc4:XdTokenBaseShape ;
     sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionBasisCode> ;
             sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:datatype xsd:token ;
             sh:in ( "contractor" "non-permanent" "permanent" ) ;
             sh:maxCount 1 ;
@@ -1060,12 +1115,10 @@ sdc4:mc-h0h1m3tdz405xz6zjaplat2x-shape a sh:NodeShape ;
             sh:path sdc4:xdtoken-value ],
         [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-basis-code> ;
             sh:path dcterms:identifier ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionBasisCodeSimpleType> ;
-            sh:path skos:exactMatch ] ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-h0h1m3tdz405xz6zjaplat2x ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -1073,63 +1126,92 @@ sdc4:mc-h3kdbvdtyalpvik97saaf0an-shape a sh:NodeShape ;
     rdfs:label "System Identifier" ;
     rdfs:comment "The system that handled the item (FHIR AuditEvent.source.observer; SDC AuditType.system-id)." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <http://hl7.org/fhir/R4/> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/system-identifier> ;
-            sh:path dcterms:identifier ],
+    sh:property [ sh:hasValue sdc4:mc-des67jo3ki9w0zgaz2i2t2cq ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue <http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.source.observer> ;
+            sh:path skos:exactMatch ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
-        [ sh:hasValue sdc4:mc-des67jo3ki9w0zgaz2i2t2cq ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.source.observer> ;
-            sh:path skos:exactMatch ],
+        [ sh:hasValue <http://hl7.org/fhir/R4/> ;
+            sh:path dcterms:source ],
         [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/system-identifier> ;
+            sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-h3kdbvdtyalpvik97saaf0an ;
     sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-h8gfo9ef1dqo3quzrqhrb550-shape a sh:NodeShape ;
+    rdfs:label "Employee Hours Weekly Quantity" ;
+    rdfs:comment "A number of hours spent at workplace or working in a typical week. NIEM 6.0 nc:EmployeeHoursWeeklyQuantity." ;
+    sh:node sdc4:XdQuantityBaseShape ;
+    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeHoursWeeklyQuantity> ;
+            sh:path skos:exactMatch ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node sdc4:mc-pcnnug0ctyr0nhjjj5cn49mi-shape ;
+            sh:path sdc4-meta:hasUnit ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com/library/niem/employee-hours-weekly-quantity> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue sdc4:mc-pcnnug0ctyr0nhjjj5cn49mi ;
+            sh:path sdc4-meta:hasUnit ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdquantity-value ],
+        [ sh:hasValue sdc4:mc-xc1d8d22kesm73rqo9l8disu ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
+    sh:targetNode sdc4:mc-h8gfo9ef1dqo3quzrqhrb550 ;
+    sdc4-meta:sdcType "XdQuantityType" .
 
 sdc4:mc-hhusuzzig19rs46ngz23k5g7-shape a sh:NodeShape ;
     rdfs:label "Activity Description" ;
     rdfs:comment "A description of what the activity does and why." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue dcterms:description ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue sdc4:mc-m9xg6e182m1oq77ssrf9iujv ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-description> ;
-            sh:path dcterms:identifier ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 4000 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
         [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue dcterms:description ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-description> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue sdc4:mc-m9xg6e182m1oq77ssrf9iujv ;
+            sh:path prov:wasRevisionOf ] ;
     sh:targetNode sdc4:mc-hhusuzzig19rs46ngz23k5g7 ;
     sdc4-meta:sdcType "XdStringType" .
 
 sdc4:mc-hjjou19np3pohe63fxmqtkoi-shape a sh:NodeShape ;
     rdfs:label "Currency" ;
+    rdfs:comment "The ISO 4217 code of a currency: the complete list of 178 active codes. Each value is defined by its Wikidata entity." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://axius-sdc.com/library/default/units-currency> ;
+    sh:property [ sh:hasValue <https://axius-sdc.com/library/default/units-currency> ;
             sh:path dcterms:identifier ],
         [ sh:hasValue sdc4:mc-wab4687wp76ntxrz27nqybgp ;
             sh:path prov:wasRevisionOf ],
         [ sh:hasValue <http://qudt.org/vocab/quantitykind/Currency> ;
             sh:path skos:exactMatch ],
+        [ sh:hasValue <https://www.iso.org/iso-4217-currency-codes.html> ;
+            sh:path dcterms:source ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:hasValue <https://www.iso.org/iso-4217-currency-codes.html> ;
-            sh:path dcterms:source ] ;
+        [ sh:datatype xsd:string ;
+            sh:in ( "AED" "AFN" "ALL" "AMD" "AOA" "ARS" "AUD" "AWG" "AZN" "BAM" "BBD" "BDT" "BHD" "BIF" "BMD" "BND" "BOB" "BOV" "BRL" "BSD" "BTN" "BWP" "BYN" "BZD" "CAD" "CDF" "CHE" "CHF" "CHW" "CLF" "CLP" "CNY" "COP" "COU" "CRC" "CUP" "CVE" "CZK" "DJF" "DKK" "DOP" "DZD" "EGP" "ERN" "ETB" "EUR" "FJD" "FKP" "GBP" "GEL" "GHS" "GIP" "GMD" "GNF" "GTQ" "GYD" "HKD" "HNL" "HTG" "HUF" "IDR" "ILS" "INR" "IQD" "IRR" "ISK" "JMD" "JOD" "JPY" "KES" "KGS" "KHR" "KMF" "KPW" "KRW" "KWD" "KYD" "KZT" "LAK" "LBP" "LKR" "LRD" "LSL" "LYD" "MAD" "MDL" "MGA" "MKD" "MMK" "MNT" "MOP" "MRU" "MUR" "MVR" "MWK" "MXN" "MXV" "MYR" "MZN" "NAD" "NGN" "NIO" "NOK" "NPR" "NZD" "OMR" "PAB" "PEN" "PGK" "PHP" "PKR" "PLN" "PYG" "QAR" "RON" "RSD" "RUB" "RWF" "SAR" "SBD" "SCR" "SDG" "SEK" "SGD" "SHP" "SLE" "SOS" "SRD" "SSP" "STN" "SVC" "SYP" "SZL" "THB" "TJS" "TMT" "TND" "TOP" "TRY" "TTD" "TWD" "TZS" "UAH" "UGX" "USD" "USN" "UYI" "UYU" "UYW" "UZS" "VED" "VES" "VND" "VUV" "WST" "XAD" "XAF" "XAG" "XAU" "XBA" "XBB" "XBC" "XBD" "XCD" "XCG" "XDR" "XOF" "XPD" "XPF" "XPT" "XSU" "XTS" "XUA" "XXX" "YER" "ZAR" "ZMW" "ZWG" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ] ;
     sh:targetNode sdc4:mc-hjjou19np3pohe63fxmqtkoi ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1137,16 +1219,7 @@ sdc4:mc-hp420l0x5p6z0tk7nbcpsg0k-shape a sh:NodeShape ;
     rdfs:label "Activity: Main path states" ;
     rdfs:comment "States of the Main path path of the Activity workflow, in order: ActivityProposed, ActivityPlanned, ActivityOngoing, ActivityCompleted. A transition is legal between adjacent states. An activity's lifecycle in the Data Privacy Vocabulary: proposed, planned, ongoing, halted, completed, not completed." ;
     sh:node sdc4:XdOrdinalBaseShape ;
-    sh:property [ sh:hasValue <http://www.w3.org/2005/07/scxml> ;
-            sh:path rdfs:seeAlso ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-main-states> ;
-            sh:path dcterms:identifier ],
-        [ sh:datatype xsd:decimal ;
-            sh:in ( "0" "1" "2" "3" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:ordinal ],
-        [ sh:hasValue <https://w3id.org/dpv> ;
+    sh:property [ sh:hasValue <https://w3id.org/dpv> ;
             sh:path dcterms:source ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
@@ -1155,6 +1228,15 @@ sdc4:mc-hp420l0x5p6z0tk7nbcpsg0k-shape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:symbol ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-main-states> ;
+            sh:path dcterms:identifier ],
+        [ sh:datatype xsd:decimal ;
+            sh:in ( "0" "1" "2" "3" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:ordinal ],
+        [ sh:hasValue <http://www.w3.org/2005/07/scxml> ;
+            sh:path rdfs:seeAlso ],
         [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
             sh:path skos:closeMatch ] ;
     sh:targetNode sdc4:mc-hp420l0x5p6z0tk7nbcpsg0k ;
@@ -1164,95 +1246,120 @@ sdc4:mc-i16vqj89it3db7d3c5qjko9p-shape a sh:NodeShape ;
     rdfs:label "PROV Agent Type" ;
     rdfs:comment "The kind of PROV agent: person, organization or software agent." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
+    sh:property [ sh:hasValue sdc4:mc-nesxtz8c5o665swc9lhvqkjj ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
             sh:path dcterms:source ],
-        [ sh:hasValue prov:Agent ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
         [ sh:datatype xsd:token ;
             sh:in ( "Person" "Organization" "SoftwareAgent" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
+        [ sh:hasValue prov:Agent ;
+            sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/prov-agent-type> ;
             sh:path dcterms:identifier ],
-        [ sh:hasValue sdc4:mc-nesxtz8c5o665swc9lhvqkjj ;
-            sh:path prov:wasRevisionOf ] ;
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-i16vqj89it3db7d3c5qjko9p ;
     sdc4-meta:sdcType "XdTokenType" .
 
 sdc4:mc-i2636k7cbmdng6pdt9jk0a0r-shape a sh:NodeShape ;
     rdfs:label "Activity: activityhalted activitynotcompleted" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
+    sh:property [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
+            sh:path skos:closeMatch ],
         [ sh:hasValue <https://w3id.org/dpv> ;
             sh:path dcterms:source ],
-        [ sh:node sdc4:mc-j0guci7y3gerygjc4hkgbgcr-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
-            sh:path skos:closeMatch ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-activityhalted-activitynotcompleted> ;
-            sh:path dcterms:identifier ] ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:node sdc4:mc-j0guci7y3gerygjc4hkgbgcr-shape ;
+            sh:path sdc4:hasComponent ] ;
     sh:targetNode sdc4:mc-i2636k7cbmdng6pdt9jk0a0r .
 
 sdc4:mc-i3qpmie9hle8ma5kt6ogxqnp-shape a sh:NodeShape ;
     rdfs:label "Geodetic Datum" ;
     rdfs:comment "The coordinate reference system of a latitude and longitude pair, by EPSG code. WGS 84 (EPSG:4326) is what GPS and most web maps use." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:hasValue <http://www.wikidata.org/entity/Q182643> ;
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <http://www.wikidata.org/entity/Q182643> ;
             sh:path skos:closeMatch ],
         [ sh:hasValue <https://axius-sdc.com/library/default/geodetic-datum> ;
             sh:path dcterms:identifier ],
-        [ sh:hasValue <https://epsg.org/> ;
-            sh:path dcterms:source ],
         [ sh:datatype xsd:token ;
             sh:in ( "EPSG:4326" "EPSG:4269" "EPSG:4258" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+        [ sh:hasValue <https://epsg.org/> ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-i3qpmie9hle8ma5kt6ogxqnp ;
     sdc4-meta:sdcType "XdTokenType" .
 
 sdc4:mc-i8cqh4dpndwl5l0zz65a7raw-shape a sh:NodeShape ;
     rdfs:label "Compensation" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:hasValue schema:ItemList ;
-            sh:path skos:closeMatch ],
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:hasValue <https://axius-sdc.com/library/cordova/compensation> ;
             sh:path dcterms:identifier ],
-        [ sh:hasValue sdc4:mc-vzabxfc733qk7lo1knaggxfs ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:node sdc4:mc-aw74ticc3fnjkz4vk4b03jr6-shape ;
-            sh:path sdc4:hasComponent ],
         [ sh:hasValue <https://github.com/Axius-SDC/CordovaOS> ;
             sh:path dcterms:source ],
         [ sh:node sdc4:mc-ub0fwihnwu5x1pdv68pjwbeu-shape ;
-            sh:path sdc4:hasComponent ] ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue sdc4:mc-vzabxfc733qk7lo1knaggxfs ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:node sdc4:mc-aw74ticc3fnjkz4vk4b03jr6-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue schema:ItemList ;
+            sh:path skos:closeMatch ] ;
     sh:targetNode sdc4:mc-i8cqh4dpndwl5l0zz65a7raw .
+
+sdc4:mc-iduhbx4r8bqw6n327tjivuxq-shape a sh:NodeShape ;
+    rdfs:label "Employment Governed Record" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue <https://github.com/Axius-SDC/CordovaOS> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue prov:Entity ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-rlat8z49fywab5du4maxu4qb-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:node sdc4:mc-t2tvd3wylxrstdeu5aw6gkw1-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-c179ilk2ns15cd5rzzdfd6f6-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-vmikfu0irht9fmq7q02t3oqs-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-gug5dhtqfv7exbgmm2raxpkq-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue sdc4:mc-yh04hv0wanvyer6p7pjx49fx ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue <https://axius-sdc.com/library/cordova/employment-governed-record> ;
+            sh:path dcterms:identifier ] ;
+    sh:targetNode sdc4:mc-iduhbx4r8bqw6n327tjivuxq .
 
 sdc4:mc-ife3z8wi5zsgy9y6n9p164ey-shape a sh:NodeShape ;
     rdfs:label "Employment Position Required Education" ;
     rdfs:comment "A kind of educational level or certification required for an employment position. NIEM 6.0 nc:EmploymentPositionRequiredEducationText." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionRequiredEducationText> ;
-            sh:path skos:exactMatch ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 4000 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionRequiredEducationText> ;
+            sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-required-education> ;
-            sh:path dcterms:identifier ] ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-ife3z8wi5zsgy9y6n9p164ey ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1260,14 +1367,14 @@ sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3-shape a sh:NodeShape ;
     rdfs:label "organization_name" ;
     rdfs:comment "Legal or official name of the organization." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q168678> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 200 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path sdc4:xdstring-value ] ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q168678> ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-ifw5zfe4oiijbxjn1ylc2wm3 ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1280,14 +1387,14 @@ sdc4:mc-inh39quee7dorifcfdk4jzlj-shape a sh:NodeShape ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
-        [ sh:hasValue <https://axius-sdc.com/library/niem/employee-supervisor-reference> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeSupervisor> ;
             sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com/library/niem/employee-supervisor-reference> ;
+            sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-inh39quee7dorifcfdk4jzlj ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1295,26 +1402,26 @@ sdc4:mc-j0guci7y3gerygjc4hkgbgcr-shape a sh:NodeShape ;
     rdfs:label "Activity: activityhalted activitynotcompleted states" ;
     rdfs:comment "States of the activityhalted activitynotcompleted path of the Activity workflow, in order: ActivityHalted, ActivityNotCompleted. A transition is legal between adjacent states. An activity's lifecycle in the Data Privacy Vocabulary: proposed, planned, ongoing, halted, completed, not completed." ;
     sh:node sdc4:XdOrdinalBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-activityhalted-activitynotcompleted-states> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <https://w3id.org/dpv> ;
+    sh:property [ sh:hasValue <https://w3id.org/dpv> ;
             sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-activityhalted-activitynotcompleted-states> ;
+            sh:path dcterms:identifier ],
         [ sh:datatype xsd:decimal ;
             sh:in ( "0" "1" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:ordinal ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
             sh:path skos:closeMatch ],
+        [ sh:hasValue <http://www.w3.org/2005/07/scxml> ;
+            sh:path rdfs:seeAlso ],
         [ sh:datatype xsd:string ;
             sh:in ( "ActivityHalted" "ActivityNotCompleted" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:symbol ],
-        [ sh:hasValue <http://www.w3.org/2005/07/scxml> ;
-            sh:path rdfs:seeAlso ] ;
+            sh:path sdc4:symbol ] ;
     sh:targetNode sdc4:mc-j0guci7y3gerygjc4hkgbgcr ;
     sdc4-meta:sdcType "XdOrdinalType" .
 
@@ -1322,7 +1429,11 @@ sdc4:mc-j9vyb9u2lpnk1pwm2v6w9mvf-shape a sh:NodeShape ;
     rdfs:label "Employment Position Location Reference" ;
     rdfs:comment "A location for an employment position. NIEM 6.0 nc:EmploymentPositionLocation. Holds the IRI of the referenced Location record." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionLocation> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-location-reference> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
             sh:path dcterms:source ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
@@ -1330,11 +1441,7 @@ sdc4:mc-j9vyb9u2lpnk1pwm2v6w9mvf-shape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
-            sh:pattern "\\S+" ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionLocation> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-location-reference> ;
-            sh:path dcterms:identifier ] ;
+            sh:pattern "\\S+" ] ;
     sh:targetNode sdc4:mc-j9vyb9u2lpnk1pwm2v6w9mvf ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1342,21 +1449,21 @@ sdc4:mc-jjzmhdxvbt97pq81iwqubtxk-shape a sh:NodeShape ;
     rdfs:label "Activity Type" ;
     rdfs:comment "The kind of activity, in the vocabulary of the domain (prov:type)." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-type> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue sdc4:mc-ceusvbe55b266gcdzf5qnurc ;
+            sh:path prov:wasRevisionOf ],
         [ sh:hasValue prov:type ;
             sh:path skos:exactMatch ],
-        [ sh:hasValue sdc4:mc-ceusvbe55b266gcdzf5qnurc ;
-            sh:path prov:wasRevisionOf ] ;
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-type> ;
+            sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-jjzmhdxvbt97pq81iwqubtxk ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1364,17 +1471,17 @@ sdc4:mc-joguuevnkhxphbzg6ex5q6ek-shape a sh:NodeShape ;
     rdfs:label "Employment Position Duty" ;
     rdfs:comment "A job duty that will be performed for an employment position. NIEM 6.0 nc:EmploymentPositionDutyText." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:maxLength 4000 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
             sh:path dcterms:source ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionDutyText> ;
             sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-duty> ;
             sh:path dcterms:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 4000 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-joguuevnkhxphbzg6ex5q6ek ;
@@ -1384,9 +1491,7 @@ sdc4:mc-jujsdur1igws8orw6tvvlqco-shape a sh:NodeShape ;
     rdfs:label "Provenance Agent Type" ;
     rdfs:comment "The functional role of an agent in an activity (FHIR Provenance.agent.type)." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/provenance-agent-type> ;
+    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/provenance-agent-type> ;
             sh:path dcterms:identifier ],
         [ sh:datatype xsd:token ;
             sh:in ( "enterer" "performer" "author" "editor" "verifier" "legal" "attester" "informant" "custodian" "transmitter" "assembler" "transformer" "composer" ) ;
@@ -1395,96 +1500,73 @@ sdc4:mc-jujsdur1igws8orw6tvvlqco-shape a sh:NodeShape ;
             sh:path sdc4:xdtoken-value ],
         [ sh:hasValue sdc4:mc-syt8l7pmb64eym2chcn43ai7 ;
             sh:path prov:wasRevisionOf ],
+        [ sh:hasValue <http://terminology.hl7.org/CodeSystem/provenance-participant-type> ;
+            sh:path skos:exactMatch ],
         [ sh:hasValue <http://hl7.org/fhir/R4/> ;
             sh:path dcterms:source ],
-        [ sh:hasValue <http://terminology.hl7.org/CodeSystem/provenance-participant-type> ;
-            sh:path skos:exactMatch ] ;
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-jujsdur1igws8orw6tvvlqco ;
     sdc4-meta:sdcType "XdTokenType" .
 
 sdc4:mc-jwfl94g8mj8aevupivyfsnwj-shape a sh:NodeShape ;
     rdfs:label "Geolocation" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/default/geolocation> ;
-            sh:path dcterms:identifier ],
-        [ sh:node sdc4:mc-scdlxu6vex8iwbfc8sijmjff-shape ;
+    sh:property [ sh:node sdc4:mc-c5e0wv21cmlouukx6ga2o5uz-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-qh625ukiiju3ak4x45tehcnr-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue schema:GeoCoordinates ;
-            sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:node sdc4:mc-i3qpmie9hle8ma5kt6ogxqnp-shape ;
+        [ sh:node sdc4:mc-qh625ukiiju3ak4x45tehcnr-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-scdlxu6vex8iwbfc8sijmjff-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:hasValue schema: ;
             sh:path dcterms:source ],
-        [ sh:node sdc4:mc-c5e0wv21cmlouukx6ga2o5uz-shape ;
-            sh:path sdc4:hasComponent ] ;
+        [ sh:node sdc4:mc-i3qpmie9hle8ma5kt6ogxqnp-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://axius-sdc.com/library/default/geolocation> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue schema:GeoCoordinates ;
+            sh:path skos:exactMatch ] ;
     sh:targetNode sdc4:mc-jwfl94g8mj8aevupivyfsnwj .
 
 sdc4:mc-kk5bznc4pq1hk1eoyr2xo1il-shape a sh:NodeShape ;
     rdfs:label "Activity: activityongoing activityhalted" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:node sdc4:mc-s6prj82cusa8y0r4jow2ipez-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://w3id.org/dpv> ;
+    sh:property [ sh:hasValue <https://w3id.org/dpv> ;
             sh:path dcterms:source ],
         [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
             sh:path skos:closeMatch ],
+        [ sh:node sdc4:mc-s6prj82cusa8y0r4jow2ipez-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-activityongoing-activityhalted> ;
             sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-kk5bznc4pq1hk1eoyr2xo1il .
-
-sdc4:mc-l3atyf51amrlzxnz81jhor8c-shape a sh:NodeShape ;
-    rdfs:label "Employee Hours Daily Quantity" ;
-    rdfs:comment "A number of hours spent at workplace or working in a typical work day. NIEM 6.0 nc:EmployeeHoursDailyQuantity." ;
-    sh:node sdc4:XdQuantityBaseShape ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:node sdc4:mc-wqe0nspsio7u9ed8xy78sjsl-shape ;
-            sh:path sdc4-meta:hasUnit ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue <https://axius-sdc.com/library/niem/employee-hours-daily-quantity> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue sdc4:mc-wqe0nspsio7u9ed8xy78sjsl ;
-            sh:path sdc4-meta:hasUnit ],
-        [ sh:datatype xsd:decimal ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdquantity-value ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeHoursDailyQuantity> ;
-            sh:path skos:exactMatch ] ;
-    sh:targetNode sdc4:mc-l3atyf51amrlzxnz81jhor8c ;
-    sdc4-meta:sdcType "XdQuantityType" .
 
 sdc4:mc-m9j6mlcgmbmijzdnbvup1ipc-shape a sh:NodeShape ;
     rdfs:label "Employee Full Time Indicator" ;
     rdfs:comment "True if a person has full-time employment; false otherwise. NIEM 6.0 nc:EmployeeFullTimeIndicator." ;
     sh:node sdc4:XdBooleanBaseShape ;
-    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeFullTimeIndicator> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
+    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
         [ sh:datatype xsd:string ;
             sh:in ( "true" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:true-value ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com/library/niem/employee-full-time-indicator> ;
-            sh:path dcterms:identifier ],
         [ sh:datatype xsd:string ;
             sh:in ( "false" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:false-value ] ;
+            sh:path sdc4:false-value ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeFullTimeIndicator> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com/library/niem/employee-full-time-indicator> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-m9j6mlcgmbmijzdnbvup1ipc ;
     sdc4-meta:sdcType "XdBooleanType" .
 
@@ -1492,10 +1574,10 @@ sdc4:mc-movuf8z9eesyiloglnottkj9-shape a sh:NodeShape ;
     rdfs:label "Employment Position Identification" ;
     rdfs:comment "An identification of an employment position. NIEM 6.0 nc:EmploymentPositionIdentification. The identifier value (nc:IdentificationID)." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-identification> ;
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-identification> ;
             sh:path dcterms:identifier ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionIdentification> ;
             sh:path skos:exactMatch ],
         [ sh:datatype xsd:string ;
@@ -1503,8 +1585,8 @@ sdc4:mc-movuf8z9eesyiloglnottkj9-shape a sh:NodeShape ;
             sh:maxLength 64 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-movuf8z9eesyiloglnottkj9 ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1512,19 +1594,19 @@ sdc4:mc-mwgznh9pfu2pbmkfszawmshs-shape a sh:NodeShape ;
     rdfs:label "Employer Reference" ;
     rdfs:comment "An organization or person that employs a person. NIEM 6.0 nc:Employer. Holds the IRI of the referenced Employer record." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/Employer> ;
+    sh:property [ sh:hasValue <https://axius-sdc.com/library/niem/employer-reference> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/Employer> ;
             sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
-        [ sh:hasValue <https://axius-sdc.com/library/niem/employer-reference> ;
-            sh:path dcterms:identifier ] ;
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-mwgznh9pfu2pbmkfszawmshs ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1532,24 +1614,24 @@ sdc4:mc-nd1wbb7wol3hisrqbb4qmpx0-shape a sh:NodeShape ;
     rdfs:label "Employment Position Essential Indicator" ;
     rdfs:comment "True if the employment position is deemed to perform an essential service; false otherwise. NIEM 6.0 nc:EmploymentPositionEssentialIndicator." ;
     sh:node sdc4:XdBooleanBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:in ( "false" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:false-value ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionEssentialIndicator> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-essential-indicator> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
         [ sh:datatype xsd:string ;
             sh:in ( "true" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:true-value ] ;
+            sh:path sdc4:true-value ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-essential-indicator> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionEssentialIndicator> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-nd1wbb7wol3hisrqbb4qmpx0 ;
     sdc4-meta:sdcType "XdBooleanType" .
 
@@ -1557,10 +1639,10 @@ sdc4:mc-nesxtz8c5o665swc9lhvqkjj-shape a sh:NodeShape ;
     rdfs:label "PROV Agent Type" ;
     rdfs:comment "Classification of agents responsible for activities and entities in W3C PROV-DM. Agents bear responsibility for activities and entity generation." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue prov:Agent ;
+    sh:property [ sh:hasValue prov:Agent ;
             sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
         [ sh:datatype xsd:token ;
             sh:in ( "Person" "Organization" "SoftwareAgent" ) ;
             sh:maxCount 1 ;
@@ -1573,12 +1655,10 @@ sdc4:mc-nf1air1zbj8v9w66jozdxmyl-shape a sh:NodeShape ;
     rdfs:label "On Behalf Of Reference" ;
     rdfs:comment "The party on whose behalf the agent acted (FHIR agent.onBehalfOf; prov:actedOnBehalfOf). Holds the IRI of the referenced thing." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue sdc4:mc-j9gvyx6u9pb7v1dd0m6joxd6 ;
+    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/on-behalf-of-reference> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue sdc4:mc-j9gvyx6u9pb7v1dd0m6joxd6 ;
             sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <http://hl7.org/fhir/R4/> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
         [ sh:hasValue <http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.onBehalfOf> ;
             sh:path skos:exactMatch ],
         [ sh:datatype xsd:string ;
@@ -1586,8 +1666,10 @@ sdc4:mc-nf1air1zbj8v9w66jozdxmyl-shape a sh:NodeShape ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/on-behalf-of-reference> ;
-            sh:path dcterms:identifier ] ;
+        [ sh:hasValue <http://hl7.org/fhir/R4/> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-nf1air1zbj8v9w66jozdxmyl ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1595,12 +1677,12 @@ sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape a sh:NodeShape ;
     rdfs:label "National ID (CID)" ;
     rdfs:comment "Cordova National Identity Number. Format: COR-PPCC-NNNNNN where PP is the two-letter province code (AL=Aldara, BR=Brevina, CE=Celara), CC is the two-digit city code (01-03), and NNNNNN is a six-digit sequence number. Issued at birth or naturalization. Required for all government transactions." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue schema:identifier ;
-            sh:path skos:broadMatch ],
-        [ sh:hasValue <http://schema.org/identifier> ;
+    sh:property [ sh:hasValue <http://schema.org/identifier> ;
             sh:path rdfs:isDefinedBy ],
         [ sh:hasValue <https://www.wikidata.org/wiki/Q1140371> ;
             sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:identifier ;
+            sh:path skos:broadMatch ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -1613,19 +1695,19 @@ sdc4:mc-ns8dekdo3100r8zgj3r5773s-shape a sh:NodeShape ;
     rdfs:label "Employee Occupation" ;
     rdfs:comment "A job of an employee. NIEM 6.0 nc:EmployeeOccupationText." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:maxLength 4000 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeOccupationText> ;
+    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeOccupationText> ;
             sh:path skos:exactMatch ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
         [ sh:hasValue <https://axius-sdc.com/library/niem/employee-occupation> ;
             sh:path dcterms:identifier ],
         [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 4000 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ] ;
     sh:targetNode sdc4:mc-ns8dekdo3100r8zgj3r5773s ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1633,21 +1715,21 @@ sdc4:mc-og08xf6bu928uuz6t3y0e23f-shape a sh:NodeShape ;
     rdfs:label "Acted On Behalf Of Reference" ;
     rdfs:comment "The agent on whose behalf this agent acted (prov:actedOnBehalfOf). Holds the IRI of the referenced thing." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue sdc4:mc-dce4w62jxjngjnmc5y26fq66 ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue prov:actedOnBehalfOf ;
+    sh:property [ sh:hasValue prov:actedOnBehalfOf ;
             sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/acted-on-behalf-of-reference> ;
+            sh:path dcterms:identifier ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/acted-on-behalf-of-reference> ;
-            sh:path dcterms:identifier ],
         [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue sdc4:mc-dce4w62jxjngjnmc5y26fq66 ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-og08xf6bu928uuz6t3y0e23f ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1655,8 +1737,14 @@ sdc4:mc-onj0p50oeldicgsyn89zdur8-shape a sh:NodeShape ;
     rdfs:label "Activity: activityhalted activityongoing states" ;
     rdfs:comment "States of the activityhalted activityongoing path of the Activity workflow, in order: ActivityHalted, ActivityOngoing. A transition is legal between adjacent states. An activity's lifecycle in the Data Privacy Vocabulary: proposed, planned, ongoing, halted, completed, not completed." ;
     sh:node sdc4:XdOrdinalBaseShape ;
-    sh:property [ sh:hasValue <https://w3id.org/dpv> ;
-            sh:path dcterms:source ],
+    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-activityhalted-activityongoing-states> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
+            sh:path skos:closeMatch ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <http://www.w3.org/2005/07/scxml> ;
+            sh:path rdfs:seeAlso ],
         [ sh:datatype xsd:string ;
             sh:in ( "ActivityHalted" "ActivityOngoing" ) ;
             sh:maxCount 1 ;
@@ -1667,49 +1755,43 @@ sdc4:mc-onj0p50oeldicgsyn89zdur8-shape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:ordinal ],
-        [ sh:hasValue <http://www.w3.org/2005/07/scxml> ;
-            sh:path rdfs:seeAlso ],
-        [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
-            sh:path skos:closeMatch ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-activityhalted-activityongoing-states> ;
-            sh:path dcterms:identifier ] ;
+        [ sh:hasValue <https://w3id.org/dpv> ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-onj0p50oeldicgsyn89zdur8 ;
     sdc4-meta:sdcType "XdOrdinalType" .
 
 sdc4:mc-oo32glasgdj6b8x4luu73875-shape a sh:NodeShape ;
     rdfs:label "Activity: Main path" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-main> ;
-            sh:path dcterms:identifier ],
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:hasValue <https://w3id.org/dpv> ;
             sh:path dcterms:source ],
-        [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
-            sh:path skos:closeMatch ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-main> ;
+            sh:path dcterms:identifier ],
         [ sh:node sdc4:mc-hp420l0x5p6z0tk7nbcpsg0k-shape ;
-            sh:path sdc4:hasComponent ] ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
+            sh:path skos:closeMatch ] ;
     sh:targetNode sdc4:mc-oo32glasgdj6b8x4luu73875 .
 
 sdc4:mc-p40w5sobi97p62lxufv11et7-shape a sh:NodeShape ;
     rdfs:label "Employment Status" ;
     rdfs:comment "A status of employment for a person. NIEM 6.0 nc:EmploymentStatus. The status as text (nc:StatusText)." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentStatus> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com/library/niem/employment-status> ;
-            sh:path dcterms:identifier ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdstring-value ] ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentStatus> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com/library/niem/employment-status> ;
+            sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-p40w5sobi97p62lxufv11et7 ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1717,16 +1799,16 @@ sdc4:mc-pahkyfowm2ey1opnqpfue3nn-shape a sh:NodeShape ;
     rdfs:label "Employment Length Duration" ;
     rdfs:comment "A duration over which the given employment has lasted. NIEM 6.0 nc:EmploymentLengthDuration." ;
     sh:node sdc4:XdTemporalBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/niem/employment-length-duration> ;
+    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentLengthDuration> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com/library/niem/employment-length-duration> ;
             sh:path dcterms:identifier ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
         [ sh:datatype xsd:duration ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtemporal-duration ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentLengthDuration> ;
-            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-pahkyfowm2ey1opnqpfue3nn ;
@@ -1736,21 +1818,21 @@ sdc4:mc-qb90a0sp9vvb6c5cbcf236ys-shape a sh:NodeShape ;
     rdfs:label "Agent Email" ;
     rdfs:comment "The agent's email address (foaf:mbox)." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue sdc4:mc-yp6pm5xyovxhkjimrrb8h9xy ;
-            sh:path prov:wasRevisionOf ],
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
+        [ sh:hasValue foaf:mbox ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue sdc4:mc-yp6pm5xyovxhkjimrrb8h9xy ;
+            sh:path prov:wasRevisionOf ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/agent-email> ;
             sh:path dcterms:identifier ],
         [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue foaf:mbox ;
-            sh:path skos:exactMatch ] ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-qb90a0sp9vvb6c5cbcf236ys ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1758,32 +1840,32 @@ sdc4:mc-qh625ukiiju3ak4x45tehcnr-shape a sh:NodeShape ;
     rdfs:label "Longitude" ;
     rdfs:comment "Geographic longitude in decimal degrees, -180 to +180." ;
     sh:node sdc4:XdQuantityBaseShape ;
-    sh:property [ sh:hasValue sdc4:mc-su36p04drmw1szee9cw51mgw ;
+    sh:property [ sh:hasValue <http://purl.obolibrary.org/obo/NCIT_C68643> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com/library/default/longitude> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <http://qudt.org/vocab/quantitykind/Angle> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue sdc4:mc-ecyu6tt7kkjq4rzhthe74ed6 ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue schema:longitude ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue sdc4:mc-su36p04drmw1szee9cw51mgw ;
             sh:path sdc4-meta:hasUnit ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:node sdc4:mc-su36p04drmw1szee9cw51mgw-shape ;
             sh:path sdc4-meta:hasUnit ],
-        [ sh:hasValue <https://axius-sdc.com/library/default/longitude> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <http://purl.obolibrary.org/obo/NCIT_C68643> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue schema:longitude ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <http://qudt.org/> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
         [ sh:datatype xsd:decimal ;
             sh:maxCount 1 ;
             sh:maxInclusive 180.00000 ;
             sh:minCount 1 ;
             sh:minInclusive -180.00000 ;
             sh:path sdc4:xdquantity-value ],
-        [ sh:hasValue sdc4:mc-ecyu6tt7kkjq4rzhthe74ed6 ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <http://qudt.org/vocab/quantitykind/Angle> ;
-            sh:path skos:exactMatch ] ;
+        [ sh:hasValue <http://qudt.org/> ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-qh625ukiiju3ak4x45tehcnr ;
     sdc4-meta:sdcType "XdQuantityType" .
 
@@ -1791,21 +1873,21 @@ sdc4:mc-qh84jdzp1kxt85aq4ilo0svk-shape a sh:NodeShape ;
     rdfs:label "Was Informed By Reference" ;
     rdfs:comment "An activity that informed this one (prov:wasInformedBy). Holds the IRI of the referenced thing." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/was-informed-by-reference> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue sdc4:mc-rz60y6aujd274j4i7jpyxvpr ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue prov:wasInformedBy ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ],
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/was-informed-by-reference> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue prov:wasInformedBy ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue sdc4:mc-rz60y6aujd274j4i7jpyxvpr ;
+            sh:path prov:wasRevisionOf ] ;
     sh:targetNode sdc4:mc-qh84jdzp1kxt85aq4ilo0svk ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1813,21 +1895,21 @@ sdc4:mc-r48alj7hc3797qfjnf2uj71n-shape a sh:NodeShape ;
     rdfs:label "Was Associated With Reference" ;
     rdfs:comment "The agent associated with the activity (prov:wasAssociatedWith). Holds the IRI of the referenced thing." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue prov:wasAssociatedWith ;
-            sh:path skos:exactMatch ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
-        [ sh:hasValue sdc4:mc-gs0e1hp2rpjl6qfg9v8d047f ;
-            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/was-associated-with-reference> ;
+            sh:path dcterms:identifier ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
+        [ sh:hasValue prov:wasAssociatedWith ;
+            sh:path skos:exactMatch ],
         [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
             sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/was-associated-with-reference> ;
-            sh:path dcterms:identifier ] ;
+        [ sh:hasValue sdc4:mc-gs0e1hp2rpjl6qfg9v8d047f ;
+            sh:path prov:wasRevisionOf ] ;
     sh:targetNode sdc4:mc-r48alj7hc3797qfjnf2uj71n ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -1835,22 +1917,22 @@ sdc4:mc-r5draolqjc1faebb1b2muf1q-shape a sh:NodeShape ;
     rdfs:label "Employment Position Temporary Indicator" ;
     rdfs:comment "True if the position is temporary in nature; false if it is permanent. NIEM 6.0 nc:EmploymentPositionTemporaryIndicator." ;
     sh:node sdc4:XdBooleanBaseShape ;
-    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionTemporaryIndicator> ;
-            sh:path skos:exactMatch ],
+    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:datatype xsd:string ;
             sh:in ( "true" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:true-value ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionTemporaryIndicator> ;
+            sh:path skos:exactMatch ],
         [ sh:datatype xsd:string ;
             sh:in ( "false" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:false-value ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
         [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position-temporary-indicator> ;
             sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-r5draolqjc1faebb1b2muf1q ;
@@ -1860,43 +1942,70 @@ sdc4:mc-r6hkunjm2q0hlxiknlc9ljix-shape a sh:NodeShape ;
     rdfs:label "Activity Label" ;
     rdfs:comment "A human-readable label for a PROV activity." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue rdfs:label ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-label> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue sdc4:mc-n4kaez29vbknku2jy8n56gfm ;
+    sh:property [ sh:hasValue sdc4:mc-n4kaez29vbknku2jy8n56gfm ;
             sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdstring-value ] ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue rdfs:label ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-label> ;
+            sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-r6hkunjm2q0hlxiknlc9ljix ;
     sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-rlat8z49fywab5du4maxu4qb-shape a sh:NodeShape ;
+    rdfs:label "Employment Record" ;
+    sh:node sdc4:ClusterBaseShape ;
+    sh:property [ sh:hasValue schema:EmployeeRole ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com/library/cordova/employment-record> ;
+            sh:path dcterms:identifier ],
+        [ sh:node sdc4:mc-i8cqh4dpndwl5l0zz65a7raw-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:node sdc4:mc-atdtdfzruh7tya0iv5cz365l-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://github.com/Axius-SDC/CordovaOS> ;
+            sh:path dcterms:source ],
+        [ sh:node sdc4:mc-bqp3evewda43y5vpp63doh6h-shape ;
+            sh:path sdc4:hasCluster ],
+        [ sh:node sdc4:mc-nj7s1gk45tfgyooxpz0qaha3-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue sdc4:mc-bn5gaw6rtyjb3vr8vi27bvyk ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:node sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly-shape ;
+            sh:path sdc4:hasComponent ] ;
+    sh:targetNode sdc4:mc-rlat8z49fywab5du4maxu4qb .
 
 sdc4:mc-rpz1czz06jhpahmfz30rblvp-shape a sh:NodeShape ;
     rdfs:label "Audit Event Outcome" ;
     rdfs:comment "The result of an audited event (FHIR AuditEvent.outcome)." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/audit-event-outcome> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <https://axius-sdc.com> ;
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
+        [ sh:hasValue <http://hl7.org/fhir/R4/> ;
+            sh:path dcterms:source ],
         [ sh:datatype xsd:token ;
             sh:in ( "0" "4" "8" "12" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
-        [ sh:hasValue sdc4:mc-lgmleqp52a6kl268drrtfjk5 ;
-            sh:path prov:wasRevisionOf ],
         [ sh:hasValue <http://hl7.org/fhir/audit-event-outcome> ;
             sh:path skos:exactMatch ],
-        [ sh:hasValue <http://hl7.org/fhir/R4/> ;
-            sh:path dcterms:source ] ;
+        [ sh:hasValue sdc4:mc-lgmleqp52a6kl268drrtfjk5 ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/audit-event-outcome> ;
+            sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-rpz1czz06jhpahmfz30rblvp ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -1906,22 +2015,22 @@ sdc4:mc-rwr7jf4764u5n0m336juazg6-shape a sh:NodeShape ;
     sh:node sdc4:XdQuantityBaseShape ;
     sh:property [ sh:hasValue <https://axius-sdc.com/library/niem/employment-pay-rate-amount> ;
             sh:path dcterms:identifier ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue sdc4:mc-hjjou19np3pohe63fxmqtkoi ;
-            sh:path sdc4-meta:hasUnit ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdquantity-value ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:node sdc4:mc-hjjou19np3pohe63fxmqtkoi-shape ;
             sh:path sdc4-meta:hasUnit ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPayRateAmount> ;
             sh:path skos:exactMatch ],
-        [ sh:datatype xsd:decimal ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdquantity-value ] ;
+        [ sh:hasValue sdc4:mc-hjjou19np3pohe63fxmqtkoi ;
+            sh:path sdc4-meta:hasUnit ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-rwr7jf4764u5n0m336juazg6 ;
     sdc4-meta:sdcType "XdQuantityType" .
 
@@ -1929,26 +2038,26 @@ sdc4:mc-s6prj82cusa8y0r4jow2ipez-shape a sh:NodeShape ;
     rdfs:label "Activity: activityongoing activityhalted states" ;
     rdfs:comment "States of the activityongoing activityhalted path of the Activity workflow, in order: ActivityOngoing, ActivityHalted. A transition is legal between adjacent states. An activity's lifecycle in the Data Privacy Vocabulary: proposed, planned, ongoing, halted, completed, not completed." ;
     sh:node sdc4:XdOrdinalBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-activityongoing-activityhalted-states> ;
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:datatype xsd:string ;
+            sh:in ( "ActivityOngoing" "ActivityHalted" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:symbol ],
+        [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
+            sh:path skos:closeMatch ],
+        [ sh:hasValue <https://w3id.org/dpv> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <http://www.w3.org/2005/07/scxml> ;
+            sh:path rdfs:seeAlso ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-lifecycle-activityongoing-activityhalted-states> ;
             sh:path dcterms:identifier ],
         [ sh:datatype xsd:decimal ;
             sh:in ( "0" "1" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:ordinal ],
-        [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
-            sh:path skos:closeMatch ],
-        [ sh:hasValue <https://w3id.org/dpv> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue <http://www.w3.org/2005/07/scxml> ;
-            sh:path rdfs:seeAlso ],
-        [ sh:datatype xsd:string ;
-            sh:in ( "ActivityOngoing" "ActivityHalted" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:symbol ] ;
+            sh:path sdc4:ordinal ] ;
     sh:targetNode sdc4:mc-s6prj82cusa8y0r4jow2ipez ;
     sdc4-meta:sdcType "XdOrdinalType" .
 
@@ -1956,18 +2065,18 @@ sdc4:mc-sa4nl1kbpdr842fkucvfjkpq-shape a sh:NodeShape ;
     rdfs:label "Started At" ;
     rdfs:comment "When the activity started (prov:startedAtTime)." ;
     sh:node sdc4:XdTemporalBaseShape ;
-    sh:property [ sh:datatype xsd:dateTime ;
+    sh:property [ sh:hasValue prov:startedAtTime ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:datatype xsd:dateTime ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtemporal-datetime ],
         [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
             sh:path dcterms:source ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/started-at-time> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue prov:startedAtTime ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+            sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-sa4nl1kbpdr842fkucvfjkpq ;
     sdc4-meta:sdcType "XdTemporalType" .
 
@@ -1975,10 +2084,18 @@ sdc4:mc-scdlxu6vex8iwbfc8sijmjff-shape a sh:NodeShape ;
     rdfs:label "Altitude" ;
     rdfs:comment "Height above the reference ellipsoid or sea level, in SI length units." ;
     sh:node sdc4:XdQuantityBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/default/altitude> ;
-            sh:path dcterms:identifier ],
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue sdc4:mc-g7gz7adgd2fh6egkt84jnx7m ;
+            sh:path sdc4-meta:hasUnit ],
         [ sh:hasValue <http://qudt.org/> ;
             sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com/library/default/altitude> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <http://qudt.org/vocab/quantitykind/Altitude> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue schema:elevation ;
+            sh:path skos:exactMatch ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:node sdc4:mc-g7gz7adgd2fh6egkt84jnx7m-shape ;
@@ -1986,15 +2103,7 @@ sdc4:mc-scdlxu6vex8iwbfc8sijmjff-shape a sh:NodeShape ;
         [ sh:datatype xsd:decimal ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdquantity-value ],
-        [ sh:hasValue sdc4:mc-g7gz7adgd2fh6egkt84jnx7m ;
-            sh:path sdc4-meta:hasUnit ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue schema:elevation ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <http://qudt.org/vocab/quantitykind/Altitude> ;
-            sh:path skos:exactMatch ] ;
+            sh:path sdc4:xdquantity-value ] ;
     sh:targetNode sdc4:mc-scdlxu6vex8iwbfc8sijmjff ;
     sdc4-meta:sdcType "XdQuantityType" .
 
@@ -2002,21 +2111,21 @@ sdc4:mc-sndpbhm3xbd6qtbyxmvh3i0e-shape a sh:NodeShape ;
     rdfs:label "Data Subject Reference" ;
     rdfs:comment "The data subject or patient the event concerns (FHIR AuditEvent.patient; SDC DM.subject). Holds the IRI of the referenced thing." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue sdc4:mc-x2rc9cg84d2famryqzdic0as ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <http://hl7.org/fhir/R4/> ;
+    sh:property [ sh:hasValue <http://hl7.org/fhir/R4/> ;
             sh:path dcterms:source ],
-        [ sh:hasValue <http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.patient> ;
-            sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/data-subject-reference> ;
             sh:path dcterms:identifier ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+        [ sh:hasValue <http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.patient> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue sdc4:mc-x2rc9cg84d2famryqzdic0as ;
+            sh:path prov:wasRevisionOf ] ;
     sh:targetNode sdc4:mc-sndpbhm3xbd6qtbyxmvh3i0e ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -2024,24 +2133,24 @@ sdc4:mc-sorxqbcl704sxkzfooytxf3b-shape a sh:NodeShape ;
     rdfs:label "Employee Pay Hourly Indicator" ;
     rdfs:comment "True if a person is paid on an hourly basis; false if a person is salaried. NIEM 6.0 nc:EmployeePayHourlyIndicator." ;
     sh:node sdc4:XdBooleanBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/niem/employee-pay-hourly-indicator> ;
-            sh:path dcterms:identifier ],
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
             sh:path dcterms:source ],
-        [ sh:datatype xsd:string ;
-            sh:in ( "true" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:true-value ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeePayHourlyIndicator> ;
-            sh:path skos:exactMatch ],
         [ sh:datatype xsd:string ;
             sh:in ( "false" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:false-value ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeePayHourlyIndicator> ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:string ;
+            sh:in ( "true" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:true-value ],
+        [ sh:hasValue <https://axius-sdc.com/library/niem/employee-pay-hourly-indicator> ;
+            sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-sorxqbcl704sxkzfooytxf3b ;
     sdc4-meta:sdcType "XdBooleanType" .
 
@@ -2051,17 +2160,17 @@ sdc4:mc-sqet5e8oriiu8t33x9ayau0q-shape a sh:NodeShape ;
     sh:node sdc4:XdStringBaseShape ;
     sh:property [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeShiftText> ;
-            sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com/library/niem/employee-shift> ;
             sh:path dcterms:identifier ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 4000 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdstring-value ] ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeShiftText> ;
+            sh:path skos:exactMatch ] ;
     sh:targetNode sdc4:mc-sqet5e8oriiu8t33x9ayau0q ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -2069,19 +2178,19 @@ sdc4:mc-t0whhrqtnb54te4mk48i1ooj-shape a sh:NodeShape ;
     rdfs:label "Used Entity Reference" ;
     rdfs:comment "An entity the activity used (prov:used). Holds the IRI of the referenced thing." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/used-entity-reference> ;
-            sh:path dcterms:identifier ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:hasValue prov:used ;
-            sh:path skos:exactMatch ],
         [ sh:hasValue sdc4:mc-ixv0fa8xlde52mdeymr4zaka ;
             sh:path prov:wasRevisionOf ],
+        [ sh:hasValue prov:used ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/used-entity-reference> ;
+            sh:path dcterms:identifier ],
         [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
             sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-t0whhrqtnb54te4mk48i1ooj ;
@@ -2090,53 +2199,55 @@ sdc4:mc-t0whhrqtnb54te4mk48i1ooj-shape a sh:NodeShape ;
 sdc4:mc-t2tvd3wylxrstdeu5aw6gkw1-shape a sh:NodeShape ;
     rdfs:label "Audit Event" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-sndpbhm3xbd6qtbyxmvh3i0e-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-dkc2ccj5te35z9gd4bu1blcq-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-rpz1czz06jhpahmfz30rblvp-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-fjhgr5fyqxt2crmg2cb5c513-shape ;
+    sh:property [ sh:node sdc4:mc-ce1c8sydkov8bkv4dgdmwe5x-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-gcjyjrnp0wsfoelcp4m05c67-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/audit-event> ;
-            sh:path dcterms:identifier ],
-        [ sh:node sdc4:mc-ce1c8sydkov8bkv4dgdmwe5x-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-ujir739mf1g8ajeczs9nzh9m-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-d1evlz8yvdlwt6ia9fjq4pgj-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-jujsdur1igws8orw6tvvlqco-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue <http://hl7.org/fhir/StructureDefinition/AuditEvent> ;
-            sh:path skos:exactMatch ],
-        [ sh:node sdc4:mc-h3kdbvdtyalpvik97saaf0an-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-nf1air1zbj8v9w66jozdxmyl-shape ;
+        [ sh:node sdc4:mc-sndpbhm3xbd6qtbyxmvh3i0e-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-vbctgmdcwps5b3r3l6sboa6y-shape ;
             sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-dkc2ccj5te35z9gd4bu1blcq-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/audit-event> ;
+            sh:path dcterms:identifier ],
+        [ sh:node sdc4:mc-fjhgr5fyqxt2crmg2cb5c513-shape ;
+            sh:path sdc4:hasComponent ],
         [ sh:hasValue <http://hl7.org/fhir/R4/> ;
             sh:path dcterms:source ],
+        [ sh:node sdc4:mc-ujir739mf1g8ajeczs9nzh9m-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-jujsdur1igws8orw6tvvlqco-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-h3kdbvdtyalpvik97saaf0an-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-rpz1czz06jhpahmfz30rblvp-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:node sdc4:mc-nf1air1zbj8v9w66jozdxmyl-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <http://hl7.org/fhir/StructureDefinition/AuditEvent> ;
+            sh:path skos:exactMatch ],
+        [ sh:node sdc4:mc-d1evlz8yvdlwt6ia9fjq4pgj-shape ;
+            sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-uwiosm2q9ym3ewr4de910s70-shape ;
             sh:path sdc4:hasComponent ] ;
     sh:targetNode sdc4:mc-t2tvd3wylxrstdeu5aw6gkw1 .
 
 sdc4:mc-u18l77xlj2omcbmnpi5j7fff-shape a sh:NodeShape ;
     rdfs:label "Cordova Córdoba (COR)" ;
+    rdfs:comment "National currency of the Republic of Cordova. ISO 4217-style code: COR. Used for all domestic financial transactions including salaries, taxes, property assessments, port fees, and legal encumbrances." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://www.wikidata.org/wiki/Q8142> ;
-            sh:path skos:broadMatch ],
-        [ sh:hasValue schema:Currency ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:in ( "COR" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdstring-value ] ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue schema:Currency ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q8142> ;
+            sh:path skos:broadMatch ] ;
     sh:targetNode sdc4:mc-u18l77xlj2omcbmnpi5j7fff ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -2146,13 +2257,13 @@ sdc4:mc-ub0fwihnwu5x1pdv68pjwbeu-shape a sh:NodeShape ;
     sh:node sdc4:XdTokenBaseShape ;
     sh:property [ sh:hasValue <http://release.niem.gov/niem/niem-core/6.0/niem-core.owl#PayPeriodFrequencyCode> ;
             sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
         [ sh:datatype xsd:token ;
             sh:in ( "Monthly" "Bi-Weekly" "Weekly" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdtoken-value ],
-        [ sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ] ;
+            sh:path sdc4:xdtoken-value ] ;
     sh:targetNode sdc4:mc-ub0fwihnwu5x1pdv68pjwbeu ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -2160,21 +2271,21 @@ sdc4:mc-ueb5g1ojzlwwt0mnds5zb6wl-shape a sh:NodeShape ;
     rdfs:label "Was Ended By Reference" ;
     rdfs:comment "The entity that ended the activity (prov:wasEndedBy). Holds the IRI of the referenced thing." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue sdc4:mc-jr1e3n5kg31nqz1ynh28kitp ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/was-ended-by-reference> ;
+            sh:path dcterms:identifier ],
         [ sh:hasValue prov:wasEndedBy ;
             sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/was-ended-by-reference> ;
-            sh:path dcterms:identifier ] ;
+        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue sdc4:mc-jr1e3n5kg31nqz1ynh28kitp ;
+            sh:path prov:wasRevisionOf ] ;
     sh:targetNode sdc4:mc-ueb5g1ojzlwwt0mnds5zb6wl ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -2184,17 +2295,17 @@ sdc4:mc-ujir739mf1g8ajeczs9nzh9m-shape a sh:NodeShape ;
     sh:node sdc4:XdStringBaseShape ;
     sh:property [ sh:hasValue <http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.agent.location> ;
             sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/system-location-name> ;
-            sh:path dcterms:identifier ],
+        [ sh:hasValue <http://hl7.org/fhir/R4/> ;
+            sh:path dcterms:source ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/system-location-name> ;
+            sh:path dcterms:identifier ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:hasValue <http://hl7.org/fhir/R4/> ;
-            sh:path dcterms:source ],
         [ sh:hasValue sdc4:mc-l6fwy1a2l5i43t308pknygp7 ;
             sh:path prov:wasRevisionOf ] ;
     sh:targetNode sdc4:mc-ujir739mf1g8ajeczs9nzh9m ;
@@ -2203,34 +2314,34 @@ sdc4:mc-ujir739mf1g8ajeczs9nzh9m-shape a sh:NodeShape ;
 sdc4:mc-ul9z1upfg5gwdildfw3zjfrq-shape a sh:NodeShape ;
     rdfs:label "Employment Position" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-r5draolqjc1faebb1b2muf1q-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-movuf8z9eesyiloglnottkj9-shape ;
+    sh:property [ sh:node sdc4:mc-ewpg4vc080p0wkl864sjug1l-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:node sdc4:mc-j9vyb9u2lpnk1pwm2v6w9mvf-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionType> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
-        [ sh:node sdc4:mc-ife3z8wi5zsgy9y6n9p164ey-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-ewpg4vc080p0wkl864sjug1l-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-h0h1m3tdz405xz6zjaplat2x-shape ;
+        [ sh:node sdc4:mc-joguuevnkhxphbzg6ex5q6ek-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-guq9lttvawsetx2hq59htcrq-shape ;
             sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentPositionType> ;
+            sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com/library/niem/employment-position> ;
             sh:path dcterms:identifier ],
+        [ sh:node sdc4:mc-nd1wbb7wol3hisrqbb4qmpx0-shape ;
+            sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-egi28a30eh1mkd1beytxukel-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-joguuevnkhxphbzg6ex5q6ek-shape ;
+        [ sh:node sdc4:mc-ife3z8wi5zsgy9y6n9p164ey-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-nd1wbb7wol3hisrqbb4qmpx0-shape ;
-            sh:path sdc4:hasComponent ] ;
+        [ sh:node sdc4:mc-h0h1m3tdz405xz6zjaplat2x-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-r5draolqjc1faebb1b2muf1q-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-j9vyb9u2lpnk1pwm2v6w9mvf-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-movuf8z9eesyiloglnottkj9-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-ul9z1upfg5gwdildfw3zjfrq .
 
 sdc4:mc-ule5u2z3rjpa9pooaifwj1n3-shape a sh:NodeShape ;
@@ -2248,74 +2359,23 @@ sdc4:mc-ule5u2z3rjpa9pooaifwj1n3-shape a sh:NodeShape ;
     sh:targetNode sdc4:mc-ule5u2z3rjpa9pooaifwj1n3 ;
     sdc4-meta:sdcType "XdStringType" .
 
-sdc4:mc-umsm60kz9jn1196s80jmy1n0-shape a sh:NodeShape ;
-    rdfs:label "Employment Association" ;
-    sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-gnv4qotitjshdtauz4osyqp2-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-rwr7jf4764u5n0m336juazg6-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-ul9z1upfg5gwdildfw3zjfrq-shape ;
-            sh:path sdc4:hasCluster ],
-        [ sh:node sdc4:mc-gco9v72etkdffpi0mgnm17kp-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-m9j6mlcgmbmijzdnbvup1ipc-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-wos7ancvqpdggx6xdtnsjdtu-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-pahkyfowm2ey1opnqpfue3nn-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-urzessbeem2kj4z3ld0x6jb1-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-p40w5sobi97p62lxufv11et7-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-l3atyf51amrlzxnz81jhor8c-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-w6o1hh3qtc5kldmmhwey90k8-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-sorxqbcl704sxkzfooytxf3b-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:node sdc4:mc-inh39quee7dorifcfdk4jzlj-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-sqet5e8oriiu8t33x9ayau0q-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue sdc4:mc-ceb4m5m5kwaxs5dy5qon60ti ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:node sdc4:mc-ns8dekdo3100r8zgj3r5773s-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-exwd705vvkcsavizr7yw73r3-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentAssociationType> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com/library/niem/employment-association> ;
-            sh:path dcterms:identifier ],
-        [ sh:node sdc4:mc-mwgznh9pfu2pbmkfszawmshs-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-xc1d8d22kesm73rqo9l8disu-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ] ;
-    sh:targetNode sdc4:mc-umsm60kz9jn1196s80jmy1n0 .
-
 sdc4:mc-urzessbeem2kj4z3ld0x6jb1-shape a sh:NodeShape ;
     rdfs:label "Employee Contact Information Reference" ;
     rdfs:comment "A means of contacting a person at work. NIEM 6.0 nc:EmployeeContactInformation. Holds the IRI of the referenced Contact Information record." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeContactInformation> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
         [ sh:hasValue <https://axius-sdc.com/library/niem/employee-contact-information-reference> ;
-            sh:path dcterms:identifier ] ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeContactInformation> ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-urzessbeem2kj4z3ld0x6jb1 ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -2325,12 +2385,12 @@ sdc4:mc-uwiosm2q9ym3ewr4de910s70-shape a sh:NodeShape ;
     sh:node sdc4:XdTemporalBaseShape ;
     sh:property [ sh:hasValue <http://hl7.org/fhir/R4/> ;
             sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/audit-recorded-at> ;
-            sh:path dcterms:identifier ],
         [ sh:datatype xsd:dateTime ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtemporal-datetime ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/audit-recorded-at> ;
+            sh:path dcterms:identifier ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
         [ sh:hasValue <http://hl7.org/fhir/R4/auditevent-definitions.html#AuditEvent.recorded> ;
@@ -2342,21 +2402,21 @@ sdc4:mc-uzai5uey5p1fnn9ezj9u6vor-shape a sh:NodeShape ;
     rdfs:label "Activity Location" ;
     rdfs:comment "Where the activity took place (prov:atLocation), as text." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue prov:atLocation ;
+    sh:property [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue prov:atLocation ;
             sh:path skos:exactMatch ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ],
+        [ sh:hasValue sdc4:mc-ciuklf1kl8bphpudye4i47am ;
+            sh:path prov:wasRevisionOf ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-location> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue sdc4:mc-ciuklf1kl8bphpudye4i47am ;
-            sh:path prov:wasRevisionOf ] ;
+            sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-uzai5uey5p1fnn9ezj9u6vor ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -2364,21 +2424,21 @@ sdc4:mc-vbctgmdcwps5b3r3l6sboa6y-shape a sh:NodeShape ;
     rdfs:label "Confidentiality" ;
     rdfs:comment "The level of protection the information requires (HL7 v3 Confidentiality). At assembly the value populates a component's act tag." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/confidentiality> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
+    sh:property [ sh:hasValue <http://terminology.hl7.org/> ;
+            sh:path dcterms:source ],
         [ sh:hasValue sdc4:mc-hp8q52t8tgmis92c4ljrfy7e ;
             sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <http://terminology.hl7.org/> ;
-            sh:path dcterms:source ],
         [ sh:hasValue <http://terminology.hl7.org/CodeSystem/v3-Confidentiality> ;
             sh:path skos:exactMatch ],
         [ sh:datatype xsd:token ;
             sh:in ( "U" "L" "M" "N" "R" "V" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdtoken-value ] ;
+            sh:path sdc4:xdtoken-value ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/confidentiality> ;
+            sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-vbctgmdcwps5b3r3l6sboa6y ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -2386,64 +2446,64 @@ sdc4:mc-vhezo2cckpe92x4c3j2memeh-shape a sh:NodeShape ;
     rdfs:label "Had Plan Reference" ;
     rdfs:comment "The plan the activity followed (prov:hadPlan). Holds the IRI of the referenced thing." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue prov:hadPlan ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/had-plan-reference> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue sdc4:mc-xvdfh1nzfar33yxmgl3jgvqo ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
-            sh:pattern "\\S+" ] ;
+            sh:pattern "\\S+" ],
+        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue sdc4:mc-xvdfh1nzfar33yxmgl3jgvqo ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue prov:hadPlan ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/had-plan-reference> ;
+            sh:path dcterms:identifier ] ;
     sh:targetNode sdc4:mc-vhezo2cckpe92x4c3j2memeh ;
     sdc4-meta:sdcType "XdStringType" .
 
 sdc4:mc-vmikfu0irht9fmq7q02t3oqs-shape a sh:NodeShape ;
     rdfs:label "PROV Activity" ;
     sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-wr06h54xqqw2q9id8i9673jy-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-jjzmhdxvbt97pq81iwqubtxk-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-qh84jdzp1kxt85aq4ilo0svk-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/prov-activity> ;
+    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/prov-activity> ;
             sh:path dcterms:identifier ],
-        [ sh:node sdc4:mc-vhezo2cckpe92x4c3j2memeh-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-t0whhrqtnb54te4mk48i1ooj-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-ueb5g1ojzlwwt0mnds5zb6wl-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-xlgjqdpwdbn2re3mdh5yy2rk-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:node sdc4:mc-a5scyosu6j84vz350mqyrzl2-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-r6hkunjm2q0hlxiknlc9ljix-shape ;
-            sh:path sdc4:hasComponent ],
         [ sh:hasValue prov:Activity ;
             sh:path skos:exactMatch ],
-        [ sh:node sdc4:mc-sa4nl1kbpdr842fkucvfjkpq-shape ;
+        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
+            sh:path dcterms:source ],
+        [ sh:node sdc4:mc-r6hkunjm2q0hlxiknlc9ljix-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-r48alj7hc3797qfjnf2uj71n-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:node sdc4:mc-ginfqbk7q59ld2r4us8sjnv1-shape ;
+        [ sh:node sdc4:mc-ueb5g1ojzlwwt0mnds5zb6wl-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-wl6j4ekcmu4hvt2m12zw4zp8-shape ;
             sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-uzai5uey5p1fnn9ezj9u6vor-shape ;
             sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ],
+        [ sh:node sdc4:mc-vhezo2cckpe92x4c3j2memeh-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-a5scyosu6j84vz350mqyrzl2-shape ;
+            sh:path sdc4:hasComponent ],
         [ sh:node sdc4:mc-hhusuzzig19rs46ngz23k5g7-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-jjzmhdxvbt97pq81iwqubtxk-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-r48alj7hc3797qfjnf2uj71n-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:node sdc4:mc-ginfqbk7q59ld2r4us8sjnv1-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-t0whhrqtnb54te4mk48i1ooj-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-sa4nl1kbpdr842fkucvfjkpq-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-qh84jdzp1kxt85aq4ilo0svk-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-wr06h54xqqw2q9id8i9673jy-shape ;
+            sh:path sdc4:hasComponent ],
+        [ sh:node sdc4:mc-xlgjqdpwdbn2re3mdh5yy2rk-shape ;
             sh:path sdc4:hasComponent ] ;
     sh:targetNode sdc4:mc-vmikfu0irht9fmq7q02t3oqs .
 
@@ -2451,21 +2511,21 @@ sdc4:mc-w2ruemcfy35rw60jl1t9dew2-shape a sh:NodeShape ;
     rdfs:label "Agent Identifier" ;
     rdfs:comment "The identifier of a PROV agent: a URI or another globally unique identifier." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1 ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
+            sh:path dcterms:source ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/agent-identifier> ;
             sh:path dcterms:identifier ],
+        [ sh:hasValue sdc4:mc-hhfnj5hd1yzt252jfq5pdjj1 ;
+            sh:path prov:wasRevisionOf ],
         [ sh:hasValue dcterms:identifier ;
-            sh:path skos:exactMatch ] ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-w2ruemcfy35rw60jl1t9dew2 ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -2473,15 +2533,15 @@ sdc4:mc-w6o1hh3qtc5kldmmhwey90k8-shape a sh:NodeShape ;
     rdfs:label "Employment Location Reference" ;
     rdfs:comment "A location where a person works. NIEM 6.0 nc:EmploymentLocation. Holds the IRI of the referenced Location record." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+    sh:property [ sh:hasValue <https://axius-sdc.com/library/niem/employment-location-reference> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "\\S+" ],
-        [ sh:hasValue <https://axius-sdc.com/library/niem/employment-location-reference> ;
-            sh:path dcterms:identifier ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
             sh:path dcterms:source ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmploymentLocation> ;
@@ -2493,21 +2553,21 @@ sdc4:mc-wl6j4ekcmu4hvt2m12zw4zp8-shape a sh:NodeShape ;
     rdfs:label "Activity Status" ;
     rdfs:comment "The state of an activity, from the Data Privacy Vocabulary activity status concepts." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
+    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-status> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://w3id.org/dpv#ActivityStatus> ;
             sh:path skos:closeMatch ],
+        [ sh:hasValue sdc4:mc-yehcpzf43j0b5zp9ck59t9eg ;
+            sh:path prov:wasRevisionOf ],
         [ sh:datatype xsd:token ;
             sh:in ( "ActivityProposed" "ActivityPlanned" "ActivityOngoing" "ActivityHalted" "ActivityCompleted" "ActivityNotCompleted" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-status> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <https://w3id.org/dpv> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue sdc4:mc-yehcpzf43j0b5zp9ck59t9eg ;
-            sh:path prov:wasRevisionOf ],
         [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <https://w3id.org/dpv> ;
+            sh:path dcterms:source ] ;
     sh:targetNode sdc4:mc-wl6j4ekcmu4hvt2m12zw4zp8 ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -2515,19 +2575,19 @@ sdc4:mc-wos7ancvqpdggx6xdtnsjdtu-shape a sh:NodeShape ;
     rdfs:label "Employee Identification" ;
     rdfs:comment "An employment identification number assigned to a person. NIEM 6.0 nc:EmployeeIdentification. The identifier value (nc:IdentificationID)." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:hasValue <https://axius-sdc.com/library/niem/employee-identification> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
+            sh:path dcterms:source ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 64 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:hasValue <https://axius-sdc.com/library/niem/employee-identification> ;
-            sh:path dcterms:identifier ],
         [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeIdentification> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ] ;
+            sh:path skos:exactMatch ] ;
     sh:targetNode sdc4:mc-wos7ancvqpdggx6xdtnsjdtu ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -2535,21 +2595,21 @@ sdc4:mc-wr06h54xqqw2q9id8i9673jy-shape a sh:NodeShape ;
     rdfs:label "Activity Identifier" ;
     rdfs:comment "The identifier of a PROV activity: a URI or another globally unique identifier." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
+    sh:property [ sh:hasValue dcterms:identifier ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-identifier> ;
+            sh:path dcterms:identifier ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 255 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
+        [ sh:hasValue sdc4:mc-fpnn1dew0kcevc8ptohndc5t ;
+            sh:path prov:wasRevisionOf ],
         [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
             sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/activity-identifier> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue dcterms:identifier ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue sdc4:mc-fpnn1dew0kcevc8ptohndc5t ;
-            sh:path prov:wasRevisionOf ] ;
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ] ;
     sh:targetNode sdc4:mc-wr06h54xqqw2q9id8i9673jy ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -2557,68 +2617,43 @@ sdc4:mc-x0lebwtobgaelj5pev3258sd-shape a sh:NodeShape ;
     rdfs:label "Software Version" ;
     rdfs:comment "The version of a software agent." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:hasValue sdc4:mc-tep9wanrrtqfw0k76huv6tvd ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 60 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
-        [ sh:hasValue schema: ;
-            sh:path dcterms:source ],
-        [ sh:hasValue schema:softwareVersion ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/software-version> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue sdc4:mc-tep9wanrrtqfw0k76huv6tvd ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ] ;
-    sh:targetNode sdc4:mc-x0lebwtobgaelj5pev3258sd ;
-    sdc4-meta:sdcType "XdStringType" .
-
-sdc4:mc-xc1d8d22kesm73rqo9l8disu-shape a sh:NodeShape ;
-    rdfs:label "Employee Hours Weekly Quantity" ;
-    rdfs:comment "A number of hours spent at workplace or working in a typical week. NIEM 6.0 nc:EmployeeHoursWeeklyQuantity." ;
-    sh:node sdc4:XdQuantityBaseShape ;
-    sh:property [ sh:datatype xsd:decimal ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdquantity-value ],
-        [ sh:hasValue sdc4:mc-wqe0nspsio7u9ed8xy78sjsl ;
-            sh:path sdc4-meta:hasUnit ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/niem-model/v6.0/ps02/xsd/niem-core.xsd> ;
-            sh:path dcterms:source ],
-        [ sh:hasValue <https://axius-sdc.com/library/niem/employee-hours-weekly-quantity> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue <https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeHoursWeeklyQuantity> ;
+        [ sh:hasValue schema:softwareVersion ;
             sh:path skos:exactMatch ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:node sdc4:mc-wqe0nspsio7u9ed8xy78sjsl-shape ;
-            sh:path sdc4-meta:hasUnit ] ;
-    sh:targetNode sdc4:mc-xc1d8d22kesm73rqo9l8disu ;
-    sdc4-meta:sdcType "XdQuantityType" .
+        [ sh:hasValue schema: ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com/library/provgov/software-version> ;
+            sh:path dcterms:identifier ] ;
+    sh:targetNode sdc4:mc-x0lebwtobgaelj5pev3258sd ;
+    sdc4-meta:sdcType "XdStringType" .
 
 sdc4:mc-xlgjqdpwdbn2re3mdh5yy2rk-shape a sh:NodeShape ;
     rdfs:label "Error Message" ;
     rdfs:comment "The error the activity reported, if it failed." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue schema: ;
-            sh:path dcterms:source ],
-        [ sh:hasValue sdc4:mc-eakhqr9l9nbblppgxc5fq25n ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue schema:error ;
-            sh:path skos:exactMatch ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:maxLength 4000 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ],
+        [ sh:hasValue sdc4:mc-eakhqr9l9nbblppgxc5fq25n ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:hasValue <https://axius-sdc.com/library/provgov/error-message> ;
-            sh:path dcterms:identifier ] ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue schema: ;
+            sh:path dcterms:source ],
+        [ sh:hasValue schema:error ;
+            sh:path skos:exactMatch ] ;
     sh:targetNode sdc4:mc-xlgjqdpwdbn2re3mdh5yy2rk ;
     sdc4-meta:sdcType "XdStringType" .
 
@@ -2626,48 +2661,23 @@ sdc4:mc-xxe21o9ojzmy9wxxky1tnmog-shape a sh:NodeShape ;
     rdfs:label "Agent Name" ;
     rdfs:comment "The name of the agent (foaf:name)." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:maxLength 255 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://axius-sdc.com/library/provgov/agent-name> ;
+    sh:property [ sh:hasValue <https://axius-sdc.com/library/provgov/agent-name> ;
             sh:path dcterms:identifier ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
         [ sh:hasValue <https://www.w3.org/TR/prov-o/> ;
             sh:path dcterms:source ],
+        [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
         [ sh:hasValue sdc4:mc-yya0pdgjd2w0wlz5r3h516om ;
             sh:path prov:wasRevisionOf ],
         [ sh:hasValue foaf:name ;
-            sh:path skos:exactMatch ] ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 255 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ] ;
     sh:targetNode sdc4:mc-xxe21o9ojzmy9wxxky1tnmog ;
     sdc4-meta:sdcType "XdStringType" .
-
-sdc4:mc-yh04hv0wanvyer6p7pjx49fx-shape a sh:NodeShape ;
-    rdfs:label "Employment Governed Record" ;
-    sh:node sdc4:ClusterBaseShape ;
-    sh:property [ sh:node sdc4:mc-vmikfu0irht9fmq7q02t3oqs-shape ;
-            sh:path sdc4:hasCluster ],
-        [ sh:node sdc4:mc-bn5gaw6rtyjb3vr8vi27bvyk-shape ;
-            sh:path sdc4:hasCluster ],
-        [ sh:node sdc4:mc-t2tvd3wylxrstdeu5aw6gkw1-shape ;
-            sh:path sdc4:hasCluster ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
-        [ sh:hasValue sdc4:mc-xdu3vqk4vhuko5mghl4y4xxk ;
-            sh:path prov:wasRevisionOf ],
-        [ sh:hasValue <https://github.com/Axius-SDC/CordovaOS> ;
-            sh:path dcterms:source ],
-        [ sh:node sdc4:mc-gug5dhtqfv7exbgmm2raxpkq-shape ;
-            sh:path sdc4:hasComponent ],
-        [ sh:hasValue <https://axius-sdc.com/library/cordova/employment-governed-record> ;
-            sh:path dcterms:identifier ],
-        [ sh:hasValue prov:Entity ;
-            sh:path skos:exactMatch ],
-        [ sh:node sdc4:mc-c179ilk2ns15cd5rzzdfd6f6-shape ;
-            sh:path sdc4:hasCluster ] ;
-    sh:targetNode sdc4:mc-yh04hv0wanvyer6p7pjx49fx .
 
 sdc4:XdFileBaseShape a sh:NodeShape ;
     sh:property [ sh:datatype xsd:string ;
@@ -2691,15 +2701,15 @@ sdc4:mc-atdtdfzruh7tya0iv5cz365l-shape a sh:NodeShape ;
     rdfs:label "City" ;
     rdfs:comment "One of the nine cities in the Republic of Cordova." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:hasValue <http://schema.org/City> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:hasValue schema:DefinedTermSet ;
-            sh:path skos:exactMatch ],
-        [ sh:datatype xsd:token ;
+    sh:property [ sh:datatype xsd:token ;
             sh:in ( "Porto Sereno" "Vistamar" "Rioseco" "Campoluz" "Tierraverde" "Montecara" "Novaciudad" "Piedrasol" "Lagunavista" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path sdc4:xdtoken-value ] ;
+            sh:path sdc4:xdtoken-value ],
+        [ sh:hasValue schema:DefinedTermSet ;
+            sh:path skos:exactMatch ],
+        [ sh:hasValue <http://schema.org/City> ;
+            sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-atdtdfzruh7tya0iv5cz365l ;
     sdc4-meta:sdcType "XdTokenType" .
 
@@ -2707,15 +2717,15 @@ sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh-shape a sh:NodeShape ;
     rdfs:label "Province" ;
     rdfs:comment "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records." ;
     sh:node sdc4:XdTokenBaseShape ;
-    sh:property [ sh:hasValue schema:DefinedTermSet ;
+    sh:property [ sh:hasValue schema:State ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:DefinedTermSet ;
             sh:path skos:exactMatch ],
         [ sh:datatype xsd:token ;
             sh:in ( "Aldara" "Brevina" "Celara" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdtoken-value ],
-        [ sh:hasValue schema:State ;
-            sh:path rdfs:isDefinedBy ],
         [ sh:hasValue <http://schema.org/AdministrativeArea> ;
             sh:path rdfs:isDefinedBy ] ;
     sh:targetNode sdc4:mc-kv5qqs3o4jwcwz9javgw1pzh ;
@@ -2725,54 +2735,60 @@ sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly-shape a sh:NodeShape ;
     rdfs:label "Business Registry Number" ;
     rdfs:comment "Cordova Business Registration Number. Format: BIZ-NNNNNN where NNNNNN is a six-digit sequence number assigned at incorporation. Required for all business filings, tax records, and port authority transactions." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:hasValue schema:identifier ;
-            sh:path skos:broadMatch ],
-        [ sh:hasValue <https://www.wikidata.org/wiki/Q12047291> ;
-            sh:path rdfs:isDefinedBy ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path sdc4:xdstring-value ;
             sh:pattern "BIZ-[0-9]{6}" ],
+        [ sh:hasValue <https://www.wikidata.org/wiki/Q12047291> ;
+            sh:path rdfs:isDefinedBy ],
         [ sh:hasValue <http://schema.org/identifier> ;
-            sh:path rdfs:isDefinedBy ] ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:hasValue schema:identifier ;
+            sh:path skos:broadMatch ] ;
     sh:targetNode sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly ;
+    sdc4-meta:sdcType "XdStringType" .
+
+sdc4:mc-pcnnug0ctyr0nhjjj5cn49mi-shape a sh:NodeShape ;
+    rdfs:label "Time Units" ;
+    rdfs:comment "Units of elapsed time from seconds to years." ;
+    sh:node sdc4:XdStringBaseShape ;
+    sh:property [ sh:hasValue <https://axius-sdc.com> ;
+            sh:path dcterms:publisher ],
+        [ sh:hasValue <http://qudt.org/> ;
+            sh:path dcterms:source ],
+        [ sh:hasValue <http://qudt.org/vocab/quantitykind/Time> ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:string ;
+            sh:in ( "years" "months" "weeks" "days" "hours" "minutes" "seconds" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ],
+        [ sh:hasValue <https://axius-sdc.com/library/default/units-time> ;
+            sh:path dcterms:identifier ],
+        [ sh:hasValue sdc4:mc-vv5irjgqr4a7aqm6wt0tr7um ;
+            sh:path prov:wasRevisionOf ] ;
+    sh:targetNode sdc4:mc-pcnnug0ctyr0nhjjj5cn49mi ;
     sdc4-meta:sdcType "XdStringType" .
 
 sdc4:mc-su36p04drmw1szee9cw51mgw-shape a sh:NodeShape ;
     rdfs:label "Degrees (Angle)" ;
+    rdfs:comment "Plane angle in decimal degrees, as used for latitude and longitude." ;
     sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <http://qudt.org/vocab/quantitykind/Angle> ;
+    sh:property [ sh:hasValue <http://qudt.org/vocab/quantitykind/Angle> ;
             sh:path skos:exactMatch ],
-        [ sh:hasValue <https://axius-sdc.com> ;
-            sh:path dcterms:publisher ],
         [ sh:hasValue <http://qudt.org/> ;
             sh:path dcterms:source ],
         [ sh:hasValue <https://axius-sdc.com/library/default/units-angle-degrees> ;
-            sh:path dcterms:identifier ] ;
-    sh:targetNode sdc4:mc-su36p04drmw1szee9cw51mgw ;
-    sdc4-meta:sdcType "XdStringType" .
-
-sdc4:mc-wqe0nspsio7u9ed8xy78sjsl-shape a sh:NodeShape ;
-    rdfs:label "Unitless" ;
-    sh:node sdc4:XdStringBaseShape ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path sdc4:xdstring-value ],
-        [ sh:hasValue <https://axius-sdc.com/library/default/units-unitless> ;
             sh:path dcterms:identifier ],
         [ sh:hasValue <https://axius-sdc.com> ;
             sh:path dcterms:publisher ],
-        [ sh:hasValue <http://qudt.org/vocab/quantitykind/DimensionlessRatio> ;
-            sh:path skos:exactMatch ],
-        [ sh:hasValue <http://qudt.org/> ;
-            sh:path dcterms:source ] ;
-    sh:targetNode sdc4:mc-wqe0nspsio7u9ed8xy78sjsl ;
+        [ sh:datatype xsd:string ;
+            sh:in ( "°" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path sdc4:xdstring-value ] ;
+    sh:targetNode sdc4:mc-su36p04drmw1szee9cw51mgw ;
     sdc4-meta:sdcType "XdStringType" .
 
 sdc4:XdOrdinalBaseShape a sh:NodeShape ;

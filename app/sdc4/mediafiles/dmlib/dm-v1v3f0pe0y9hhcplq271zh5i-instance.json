@@ -1,18 +1,18 @@
 {
   "@context": "https://semanticdatacharter.com/ns/sdc4/",
-  "dm_id": "rxv2ck9k9r1bqkggeydam32s",
-  "dm_type": "dm-rxv2ck9k9r1bqkggeydam32s",
+  "dm_id": "v1v3f0pe0y9hhcplq271zh5i",
+  "dm_type": "dm-v1v3f0pe0y9hhcplq271zh5i",
   "metadata": {
     "dm_language": "en-US",
-    "dm_label": "Employment Record 4.4.0",
+    "dm_label": "Employment Record 4.4.2",
     "dm_encoding": "utf-8",
-    "instance_id": "bd1psk0qqbieglaxi2vd3whn",
+    "instance_id": "qojqt9crwlrgtv0cjd7ym5ut",
     "instance_version": "1.0",
-    "creation_timestamp": "2026-09-26T15:20:08.485669",
+    "creation_timestamp": "2026-09-28T16:12:56.915034",
     "current_state": ""
   },
   "data": {
-    "component_id": "yh04hv0wanvyer6p7pjx49fx",
+    "component_id": "iduhbx4r8bqw6n327tjivuxq",
     "label": "Employment Governed Record",
     "type": "Cluster",
     "description": "An employment record. The governed record: the data cluster, the PROV activity and agent and the audit event from the ProvGov library by identifier, and the digital signature proof. Members: Employment Record; prov-activity (Provgov); prov-agent (Provgov); audit-event (Provgov); Digital Signature Proof.",
@@ -105,7 +105,7 @@
             "label": "Audit Event Action",
             "type": "XdToken",
             "description": "The operation performed in a logged access event (FHIR AuditEvent.action). Read and Execute change no state and are audit facts, not workflow moves.",
-            "value": "R",
+            "value": "E",
             "constraints": {
               "enumerations": [
                 "C",
@@ -121,7 +121,7 @@
             "label": "Audit Event Outcome",
             "type": "XdToken",
             "description": "The result of an audited event (FHIR AuditEvent.outcome).",
-            "value": "8",
+            "value": "4",
             "constraints": {
               "enumerations": [
                 "0",
@@ -136,7 +136,7 @@
             "label": "Confidentiality",
             "type": "XdToken",
             "description": "The level of protection the information requires (HL7 v3 Confidentiality). At assembly the value populates a component's act tag.",
-            "value": "M",
+            "value": "V",
             "constraints": {
               "enumerations": [
                 "U",
@@ -153,7 +153,7 @@
             "label": "Provenance Agent Type",
             "type": "XdToken",
             "description": "The functional role of an agent in an activity (FHIR Provenance.agent.type).",
-            "value": "performer",
+            "value": "assembler",
             "constraints": {
               "enumerations": [
                 "enterer",
@@ -204,7 +204,7 @@
         ]
       },
       {
-        "component_id": "bn5gaw6rtyjb3vr8vi27bvyk",
+        "component_id": "rlat8z49fywab5du4maxu4qb",
         "label": "Employment Record",
         "type": "Cluster",
         "description": "An employment: the employee's national ID, the employer's business registry number, the NIEM employment association (position, department, status, dates, references), city, province and compensation. Members: National ID (CID); Business Registry Number; employment-association (NIEM); City; Province; Compensation.",
@@ -228,7 +228,7 @@
             "label": "City",
             "type": "XdToken",
             "description": "One of the nine cities in the Republic of Cordova.",
-            "value": "Piedrasol",
+            "value": "Tierraverde",
             "constraints": {
               "enumerations": [
                 "Porto Sereno",
@@ -248,7 +248,7 @@
             "label": "Province",
             "type": "XdToken",
             "description": "One of the three provinces of the Republic of Cordova. Used across civil registry, property, tax, and all geographic records.",
-            "value": "Celara",
+            "value": "Aldara",
             "constraints": {
               "enumerations": [
                 "Aldara",
@@ -282,9 +282,9 @@
                 "label": "Salary Amount",
                 "type": "XdQuantity",
                 "description": "Monthly gross salary or wage in Cordova Córdoba. Represents the agreed compensation amount before deductions for taxes, social security, and other withholdings.",
-                "value": 38.7,
+                "value": 56.6,
                 "magnitude": {
-                  "value": 38.7,
+                  "value": 56.6,
                   "min_inclusive": 0.0
                 },
                 "units": {
@@ -296,7 +296,7 @@
             ]
           },
           {
-            "component_id": "umsm60kz9jn1196s80jmy1n0",
+            "component_id": "bqp3evewda43y5vpp63doh6h",
             "label": "Employment Association",
             "type": "Cluster",
             "description": "A data type for an association between an employee and an employer. NIEM 6.0 nc:EmploymentAssociationType. Members: Employee Reference; Employer Reference; Employee Identification; Employment Position; Employment Status; Employee Full Time Indicator; Employee Hours Weekly Quantity; Employee Hours Daily Quantity; Employment Pay Rate Amount; Employee Pay Hourly Indicator; Employee Occupation; Employee Rank; Employee Shift; Employment Length Duration; Employee Supervisor Reference; Employee Supervisor Indicator; Employment Location Reference; Employee Contact Information Reference.",
@@ -447,31 +447,31 @@
                 }
               },
               {
-                "component_id": "l3atyf51amrlzxnz81jhor8c",
+                "component_id": "g75mrb5jkxkch3bwbhp29ooz",
                 "label": "Employee Hours Daily Quantity",
                 "type": "XdQuantity",
                 "description": "A number of hours spent at workplace or working in a typical work day. NIEM 6.0 nc:EmployeeHoursDailyQuantity.",
-                "value": 3.2,
+                "value": 73.6,
                 "magnitude": {
-                  "value": 3.2
+                  "value": 73.6
                 },
                 "units": {
-                  "label": "Unitless",
+                  "label": "Time Units",
                   "symbol": "%",
                   "system": "ISO"
                 }
               },
               {
-                "component_id": "xc1d8d22kesm73rqo9l8disu",
+                "component_id": "h8gfo9ef1dqo3quzrqhrb550",
                 "label": "Employee Hours Weekly Quantity",
                 "type": "XdQuantity",
                 "description": "A number of hours spent at workplace or working in a typical week. NIEM 6.0 nc:EmployeeHoursWeeklyQuantity.",
-                "value": 9.0,
+                "value": 56.4,
                 "magnitude": {
-                  "value": 9.0
+                  "value": 56.4
                 },
                 "units": {
-                  "label": "Unitless",
+                  "label": "Time Units",
                   "symbol": "%",
                   "system": "ISO"
                 }
@@ -481,9 +481,9 @@
                 "label": "Employment Pay Rate Amount",
                 "type": "XdQuantity",
                 "description": "A monetary compensation a person receives for employment. NIEM 6.0 nc:EmploymentPayRateAmount. An amount of money in the Default currency units by slot.",
-                "value": 6.0,
+                "value": 51.0,
                 "magnitude": {
-                  "value": 6.0,
+                  "value": 51.0,
                   "min_inclusive": 0.0
                 },
                 "units": {
@@ -610,7 +610,7 @@
                     "label": "Employment Position Basis Code",
                     "type": "XdToken",
                     "description": "A nature or duration of the position, such as permanent, non-permanent, or contractor. NIEM 6.0 nc:EmploymentPositionBasisCode. Codes of nc:EmploymentPositionBasisCodeSimpleType (3 values).",
-                    "value": "contractor",
+                    "value": "permanent",
                     "constraints": {
                       "enumerations": [
                         "contractor",
@@ -756,7 +756,7 @@
             "label": "Activity Status",
             "type": "XdToken",
             "description": "The state of an activity, from the Data Privacy Vocabulary activity status concepts.",
-            "value": "ActivityPlanned",
+            "value": "ActivityCompleted",
             "constraints": {
               "enumerations": [
                 "ActivityProposed",
