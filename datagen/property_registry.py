@@ -48,7 +48,7 @@ def build_instance(prop):
         "Property Record/Property Status": prop["status"],
         "Property Record/Registration Date": prop["reg_date"],
         "Property Value Assessment/Assessed Value": Quantity(prop["value"], COR),
-        "Property Value Assessment/Area": Quantity(prop["area"], "m2"),
+        "Property Value Assessment/Area": Quantity(prop["area"], "m²"),
         "Property Value Assessment/Assessment Status": prop["assess_status"],
         "Address (NIEM)/International Address/Address (Line 1)": prop["addr"],
         "Address (NIEM)/International Address/Address (Line 2)": prop.get("addr2") or None,

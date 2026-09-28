@@ -100,9 +100,9 @@ def build_instance(rec):
         "Employment Association/Employee Full Time Indicator": full_time,
         "Employment Association/Employee Pay Hourly Indicator": hourly,
         "Employment Association/Employee Supervisor Indicator": rec["title"] in ("Manager", "Supervisor", "Director", "Foreman", "Provincial Governor", "Sergeant"),
-        "Employment Association/Employee Hours Weekly Quantity": Quantity(str(weekly_hours), "h/wk"),
-        "Employment Association/Employee Hours Daily Quantity": Quantity(str(8 if full_time else weekly_hours // 5), "h/d"),
-        "Employment Association/Employment Pay Rate Amount": Quantity(str(rec["salary"]), COR),
+        "Employment Association/Employee Hours Weekly Quantity": Quantity(str(weekly_hours), "hours"),   # hours per week, in the Default time units (4.4.2)
+        "Employment Association/Employee Hours Daily Quantity": Quantity(str(8 if full_time else weekly_hours // 5), "hours"),   # hours per day
+        # Employment Pay Rate Amount is NIEM's amount in ISO 4217 currency; Cordova pays in Córdobas, carried as Compensation/Salary Amount below (4.4.2)
         "Employment Association/Employment Location Reference": f"urn:cordova:city:{rec['city'].lower().replace(' ', '-')}",
         "Employment Position/Employment Position Department Name": rec["dept"],
         "Employment Position/Employment Position Name": rec["title"],
