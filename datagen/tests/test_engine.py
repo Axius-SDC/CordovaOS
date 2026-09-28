@@ -72,7 +72,8 @@ def _every_leaf(t: Template):
             if ev_path is None:
                 vals[path], ev_path = EV("ASKU"), path
             else:
-                vals[path] = Quantity("12" if base == "XdCountType" else "12.5", "unit")
+                units = t.schema.units_enums(path)   # the schema enumerates the units since SDCStudio #707; the first is as good as any
+                vals[path] = Quantity("12" if base == "XdCountType" else "12.5", units[0] if units else "unit")
         elif base == "XdBooleanType":
             vals[path] = True
         elif base == "XdFileType":
@@ -102,7 +103,8 @@ def test_every_model_fills_every_leaf_and_validates_except_the_one_stated_absenc
     assert "-value" in errors[0], errors[0]
     assert "<ev-name>Asked but Unknown</ev-name>" in xml
     # without the absence, valid
-    vals[ev_path] = Quantity("1", "unit") if t.schema.base_of(ev_path) in ("XdQuantityType", "XdCountType", "XdFloatType", "XdDoubleType") else "text"
+    units = t.schema.units_enums(ev_path)
+    vals[ev_path] = Quantity("1", units[0] if units else "unit") if t.schema.base_of(ev_path) in ("XdQuantityType", "XdCountType", "XdFloatType", "XdDoubleType") else "text"
     xml = t.instance(vals, instance_id="i-test000000000000000002", current_state=t.schema.states()[0], subject=("Subject", "Name"), provider=("Provider", "Cordova"),
                      audit={"system_id": "urn:cordova:system:x", "user": "Cordova System"}, attestation={"reason": "Test", "committer": "Registrar", "pending": False})
     assert not list(_schema(ct).iter_errors(xml)), title
