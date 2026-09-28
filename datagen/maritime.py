@@ -52,8 +52,8 @@ def build_instance(pc):
         "Vessel/Vessel National Flag ISO3166 Alpha2 (iso_3166)/Vessel National Flag ISO3166 Alpha2 Code (iso_3166)": flag_code,
         "Vessel/Vessel National Flag ISO3166 Alpha2 (iso_3166)/Code Display Text": pc["flag"] if flag_code else None,
         "Vessel/Vessel Cargo Category": pc["cargo_type"],
-        "Vessel/Vessel Gross Tonnage Value": Quantity(str(pc["gross_ton"]), "1"),
-        "Vessel/Vessel Net Tonnage Volume": Quantity(str(pc["net_ton"]), "1"),
+        "Vessel/Vessel Gross Tonnage Value": Quantity(str(pc["gross_ton"]), "ratio"),   # gross tonnage is a dimensionless index; the Default unitless symbol
+        "Vessel/Vessel Net Tonnage Volume": Quantity(f"{int(pc['net_ton']) * 2.8317:.1f}", "m3"),   # NIEM carries net tonnage as a volume: 1 register ton = 100 ft³ = 2.8317 m³
         "Vessel/Vessel Overall Length": Quantity(str(pc["loa"]), "m"),
         "Vessel/Vessel Draft": Quantity(str(pc["draft"]), "m"),
         "Vessel/Vessel Operator Reference": f"urn:cordova:brn:{brn}",

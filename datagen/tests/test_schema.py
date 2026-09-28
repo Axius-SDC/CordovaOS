@@ -53,7 +53,7 @@ def test_every_model_has_a_governed_record_and_a_bound_workflow():
         if not m:
             continue
         s = Schema.for_dm(m.group(1))
-        assert s.label[s.dm].endswith("4.4.0"), s.label[s.dm]
+        assert s.label[s.dm].endswith(("4.4.0", "4.4.2")), s.label[s.dm]   # a model's title carries the release that last revised it
         assert s.states(), s.label[s.dm]
         data = [p for p, comp, a in s.paths if len(p) == 1 and s.base.get(comp) == "ClusterType"]
         assert data and data[0][0].endswith("Governed Record"), (s.label[s.dm], data)

@@ -13,7 +13,7 @@ republished model needs no generator change.
     xml = t.instance(
         values={"Patient Record/National ID (CID)": "COR-AL01-271845",
                 "Patient/Person (Demographics)/Given Name (Person)": "Carlos",
-                "Vital Signs Panel/Body Temperature": Quantity("37.2", "Cel"),
+                "Vital Signs Panel/Body Temperature": Quantity("37.2", "°C"),
                 "Allergy Intolerance/Allergy Onset Date": "2024-03-01",
                 "Medication Order/Dose Quantity": EV("ASKU")},
         instance_id="i-...", current_state="in-progress",

@@ -9,7 +9,7 @@
 
 ![The CordovaOS dashboard: ten domain applications, 1,460 records, one knowledge graph](docs/images/dashboard.png)
 
-CordovaOS is a self-contained, clone-and-run proof of concept for [SDC4](https://semanticdatacharter.com) (Semantic Data Charter). This is version 4.4.1 ([releases](https://github.com/Axius-SDC/CordovaOS/releases)), the fourth CordovaOS built on SDC4 and the first whose ten models are composed from the published component libraries rather than modeled locally: the patient, condition, medication and encounter come from the FHIR library, the incident, arrest, vessel, voyage and organization from the NIEM library, the person, name and address from the Default library, the provenance, audit and workflow from the ProvGov library, each named by its identifier slot, with Cordova adding only what only Cordova defines (its identifiers, its geography, its administrative statuses). The ten models and the ten applications generated from them by SDCStudio are in the repo exactly as downloaded, under `sdcstudio_downloads/`, so anyone who clones can read the raw models and apps before reading anything we wrote around them. It models the Republic of Cordova, a fictional island nation, as 10 fully operational government domain applications that share data through a common semantic foundation — no middleware, no API adapters, no ETL pipelines, no data mapping layer. Every domain is a self-describing SDC4 data model, and cross-domain questions are answered by SPARQL against one shared knowledge graph.
+CordovaOS is a self-contained, clone-and-run proof of concept for [SDC4](https://semanticdatacharter.com) (Semantic Data Charter). This is version 4.4.2 ([releases](https://github.com/Axius-SDC/CordovaOS/releases)), the fourth CordovaOS built on SDC4 and the first whose ten models are composed from the published component libraries rather than modeled locally: the patient, condition, medication and encounter come from the FHIR library, the incident, arrest, vessel, voyage and organization from the NIEM library, the person, name and address from the Default library, the provenance, audit and workflow from the ProvGov library, each named by its identifier slot, with Cordova adding only what only Cordova defines (its identifiers, its geography, its administrative statuses). The ten models and the ten applications generated from them by SDCStudio are in the repo exactly as downloaded, under `sdcstudio_downloads/`, so anyone who clones can read the raw models and apps before reading anything we wrote around them. It models the Republic of Cordova, a fictional island nation, as 10 fully operational government domain applications that share data through a common semantic foundation — no middleware, no API adapters, no ETL pipelines, no data mapping layer. Every domain is a self-describing SDC4 data model, and cross-domain questions are answered by SPARQL against one shared knowledge graph.
 
 Each record is **governance-composed**: alongside its data, every instance carries its own **Provenance** (the PROV-O activity and agent that made it), an **Audit Event**, and a structural **Audit** record naming the system, city and province that handled it, bound to the data at the source rather than bolted on afterward. Every model binds a **workflow**, so every record carries a current state that the [Verifiable Settlement Layer](https://semanticdatacharter.com) can settle against the state machine in the model, and `scripts/settle_demo.py` does exactly that for one record per domain.
 
@@ -29,11 +29,11 @@ You need Docker (or Podman) with the compose plugin, ~6GB free RAM, and Python 3
 ```bash
 git clone https://github.com/Axius-SDC/CordovaOS.git
 cd CordovaOS
-git checkout v4.4.1
+git checkout v4.4.2
 make demo
 ```
 
-`git checkout v4.4.1` pins the release this README describes; skip it to run the current `main`. Every release also publishes the web image as `ghcr.io/axius-sdc/cordovaos:<version>`, and `make pull` fetches it instead of building locally.
+`git checkout v4.4.2` pins the release this README describes; skip it to run the current `main`. Every release also publishes the web image as `ghcr.io/axius-sdc/cordovaos:<version>`, and `make pull` fetches it instead of building locally.
 
 `make demo` starts the stack, generates the small demo dataset, and loads it. There are no accounts to create and nothing to send anywhere. The first run needs the network to pull container images and the two host-side Python packages; after that the stack runs disconnected. When it finishes there are two front doors:
 

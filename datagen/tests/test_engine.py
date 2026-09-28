@@ -72,7 +72,8 @@ def _every_leaf(t: Template):
             if ev_path is None:
                 vals[path], ev_path = EV("ASKU"), path
             else:
-                vals[path] = Quantity("12" if base == "XdCountType" else "12.5", "unit")
+                units = t.schema.units_enums(path)   # the schema enumerates the units since SDCStudio #707; the first is as good as any
+                vals[path] = Quantity("12" if base == "XdCountType" else "12.5", units[0] if units else "unit")
         elif base == "XdBooleanType":
             vals[path] = True
         elif base == "XdFileType":
@@ -102,7 +103,8 @@ def test_every_model_fills_every_leaf_and_validates_except_the_one_stated_absenc
     assert "-value" in errors[0], errors[0]
     assert "<ev-name>Asked but Unknown</ev-name>" in xml
     # without the absence, valid
-    vals[ev_path] = Quantity("1", "unit") if t.schema.base_of(ev_path) in ("XdQuantityType", "XdCountType", "XdFloatType", "XdDoubleType") else "text"
+    units = t.schema.units_enums(ev_path)
+    vals[ev_path] = Quantity("1", units[0] if units else "unit") if t.schema.base_of(ev_path) in ("XdQuantityType", "XdCountType", "XdFloatType", "XdDoubleType") else "text"
     xml = t.instance(vals, instance_id="i-test000000000000000002", current_state=t.schema.states()[0], subject=("Subject", "Name"), provider=("Provider", "Cordova"),
                      audit={"system_id": "urn:cordova:system:x", "user": "Cordova System"}, attestation={"reason": "Test", "committer": "Registrar", "pending": False})
     assert not list(_schema(ct).iter_errors(xml)), title
@@ -110,7 +112,7 @@ def test_every_model_fills_every_leaf_and_validates_except_the_one_stated_absenc
 
 def test_omitted_optional_members_are_dropped_and_the_instance_stays_valid():
     t = Template.for_dm(HEALTHCARE)
-    xml = t.instance({"Patient Record/National ID (CID)": "COR-AL01-271845", "Vital Signs Panel/Body Temperature": Quantity("37.2", "Cel")},
+    xml = t.instance({"Patient Record/National ID (CID)": "COR-AL01-271845", "Vital Signs Panel/Body Temperature": Quantity("37.2", "°C")},
                      instance_id="i-test000000000000000003", current_state=t.schema.states()[0], subject=("Patient", "Carlos Mendoza"), provider=("Hospital", "Porto Sereno General"),
                      audit={"system_id": "urn:cordova:system:healthcare", "user": "Cordova Healthcare System"}, attestation={"reason": "Recorded", "committer": "Registrar", "pending": False})
     assert "Allergy Intolerance" not in xml and "Vital Signs Panel" in xml
@@ -125,7 +127,7 @@ def test_governance_slots_are_built_and_the_audit_location_is_filled():
                      subject=("Subject Person", "Carlos Mendoza"), provider=("Civil Registry Office", "Porto Sereno Civil Registry Office"),
                      audit={"system_id": "urn:cordova:system:civil-registry", "user": "Cordova Civil Registry System", "timestamp": "2026-01-14T09:00:05",
                             "values": {"Cordova System Audit/City": "Porto Sereno", "Cordova System Audit/Province": "Aldara",
-                                       "Cordova System Audit/Geolocation/Latitude": Quantity("10.4806", "deg"), "Cordova System Audit/Geolocation/Longitude": Quantity("-66.9036", "deg")}},
+                                       "Cordova System Audit/Geolocation/Latitude": Quantity("10.4806", "°"), "Cordova System Audit/Geolocation/Longitude": Quantity("-66.9036", "°")}},
                      attestation={"reason": "Record verified by the civil registry office", "committer": "Civil Registry Office", "committed": "2026-01-14T09:00:05", "pending": False})
     assert "<subject>" in xml and "<party-name>Carlos Mendoza</party-name>" in xml and "<provider>" in xml
     assert "<reason>" in xml and "Record verified by the civil registry office" in xml and "<committer>" in xml and "<committed>2026-01-14T09:00:05</committed>" in xml

@@ -14,12 +14,12 @@
     "id": "@id"
   },
   "@type": "DataModel",
-  "@id": "sdc4:dm-rxv2ck9k9r1bqkggeydam32s",
-  "identifier": "rxv2ck9k9r1bqkggeydam32s",
-  "label": "Employment Record 4.4.0",
+  "@id": "sdc4:dm-v1v3f0pe0y9hhcplq271zh5i",
+  "identifier": "v1v3f0pe0y9hhcplq271zh5i",
+  "label": "Employment Record 4.4.2",
   "description": "Track employment relationships between persons and businesses in Cordova.",
   "metadata": {
-    "dc:title": "Employment Record 4.4.0",
+    "dc:title": "Employment Record 4.4.2",
     "dc:creator": "Timothy Cook",
     "dc:subject": "Employment Registry",
     "dc:description": "Track employment relationships between persons and businesses in Cordova.",
@@ -27,7 +27,7 @@
     "dc:rights": "CC-BY http://creativecommons.org/licenses/by/3.0/",
     "dc:language": "en-US",
     "dc:format": "text/xml",
-    "dc:date": "2026-09-26T15:05:33.077879+00:00"
+    "dc:date": "2026-09-28T16:07:55.693877+00:00"
   },
   "components": [
     {
@@ -746,9 +746,15 @@
       "@type": "XdStringType",
       "@id": "sdc4:mc-u18l77xlj2omcbmnpi5j7fff",
       "label": "Cordova Córdoba (COR)",
+      "description": "National currency of the Republic of Cordova. ISO 4217-style code: COR. Used for all domestic financial transactions including salaries, taxes, property assessments, port fees, and legal encumbrances.",
       "cardinality": {
         "minOccurs": 0,
         "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "COR"
+        ]
       },
       "dataType": "xsd:string",
       "semanticLinks": [
@@ -1196,7 +1202,7 @@
     },
     {
       "@type": "XdQuantityType",
-      "@id": "sdc4:mc-l3atyf51amrlzxnz81jhor8c",
+      "@id": "sdc4:mc-g75mrb5jkxkch3bwbhp29ooz",
       "label": "Employee Hours Daily Quantity",
       "description": "A number of hours spent at workplace or working in a typical work day. NIEM 6.0 nc:EmployeeHoursDailyQuantity.",
       "cardinality": {
@@ -1206,15 +1212,15 @@
       "constraints": {
         "units": {
           "@type": "Units",
-          "label": "Unitless",
-          "@id": "sdc4:mc-wqe0nspsio7u9ed8xy78sjsl"
+          "label": "Time Units",
+          "@id": "sdc4:mc-pcnnug0ctyr0nhjjj5cn49mi"
         }
       },
       "dataType": "xsd:decimal",
       "semanticLinks": [
         {
           "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
-          "object": "https://semanticdatacharter.com/ns/sdc4/mc-wqe0nspsio7u9ed8xy78sjsl"
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-pcnnug0ctyr0nhjjj5cn49mi"
         },
         {
           "predicate": "http://purl.org/dc/terms/publisher",
@@ -1231,16 +1237,32 @@
         {
           "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
           "object": "https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeHoursDailyQuantity"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-l3atyf51amrlzxnz81jhor8c"
         }
       ]
     },
     {
       "@type": "XdStringType",
-      "@id": "sdc4:mc-wqe0nspsio7u9ed8xy78sjsl",
-      "label": "Unitless",
+      "@id": "sdc4:mc-pcnnug0ctyr0nhjjj5cn49mi",
+      "label": "Time Units",
+      "description": "Units of elapsed time from seconds to years.",
       "cardinality": {
         "minOccurs": 0,
         "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "years",
+          "months",
+          "weeks",
+          "days",
+          "hours",
+          "minutes",
+          "seconds"
+        ]
       },
       "dataType": "xsd:string",
       "semanticLinks": [
@@ -1250,7 +1272,7 @@
         },
         {
           "predicate": "http://purl.org/dc/terms/identifier",
-          "object": "https://axius-sdc.com/library/default/units-unitless"
+          "object": "https://axius-sdc.com/library/default/units-time"
         },
         {
           "predicate": "http://purl.org/dc/terms/source",
@@ -1258,13 +1280,17 @@
         },
         {
           "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
-          "object": "http://qudt.org/vocab/quantitykind/DimensionlessRatio"
+          "object": "http://qudt.org/vocab/quantitykind/Time"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-vv5irjgqr4a7aqm6wt0tr7um"
         }
       ]
     },
     {
       "@type": "XdQuantityType",
-      "@id": "sdc4:mc-xc1d8d22kesm73rqo9l8disu",
+      "@id": "sdc4:mc-h8gfo9ef1dqo3quzrqhrb550",
       "label": "Employee Hours Weekly Quantity",
       "description": "A number of hours spent at workplace or working in a typical week. NIEM 6.0 nc:EmployeeHoursWeeklyQuantity.",
       "cardinality": {
@@ -1274,15 +1300,15 @@
       "constraints": {
         "units": {
           "@type": "Units",
-          "label": "Unitless",
-          "@id": "sdc4:mc-wqe0nspsio7u9ed8xy78sjsl"
+          "label": "Time Units",
+          "@id": "sdc4:mc-pcnnug0ctyr0nhjjj5cn49mi"
         }
       },
       "dataType": "xsd:decimal",
       "semanticLinks": [
         {
           "predicate": "https://semanticdatacharter.com/ontology/sdc4-meta/hasUnit",
-          "object": "https://semanticdatacharter.com/ns/sdc4/mc-wqe0nspsio7u9ed8xy78sjsl"
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-pcnnug0ctyr0nhjjj5cn49mi"
         },
         {
           "predicate": "http://purl.org/dc/terms/publisher",
@@ -1299,6 +1325,10 @@
         {
           "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
           "object": "https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/EmployeeHoursWeeklyQuantity"
+        },
+        {
+          "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-xc1d8d22kesm73rqo9l8disu"
         }
       ]
     },
@@ -1346,9 +1376,192 @@
       "@type": "XdStringType",
       "@id": "sdc4:mc-hjjou19np3pohe63fxmqtkoi",
       "label": "Currency",
+      "description": "The ISO 4217 code of a currency: the complete list of 178 active codes. Each value is defined by its Wikidata entity.",
       "cardinality": {
         "minOccurs": 0,
         "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "AED",
+          "AFN",
+          "ALL",
+          "AMD",
+          "AOA",
+          "ARS",
+          "AUD",
+          "AWG",
+          "AZN",
+          "BAM",
+          "BBD",
+          "BDT",
+          "BHD",
+          "BIF",
+          "BMD",
+          "BND",
+          "BOB",
+          "BOV",
+          "BRL",
+          "BSD",
+          "BTN",
+          "BWP",
+          "BYN",
+          "BZD",
+          "CAD",
+          "CDF",
+          "CHE",
+          "CHF",
+          "CHW",
+          "CLF",
+          "CLP",
+          "CNY",
+          "COP",
+          "COU",
+          "CRC",
+          "CUP",
+          "CVE",
+          "CZK",
+          "DJF",
+          "DKK",
+          "DOP",
+          "DZD",
+          "EGP",
+          "ERN",
+          "ETB",
+          "EUR",
+          "FJD",
+          "FKP",
+          "GBP",
+          "GEL",
+          "GHS",
+          "GIP",
+          "GMD",
+          "GNF",
+          "GTQ",
+          "GYD",
+          "HKD",
+          "HNL",
+          "HTG",
+          "HUF",
+          "IDR",
+          "ILS",
+          "INR",
+          "IQD",
+          "IRR",
+          "ISK",
+          "JMD",
+          "JOD",
+          "JPY",
+          "KES",
+          "KGS",
+          "KHR",
+          "KMF",
+          "KPW",
+          "KRW",
+          "KWD",
+          "KYD",
+          "KZT",
+          "LAK",
+          "LBP",
+          "LKR",
+          "LRD",
+          "LSL",
+          "LYD",
+          "MAD",
+          "MDL",
+          "MGA",
+          "MKD",
+          "MMK",
+          "MNT",
+          "MOP",
+          "MRU",
+          "MUR",
+          "MVR",
+          "MWK",
+          "MXN",
+          "MXV",
+          "MYR",
+          "MZN",
+          "NAD",
+          "NGN",
+          "NIO",
+          "NOK",
+          "NPR",
+          "NZD",
+          "OMR",
+          "PAB",
+          "PEN",
+          "PGK",
+          "PHP",
+          "PKR",
+          "PLN",
+          "PYG",
+          "QAR",
+          "RON",
+          "RSD",
+          "RUB",
+          "RWF",
+          "SAR",
+          "SBD",
+          "SCR",
+          "SDG",
+          "SEK",
+          "SGD",
+          "SHP",
+          "SLE",
+          "SOS",
+          "SRD",
+          "SSP",
+          "STN",
+          "SVC",
+          "SYP",
+          "SZL",
+          "THB",
+          "TJS",
+          "TMT",
+          "TND",
+          "TOP",
+          "TRY",
+          "TTD",
+          "TWD",
+          "TZS",
+          "UAH",
+          "UGX",
+          "USD",
+          "USN",
+          "UYI",
+          "UYU",
+          "UYW",
+          "UZS",
+          "VED",
+          "VES",
+          "VND",
+          "VUV",
+          "WST",
+          "XAD",
+          "XAF",
+          "XAG",
+          "XAU",
+          "XBA",
+          "XBB",
+          "XBC",
+          "XBD",
+          "XCD",
+          "XCG",
+          "XDR",
+          "XOF",
+          "XPD",
+          "XPF",
+          "XPT",
+          "XSU",
+          "XTS",
+          "XUA",
+          "XXX",
+          "YER",
+          "ZAR",
+          "ZMW",
+          "ZWG"
+        ]
       },
       "dataType": "xsd:string",
       "semanticLinks": [
@@ -2734,9 +2947,18 @@
       "@type": "XdStringType",
       "@id": "sdc4:mc-g7gz7adgd2fh6egkt84jnx7m",
       "label": "Length/Distance (SI - Metric)",
+      "description": "SI units of length: millimetre, centimetre, metre, kilometre.",
       "cardinality": {
         "minOccurs": 0,
         "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "mm",
+          "cm",
+          "m",
+          "km"
+        ]
       },
       "dataType": "xsd:string",
       "semanticLinks": [
@@ -2820,9 +3042,15 @@
       "@type": "XdStringType",
       "@id": "sdc4:mc-su36p04drmw1szee9cw51mgw",
       "label": "Degrees (Angle)",
+      "description": "Plane angle in decimal degrees, as used for latitude and longitude.",
       "cardinality": {
         "minOccurs": 0,
         "maxOccurs": 1
+      },
+      "constraints": {
+        "enumeration": [
+          "°"
+        ]
       },
       "dataType": "xsd:string",
       "semanticLinks": [
@@ -3311,7 +3539,7 @@
     },
     {
       "@type": "ClusterType",
-      "@id": "sdc4:mc-yh04hv0wanvyer6p7pjx49fx",
+      "@id": "sdc4:mc-iduhbx4r8bqw6n327tjivuxq",
       "label": "Employment Governed Record",
       "cardinality": {
         "minOccurs": 0,
@@ -3322,7 +3550,7 @@
           "@id": "sdc4:mc-t2tvd3wylxrstdeu5aw6gkw1"
         },
         {
-          "@id": "sdc4:mc-bn5gaw6rtyjb3vr8vi27bvyk"
+          "@id": "sdc4:mc-rlat8z49fywab5du4maxu4qb"
         },
         {
           "@id": "sdc4:mc-vmikfu0irht9fmq7q02t3oqs"
@@ -3353,7 +3581,7 @@
         },
         {
           "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
-          "object": "https://semanticdatacharter.com/ns/sdc4/mc-xdu3vqk4vhuko5mghl4y4xxk"
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-yh04hv0wanvyer6p7pjx49fx"
         }
       ]
     },
@@ -3427,7 +3655,7 @@
     },
     {
       "@type": "ClusterType",
-      "@id": "sdc4:mc-bn5gaw6rtyjb3vr8vi27bvyk",
+      "@id": "sdc4:mc-rlat8z49fywab5du4maxu4qb",
       "label": "Employment Record",
       "cardinality": {
         "minOccurs": 0,
@@ -3438,7 +3666,7 @@
           "@id": "sdc4:mc-i8cqh4dpndwl5l0zz65a7raw"
         },
         {
-          "@id": "sdc4:mc-umsm60kz9jn1196s80jmy1n0"
+          "@id": "sdc4:mc-bqp3evewda43y5vpp63doh6h"
         },
         {
           "@id": "sdc4:mc-l8f0m7op4xhrxqy1jrnvbuly"
@@ -3472,7 +3700,7 @@
         },
         {
           "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
-          "object": "https://semanticdatacharter.com/ns/sdc4/mc-ablvqv20fp33v8t8c985dlo2"
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-bn5gaw6rtyjb3vr8vi27bvyk"
         }
       ]
     },
@@ -3517,7 +3745,7 @@
     },
     {
       "@type": "ClusterType",
-      "@id": "sdc4:mc-umsm60kz9jn1196s80jmy1n0",
+      "@id": "sdc4:mc-bqp3evewda43y5vpp63doh6h",
       "label": "Employment Association",
       "cardinality": {
         "minOccurs": 0,
@@ -3567,10 +3795,10 @@
           "@id": "sdc4:mc-p40w5sobi97p62lxufv11et7"
         },
         {
-          "@id": "sdc4:mc-l3atyf51amrlzxnz81jhor8c"
+          "@id": "sdc4:mc-g75mrb5jkxkch3bwbhp29ooz"
         },
         {
-          "@id": "sdc4:mc-xc1d8d22kesm73rqo9l8disu"
+          "@id": "sdc4:mc-h8gfo9ef1dqo3quzrqhrb550"
         },
         {
           "@id": "sdc4:mc-rwr7jf4764u5n0m336juazg6"
@@ -3598,7 +3826,7 @@
         },
         {
           "predicate": "http://www.w3.org/ns/prov#wasRevisionOf",
-          "object": "https://semanticdatacharter.com/ns/sdc4/mc-ceb4m5m5kwaxs5dy5qon60ti"
+          "object": "https://semanticdatacharter.com/ns/sdc4/mc-umsm60kz9jn1196s80jmy1n0"
         }
       ]
     },
