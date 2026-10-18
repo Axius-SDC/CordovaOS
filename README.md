@@ -29,11 +29,11 @@ You need Docker (or Podman) with the compose plugin, ~6GB free RAM, and Python 3
 ```bash
 git clone https://github.com/Axius-SDC/CordovaOS.git
 cd CordovaOS
-git checkout v4.4.2
+git checkout v4.4.3
 make demo
 ```
 
-`git checkout v4.4.2` pins the release this README describes; skip it to run the current `main`. Every release also publishes the web image as `ghcr.io/axius-sdc/cordovaos:<version>`, and `make pull` fetches it instead of building locally.
+`git checkout v4.4.3` pins the release this README describes; skip it to run the current `main`. Every release also publishes the web image as `ghcr.io/axius-sdc/cordovaos:<version>`, and `make pull` fetches it instead of building locally.
 
 `make demo` starts the stack, generates the small demo dataset, and loads it. There are no accounts to create and nothing to send anywhere. The first run needs the network to pull container images and the two host-side Python packages; after that the stack runs disconnected. When it finishes there are two front doors:
 
