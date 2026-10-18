@@ -28,8 +28,8 @@ pyshacl==0.30.0
 
 # XML Processing
 lxml==6.1.0  # Security: CVE-2026-41066 (XXE in default iterparse config)
-sdcvalidator==4.5.0  # XSD 1.1 substitution-group restriction support (>=4.4.0) + ExceptionalValue recovery (>=4.3.0); 4.1.x/4.2.x are structural-only
-sdcgovernance==4.1.0  # governed execution (DMN decisions + tamper-evident receipts) over the v2 ProvGov/Audit components
+sdcvalidator==4.5.3  # XSD 1.1 substitution-group restriction support (>=4.4.0) + ExceptionalValue recovery (>=4.3.0); 4.5.3 fixes the MCP registry launch; 4.1.x/4.2.x are structural-only
+sdcgovernance==4.3.0  # governed execution (DMN decisions + tamper-evident receipts) over the v2 ProvGov/Audit components; 4.3.0 adds the decision-table registry and binds receipts to the table (sdcgovernance #3)
 
 # SirixDB client (HTTPS requests)
 httpx==0.28.1
